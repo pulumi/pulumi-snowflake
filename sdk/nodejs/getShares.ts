@@ -90,5 +90,5 @@ export interface GetSharesOutputArgs {
     /**
      * Filters the command output by object name.
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
 }

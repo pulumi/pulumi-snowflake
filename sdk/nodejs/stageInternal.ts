@@ -327,47 +327,47 @@ export interface StageInternalState {
     /**
      * Specifies a comment for the stage.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE STAGE` for the given stage.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StageInternalDescribeOutput>[] | undefined>;
     /**
      * Directory tables store a catalog of staged files in cloud storage.
      */
-    directory?: pulumi.Input<inputs.StageInternalDirectory>;
+    directory?: pulumi.Input<inputs.StageInternalDirectory | undefined>;
     /**
      * Specifies the encryption settings for the internal stage.
      */
-    encryption?: pulumi.Input<inputs.StageInternalEncryption>;
+    encryption?: pulumi.Input<inputs.StageInternalEncryption | undefined>;
     /**
      * Specifies the file format for the stage.
      */
-    fileFormat?: pulumi.Input<inputs.StageInternalFileFormat>;
+    fileFormat?: pulumi.Input<inputs.StageInternalFileFormat | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW STAGES` for the given stage.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.StageInternalShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.StageInternalShowOutput>[] | undefined>;
     /**
      * Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
      */
-    stageType?: pulumi.Input<string>;
+    stageType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -377,7 +377,7 @@ export interface StageInternalArgs {
     /**
      * Specifies a comment for the stage.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -385,19 +385,19 @@ export interface StageInternalArgs {
     /**
      * Directory tables store a catalog of staged files in cloud storage.
      */
-    directory?: pulumi.Input<inputs.StageInternalDirectory>;
+    directory?: pulumi.Input<inputs.StageInternalDirectory | undefined>;
     /**
      * Specifies the encryption settings for the internal stage.
      */
-    encryption?: pulumi.Input<inputs.StageInternalEncryption>;
+    encryption?: pulumi.Input<inputs.StageInternalEncryption | undefined>;
     /**
      * Specifies the file format for the stage.
      */
-    fileFormat?: pulumi.Input<inputs.StageInternalFileFormat>;
+    fileFormat?: pulumi.Input<inputs.StageInternalFileFormat | undefined>;
     /**
      * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

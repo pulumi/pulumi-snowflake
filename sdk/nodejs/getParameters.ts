@@ -158,21 +158,21 @@ export interface GetParametersOutputArgs {
     /**
      * If parameter*type is set to "OBJECT" then object*name is the name of the object to display object parameters for.
      */
-    objectName?: pulumi.Input<string>;
+    objectName?: pulumi.Input<string | undefined>;
     /**
      * If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
      */
-    objectType?: pulumi.Input<string>;
+    objectType?: pulumi.Input<string | undefined>;
     /**
      * (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
      */
-    parameterType?: pulumi.Input<string>;
+    parameterType?: pulumi.Input<string | undefined>;
     /**
      * Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * If parameterType is set to "SESSION" then user is the name of the user to display session parameters for.
      */
-    user?: pulumi.Input<string>;
+    user?: pulumi.Input<string | undefined>;
 }

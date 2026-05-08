@@ -160,51 +160,51 @@ export interface TagState {
      *
      * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      */
-    allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the tag.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
      */
-    maskingPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    maskingPolicies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
      */
-    noAllowedValues?: pulumi.Input<boolean>;
+    noAllowedValues?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    onConflict?: pulumi.Input<inputs.TagOnConflict>;
+    onConflict?: pulumi.Input<inputs.TagOnConflict | undefined>;
     /**
      * Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
      */
-    orderedAllowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+    orderedAllowedValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
      */
-    propagate?: pulumi.Input<string>;
+    propagate?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW TAGS` for the given tag.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.TagShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.TagShowOutput>[] | undefined>;
 }
 
 /**
@@ -216,11 +216,11 @@ export interface TagArgs {
      *
      * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      */
-    allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the tag.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -228,27 +228,27 @@ export interface TagArgs {
     /**
      * Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
      */
-    maskingPolicies?: pulumi.Input<pulumi.Input<string>[]>;
+    maskingPolicies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
      */
-    noAllowedValues?: pulumi.Input<boolean>;
+    noAllowedValues?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    onConflict?: pulumi.Input<inputs.TagOnConflict>;
+    onConflict?: pulumi.Input<inputs.TagOnConflict | undefined>;
     /**
      * Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
      */
-    orderedAllowedValues?: pulumi.Input<pulumi.Input<string>[]>;
+    orderedAllowedValues?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
      */
-    propagate?: pulumi.Input<string>;
+    propagate?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

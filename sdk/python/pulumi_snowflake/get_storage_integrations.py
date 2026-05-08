@@ -109,8 +109,8 @@ def get_storage_integrations(like: Optional[_builtins.str] = None,
         like=pulumi.get(__ret__, 'like'),
         storage_integrations=pulumi.get(__ret__, 'storage_integrations'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_storage_integrations_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                    with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_storage_integrations_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageIntegrationsResult]:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

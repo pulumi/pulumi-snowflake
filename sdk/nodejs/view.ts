@@ -197,75 +197,75 @@ export interface ViewState {
     /**
      * Specifies the aggregation policy to set on a view.
      */
-    aggregationPolicy?: pulumi.Input<inputs.ViewAggregationPolicy>;
+    aggregationPolicy?: pulumi.Input<inputs.ViewAggregationPolicy | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    changeTracking?: pulumi.Input<string>;
+    changeTracking?: pulumi.Input<string | undefined>;
     /**
      * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      */
-    columns?: pulumi.Input<pulumi.Input<inputs.ViewColumn>[]>;
+    columns?: pulumi.Input<pulumi.Input<inputs.ViewColumn>[] | undefined>;
     /**
      * Specifies a comment for the view.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
      */
-    copyGrants?: pulumi.Input<boolean>;
+    copyGrants?: pulumi.Input<boolean | undefined>;
     /**
      * Data metric functions used for the view.
      */
-    dataMetricFunctions?: pulumi.Input<pulumi.Input<inputs.ViewDataMetricFunction>[]>;
+    dataMetricFunctions?: pulumi.Input<pulumi.Input<inputs.ViewDataMetricFunction>[] | undefined>;
     /**
      * Specifies the schedule to run the data metric functions periodically.
      */
-    dataMetricSchedule?: pulumi.Input<inputs.ViewDataMetricSchedule>;
+    dataMetricSchedule?: pulumi.Input<inputs.ViewDataMetricSchedule | undefined>;
     /**
      * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE VIEW` for the given view.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ViewDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ViewDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    isRecursive?: pulumi.Input<string>;
+    isRecursive?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    isSecure?: pulumi.Input<string>;
+    isSecure?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    isTemporary?: pulumi.Input<string>;
+    isTemporary?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the row access policy to set on a view.
      */
-    rowAccessPolicy?: pulumi.Input<inputs.ViewRowAccessPolicy>;
+    rowAccessPolicy?: pulumi.Input<inputs.ViewRowAccessPolicy | undefined>;
     /**
      * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW VIEW` for the given view.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.ViewShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ViewShowOutput>[] | undefined>;
     /**
      * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
-    statement?: pulumi.Input<string>;
+    statement?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -275,31 +275,31 @@ export interface ViewArgs {
     /**
      * Specifies the aggregation policy to set on a view.
      */
-    aggregationPolicy?: pulumi.Input<inputs.ViewAggregationPolicy>;
+    aggregationPolicy?: pulumi.Input<inputs.ViewAggregationPolicy | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    changeTracking?: pulumi.Input<string>;
+    changeTracking?: pulumi.Input<string | undefined>;
     /**
      * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      */
-    columns?: pulumi.Input<pulumi.Input<inputs.ViewColumn>[]>;
+    columns?: pulumi.Input<pulumi.Input<inputs.ViewColumn>[] | undefined>;
     /**
      * Specifies a comment for the view.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
      */
-    copyGrants?: pulumi.Input<boolean>;
+    copyGrants?: pulumi.Input<boolean | undefined>;
     /**
      * Data metric functions used for the view.
      */
-    dataMetricFunctions?: pulumi.Input<pulumi.Input<inputs.ViewDataMetricFunction>[]>;
+    dataMetricFunctions?: pulumi.Input<pulumi.Input<inputs.ViewDataMetricFunction>[] | undefined>;
     /**
      * Specifies the schedule to run the data metric functions periodically.
      */
-    dataMetricSchedule?: pulumi.Input<inputs.ViewDataMetricSchedule>;
+    dataMetricSchedule?: pulumi.Input<inputs.ViewDataMetricSchedule | undefined>;
     /**
      * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -307,23 +307,23 @@ export interface ViewArgs {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    isRecursive?: pulumi.Input<string>;
+    isRecursive?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    isSecure?: pulumi.Input<string>;
+    isSecure?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    isTemporary?: pulumi.Input<string>;
+    isTemporary?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the row access policy to set on a view.
      */
-    rowAccessPolicy?: pulumi.Input<inputs.ViewRowAccessPolicy>;
+    rowAccessPolicy?: pulumi.Input<inputs.ViewRowAccessPolicy | undefined>;
     /**
      * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

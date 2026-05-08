@@ -402,67 +402,67 @@ export interface StageExternalAzureState {
     /**
      * Specifies a cloud provider for the stage. This field is used for checking external changes and recreating the resources if needed.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the stage.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure SAS token credentials for the external stage.
      */
-    credentials?: pulumi.Input<inputs.StageExternalAzureCredentials>;
+    credentials?: pulumi.Input<inputs.StageExternalAzureCredentials | undefined>;
     /**
      * The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE STAGE` for the given stage.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureDescribeOutput>[] | undefined>;
     /**
      * Directory tables store a catalog of staged files in cloud storage.
      */
-    directory?: pulumi.Input<inputs.StageExternalAzureDirectory>;
+    directory?: pulumi.Input<inputs.StageExternalAzureDirectory | undefined>;
     /**
      * Specifies the encryption settings for the Azure external stage.
      */
-    encryption?: pulumi.Input<inputs.StageExternalAzureEncryption>;
+    encryption?: pulumi.Input<inputs.StageExternalAzureEncryption | undefined>;
     /**
      * Specifies the file format for the stage.
      */
-    fileFormat?: pulumi.Input<inputs.StageExternalAzureFileFormat>;
+    fileFormat?: pulumi.Input<inputs.StageExternalAzureFileFormat | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW STAGES` for the given stage.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.StageExternalAzureShowOutput>[] | undefined>;
     /**
      * Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
      */
-    stageType?: pulumi.Input<string>;
+    stageType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    storageIntegration?: pulumi.Input<string>;
+    storageIntegration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL for the Azure storage container (e.g., 'azure://account.blob.core.windows.net/container').
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a private link endpoint for Azure storage.
      */
-    usePrivatelinkEndpoint?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -472,11 +472,11 @@ export interface StageExternalAzureArgs {
     /**
      * Specifies a comment for the stage.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Azure SAS token credentials for the external stage.
      */
-    credentials?: pulumi.Input<inputs.StageExternalAzureCredentials>;
+    credentials?: pulumi.Input<inputs.StageExternalAzureCredentials | undefined>;
     /**
      * The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -484,19 +484,19 @@ export interface StageExternalAzureArgs {
     /**
      * Directory tables store a catalog of staged files in cloud storage.
      */
-    directory?: pulumi.Input<inputs.StageExternalAzureDirectory>;
+    directory?: pulumi.Input<inputs.StageExternalAzureDirectory | undefined>;
     /**
      * Specifies the encryption settings for the Azure external stage.
      */
-    encryption?: pulumi.Input<inputs.StageExternalAzureEncryption>;
+    encryption?: pulumi.Input<inputs.StageExternalAzureEncryption | undefined>;
     /**
      * Specifies the file format for the stage.
      */
-    fileFormat?: pulumi.Input<inputs.StageExternalAzureFileFormat>;
+    fileFormat?: pulumi.Input<inputs.StageExternalAzureFileFormat | undefined>;
     /**
      * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -504,7 +504,7 @@ export interface StageExternalAzureArgs {
     /**
      * Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    storageIntegration?: pulumi.Input<string>;
+    storageIntegration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL for the Azure storage container (e.g., 'azure://account.blob.core.windows.net/container').
      */
@@ -512,5 +512,5 @@ export interface StageExternalAzureArgs {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a private link endpoint for Azure storage.
      */
-    usePrivatelinkEndpoint?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<string | undefined>;
 }

@@ -58,8 +58,8 @@ class UserPasswordPolicyAttachmentArgs:
 @pulumi.input_type
 class _UserPasswordPolicyAttachmentState:
     def __init__(__self__, *,
-                 password_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 password_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPasswordPolicyAttachment resources.
 
@@ -73,26 +73,26 @@ class _UserPasswordPolicyAttachmentState:
 
     @_builtins.property
     @pulumi.getter(name="passwordPolicyName")
-    def password_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the password policy
         """
         return pulumi.get(self, "password_policy_name")
 
     @password_policy_name.setter
-    def password_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userName")
-    def user_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         User name of the user you want to attach the password policy to
         """
         return pulumi.get(self, "user_name")
 
     @user_name.setter
-    def user_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_name", value)
 
 
@@ -102,8 +102,8 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 password_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 password_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -201,8 +201,8 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 password_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 password_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -228,8 +228,8 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            password_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-            user_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserPasswordPolicyAttachment':
+            password_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            user_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserPasswordPolicyAttachment':
         """
         Get an existing UserPasswordPolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

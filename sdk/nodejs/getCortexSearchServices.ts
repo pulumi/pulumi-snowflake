@@ -154,17 +154,17 @@ export interface GetCortexSearchServicesOutputArgs {
     /**
      * IN clause to filter the list of cortex search services.
      */
-    in?: pulumi.Input<inputs.GetCortexSearchServicesInArgs>;
+    in?: pulumi.Input<inputs.GetCortexSearchServicesInArgs | undefined>;
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      */
-    limit?: pulumi.Input<inputs.GetCortexSearchServicesLimitArgs>;
+    limit?: pulumi.Input<inputs.GetCortexSearchServicesLimitArgs | undefined>;
     /**
      * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      */
-    startsWith?: pulumi.Input<string>;
+    startsWith?: pulumi.Input<string | undefined>;
 }

@@ -25,11 +25,11 @@ class StageExternalGcsArgs:
                  schema: pulumi.Input[_builtins.str],
                  storage_integration: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input['StageExternalGcsDirectoryArgs']] = None,
-                 encryption: Optional[pulumi.Input['StageExternalGcsEncryptionArgs']] = None,
-                 file_format: Optional[pulumi.Input['StageExternalGcsFileFormatArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional['StageExternalGcsDirectoryArgs']] = None,
+                 encryption: pulumi.Input[Optional['StageExternalGcsEncryptionArgs']] = None,
+                 file_format: pulumi.Input[Optional['StageExternalGcsFileFormatArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StageExternalGcs resource.
 
@@ -108,82 +108,82 @@ class StageExternalGcsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the stage.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def directory(self) -> Optional[pulumi.Input['StageExternalGcsDirectoryArgs']]:
+    def directory(self) -> pulumi.Input[Optional['StageExternalGcsDirectoryArgs']]:
         """
         Directory tables store a catalog of staged files in cloud storage.
         """
         return pulumi.get(self, "directory")
 
     @directory.setter
-    def directory(self, value: Optional[pulumi.Input['StageExternalGcsDirectoryArgs']]):
+    def directory(self, value: pulumi.Input[Optional['StageExternalGcsDirectoryArgs']]):
         pulumi.set(self, "directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['StageExternalGcsEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['StageExternalGcsEncryptionArgs']]:
         """
         Specifies the encryption settings for the GCS external stage.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['StageExternalGcsEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['StageExternalGcsEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input['StageExternalGcsFileFormatArgs']]:
+    def file_format(self) -> pulumi.Input[Optional['StageExternalGcsFileFormatArgs']]:
         """
         Specifies the file format for the stage.
         """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input['StageExternalGcsFileFormatArgs']]):
+    def file_format(self, value: pulumi.Input[Optional['StageExternalGcsFileFormatArgs']]):
         pulumi.set(self, "file_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _StageExternalGcsState:
     def __init__(__self__, *,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalGcsDescribeOutputArgs']]]] = None,
-                 directory: Optional[pulumi.Input['StageExternalGcsDirectoryArgs']] = None,
-                 encryption: Optional[pulumi.Input['StageExternalGcsEncryptionArgs']] = None,
-                 file_format: Optional[pulumi.Input['StageExternalGcsFileFormatArgs']] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalGcsShowOutputArgs']]]] = None,
-                 stage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None):
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputArgs']]]] = None,
+                 directory: pulumi.Input[Optional['StageExternalGcsDirectoryArgs']] = None,
+                 encryption: pulumi.Input[Optional['StageExternalGcsEncryptionArgs']] = None,
+                 file_format: pulumi.Input[Optional['StageExternalGcsFileFormatArgs']] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsShowOutputArgs']]]] = None,
+                 stage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StageExternalGcs resources.
 
@@ -233,170 +233,170 @@ class _StageExternalGcsState:
 
     @_builtins.property
     @pulumi.getter
-    def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a cloud provider for the stage. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "cloud")
 
     @cloud.setter
-    def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the stage.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalGcsDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE STAGE` for the given stage.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalGcsDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def directory(self) -> Optional[pulumi.Input['StageExternalGcsDirectoryArgs']]:
+    def directory(self) -> pulumi.Input[Optional['StageExternalGcsDirectoryArgs']]:
         """
         Directory tables store a catalog of staged files in cloud storage.
         """
         return pulumi.get(self, "directory")
 
     @directory.setter
-    def directory(self, value: Optional[pulumi.Input['StageExternalGcsDirectoryArgs']]):
+    def directory(self, value: pulumi.Input[Optional['StageExternalGcsDirectoryArgs']]):
         pulumi.set(self, "directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['StageExternalGcsEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['StageExternalGcsEncryptionArgs']]:
         """
         Specifies the encryption settings for the GCS external stage.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['StageExternalGcsEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['StageExternalGcsEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input['StageExternalGcsFileFormatArgs']]:
+    def file_format(self) -> pulumi.Input[Optional['StageExternalGcsFileFormatArgs']]:
         """
         Specifies the file format for the stage.
         """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input['StageExternalGcsFileFormatArgs']]):
+    def file_format(self, value: pulumi.Input[Optional['StageExternalGcsFileFormatArgs']]):
         pulumi.set(self, "file_format", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalGcsShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW STAGES` for the given stage.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalGcsShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="stageType")
-    def stage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "stage_type")
 
     @stage_type.setter
-    def stage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="storageIntegration")
-    def storage_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. GCS stages require a storage integration. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "storage_integration")
 
     @storage_integration.setter
-    def storage_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_integration", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URL for the GCS bucket (e.g., 'gcs://bucket/path/').
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
 
@@ -406,15 +406,15 @@ class StageExternalGcs(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']]] = None,
-                 encryption: Optional[pulumi.Input[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']]] = None,
-                 file_format: Optional[pulumi.Input[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -899,15 +899,15 @@ class StageExternalGcs(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']]] = None,
-                 encryption: Optional[pulumi.Input[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']]] = None,
-                 file_format: Optional[pulumi.Input[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -949,20 +949,20 @@ class StageExternalGcs(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cloud: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageExternalGcsDescribeOutputArgs', 'StageExternalGcsDescribeOutputArgsDict']]]]] = None,
-            directory: Optional[pulumi.Input[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']]] = None,
-            encryption: Optional[pulumi.Input[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']]] = None,
-            file_format: Optional[pulumi.Input[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageExternalGcsShowOutputArgs', 'StageExternalGcsShowOutputArgsDict']]]]] = None,
-            stage_type: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None) -> 'StageExternalGcs':
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalGcsDescribeOutputArgs', 'StageExternalGcsDescribeOutputArgsDict']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalGcsShowOutputArgs', 'StageExternalGcsShowOutputArgsDict']]]]] = None,
+            stage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'StageExternalGcs':
         """
         Get an existing StageExternalGcs resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

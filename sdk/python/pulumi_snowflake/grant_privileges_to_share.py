@@ -21,13 +21,13 @@ class GrantPrivilegesToShareArgs:
     def __init__(__self__, *,
                  privileges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  to_share: pulumi.Input[_builtins.str],
-                 on_all_tables_in_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_table: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_view: Optional[pulumi.Input[_builtins.str]] = None):
+                 on_all_tables_in_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_table: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_view: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GrantPrivilegesToShare resource.
 
@@ -84,101 +84,101 @@ class GrantPrivilegesToShareArgs:
 
     @_builtins.property
     @pulumi.getter(name="onAllTablesInSchema")
-    def on_all_tables_in_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_all_tables_in_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
         """
         return pulumi.get(self, "on_all_tables_in_schema")
 
     @on_all_tables_in_schema.setter
-    def on_all_tables_in_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_all_tables_in_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_all_tables_in_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="onDatabase")
-    def on_database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_database")
 
     @on_database.setter
-    def on_database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_database", value)
 
     @_builtins.property
     @pulumi.getter(name="onFunction")
-    def on_function(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_function(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the function on which privileges will be granted.
         """
         return pulumi.get(self, "on_function")
 
     @on_function.setter
-    def on_function(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_function(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_function", value)
 
     @_builtins.property
     @pulumi.getter(name="onSchema")
-    def on_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_schema")
 
     @on_schema.setter
-    def on_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="onTable")
-    def on_table(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_table")
 
     @on_table.setter
-    def on_table(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_table(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_table", value)
 
     @_builtins.property
     @pulumi.getter(name="onTag")
-    def on_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_tag")
 
     @on_tag.setter
-    def on_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="onView")
-    def on_view(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_view(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_view")
 
     @on_view.setter
-    def on_view(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_view(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_view", value)
 
 
 @pulumi.input_type
 class _GrantPrivilegesToShareState:
     def __init__(__self__, *,
-                 on_all_tables_in_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_table: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_view: Optional[pulumi.Input[_builtins.str]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 to_share: Optional[pulumi.Input[_builtins.str]] = None):
+                 on_all_tables_in_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_table: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_view: pulumi.Input[Optional[_builtins.str]] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 to_share: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantPrivilegesToShare resources.
 
@@ -213,110 +213,110 @@ class _GrantPrivilegesToShareState:
 
     @_builtins.property
     @pulumi.getter(name="onAllTablesInSchema")
-    def on_all_tables_in_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_all_tables_in_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
         """
         return pulumi.get(self, "on_all_tables_in_schema")
 
     @on_all_tables_in_schema.setter
-    def on_all_tables_in_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_all_tables_in_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_all_tables_in_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="onDatabase")
-    def on_database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_database")
 
     @on_database.setter
-    def on_database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_database", value)
 
     @_builtins.property
     @pulumi.getter(name="onFunction")
-    def on_function(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_function(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the function on which privileges will be granted.
         """
         return pulumi.get(self, "on_function")
 
     @on_function.setter
-    def on_function(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_function(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_function", value)
 
     @_builtins.property
     @pulumi.getter(name="onSchema")
-    def on_schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_schema")
 
     @on_schema.setter
-    def on_schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="onTable")
-    def on_table(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_table")
 
     @on_table.setter
-    def on_table(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_table(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_table", value)
 
     @_builtins.property
     @pulumi.getter(name="onTag")
-    def on_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_tag")
 
     @on_tag.setter
-    def on_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="onView")
-    def on_view(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def on_view(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_view")
 
     @on_view.setter
-    def on_view(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def on_view(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "on_view", value)
 
     @_builtins.property
     @pulumi.getter
-    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def privileges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
         """
         return pulumi.get(self, "privileges")
 
     @privileges.setter
-    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def privileges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="toShare")
-    def to_share(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def to_share(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "to_share")
 
     @to_share.setter
-    def to_share(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def to_share(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "to_share", value)
 
 
@@ -326,15 +326,15 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 on_all_tables_in_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_table: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_view: Optional[pulumi.Input[_builtins.str]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 to_share: Optional[pulumi.Input[_builtins.str]] = None,
+                 on_all_tables_in_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_table: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_view: pulumi.Input[Optional[_builtins.str]] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 to_share: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
@@ -377,15 +377,15 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 on_all_tables_in_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_database: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_function: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_table: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_tag: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_view: Optional[pulumi.Input[_builtins.str]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 to_share: Optional[pulumi.Input[_builtins.str]] = None,
+                 on_all_tables_in_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_database: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_function: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_table: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_view: pulumi.Input[Optional[_builtins.str]] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 to_share: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -418,15 +418,15 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            on_all_tables_in_schema: Optional[pulumi.Input[_builtins.str]] = None,
-            on_database: Optional[pulumi.Input[_builtins.str]] = None,
-            on_function: Optional[pulumi.Input[_builtins.str]] = None,
-            on_schema: Optional[pulumi.Input[_builtins.str]] = None,
-            on_table: Optional[pulumi.Input[_builtins.str]] = None,
-            on_tag: Optional[pulumi.Input[_builtins.str]] = None,
-            on_view: Optional[pulumi.Input[_builtins.str]] = None,
-            privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            to_share: Optional[pulumi.Input[_builtins.str]] = None) -> 'GrantPrivilegesToShare':
+            on_all_tables_in_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            on_database: pulumi.Input[Optional[_builtins.str]] = None,
+            on_function: pulumi.Input[Optional[_builtins.str]] = None,
+            on_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            on_table: pulumi.Input[Optional[_builtins.str]] = None,
+            on_tag: pulumi.Input[Optional[_builtins.str]] = None,
+            on_view: pulumi.Input[Optional[_builtins.str]] = None,
+            privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            to_share: pulumi.Input[Optional[_builtins.str]] = None) -> 'GrantPrivilegesToShare':
         """
         Get an existing GrantPrivilegesToShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

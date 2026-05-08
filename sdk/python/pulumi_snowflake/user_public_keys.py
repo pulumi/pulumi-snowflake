@@ -19,9 +19,9 @@ __all__ = ['UserPublicKeysArgs', 'UserPublicKeys']
 @pulumi.input_type
 class UserPublicKeysArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserPublicKeys resource.
 
@@ -38,47 +38,47 @@ class UserPublicKeysArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the user.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="rsaPublicKey")
-    def rsa_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rsa_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         """
         return pulumi.get(self, "rsa_public_key")
 
     @rsa_public_key.setter
-    def rsa_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rsa_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rsa_public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="rsaPublicKey2")
-    def rsa_public_key2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rsa_public_key2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
         return pulumi.get(self, "rsa_public_key2")
 
     @rsa_public_key2.setter
-    def rsa_public_key2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rsa_public_key2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rsa_public_key2", value)
 
 
 @pulumi.input_type
 class _UserPublicKeysState:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering UserPublicKeys resources.
 
@@ -95,38 +95,38 @@ class _UserPublicKeysState:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the user.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="rsaPublicKey")
-    def rsa_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rsa_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
         """
         return pulumi.get(self, "rsa_public_key")
 
     @rsa_public_key.setter
-    def rsa_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rsa_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rsa_public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="rsaPublicKey2")
-    def rsa_public_key2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rsa_public_key2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         """
         return pulumi.get(self, "rsa_public_key2")
 
     @rsa_public_key2.setter
-    def rsa_public_key2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rsa_public_key2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rsa_public_key2", value)
 
 
@@ -136,9 +136,9 @@ class UserPublicKeys(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -183,9 +183,9 @@ class UserPublicKeys(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -208,9 +208,9 @@ class UserPublicKeys(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None) -> 'UserPublicKeys':
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None) -> 'UserPublicKeys':
         """
         Get an existing UserPublicKeys resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

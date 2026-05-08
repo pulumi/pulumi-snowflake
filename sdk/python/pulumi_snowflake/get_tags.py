@@ -108,8 +108,8 @@ def get_tags(in_: Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict']] = None,
         in_=pulumi.get(__ret__, 'in_'),
         like=pulumi.get(__ret__, 'like'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_tags_output(in_: Optional[pulumi.Input[Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict']]]] = None,
-                    like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_tags_output(in_: pulumi.Input[Optional[Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict']]]] = None,
+                    like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagsResult]:
     """
     Data source used to get details of filtered tags. Filtering is aligned with the current possibilities for [SHOW TAGS](https://docs.snowflake.com/en/sql-reference/sql/show-tags) query. The results of SHOW are encapsulated in one output collection `tags`.

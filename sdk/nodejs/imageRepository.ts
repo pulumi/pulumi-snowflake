@@ -150,31 +150,31 @@ export interface ImageRepositoryState {
     /**
      * Specifies a comment for the object.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
      */
-    encryption?: pulumi.Input<string>;
+    encryption?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the image repository; must be unique for the schema in which the image repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW IMAGE REPOSITORIES` for the given image repository.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.ImageRepositoryShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ImageRepositoryShowOutput>[] | undefined>;
 }
 
 /**
@@ -184,7 +184,7 @@ export interface ImageRepositoryArgs {
     /**
      * Specifies a comment for the object.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -192,11 +192,11 @@ export interface ImageRepositoryArgs {
     /**
      * Specifies the encryption type for the image repository. Can only be set at creation time. Valid values are (case-insensitive): `SNOWFLAKE_FULL` | `SNOWFLAKE_SSE`.
      */
-    encryption?: pulumi.Input<string>;
+    encryption?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the image repository; must be unique for the schema in which the image repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

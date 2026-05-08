@@ -76,9 +76,9 @@ export interface GetExternalVolumesOutputArgs {
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Runs DESC EXTERNAL VOLUME for each external volume returned by SHOW EXTERNAL VOLUMES. The output of describe is saved to the describeOutput field. By default this value is set to true.
      */
-    withDescribe?: pulumi.Input<boolean>;
+    withDescribe?: pulumi.Input<boolean | undefined>;
 }

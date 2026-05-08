@@ -21,12 +21,12 @@ __all__ = ['WarehouseAdaptiveArgs', 'WarehouseAdaptive']
 @pulumi.input_type
 class WarehouseAdaptiveArgs:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_query_performance_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_throughput_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
-                 statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 statement_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_query_performance_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_throughput_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
+                 statement_queued_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 statement_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a WarehouseAdaptive resource.
 
@@ -52,90 +52,90 @@ class WarehouseAdaptiveArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the adaptive warehouse.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="maxQueryPerformanceLevel")
-    def max_query_performance_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_query_performance_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the maximum query performance level for the adaptive warehouse. Determines the initial compute capacity. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE`.
         """
         return pulumi.get(self, "max_query_performance_level")
 
     @max_query_performance_level.setter
-    def max_query_performance_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_query_performance_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_query_performance_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="queryThroughputMultiplier")
-    def query_throughput_multiplier(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def query_throughput_multiplier(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
         """
         return pulumi.get(self, "query_throughput_multiplier")
 
     @query_throughput_multiplier.setter
-    def query_throughput_multiplier(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def query_throughput_multiplier(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_throughput_multiplier", value)
 
     @_builtins.property
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
-    def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def statement_queued_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         """
         return pulumi.get(self, "statement_queued_timeout_in_seconds")
 
     @statement_queued_timeout_in_seconds.setter
-    def statement_queued_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def statement_queued_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "statement_queued_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="statementTimeoutInSeconds")
-    def statement_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def statement_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
         """
         return pulumi.get(self, "statement_timeout_in_seconds")
 
     @statement_timeout_in_seconds.setter
-    def statement_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def statement_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "statement_timeout_in_seconds", value)
 
 
 @pulumi.input_type
 class _WarehouseAdaptiveState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_query_performance_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterArgs']]]] = None,
-                 query_throughput_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveShowOutputArgs']]]] = None,
-                 statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 statement_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 warehouse_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_query_performance_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseAdaptiveParameterArgs']]]] = None,
+                 query_throughput_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseAdaptiveShowOutputArgs']]]] = None,
+                 statement_queued_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 statement_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 warehouse_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WarehouseAdaptive resources.
 
@@ -173,122 +173,122 @@ class _WarehouseAdaptiveState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the adaptive warehouse.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maxQueryPerformanceLevel")
-    def max_query_performance_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def max_query_performance_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the maximum query performance level for the adaptive warehouse. Determines the initial compute capacity. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE`.
         """
         return pulumi.get(self, "max_query_performance_level")
 
     @max_query_performance_level.setter
-    def max_query_performance_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def max_query_performance_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "max_query_performance_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseAdaptiveParameterArgs']]]]:
         """
         Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given adaptive warehouse.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseAdaptiveParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="queryThroughputMultiplier")
-    def query_throughput_multiplier(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def query_throughput_multiplier(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
         """
         return pulumi.get(self, "query_throughput_multiplier")
 
     @query_throughput_multiplier.setter
-    def query_throughput_multiplier(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def query_throughput_multiplier(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "query_throughput_multiplier", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseAdaptiveShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WarehouseAdaptiveShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseAdaptiveShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
-    def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def statement_queued_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         """
         return pulumi.get(self, "statement_queued_timeout_in_seconds")
 
     @statement_queued_timeout_in_seconds.setter
-    def statement_queued_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def statement_queued_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "statement_queued_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="statementTimeoutInSeconds")
-    def statement_timeout_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def statement_timeout_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
         """
         return pulumi.get(self, "statement_timeout_in_seconds")
 
     @statement_timeout_in_seconds.setter
-    def statement_timeout_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def statement_timeout_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "statement_timeout_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="warehouseType")
-    def warehouse_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def warehouse_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type for the adaptive warehouse. This field is used for checking external changes and recreating the resource if needed.
         """
         return pulumi.get(self, "warehouse_type")
 
     @warehouse_type.setter
-    def warehouse_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def warehouse_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "warehouse_type", value)
 
 
@@ -298,12 +298,12 @@ class WarehouseAdaptive(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_query_performance_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_throughput_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
-                 statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 statement_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_query_performance_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_throughput_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
+                 statement_queued_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 statement_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -403,12 +403,12 @@ class WarehouseAdaptive(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_query_performance_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_throughput_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
-                 statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 statement_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_query_performance_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_throughput_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
+                 statement_queued_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 statement_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -438,16 +438,16 @@ class WarehouseAdaptive(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            max_query_performance_level: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WarehouseAdaptiveParameterArgs', 'WarehouseAdaptiveParameterArgsDict']]]]] = None,
-            query_throughput_multiplier: Optional[pulumi.Input[_builtins.int]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WarehouseAdaptiveShowOutputArgs', 'WarehouseAdaptiveShowOutputArgsDict']]]]] = None,
-            statement_queued_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            statement_timeout_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-            warehouse_type: Optional[pulumi.Input[_builtins.str]] = None) -> 'WarehouseAdaptive':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            max_query_performance_level: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseAdaptiveParameterArgs', 'WarehouseAdaptiveParameterArgsDict']]]]] = None,
+            query_throughput_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseAdaptiveShowOutputArgs', 'WarehouseAdaptiveShowOutputArgsDict']]]]] = None,
+            statement_queued_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            statement_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            warehouse_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'WarehouseAdaptive':
         """
         Get an existing WarehouseAdaptive resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

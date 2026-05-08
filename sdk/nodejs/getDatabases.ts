@@ -102,21 +102,21 @@ export interface GetDatabasesOutputArgs {
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      */
-    limit?: pulumi.Input<inputs.GetDatabasesLimitArgs>;
+    limit?: pulumi.Input<inputs.GetDatabasesLimitArgs | undefined>;
     /**
      * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      */
-    startsWith?: pulumi.Input<string>;
+    startsWith?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
      */
-    withDescribe?: pulumi.Input<boolean>;
+    withDescribe?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
      */
-    withParameters?: pulumi.Input<boolean>;
+    withParameters?: pulumi.Input<boolean | undefined>;
 }

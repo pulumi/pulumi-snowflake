@@ -23,19 +23,19 @@ class OauthIntegrationForCustomClientsArgs:
     def __init__(__self__, *,
                  oauth_client_type: pulumi.Input[_builtins.str],
                  oauth_redirect_uri: pulumi.Input[_builtins.str],
-                 blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_allow_non_tls_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_enforce_pkce: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_issue_refresh_tokens: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_use_secondary_roles: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_authorized_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_allow_non_tls_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_enforce_pkce: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_issue_refresh_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_use_secondary_roles: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_authorized_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OauthIntegrationForCustomClients resource.
 
@@ -110,183 +110,183 @@ class OauthIntegrationForCustomClientsArgs:
 
     @_builtins.property
     @pulumi.getter(name="blockedRolesLists")
-    def blocked_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_roles_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         """
         return pulumi.get(self, "blocked_roles_lists")
 
     @blocked_roles_lists.setter
-    def blocked_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_roles_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_roles_lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the OAuth integration.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkPolicy")
-    def network_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
         """
         return pulumi.get(self, "network_policy")
 
     @network_policy.setter
-    def network_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthAllowNonTlsRedirectUri")
-    def oauth_allow_non_tls_redirect_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_allow_non_tls_redirect_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "oauth_allow_non_tls_redirect_uri")
 
     @oauth_allow_non_tls_redirect_uri.setter
-    def oauth_allow_non_tls_redirect_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_allow_non_tls_redirect_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_allow_non_tls_redirect_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthClientRsaPublicKey")
-    def oauth_client_rsa_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_client_rsa_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "oauth_client_rsa_public_key")
 
     @oauth_client_rsa_public_key.setter
-    def oauth_client_rsa_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_client_rsa_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_client_rsa_public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthClientRsaPublicKey2")
-    def oauth_client_rsa_public_key2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_client_rsa_public_key2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "oauth_client_rsa_public_key2")
 
     @oauth_client_rsa_public_key2.setter
-    def oauth_client_rsa_public_key2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_client_rsa_public_key2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_client_rsa_public_key2", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthEnforcePkce")
-    def oauth_enforce_pkce(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_enforce_pkce(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "oauth_enforce_pkce")
 
     @oauth_enforce_pkce.setter
-    def oauth_enforce_pkce(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_enforce_pkce(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_enforce_pkce", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthIssueRefreshTokens")
-    def oauth_issue_refresh_tokens(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_issue_refresh_tokens(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "oauth_issue_refresh_tokens")
 
     @oauth_issue_refresh_tokens.setter
-    def oauth_issue_refresh_tokens(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_issue_refresh_tokens(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_issue_refresh_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthRefreshTokenValidity")
-    def oauth_refresh_token_validity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def oauth_refresh_token_validity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         """
         return pulumi.get(self, "oauth_refresh_token_validity")
 
     @oauth_refresh_token_validity.setter
-    def oauth_refresh_token_validity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def oauth_refresh_token_validity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "oauth_refresh_token_validity", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthUseSecondaryRoles")
-    def oauth_use_secondary_roles(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_use_secondary_roles(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 
     @oauth_use_secondary_roles.setter
-    def oauth_use_secondary_roles(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_use_secondary_roles(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_use_secondary_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="preAuthorizedRolesLists")
-    def pre_authorized_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def pre_authorized_roles_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
         """
         return pulumi.get(self, "pre_authorized_roles_lists")
 
     @pre_authorized_roles_lists.setter
-    def pre_authorized_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def pre_authorized_roles_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "pre_authorized_roles_lists", value)
 
 
 @pulumi.input_type
 class _OauthIntegrationForCustomClientsState:
     def __init__(__self__, *,
-                 blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputArgs']]]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_allow_non_tls_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_enforce_pkce: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_issue_refresh_tokens: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_use_secondary_roles: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_authorized_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 related_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsRelatedParameterArgs']]]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsShowOutputArgs']]]] = None):
+                 blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputArgs']]]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_allow_non_tls_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_enforce_pkce: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_issue_refresh_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_use_secondary_roles: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_authorized_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 related_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsRelatedParameterArgs']]]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering OauthIntegrationForCustomClients resources.
 
@@ -351,230 +351,230 @@ class _OauthIntegrationForCustomClientsState:
 
     @_builtins.property
     @pulumi.getter(name="blockedRolesLists")
-    def blocked_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def blocked_roles_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         """
         return pulumi.get(self, "blocked_roles_lists")
 
     @blocked_roles_lists.setter
-    def blocked_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def blocked_roles_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "blocked_roles_lists", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the OAuth integration.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkPolicy")
-    def network_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def network_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
         """
         return pulumi.get(self, "network_policy")
 
     @network_policy.setter
-    def network_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def network_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "network_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthAllowNonTlsRedirectUri")
-    def oauth_allow_non_tls_redirect_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_allow_non_tls_redirect_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "oauth_allow_non_tls_redirect_uri")
 
     @oauth_allow_non_tls_redirect_uri.setter
-    def oauth_allow_non_tls_redirect_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_allow_non_tls_redirect_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_allow_non_tls_redirect_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthClientRsaPublicKey")
-    def oauth_client_rsa_public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_client_rsa_public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "oauth_client_rsa_public_key")
 
     @oauth_client_rsa_public_key.setter
-    def oauth_client_rsa_public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_client_rsa_public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_client_rsa_public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthClientRsaPublicKey2")
-    def oauth_client_rsa_public_key2(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_client_rsa_public_key2(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         return pulumi.get(self, "oauth_client_rsa_public_key2")
 
     @oauth_client_rsa_public_key2.setter
-    def oauth_client_rsa_public_key2(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_client_rsa_public_key2(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_client_rsa_public_key2", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthClientType")
-    def oauth_client_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_client_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
         """
         return pulumi.get(self, "oauth_client_type")
 
     @oauth_client_type.setter
-    def oauth_client_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_client_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_client_type", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthEnforcePkce")
-    def oauth_enforce_pkce(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_enforce_pkce(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "oauth_enforce_pkce")
 
     @oauth_enforce_pkce.setter
-    def oauth_enforce_pkce(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_enforce_pkce(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_enforce_pkce", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthIssueRefreshTokens")
-    def oauth_issue_refresh_tokens(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_issue_refresh_tokens(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "oauth_issue_refresh_tokens")
 
     @oauth_issue_refresh_tokens.setter
-    def oauth_issue_refresh_tokens(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_issue_refresh_tokens(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_issue_refresh_tokens", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthRedirectUri")
-    def oauth_redirect_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_redirect_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI.
         """
         return pulumi.get(self, "oauth_redirect_uri")
 
     @oauth_redirect_uri.setter
-    def oauth_redirect_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_redirect_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_redirect_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthRefreshTokenValidity")
-    def oauth_refresh_token_validity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def oauth_refresh_token_validity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         """
         return pulumi.get(self, "oauth_refresh_token_validity")
 
     @oauth_refresh_token_validity.setter
-    def oauth_refresh_token_validity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def oauth_refresh_token_validity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "oauth_refresh_token_validity", value)
 
     @_builtins.property
     @pulumi.getter(name="oauthUseSecondaryRoles")
-    def oauth_use_secondary_roles(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def oauth_use_secondary_roles(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
 
     @oauth_use_secondary_roles.setter
-    def oauth_use_secondary_roles(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def oauth_use_secondary_roles(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "oauth_use_secondary_roles", value)
 
     @_builtins.property
     @pulumi.getter(name="preAuthorizedRolesLists")
-    def pre_authorized_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def pre_authorized_roles_lists(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
         """
         return pulumi.get(self, "pre_authorized_roles_lists")
 
     @pre_authorized_roles_lists.setter
-    def pre_authorized_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def pre_authorized_roles_lists(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "pre_authorized_roles_lists", value)
 
     @_builtins.property
     @pulumi.getter(name="relatedParameters")
-    def related_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsRelatedParameterArgs']]]]:
+    def related_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsRelatedParameterArgs']]]]:
         """
         Parameters related to this security integration.
         """
         return pulumi.get(self, "related_parameters")
 
     @related_parameters.setter
-    def related_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsRelatedParameterArgs']]]]):
+    def related_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsRelatedParameterArgs']]]]):
         pulumi.set(self, "related_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
 
@@ -584,21 +584,21 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_allow_non_tls_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_enforce_pkce: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_issue_refresh_tokens: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_use_secondary_roles: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_authorized_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_allow_non_tls_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_enforce_pkce: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_issue_refresh_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_use_secondary_roles: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_authorized_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         !> **Sensitive values** This resource's `oauth_redirect_uri` and `describe_output.oauth_redirect_uri` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
@@ -759,21 +759,21 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 network_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_allow_non_tls_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_client_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_enforce_pkce: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_issue_refresh_tokens: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 oauth_refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-                 oauth_use_secondary_roles: Optional[pulumi.Input[_builtins.str]] = None,
-                 pre_authorized_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_allow_non_tls_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_client_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_enforce_pkce: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_issue_refresh_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+                 oauth_use_secondary_roles: pulumi.Input[Optional[_builtins.str]] = None,
+                 pre_authorized_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -818,25 +818,25 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict']]]]] = None,
-            enabled: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            network_policy: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_allow_non_tls_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_client_rsa_public_key: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_client_rsa_public_key2: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_client_type: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_enforce_pkce: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_issue_refresh_tokens: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_redirect_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            oauth_refresh_token_validity: Optional[pulumi.Input[_builtins.int]] = None,
-            oauth_use_secondary_roles: Optional[pulumi.Input[_builtins.str]] = None,
-            pre_authorized_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            related_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsRelatedParameterArgs', 'OauthIntegrationForCustomClientsRelatedParameterArgsDict']]]]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsShowOutputArgs', 'OauthIntegrationForCustomClientsShowOutputArgsDict']]]]] = None) -> 'OauthIntegrationForCustomClients':
+            blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_allow_non_tls_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_type: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_enforce_pkce: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_issue_refresh_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+            oauth_use_secondary_roles: pulumi.Input[Optional[_builtins.str]] = None,
+            pre_authorized_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            related_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsRelatedParameterArgs', 'OauthIntegrationForCustomClientsRelatedParameterArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsShowOutputArgs', 'OauthIntegrationForCustomClientsShowOutputArgsDict']]]]] = None) -> 'OauthIntegrationForCustomClients':
         """
         Get an existing OauthIntegrationForCustomClients resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

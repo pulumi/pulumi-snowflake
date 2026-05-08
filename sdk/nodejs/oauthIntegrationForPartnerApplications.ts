@@ -162,55 +162,55 @@ export interface OauthIntegrationForPartnerApplicationsState {
     /**
      * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
-    blockedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedRolesLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the OAuth integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutput>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enabled?: pulumi.Input<string>;
+    enabled?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      */
-    oauthClient?: pulumi.Input<string>;
+    oauthClient?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    oauthIssueRefreshTokens?: pulumi.Input<string>;
+    oauthIssueRefreshTokens?: pulumi.Input<string | undefined>;
     /**
      * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
      */
-    oauthRedirectUri?: pulumi.Input<string>;
+    oauthRedirectUri?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
-    oauthRefreshTokenValidity?: pulumi.Input<number>;
+    oauthRefreshTokenValidity?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      */
-    oauthUseSecondaryRoles?: pulumi.Input<string>;
+    oauthUseSecondaryRoles?: pulumi.Input<string | undefined>;
     /**
      * Parameters related to this security integration.
      */
-    relatedParameters?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsRelatedParameter>[]>;
+    relatedParameters?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsRelatedParameter>[] | undefined>;
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsShowOutput>[] | undefined>;
 }
 
 /**
@@ -220,19 +220,19 @@ export interface OauthIntegrationForPartnerApplicationsArgs {
     /**
      * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
-    blockedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
+    blockedRolesLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the OAuth integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    enabled?: pulumi.Input<string>;
+    enabled?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      */
@@ -240,17 +240,17 @@ export interface OauthIntegrationForPartnerApplicationsArgs {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    oauthIssueRefreshTokens?: pulumi.Input<string>;
+    oauthIssueRefreshTokens?: pulumi.Input<string | undefined>;
     /**
      * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
      */
-    oauthRedirectUri?: pulumi.Input<string>;
+    oauthRedirectUri?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
-    oauthRefreshTokenValidity?: pulumi.Input<number>;
+    oauthRefreshTokenValidity?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      */
-    oauthUseSecondaryRoles?: pulumi.Input<string>;
+    oauthUseSecondaryRoles?: pulumi.Input<string | undefined>;
 }

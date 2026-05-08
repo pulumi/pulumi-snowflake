@@ -142,27 +142,27 @@ export interface SecondaryConnectionState {
     /**
      * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
      */
-    asReplicaOf?: pulumi.Input<string>;
+    asReplicaOf?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the secondary connection.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
      */
-    isPrimary?: pulumi.Input<boolean>;
+    isPrimary?: pulumi.Input<boolean | undefined>;
     /**
      * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW CONNECTIONS` for the given connection.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.SecondaryConnectionShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.SecondaryConnectionShowOutput>[] | undefined>;
 }
 
 /**
@@ -176,9 +176,9 @@ export interface SecondaryConnectionArgs {
     /**
      * Specifies a comment for the secondary connection.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

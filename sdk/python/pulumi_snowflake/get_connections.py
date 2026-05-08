@@ -91,7 +91,7 @@ def get_connections(like: Optional[_builtins.str] = None,
         connections=pulumi.get(__ret__, 'connections'),
         id=pulumi.get(__ret__, 'id'),
         like=pulumi.get(__ret__, 'like'))
-def get_connections_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_connections_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionsResult]:
     """
     Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.

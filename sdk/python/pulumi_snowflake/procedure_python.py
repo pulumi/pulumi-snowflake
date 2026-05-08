@@ -27,21 +27,21 @@ class ProcedurePythonArgs:
                  runtime_version: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
                  snowpark_package: pulumi.Input[_builtins.str],
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execute_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 imports: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 procedure_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execute_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 imports: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 procedure_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProcedurePython resource.
 
@@ -178,213 +178,213 @@ class ProcedurePythonArgs:
 
     @_builtins.property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]]:
+    def arguments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]]:
         """
         List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]]):
+    def arguments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]]):
         pulumi.set(self, "arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `user-defined procedure`) Specifies a comment for the procedure.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutput")
-    def enable_console_output(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_console_output(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
     @enable_console_output.setter
-    def enable_console_output(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_console_output(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_console_output", value)
 
     @_builtins.property
     @pulumi.getter(name="executeAs")
-    def execute_as(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execute_as(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
         """
         return pulumi.get(self, "execute_as")
 
     @execute_as.setter
-    def execute_as(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execute_as(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execute_as", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIntegrations")
-    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this procedure’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
         """
         return pulumi.get(self, "external_access_integrations")
 
     @external_access_integrations.setter
-    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_access_integrations", value)
 
     @_builtins.property
     @pulumi.getter
-    def imports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]]:
+    def imports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]]:
         """
         The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique name, even if the files are in different subdirectories or different stages.
         """
         return pulumi.get(self, "imports")
 
     @imports.setter
-    def imports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]]):
+    def imports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]]):
         pulumi.set(self, "imports", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecure")
-    def is_secure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_secure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_secure")
 
     @is_secure.setter
-    def is_secure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_secure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_secure", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="metricLevel")
-    def metric_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
     @metric_level.setter
-    def metric_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nullInputBehavior")
-    def null_input_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def null_input_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         """
         return pulumi.get(self, "null_input_behavior")
 
     @null_input_behavior.setter
-    def null_input_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def null_input_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "null_input_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the names of packages deployed in Snowflake that should be included in the handler code’s execution environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package` attribute. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
         """
         return pulumi.get(self, "packages")
 
     @packages.setter
-    def packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "packages", value)
 
     @_builtins.property
     @pulumi.getter(name="procedureDefinition")
-    def procedure_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def procedure_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be Python source code. For more information, see [Python (using Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-overview). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "procedure_definition")
 
     @procedure_definition.setter
-    def procedure_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def procedure_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "procedure_definition", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]]:
         """
         Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="traceLevel")
-    def trace_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trace_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
     @trace_level.setter
-    def trace_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trace_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trace_level", value)
 
 
 @pulumi.input_type
 class _ProcedurePythonState:
     def __init__(__self__, *,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execute_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 handler: Optional[pulumi.Input[_builtins.str]] = None,
-                 imports: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonParameterArgs']]]] = None,
-                 procedure_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 procedure_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonShowOutputArgs']]]] = None,
-                 snowpark_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None):
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execute_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 handler: pulumi.Input[Optional[_builtins.str]] = None,
+                 imports: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterArgs']]]] = None,
+                 procedure_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 procedure_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonShowOutputArgs']]]] = None,
+                 snowpark_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProcedurePython resources.
 
@@ -467,302 +467,302 @@ class _ProcedurePythonState:
 
     @_builtins.property
     @pulumi.getter
-    def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]]:
+    def arguments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]]:
         """
         List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
     @arguments.setter
-    def arguments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]]):
+    def arguments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonArgumentArgs']]]]):
         pulumi.set(self, "arguments", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `user-defined procedure`) Specifies a comment for the procedure.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutput")
-    def enable_console_output(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_console_output(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
     @enable_console_output.setter
-    def enable_console_output(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_console_output(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_console_output", value)
 
     @_builtins.property
     @pulumi.getter(name="executeAs")
-    def execute_as(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execute_as(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
         """
         return pulumi.get(self, "execute_as")
 
     @execute_as.setter
-    def execute_as(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execute_as(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execute_as", value)
 
     @_builtins.property
     @pulumi.getter(name="externalAccessIntegrations")
-    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this procedure’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
         """
         return pulumi.get(self, "external_access_integrations")
 
     @external_access_integrations.setter
-    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_access_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def handler(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def handler(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Use the name of the stored procedure’s function or method. This can differ depending on whether the code is in-line or referenced at a stage. When the code is in-line, you can specify just the function name. When the code is imported from a stage, specify the fully-qualified handler function name as `<module_name>.<function_name>`.
         """
         return pulumi.get(self, "handler")
 
     @handler.setter
-    def handler(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def handler(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "handler", value)
 
     @_builtins.property
     @pulumi.getter
-    def imports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]]:
+    def imports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]]:
         """
         The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique name, even if the files are in different subdirectories or different stages.
         """
         return pulumi.get(self, "imports")
 
     @imports.setter
-    def imports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]]):
+    def imports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonImportArgs']]]]):
         pulumi.set(self, "imports", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecure")
-    def is_secure(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def is_secure(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_secure")
 
     @is_secure.setter
-    def is_secure(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def is_secure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_secure", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="metricLevel")
-    def metric_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def metric_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
     @metric_level.setter
-    def metric_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def metric_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "metric_level", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nullInputBehavior")
-    def null_input_behavior(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def null_input_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         """
         return pulumi.get(self, "null_input_behavior")
 
     @null_input_behavior.setter
-    def null_input_behavior(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def null_input_behavior(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "null_input_behavior", value)
 
     @_builtins.property
     @pulumi.getter
-    def packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def packages(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of the names of packages deployed in Snowflake that should be included in the handler code’s execution environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package` attribute. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
         """
         return pulumi.get(self, "packages")
 
     @packages.setter
-    def packages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def packages(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "packages", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonParameterArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterArgs']]]]:
         """
         Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonParameterArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="procedureDefinition")
-    def procedure_definition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def procedure_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be Python source code. For more information, see [Python (using Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-overview). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "procedure_definition")
 
     @procedure_definition.setter
-    def procedure_definition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def procedure_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "procedure_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="procedureLanguage")
-    def procedure_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def procedure_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies language for the procedure. Used to detect external changes.
         """
         return pulumi.get(self, "procedure_language")
 
     @procedure_language.setter
-    def procedure_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def procedure_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "procedure_language", value)
 
     @_builtins.property
     @pulumi.getter(name="returnType")
-    def return_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def return_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL-Python Data Type Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-python-data-type-mappings)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
         """
         return pulumi.get(self, "return_type")
 
     @return_type.setter
-    def return_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def return_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "return_type", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeVersion")
-    def runtime_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def runtime_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The language runtime version to use. Currently, the supported versions are: 3.9, 3.10, and 3.11.
         """
         return pulumi.get(self, "runtime_version")
 
     @runtime_version.setter
-    def runtime_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def runtime_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]]:
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]]:
         """
         Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]]):
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonSecretArgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW PROCEDURE` for the given procedure.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProcedurePythonShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="snowparkPackage")
-    def snowpark_package(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def snowpark_package(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Snowpark package is required for stored procedures, so it must always be present. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
         """
         return pulumi.get(self, "snowpark_package")
 
     @snowpark_package.setter
-    def snowpark_package(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def snowpark_package(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "snowpark_package", value)
 
     @_builtins.property
     @pulumi.getter(name="traceLevel")
-    def trace_level(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def trace_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
     @trace_level.setter
-    def trace_level(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def trace_level(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trace_level", value)
 
 
@@ -772,27 +772,27 @@ class ProcedurePython(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonArgumentArgs', 'ProcedurePythonArgumentArgsDict']]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execute_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handler: Optional[pulumi.Input[_builtins.str]] = None,
-                 imports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonImportArgs', 'ProcedurePythonImportArgsDict']]]]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 procedure_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonSecretArgs', 'ProcedurePythonSecretArgsDict']]]]] = None,
-                 snowpark_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonArgumentArgs', 'ProcedurePythonArgumentArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execute_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 handler: pulumi.Input[Optional[_builtins.str]] = None,
+                 imports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonImportArgs', 'ProcedurePythonImportArgsDict']]]]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 procedure_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonSecretArgs', 'ProcedurePythonSecretArgsDict']]]]] = None,
+                 snowpark_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -977,27 +977,27 @@ class ProcedurePython(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonArgumentArgs', 'ProcedurePythonArgumentArgsDict']]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-                 execute_as: Optional[pulumi.Input[_builtins.str]] = None,
-                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 handler: Optional[pulumi.Input[_builtins.str]] = None,
-                 imports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonImportArgs', 'ProcedurePythonImportArgsDict']]]]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.str]] = None,
-                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 metric_level: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-                 packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 procedure_definition: Optional[pulumi.Input[_builtins.str]] = None,
-                 return_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonSecretArgs', 'ProcedurePythonSecretArgsDict']]]]] = None,
-                 snowpark_package: Optional[pulumi.Input[_builtins.str]] = None,
-                 trace_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonArgumentArgs', 'ProcedurePythonArgumentArgsDict']]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+                 execute_as: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 handler: pulumi.Input[Optional[_builtins.str]] = None,
+                 imports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonImportArgs', 'ProcedurePythonImportArgsDict']]]]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+                 packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 procedure_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 return_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonSecretArgs', 'ProcedurePythonSecretArgsDict']]]]] = None,
+                 snowpark_package: pulumi.Input[Optional[_builtins.str]] = None,
+                 trace_level: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1054,31 +1054,31 @@ class ProcedurePython(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arguments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonArgumentArgs', 'ProcedurePythonArgumentArgsDict']]]]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            enable_console_output: Optional[pulumi.Input[_builtins.bool]] = None,
-            execute_as: Optional[pulumi.Input[_builtins.str]] = None,
-            external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            handler: Optional[pulumi.Input[_builtins.str]] = None,
-            imports: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonImportArgs', 'ProcedurePythonImportArgsDict']]]]] = None,
-            is_secure: Optional[pulumi.Input[_builtins.str]] = None,
-            log_level: Optional[pulumi.Input[_builtins.str]] = None,
-            metric_level: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            null_input_behavior: Optional[pulumi.Input[_builtins.str]] = None,
-            packages: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonParameterArgs', 'ProcedurePythonParameterArgsDict']]]]] = None,
-            procedure_definition: Optional[pulumi.Input[_builtins.str]] = None,
-            procedure_language: Optional[pulumi.Input[_builtins.str]] = None,
-            return_type: Optional[pulumi.Input[_builtins.str]] = None,
-            runtime_version: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            secrets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonSecretArgs', 'ProcedurePythonSecretArgsDict']]]]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ProcedurePythonShowOutputArgs', 'ProcedurePythonShowOutputArgsDict']]]]] = None,
-            snowpark_package: Optional[pulumi.Input[_builtins.str]] = None,
-            trace_level: Optional[pulumi.Input[_builtins.str]] = None) -> 'ProcedurePython':
+            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonArgumentArgs', 'ProcedurePythonArgumentArgsDict']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+            execute_as: pulumi.Input[Optional[_builtins.str]] = None,
+            external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            handler: pulumi.Input[Optional[_builtins.str]] = None,
+            imports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonImportArgs', 'ProcedurePythonImportArgsDict']]]]] = None,
+            is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+            log_level: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonParameterArgs', 'ProcedurePythonParameterArgsDict']]]]] = None,
+            procedure_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            procedure_language: pulumi.Input[Optional[_builtins.str]] = None,
+            return_type: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonSecretArgs', 'ProcedurePythonSecretArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedurePythonShowOutputArgs', 'ProcedurePythonShowOutputArgsDict']]]]] = None,
+            snowpark_package: pulumi.Input[Optional[_builtins.str]] = None,
+            trace_level: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProcedurePython':
         """
         Get an existing ProcedurePython resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

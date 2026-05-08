@@ -440,71 +440,71 @@ export interface StageExternalS3State {
     /**
      * Specifies the ARN for an AWS S3 Access Point to use for data transfer.
      */
-    awsAccessPointArn?: pulumi.Input<string>;
+    awsAccessPointArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies a cloud provider for the stage. This field is used for checking external changes and recreating the resources if needed.
      */
-    cloud?: pulumi.Input<string>;
+    cloud?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the stage.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the AWS credentials for the external stage.
      */
-    credentials?: pulumi.Input<inputs.StageExternalS3Credentials>;
+    credentials?: pulumi.Input<inputs.StageExternalS3Credentials | undefined>;
     /**
      * The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE STAGE` for the given stage.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3DescribeOutput>[] | undefined>;
     /**
      * Directory tables store a catalog of staged files in cloud storage.
      */
-    directory?: pulumi.Input<inputs.StageExternalS3Directory>;
+    directory?: pulumi.Input<inputs.StageExternalS3Directory | undefined>;
     /**
      * Specifies the encryption settings for the S3 external stage.
      */
-    encryption?: pulumi.Input<inputs.StageExternalS3Encryption>;
+    encryption?: pulumi.Input<inputs.StageExternalS3Encryption | undefined>;
     /**
      * Specifies the file format for the stage.
      */
-    fileFormat?: pulumi.Input<inputs.StageExternalS3FileFormat>;
+    fileFormat?: pulumi.Input<inputs.StageExternalS3FileFormat | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW STAGES` for the given stage.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3ShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.StageExternalS3ShowOutput>[] | undefined>;
     /**
      * Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
      */
-    stageType?: pulumi.Input<string>;
+    stageType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    storageIntegration?: pulumi.Input<string>;
+    storageIntegration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL for the S3 bucket (e.g., 's3://bucket-name/path/').
      */
-    url?: pulumi.Input<string>;
+    url?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a private link endpoint for S3 storage.
      */
-    usePrivatelinkEndpoint?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -514,15 +514,15 @@ export interface StageExternalS3Args {
     /**
      * Specifies the ARN for an AWS S3 Access Point to use for data transfer.
      */
-    awsAccessPointArn?: pulumi.Input<string>;
+    awsAccessPointArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the stage.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the AWS credentials for the external stage.
      */
-    credentials?: pulumi.Input<inputs.StageExternalS3Credentials>;
+    credentials?: pulumi.Input<inputs.StageExternalS3Credentials | undefined>;
     /**
      * The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -530,19 +530,19 @@ export interface StageExternalS3Args {
     /**
      * Directory tables store a catalog of staged files in cloud storage.
      */
-    directory?: pulumi.Input<inputs.StageExternalS3Directory>;
+    directory?: pulumi.Input<inputs.StageExternalS3Directory | undefined>;
     /**
      * Specifies the encryption settings for the S3 external stage.
      */
-    encryption?: pulumi.Input<inputs.StageExternalS3Encryption>;
+    encryption?: pulumi.Input<inputs.StageExternalS3Encryption | undefined>;
     /**
      * Specifies the file format for the stage.
      */
-    fileFormat?: pulumi.Input<inputs.StageExternalS3FileFormat>;
+    fileFormat?: pulumi.Input<inputs.StageExternalS3FileFormat | undefined>;
     /**
      * Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -550,7 +550,7 @@ export interface StageExternalS3Args {
     /**
      * Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    storageIntegration?: pulumi.Input<string>;
+    storageIntegration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL for the S3 bucket (e.g., 's3://bucket-name/path/').
      */
@@ -558,5 +558,5 @@ export interface StageExternalS3Args {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a private link endpoint for S3 storage.
      */
-    usePrivatelinkEndpoint?: pulumi.Input<string>;
+    usePrivatelinkEndpoint?: pulumi.Input<string | undefined>;
 }

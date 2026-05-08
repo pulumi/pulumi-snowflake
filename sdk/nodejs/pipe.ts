@@ -155,51 +155,51 @@ export interface PipeState {
     /**
      * (Default: `false`) Specifies a autoIngest param for the pipe.
      */
-    autoIngest?: pulumi.Input<boolean>;
+    autoIngest?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
      */
-    awsSnsTopicArn?: pulumi.Input<string>;
+    awsSnsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the pipe.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the copy statement for the pipe.
      */
-    copyStatement?: pulumi.Input<string>;
+    copyStatement?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the pipe.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the notification integration used for error notifications.
      */
-    errorIntegration?: pulumi.Input<string>;
+    errorIntegration?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies an integration for the pipe.
      */
-    integration?: pulumi.Input<string>;
+    integration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
      */
-    notificationChannel?: pulumi.Input<string>;
+    notificationChannel?: pulumi.Input<string | undefined>;
     /**
      * Name of the role that owns the pipe.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the pipe.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -209,15 +209,15 @@ export interface PipeArgs {
     /**
      * (Default: `false`) Specifies a autoIngest param for the pipe.
      */
-    autoIngest?: pulumi.Input<boolean>;
+    autoIngest?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
      */
-    awsSnsTopicArn?: pulumi.Input<string>;
+    awsSnsTopicArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the pipe.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the copy statement for the pipe.
      */
@@ -229,15 +229,15 @@ export interface PipeArgs {
     /**
      * Specifies the name of the notification integration used for error notifications.
      */
-    errorIntegration?: pulumi.Input<string>;
+    errorIntegration?: pulumi.Input<string | undefined>;
     /**
      * Specifies an integration for the pipe.
      */
-    integration?: pulumi.Input<string>;
+    integration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the pipe.
      */

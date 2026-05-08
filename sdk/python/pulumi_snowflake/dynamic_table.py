@@ -26,11 +26,11 @@ class DynamicTableArgs:
                  schema: pulumi.Input[_builtins.str],
                  target_lag: pulumi.Input['DynamicTableTargetLagArgs'],
                  warehouse: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 initialize: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 refresh_mode: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 initialize: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 refresh_mode: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DynamicTable resource.
 
@@ -123,91 +123,91 @@ class DynamicTableArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the dynamic table.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def initialize(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initialize(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         """
         return pulumi.get(self, "initialize")
 
     @initialize.setter
-    def initialize(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initialize(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initialize", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="orReplace")
-    def or_replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def or_replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
         """
         return pulumi.get(self, "or_replace")
 
     @or_replace.setter
-    def or_replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def or_replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "or_replace", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshMode")
-    def refresh_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         """
         return pulumi.get(self, "refresh_mode")
 
     @refresh_mode.setter
-    def refresh_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_mode", value)
 
 
 @pulumi.input_type
 class _DynamicTableState:
     def __init__(__self__, *,
-                 automatic_clustering: Optional[pulumi.Input[_builtins.bool]] = None,
-                 bytes: Optional[pulumi.Input[_builtins.int]] = None,
-                 cluster_by: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 initialize: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_clone: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_replica: Optional[pulumi.Input[_builtins.bool]] = None,
-                 last_suspended_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_mode_reason: Optional[pulumi.Input[_builtins.str]] = None,
-                 rows: Optional[pulumi.Input[_builtins.int]] = None,
-                 scheduling_state: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_lag: Optional[pulumi.Input['DynamicTableTargetLagArgs']] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None):
+                 automatic_clustering: pulumi.Input[Optional[_builtins.bool]] = None,
+                 bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 cluster_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 initialize: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_clone: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_replica: pulumi.Input[Optional[_builtins.bool]] = None,
+                 last_suspended_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_mode_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 scheduling_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_lag: pulumi.Input[Optional['DynamicTableTargetLagArgs']] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering DynamicTable resources.
 
@@ -284,278 +284,278 @@ class _DynamicTableState:
 
     @_builtins.property
     @pulumi.getter(name="automaticClustering")
-    def automatic_clustering(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automatic_clustering(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
         """
         return pulumi.get(self, "automatic_clustering")
 
     @automatic_clustering.setter
-    def automatic_clustering(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automatic_clustering(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_clustering", value)
 
     @_builtins.property
     @pulumi.getter
-    def bytes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
         """
         return pulumi.get(self, "bytes")
 
     @bytes.setter
-    def bytes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterBy")
-    def cluster_by(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_by(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The clustering key for the dynamic table.
         """
         return pulumi.get(self, "cluster_by")
 
     @cluster_by.setter
-    def cluster_by(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the dynamic table.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time when this dynamic table was created.
         """
         return pulumi.get(self, "created_on")
 
     @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_on", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTimestamp")
-    def data_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp of the data in the base object(s) that is included in the dynamic table.
         """
         return pulumi.get(self, "data_timestamp")
 
     @data_timestamp.setter
-    def data_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_timestamp", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the dynamic table.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def initialize(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initialize(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         """
         return pulumi.get(self, "initialize")
 
     @initialize.setter
-    def initialize(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initialize(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initialize", value)
 
     @_builtins.property
     @pulumi.getter(name="isClone")
-    def is_clone(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_clone(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         TRUE if the dynamic table has been cloned, else FALSE.
         """
         return pulumi.get(self, "is_clone")
 
     @is_clone.setter
-    def is_clone(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_clone(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_clone", value)
 
     @_builtins.property
     @pulumi.getter(name="isReplica")
-    def is_replica(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_replica(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         TRUE if the dynamic table is a replica. else FALSE.
         """
         return pulumi.get(self, "is_replica")
 
     @is_replica.setter
-    def is_replica(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_replica(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_replica", value)
 
     @_builtins.property
     @pulumi.getter(name="lastSuspendedOn")
-    def last_suspended_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def last_suspended_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Timestamp of last suspension.
         """
         return pulumi.get(self, "last_suspended_on")
 
     @last_suspended_on.setter
-    def last_suspended_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def last_suspended_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_suspended_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="orReplace")
-    def or_replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def or_replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
         """
         return pulumi.get(self, "or_replace")
 
     @or_replace.setter
-    def or_replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def or_replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "or_replace", value)
 
     @_builtins.property
     @pulumi.getter
-    def owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Role that owns the dynamic table.
         """
         return pulumi.get(self, "owner")
 
     @owner.setter
-    def owner(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "owner", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the query to use to populate the dynamic table.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshMode")
-    def refresh_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         """
         return pulumi.get(self, "refresh_mode")
 
     @refresh_mode.setter
-    def refresh_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="refreshModeReason")
-    def refresh_mode_reason(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def refresh_mode_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
         """
         return pulumi.get(self, "refresh_mode_reason")
 
     @refresh_mode_reason.setter
-    def refresh_mode_reason(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def refresh_mode_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "refresh_mode_reason", value)
 
     @_builtins.property
     @pulumi.getter
-    def rows(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def rows(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of rows in the table.
         """
         return pulumi.get(self, "rows")
 
     @rows.setter
-    def rows(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def rows(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "rows", value)
 
     @_builtins.property
     @pulumi.getter(name="schedulingState")
-    def scheduling_state(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def scheduling_state(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         """
         return pulumi.get(self, "scheduling_state")
 
     @scheduling_state.setter
-    def scheduling_state(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def scheduling_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "scheduling_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the dynamic table.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="targetLag")
-    def target_lag(self) -> Optional[pulumi.Input['DynamicTableTargetLagArgs']]:
+    def target_lag(self) -> pulumi.Input[Optional['DynamicTableTargetLagArgs']]:
         """
         Specifies the target lag time for the dynamic table.
         """
         return pulumi.get(self, "target_lag")
 
     @target_lag.setter
-    def target_lag(self, value: Optional[pulumi.Input['DynamicTableTargetLagArgs']]):
+    def target_lag(self, value: pulumi.Input[Optional['DynamicTableTargetLagArgs']]):
         pulumi.set(self, "target_lag", value)
 
     @_builtins.property
     @pulumi.getter
-    def warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The warehouse in which to create the dynamic table.
         """
         return pulumi.get(self, "warehouse")
 
     @warehouse.setter
-    def warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "warehouse", value)
 
 
@@ -565,16 +565,16 @@ class DynamicTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 initialize: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_lag: Optional[pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 initialize: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_lag: pulumi.Input[Optional[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -678,16 +678,16 @@ class DynamicTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 initialize: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 refresh_mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_lag: Optional[pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 initialize: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_lag: pulumi.Input[Optional[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -740,29 +740,29 @@ class DynamicTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            automatic_clustering: Optional[pulumi.Input[_builtins.bool]] = None,
-            bytes: Optional[pulumi.Input[_builtins.int]] = None,
-            cluster_by: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            created_on: Optional[pulumi.Input[_builtins.str]] = None,
-            data_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            initialize: Optional[pulumi.Input[_builtins.str]] = None,
-            is_clone: Optional[pulumi.Input[_builtins.bool]] = None,
-            is_replica: Optional[pulumi.Input[_builtins.bool]] = None,
-            last_suspended_on: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-            owner: Optional[pulumi.Input[_builtins.str]] = None,
-            query: Optional[pulumi.Input[_builtins.str]] = None,
-            refresh_mode: Optional[pulumi.Input[_builtins.str]] = None,
-            refresh_mode_reason: Optional[pulumi.Input[_builtins.str]] = None,
-            rows: Optional[pulumi.Input[_builtins.int]] = None,
-            scheduling_state: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            target_lag: Optional[pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
-            warehouse: Optional[pulumi.Input[_builtins.str]] = None) -> 'DynamicTable':
+            automatic_clustering: pulumi.Input[Optional[_builtins.bool]] = None,
+            bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            cluster_by: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            data_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            initialize: pulumi.Input[Optional[_builtins.str]] = None,
+            is_clone: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_replica: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_suspended_on: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_mode_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            rows: pulumi.Input[Optional[_builtins.int]] = None,
+            scheduling_state: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            target_lag: pulumi.Input[Optional[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
+            warehouse: pulumi.Input[Optional[_builtins.str]] = None) -> 'DynamicTable':
         """
         Get an existing DynamicTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

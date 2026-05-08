@@ -96,17 +96,17 @@ export interface GetRowAccessPoliciesOutputArgs {
     /**
      * IN clause to filter the list of row access policies
      */
-    in?: pulumi.Input<inputs.GetRowAccessPoliciesInArgs>;
+    in?: pulumi.Input<inputs.GetRowAccessPoliciesInArgs | undefined>;
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      */
-    limit?: pulumi.Input<inputs.GetRowAccessPoliciesLimitArgs>;
+    limit?: pulumi.Input<inputs.GetRowAccessPoliciesLimitArgs | undefined>;
     /**
      * (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
-    withDescribe?: pulumi.Input<boolean>;
+    withDescribe?: pulumi.Input<boolean | undefined>;
 }

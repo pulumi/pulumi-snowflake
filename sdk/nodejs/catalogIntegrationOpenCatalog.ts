@@ -190,43 +190,43 @@ export interface CatalogIntegrationOpenCatalogState {
     /**
      * Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
      */
-    catalogNamespace?: pulumi.Input<string>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Specifies a comment for the catalog integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationOpenCatalogDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationOpenCatalogDescribeOutput>[] | undefined>;
     /**
      * Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
      */
-    refreshIntervalSeconds?: pulumi.Input<number>;
+    refreshIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies authentication details that Snowflake uses to connect to Open Catalog.
      */
-    restAuthentication?: pulumi.Input<inputs.CatalogIntegrationOpenCatalogRestAuthentication>;
+    restAuthentication?: pulumi.Input<inputs.CatalogIntegrationOpenCatalogRestAuthentication | undefined>;
     /**
      * Specifies information about the Open Catalog account and catalog name.
      */
-    restConfig?: pulumi.Input<inputs.CatalogIntegrationOpenCatalogRestConfig>;
+    restConfig?: pulumi.Input<inputs.CatalogIntegrationOpenCatalogRestConfig | undefined>;
     /**
      * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationOpenCatalogShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationOpenCatalogShowOutput>[] | undefined>;
 }
 
 /**
@@ -236,11 +236,11 @@ export interface CatalogIntegrationOpenCatalogArgs {
     /**
      * Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
      */
-    catalogNamespace?: pulumi.Input<string>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Specifies a comment for the catalog integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
      */
@@ -248,11 +248,11 @@ export interface CatalogIntegrationOpenCatalogArgs {
     /**
      * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
      */
-    refreshIntervalSeconds?: pulumi.Input<number>;
+    refreshIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies authentication details that Snowflake uses to connect to Open Catalog.
      */

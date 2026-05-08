@@ -141,35 +141,35 @@ export interface ListingState {
     /**
      * Specifies the application package attached to the listing.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the listing.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    manifest?: pulumi.Input<inputs.ListingManifest>;
+    manifest?: pulumi.Input<inputs.ListingManifest | undefined>;
     /**
      * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.
      */
-    publish?: pulumi.Input<string>;
+    publish?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the share to attach to the listing.
      */
-    share?: pulumi.Input<string>;
+    share?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW LISTINGS` for the given listing.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.ListingShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ListingShowOutput>[] | undefined>;
 }
 
 /**
@@ -179,11 +179,11 @@ export interface ListingArgs {
     /**
      * Specifies the application package attached to the listing.
      */
-    applicationPackage?: pulumi.Input<string>;
+    applicationPackage?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the listing.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
@@ -191,13 +191,13 @@ export interface ListingArgs {
     /**
      * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.
      */
-    publish?: pulumi.Input<string>;
+    publish?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the share to attach to the listing.
      */
-    share?: pulumi.Input<string>;
+    share?: pulumi.Input<string | undefined>;
 }

@@ -23,17 +23,17 @@ class AuthenticationPolicyArgs:
     def __init__(__self__, *,
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
-                 authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]] = None,
-                 client_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_policy: Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pat_policy: Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']] = None,
-                 security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workload_identity_policy: Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']] = None):
+                 authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_policies: pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]] = None,
+                 client_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mfa_enrollment: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_policy: pulumi.Input[Optional['AuthenticationPolicyMfaPolicyArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pat_policy: pulumi.Input[Optional['AuthenticationPolicyPatPolicyArgs']] = None,
+                 security_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workload_identity_policy: pulumi.Input[Optional['AuthenticationPolicyWorkloadIdentityPolicyArgs']] = None):
         """
         The set of arguments for constructing a AuthenticationPolicy resource.
 
@@ -105,157 +105,157 @@ class AuthenticationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethods")
-    def authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authentication_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
         """
         return pulumi.get(self, "authentication_methods")
 
     @authentication_methods.setter
-    def authentication_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authentication_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="clientPolicies")
-    def client_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]:
+    def client_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]:
         """
         Allows to set policies per-client type. Only valid when `client_types` is empty, contains ALL, or contains DRIVERS.
         """
         return pulumi.get(self, "client_policies")
 
     @client_policies.setter
-    def client_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]):
+    def client_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]):
         pulumi.set(self, "client_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="clientTypes")
-    def client_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def client_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         """
         return pulumi.get(self, "client_types")
 
     @client_types.setter
-    def client_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def client_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the authentication policy.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaAuthenticationMethods")
     @_utilities.deprecated("""This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforce_mfa_on_external_authentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.""")
-    def mfa_authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def mfa_authentication_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
         """
         return pulumi.get(self, "mfa_authentication_methods")
 
     @mfa_authentication_methods.setter
-    def mfa_authentication_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def mfa_authentication_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "mfa_authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaEnrollment")
-    def mfa_enrollment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mfa_enrollment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `client_types` parameter must include `snowflake_ui`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA). Note that when you set this value to OPTIONAL, and your account setup forces users to enroll in MFA, then Snowflake may set quietly this value to `REQUIRED_PASSWORD_ONLY`, which may cause permadiff. In this case, you may want to adjust this field value.
         """
         return pulumi.get(self, "mfa_enrollment")
 
     @mfa_enrollment.setter
-    def mfa_enrollment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mfa_enrollment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mfa_enrollment", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaPolicy")
-    def mfa_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']]:
+    def mfa_policy(self) -> pulumi.Input[Optional['AuthenticationPolicyMfaPolicyArgs']]:
         """
         Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
         """
         return pulumi.get(self, "mfa_policy")
 
     @mfa_policy.setter
-    def mfa_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']]):
+    def mfa_policy(self, value: pulumi.Input[Optional['AuthenticationPolicyMfaPolicyArgs']]):
         pulumi.set(self, "mfa_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="patPolicy")
-    def pat_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']]:
+    def pat_policy(self) -> pulumi.Input[Optional['AuthenticationPolicyPatPolicyArgs']]:
         """
         Specifies the policy for programmatic access tokens.
         """
         return pulumi.get(self, "pat_policy")
 
     @pat_policy.setter
-    def pat_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']]):
+    def pat_policy(self, value: pulumi.Input[Optional['AuthenticationPolicyPatPolicyArgs']]):
         pulumi.set(self, "pat_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="securityIntegrations")
-    def security_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authentication_methods` list. All values in the `security_integrations` list must be compatible with the values in the `authentication_methods` list. For example, if `security_integrations` contains a SAML security integration, and `authentication_methods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
         """
         return pulumi.get(self, "security_integrations")
 
     @security_integrations.setter
-    def security_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityPolicy")
-    def workload_identity_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']]:
+    def workload_identity_policy(self) -> pulumi.Input[Optional['AuthenticationPolicyWorkloadIdentityPolicyArgs']]:
         """
         Specifies the policy for workload identity federation.
         """
         return pulumi.get(self, "workload_identity_policy")
 
     @workload_identity_policy.setter
-    def workload_identity_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']]):
+    def workload_identity_policy(self, value: pulumi.Input[Optional['AuthenticationPolicyWorkloadIdentityPolicyArgs']]):
         pulumi.set(self, "workload_identity_policy", value)
 
 
 @pulumi.input_type
 class _AuthenticationPolicyState:
     def __init__(__self__, *,
-                 authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_policies: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]] = None,
-                 client_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyDescribeOutputArgs']]]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_policy: Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pat_policy: Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyShowOutputArgs']]]] = None,
-                 workload_identity_policy: Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']] = None):
+                 authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_policies: pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]] = None,
+                 client_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyDescribeOutputArgs']]]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mfa_enrollment: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_policy: pulumi.Input[Optional['AuthenticationPolicyMfaPolicyArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pat_policy: pulumi.Input[Optional['AuthenticationPolicyPatPolicyArgs']] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyShowOutputArgs']]]] = None,
+                 workload_identity_policy: pulumi.Input[Optional['AuthenticationPolicyWorkloadIdentityPolicyArgs']] = None):
         """
         Input properties used for looking up and filtering AuthenticationPolicy resources.
 
@@ -314,195 +314,195 @@ class _AuthenticationPolicyState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationMethods")
-    def authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def authentication_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
         """
         return pulumi.get(self, "authentication_methods")
 
     @authentication_methods.setter
-    def authentication_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def authentication_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="clientPolicies")
-    def client_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]:
+    def client_policies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]:
         """
         Allows to set policies per-client type. Only valid when `client_types` is empty, contains ALL, or contains DRIVERS.
         """
         return pulumi.get(self, "client_policies")
 
     @client_policies.setter
-    def client_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]):
+    def client_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyClientPolicyArgs']]]]):
         pulumi.set(self, "client_policies", value)
 
     @_builtins.property
     @pulumi.getter(name="clientTypes")
-    def client_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def client_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `client_types`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `client_types` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
         """
         return pulumi.get(self, "client_types")
 
     @client_types.setter
-    def client_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def client_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_types", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the authentication policy.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaAuthenticationMethods")
     @_utilities.deprecated("""This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforce_mfa_on_external_authentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.""")
-    def mfa_authentication_methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def mfa_authentication_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
         """
         return pulumi.get(self, "mfa_authentication_methods")
 
     @mfa_authentication_methods.setter
-    def mfa_authentication_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def mfa_authentication_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "mfa_authentication_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaEnrollment")
-    def mfa_enrollment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mfa_enrollment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `client_types` parameter must include `snowflake_ui`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA). Note that when you set this value to OPTIONAL, and your account setup forces users to enroll in MFA, then Snowflake may set quietly this value to `REQUIRED_PASSWORD_ONLY`, which may cause permadiff. In this case, you may want to adjust this field value.
         """
         return pulumi.get(self, "mfa_enrollment")
 
     @mfa_enrollment.setter
-    def mfa_enrollment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mfa_enrollment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mfa_enrollment", value)
 
     @_builtins.property
     @pulumi.getter(name="mfaPolicy")
-    def mfa_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']]:
+    def mfa_policy(self) -> pulumi.Input[Optional['AuthenticationPolicyMfaPolicyArgs']]:
         """
         Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
         """
         return pulumi.get(self, "mfa_policy")
 
     @mfa_policy.setter
-    def mfa_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyMfaPolicyArgs']]):
+    def mfa_policy(self, value: pulumi.Input[Optional['AuthenticationPolicyMfaPolicyArgs']]):
         pulumi.set(self, "mfa_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="patPolicy")
-    def pat_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']]:
+    def pat_policy(self) -> pulumi.Input[Optional['AuthenticationPolicyPatPolicyArgs']]:
         """
         Specifies the policy for programmatic access tokens.
         """
         return pulumi.get(self, "pat_policy")
 
     @pat_policy.setter
-    def pat_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyPatPolicyArgs']]):
+    def pat_policy(self, value: pulumi.Input[Optional['AuthenticationPolicyPatPolicyArgs']]):
         pulumi.set(self, "pat_policy", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="securityIntegrations")
-    def security_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def security_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authentication_methods` list. All values in the `security_integrations` list must be compatible with the values in the `authentication_methods` list. For example, if `security_integrations` contains a SAML security integration, and `authentication_methods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
         """
         return pulumi.get(self, "security_integrations")
 
     @security_integrations.setter
-    def security_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def security_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_integrations", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthenticationPolicyShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthenticationPolicyShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityPolicy")
-    def workload_identity_policy(self) -> Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']]:
+    def workload_identity_policy(self) -> pulumi.Input[Optional['AuthenticationPolicyWorkloadIdentityPolicyArgs']]:
         """
         Specifies the policy for workload identity federation.
         """
         return pulumi.get(self, "workload_identity_policy")
 
     @workload_identity_policy.setter
-    def workload_identity_policy(self, value: Optional[pulumi.Input['AuthenticationPolicyWorkloadIdentityPolicyArgs']]):
+    def workload_identity_policy(self, value: pulumi.Input[Optional['AuthenticationPolicyWorkloadIdentityPolicyArgs']]):
         pulumi.set(self, "workload_identity_policy", value)
 
 
@@ -512,19 +512,19 @@ class AuthenticationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]]] = None,
-                 client_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_policy: Optional[pulumi.Input[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pat_policy: Optional[pulumi.Input[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workload_identity_policy: Optional[pulumi.Input[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']]] = None,
+                 authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]]] = None,
+                 client_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mfa_enrollment: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_policy: pulumi.Input[Optional[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pat_policy: pulumi.Input[Optional[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workload_identity_policy: pulumi.Input[Optional[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -691,19 +691,19 @@ class AuthenticationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 client_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]]] = None,
-                 client_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
-                 mfa_policy: Optional[pulumi.Input[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 pat_policy: Optional[pulumi.Input[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 workload_identity_policy: Optional[pulumi.Input[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']]] = None,
+                 authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 client_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]]] = None,
+                 client_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mfa_enrollment: pulumi.Input[Optional[_builtins.str]] = None,
+                 mfa_policy: pulumi.Input[Optional[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 pat_policy: pulumi.Input[Optional[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 workload_identity_policy: pulumi.Input[Optional[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -743,22 +743,22 @@ class AuthenticationPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            client_policies: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]]] = None,
-            client_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyDescribeOutputArgs', 'AuthenticationPolicyDescribeOutputArgsDict']]]]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            mfa_authentication_methods: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            mfa_enrollment: Optional[pulumi.Input[_builtins.str]] = None,
-            mfa_policy: Optional[pulumi.Input[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            pat_policy: Optional[pulumi.Input[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            security_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AuthenticationPolicyShowOutputArgs', 'AuthenticationPolicyShowOutputArgsDict']]]]] = None,
-            workload_identity_policy: Optional[pulumi.Input[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']]] = None) -> 'AuthenticationPolicy':
+            authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            client_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict']]]]] = None,
+            client_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticationPolicyDescribeOutputArgs', 'AuthenticationPolicyDescribeOutputArgsDict']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mfa_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mfa_enrollment: pulumi.Input[Optional[_builtins.str]] = None,
+            mfa_policy: pulumi.Input[Optional[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pat_policy: pulumi.Input[Optional[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict']]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            security_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticationPolicyShowOutputArgs', 'AuthenticationPolicyShowOutputArgsDict']]]]] = None,
+            workload_identity_policy: pulumi.Input[Optional[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict']]] = None) -> 'AuthenticationPolicy':
         """
         Get an existing AuthenticationPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

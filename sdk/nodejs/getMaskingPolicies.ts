@@ -96,17 +96,17 @@ export interface GetMaskingPoliciesOutputArgs {
     /**
      * IN clause to filter the list of masking policies
      */
-    in?: pulumi.Input<inputs.GetMaskingPoliciesInArgs>;
+    in?: pulumi.Input<inputs.GetMaskingPoliciesInArgs | undefined>;
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      */
-    limit?: pulumi.Input<inputs.GetMaskingPoliciesLimitArgs>;
+    limit?: pulumi.Input<inputs.GetMaskingPoliciesLimitArgs | undefined>;
     /**
      * (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
-    withDescribe?: pulumi.Input<boolean>;
+    withDescribe?: pulumi.Input<boolean | undefined>;
 }

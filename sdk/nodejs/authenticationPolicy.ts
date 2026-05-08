@@ -232,69 +232,69 @@ export interface AuthenticationPolicyState {
     /**
      * A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
      */
-    authenticationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    authenticationMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
      */
-    clientPolicies?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyClientPolicy>[]>;
+    clientPolicies?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyClientPolicy>[] | undefined>;
     /**
      * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
      */
-    clientTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    clientTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the authentication policy.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
      *
      * @deprecated This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
      */
-    mfaAuthenticationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    mfaAuthenticationMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `clientTypes` parameter must include `snowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA). Note that when you set this value to OPTIONAL, and your account setup forces users to enroll in MFA, then Snowflake may set quietly this value to `REQUIRED_PASSWORD_ONLY`, which may cause permadiff. In this case, you may want to adjust this field value.
      */
-    mfaEnrollment?: pulumi.Input<string>;
+    mfaEnrollment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
      */
-    mfaPolicy?: pulumi.Input<inputs.AuthenticationPolicyMfaPolicy>;
+    mfaPolicy?: pulumi.Input<inputs.AuthenticationPolicyMfaPolicy | undefined>;
     /**
      * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the policy for programmatic access tokens.
      */
-    patPolicy?: pulumi.Input<inputs.AuthenticationPolicyPatPolicy>;
+    patPolicy?: pulumi.Input<inputs.AuthenticationPolicyPatPolicy | undefined>;
     /**
      * The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authenticationMethods` list. All values in the `securityIntegrations` list must be compatible with the values in the `authenticationMethods` list. For example, if `securityIntegrations` contains a SAML security integration, and `authenticationMethods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
      */
-    securityIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    securityIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyShowOutput>[] | undefined>;
     /**
      * Specifies the policy for workload identity federation.
      */
-    workloadIdentityPolicy?: pulumi.Input<inputs.AuthenticationPolicyWorkloadIdentityPolicy>;
+    workloadIdentityPolicy?: pulumi.Input<inputs.AuthenticationPolicyWorkloadIdentityPolicy | undefined>;
 }
 
 /**
@@ -304,19 +304,19 @@ export interface AuthenticationPolicyArgs {
     /**
      * A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
      */
-    authenticationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    authenticationMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Allows to set policies per-client type. Only valid when `clientTypes` is empty, contains ALL, or contains DRIVERS.
      */
-    clientPolicies?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyClientPolicy>[]>;
+    clientPolicies?: pulumi.Input<pulumi.Input<inputs.AuthenticationPolicyClientPolicy>[] | undefined>;
     /**
      * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid `clientTypes`, then the login attempt fails. Valid values are (case-insensitive): `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL` | `SNOWFLAKE_CLI`. The `clientTypes` property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
      */
-    clientTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    clientTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the authentication policy.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -326,23 +326,23 @@ export interface AuthenticationPolicyArgs {
      *
      * @deprecated This field is deprecated and will be removed in the future. Currently, it has no effect. Use the new `enforceMfaOnExternalAuthentication` field instead. Read our [BCR Migration Guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/SNOWFLAKE_BCR_MIGRATION_GUIDE.md#changes-in-authentication-policies) for more migration steps and more details.
      */
-    mfaAuthenticationMethods?: pulumi.Input<pulumi.Input<string>[]>;
+    mfaAuthenticationMethods?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Determines whether a user must enroll in multi-factor authentication. Valid values are (case-insensitive): `REQUIRED` | `REQUIRED_PASSWORD_ONLY` | `OPTIONAL`. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the `clientTypes` parameter must include `snowflakeUi`, because Snowsight is the only place users can enroll in multi-factor authentication (MFA). Note that when you set this value to OPTIONAL, and your account setup forces users to enroll in MFA, then Snowflake may set quietly this value to `REQUIRED_PASSWORD_ONLY`, which may cause permadiff. In this case, you may want to adjust this field value.
      */
-    mfaEnrollment?: pulumi.Input<string>;
+    mfaEnrollment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the multi-factor authentication (MFA) methods that users can use as a second factor of authentication.
      */
-    mfaPolicy?: pulumi.Input<inputs.AuthenticationPolicyMfaPolicy>;
+    mfaPolicy?: pulumi.Input<inputs.AuthenticationPolicyMfaPolicy | undefined>;
     /**
      * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the policy for programmatic access tokens.
      */
-    patPolicy?: pulumi.Input<inputs.AuthenticationPolicyPatPolicy>;
+    patPolicy?: pulumi.Input<inputs.AuthenticationPolicyPatPolicy | undefined>;
     /**
      * The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -350,9 +350,9 @@ export interface AuthenticationPolicyArgs {
     /**
      * A list of security integrations the authentication policy is associated with. This parameter has no effect when `saml` or `oauth` are not in the `authenticationMethods` list. All values in the `securityIntegrations` list must be compatible with the values in the `authenticationMethods` list. For example, if `securityIntegrations` contains a SAML security integration, and `authenticationMethods` contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use `ALL` as parameter.
      */
-    securityIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    securityIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the policy for workload identity federation.
      */
-    workloadIdentityPolicy?: pulumi.Input<inputs.AuthenticationPolicyWorkloadIdentityPolicy>;
+    workloadIdentityPolicy?: pulumi.Input<inputs.AuthenticationPolicyWorkloadIdentityPolicy | undefined>;
 }

@@ -24,15 +24,15 @@ class TableConstraintArgs:
                  columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  table_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 deferrable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 foreign_key_properties: Optional[pulumi.Input['TableConstraintForeignKeyPropertiesArgs']] = None,
-                 initially: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rely: Optional[pulumi.Input[_builtins.bool]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 deferrable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 foreign_key_properties: pulumi.Input[Optional['TableConstraintForeignKeyPropertiesArgs']] = None,
+                 initially: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rely: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a TableConstraint resource.
 
@@ -113,128 +113,128 @@ class TableConstraintArgs:
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Not used. Will be removed.""")
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comment for the table constraint
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def deferrable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deferrable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Whether the constraint is deferrable
         """
         return pulumi.get(self, "deferrable")
 
     @deferrable.setter
-    def deferrable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deferrable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deferrable", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter
-    def enforced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Whether the constraint is enforced
         """
         return pulumi.get(self, "enforced")
 
     @enforced.setter
-    def enforced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforced", value)
 
     @_builtins.property
     @pulumi.getter(name="foreignKeyProperties")
-    def foreign_key_properties(self) -> Optional[pulumi.Input['TableConstraintForeignKeyPropertiesArgs']]:
+    def foreign_key_properties(self) -> pulumi.Input[Optional['TableConstraintForeignKeyPropertiesArgs']]:
         """
         Additional properties when type is set to foreign key. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "foreign_key_properties")
 
     @foreign_key_properties.setter
-    def foreign_key_properties(self, value: Optional[pulumi.Input['TableConstraintForeignKeyPropertiesArgs']]):
+    def foreign_key_properties(self, value: pulumi.Input[Optional['TableConstraintForeignKeyPropertiesArgs']]):
         pulumi.set(self, "foreign_key_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def initially(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initially(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         """
         return pulumi.get(self, "initially")
 
     @initially.setter
-    def initially(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initially(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initially", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of constraint
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rely(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rely(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         """
         return pulumi.get(self, "rely")
 
     @rely.setter
-    def rely(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rely(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rely", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
 
 @pulumi.input_type
 class _TableConstraintState:
     def __init__(__self__, *,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 deferrable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 foreign_key_properties: Optional[pulumi.Input['TableConstraintForeignKeyPropertiesArgs']] = None,
-                 initially: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rely: Optional[pulumi.Input[_builtins.bool]] = None,
-                 table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None):
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 deferrable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 foreign_key_properties: pulumi.Input[Optional['TableConstraintForeignKeyPropertiesArgs']] = None,
+                 initially: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rely: pulumi.Input[Optional[_builtins.bool]] = None,
+                 table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering TableConstraint resources.
 
@@ -281,147 +281,147 @@ class _TableConstraintState:
 
     @_builtins.property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Columns to use in constraint key
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "columns", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Not used. Will be removed.""")
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comment for the table constraint
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def deferrable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def deferrable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Whether the constraint is deferrable
         """
         return pulumi.get(self, "deferrable")
 
     @deferrable.setter
-    def deferrable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def deferrable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "deferrable", value)
 
     @_builtins.property
     @pulumi.getter
-    def enable(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         """
         return pulumi.get(self, "enable")
 
     @enable.setter
-    def enable(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable", value)
 
     @_builtins.property
     @pulumi.getter
-    def enforced(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enforced(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Whether the constraint is enforced
         """
         return pulumi.get(self, "enforced")
 
     @enforced.setter
-    def enforced(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enforced(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enforced", value)
 
     @_builtins.property
     @pulumi.getter(name="foreignKeyProperties")
-    def foreign_key_properties(self) -> Optional[pulumi.Input['TableConstraintForeignKeyPropertiesArgs']]:
+    def foreign_key_properties(self) -> pulumi.Input[Optional['TableConstraintForeignKeyPropertiesArgs']]:
         """
         Additional properties when type is set to foreign key. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "foreign_key_properties")
 
     @foreign_key_properties.setter
-    def foreign_key_properties(self, value: Optional[pulumi.Input['TableConstraintForeignKeyPropertiesArgs']]):
+    def foreign_key_properties(self, value: pulumi.Input[Optional['TableConstraintForeignKeyPropertiesArgs']]):
         pulumi.set(self, "foreign_key_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def initially(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initially(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         """
         return pulumi.get(self, "initially")
 
     @initially.setter
-    def initially(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initially(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initially", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of constraint
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rely(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def rely(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         """
         return pulumi.get(self, "rely")
 
     @rely.setter
-    def rely(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def rely(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "rely", value)
 
     @_builtins.property
     @pulumi.getter(name="tableId")
-    def table_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         """
         return pulumi.get(self, "table_id")
 
     @table_id.setter
-    def table_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "table_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter
-    def validate(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def validate(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         return pulumi.get(self, "validate")
 
     @validate.setter
-    def validate(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def validate(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "validate", value)
 
 
@@ -431,18 +431,18 @@ class TableConstraint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 deferrable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 foreign_key_properties: Optional[pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
-                 initially: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rely: Optional[pulumi.Input[_builtins.bool]] = None,
-                 table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 deferrable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 foreign_key_properties: pulumi.Input[Optional[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
+                 initially: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rely: pulumi.Input[Optional[_builtins.bool]] = None,
+                 table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -656,18 +656,18 @@ class TableConstraint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 deferrable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enable: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-                 foreign_key_properties: Optional[pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
-                 initially: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rely: Optional[pulumi.Input[_builtins.bool]] = None,
-                 table_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
-                 validate: Optional[pulumi.Input[_builtins.bool]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 deferrable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+                 foreign_key_properties: pulumi.Input[Optional[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
+                 initially: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rely: pulumi.Input[Optional[_builtins.bool]] = None,
+                 table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 validate: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -705,18 +705,18 @@ class TableConstraint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            columns: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            deferrable: Optional[pulumi.Input[_builtins.bool]] = None,
-            enable: Optional[pulumi.Input[_builtins.bool]] = None,
-            enforced: Optional[pulumi.Input[_builtins.bool]] = None,
-            foreign_key_properties: Optional[pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
-            initially: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            rely: Optional[pulumi.Input[_builtins.bool]] = None,
-            table_id: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None,
-            validate: Optional[pulumi.Input[_builtins.bool]] = None) -> 'TableConstraint':
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            deferrable: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+            foreign_key_properties: pulumi.Input[Optional[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
+            initially: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rely: pulumi.Input[Optional[_builtins.bool]] = None,
+            table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None) -> 'TableConstraint':
         """
         Get an existing TableConstraint resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

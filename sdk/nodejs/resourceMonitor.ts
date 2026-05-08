@@ -188,47 +188,47 @@ export interface ResourceMonitorState {
     /**
      * The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
      */
-    creditQuota?: pulumi.Input<number>;
+    creditQuota?: pulumi.Input<number | undefined>;
     /**
      * The date and time when the resource monitor suspends the assigned warehouses.
      */
-    endTimestamp?: pulumi.Input<string>;
+    endTimestamp?: pulumi.Input<string | undefined>;
     /**
      * The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `startTimestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
      */
-    notifyTriggers?: pulumi.Input<pulumi.Input<number>[]>;
+    notifyTriggers?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      */
-    notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    notifyUsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.ResourceMonitorShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ResourceMonitorShowOutput>[] | undefined>;
     /**
      * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
-    startTimestamp?: pulumi.Input<string>;
+    startTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
-    suspendImmediateTrigger?: pulumi.Input<number>;
+    suspendImmediateTrigger?: pulumi.Input<number | undefined>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
-    suspendTrigger?: pulumi.Input<number>;
+    suspendTrigger?: pulumi.Input<number | undefined>;
 }
 
 /**
@@ -238,37 +238,37 @@ export interface ResourceMonitorArgs {
     /**
      * The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
      */
-    creditQuota?: pulumi.Input<number>;
+    creditQuota?: pulumi.Input<number | undefined>;
     /**
      * The date and time when the resource monitor suspends the assigned warehouses.
      */
-    endTimestamp?: pulumi.Input<string>;
+    endTimestamp?: pulumi.Input<string | undefined>;
     /**
      * The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `startTimestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
-    frequency?: pulumi.Input<string>;
+    frequency?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
      */
-    notifyTriggers?: pulumi.Input<pulumi.Input<number>[]>;
+    notifyTriggers?: pulumi.Input<pulumi.Input<number>[] | undefined>;
     /**
      * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      */
-    notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
+    notifyUsers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `showOutput` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
      */
-    startTimestamp?: pulumi.Input<string>;
+    startTimestamp?: pulumi.Input<string | undefined>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
-    suspendImmediateTrigger?: pulumi.Input<number>;
+    suspendImmediateTrigger?: pulumi.Input<number | undefined>;
     /**
      * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      */
-    suspendTrigger?: pulumi.Input<number>;
+    suspendTrigger?: pulumi.Input<number | undefined>;
 }

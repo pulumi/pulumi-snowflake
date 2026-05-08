@@ -66,5 +66,5 @@ export interface GetFailoverGroupsOutputArgs {
     /**
      * Specifies the identifier for the account
      */
-    inAccount?: pulumi.Input<string>;
+    inAccount?: pulumi.Input<string | undefined>;
 }

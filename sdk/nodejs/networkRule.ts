@@ -171,43 +171,43 @@ export interface NetworkRuleState {
     /**
      * Specifies a comment for the network rule.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the network rule.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE NETWORK RULE` for the given network rule.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkRuleDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkRuleDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
      */
-    mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the network rule.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW NETWORK RULES` for the given network rule.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkRuleShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.NetworkRuleShowOutput>[] | undefined>;
     /**
      * Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `IPV4` | `AWSVPCEID` | `AZURELINKID` | `GCPPSCID` | `HOST_PORT` | `PRIVATE_HOST_PORT`.
      */
-    type?: pulumi.Input<string>;
+    type?: pulumi.Input<string | undefined>;
     /**
      * Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
      */
-    valueLists?: pulumi.Input<pulumi.Input<string>[]>;
+    valueLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -217,7 +217,7 @@ export interface NetworkRuleArgs {
     /**
      * Specifies a comment for the network rule.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the network rule.
      */
@@ -229,7 +229,7 @@ export interface NetworkRuleArgs {
     /**
      * Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the network rule.
      */

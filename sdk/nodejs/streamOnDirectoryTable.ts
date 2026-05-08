@@ -149,47 +149,47 @@ export interface StreamOnDirectoryTableState {
     /**
      * Specifies a comment for the stream.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
      */
-    copyGrants?: pulumi.Input<boolean>;
+    copyGrants?: pulumi.Input<boolean | undefined>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE STREAM` for the given stream.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnDirectoryTableDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnDirectoryTableDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW STREAMS` for the given stream.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnDirectoryTableShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnDirectoryTableShowOutput>[] | undefined>;
     /**
      * Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
-    stage?: pulumi.Input<string>;
+    stage?: pulumi.Input<string | undefined>;
     /**
      * Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
      */
-    stale?: pulumi.Input<boolean>;
+    stale?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
      */
-    streamType?: pulumi.Input<string>;
+    streamType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -199,11 +199,11 @@ export interface StreamOnDirectoryTableArgs {
     /**
      * Specifies a comment for the stream.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
      */
-    copyGrants?: pulumi.Input<boolean>;
+    copyGrants?: pulumi.Input<boolean | undefined>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -211,7 +211,7 @@ export interface StreamOnDirectoryTableArgs {
     /**
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

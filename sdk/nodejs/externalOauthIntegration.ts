@@ -213,83 +213,83 @@ export interface ExternalOauthIntegrationState {
     /**
      * Specifies a comment for the OAuth integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationDescribeOutput>[] | undefined>;
     /**
      * Specifies whether to initiate operation of the integration or suspend it.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      */
-    externalOauthAllowedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
+    externalOauthAllowedRolesLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
      */
-    externalOauthAnyRoleMode?: pulumi.Input<string>;
+    externalOauthAnyRoleMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
      */
-    externalOauthAudienceLists?: pulumi.Input<pulumi.Input<string>[]>;
+    externalOauthAudienceLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
-    externalOauthBlockedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
+    externalOauthBlockedRolesLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the URL to define the OAuth 2.0 authorization server.
      */
-    externalOauthIssuer?: pulumi.Input<string>;
+    externalOauthIssuer?: pulumi.Input<string | undefined>;
     /**
      * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
      */
-    externalOauthJwsKeysUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    externalOauthJwsKeysUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
      */
-    externalOauthRsaPublicKey?: pulumi.Input<string>;
+    externalOauthRsaPublicKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
      */
-    externalOauthRsaPublicKey2?: pulumi.Input<string>;
+    externalOauthRsaPublicKey2?: pulumi.Input<string | undefined>;
     /**
      * Specifies the scope delimiter in the authorization token.
      */
-    externalOauthScopeDelimiter?: pulumi.Input<string>;
+    externalOauthScopeDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
      */
-    externalOauthScopeMappingAttribute?: pulumi.Input<string>;
+    externalOauthScopeMappingAttribute?: pulumi.Input<string | undefined>;
     /**
      * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
      */
-    externalOauthSnowflakeUserMappingAttribute?: pulumi.Input<string>;
+    externalOauthSnowflakeUserMappingAttribute?: pulumi.Input<string | undefined>;
     /**
      * Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
      */
-    externalOauthTokenUserMappingClaims?: pulumi.Input<pulumi.Input<string>[]>;
+    externalOauthTokenUserMappingClaims?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
      */
-    externalOauthType?: pulumi.Input<string>;
+    externalOauthType?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Parameters related to this security integration.
      */
-    relatedParameters?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationRelatedParameter>[]>;
+    relatedParameters?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationRelatedParameter>[] | undefined>;
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationShowOutput>[] | undefined>;
 }
 
 /**
@@ -299,7 +299,7 @@ export interface ExternalOauthIntegrationArgs {
     /**
      * Specifies a comment for the OAuth integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to initiate operation of the integration or suspend it.
      */
@@ -307,19 +307,19 @@ export interface ExternalOauthIntegrationArgs {
     /**
      * Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      */
-    externalOauthAllowedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
+    externalOauthAllowedRolesLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
      */
-    externalOauthAnyRoleMode?: pulumi.Input<string>;
+    externalOauthAnyRoleMode?: pulumi.Input<string | undefined>;
     /**
      * Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
      */
-    externalOauthAudienceLists?: pulumi.Input<pulumi.Input<string>[]>;
+    externalOauthAudienceLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
-    externalOauthBlockedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
+    externalOauthBlockedRolesLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the URL to define the OAuth 2.0 authorization server.
      */
@@ -327,23 +327,23 @@ export interface ExternalOauthIntegrationArgs {
     /**
      * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
      */
-    externalOauthJwsKeysUrls?: pulumi.Input<pulumi.Input<string>[]>;
+    externalOauthJwsKeysUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
      */
-    externalOauthRsaPublicKey?: pulumi.Input<string>;
+    externalOauthRsaPublicKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
      */
-    externalOauthRsaPublicKey2?: pulumi.Input<string>;
+    externalOauthRsaPublicKey2?: pulumi.Input<string | undefined>;
     /**
      * Specifies the scope delimiter in the authorization token.
      */
-    externalOauthScopeDelimiter?: pulumi.Input<string>;
+    externalOauthScopeDelimiter?: pulumi.Input<string | undefined>;
     /**
      * Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
      */
-    externalOauthScopeMappingAttribute?: pulumi.Input<string>;
+    externalOauthScopeMappingAttribute?: pulumi.Input<string | undefined>;
     /**
      * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
      */
@@ -359,5 +359,5 @@ export interface ExternalOauthIntegrationArgs {
     /**
      * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

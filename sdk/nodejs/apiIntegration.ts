@@ -214,66 +214,66 @@ export interface ApiIntegrationState {
     /**
      * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
      */
-    apiAllowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    apiAllowedPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The external ID that Snowflake will use when assuming the AWS role.
      */
-    apiAwsExternalId?: pulumi.Input<string>;
+    apiAwsExternalId?: pulumi.Input<string | undefined>;
     /**
      * The Snowflake user that will attempt to assume the AWS role.
      */
-    apiAwsIamUserArn?: pulumi.Input<string>;
+    apiAwsIamUserArn?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) ARN of a cloud platform role.
      */
-    apiAwsRoleArn?: pulumi.Input<string>;
+    apiAwsRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
      */
-    apiBlockedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    apiBlockedPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The service account used for communication with the Google API Gateway.
      */
-    apiGcpServiceAccount?: pulumi.Input<string>;
+    apiGcpServiceAccount?: pulumi.Input<string | undefined>;
     /**
      * The API key (also called a “subscription key”).
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the HTTPS proxy service type.
      */
-    apiProvider?: pulumi.Input<string>;
+    apiProvider?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
      */
-    azureAdApplicationId?: pulumi.Input<string>;
-    azureConsentUrl?: pulumi.Input<string>;
-    azureMultiTenantAppName?: pulumi.Input<string>;
+    azureAdApplicationId?: pulumi.Input<string | undefined>;
+    azureConsentUrl?: pulumi.Input<string | undefined>;
+    azureMultiTenantAppName?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      */
-    azureTenantId?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
+    azureTenantId?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Date and time when the API integration was created.
      */
-    createdOn?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      */
-    googleAudience?: pulumi.Input<string>;
+    googleAudience?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -287,19 +287,19 @@ export interface ApiIntegrationArgs {
     /**
      * (Default: ``) ARN of a cloud platform role.
      */
-    apiAwsRoleArn?: pulumi.Input<string>;
+    apiAwsRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
      */
-    apiBlockedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    apiBlockedPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The service account used for communication with the Google API Gateway.
      */
-    apiGcpServiceAccount?: pulumi.Input<string>;
+    apiGcpServiceAccount?: pulumi.Input<string | undefined>;
     /**
      * The API key (also called a “subscription key”).
      */
-    apiKey?: pulumi.Input<string>;
+    apiKey?: pulumi.Input<string | undefined>;
     /**
      * Specifies the HTTPS proxy service type.
      */
@@ -307,22 +307,22 @@ export interface ApiIntegrationArgs {
     /**
      * (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
      */
-    azureAdApplicationId?: pulumi.Input<string>;
+    azureAdApplicationId?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      */
-    azureTenantId?: pulumi.Input<string>;
-    comment?: pulumi.Input<string>;
+    azureTenantId?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      */
-    googleAudience?: pulumi.Input<string>;
+    googleAudience?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

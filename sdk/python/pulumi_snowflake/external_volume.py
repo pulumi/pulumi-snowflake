@@ -22,9 +22,9 @@ __all__ = ['ExternalVolumeArgs', 'ExternalVolume']
 class ExternalVolumeArgs:
     def __init__(__self__, *,
                  storage_locations: pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]],
-                 allow_writes: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 allow_writes: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExternalVolume resource.
 
@@ -55,51 +55,51 @@ class ExternalVolumeArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowWrites")
-    def allow_writes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_writes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "allow_writes")
 
     @allow_writes.setter
-    def allow_writes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_writes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_writes", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the external volume.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ExternalVolumeState:
     def __init__(__self__, *,
-                 allow_writes: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputArgs']]]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeShowOutputArgs']]]] = None,
-                 storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]]] = None):
+                 allow_writes: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputArgs']]]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeShowOutputArgs']]]] = None,
+                 storage_locations: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExternalVolume resources.
 
@@ -128,86 +128,86 @@ class _ExternalVolumeState:
 
     @_builtins.property
     @pulumi.getter(name="allowWrites")
-    def allow_writes(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def allow_writes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "allow_writes")
 
     @allow_writes.setter
-    def allow_writes(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def allow_writes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "allow_writes", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the external volume.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="storageLocations")
-    def storage_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]]]:
+    def storage_locations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]]]:
         """
         List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
         """
         return pulumi.get(self, "storage_locations")
 
     @storage_locations.setter
-    def storage_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]]]):
+    def storage_locations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]]]):
         pulumi.set(self, "storage_locations", value)
 
 
@@ -217,10 +217,10 @@ class ExternalVolume(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_writes: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]]] = None,
+                 allow_writes: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -442,10 +442,10 @@ class ExternalVolume(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_writes: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]]] = None,
+                 allow_writes: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -474,13 +474,13 @@ class ExternalVolume(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allow_writes: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeDescribeOutputArgs', 'ExternalVolumeDescribeOutputArgsDict']]]]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeShowOutputArgs', 'ExternalVolumeShowOutputArgsDict']]]]] = None,
-            storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]]] = None) -> 'ExternalVolume':
+            allow_writes: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalVolumeDescribeOutputArgs', 'ExternalVolumeDescribeOutputArgsDict']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalVolumeShowOutputArgs', 'ExternalVolumeShowOutputArgsDict']]]]] = None,
+            storage_locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]]] = None) -> 'ExternalVolume':
         """
         Get an existing ExternalVolume resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

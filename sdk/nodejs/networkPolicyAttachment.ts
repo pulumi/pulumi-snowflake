@@ -116,15 +116,15 @@ export interface NetworkPolicyAttachmentState {
     /**
      * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
      */
-    networkPolicyName?: pulumi.Input<string>;
+    networkPolicyName?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
      */
-    setForAccount?: pulumi.Input<boolean>;
+    setForAccount?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies which users the network policy should be attached to
      */
-    users?: pulumi.Input<pulumi.Input<string>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -138,9 +138,9 @@ export interface NetworkPolicyAttachmentArgs {
     /**
      * (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
      */
-    setForAccount?: pulumi.Input<boolean>;
+    setForAccount?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies which users the network policy should be attached to
      */
-    users?: pulumi.Input<pulumi.Input<string>[]>;
+    users?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -168,55 +168,55 @@ export interface JobServiceState {
     /**
      * Specifies a comment for the service.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    computePool?: pulumi.Input<string>;
+    computePool?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SERVICE` for the given service.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.JobServiceDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.JobServiceDescribeOutput>[] | undefined>;
     /**
      * Specifies the names of the external access integrations that allow your service to access external sites.
      */
-    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    fromSpecification?: pulumi.Input<inputs.JobServiceFromSpecification>;
+    fromSpecification?: pulumi.Input<inputs.JobServiceFromSpecification | undefined>;
     /**
      * Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    fromSpecificationTemplate?: pulumi.Input<inputs.JobServiceFromSpecificationTemplate>;
+    fromSpecificationTemplate?: pulumi.Input<inputs.JobServiceFromSpecificationTemplate | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    queryWarehouse?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
      */
-    serviceType?: pulumi.Input<string>;
+    serviceType?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW SERVICES` for the given service.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.JobServiceShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.JobServiceShowOutput>[] | undefined>;
 }
 
 /**
@@ -226,7 +226,7 @@ export interface JobServiceArgs {
     /**
      * Specifies a comment for the service.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -238,23 +238,23 @@ export interface JobServiceArgs {
     /**
      * Specifies the names of the external access integrations that allow your service to access external sites.
      */
-    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    fromSpecification?: pulumi.Input<inputs.JobServiceFromSpecification>;
+    fromSpecification?: pulumi.Input<inputs.JobServiceFromSpecification | undefined>;
     /**
      * Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
      */
-    fromSpecificationTemplate?: pulumi.Input<inputs.JobServiceFromSpecificationTemplate>;
+    fromSpecificationTemplate?: pulumi.Input<inputs.JobServiceFromSpecificationTemplate | undefined>;
     /**
      * Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    queryWarehouse?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

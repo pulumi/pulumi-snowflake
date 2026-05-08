@@ -112,19 +112,19 @@ export interface ExecuteState {
     /**
      * SQL statement to execute. Forces recreation of resource on change.
      */
-    execute?: pulumi.Input<string>;
+    execute?: pulumi.Input<string | undefined>;
     /**
      * Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
      */
-    queryResults?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
+    queryResults?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[] | undefined>;
     /**
      * SQL statement to revert the execute statement. Invoked when resource is being destroyed.
      */
-    revert?: pulumi.Input<string>;
+    revert?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -138,7 +138,7 @@ export interface ExecuteArgs {
     /**
      * Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * SQL statement to revert the execute statement. Invoked when resource is being destroyed.
      */

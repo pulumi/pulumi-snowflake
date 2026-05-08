@@ -22,9 +22,9 @@ __all__ = ['GrantOwnershipArgs', 'GrantOwnership']
 class GrantOwnershipArgs:
     def __init__(__self__, *,
                  on: pulumi.Input['GrantOwnershipOnArgs'],
-                 account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 outbound_privileges: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 outbound_privileges: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GrantOwnership resource.
 
@@ -55,48 +55,48 @@ class GrantOwnershipArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountRoleName")
-    def account_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
     @account_role_name.setter
-    def account_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseRoleName")
-    def database_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
     @database_role_name.setter
-    def database_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundPrivileges")
-    def outbound_privileges(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_privileges(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         """
         return pulumi.get(self, "outbound_privileges")
 
     @outbound_privileges.setter
-    def outbound_privileges(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_privileges(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_privileges", value)
 
 
 @pulumi.input_type
 class _GrantOwnershipState:
     def __init__(__self__, *,
-                 account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 on: Optional[pulumi.Input['GrantOwnershipOnArgs']] = None,
-                 outbound_privileges: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on: pulumi.Input[Optional['GrantOwnershipOnArgs']] = None,
+                 outbound_privileges: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantOwnership resources.
 
@@ -116,50 +116,50 @@ class _GrantOwnershipState:
 
     @_builtins.property
     @pulumi.getter(name="accountRoleName")
-    def account_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
     @account_role_name.setter
-    def account_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseRoleName")
-    def database_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
     @database_role_name.setter
-    def database_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_role_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def on(self) -> Optional[pulumi.Input['GrantOwnershipOnArgs']]:
+    def on(self) -> pulumi.Input[Optional['GrantOwnershipOnArgs']]:
         """
         Configures which object(s) should transfer their ownership to the specified role.
         """
         return pulumi.get(self, "on")
 
     @on.setter
-    def on(self, value: Optional[pulumi.Input['GrantOwnershipOnArgs']]):
+    def on(self, value: pulumi.Input[Optional['GrantOwnershipOnArgs']]):
         pulumi.set(self, "on", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundPrivileges")
-    def outbound_privileges(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_privileges(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         """
         return pulumi.get(self, "outbound_privileges")
 
     @outbound_privileges.setter
-    def outbound_privileges(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_privileges(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_privileges", value)
 
 
@@ -169,10 +169,10 @@ class GrantOwnership(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 on: Optional[pulumi.Input[Union['GrantOwnershipOnArgs', 'GrantOwnershipOnArgsDict']]] = None,
-                 outbound_privileges: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on: pulumi.Input[Optional[Union['GrantOwnershipOnArgs', 'GrantOwnershipOnArgsDict']]] = None,
+                 outbound_privileges: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note** For more details about granting ownership, please visit [`GRANT OWNERSHIP` Snowflake documentation page](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership), and our grant ownership resource overview.
@@ -226,10 +226,10 @@ class GrantOwnership(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 on: Optional[pulumi.Input[Union['GrantOwnershipOnArgs', 'GrantOwnershipOnArgsDict']]] = None,
-                 outbound_privileges: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on: pulumi.Input[Optional[Union['GrantOwnershipOnArgs', 'GrantOwnershipOnArgsDict']]] = None,
+                 outbound_privileges: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -255,10 +255,10 @@ class GrantOwnership(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            on: Optional[pulumi.Input[Union['GrantOwnershipOnArgs', 'GrantOwnershipOnArgsDict']]] = None,
-            outbound_privileges: Optional[pulumi.Input[_builtins.str]] = None) -> 'GrantOwnership':
+            account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            on: pulumi.Input[Optional[Union['GrantOwnershipOnArgs', 'GrantOwnershipOnArgsDict']]] = None,
+            outbound_privileges: pulumi.Input[Optional[_builtins.str]] = None) -> 'GrantOwnership':
         """
         Get an existing GrantOwnership resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -242,107 +242,107 @@ export interface SchemaState {
     /**
      * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      */
-    catalog?: pulumi.Input<string>;
+    catalog?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the schema.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      */
-    dataRetentionTimeInDays?: pulumi.Input<number>;
+    dataRetentionTimeInDays?: pulumi.Input<number | undefined>;
     /**
      * The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      */
-    defaultDdlCollation?: pulumi.Input<string>;
+    defaultDdlCollation?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.SchemaDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.SchemaDescribeOutput>[] | undefined>;
     /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
-    enableConsoleOutput?: pulumi.Input<boolean>;
+    enableConsoleOutput?: pulumi.Input<boolean | undefined>;
     /**
      * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      */
-    externalVolume?: pulumi.Input<string>;
+    externalVolume?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    isTransient?: pulumi.Input<string>;
+    isTransient?: pulumi.Input<string | undefined>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      */
-    logLevel?: pulumi.Input<string>;
+    logLevel?: pulumi.Input<string | undefined>;
     /**
      * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
      */
-    maxDataExtensionTimeInDays?: pulumi.Input<number>;
+    maxDataExtensionTimeInDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.SchemaParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.SchemaParameter>[] | undefined>;
     /**
      * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      */
-    pipeExecutionPaused?: pulumi.Input<boolean>;
+    pipeExecutionPaused?: pulumi.Input<boolean | undefined>;
     /**
      * If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      */
-    quotedIdentifiersIgnoreCase?: pulumi.Input<boolean>;
+    quotedIdentifiersIgnoreCase?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      */
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
     /**
      * Outputs the result of `SHOW SCHEMA` for the given object.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.SchemaShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.SchemaShowOutput>[] | undefined>;
     /**
      * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      */
-    storageSerializationPolicy?: pulumi.Input<string>;
+    storageSerializationPolicy?: pulumi.Input<string | undefined>;
     /**
      * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      */
-    suspendTaskAfterNumFailures?: pulumi.Input<number>;
+    suspendTaskAfterNumFailures?: pulumi.Input<number | undefined>;
     /**
      * Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      */
-    taskAutoRetryAttempts?: pulumi.Input<number>;
+    taskAutoRetryAttempts?: pulumi.Input<number | undefined>;
     /**
      * Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
      */
-    traceLevel?: pulumi.Input<string>;
+    traceLevel?: pulumi.Input<string | undefined>;
     /**
      * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      */
-    userTaskManagedInitialWarehouseSize?: pulumi.Input<string>;
+    userTaskManagedInitialWarehouseSize?: pulumi.Input<string | undefined>;
     /**
      * Minimum amount of time between Triggered Task executions in seconds.
      */
-    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<number>;
+    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<number | undefined>;
     /**
      * User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      */
-    userTaskTimeoutMs?: pulumi.Input<number>;
+    userTaskTimeoutMs?: pulumi.Input<number | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    withManagedAccess?: pulumi.Input<string>;
+    withManagedAccess?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -352,15 +352,15 @@ export interface SchemaArgs {
     /**
      * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      */
-    catalog?: pulumi.Input<string>;
+    catalog?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the schema.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      */
-    dataRetentionTimeInDays?: pulumi.Input<number>;
+    dataRetentionTimeInDays?: pulumi.Input<number | undefined>;
     /**
      * The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -368,73 +368,73 @@ export interface SchemaArgs {
     /**
      * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      */
-    defaultDdlCollation?: pulumi.Input<string>;
+    defaultDdlCollation?: pulumi.Input<string | undefined>;
     /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
-    enableConsoleOutput?: pulumi.Input<boolean>;
+    enableConsoleOutput?: pulumi.Input<boolean | undefined>;
     /**
      * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      */
-    externalVolume?: pulumi.Input<string>;
+    externalVolume?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    isTransient?: pulumi.Input<string>;
+    isTransient?: pulumi.Input<string | undefined>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      */
-    logLevel?: pulumi.Input<string>;
+    logLevel?: pulumi.Input<string | undefined>;
     /**
      * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
      */
-    maxDataExtensionTimeInDays?: pulumi.Input<number>;
+    maxDataExtensionTimeInDays?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      */
-    pipeExecutionPaused?: pulumi.Input<boolean>;
+    pipeExecutionPaused?: pulumi.Input<boolean | undefined>;
     /**
      * If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      */
-    quotedIdentifiersIgnoreCase?: pulumi.Input<boolean>;
+    quotedIdentifiersIgnoreCase?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      */
-    replaceInvalidCharacters?: pulumi.Input<boolean>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
     /**
      * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      */
-    storageSerializationPolicy?: pulumi.Input<string>;
+    storageSerializationPolicy?: pulumi.Input<string | undefined>;
     /**
      * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      */
-    suspendTaskAfterNumFailures?: pulumi.Input<number>;
+    suspendTaskAfterNumFailures?: pulumi.Input<number | undefined>;
     /**
      * Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      */
-    taskAutoRetryAttempts?: pulumi.Input<number>;
+    taskAutoRetryAttempts?: pulumi.Input<number | undefined>;
     /**
      * Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
      */
-    traceLevel?: pulumi.Input<string>;
+    traceLevel?: pulumi.Input<string | undefined>;
     /**
      * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      */
-    userTaskManagedInitialWarehouseSize?: pulumi.Input<string>;
+    userTaskManagedInitialWarehouseSize?: pulumi.Input<string | undefined>;
     /**
      * Minimum amount of time between Triggered Task executions in seconds.
      */
-    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<number>;
+    userTaskMinimumTriggerIntervalInSeconds?: pulumi.Input<number | undefined>;
     /**
      * User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      */
-    userTaskTimeoutMs?: pulumi.Input<number>;
+    userTaskTimeoutMs?: pulumi.Input<number | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    withManagedAccess?: pulumi.Input<string>;
+    withManagedAccess?: pulumi.Input<string | undefined>;
 }

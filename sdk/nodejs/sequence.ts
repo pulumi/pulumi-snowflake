@@ -149,35 +149,35 @@ export interface SequenceState {
     /**
      * (Default: ``) Specifies a comment for the sequence.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the sequence. Don't use the | character.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * (Default: `1`) The amount the sequence will increase by each time it is used
      */
-    increment?: pulumi.Input<number>;
+    increment?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name for the sequence.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The increment sequence interval.
      */
-    nextValue?: pulumi.Input<number>;
+    nextValue?: pulumi.Input<number | undefined>;
     /**
      * (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      */
-    ordering?: pulumi.Input<string>;
+    ordering?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the sequence. Don't use the | character.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -187,7 +187,7 @@ export interface SequenceArgs {
     /**
      * (Default: ``) Specifies a comment for the sequence.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the sequence. Don't use the | character.
      */
@@ -195,15 +195,15 @@ export interface SequenceArgs {
     /**
      * (Default: `1`) The amount the sequence will increase by each time it is used
      */
-    increment?: pulumi.Input<number>;
+    increment?: pulumi.Input<number | undefined>;
     /**
      * Specifies the name for the sequence.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      */
-    ordering?: pulumi.Input<string>;
+    ordering?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the sequence. Don't use the | character.
      */

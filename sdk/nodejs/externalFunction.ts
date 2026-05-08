@@ -239,79 +239,79 @@ export interface ExternalFunctionState {
     /**
      * The name of the API integration object that should be used to authenticate the call to the proxy service.
      */
-    apiIntegration?: pulumi.Input<string>;
+    apiIntegration?: pulumi.Input<string | undefined>;
     /**
      * Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
      */
-    args?: pulumi.Input<pulumi.Input<inputs.ExternalFunctionArg>[]>;
+    args?: pulumi.Input<pulumi.Input<inputs.ExternalFunctionArg>[] | undefined>;
     /**
      * (Default: `user-defined function`) A description of the external function.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Binds Snowflake context function results to HTTP headers.
      */
-    contextHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    contextHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Date and time when the external function was created.
      */
-    createdOn?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the external function.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Allows users to specify key-value metadata that is sent with every request as HTTP headers.
      */
-    headers?: pulumi.Input<pulumi.Input<inputs.ExternalFunctionHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.ExternalFunctionHeader>[] | undefined>;
     /**
      * This specifies the maximum number of rows in each batch sent to the proxy service.
      */
-    maxBatchRows?: pulumi.Input<number>;
+    maxBatchRows?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
      */
-    nullInputBehavior?: pulumi.Input<string>;
+    nullInputBehavior?: pulumi.Input<string | undefined>;
     /**
      * This specifies the name of the request translator function
      */
-    requestTranslator?: pulumi.Input<string>;
+    requestTranslator?: pulumi.Input<string | undefined>;
     /**
      * This specifies the name of the response translator function.
      */
-    responseTranslator?: pulumi.Input<string>;
+    responseTranslator?: pulumi.Input<string | undefined>;
     /**
      * Specifies the behavior of the function when returning results
      */
-    returnBehavior?: pulumi.Input<string>;
+    returnBehavior?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      */
-    returnNullAllowed?: pulumi.Input<boolean>;
+    returnNullAllowed?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the data type returned by the external function.
      */
-    returnType?: pulumi.Input<string>;
+    returnType?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the external function.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
      */
-    urlOfProxyAndResource?: pulumi.Input<string>;
+    urlOfProxyAndResource?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -325,19 +325,19 @@ export interface ExternalFunctionArgs {
     /**
      * Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
      */
-    args?: pulumi.Input<pulumi.Input<inputs.ExternalFunctionArg>[]>;
+    args?: pulumi.Input<pulumi.Input<inputs.ExternalFunctionArg>[] | undefined>;
     /**
      * (Default: `user-defined function`) A description of the external function.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      */
-    compression?: pulumi.Input<string>;
+    compression?: pulumi.Input<string | undefined>;
     /**
      * Binds Snowflake context function results to HTTP headers.
      */
-    contextHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    contextHeaders?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The database in which to create the external function.
      */
@@ -345,27 +345,27 @@ export interface ExternalFunctionArgs {
     /**
      * Allows users to specify key-value metadata that is sent with every request as HTTP headers.
      */
-    headers?: pulumi.Input<pulumi.Input<inputs.ExternalFunctionHeader>[]>;
+    headers?: pulumi.Input<pulumi.Input<inputs.ExternalFunctionHeader>[] | undefined>;
     /**
      * This specifies the maximum number of rows in each batch sent to the proxy service.
      */
-    maxBatchRows?: pulumi.Input<number>;
+    maxBatchRows?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
      */
-    nullInputBehavior?: pulumi.Input<string>;
+    nullInputBehavior?: pulumi.Input<string | undefined>;
     /**
      * This specifies the name of the request translator function
      */
-    requestTranslator?: pulumi.Input<string>;
+    requestTranslator?: pulumi.Input<string | undefined>;
     /**
      * This specifies the name of the response translator function.
      */
-    responseTranslator?: pulumi.Input<string>;
+    responseTranslator?: pulumi.Input<string | undefined>;
     /**
      * Specifies the behavior of the function when returning results
      */
@@ -373,7 +373,7 @@ export interface ExternalFunctionArgs {
     /**
      * (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      */
-    returnNullAllowed?: pulumi.Input<boolean>;
+    returnNullAllowed?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the data type returned by the external function.
      */

@@ -350,21 +350,21 @@ export interface GetGrantsOutputArgs {
     /**
      * Lists all privileges on new (i.e. future) objects.
      */
-    futureGrantsIn?: pulumi.Input<inputs.GetGrantsFutureGrantsInArgs>;
+    futureGrantsIn?: pulumi.Input<inputs.GetGrantsFutureGrantsInArgs | undefined>;
     /**
      * Lists all privileges granted to the object on new (i.e. future) objects.
      */
-    futureGrantsTo?: pulumi.Input<inputs.GetGrantsFutureGrantsToArgs>;
+    futureGrantsTo?: pulumi.Input<inputs.GetGrantsFutureGrantsToArgs | undefined>;
     /**
      * Lists all objects to which the given object has been granted.
      */
-    grantsOf?: pulumi.Input<inputs.GetGrantsGrantsOfArgs>;
+    grantsOf?: pulumi.Input<inputs.GetGrantsGrantsOfArgs | undefined>;
     /**
      * Lists all privileges that have been granted on an object or on an account.
      */
-    grantsOn?: pulumi.Input<inputs.GetGrantsGrantsOnArgs>;
+    grantsOn?: pulumi.Input<inputs.GetGrantsGrantsOnArgs | undefined>;
     /**
      * Lists all privileges granted to the object.
      */
-    grantsTo?: pulumi.Input<inputs.GetGrantsGrantsToArgs>;
+    grantsTo?: pulumi.Input<inputs.GetGrantsGrantsToArgs | undefined>;
 }

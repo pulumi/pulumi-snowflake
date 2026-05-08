@@ -172,56 +172,56 @@ export interface ApiAuthenticationIntegrationWithJwtBearerState {
     /**
      * Specifies a comment for the integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutput>[] | undefined>;
     /**
      * Specifies whether this security integration is enabled or disabled.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
-    oauthAccessTokenValidity?: pulumi.Input<number>;
-    oauthAssertionIssuer?: pulumi.Input<string>;
+    oauthAccessTokenValidity?: pulumi.Input<number | undefined>;
+    oauthAssertionIssuer?: pulumi.Input<string | undefined>;
     /**
      * Specifies the URL for authenticating to the external service.
      */
-    oauthAuthorizationEndpoint?: pulumi.Input<string>;
+    oauthAuthorizationEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
      */
-    oauthClientAuthMethod?: pulumi.Input<string>;
+    oauthClientAuthMethod?: pulumi.Input<string | undefined>;
     /**
      * Specifies the client ID for the OAuth application in the external service.
      */
-    oauthClientId?: pulumi.Input<string>;
+    oauthClientId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    oauthClientSecret?: pulumi.Input<string>;
+    oauthClientSecret?: pulumi.Input<string | undefined>;
     /**
      * Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
      */
-    oauthRefreshTokenValidity?: pulumi.Input<number>;
+    oauthRefreshTokenValidity?: pulumi.Input<number | undefined>;
     /**
      * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
      */
-    oauthTokenEndpoint?: pulumi.Input<string>;
+    oauthTokenEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerShowOutput>[] | undefined>;
 }
 
 /**
@@ -231,7 +231,7 @@ export interface ApiAuthenticationIntegrationWithJwtBearerArgs {
     /**
      * Specifies a comment for the integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this security integration is enabled or disabled.
      */
@@ -239,20 +239,20 @@ export interface ApiAuthenticationIntegrationWithJwtBearerArgs {
     /**
      * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
-    oauthAccessTokenValidity?: pulumi.Input<number>;
+    oauthAccessTokenValidity?: pulumi.Input<number | undefined>;
     oauthAssertionIssuer: pulumi.Input<string>;
     /**
      * Specifies the URL for authenticating to the external service.
      */
-    oauthAuthorizationEndpoint?: pulumi.Input<string>;
+    oauthAuthorizationEndpoint?: pulumi.Input<string | undefined>;
     /**
      * Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
      */
-    oauthClientAuthMethod?: pulumi.Input<string>;
+    oauthClientAuthMethod?: pulumi.Input<string | undefined>;
     /**
      * Specifies the client ID for the OAuth application in the external service.
      */
@@ -264,9 +264,9 @@ export interface ApiAuthenticationIntegrationWithJwtBearerArgs {
     /**
      * Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
      */
-    oauthRefreshTokenValidity?: pulumi.Input<number>;
+    oauthRefreshTokenValidity?: pulumi.Input<number | undefined>;
     /**
      * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
      */
-    oauthTokenEndpoint?: pulumi.Input<string>;
+    oauthTokenEndpoint?: pulumi.Input<string | undefined>;
 }

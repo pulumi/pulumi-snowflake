@@ -175,43 +175,43 @@ export interface AlertState {
     /**
      * The SQL statement that should be executed if the condition returns one or more rows.
      */
-    action?: pulumi.Input<string>;
+    action?: pulumi.Input<string | undefined>;
     /**
      * The schedule for periodically running an alert.
      */
-    alertSchedule?: pulumi.Input<inputs.AlertAlertSchedule>;
+    alertSchedule?: pulumi.Input<inputs.AlertAlertSchedule | undefined>;
     /**
      * Specifies a comment for the alert.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
      */
-    condition?: pulumi.Input<string>;
+    condition?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the alert.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the alert.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * The warehouse the alert will use.
      */
-    warehouse?: pulumi.Input<string>;
+    warehouse?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -225,11 +225,11 @@ export interface AlertArgs {
     /**
      * The schedule for periodically running an alert.
      */
-    alertSchedule?: pulumi.Input<inputs.AlertAlertSchedule>;
+    alertSchedule?: pulumi.Input<inputs.AlertAlertSchedule | undefined>;
     /**
      * Specifies a comment for the alert.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
      */
@@ -241,11 +241,11 @@ export interface AlertArgs {
     /**
      * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the alert.
      */

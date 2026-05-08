@@ -192,23 +192,23 @@ export interface TagAssociationState {
     /**
      * Specifies the object identifiers for the tag association.
      */
-    objectIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+    objectIdentifiers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the type of object to add a tag. Allowed object types: `ACCOUNT` | `APPLICATION` | `APPLICATION PACKAGE` | `COMPUTE POOL` | `DATABASE` | `FAILOVER GROUP` | `INTEGRATION` | `NETWORK POLICY` | `REPLICATION GROUP` | `ROLE` | `SHARE` | `USER` | `WAREHOUSE` | `DATABASE ROLE` | `SCHEMA` | `ALERT` | `SNOWFLAKE.CORE.BUDGET` | `SNOWFLAKE.ML.CLASSIFICATION` | `EXTERNAL FUNCTION` | `EXTERNAL TABLE` | `FUNCTION` | `IMAGE REPOSITORY` | `GIT REPOSITORY` | `ICEBERG TABLE` | `MATERIALIZED VIEW` | `PIPE` | `MASKING POLICY` | `PASSWORD POLICY` | `ROW ACCESS POLICY` | `SESSION POLICY` | `PRIVACY POLICY` | `PROCEDURE` | `SERVICE` | `STAGE` | `STREAM` | `TABLE` | `TASK` | `VIEW` | `COLUMN` | `EVENT TABLE`.
      */
-    objectType?: pulumi.Input<string>;
+    objectType?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) If true, skips validation of the tag association.
      */
-    skipValidation?: pulumi.Input<boolean>;
+    skipValidation?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the identifier for the tag.
      */
-    tagId?: pulumi.Input<string>;
+    tagId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the value of the tag, (e.g. 'finance' or 'engineering')
      */
-    tagValue?: pulumi.Input<string>;
+    tagValue?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -226,7 +226,7 @@ export interface TagAssociationArgs {
     /**
      * (Default: `true`) If true, skips validation of the tag association.
      */
-    skipValidation?: pulumi.Input<boolean>;
+    skipValidation?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the identifier for the tag.
      */

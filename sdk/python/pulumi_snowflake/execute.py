@@ -21,7 +21,7 @@ class ExecuteArgs:
     def __init__(__self__, *,
                  execute: pulumi.Input[_builtins.str],
                  revert: pulumi.Input[_builtins.str],
-                 query: Optional[pulumi.Input[_builtins.str]] = None):
+                 query: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Execute resource.
 
@@ -60,24 +60,24 @@ class ExecuteArgs:
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
 
 @pulumi.input_type
 class _ExecuteState:
     def __init__(__self__, *,
-                 execute: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 query_results: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
-                 revert: Optional[pulumi.Input[_builtins.str]] = None):
+                 execute: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_results: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
+                 revert: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Execute resources.
 
@@ -97,50 +97,50 @@ class _ExecuteState:
 
     @_builtins.property
     @pulumi.getter
-    def execute(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def execute(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SQL statement to execute. Forces recreation of resource on change.
         """
         return pulumi.get(self, "execute")
 
     @execute.setter
-    def execute(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def execute(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "execute", value)
 
     @_builtins.property
     @pulumi.getter
-    def query(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
         """
         return pulumi.get(self, "query")
 
     @query.setter
-    def query(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def query(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query", value)
 
     @_builtins.property
     @pulumi.getter(name="queryResults")
-    def query_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
+    def query_results(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
         """
         List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
         """
         return pulumi.get(self, "query_results")
 
     @query_results.setter
-    def query_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
+    def query_results(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "query_results", value)
 
     @_builtins.property
     @pulumi.getter
-    def revert(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def revert(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SQL statement to revert the execute statement. Invoked when resource is being destroyed.
         """
         return pulumi.get(self, "revert")
 
     @revert.setter
-    def revert(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def revert(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "revert", value)
 
 
@@ -150,9 +150,9 @@ class Execute(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 execute: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 revert: Optional[pulumi.Input[_builtins.str]] = None,
+                 execute: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 revert: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Warning** This is a dangerous resource that allows executing **ANY** SQL statement. It may destroy resources if used incorrectly. It may behave incorrectly combined with other resources. Use at your own risk.
@@ -225,9 +225,9 @@ class Execute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 execute: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 revert: Optional[pulumi.Input[_builtins.str]] = None,
+                 execute: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 revert: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -255,10 +255,10 @@ class Execute(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            execute: Optional[pulumi.Input[_builtins.str]] = None,
-            query: Optional[pulumi.Input[_builtins.str]] = None,
-            query_results: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
-            revert: Optional[pulumi.Input[_builtins.str]] = None) -> 'Execute':
+            execute: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            query_results: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
+            revert: pulumi.Input[Optional[_builtins.str]] = None) -> 'Execute':
         """
         Get an existing Execute resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

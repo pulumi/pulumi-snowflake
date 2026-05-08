@@ -235,73 +235,73 @@ export interface ExternalTableState {
     /**
      * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
-    autoRefresh?: pulumi.Input<boolean>;
+    autoRefresh?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the aws sns topic for the external table.
      */
-    awsSnsTopic?: pulumi.Input<string>;
+    awsSnsTopic?: pulumi.Input<string | undefined>;
     /**
      * Definitions of a column to create in the external table. Minimum one required.
      */
-    columns?: pulumi.Input<pulumi.Input<inputs.ExternalTableColumn>[]>;
+    columns?: pulumi.Input<pulumi.Input<inputs.ExternalTableColumn>[] | undefined>;
     /**
      * Specifies a comment for the external table.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
-    copyGrants?: pulumi.Input<boolean>;
+    copyGrants?: pulumi.Input<boolean | undefined>;
     /**
      * The database in which to create the external table.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Specifies the file format for the external table.
      */
-    fileFormat?: pulumi.Input<string>;
+    fileFormat?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of the role that owns the external table.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Specifies any partition columns to evaluate for the external table.
      */
-    partitionBies?: pulumi.Input<pulumi.Input<string>[]>;
+    partitionBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the file names and/or paths on the external stage to match.
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Specifies weather to refresh when an external table is created.
      */
-    refreshOnCreate?: pulumi.Input<boolean>;
+    refreshOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * The schema in which to create the external table.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
      */
-    tableFormat?: pulumi.Input<string>;
+    tableFormat?: pulumi.Input<string | undefined>;
     /**
      * Definitions of a tag to associate with the resource.
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ExternalTableTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ExternalTableTag>[] | undefined>;
 }
 
 /**
@@ -311,11 +311,11 @@ export interface ExternalTableArgs {
     /**
      * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
-    autoRefresh?: pulumi.Input<boolean>;
+    autoRefresh?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the aws sns topic for the external table.
      */
-    awsSnsTopic?: pulumi.Input<string>;
+    awsSnsTopic?: pulumi.Input<string | undefined>;
     /**
      * Definitions of a column to create in the external table. Minimum one required.
      */
@@ -323,11 +323,11 @@ export interface ExternalTableArgs {
     /**
      * Specifies a comment for the external table.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
-    copyGrants?: pulumi.Input<boolean>;
+    copyGrants?: pulumi.Input<boolean | undefined>;
     /**
      * The database in which to create the external table.
      */
@@ -343,19 +343,19 @@ export interface ExternalTableArgs {
     /**
      * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies any partition columns to evaluate for the external table.
      */
-    partitionBies?: pulumi.Input<pulumi.Input<string>[]>;
+    partitionBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the file names and/or paths on the external stage to match.
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Specifies weather to refresh when an external table is created.
      */
-    refreshOnCreate?: pulumi.Input<boolean>;
+    refreshOnCreate?: pulumi.Input<boolean | undefined>;
     /**
      * The schema in which to create the external table.
      */
@@ -363,11 +363,11 @@ export interface ExternalTableArgs {
     /**
      * Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
      */
-    tableFormat?: pulumi.Input<string>;
+    tableFormat?: pulumi.Input<string | undefined>;
     /**
      * Definitions of a tag to associate with the resource.
      *
      * @deprecated Use the 'snowflake_tag_association' resource instead.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.ExternalTableTag>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.ExternalTableTag>[] | undefined>;
 }

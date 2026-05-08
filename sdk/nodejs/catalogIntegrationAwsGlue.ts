@@ -180,47 +180,47 @@ export interface CatalogIntegrationAwsGlueState {
     /**
      * Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
      */
-    catalogNamespace?: pulumi.Input<string>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Specifies a comment for the catalog integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationAwsGlueDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationAwsGlueDescribeOutput>[] | undefined>;
     /**
      * Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to assume.
      */
-    glueAwsRoleArn?: pulumi.Input<string>;
+    glueAwsRoleArn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the ID of your AWS account.
      */
-    glueCatalogId?: pulumi.Input<string>;
+    glueCatalogId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
      */
-    glueRegion?: pulumi.Input<string>;
+    glueRegion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
      */
-    refreshIntervalSeconds?: pulumi.Input<number>;
+    refreshIntervalSeconds?: pulumi.Input<number | undefined>;
     /**
      * Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationAwsGlueShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.CatalogIntegrationAwsGlueShowOutput>[] | undefined>;
 }
 
 /**
@@ -230,11 +230,11 @@ export interface CatalogIntegrationAwsGlueArgs {
     /**
      * Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
      */
-    catalogNamespace?: pulumi.Input<string>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Specifies a comment for the catalog integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
      */
@@ -250,13 +250,13 @@ export interface CatalogIntegrationAwsGlueArgs {
     /**
      * Specifies the AWS region of your AWS Glue Data Catalog. You must specify a value for this attribute if your Snowflake account is not hosted on AWS. Otherwise, the default region is the Snowflake deployment region for the account.
      */
-    glueRegion?: pulumi.Input<string>;
+    glueRegion?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
      */
-    refreshIntervalSeconds?: pulumi.Input<number>;
+    refreshIntervalSeconds?: pulumi.Input<number | undefined>;
 }

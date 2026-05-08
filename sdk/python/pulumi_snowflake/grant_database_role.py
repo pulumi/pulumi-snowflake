@@ -20,9 +20,9 @@ __all__ = ['GrantDatabaseRoleArgs', 'GrantDatabaseRole']
 class GrantDatabaseRoleArgs:
     def __init__(__self__, *,
                  database_role_name: pulumi.Input[_builtins.str],
-                 parent_database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 parent_database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GrantDatabaseRole resource.
 
@@ -53,48 +53,48 @@ class GrantDatabaseRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="parentDatabaseRoleName")
-    def parent_database_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_database_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_database_role_name")
 
     @parent_database_role_name.setter
-    def parent_database_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_database_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_database_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentRoleName")
-    def parent_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_role_name")
 
     @parent_role_name.setter
-    def parent_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="shareName")
-    def share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "share_name")
 
     @share_name.setter
-    def share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_name", value)
 
 
 @pulumi.input_type
 class _GrantDatabaseRoleState:
     def __init__(__self__, *,
-                 database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantDatabaseRole resources.
 
@@ -114,50 +114,50 @@ class _GrantDatabaseRoleState:
 
     @_builtins.property
     @pulumi.getter(name="databaseRoleName")
-    def database_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
     @database_role_name.setter
-    def database_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentDatabaseRoleName")
-    def parent_database_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_database_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_database_role_name")
 
     @parent_database_role_name.setter
-    def parent_database_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_database_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_database_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentRoleName")
-    def parent_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def parent_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_role_name")
 
     @parent_role_name.setter
-    def parent_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def parent_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "parent_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="shareName")
-    def share_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "share_name")
 
     @share_name.setter
-    def share_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "share_name", value)
 
 
@@ -167,10 +167,10 @@ class GrantDatabaseRole(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -224,10 +224,10 @@ class GrantDatabaseRole(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 parent_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parent_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -253,10 +253,10 @@ class GrantDatabaseRole(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_database_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            parent_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            share_name: Optional[pulumi.Input[_builtins.str]] = None) -> 'GrantDatabaseRole':
+            database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            share_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'GrantDatabaseRole':
         """
         Get an existing GrantDatabaseRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

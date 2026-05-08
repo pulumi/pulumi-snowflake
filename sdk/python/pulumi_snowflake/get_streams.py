@@ -156,11 +156,11 @@ def get_streams(in_: Optional[Union['GetStreamsInArgs', 'GetStreamsInArgsDict']]
         starts_with=pulumi.get(__ret__, 'starts_with'),
         streams=pulumi.get(__ret__, 'streams'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_streams_output(in_: Optional[pulumi.Input[Optional[Union['GetStreamsInArgs', 'GetStreamsInArgsDict']]]] = None,
-                       like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       limit: Optional[pulumi.Input[Optional[Union['GetStreamsLimitArgs', 'GetStreamsLimitArgsDict']]]] = None,
-                       starts_with: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                       with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_streams_output(in_: pulumi.Input[Optional[Optional[Union['GetStreamsInArgs', 'GetStreamsInArgsDict']]]] = None,
+                       like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       limit: pulumi.Input[Optional[Optional[Union['GetStreamsLimitArgs', 'GetStreamsLimitArgsDict']]]] = None,
+                       starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamsResult]:
     """
     Data source used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.

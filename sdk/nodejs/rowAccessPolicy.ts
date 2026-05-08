@@ -176,39 +176,39 @@ export interface RowAccessPolicyState {
     /**
      * List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
      */
-    arguments?: pulumi.Input<pulumi.Input<inputs.RowAccessPolicyArgument>[]>;
+    arguments?: pulumi.Input<pulumi.Input<inputs.RowAccessPolicyArgument>[] | undefined>;
     /**
      * Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
-    body?: pulumi.Input<string>;
+    body?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the row access policy.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.RowAccessPolicyDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.RowAccessPolicyDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.RowAccessPolicyShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.RowAccessPolicyShowOutput>[] | undefined>;
 }
 
 /**
@@ -226,7 +226,7 @@ export interface RowAccessPolicyArgs {
     /**
      * Specifies a comment for the row access policy.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -234,7 +234,7 @@ export interface RowAccessPolicyArgs {
     /**
      * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

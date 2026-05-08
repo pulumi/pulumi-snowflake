@@ -217,55 +217,55 @@ export interface CortexSearchServiceState {
     /**
      * Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
      */
-    attributes?: pulumi.Input<pulumi.Input<string>[]>;
+    attributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the Cortex search service.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Creation date for the given Cortex search service.
      */
-    createdOn?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the Cortex search service.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.CortexSearchServiceDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.CortexSearchServiceDescribeOutput>[] | undefined>;
     /**
      * Specifies the embedding model to use for the Cortex search service.
      */
-    embeddingModel?: pulumi.Input<string>;
+    embeddingModel?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the column to use as the search column for the Cortex search service; must be a text value.
      */
-    on?: pulumi.Input<string>;
+    on?: pulumi.Input<string | undefined>;
     /**
      * Specifies the query to use to populate the Cortex search service.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the Cortex search service.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum target lag time for the Cortex search service.
      */
-    targetLag?: pulumi.Input<string>;
+    targetLag?: pulumi.Input<string | undefined>;
     /**
      * The warehouse in which to create the Cortex search service.
      */
-    warehouse?: pulumi.Input<string>;
+    warehouse?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -275,11 +275,11 @@ export interface CortexSearchServiceArgs {
     /**
      * Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
      */
-    attributes?: pulumi.Input<pulumi.Input<string>[]>;
+    attributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the Cortex search service.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the Cortex search service.
      */
@@ -287,11 +287,11 @@ export interface CortexSearchServiceArgs {
     /**
      * Specifies the embedding model to use for the Cortex search service.
      */
-    embeddingModel?: pulumi.Input<string>;
+    embeddingModel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the column to use as the search column for the Cortex search service; must be a text value.
      */

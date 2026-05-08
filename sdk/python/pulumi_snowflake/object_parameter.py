@@ -23,9 +23,9 @@ class ObjectParameterArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]] = None,
-                 object_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_account: Optional[pulumi.Input[_builtins.bool]] = None):
+                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]] = None,
+                 object_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_account: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ObjectParameter resource.
 
@@ -70,49 +70,49 @@ class ObjectParameterArgs:
 
     @_builtins.property
     @pulumi.getter(name="objectIdentifiers")
-    def object_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]]:
+    def object_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]]:
         """
         Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         """
         return pulumi.get(self, "object_identifiers")
 
     @object_identifiers.setter
-    def object_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]]):
+    def object_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]]):
         pulumi.set(self, "object_identifiers", value)
 
     @_builtins.property
     @pulumi.getter(name="objectType")
-    def object_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
         """
         return pulumi.get(self, "object_type")
 
     @object_type.setter
-    def object_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_type", value)
 
     @_builtins.property
     @pulumi.getter(name="onAccount")
-    def on_account(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def on_account(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If true, the object parameter will be set on the account level.
         """
         return pulumi.get(self, "on_account")
 
     @on_account.setter
-    def on_account(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def on_account(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "on_account", value)
 
 
 @pulumi.input_type
 class _ObjectParameterState:
     def __init__(__self__, *,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]] = None,
-                 object_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_account: Optional[pulumi.Input[_builtins.bool]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]] = None,
+                 object_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ObjectParameter resources.
 
@@ -135,62 +135,62 @@ class _ObjectParameterState:
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
 
     @_builtins.property
     @pulumi.getter(name="objectIdentifiers")
-    def object_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]]:
+    def object_identifiers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]]:
         """
         Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         """
         return pulumi.get(self, "object_identifiers")
 
     @object_identifiers.setter
-    def object_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]]):
+    def object_identifiers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]]]):
         pulumi.set(self, "object_identifiers", value)
 
     @_builtins.property
     @pulumi.getter(name="objectType")
-    def object_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
         """
         return pulumi.get(self, "object_type")
 
     @object_type.setter
-    def object_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_type", value)
 
     @_builtins.property
     @pulumi.getter(name="onAccount")
-    def on_account(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def on_account(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If true, the object parameter will be set on the account level.
         """
         return pulumi.get(self, "on_account")
 
     @on_account.setter
-    def on_account(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def on_account(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "on_account", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -200,11 +200,11 @@ class ObjectParameter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
-                 object_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_account: Optional[pulumi.Input[_builtins.bool]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
+                 object_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -369,11 +369,11 @@ class ObjectParameter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 key: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
-                 object_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_account: Optional[pulumi.Input[_builtins.bool]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
+                 object_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -402,11 +402,11 @@ class ObjectParameter(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            key: Optional[pulumi.Input[_builtins.str]] = None,
-            object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
-            object_type: Optional[pulumi.Input[_builtins.str]] = None,
-            on_account: Optional[pulumi.Input[_builtins.bool]] = None,
-            value: Optional[pulumi.Input[_builtins.str]] = None) -> 'ObjectParameter':
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
+            object_type: pulumi.Input[Optional[_builtins.str]] = None,
+            on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None) -> 'ObjectParameter':
         """
         Get an existing ObjectParameter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

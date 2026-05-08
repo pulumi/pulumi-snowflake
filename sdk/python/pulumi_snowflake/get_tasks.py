@@ -174,12 +174,12 @@ def get_tasks(in_: Optional[Union['GetTasksInArgs', 'GetTasksInArgsDict']] = Non
         starts_with=pulumi.get(__ret__, 'starts_with'),
         tasks=pulumi.get(__ret__, 'tasks'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
-def get_tasks_output(in_: Optional[pulumi.Input[Optional[Union['GetTasksInArgs', 'GetTasksInArgsDict']]]] = None,
-                     like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     limit: Optional[pulumi.Input[Optional[Union['GetTasksLimitArgs', 'GetTasksLimitArgsDict']]]] = None,
-                     root_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                     starts_with: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                     with_parameters: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_tasks_output(in_: pulumi.Input[Optional[Optional[Union['GetTasksInArgs', 'GetTasksInArgsDict']]]] = None,
+                     like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     limit: pulumi.Input[Optional[Optional[Union['GetTasksLimitArgs', 'GetTasksLimitArgsDict']]]] = None,
+                     root_only: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                     starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     with_parameters: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTasksResult]:
     """
     !> **Sensitive values** This data source's `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).

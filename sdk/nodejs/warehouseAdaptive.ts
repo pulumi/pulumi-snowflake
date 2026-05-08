@@ -157,43 +157,43 @@ export interface WarehouseAdaptiveState {
     /**
      * Specifies a comment for the adaptive warehouse.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum query performance level for the adaptive warehouse. Determines the initial compute capacity. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE`.
      */
-    maxQueryPerformanceLevel?: pulumi.Input<string>;
+    maxQueryPerformanceLevel?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given adaptive warehouse.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveParameter>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveParameter>[] | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
      */
-    queryThroughputMultiplier?: pulumi.Input<number>;
+    queryThroughputMultiplier?: pulumi.Input<number | undefined>;
     /**
      * Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveShowOutput>[] | undefined>;
     /**
      * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      */
-    statementQueuedTimeoutInSeconds?: pulumi.Input<number>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
      */
-    statementTimeoutInSeconds?: pulumi.Input<number>;
+    statementTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the type for the adaptive warehouse. This field is used for checking external changes and recreating the resource if needed.
      */
-    warehouseType?: pulumi.Input<string>;
+    warehouseType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -203,25 +203,25 @@ export interface WarehouseAdaptiveArgs {
     /**
      * Specifies a comment for the adaptive warehouse.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum query performance level for the adaptive warehouse. Determines the initial compute capacity. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE`.
      */
-    maxQueryPerformanceLevel?: pulumi.Input<string>;
+    maxQueryPerformanceLevel?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
      */
-    queryThroughputMultiplier?: pulumi.Input<number>;
+    queryThroughputMultiplier?: pulumi.Input<number | undefined>;
     /**
      * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      */
-    statementQueuedTimeoutInSeconds?: pulumi.Input<number>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
      */
-    statementTimeoutInSeconds?: pulumi.Input<number>;
+    statementTimeoutInSeconds?: pulumi.Input<number | undefined>;
 }

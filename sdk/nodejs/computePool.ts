@@ -189,51 +189,51 @@ export interface ComputePoolState {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a compute pool when a service or job is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    autoResume?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of seconds of inactivity after which you want Snowflake to automatically suspend the compute pool.
      */
-    autoSuspendSecs?: pulumi.Input<number>;
+    autoSuspendSecs?: pulumi.Input<number | undefined>;
     /**
      * Specifies a comment for the compute pool.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE COMPUTE POOL` for the given compute pool.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ComputePoolDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ComputePoolDescribeOutput>[] | undefined>;
     /**
      * Specifies the Snowflake Native App name.
      */
-    forApplication?: pulumi.Input<string>;
+    forApplication?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the compute pool is created initially in the suspended state. This field is used only when creating a compute pool. Changes on this field are ignored after creation.
      */
-    initiallySuspended?: pulumi.Input<string>;
+    initiallySuspended?: pulumi.Input<string | undefined>;
     /**
      * Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G`. Not all instance families are supported in all regions. Run `SHOW COMPUTE POOL INSTANCE FAMILIES` to see the list of supported instance families in your region.
      */
-    instanceFamily?: pulumi.Input<string>;
+    instanceFamily?: pulumi.Input<string | undefined>;
     /**
      * Specifies the maximum number of nodes for the compute pool.
      */
-    maxNodes?: pulumi.Input<number>;
+    maxNodes?: pulumi.Input<number | undefined>;
     /**
      * Specifies the minimum number of nodes for the compute pool.
      */
-    minNodes?: pulumi.Input<number>;
+    minNodes?: pulumi.Input<number | undefined>;
     /**
      * Specifies the identifier for the compute pool; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW COMPUTE POOLS` for the given compute pool.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.ComputePoolShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ComputePoolShowOutput>[] | undefined>;
 }
 
 /**
@@ -243,23 +243,23 @@ export interface ComputePoolArgs {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a compute pool when a service or job is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    autoResume?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of seconds of inactivity after which you want Snowflake to automatically suspend the compute pool.
      */
-    autoSuspendSecs?: pulumi.Input<number>;
+    autoSuspendSecs?: pulumi.Input<number | undefined>;
     /**
      * Specifies a comment for the compute pool.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the Snowflake Native App name.
      */
-    forApplication?: pulumi.Input<string>;
+    forApplication?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the compute pool is created initially in the suspended state. This field is used only when creating a compute pool. Changes on this field are ignored after creation.
      */
-    initiallySuspended?: pulumi.Input<string>;
+    initiallySuspended?: pulumi.Input<string | undefined>;
     /**
      * Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G`. Not all instance families are supported in all regions. Run `SHOW COMPUTE POOL INSTANCE FAMILIES` to see the list of supported instance families in your region.
      */
@@ -275,5 +275,5 @@ export interface ComputePoolArgs {
     /**
      * Specifies the identifier for the compute pool; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -20,19 +20,19 @@ __all__ = ['NotificationIntegrationArgs', 'NotificationIntegration']
 class NotificationIntegrationArgs:
     def __init__(__self__, *,
                  notification_provider: pulumi.Input[_builtins.str],
-                 aws_sns_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sqs_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sqs_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_storage_queue_primary_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gcp_pubsub_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp_pubsub_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_sns_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sqs_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sqs_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_storage_queue_primary_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gcp_pubsub_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp_pubsub_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NotificationIntegration resource.
 
@@ -104,186 +104,186 @@ class NotificationIntegrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="awsSnsRoleArn")
-    def aws_sns_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sns_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
         """
         return pulumi.get(self, "aws_sns_role_arn")
 
     @aws_sns_role_arn.setter
-    def aws_sns_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sns_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sns_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSnsTopicArn")
-    def aws_sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         """
         return pulumi.get(self, "aws_sns_topic_arn")
 
     @aws_sns_topic_arn.setter
-    def aws_sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSqsArn")
     @_utilities.deprecated("""No longer supported notification method""")
-    def aws_sqs_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sqs_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS SQS queue ARN for notification integration to connect to
         """
         return pulumi.get(self, "aws_sqs_arn")
 
     @aws_sqs_arn.setter
-    def aws_sqs_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sqs_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sqs_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSqsRoleArn")
     @_utilities.deprecated("""No longer supported notification method""")
-    def aws_sqs_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sqs_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS IAM role ARN for notification integration to assume
         """
         return pulumi.get(self, "aws_sqs_role_arn")
 
     @aws_sqs_role_arn.setter
-    def aws_sqs_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sqs_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sqs_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="azureStorageQueuePrimaryUri")
-    def azure_storage_queue_primary_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_storage_queue_primary_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         """
         return pulumi.get(self, "azure_storage_queue_primary_uri")
 
     @azure_storage_queue_primary_uri.setter
-    def azure_storage_queue_primary_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_storage_queue_primary_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_storage_queue_primary_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="azureTenantId")
-    def azure_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         """
         return pulumi.get(self, "azure_tenant_id")
 
     @azure_tenant_id.setter
-    def azure_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comment for the integration
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
-    def direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`)
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="gcpPubsubSubscriptionName")
-    def gcp_pubsub_subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gcp_pubsub_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         """
         return pulumi.get(self, "gcp_pubsub_subscription_name")
 
     @gcp_pubsub_subscription_name.setter
-    def gcp_pubsub_subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gcp_pubsub_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gcp_pubsub_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gcpPubsubTopicName")
-    def gcp_pubsub_topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gcp_pubsub_topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The topic id that Snowflake will use to push notifications.
         """
         return pulumi.get(self, "gcp_pubsub_topic_name")
 
     @gcp_pubsub_topic_name.setter
-    def gcp_pubsub_topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gcp_pubsub_topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gcp_pubsub_topic_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `QUEUE`) A type of integration
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
 class _NotificationIntegrationState:
     def __init__(__self__, *,
-                 aws_sns_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sns_iam_user_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sns_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sqs_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sqs_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sqs_iam_user_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sqs_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_storage_queue_primary_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 created_on: Optional[pulumi.Input[_builtins.str]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp_pubsub_service_account: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp_pubsub_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp_pubsub_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 aws_sns_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sns_iam_user_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sns_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sqs_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sqs_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sqs_iam_user_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sqs_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_storage_queue_primary_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp_pubsub_service_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp_pubsub_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp_pubsub_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering NotificationIntegration resources.
 
@@ -371,257 +371,257 @@ class _NotificationIntegrationState:
 
     @_builtins.property
     @pulumi.getter(name="awsSnsExternalId")
-    def aws_sns_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sns_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external ID that Snowflake will use when assuming the AWS role
         """
         return pulumi.get(self, "aws_sns_external_id")
 
     @aws_sns_external_id.setter
-    def aws_sns_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sns_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sns_external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSnsIamUserArn")
-    def aws_sns_iam_user_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sns_iam_user_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Snowflake user that will attempt to assume the AWS role.
         """
         return pulumi.get(self, "aws_sns_iam_user_arn")
 
     @aws_sns_iam_user_arn.setter
-    def aws_sns_iam_user_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sns_iam_user_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sns_iam_user_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSnsRoleArn")
-    def aws_sns_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sns_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
         """
         return pulumi.get(self, "aws_sns_role_arn")
 
     @aws_sns_role_arn.setter
-    def aws_sns_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sns_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sns_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSnsTopicArn")
-    def aws_sns_topic_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS SNS Topic ARN for notification integration to connect to. Required for AWS_SNS provider.
         """
         return pulumi.get(self, "aws_sns_topic_arn")
 
     @aws_sns_topic_arn.setter
-    def aws_sns_topic_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sns_topic_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sns_topic_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSqsArn")
     @_utilities.deprecated("""No longer supported notification method""")
-    def aws_sqs_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sqs_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS SQS queue ARN for notification integration to connect to
         """
         return pulumi.get(self, "aws_sqs_arn")
 
     @aws_sqs_arn.setter
-    def aws_sqs_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sqs_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sqs_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSqsExternalId")
     @_utilities.deprecated("""No longer supported notification method""")
-    def aws_sqs_external_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sqs_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The external ID that Snowflake will use when assuming the AWS role
         """
         return pulumi.get(self, "aws_sqs_external_id")
 
     @aws_sqs_external_id.setter
-    def aws_sqs_external_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sqs_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sqs_external_id", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSqsIamUserArn")
     @_utilities.deprecated("""No longer supported notification method""")
-    def aws_sqs_iam_user_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sqs_iam_user_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Snowflake user that will attempt to assume the AWS role.
         """
         return pulumi.get(self, "aws_sqs_iam_user_arn")
 
     @aws_sqs_iam_user_arn.setter
-    def aws_sqs_iam_user_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sqs_iam_user_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sqs_iam_user_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="awsSqsRoleArn")
     @_utilities.deprecated("""No longer supported notification method""")
-    def aws_sqs_role_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def aws_sqs_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         AWS IAM role ARN for notification integration to assume
         """
         return pulumi.get(self, "aws_sqs_role_arn")
 
     @aws_sqs_role_arn.setter
-    def aws_sqs_role_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def aws_sqs_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "aws_sqs_role_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="azureStorageQueuePrimaryUri")
-    def azure_storage_queue_primary_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_storage_queue_primary_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         """
         return pulumi.get(self, "azure_storage_queue_primary_uri")
 
     @azure_storage_queue_primary_uri.setter
-    def azure_storage_queue_primary_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_storage_queue_primary_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_storage_queue_primary_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="azureTenantId")
-    def azure_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def azure_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         """
         return pulumi.get(self, "azure_tenant_id")
 
     @azure_tenant_id.setter
-    def azure_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def azure_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A comment for the integration
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Date and time when the notification integration was created.
         """
         return pulumi.get(self, "created_on")
 
     @created_on.setter
-    def created_on(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_on", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
-    def direction(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def direction(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
         """
         return pulumi.get(self, "direction")
 
     @direction.setter
-    def direction(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def direction(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "direction", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `true`)
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gcpPubsubServiceAccount")
-    def gcp_pubsub_service_account(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gcp_pubsub_service_account(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The GCP service account identifier that Snowflake will use when assuming the GCP role
         """
         return pulumi.get(self, "gcp_pubsub_service_account")
 
     @gcp_pubsub_service_account.setter
-    def gcp_pubsub_service_account(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gcp_pubsub_service_account(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gcp_pubsub_service_account", value)
 
     @_builtins.property
     @pulumi.getter(name="gcpPubsubSubscriptionName")
-    def gcp_pubsub_subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gcp_pubsub_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         """
         return pulumi.get(self, "gcp_pubsub_subscription_name")
 
     @gcp_pubsub_subscription_name.setter
-    def gcp_pubsub_subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gcp_pubsub_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gcp_pubsub_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gcpPubsubTopicName")
-    def gcp_pubsub_topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def gcp_pubsub_topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The topic id that Snowflake will use to push notifications.
         """
         return pulumi.get(self, "gcp_pubsub_topic_name")
 
     @gcp_pubsub_topic_name.setter
-    def gcp_pubsub_topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def gcp_pubsub_topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "gcp_pubsub_topic_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationProvider")
-    def notification_provider(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_provider(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         """
         return pulumi.get(self, "notification_provider")
 
     @notification_provider.setter
-    def notification_provider(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_provider(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_provider", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: `QUEUE`) A type of integration
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -631,20 +631,20 @@ class NotificationIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_sns_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sqs_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sqs_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_storage_queue_primary_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gcp_pubsub_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp_pubsub_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_sns_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sqs_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sqs_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_storage_queue_primary_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gcp_pubsub_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp_pubsub_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -797,20 +797,20 @@ class NotificationIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_sns_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sqs_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 aws_sqs_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_storage_queue_primary_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 direction: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 gcp_pubsub_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 gcp_pubsub_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_provider: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 aws_sns_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sqs_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 aws_sqs_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_storage_queue_primary_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 direction: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 gcp_pubsub_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gcp_pubsub_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -853,27 +853,27 @@ class NotificationIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aws_sns_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_sns_iam_user_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_sns_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_sns_topic_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_sqs_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_sqs_external_id: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_sqs_iam_user_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            aws_sqs_role_arn: Optional[pulumi.Input[_builtins.str]] = None,
-            azure_storage_queue_primary_uri: Optional[pulumi.Input[_builtins.str]] = None,
-            azure_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            created_on: Optional[pulumi.Input[_builtins.str]] = None,
-            direction: Optional[pulumi.Input[_builtins.str]] = None,
-            enabled: Optional[pulumi.Input[_builtins.bool]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            gcp_pubsub_service_account: Optional[pulumi.Input[_builtins.str]] = None,
-            gcp_pubsub_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-            gcp_pubsub_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notification_provider: Optional[pulumi.Input[_builtins.str]] = None,
-            type: Optional[pulumi.Input[_builtins.str]] = None) -> 'NotificationIntegration':
+            aws_sns_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sns_iam_user_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sns_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sqs_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sqs_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sqs_iam_user_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sqs_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_storage_queue_primary_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            direction: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gcp_pubsub_service_account: pulumi.Input[Optional[_builtins.str]] = None,
+            gcp_pubsub_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gcp_pubsub_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> 'NotificationIntegration':
         """
         Get an existing NotificationIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

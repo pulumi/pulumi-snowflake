@@ -21,15 +21,15 @@ __all__ = ['ResourceMonitorArgs', 'ResourceMonitor']
 @pulumi.input_type
 class ResourceMonitorArgs:
     def __init__(__self__, *,
-                 credit_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 end_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 start_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspend_immediate_trigger: Optional[pulumi.Input[_builtins.int]] = None,
-                 suspend_trigger: Optional[pulumi.Input[_builtins.int]] = None):
+                 credit_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 notify_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 start_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspend_immediate_trigger: pulumi.Input[Optional[_builtins.int]] = None,
+                 suspend_trigger: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ResourceMonitor resource.
 
@@ -64,127 +64,127 @@ class ResourceMonitorArgs:
 
     @_builtins.property
     @pulumi.getter(name="creditQuota")
-    def credit_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def credit_quota(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         """
         return pulumi.get(self, "credit_quota")
 
     @credit_quota.setter
-    def credit_quota(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def credit_quota(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "credit_quota", value)
 
     @_builtins.property
     @pulumi.getter(name="endTimestamp")
-    def end_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the resource monitor suspends the assigned warehouses.
         """
         return pulumi.get(self, "end_timestamp")
 
     @end_timestamp.setter
-    def end_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_timestamp", value)
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyTriggers")
-    def notify_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def notify_triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         """
         return pulumi.get(self, "notify_triggers")
 
     @notify_triggers.setter
-    def notify_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def notify_triggers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "notify_triggers", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyUsers")
-    def notify_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notify_users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
         """
         return pulumi.get(self, "notify_users")
 
     @notify_users.setter
-    def notify_users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notify_users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notify_users", value)
 
     @_builtins.property
     @pulumi.getter(name="startTimestamp")
-    def start_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `show_output` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         """
         return pulumi.get(self, "start_timestamp")
 
     @start_timestamp.setter
-    def start_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_timestamp", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendImmediateTrigger")
-    def suspend_immediate_trigger(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def suspend_immediate_trigger(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         return pulumi.get(self, "suspend_immediate_trigger")
 
     @suspend_immediate_trigger.setter
-    def suspend_immediate_trigger(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def suspend_immediate_trigger(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "suspend_immediate_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendTrigger")
-    def suspend_trigger(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def suspend_trigger(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         return pulumi.get(self, "suspend_trigger")
 
     @suspend_trigger.setter
-    def suspend_trigger(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def suspend_trigger(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "suspend_trigger", value)
 
 
 @pulumi.input_type
 class _ResourceMonitorState:
     def __init__(__self__, *,
-                 credit_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 end_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]]] = None,
-                 start_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspend_immediate_trigger: Optional[pulumi.Input[_builtins.int]] = None,
-                 suspend_trigger: Optional[pulumi.Input[_builtins.int]] = None):
+                 credit_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 notify_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]]] = None,
+                 start_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspend_immediate_trigger: pulumi.Input[Optional[_builtins.int]] = None,
+                 suspend_trigger: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering ResourceMonitor resources.
 
@@ -225,134 +225,134 @@ class _ResourceMonitorState:
 
     @_builtins.property
     @pulumi.getter(name="creditQuota")
-    def credit_quota(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def credit_quota(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
         """
         return pulumi.get(self, "credit_quota")
 
     @credit_quota.setter
-    def credit_quota(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def credit_quota(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "credit_quota", value)
 
     @_builtins.property
     @pulumi.getter(name="endTimestamp")
-    def end_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the resource monitor suspends the assigned warehouses.
         """
         return pulumi.get(self, "end_timestamp")
 
     @end_timestamp.setter
-    def end_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_timestamp", value)
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "frequency", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyTriggers")
-    def notify_triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]:
+    def notify_triggers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
         Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
         """
         return pulumi.get(self, "notify_triggers")
 
     @notify_triggers.setter
-    def notify_triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]):
+    def notify_triggers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "notify_triggers", value)
 
     @_builtins.property
     @pulumi.getter(name="notifyUsers")
-    def notify_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def notify_users(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
         """
         return pulumi.get(self, "notify_users")
 
     @notify_users.setter
-    def notify_users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def notify_users(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "notify_users", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceMonitorShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="startTimestamp")
-    def start_timestamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_timestamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`. If you specify the special value `IMMEDIATELY`, the current date is used. In this case, the field of this value in `show_output` may be not consistent across different Terraform runs. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
         """
         return pulumi.get(self, "start_timestamp")
 
     @start_timestamp.setter
-    def start_timestamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_timestamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_timestamp", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendImmediateTrigger")
-    def suspend_immediate_trigger(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def suspend_immediate_trigger(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         return pulumi.get(self, "suspend_immediate_trigger")
 
     @suspend_immediate_trigger.setter
-    def suspend_immediate_trigger(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def suspend_immediate_trigger(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "suspend_immediate_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="suspendTrigger")
-    def suspend_trigger(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def suspend_trigger(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
         """
         return pulumi.get(self, "suspend_trigger")
 
     @suspend_trigger.setter
-    def suspend_trigger(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def suspend_trigger(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "suspend_trigger", value)
 
 
@@ -362,15 +362,15 @@ class ResourceMonitor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credit_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 end_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 start_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspend_immediate_trigger: Optional[pulumi.Input[_builtins.int]] = None,
-                 suspend_trigger: Optional[pulumi.Input[_builtins.int]] = None,
+                 credit_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 notify_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 start_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspend_immediate_trigger: pulumi.Input[Optional[_builtins.int]] = None,
+                 suspend_trigger: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         > **Note** For more details about resource monitor usage, please visit [this guide on Snowflake documentation page](https://docs.snowflake.com/en/user-guide/resource-monitors).
@@ -521,15 +521,15 @@ class ResourceMonitor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credit_quota: Optional[pulumi.Input[_builtins.int]] = None,
-                 end_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 frequency: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-                 notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 start_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-                 suspend_immediate_trigger: Optional[pulumi.Input[_builtins.int]] = None,
-                 suspend_trigger: Optional[pulumi.Input[_builtins.int]] = None,
+                 credit_quota: pulumi.Input[Optional[_builtins.int]] = None,
+                 end_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 frequency: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notify_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 notify_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 start_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+                 suspend_immediate_trigger: pulumi.Input[Optional[_builtins.int]] = None,
+                 suspend_trigger: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -560,17 +560,17 @@ class ResourceMonitor(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            credit_quota: Optional[pulumi.Input[_builtins.int]] = None,
-            end_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-            frequency: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            notify_triggers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]] = None,
-            notify_users: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceMonitorShowOutputArgs', 'ResourceMonitorShowOutputArgsDict']]]]] = None,
-            start_timestamp: Optional[pulumi.Input[_builtins.str]] = None,
-            suspend_immediate_trigger: Optional[pulumi.Input[_builtins.int]] = None,
-            suspend_trigger: Optional[pulumi.Input[_builtins.int]] = None) -> 'ResourceMonitor':
+            credit_quota: pulumi.Input[Optional[_builtins.int]] = None,
+            end_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            frequency: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notify_triggers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            notify_users: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceMonitorShowOutputArgs', 'ResourceMonitorShowOutputArgsDict']]]]] = None,
+            start_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            suspend_immediate_trigger: pulumi.Input[Optional[_builtins.int]] = None,
+            suspend_trigger: pulumi.Input[Optional[_builtins.int]] = None) -> 'ResourceMonitor':
         """
         Get an existing ResourceMonitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

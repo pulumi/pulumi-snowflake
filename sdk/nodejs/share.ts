@@ -123,19 +123,19 @@ export interface ShareState {
     /**
      * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
      */
-    accounts?: pulumi.Input<pulumi.Input<string>[]>;
+    accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the managed account.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the share; must be unique for the account in which the share is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -145,13 +145,13 @@ export interface ShareArgs {
     /**
      * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
      */
-    accounts?: pulumi.Input<pulumi.Input<string>[]>;
+    accounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the managed account.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the share; must be unique for the account in which the share is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

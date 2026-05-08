@@ -184,75 +184,75 @@ export interface PasswordPolicyState {
     /**
      * Adds a comment or overwrites an existing comment for the password policy.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database this password policy belongs to.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      */
-    history?: pulumi.Input<number>;
+    history?: pulumi.Input<number | undefined>;
     /**
      * (Default: `false`) Prevent overwriting a previous password policy with the same name.
      */
-    ifNotExists?: pulumi.Input<boolean>;
+    ifNotExists?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
      */
-    lockoutTimeMins?: pulumi.Input<number>;
+    lockoutTimeMins?: pulumi.Input<number | undefined>;
     /**
      * (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
      */
-    maxAgeDays?: pulumi.Input<number>;
+    maxAgeDays?: pulumi.Input<number | undefined>;
     /**
      * (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
      */
-    maxLength?: pulumi.Input<number>;
+    maxLength?: pulumi.Input<number | undefined>;
     /**
      * (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
      */
-    maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number | undefined>;
     /**
      * (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
      */
-    minAgeDays?: pulumi.Input<number>;
+    minAgeDays?: pulumi.Input<number | undefined>;
     /**
      * (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      */
-    minLength?: pulumi.Input<number>;
+    minLength?: pulumi.Input<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    minLowerCaseChars?: pulumi.Input<number>;
+    minLowerCaseChars?: pulumi.Input<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    minNumericChars?: pulumi.Input<number>;
+    minNumericChars?: pulumi.Input<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    minSpecialChars?: pulumi.Input<number>;
+    minSpecialChars?: pulumi.Input<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    minUpperCaseChars?: pulumi.Input<number>;
+    minUpperCaseChars?: pulumi.Input<number | undefined>;
     /**
      * Identifier for the password policy; must be unique for your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Whether to override a previous password policy with the same name.
      */
-    orReplace?: pulumi.Input<boolean>;
+    orReplace?: pulumi.Input<boolean | undefined>;
     /**
      * The schema this password policy belongs to.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -262,7 +262,7 @@ export interface PasswordPolicyArgs {
     /**
      * Adds a comment or overwrites an existing comment for the password policy.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database this password policy belongs to.
      */
@@ -270,59 +270,59 @@ export interface PasswordPolicyArgs {
     /**
      * (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      */
-    history?: pulumi.Input<number>;
+    history?: pulumi.Input<number | undefined>;
     /**
      * (Default: `false`) Prevent overwriting a previous password policy with the same name.
      */
-    ifNotExists?: pulumi.Input<boolean>;
+    ifNotExists?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
      */
-    lockoutTimeMins?: pulumi.Input<number>;
+    lockoutTimeMins?: pulumi.Input<number | undefined>;
     /**
      * (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
      */
-    maxAgeDays?: pulumi.Input<number>;
+    maxAgeDays?: pulumi.Input<number | undefined>;
     /**
      * (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
      */
-    maxLength?: pulumi.Input<number>;
+    maxLength?: pulumi.Input<number | undefined>;
     /**
      * (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
      */
-    maxRetries?: pulumi.Input<number>;
+    maxRetries?: pulumi.Input<number | undefined>;
     /**
      * (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
      */
-    minAgeDays?: pulumi.Input<number>;
+    minAgeDays?: pulumi.Input<number | undefined>;
     /**
      * (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      */
-    minLength?: pulumi.Input<number>;
+    minLength?: pulumi.Input<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    minLowerCaseChars?: pulumi.Input<number>;
+    minLowerCaseChars?: pulumi.Input<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    minNumericChars?: pulumi.Input<number>;
+    minNumericChars?: pulumi.Input<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    minSpecialChars?: pulumi.Input<number>;
+    minSpecialChars?: pulumi.Input<number | undefined>;
     /**
      * (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      */
-    minUpperCaseChars?: pulumi.Input<number>;
+    minUpperCaseChars?: pulumi.Input<number | undefined>;
     /**
      * Identifier for the password policy; must be unique for your account.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Whether to override a previous password policy with the same name.
      */
-    orReplace?: pulumi.Input<boolean>;
+    orReplace?: pulumi.Input<boolean | undefined>;
     /**
      * The schema this password policy belongs to.
      */

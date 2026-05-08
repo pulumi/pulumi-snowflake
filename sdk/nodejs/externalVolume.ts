@@ -210,31 +210,31 @@ export interface ExternalVolumeState {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    allowWrites?: pulumi.Input<string>;
+    allowWrites?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the external volume.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume. Because of Terraform limitations, the changes on storage*location field do not mark this field as computed.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeDescribeOutput>[] | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeShowOutput>[] | undefined>;
     /**
      * List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
      */
-    storageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeStorageLocation>[]>;
+    storageLocations?: pulumi.Input<pulumi.Input<inputs.ExternalVolumeStorageLocation>[] | undefined>;
 }
 
 /**
@@ -244,15 +244,15 @@ export interface ExternalVolumeArgs {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    allowWrites?: pulumi.Input<string>;
+    allowWrites?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the external volume.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
      */

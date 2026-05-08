@@ -116,25 +116,25 @@ export interface GetTasksOutputArgs {
     /**
      * IN clause to filter the list of objects
      */
-    in?: pulumi.Input<inputs.GetTasksInArgs>;
+    in?: pulumi.Input<inputs.GetTasksInArgs | undefined>;
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      */
-    limit?: pulumi.Input<inputs.GetTasksLimitArgs>;
+    limit?: pulumi.Input<inputs.GetTasksLimitArgs | undefined>;
     /**
      * Filters the command output to return only root tasks (tasks with no predecessors).
      */
-    rootOnly?: pulumi.Input<boolean>;
+    rootOnly?: pulumi.Input<boolean | undefined>;
     /**
      * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      */
-    startsWith?: pulumi.Input<string>;
+    startsWith?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
      */
-    withParameters?: pulumi.Input<boolean>;
+    withParameters?: pulumi.Input<boolean | undefined>;
 }

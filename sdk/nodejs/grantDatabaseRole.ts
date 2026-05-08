@@ -99,19 +99,19 @@ export interface GrantDatabaseRoleState {
     /**
      * The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
      */
-    databaseRoleName?: pulumi.Input<string>;
+    databaseRoleName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
-    parentDatabaseRoleName?: pulumi.Input<string>;
+    parentDatabaseRoleName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
-    parentRoleName?: pulumi.Input<string>;
+    parentRoleName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      */
-    shareName?: pulumi.Input<string>;
+    shareName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -125,13 +125,13 @@ export interface GrantDatabaseRoleArgs {
     /**
      * The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
-    parentDatabaseRoleName?: pulumi.Input<string>;
+    parentDatabaseRoleName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
-    parentRoleName?: pulumi.Input<string>;
+    parentRoleName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      */
-    shareName?: pulumi.Input<string>;
+    shareName?: pulumi.Input<string | undefined>;
 }

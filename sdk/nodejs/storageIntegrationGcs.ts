@@ -163,35 +163,35 @@ export interface StorageIntegrationGcsState {
     /**
      * Specifies a comment for the storage integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationGcsDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationGcsDescribeOutput>[] | undefined>;
     /**
      * Specifies whether this storage integration is available for usage in stages. `TRUE` allows users to create new stages that reference this integration. Existing stages that reference this integration function normally. `FALSE` prevents users from creating new stages that reference this integration. Existing stages that reference this integration cannot access the storage location in the stage definition.
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW STORAGE INTEGRATIONS` for the given storage integration.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationGcsShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.StorageIntegrationGcsShowOutput>[] | undefined>;
     /**
      * Explicitly limits external stages that use the integration to reference one or more storage locations.
      */
-    storageAllowedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    storageAllowedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
      */
-    storageBlockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    storageBlockedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 /**
@@ -201,7 +201,7 @@ export interface StorageIntegrationGcsArgs {
     /**
      * Specifies a comment for the storage integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether this storage integration is available for usage in stages. `TRUE` allows users to create new stages that reference this integration. Existing stages that reference this integration function normally. `FALSE` prevents users from creating new stages that reference this integration. Existing stages that reference this integration cannot access the storage location in the stage definition.
      */
@@ -209,7 +209,7 @@ export interface StorageIntegrationGcsArgs {
     /**
      * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Explicitly limits external stages that use the integration to reference one or more storage locations.
      */
@@ -217,5 +217,5 @@ export interface StorageIntegrationGcsArgs {
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
      */
-    storageBlockedLocations?: pulumi.Input<pulumi.Input<string>[]>;
+    storageBlockedLocations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

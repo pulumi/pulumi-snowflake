@@ -24,14 +24,14 @@ class StageExternalAzureArgs:
                  database: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
                  url: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['StageExternalAzureCredentialsArgs']] = None,
-                 directory: Optional[pulumi.Input['StageExternalAzureDirectoryArgs']] = None,
-                 encryption: Optional[pulumi.Input['StageExternalAzureEncryptionArgs']] = None,
-                 file_format: Optional[pulumi.Input['StageExternalAzureFileFormatArgs']] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['StageExternalAzureCredentialsArgs']] = None,
+                 directory: pulumi.Input[Optional['StageExternalAzureDirectoryArgs']] = None,
+                 encryption: pulumi.Input[Optional['StageExternalAzureEncryptionArgs']] = None,
+                 file_format: pulumi.Input[Optional['StageExternalAzureFileFormatArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StageExternalAzure resource.
 
@@ -105,120 +105,120 @@ class StageExternalAzureArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the stage.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['StageExternalAzureCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['StageExternalAzureCredentialsArgs']]:
         """
         Specifies the Azure SAS token credentials for the external stage.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['StageExternalAzureCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['StageExternalAzureCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def directory(self) -> Optional[pulumi.Input['StageExternalAzureDirectoryArgs']]:
+    def directory(self) -> pulumi.Input[Optional['StageExternalAzureDirectoryArgs']]:
         """
         Directory tables store a catalog of staged files in cloud storage.
         """
         return pulumi.get(self, "directory")
 
     @directory.setter
-    def directory(self, value: Optional[pulumi.Input['StageExternalAzureDirectoryArgs']]):
+    def directory(self, value: pulumi.Input[Optional['StageExternalAzureDirectoryArgs']]):
         pulumi.set(self, "directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['StageExternalAzureEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['StageExternalAzureEncryptionArgs']]:
         """
         Specifies the encryption settings for the Azure external stage.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['StageExternalAzureEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['StageExternalAzureEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input['StageExternalAzureFileFormatArgs']]:
+    def file_format(self) -> pulumi.Input[Optional['StageExternalAzureFileFormatArgs']]:
         """
         Specifies the file format for the stage.
         """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input['StageExternalAzureFileFormatArgs']]):
+    def file_format(self, value: pulumi.Input[Optional['StageExternalAzureFileFormatArgs']]):
         pulumi.set(self, "file_format", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageIntegration")
-    def storage_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "storage_integration")
 
     @storage_integration.setter
-    def storage_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_integration", value)
 
     @_builtins.property
     @pulumi.getter(name="usePrivatelinkEndpoint")
-    def use_privatelink_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def use_privatelink_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a private link endpoint for Azure storage.
         """
         return pulumi.get(self, "use_privatelink_endpoint")
 
     @use_privatelink_endpoint.setter
-    def use_privatelink_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def use_privatelink_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "use_privatelink_endpoint", value)
 
 
 @pulumi.input_type
 class _StageExternalAzureState:
     def __init__(__self__, *,
-                 cloud: Optional[pulumi.Input[_builtins.str]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input['StageExternalAzureCredentialsArgs']] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalAzureDescribeOutputArgs']]]] = None,
-                 directory: Optional[pulumi.Input['StageExternalAzureDirectoryArgs']] = None,
-                 encryption: Optional[pulumi.Input['StageExternalAzureEncryptionArgs']] = None,
-                 file_format: Optional[pulumi.Input['StageExternalAzureFileFormatArgs']] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalAzureShowOutputArgs']]]] = None,
-                 stage_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None):
+                 cloud: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional['StageExternalAzureCredentialsArgs']] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputArgs']]]] = None,
+                 directory: pulumi.Input[Optional['StageExternalAzureDirectoryArgs']] = None,
+                 encryption: pulumi.Input[Optional['StageExternalAzureEncryptionArgs']] = None,
+                 file_format: pulumi.Input[Optional['StageExternalAzureFileFormatArgs']] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureShowOutputArgs']]]] = None,
+                 stage_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StageExternalAzure resources.
 
@@ -274,194 +274,194 @@ class _StageExternalAzureState:
 
     @_builtins.property
     @pulumi.getter
-    def cloud(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cloud(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a cloud provider for the stage. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "cloud")
 
     @cloud.setter
-    def cloud(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cloud(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cloud", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the stage.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['StageExternalAzureCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['StageExternalAzureCredentialsArgs']]:
         """
         Specifies the Azure SAS token credentials for the external stage.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['StageExternalAzureCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['StageExternalAzureCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalAzureDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE STAGE` for the given stage.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalAzureDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter
-    def directory(self) -> Optional[pulumi.Input['StageExternalAzureDirectoryArgs']]:
+    def directory(self) -> pulumi.Input[Optional['StageExternalAzureDirectoryArgs']]:
         """
         Directory tables store a catalog of staged files in cloud storage.
         """
         return pulumi.get(self, "directory")
 
     @directory.setter
-    def directory(self, value: Optional[pulumi.Input['StageExternalAzureDirectoryArgs']]):
+    def directory(self, value: pulumi.Input[Optional['StageExternalAzureDirectoryArgs']]):
         pulumi.set(self, "directory", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['StageExternalAzureEncryptionArgs']]:
+    def encryption(self) -> pulumi.Input[Optional['StageExternalAzureEncryptionArgs']]:
         """
         Specifies the encryption settings for the Azure external stage.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['StageExternalAzureEncryptionArgs']]):
+    def encryption(self, value: pulumi.Input[Optional['StageExternalAzureEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="fileFormat")
-    def file_format(self) -> Optional[pulumi.Input['StageExternalAzureFileFormatArgs']]:
+    def file_format(self) -> pulumi.Input[Optional['StageExternalAzureFileFormatArgs']]:
         """
         Specifies the file format for the stage.
         """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
-    def file_format(self, value: Optional[pulumi.Input['StageExternalAzureFileFormatArgs']]):
+    def file_format(self, value: pulumi.Input[Optional['StageExternalAzureFileFormatArgs']]):
         pulumi.set(self, "file_format", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalAzureShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW STAGES` for the given stage.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StageExternalAzureShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="stageType")
-    def stage_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def stage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "stage_type")
 
     @stage_type.setter
-    def stage_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def stage_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "stage_type", value)
 
     @_builtins.property
     @pulumi.getter(name="storageIntegration")
-    def storage_integration(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def storage_integration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "storage_integration")
 
     @storage_integration.setter
-    def storage_integration(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def storage_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_integration", value)
 
     @_builtins.property
     @pulumi.getter
-    def url(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the URL for the Azure storage container (e.g., 'azure://account.blob.core.windows.net/container').
         """
         return pulumi.get(self, "url")
 
     @url.setter
-    def url(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "url", value)
 
     @_builtins.property
     @pulumi.getter(name="usePrivatelinkEndpoint")
-    def use_privatelink_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def use_privatelink_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use a private link endpoint for Azure storage.
         """
         return pulumi.get(self, "use_privatelink_endpoint")
 
     @use_privatelink_endpoint.setter
-    def use_privatelink_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def use_privatelink_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "use_privatelink_endpoint", value)
 
 
@@ -471,17 +471,17 @@ class StageExternalAzure(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']]] = None,
-                 encryption: Optional[pulumi.Input[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']]] = None,
-                 file_format: Optional[pulumi.Input[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -966,17 +966,17 @@ class StageExternalAzure(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 credentials: Optional[pulumi.Input[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 directory: Optional[pulumi.Input[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']]] = None,
-                 encryption: Optional[pulumi.Input[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']]] = None,
-                 file_format: Optional[pulumi.Input[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-                 url: Optional[pulumi.Input[_builtins.str]] = None,
-                 use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 credentials: pulumi.Input[Optional[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1018,22 +1018,22 @@ class StageExternalAzure(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cloud: Optional[pulumi.Input[_builtins.str]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            credentials: Optional[pulumi.Input[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageExternalAzureDescribeOutputArgs', 'StageExternalAzureDescribeOutputArgsDict']]]]] = None,
-            directory: Optional[pulumi.Input[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']]] = None,
-            encryption: Optional[pulumi.Input[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']]] = None,
-            file_format: Optional[pulumi.Input[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StageExternalAzureShowOutputArgs', 'StageExternalAzureShowOutputArgsDict']]]]] = None,
-            stage_type: Optional[pulumi.Input[_builtins.str]] = None,
-            storage_integration: Optional[pulumi.Input[_builtins.str]] = None,
-            url: Optional[pulumi.Input[_builtins.str]] = None,
-            use_privatelink_endpoint: Optional[pulumi.Input[_builtins.str]] = None) -> 'StageExternalAzure':
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalAzureDescribeOutputArgs', 'StageExternalAzureDescribeOutputArgsDict']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalAzureShowOutputArgs', 'StageExternalAzureShowOutputArgsDict']]]]] = None,
+            stage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'StageExternalAzure':
         """
         Get an existing StageExternalAzure resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

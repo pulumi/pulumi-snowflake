@@ -93,15 +93,15 @@ export interface GrantAccountRoleState {
     /**
      * The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
-    parentRoleName?: pulumi.Input<string>;
+    parentRoleName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
      */
-    roleName?: pulumi.Input<string>;
+    roleName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -111,7 +111,7 @@ export interface GrantAccountRoleArgs {
     /**
      * The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
-    parentRoleName?: pulumi.Input<string>;
+    parentRoleName?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
      */
@@ -119,5 +119,5 @@ export interface GrantAccountRoleArgs {
     /**
      * The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

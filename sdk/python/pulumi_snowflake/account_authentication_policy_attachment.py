@@ -43,7 +43,7 @@ class AccountAuthenticationPolicyAttachmentArgs:
 @pulumi.input_type
 class _AccountAuthenticationPolicyAttachmentState:
     def __init__(__self__, *,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountAuthenticationPolicyAttachment resources.
 
@@ -54,14 +54,14 @@ class _AccountAuthenticationPolicyAttachmentState:
 
     @_builtins.property
     @pulumi.getter(name="authenticationPolicy")
-    def authentication_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
         """
         return pulumi.get(self, "authentication_policy")
 
     @authentication_policy.setter
-    def authentication_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_policy", value)
 
 
@@ -71,7 +71,7 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -148,7 +148,7 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -171,7 +171,7 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_policy: Optional[pulumi.Input[_builtins.str]] = None) -> 'AccountAuthenticationPolicyAttachment':
+            authentication_policy: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccountAuthenticationPolicyAttachment':
         """
         Get an existing AccountAuthenticationPolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

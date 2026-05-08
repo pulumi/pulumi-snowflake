@@ -167,59 +167,59 @@ export interface StreamOnExternalTableState {
     /**
      * This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    at?: pulumi.Input<inputs.StreamOnExternalTableAt>;
+    at?: pulumi.Input<inputs.StreamOnExternalTableAt | undefined>;
     /**
      * This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    before?: pulumi.Input<inputs.StreamOnExternalTableBefore>;
+    before?: pulumi.Input<inputs.StreamOnExternalTableBefore | undefined>;
     /**
      * Specifies a comment for the stream.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
      */
-    copyGrants?: pulumi.Input<boolean>;
+    copyGrants?: pulumi.Input<boolean | undefined>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE STREAM` for the given stream.
      */
-    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnExternalTableDescribeOutput>[]>;
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnExternalTableDescribeOutput>[] | undefined>;
     /**
      * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
-    externalTable?: pulumi.Input<string>;
+    externalTable?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    insertOnly?: pulumi.Input<string>;
+    insertOnly?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `SHOW STREAMS` for the given stream.
      */
-    showOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnExternalTableShowOutput>[]>;
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnExternalTableShowOutput>[] | undefined>;
     /**
      * Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
      */
-    stale?: pulumi.Input<boolean>;
+    stale?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
      */
-    streamType?: pulumi.Input<string>;
+    streamType?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -229,19 +229,19 @@ export interface StreamOnExternalTableArgs {
     /**
      * This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    at?: pulumi.Input<inputs.StreamOnExternalTableAt>;
+    at?: pulumi.Input<inputs.StreamOnExternalTableAt | undefined>;
     /**
      * This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
      */
-    before?: pulumi.Input<inputs.StreamOnExternalTableBefore>;
+    before?: pulumi.Input<inputs.StreamOnExternalTableBefore | undefined>;
     /**
      * Specifies a comment for the stream.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
      */
-    copyGrants?: pulumi.Input<boolean>;
+    copyGrants?: pulumi.Input<boolean | undefined>;
     /**
      * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -253,11 +253,11 @@ export interface StreamOnExternalTableArgs {
     /**
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
-    insertOnly?: pulumi.Input<string>;
+    insertOnly?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

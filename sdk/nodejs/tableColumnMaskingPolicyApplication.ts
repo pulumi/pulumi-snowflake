@@ -133,15 +133,15 @@ export interface TableColumnMaskingPolicyApplicationState {
     /**
      * The column to apply the masking policy to.
      */
-    column?: pulumi.Input<string>;
+    column?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name (`database.schema.policyname`) of the policy to apply.
      */
-    maskingPolicy?: pulumi.Input<string>;
+    maskingPolicy?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name (`database.schema.table`) of the table to apply the masking policy to.
      */
-    table?: pulumi.Input<string>;
+    table?: pulumi.Input<string | undefined>;
 }
 
 /**

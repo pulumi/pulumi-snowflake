@@ -91,7 +91,7 @@ def get_resource_monitors(like: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         like=pulumi.get(__ret__, 'like'),
         resource_monitors=pulumi.get(__ret__, 'resource_monitors'))
-def get_resource_monitors_output(like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_resource_monitors_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceMonitorsResult]:
     """
     Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.

@@ -118,25 +118,25 @@ export interface GetSchemasOutputArgs {
     /**
      * IN clause to filter the list of streamlits
      */
-    in?: pulumi.Input<inputs.GetSchemasInArgs>;
+    in?: pulumi.Input<inputs.GetSchemasInArgs | undefined>;
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
      */
-    limit?: pulumi.Input<inputs.GetSchemasLimitArgs>;
+    limit?: pulumi.Input<inputs.GetSchemasLimitArgs | undefined>;
     /**
      * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
      */
-    startsWith?: pulumi.Input<string>;
+    startsWith?: pulumi.Input<string | undefined>;
     /**
      * (Default: `true`) Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
      */
-    withDescribe?: pulumi.Input<boolean>;
+    withDescribe?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: `true`) Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
      */
-    withParameters?: pulumi.Input<boolean>;
+    withParameters?: pulumi.Input<boolean | undefined>;
 }

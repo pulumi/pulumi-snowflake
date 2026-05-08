@@ -115,11 +115,11 @@ export interface UserPasswordPolicyAttachmentState {
     /**
      * Fully qualified name of the password policy
      */
-    passwordPolicyName?: pulumi.Input<string>;
+    passwordPolicyName?: pulumi.Input<string | undefined>;
     /**
      * User name of the user you want to attach the password policy to
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }
 
 /**

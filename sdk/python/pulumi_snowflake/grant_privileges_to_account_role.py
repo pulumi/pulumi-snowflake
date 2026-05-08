@@ -22,16 +22,16 @@ __all__ = ['GrantPrivilegesToAccountRoleArgs', 'GrantPrivilegesToAccountRole']
 class GrantPrivilegesToAccountRoleArgs:
     def __init__(__self__, *,
                  account_role_name: pulumi.Input[_builtins.str],
-                 all_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_account: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_account_object: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs']] = None,
-                 on_schema: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaArgs']] = None,
-                 on_schema_object: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 strict_privilege_management: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None):
+                 all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_account_object: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnAccountObjectArgs']] = None,
+                 on_schema: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaArgs']] = None,
+                 on_schema_object: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 strict_privilege_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a GrantPrivilegesToAccountRole resource.
 
@@ -83,139 +83,139 @@ class GrantPrivilegesToAccountRoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="allPrivileges")
-    def all_privileges(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def all_privileges(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
         """
         return pulumi.get(self, "all_privileges")
 
     @all_privileges.setter
-    def all_privileges(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def all_privileges(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "all_privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="alwaysApply")
-    def always_apply(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_apply(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
         """
         return pulumi.get(self, "always_apply")
 
     @always_apply.setter
-    def always_apply(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_apply(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_apply", value)
 
     @_builtins.property
     @pulumi.getter(name="alwaysApplyTrigger")
-    def always_apply_trigger(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def always_apply_trigger(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         """
         return pulumi.get(self, "always_apply_trigger")
 
     @always_apply_trigger.setter
-    def always_apply_trigger(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def always_apply_trigger(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "always_apply_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="onAccount")
-    def on_account(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def on_account(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If true, the privileges will be granted on the account.
         """
         return pulumi.get(self, "on_account")
 
     @on_account.setter
-    def on_account(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def on_account(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "on_account", value)
 
     @_builtins.property
     @pulumi.getter(name="onAccountObject")
-    def on_account_object(self) -> Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]:
+    def on_account_object(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]:
         """
         Specifies the account object on which privileges will be granted
         """
         return pulumi.get(self, "on_account_object")
 
     @on_account_object.setter
-    def on_account_object(self, value: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]):
+    def on_account_object(self, value: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]):
         pulumi.set(self, "on_account_object", value)
 
     @_builtins.property
     @pulumi.getter(name="onSchema")
-    def on_schema(self) -> Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaArgs']]:
+    def on_schema(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaArgs']]:
         """
         Specifies the schema on which privileges will be granted.
         """
         return pulumi.get(self, "on_schema")
 
     @on_schema.setter
-    def on_schema(self, value: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaArgs']]):
+    def on_schema(self, value: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaArgs']]):
         pulumi.set(self, "on_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="onSchemaObject")
-    def on_schema_object(self) -> Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]:
+    def on_schema_object(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]:
         """
         Specifies the schema object on which privileges will be granted.
         """
         return pulumi.get(self, "on_schema_object")
 
     @on_schema_object.setter
-    def on_schema_object(self, value: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]):
+    def on_schema_object(self, value: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]):
         pulumi.set(self, "on_schema_object", value)
 
     @_builtins.property
     @pulumi.getter
-    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def privileges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         """
         return pulumi.get(self, "privileges")
 
     @privileges.setter
-    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def privileges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="strictPrivilegeManagement")
-    def strict_privilege_management(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strict_privilege_management(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn't revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimental_features_enabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they're defined in for future grants). See our Strict privilege management guide for more information.
         """
         return pulumi.get(self, "strict_privilege_management")
 
     @strict_privilege_management.setter
-    def strict_privilege_management(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strict_privilege_management(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strict_privilege_management", value)
 
     @_builtins.property
     @pulumi.getter(name="withGrantOption")
-    def with_grant_option(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def with_grant_option(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         """
         return pulumi.get(self, "with_grant_option")
 
     @with_grant_option.setter
-    def with_grant_option(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def with_grant_option(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "with_grant_option", value)
 
 
 @pulumi.input_type
 class _GrantPrivilegesToAccountRoleState:
     def __init__(__self__, *,
-                 account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 all_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_account: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_account_object: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs']] = None,
-                 on_schema: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaArgs']] = None,
-                 on_schema_object: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 strict_privilege_management: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None):
+                 account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_account_object: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnAccountObjectArgs']] = None,
+                 on_schema: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaArgs']] = None,
+                 on_schema_object: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 strict_privilege_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GrantPrivilegesToAccountRole resources.
 
@@ -256,134 +256,134 @@ class _GrantPrivilegesToAccountRoleState:
 
     @_builtins.property
     @pulumi.getter(name="accountRoleName")
-    def account_role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
     @account_role_name.setter
-    def account_role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="allPrivileges")
-    def all_privileges(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def all_privileges(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
         """
         return pulumi.get(self, "all_privileges")
 
     @all_privileges.setter
-    def all_privileges(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def all_privileges(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "all_privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="alwaysApply")
-    def always_apply(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def always_apply(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
         """
         return pulumi.get(self, "always_apply")
 
     @always_apply.setter
-    def always_apply(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def always_apply(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "always_apply", value)
 
     @_builtins.property
     @pulumi.getter(name="alwaysApplyTrigger")
-    def always_apply_trigger(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def always_apply_trigger(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         """
         return pulumi.get(self, "always_apply_trigger")
 
     @always_apply_trigger.setter
-    def always_apply_trigger(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def always_apply_trigger(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "always_apply_trigger", value)
 
     @_builtins.property
     @pulumi.getter(name="onAccount")
-    def on_account(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def on_account(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If true, the privileges will be granted on the account.
         """
         return pulumi.get(self, "on_account")
 
     @on_account.setter
-    def on_account(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def on_account(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "on_account", value)
 
     @_builtins.property
     @pulumi.getter(name="onAccountObject")
-    def on_account_object(self) -> Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]:
+    def on_account_object(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]:
         """
         Specifies the account object on which privileges will be granted
         """
         return pulumi.get(self, "on_account_object")
 
     @on_account_object.setter
-    def on_account_object(self, value: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]):
+    def on_account_object(self, value: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnAccountObjectArgs']]):
         pulumi.set(self, "on_account_object", value)
 
     @_builtins.property
     @pulumi.getter(name="onSchema")
-    def on_schema(self) -> Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaArgs']]:
+    def on_schema(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaArgs']]:
         """
         Specifies the schema on which privileges will be granted.
         """
         return pulumi.get(self, "on_schema")
 
     @on_schema.setter
-    def on_schema(self, value: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaArgs']]):
+    def on_schema(self, value: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaArgs']]):
         pulumi.set(self, "on_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="onSchemaObject")
-    def on_schema_object(self) -> Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]:
+    def on_schema_object(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]:
         """
         Specifies the schema object on which privileges will be granted.
         """
         return pulumi.get(self, "on_schema_object")
 
     @on_schema_object.setter
-    def on_schema_object(self, value: Optional[pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]):
+    def on_schema_object(self, value: pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectArgs']]):
         pulumi.set(self, "on_schema_object", value)
 
     @_builtins.property
     @pulumi.getter
-    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def privileges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         """
         return pulumi.get(self, "privileges")
 
     @privileges.setter
-    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def privileges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="strictPrivilegeManagement")
-    def strict_privilege_management(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def strict_privilege_management(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn't revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimental_features_enabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they're defined in for future grants). See our Strict privilege management guide for more information.
         """
         return pulumi.get(self, "strict_privilege_management")
 
     @strict_privilege_management.setter
-    def strict_privilege_management(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def strict_privilege_management(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "strict_privilege_management", value)
 
     @_builtins.property
     @pulumi.getter(name="withGrantOption")
-    def with_grant_option(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def with_grant_option(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         """
         return pulumi.get(self, "with_grant_option")
 
     @with_grant_option.setter
-    def with_grant_option(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def with_grant_option(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "with_grant_option", value)
 
 
@@ -393,17 +393,17 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 all_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_account: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_account_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']]] = None,
-                 on_schema: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']]] = None,
-                 on_schema_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 strict_privilege_management: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None,
+                 account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_account_object: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']]] = None,
+                 on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']]] = None,
+                 on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']]] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 strict_privilege_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         !> **Warning** Be careful when using `always_apply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
@@ -468,17 +468,17 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 all_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-                 always_apply_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-                 on_account: Optional[pulumi.Input[_builtins.bool]] = None,
-                 on_account_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']]] = None,
-                 on_schema: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']]] = None,
-                 on_schema_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']]] = None,
-                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 strict_privilege_management: Optional[pulumi.Input[_builtins.bool]] = None,
-                 with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None,
+                 account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+                 always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+                 on_account_object: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']]] = None,
+                 on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']]] = None,
+                 on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']]] = None,
+                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 strict_privilege_management: pulumi.Input[Optional[_builtins.bool]] = None,
+                 with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -511,17 +511,17 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            account_role_name: Optional[pulumi.Input[_builtins.str]] = None,
-            all_privileges: Optional[pulumi.Input[_builtins.bool]] = None,
-            always_apply: Optional[pulumi.Input[_builtins.bool]] = None,
-            always_apply_trigger: Optional[pulumi.Input[_builtins.str]] = None,
-            on_account: Optional[pulumi.Input[_builtins.bool]] = None,
-            on_account_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']]] = None,
-            on_schema: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']]] = None,
-            on_schema_object: Optional[pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']]] = None,
-            privileges: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            strict_privilege_management: Optional[pulumi.Input[_builtins.bool]] = None,
-            with_grant_option: Optional[pulumi.Input[_builtins.bool]] = None) -> 'GrantPrivilegesToAccountRole':
+            account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+            always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+            always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+            on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+            on_account_object: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']]] = None,
+            on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']]] = None,
+            on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']]] = None,
+            privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            strict_privilege_management: pulumi.Input[Optional[_builtins.bool]] = None,
+            with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None) -> 'GrantPrivilegesToAccountRole':
         """
         Get an existing GrantPrivilegesToAccountRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

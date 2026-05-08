@@ -250,95 +250,95 @@ export interface DynamicTableState {
     /**
      * Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
      */
-    automaticClustering?: pulumi.Input<boolean>;
+    automaticClustering?: pulumi.Input<boolean | undefined>;
     /**
      * Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
      */
-    bytes?: pulumi.Input<number>;
+    bytes?: pulumi.Input<number | undefined>;
     /**
      * The clustering key for the dynamic table.
      */
-    clusterBy?: pulumi.Input<string>;
+    clusterBy?: pulumi.Input<string | undefined>;
     /**
      * Specifies a comment for the dynamic table.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * Time when this dynamic table was created.
      */
-    createdOn?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string | undefined>;
     /**
      * Timestamp of the data in the base object(s) that is included in the dynamic table.
      */
-    dataTimestamp?: pulumi.Input<string>;
+    dataTimestamp?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the dynamic table.
      */
-    database?: pulumi.Input<string>;
+    database?: pulumi.Input<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
     /**
      * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */
-    initialize?: pulumi.Input<string>;
+    initialize?: pulumi.Input<string | undefined>;
     /**
      * TRUE if the dynamic table has been cloned, else FALSE.
      */
-    isClone?: pulumi.Input<boolean>;
+    isClone?: pulumi.Input<boolean | undefined>;
     /**
      * TRUE if the dynamic table is a replica. else FALSE.
      */
-    isReplica?: pulumi.Input<boolean>;
+    isReplica?: pulumi.Input<boolean | undefined>;
     /**
      * Timestamp of last suspension.
      */
-    lastSuspendedOn?: pulumi.Input<string>;
+    lastSuspendedOn?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      */
-    orReplace?: pulumi.Input<boolean>;
+    orReplace?: pulumi.Input<boolean | undefined>;
     /**
      * Role that owns the dynamic table.
      */
-    owner?: pulumi.Input<string>;
+    owner?: pulumi.Input<string | undefined>;
     /**
      * Specifies the query to use to populate the dynamic table.
      */
-    query?: pulumi.Input<string>;
+    query?: pulumi.Input<string | undefined>;
     /**
      * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
-    refreshMode?: pulumi.Input<string>;
+    refreshMode?: pulumi.Input<string | undefined>;
     /**
      * Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
      */
-    refreshModeReason?: pulumi.Input<string>;
+    refreshModeReason?: pulumi.Input<string | undefined>;
     /**
      * Number of rows in the table.
      */
-    rows?: pulumi.Input<number>;
+    rows?: pulumi.Input<number | undefined>;
     /**
      * Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
      */
-    schedulingState?: pulumi.Input<string>;
+    schedulingState?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the dynamic table.
      */
-    schema?: pulumi.Input<string>;
+    schema?: pulumi.Input<string | undefined>;
     /**
      * Specifies the target lag time for the dynamic table.
      */
-    targetLag?: pulumi.Input<inputs.DynamicTableTargetLag>;
+    targetLag?: pulumi.Input<inputs.DynamicTableTargetLag | undefined>;
     /**
      * The warehouse in which to create the dynamic table.
      */
-    warehouse?: pulumi.Input<string>;
+    warehouse?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -348,7 +348,7 @@ export interface DynamicTableArgs {
     /**
      * Specifies a comment for the dynamic table.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     /**
      * The database in which to create the dynamic table.
      */
@@ -356,15 +356,15 @@ export interface DynamicTableArgs {
     /**
      * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */
-    initialize?: pulumi.Input<string>;
+    initialize?: pulumi.Input<string | undefined>;
     /**
      * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      */
-    orReplace?: pulumi.Input<boolean>;
+    orReplace?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the query to use to populate the dynamic table.
      */
@@ -372,7 +372,7 @@ export interface DynamicTableArgs {
     /**
      * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
-    refreshMode?: pulumi.Input<string>;
+    refreshMode?: pulumi.Input<string | undefined>;
     /**
      * The schema in which to create the dynamic table.
      */

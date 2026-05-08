@@ -25,11 +25,11 @@ class MaterializedViewArgs:
                  schema: pulumi.Input[_builtins.str],
                  statement: pulumi.Input[_builtins.str],
                  warehouse: pulumi.Input[_builtins.str],
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None):
         """
         The set of arguments for constructing a MaterializedView resource.
 
@@ -111,79 +111,79 @@ class MaterializedViewArgs:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the view.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecure")
-    def is_secure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_secure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies that the view is secure.
         """
         return pulumi.get(self, "is_secure")
 
     @is_secure.setter
-    def is_secure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_secure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_secure", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the view; must be unique for the schema in which the view is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="orReplace")
-    def or_replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def or_replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         """
         return pulumi.get(self, "or_replace")
 
     @or_replace.setter
-    def or_replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def or_replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "or_replace", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
 class _MaterializedViewState:
     def __init__(__self__, *,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None):
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['MaterializedViewTagArgs']]]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MaterializedView resources.
 
@@ -224,123 +224,123 @@ class _MaterializedViewState:
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the view.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter
-    def database(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def database(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The database in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "database")
 
     @database.setter
-    def database(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def database(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isSecure")
-    def is_secure(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_secure(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies that the view is secure.
         """
         return pulumi.get(self, "is_secure")
 
     @is_secure.setter
-    def is_secure(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_secure(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_secure", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the view; must be unique for the schema in which the view is created.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="orReplace")
-    def or_replace(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def or_replace(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         """
         return pulumi.get(self, "or_replace")
 
     @or_replace.setter
-    def or_replace(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def or_replace(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "or_replace", value)
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The schema in which to create the view. Don't use the | character.
         """
         return pulumi.get(self, "schema")
 
     @schema.setter
-    def schema(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
 
     @_builtins.property
     @pulumi.getter
-    def statement(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def statement(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
         """
         return pulumi.get(self, "statement")
 
     @statement.setter
-    def statement(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def statement(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "statement", value)
 
     @_builtins.property
     @pulumi.getter
     @_utilities.deprecated("""Use the 'snowflake_tag_association' resource instead.""")
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]:
         """
         Definitions of a tag to associate with the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MaterializedViewTagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def warehouse(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The warehouse name.
         """
         return pulumi.get(self, "warehouse")
 
     @warehouse.setter
-    def warehouse(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "warehouse", value)
 
 
@@ -350,15 +350,15 @@ class MaterializedView(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]]] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -473,15 +473,15 @@ class MaterializedView(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 database: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_secure: Optional[pulumi.Input[_builtins.bool]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-                 schema: Optional[pulumi.Input[_builtins.str]] = None,
-                 statement: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]]] = None,
-                 warehouse: Optional[pulumi.Input[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 database: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_secure: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+                 schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 statement: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]]] = None,
+                 warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -519,16 +519,16 @@ class MaterializedView(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            database: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            is_secure: Optional[pulumi.Input[_builtins.bool]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            or_replace: Optional[pulumi.Input[_builtins.bool]] = None,
-            schema: Optional[pulumi.Input[_builtins.str]] = None,
-            statement: Optional[pulumi.Input[_builtins.str]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]]] = None,
-            warehouse: Optional[pulumi.Input[_builtins.str]] = None) -> 'MaterializedView':
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            is_secure: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            statement: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]]] = None,
+            warehouse: pulumi.Input[Optional[_builtins.str]] = None) -> 'MaterializedView':
         """
         Get an existing MaterializedView resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

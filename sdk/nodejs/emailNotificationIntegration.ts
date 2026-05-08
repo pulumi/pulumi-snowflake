@@ -116,17 +116,17 @@ export interface EmailNotificationIntegrationState {
     /**
      * List of email addresses that should receive notifications.
      */
-    allowedRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedRecipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comment for the email integration.
      */
-    comment?: pulumi.Input<string>;
-    enabled?: pulumi.Input<boolean>;
+    comment?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
-    fullyQualifiedName?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
+    fullyQualifiedName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -136,11 +136,11 @@ export interface EmailNotificationIntegrationArgs {
     /**
      * List of email addresses that should receive notifications.
      */
-    allowedRecipients?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedRecipients?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A comment for the email integration.
      */
-    comment?: pulumi.Input<string>;
+    comment?: pulumi.Input<string | undefined>;
     enabled: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

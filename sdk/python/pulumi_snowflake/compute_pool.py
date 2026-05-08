@@ -24,12 +24,12 @@ class ComputePoolArgs:
                  instance_family: pulumi.Input[_builtins.str],
                  max_nodes: pulumi.Input[_builtins.int],
                  min_nodes: pulumi.Input[_builtins.int],
-                 auto_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_suspend_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 for_application: Optional[pulumi.Input[_builtins.str]] = None,
-                 initially_suspended: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 for_application: pulumi.Input[Optional[_builtins.str]] = None,
+                 initially_suspended: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ComputePool resource.
 
@@ -97,92 +97,92 @@ class ComputePoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoResume")
-    def auto_resume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_resume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a compute pool when a service or job is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "auto_resume")
 
     @auto_resume.setter
-    def auto_resume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_resume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_resume", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSuspendSecs")
-    def auto_suspend_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_suspend_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of seconds of inactivity after which you want Snowflake to automatically suspend the compute pool.
         """
         return pulumi.get(self, "auto_suspend_secs")
 
     @auto_suspend_secs.setter
-    def auto_suspend_secs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_suspend_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_suspend_secs", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the compute pool.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="forApplication")
-    def for_application(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def for_application(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Snowflake Native App name.
         """
         return pulumi.get(self, "for_application")
 
     @for_application.setter
-    def for_application(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def for_application(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "for_application", value)
 
     @_builtins.property
     @pulumi.getter(name="initiallySuspended")
-    def initially_suspended(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initially_suspended(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the compute pool is created initially in the suspended state. This field is used only when creating a compute pool. Changes on this field are ignored after creation.
         """
         return pulumi.get(self, "initially_suspended")
 
     @initially_suspended.setter
-    def initially_suspended(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initially_suspended(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initially_suspended", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the compute pool; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
 class _ComputePoolState:
     def __init__(__self__, *,
-                 auto_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_suspend_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ComputePoolDescribeOutputArgs']]]] = None,
-                 for_application: Optional[pulumi.Input[_builtins.str]] = None,
-                 fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 initially_suspended: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['ComputePoolShowOutputArgs']]]] = None):
+                 auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ComputePoolDescribeOutputArgs']]]] = None,
+                 for_application: pulumi.Input[Optional[_builtins.str]] = None,
+                 fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 initially_suspended: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ComputePoolShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering ComputePool resources.
 
@@ -226,146 +226,146 @@ class _ComputePoolState:
 
     @_builtins.property
     @pulumi.getter(name="autoResume")
-    def auto_resume(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auto_resume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a compute pool when a service or job is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "auto_resume")
 
     @auto_resume.setter
-    def auto_resume(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auto_resume(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auto_resume", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSuspendSecs")
-    def auto_suspend_secs(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def auto_suspend_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of seconds of inactivity after which you want Snowflake to automatically suspend the compute pool.
         """
         return pulumi.get(self, "auto_suspend_secs")
 
     @auto_suspend_secs.setter
-    def auto_suspend_secs(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def auto_suspend_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_suspend_secs", value)
 
     @_builtins.property
     @pulumi.getter
-    def comment(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies a comment for the compute pool.
         """
         return pulumi.get(self, "comment")
 
     @comment.setter
-    def comment(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comment", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
-    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComputePoolDescribeOutputArgs']]]]:
+    def describe_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComputePoolDescribeOutputArgs']]]]:
         """
         Outputs the result of `DESCRIBE COMPUTE POOL` for the given compute pool.
         """
         return pulumi.get(self, "describe_outputs")
 
     @describe_outputs.setter
-    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComputePoolDescribeOutputArgs']]]]):
+    def describe_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComputePoolDescribeOutputArgs']]]]):
         pulumi.set(self, "describe_outputs", value)
 
     @_builtins.property
     @pulumi.getter(name="forApplication")
-    def for_application(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def for_application(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the Snowflake Native App name.
         """
         return pulumi.get(self, "for_application")
 
     @for_application.setter
-    def for_application(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def for_application(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "for_application", value)
 
     @_builtins.property
     @pulumi.getter(name="fullyQualifiedName")
-    def fully_qualified_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fully_qualified_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
     @fully_qualified_name.setter
-    def fully_qualified_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fully_qualified_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fully_qualified_name", value)
 
     @_builtins.property
     @pulumi.getter(name="initiallySuspended")
-    def initially_suspended(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def initially_suspended(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the compute pool is created initially in the suspended state. This field is used only when creating a compute pool. Changes on this field are ignored after creation.
         """
         return pulumi.get(self, "initially_suspended")
 
     @initially_suspended.setter
-    def initially_suspended(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def initially_suspended(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "initially_suspended", value)
 
     @_builtins.property
     @pulumi.getter(name="instanceFamily")
-    def instance_family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def instance_family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Identifies the type of machine you want to provision for the nodes in the compute pool. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G`. Not all instance families are supported in all regions. Run `SHOW COMPUTE POOL INSTANCE FAMILIES` to see the list of supported instance families in your region.
         """
         return pulumi.get(self, "instance_family")
 
     @instance_family.setter
-    def instance_family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def instance_family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "instance_family", value)
 
     @_builtins.property
     @pulumi.getter(name="maxNodes")
-    def max_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the maximum number of nodes for the compute pool.
         """
         return pulumi.get(self, "max_nodes")
 
     @max_nodes.setter
-    def max_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_nodes", value)
 
     @_builtins.property
     @pulumi.getter(name="minNodes")
-    def min_nodes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Specifies the minimum number of nodes for the compute pool.
         """
         return pulumi.get(self, "min_nodes")
 
     @min_nodes.setter
-    def min_nodes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_nodes", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the identifier for the compute pool; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ComputePoolShowOutputArgs']]]]:
+    def show_outputs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComputePoolShowOutputArgs']]]]:
         """
         Outputs the result of `SHOW COMPUTE POOLS` for the given compute pool.
         """
         return pulumi.get(self, "show_outputs")
 
     @show_outputs.setter
-    def show_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ComputePoolShowOutputArgs']]]]):
+    def show_outputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ComputePoolShowOutputArgs']]]]):
         pulumi.set(self, "show_outputs", value)
 
 
@@ -375,15 +375,15 @@ class ComputePool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_suspend_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 for_application: Optional[pulumi.Input[_builtins.str]] = None,
-                 initially_suspended: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 for_application: pulumi.Input[Optional[_builtins.str]] = None,
+                 initially_suspended: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         > **Note** Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)).
@@ -506,15 +506,15 @@ class ComputePool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_resume: Optional[pulumi.Input[_builtins.str]] = None,
-                 auto_suspend_secs: Optional[pulumi.Input[_builtins.int]] = None,
-                 comment: Optional[pulumi.Input[_builtins.str]] = None,
-                 for_application: Optional[pulumi.Input[_builtins.str]] = None,
-                 initially_suspended: Optional[pulumi.Input[_builtins.str]] = None,
-                 instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 for_application: pulumi.Input[Optional[_builtins.str]] = None,
+                 initially_suspended: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -552,18 +552,18 @@ class ComputePool(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            auto_resume: Optional[pulumi.Input[_builtins.str]] = None,
-            auto_suspend_secs: Optional[pulumi.Input[_builtins.int]] = None,
-            comment: Optional[pulumi.Input[_builtins.str]] = None,
-            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComputePoolDescribeOutputArgs', 'ComputePoolDescribeOutputArgsDict']]]]] = None,
-            for_application: Optional[pulumi.Input[_builtins.str]] = None,
-            fully_qualified_name: Optional[pulumi.Input[_builtins.str]] = None,
-            initially_suspended: Optional[pulumi.Input[_builtins.str]] = None,
-            instance_family: Optional[pulumi.Input[_builtins.str]] = None,
-            max_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-            min_nodes: Optional[pulumi.Input[_builtins.int]] = None,
-            name: Optional[pulumi.Input[_builtins.str]] = None,
-            show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ComputePoolShowOutputArgs', 'ComputePoolShowOutputArgsDict']]]]] = None) -> 'ComputePool':
+            auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputePoolDescribeOutputArgs', 'ComputePoolDescribeOutputArgsDict']]]]] = None,
+            for_application: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            initially_suspended: pulumi.Input[Optional[_builtins.str]] = None,
+            instance_family: pulumi.Input[Optional[_builtins.str]] = None,
+            max_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+            min_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputePoolShowOutputArgs', 'ComputePoolShowOutputArgsDict']]]]] = None) -> 'ComputePool':
         """
         Get an existing ComputePool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -145,47 +145,47 @@ export interface GrantPrivilegesToAccountRoleState {
     /**
      * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      */
-    accountRoleName?: pulumi.Input<string>;
+    accountRoleName?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      */
-    allPrivileges?: pulumi.Input<boolean>;
+    allPrivileges?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
      */
-    alwaysApply?: pulumi.Input<boolean>;
+    alwaysApply?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
-    alwaysApplyTrigger?: pulumi.Input<string>;
+    alwaysApplyTrigger?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) If true, the privileges will be granted on the account.
      */
-    onAccount?: pulumi.Input<boolean>;
+    onAccount?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the account object on which privileges will be granted
      */
-    onAccountObject?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnAccountObject>;
+    onAccountObject?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnAccountObject | undefined>;
     /**
      * Specifies the schema on which privileges will be granted.
      */
-    onSchema?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchema>;
+    onSchema?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchema | undefined>;
     /**
      * Specifies the schema object on which privileges will be granted.
      */
-    onSchemaObject?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObject>;
+    onSchemaObject?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObject | undefined>;
     /**
      * The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      */
-    privileges?: pulumi.Input<pulumi.Input<string>[]>;
+    privileges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn't revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they're defined in for future grants). See our Strict privilege management guide for more information.
      */
-    strictPrivilegeManagement?: pulumi.Input<boolean>;
+    strictPrivilegeManagement?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      */
-    withGrantOption?: pulumi.Input<boolean>;
+    withGrantOption?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -199,41 +199,41 @@ export interface GrantPrivilegesToAccountRoleArgs {
     /**
      * (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      */
-    allPrivileges?: pulumi.Input<boolean>;
+    allPrivileges?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: `false`) If true, the resource will always produce a “plan” and on “apply” it will re-grant defined privileges. It is supposed to be used only in “grant privileges on all X’s in database / schema Y” or “grant all privileges to X” scenarios to make sure that every new object in a given database / schema is granted by the account role and every new privilege is granted to the database role. Important note: this flag is not compliant with the Terraform assumptions of the config being eventually convergent (producing an empty plan).
      */
-    alwaysApply?: pulumi.Input<boolean>;
+    alwaysApply?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
-    alwaysApplyTrigger?: pulumi.Input<string>;
+    alwaysApplyTrigger?: pulumi.Input<string | undefined>;
     /**
      * (Default: `false`) If true, the privileges will be granted on the account.
      */
-    onAccount?: pulumi.Input<boolean>;
+    onAccount?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the account object on which privileges will be granted
      */
-    onAccountObject?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnAccountObject>;
+    onAccountObject?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnAccountObject | undefined>;
     /**
      * Specifies the schema on which privileges will be granted.
      */
-    onSchema?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchema>;
+    onSchema?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchema | undefined>;
     /**
      * Specifies the schema object on which privileges will be granted.
      */
-    onSchemaObject?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObject>;
+    onSchemaObject?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObject | undefined>;
     /**
      * The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      */
-    privileges?: pulumi.Input<pulumi.Input<string>[]>;
+    privileges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * (Default: `false`) If true, the resource will revoke all privileges that are not explicitly defined in the config making it a central source of truth for the privileges granted on an object to an account role. If false, the resource will be only concerned with the privileges that are explicitly defined in the config. The potential privilege removals will be planned only after second `pulumi up` run, after setting the flag in resource configuration. This means, the flag update doesn't revoke immediately any externally granted privileges. This is a Terraform limitation, and two steps are needed to properly show the potential privilege changes (e.g., revoking privileges not specified in the configuration) in the plan. External privileges will be detected regardless of their grant option. The parameter can be only used when `GRANTS_STRICT_PRIVILEGE_MANAGEMENT` option is specified in provider block in the `experimentalFeaturesEnabled` field. Regular and future grants are treated separately, meaning, more resources need to be defined to control regular and future grants for a given object and role (and for a given database or schema they're defined in for future grants). See our Strict privilege management guide for more information.
      */
-    strictPrivilegeManagement?: pulumi.Input<boolean>;
+    strictPrivilegeManagement?: pulumi.Input<boolean | undefined>;
     /**
      * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      */
-    withGrantOption?: pulumi.Input<boolean>;
+    withGrantOption?: pulumi.Input<boolean | undefined>;
 }

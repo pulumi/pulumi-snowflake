@@ -140,10 +140,10 @@ def get_streamlits(in_: Optional[Union['GetStreamlitsInArgs', 'GetStreamlitsInAr
         limit=pulumi.get(__ret__, 'limit'),
         streamlits=pulumi.get(__ret__, 'streamlits'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_streamlits_output(in_: Optional[pulumi.Input[Optional[Union['GetStreamlitsInArgs', 'GetStreamlitsInArgsDict']]]] = None,
-                          like: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          limit: Optional[pulumi.Input[Optional[Union['GetStreamlitsLimitArgs', 'GetStreamlitsLimitArgsDict']]]] = None,
-                          with_describe: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+def get_streamlits_output(in_: pulumi.Input[Optional[Optional[Union['GetStreamlitsInArgs', 'GetStreamlitsInArgsDict']]]] = None,
+                          like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          limit: pulumi.Input[Optional[Optional[Union['GetStreamlitsLimitArgs', 'GetStreamlitsLimitArgsDict']]]] = None,
+                          with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamlitsResult]:
     """
     Data source used to get details of filtered streamlits. Filtering is aligned with the current possibilities for [SHOW STREAMLITS](https://docs.snowflake.com/en/sql-reference/sql/show-streamlits) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `streamlits`.

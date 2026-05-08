@@ -72,9 +72,9 @@ export interface GetAccountsOutputArgs {
     /**
      * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    like?: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
     /**
      * Includes dropped accounts that have not yet been deleted.
      */
-    withHistory?: pulumi.Input<boolean>;
+    withHistory?: pulumi.Input<boolean | undefined>;
 }

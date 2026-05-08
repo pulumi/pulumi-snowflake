@@ -91,7 +91,7 @@ def get_user_programmatic_access_tokens(for_user: Optional[_builtins.str] = None
         for_user=pulumi.get(__ret__, 'for_user'),
         id=pulumi.get(__ret__, 'id'),
         user_programmatic_access_tokens=pulumi.get(__ret__, 'user_programmatic_access_tokens'))
-def get_user_programmatic_access_tokens_output(for_user: Optional[pulumi.Input[_builtins.str]] = None,
+def get_user_programmatic_access_tokens_output(for_user: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserProgrammaticAccessTokensResult]:
     """
     Data source used to get details of filtered user programmatic access tokens. Filtering is aligned with the current possibilities for [SHOW USER PROGRAMMATIC ACCESS TOKENS](https://docs.snowflake.com/en/sql-reference/sql/show-user-programmatic-access-tokens) query. The results of SHOW are encapsulated in one output collection `user_programmatic_access_tokens`.
