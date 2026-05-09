@@ -166,6 +166,20 @@ public class CatalogIntegrationIcebergRest extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.catalogNamespace);
     }
     /**
+     * Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+     * 
+     */
+    @Export(name="catalogSource", refs={String.class}, tree="[0]")
+    private Output<String> catalogSource;
+
+    /**
+     * @return Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+     * 
+     */
+    public Output<String> catalogSource() {
+        return this.catalogSource;
+    }
+    /**
      * (Default: ``) Specifies a comment for the catalog integration.
      * 
      */

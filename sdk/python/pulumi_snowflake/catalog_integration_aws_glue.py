@@ -156,6 +156,7 @@ class CatalogIntegrationAwsGlueArgs:
 class _CatalogIntegrationAwsGlueState:
     def __init__(__self__, *,
                  catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationAwsGlueDescribeOutputArgs']]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -170,6 +171,7 @@ class _CatalogIntegrationAwsGlueState:
         Input properties used for looking up and filtering CatalogIntegrationAwsGlue resources.
 
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
+        :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationAwsGlueDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
@@ -183,6 +185,8 @@ class _CatalogIntegrationAwsGlueState:
         """
         if catalog_namespace is not None:
             pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        if catalog_source is not None:
+            pulumi.set(__self__, "catalog_source", catalog_source)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if describe_outputs is not None:
@@ -215,6 +219,18 @@ class _CatalogIntegrationAwsGlueState:
     @catalog_namespace.setter
     def catalog_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSource")
+    def catalog_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+        """
+        return pulumi.get(self, "catalog_source")
+
+    @catalog_source.setter
+    def catalog_source(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "catalog_source", value)
 
     @_builtins.property
     @pulumi.getter
@@ -497,6 +513,7 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
             __props__.__dict__["glue_region"] = glue_region
             __props__.__dict__["name"] = name
             __props__.__dict__["refresh_interval_seconds"] = refresh_interval_seconds
+            __props__.__dict__["catalog_source"] = None
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
@@ -511,6 +528,7 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationAwsGlueDescribeOutputArgs', 'CatalogIntegrationAwsGlueDescribeOutputArgsDict']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -529,6 +547,7 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
+        :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationAwsGlueDescribeOutputArgs', 'CatalogIntegrationAwsGlueDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
@@ -545,6 +564,7 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
         __props__ = _CatalogIntegrationAwsGlueState.__new__(_CatalogIntegrationAwsGlueState)
 
         __props__.__dict__["catalog_namespace"] = catalog_namespace
+        __props__.__dict__["catalog_source"] = catalog_source
         __props__.__dict__["comment"] = comment
         __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["enabled"] = enabled
@@ -564,6 +584,14 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
         Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
         """
         return pulumi.get(self, "catalog_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSource")
+    def catalog_source(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+        """
+        return pulumi.get(self, "catalog_source")
 
     @_builtins.property
     @pulumi.getter

@@ -39687,6 +39687,320 @@ func (o ObjectParameterObjectIdentifierArrayOutput) Index(i pulumi.IntInput) Obj
 	}).(ObjectParameterObjectIdentifierOutput)
 }
 
+type PasswordPolicyDescribeOutput struct {
+	Comment                   *string `pulumi:"comment"`
+	Name                      *string `pulumi:"name"`
+	Owner                     *string `pulumi:"owner"`
+	PasswordHistory           *int    `pulumi:"passwordHistory"`
+	PasswordLockoutTimeMins   *int    `pulumi:"passwordLockoutTimeMins"`
+	PasswordMaxAgeDays        *int    `pulumi:"passwordMaxAgeDays"`
+	PasswordMaxLength         *int    `pulumi:"passwordMaxLength"`
+	PasswordMaxRetries        *int    `pulumi:"passwordMaxRetries"`
+	PasswordMinAgeDays        *int    `pulumi:"passwordMinAgeDays"`
+	PasswordMinLength         *int    `pulumi:"passwordMinLength"`
+	PasswordMinLowerCaseChars *int    `pulumi:"passwordMinLowerCaseChars"`
+	PasswordMinNumericChars   *int    `pulumi:"passwordMinNumericChars"`
+	PasswordMinSpecialChars   *int    `pulumi:"passwordMinSpecialChars"`
+	PasswordMinUpperCaseChars *int    `pulumi:"passwordMinUpperCaseChars"`
+}
+
+// PasswordPolicyDescribeOutputInput is an input type that accepts PasswordPolicyDescribeOutputArgs and PasswordPolicyDescribeOutputOutput values.
+// You can construct a concrete instance of `PasswordPolicyDescribeOutputInput` via:
+//
+//	PasswordPolicyDescribeOutputArgs{...}
+type PasswordPolicyDescribeOutputInput interface {
+	pulumi.Input
+
+	ToPasswordPolicyDescribeOutputOutput() PasswordPolicyDescribeOutputOutput
+	ToPasswordPolicyDescribeOutputOutputWithContext(context.Context) PasswordPolicyDescribeOutputOutput
+}
+
+type PasswordPolicyDescribeOutputArgs struct {
+	Comment                   pulumi.StringPtrInput `pulumi:"comment"`
+	Name                      pulumi.StringPtrInput `pulumi:"name"`
+	Owner                     pulumi.StringPtrInput `pulumi:"owner"`
+	PasswordHistory           pulumi.IntPtrInput    `pulumi:"passwordHistory"`
+	PasswordLockoutTimeMins   pulumi.IntPtrInput    `pulumi:"passwordLockoutTimeMins"`
+	PasswordMaxAgeDays        pulumi.IntPtrInput    `pulumi:"passwordMaxAgeDays"`
+	PasswordMaxLength         pulumi.IntPtrInput    `pulumi:"passwordMaxLength"`
+	PasswordMaxRetries        pulumi.IntPtrInput    `pulumi:"passwordMaxRetries"`
+	PasswordMinAgeDays        pulumi.IntPtrInput    `pulumi:"passwordMinAgeDays"`
+	PasswordMinLength         pulumi.IntPtrInput    `pulumi:"passwordMinLength"`
+	PasswordMinLowerCaseChars pulumi.IntPtrInput    `pulumi:"passwordMinLowerCaseChars"`
+	PasswordMinNumericChars   pulumi.IntPtrInput    `pulumi:"passwordMinNumericChars"`
+	PasswordMinSpecialChars   pulumi.IntPtrInput    `pulumi:"passwordMinSpecialChars"`
+	PasswordMinUpperCaseChars pulumi.IntPtrInput    `pulumi:"passwordMinUpperCaseChars"`
+}
+
+func (PasswordPolicyDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (i PasswordPolicyDescribeOutputArgs) ToPasswordPolicyDescribeOutputOutput() PasswordPolicyDescribeOutputOutput {
+	return i.ToPasswordPolicyDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i PasswordPolicyDescribeOutputArgs) ToPasswordPolicyDescribeOutputOutputWithContext(ctx context.Context) PasswordPolicyDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyDescribeOutputOutput)
+}
+
+// PasswordPolicyDescribeOutputArrayInput is an input type that accepts PasswordPolicyDescribeOutputArray and PasswordPolicyDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `PasswordPolicyDescribeOutputArrayInput` via:
+//
+//	PasswordPolicyDescribeOutputArray{ PasswordPolicyDescribeOutputArgs{...} }
+type PasswordPolicyDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToPasswordPolicyDescribeOutputArrayOutput() PasswordPolicyDescribeOutputArrayOutput
+	ToPasswordPolicyDescribeOutputArrayOutputWithContext(context.Context) PasswordPolicyDescribeOutputArrayOutput
+}
+
+type PasswordPolicyDescribeOutputArray []PasswordPolicyDescribeOutputInput
+
+func (PasswordPolicyDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PasswordPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (i PasswordPolicyDescribeOutputArray) ToPasswordPolicyDescribeOutputArrayOutput() PasswordPolicyDescribeOutputArrayOutput {
+	return i.ToPasswordPolicyDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i PasswordPolicyDescribeOutputArray) ToPasswordPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) PasswordPolicyDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyDescribeOutputArrayOutput)
+}
+
+type PasswordPolicyDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (PasswordPolicyDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (o PasswordPolicyDescribeOutputOutput) ToPasswordPolicyDescribeOutputOutput() PasswordPolicyDescribeOutputOutput {
+	return o
+}
+
+func (o PasswordPolicyDescribeOutputOutput) ToPasswordPolicyDescribeOutputOutputWithContext(ctx context.Context) PasswordPolicyDescribeOutputOutput {
+	return o
+}
+
+func (o PasswordPolicyDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordHistory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordHistory }).(pulumi.IntPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordLockoutTimeMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordLockoutTimeMins }).(pulumi.IntPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordMaxAgeDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordMaxAgeDays }).(pulumi.IntPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordMaxLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordMaxLength }).(pulumi.IntPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordMaxRetries() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordMaxRetries }).(pulumi.IntPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordMinAgeDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordMinAgeDays }).(pulumi.IntPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordMinLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordMinLength }).(pulumi.IntPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordMinLowerCaseChars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordMinLowerCaseChars }).(pulumi.IntPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordMinNumericChars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordMinNumericChars }).(pulumi.IntPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordMinSpecialChars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordMinSpecialChars }).(pulumi.IntPtrOutput)
+}
+
+func (o PasswordPolicyDescribeOutputOutput) PasswordMinUpperCaseChars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyDescribeOutput) *int { return v.PasswordMinUpperCaseChars }).(pulumi.IntPtrOutput)
+}
+
+type PasswordPolicyDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (PasswordPolicyDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PasswordPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (o PasswordPolicyDescribeOutputArrayOutput) ToPasswordPolicyDescribeOutputArrayOutput() PasswordPolicyDescribeOutputArrayOutput {
+	return o
+}
+
+func (o PasswordPolicyDescribeOutputArrayOutput) ToPasswordPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) PasswordPolicyDescribeOutputArrayOutput {
+	return o
+}
+
+func (o PasswordPolicyDescribeOutputArrayOutput) Index(i pulumi.IntInput) PasswordPolicyDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PasswordPolicyDescribeOutput {
+		return vs[0].([]PasswordPolicyDescribeOutput)[vs[1].(int)]
+	}).(PasswordPolicyDescribeOutputOutput)
+}
+
+type PasswordPolicyShowOutput struct {
+	Comment       *string `pulumi:"comment"`
+	CreatedOn     *string `pulumi:"createdOn"`
+	DatabaseName  *string `pulumi:"databaseName"`
+	Kind          *string `pulumi:"kind"`
+	Name          *string `pulumi:"name"`
+	Options       *string `pulumi:"options"`
+	Owner         *string `pulumi:"owner"`
+	OwnerRoleType *string `pulumi:"ownerRoleType"`
+	SchemaName    *string `pulumi:"schemaName"`
+}
+
+// PasswordPolicyShowOutputInput is an input type that accepts PasswordPolicyShowOutputArgs and PasswordPolicyShowOutputOutput values.
+// You can construct a concrete instance of `PasswordPolicyShowOutputInput` via:
+//
+//	PasswordPolicyShowOutputArgs{...}
+type PasswordPolicyShowOutputInput interface {
+	pulumi.Input
+
+	ToPasswordPolicyShowOutputOutput() PasswordPolicyShowOutputOutput
+	ToPasswordPolicyShowOutputOutputWithContext(context.Context) PasswordPolicyShowOutputOutput
+}
+
+type PasswordPolicyShowOutputArgs struct {
+	Comment       pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn     pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName  pulumi.StringPtrInput `pulumi:"databaseName"`
+	Kind          pulumi.StringPtrInput `pulumi:"kind"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Options       pulumi.StringPtrInput `pulumi:"options"`
+	Owner         pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	SchemaName    pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (PasswordPolicyShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordPolicyShowOutput)(nil)).Elem()
+}
+
+func (i PasswordPolicyShowOutputArgs) ToPasswordPolicyShowOutputOutput() PasswordPolicyShowOutputOutput {
+	return i.ToPasswordPolicyShowOutputOutputWithContext(context.Background())
+}
+
+func (i PasswordPolicyShowOutputArgs) ToPasswordPolicyShowOutputOutputWithContext(ctx context.Context) PasswordPolicyShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyShowOutputOutput)
+}
+
+// PasswordPolicyShowOutputArrayInput is an input type that accepts PasswordPolicyShowOutputArray and PasswordPolicyShowOutputArrayOutput values.
+// You can construct a concrete instance of `PasswordPolicyShowOutputArrayInput` via:
+//
+//	PasswordPolicyShowOutputArray{ PasswordPolicyShowOutputArgs{...} }
+type PasswordPolicyShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToPasswordPolicyShowOutputArrayOutput() PasswordPolicyShowOutputArrayOutput
+	ToPasswordPolicyShowOutputArrayOutputWithContext(context.Context) PasswordPolicyShowOutputArrayOutput
+}
+
+type PasswordPolicyShowOutputArray []PasswordPolicyShowOutputInput
+
+func (PasswordPolicyShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PasswordPolicyShowOutput)(nil)).Elem()
+}
+
+func (i PasswordPolicyShowOutputArray) ToPasswordPolicyShowOutputArrayOutput() PasswordPolicyShowOutputArrayOutput {
+	return i.ToPasswordPolicyShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i PasswordPolicyShowOutputArray) ToPasswordPolicyShowOutputArrayOutputWithContext(ctx context.Context) PasswordPolicyShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PasswordPolicyShowOutputArrayOutput)
+}
+
+type PasswordPolicyShowOutputOutput struct{ *pulumi.OutputState }
+
+func (PasswordPolicyShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PasswordPolicyShowOutput)(nil)).Elem()
+}
+
+func (o PasswordPolicyShowOutputOutput) ToPasswordPolicyShowOutputOutput() PasswordPolicyShowOutputOutput {
+	return o
+}
+
+func (o PasswordPolicyShowOutputOutput) ToPasswordPolicyShowOutputOutputWithContext(ctx context.Context) PasswordPolicyShowOutputOutput {
+	return o
+}
+
+func (o PasswordPolicyShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyShowOutputOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyShowOutput) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyShowOutputOutput) Options() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyShowOutput) *string { return v.Options }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o PasswordPolicyShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PasswordPolicyShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type PasswordPolicyShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (PasswordPolicyShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PasswordPolicyShowOutput)(nil)).Elem()
+}
+
+func (o PasswordPolicyShowOutputArrayOutput) ToPasswordPolicyShowOutputArrayOutput() PasswordPolicyShowOutputArrayOutput {
+	return o
+}
+
+func (o PasswordPolicyShowOutputArrayOutput) ToPasswordPolicyShowOutputArrayOutputWithContext(ctx context.Context) PasswordPolicyShowOutputArrayOutput {
+	return o
+}
+
+func (o PasswordPolicyShowOutputArrayOutput) Index(i pulumi.IntInput) PasswordPolicyShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PasswordPolicyShowOutput {
+		return vs[0].([]PasswordPolicyShowOutput)[vs[1].(int)]
+	}).(PasswordPolicyShowOutputOutput)
+}
+
 type PrimaryConnectionShowOutput struct {
 	AccountLocator            *string  `pulumi:"accountLocator"`
 	AccountName               *string  `pulumi:"accountName"`
@@ -63941,6 +64255,634 @@ func (o ServiceUserShowOutputArrayOutput) Index(i pulumi.IntInput) ServiceUserSh
 	}).(ServiceUserShowOutputOutput)
 }
 
+type SessionPolicyAllowedSecondaryRoles struct {
+	// When true, allows all secondary roles.
+	All *bool `pulumi:"all"`
+	// When true, disallows all secondary roles.
+	None *bool `pulumi:"none"`
+	// Specifies roles to be allowed as secondary roles.
+	Roles []string `pulumi:"roles"`
+}
+
+// SessionPolicyAllowedSecondaryRolesInput is an input type that accepts SessionPolicyAllowedSecondaryRolesArgs and SessionPolicyAllowedSecondaryRolesOutput values.
+// You can construct a concrete instance of `SessionPolicyAllowedSecondaryRolesInput` via:
+//
+//	SessionPolicyAllowedSecondaryRolesArgs{...}
+type SessionPolicyAllowedSecondaryRolesInput interface {
+	pulumi.Input
+
+	ToSessionPolicyAllowedSecondaryRolesOutput() SessionPolicyAllowedSecondaryRolesOutput
+	ToSessionPolicyAllowedSecondaryRolesOutputWithContext(context.Context) SessionPolicyAllowedSecondaryRolesOutput
+}
+
+type SessionPolicyAllowedSecondaryRolesArgs struct {
+	// When true, allows all secondary roles.
+	All pulumi.BoolPtrInput `pulumi:"all"`
+	// When true, disallows all secondary roles.
+	None pulumi.BoolPtrInput `pulumi:"none"`
+	// Specifies roles to be allowed as secondary roles.
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+}
+
+func (SessionPolicyAllowedSecondaryRolesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionPolicyAllowedSecondaryRoles)(nil)).Elem()
+}
+
+func (i SessionPolicyAllowedSecondaryRolesArgs) ToSessionPolicyAllowedSecondaryRolesOutput() SessionPolicyAllowedSecondaryRolesOutput {
+	return i.ToSessionPolicyAllowedSecondaryRolesOutputWithContext(context.Background())
+}
+
+func (i SessionPolicyAllowedSecondaryRolesArgs) ToSessionPolicyAllowedSecondaryRolesOutputWithContext(ctx context.Context) SessionPolicyAllowedSecondaryRolesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionPolicyAllowedSecondaryRolesOutput)
+}
+
+func (i SessionPolicyAllowedSecondaryRolesArgs) ToSessionPolicyAllowedSecondaryRolesPtrOutput() SessionPolicyAllowedSecondaryRolesPtrOutput {
+	return i.ToSessionPolicyAllowedSecondaryRolesPtrOutputWithContext(context.Background())
+}
+
+func (i SessionPolicyAllowedSecondaryRolesArgs) ToSessionPolicyAllowedSecondaryRolesPtrOutputWithContext(ctx context.Context) SessionPolicyAllowedSecondaryRolesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionPolicyAllowedSecondaryRolesOutput).ToSessionPolicyAllowedSecondaryRolesPtrOutputWithContext(ctx)
+}
+
+// SessionPolicyAllowedSecondaryRolesPtrInput is an input type that accepts SessionPolicyAllowedSecondaryRolesArgs, SessionPolicyAllowedSecondaryRolesPtr and SessionPolicyAllowedSecondaryRolesPtrOutput values.
+// You can construct a concrete instance of `SessionPolicyAllowedSecondaryRolesPtrInput` via:
+//
+//	        SessionPolicyAllowedSecondaryRolesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SessionPolicyAllowedSecondaryRolesPtrInput interface {
+	pulumi.Input
+
+	ToSessionPolicyAllowedSecondaryRolesPtrOutput() SessionPolicyAllowedSecondaryRolesPtrOutput
+	ToSessionPolicyAllowedSecondaryRolesPtrOutputWithContext(context.Context) SessionPolicyAllowedSecondaryRolesPtrOutput
+}
+
+type sessionPolicyAllowedSecondaryRolesPtrType SessionPolicyAllowedSecondaryRolesArgs
+
+func SessionPolicyAllowedSecondaryRolesPtr(v *SessionPolicyAllowedSecondaryRolesArgs) SessionPolicyAllowedSecondaryRolesPtrInput {
+	return (*sessionPolicyAllowedSecondaryRolesPtrType)(v)
+}
+
+func (*sessionPolicyAllowedSecondaryRolesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionPolicyAllowedSecondaryRoles)(nil)).Elem()
+}
+
+func (i *sessionPolicyAllowedSecondaryRolesPtrType) ToSessionPolicyAllowedSecondaryRolesPtrOutput() SessionPolicyAllowedSecondaryRolesPtrOutput {
+	return i.ToSessionPolicyAllowedSecondaryRolesPtrOutputWithContext(context.Background())
+}
+
+func (i *sessionPolicyAllowedSecondaryRolesPtrType) ToSessionPolicyAllowedSecondaryRolesPtrOutputWithContext(ctx context.Context) SessionPolicyAllowedSecondaryRolesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionPolicyAllowedSecondaryRolesPtrOutput)
+}
+
+type SessionPolicyAllowedSecondaryRolesOutput struct{ *pulumi.OutputState }
+
+func (SessionPolicyAllowedSecondaryRolesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionPolicyAllowedSecondaryRoles)(nil)).Elem()
+}
+
+func (o SessionPolicyAllowedSecondaryRolesOutput) ToSessionPolicyAllowedSecondaryRolesOutput() SessionPolicyAllowedSecondaryRolesOutput {
+	return o
+}
+
+func (o SessionPolicyAllowedSecondaryRolesOutput) ToSessionPolicyAllowedSecondaryRolesOutputWithContext(ctx context.Context) SessionPolicyAllowedSecondaryRolesOutput {
+	return o
+}
+
+func (o SessionPolicyAllowedSecondaryRolesOutput) ToSessionPolicyAllowedSecondaryRolesPtrOutput() SessionPolicyAllowedSecondaryRolesPtrOutput {
+	return o.ToSessionPolicyAllowedSecondaryRolesPtrOutputWithContext(context.Background())
+}
+
+func (o SessionPolicyAllowedSecondaryRolesOutput) ToSessionPolicyAllowedSecondaryRolesPtrOutputWithContext(ctx context.Context) SessionPolicyAllowedSecondaryRolesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionPolicyAllowedSecondaryRoles) *SessionPolicyAllowedSecondaryRoles {
+		return &v
+	}).(SessionPolicyAllowedSecondaryRolesPtrOutput)
+}
+
+// When true, allows all secondary roles.
+func (o SessionPolicyAllowedSecondaryRolesOutput) All() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SessionPolicyAllowedSecondaryRoles) *bool { return v.All }).(pulumi.BoolPtrOutput)
+}
+
+// When true, disallows all secondary roles.
+func (o SessionPolicyAllowedSecondaryRolesOutput) None() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SessionPolicyAllowedSecondaryRoles) *bool { return v.None }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies roles to be allowed as secondary roles.
+func (o SessionPolicyAllowedSecondaryRolesOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SessionPolicyAllowedSecondaryRoles) []string { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+type SessionPolicyAllowedSecondaryRolesPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionPolicyAllowedSecondaryRolesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionPolicyAllowedSecondaryRoles)(nil)).Elem()
+}
+
+func (o SessionPolicyAllowedSecondaryRolesPtrOutput) ToSessionPolicyAllowedSecondaryRolesPtrOutput() SessionPolicyAllowedSecondaryRolesPtrOutput {
+	return o
+}
+
+func (o SessionPolicyAllowedSecondaryRolesPtrOutput) ToSessionPolicyAllowedSecondaryRolesPtrOutputWithContext(ctx context.Context) SessionPolicyAllowedSecondaryRolesPtrOutput {
+	return o
+}
+
+func (o SessionPolicyAllowedSecondaryRolesPtrOutput) Elem() SessionPolicyAllowedSecondaryRolesOutput {
+	return o.ApplyT(func(v *SessionPolicyAllowedSecondaryRoles) SessionPolicyAllowedSecondaryRoles {
+		if v != nil {
+			return *v
+		}
+		var ret SessionPolicyAllowedSecondaryRoles
+		return ret
+	}).(SessionPolicyAllowedSecondaryRolesOutput)
+}
+
+// When true, allows all secondary roles.
+func (o SessionPolicyAllowedSecondaryRolesPtrOutput) All() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SessionPolicyAllowedSecondaryRoles) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When true, disallows all secondary roles.
+func (o SessionPolicyAllowedSecondaryRolesPtrOutput) None() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SessionPolicyAllowedSecondaryRoles) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.None
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies roles to be allowed as secondary roles.
+func (o SessionPolicyAllowedSecondaryRolesPtrOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SessionPolicyAllowedSecondaryRoles) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Roles
+	}).(pulumi.StringArrayOutput)
+}
+
+type SessionPolicyBlockedSecondaryRoles struct {
+	// When true, disallows all secondary roles.
+	All *bool `pulumi:"all"`
+	// When true, allows all secondary roles.
+	None *bool `pulumi:"none"`
+	// Specifies roles to be blocked as secondary roles.
+	Roles []string `pulumi:"roles"`
+}
+
+// SessionPolicyBlockedSecondaryRolesInput is an input type that accepts SessionPolicyBlockedSecondaryRolesArgs and SessionPolicyBlockedSecondaryRolesOutput values.
+// You can construct a concrete instance of `SessionPolicyBlockedSecondaryRolesInput` via:
+//
+//	SessionPolicyBlockedSecondaryRolesArgs{...}
+type SessionPolicyBlockedSecondaryRolesInput interface {
+	pulumi.Input
+
+	ToSessionPolicyBlockedSecondaryRolesOutput() SessionPolicyBlockedSecondaryRolesOutput
+	ToSessionPolicyBlockedSecondaryRolesOutputWithContext(context.Context) SessionPolicyBlockedSecondaryRolesOutput
+}
+
+type SessionPolicyBlockedSecondaryRolesArgs struct {
+	// When true, disallows all secondary roles.
+	All pulumi.BoolPtrInput `pulumi:"all"`
+	// When true, allows all secondary roles.
+	None pulumi.BoolPtrInput `pulumi:"none"`
+	// Specifies roles to be blocked as secondary roles.
+	Roles pulumi.StringArrayInput `pulumi:"roles"`
+}
+
+func (SessionPolicyBlockedSecondaryRolesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionPolicyBlockedSecondaryRoles)(nil)).Elem()
+}
+
+func (i SessionPolicyBlockedSecondaryRolesArgs) ToSessionPolicyBlockedSecondaryRolesOutput() SessionPolicyBlockedSecondaryRolesOutput {
+	return i.ToSessionPolicyBlockedSecondaryRolesOutputWithContext(context.Background())
+}
+
+func (i SessionPolicyBlockedSecondaryRolesArgs) ToSessionPolicyBlockedSecondaryRolesOutputWithContext(ctx context.Context) SessionPolicyBlockedSecondaryRolesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionPolicyBlockedSecondaryRolesOutput)
+}
+
+func (i SessionPolicyBlockedSecondaryRolesArgs) ToSessionPolicyBlockedSecondaryRolesPtrOutput() SessionPolicyBlockedSecondaryRolesPtrOutput {
+	return i.ToSessionPolicyBlockedSecondaryRolesPtrOutputWithContext(context.Background())
+}
+
+func (i SessionPolicyBlockedSecondaryRolesArgs) ToSessionPolicyBlockedSecondaryRolesPtrOutputWithContext(ctx context.Context) SessionPolicyBlockedSecondaryRolesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionPolicyBlockedSecondaryRolesOutput).ToSessionPolicyBlockedSecondaryRolesPtrOutputWithContext(ctx)
+}
+
+// SessionPolicyBlockedSecondaryRolesPtrInput is an input type that accepts SessionPolicyBlockedSecondaryRolesArgs, SessionPolicyBlockedSecondaryRolesPtr and SessionPolicyBlockedSecondaryRolesPtrOutput values.
+// You can construct a concrete instance of `SessionPolicyBlockedSecondaryRolesPtrInput` via:
+//
+//	        SessionPolicyBlockedSecondaryRolesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SessionPolicyBlockedSecondaryRolesPtrInput interface {
+	pulumi.Input
+
+	ToSessionPolicyBlockedSecondaryRolesPtrOutput() SessionPolicyBlockedSecondaryRolesPtrOutput
+	ToSessionPolicyBlockedSecondaryRolesPtrOutputWithContext(context.Context) SessionPolicyBlockedSecondaryRolesPtrOutput
+}
+
+type sessionPolicyBlockedSecondaryRolesPtrType SessionPolicyBlockedSecondaryRolesArgs
+
+func SessionPolicyBlockedSecondaryRolesPtr(v *SessionPolicyBlockedSecondaryRolesArgs) SessionPolicyBlockedSecondaryRolesPtrInput {
+	return (*sessionPolicyBlockedSecondaryRolesPtrType)(v)
+}
+
+func (*sessionPolicyBlockedSecondaryRolesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionPolicyBlockedSecondaryRoles)(nil)).Elem()
+}
+
+func (i *sessionPolicyBlockedSecondaryRolesPtrType) ToSessionPolicyBlockedSecondaryRolesPtrOutput() SessionPolicyBlockedSecondaryRolesPtrOutput {
+	return i.ToSessionPolicyBlockedSecondaryRolesPtrOutputWithContext(context.Background())
+}
+
+func (i *sessionPolicyBlockedSecondaryRolesPtrType) ToSessionPolicyBlockedSecondaryRolesPtrOutputWithContext(ctx context.Context) SessionPolicyBlockedSecondaryRolesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionPolicyBlockedSecondaryRolesPtrOutput)
+}
+
+type SessionPolicyBlockedSecondaryRolesOutput struct{ *pulumi.OutputState }
+
+func (SessionPolicyBlockedSecondaryRolesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionPolicyBlockedSecondaryRoles)(nil)).Elem()
+}
+
+func (o SessionPolicyBlockedSecondaryRolesOutput) ToSessionPolicyBlockedSecondaryRolesOutput() SessionPolicyBlockedSecondaryRolesOutput {
+	return o
+}
+
+func (o SessionPolicyBlockedSecondaryRolesOutput) ToSessionPolicyBlockedSecondaryRolesOutputWithContext(ctx context.Context) SessionPolicyBlockedSecondaryRolesOutput {
+	return o
+}
+
+func (o SessionPolicyBlockedSecondaryRolesOutput) ToSessionPolicyBlockedSecondaryRolesPtrOutput() SessionPolicyBlockedSecondaryRolesPtrOutput {
+	return o.ToSessionPolicyBlockedSecondaryRolesPtrOutputWithContext(context.Background())
+}
+
+func (o SessionPolicyBlockedSecondaryRolesOutput) ToSessionPolicyBlockedSecondaryRolesPtrOutputWithContext(ctx context.Context) SessionPolicyBlockedSecondaryRolesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionPolicyBlockedSecondaryRoles) *SessionPolicyBlockedSecondaryRoles {
+		return &v
+	}).(SessionPolicyBlockedSecondaryRolesPtrOutput)
+}
+
+// When true, disallows all secondary roles.
+func (o SessionPolicyBlockedSecondaryRolesOutput) All() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SessionPolicyBlockedSecondaryRoles) *bool { return v.All }).(pulumi.BoolPtrOutput)
+}
+
+// When true, allows all secondary roles.
+func (o SessionPolicyBlockedSecondaryRolesOutput) None() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SessionPolicyBlockedSecondaryRoles) *bool { return v.None }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies roles to be blocked as secondary roles.
+func (o SessionPolicyBlockedSecondaryRolesOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SessionPolicyBlockedSecondaryRoles) []string { return v.Roles }).(pulumi.StringArrayOutput)
+}
+
+type SessionPolicyBlockedSecondaryRolesPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionPolicyBlockedSecondaryRolesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionPolicyBlockedSecondaryRoles)(nil)).Elem()
+}
+
+func (o SessionPolicyBlockedSecondaryRolesPtrOutput) ToSessionPolicyBlockedSecondaryRolesPtrOutput() SessionPolicyBlockedSecondaryRolesPtrOutput {
+	return o
+}
+
+func (o SessionPolicyBlockedSecondaryRolesPtrOutput) ToSessionPolicyBlockedSecondaryRolesPtrOutputWithContext(ctx context.Context) SessionPolicyBlockedSecondaryRolesPtrOutput {
+	return o
+}
+
+func (o SessionPolicyBlockedSecondaryRolesPtrOutput) Elem() SessionPolicyBlockedSecondaryRolesOutput {
+	return o.ApplyT(func(v *SessionPolicyBlockedSecondaryRoles) SessionPolicyBlockedSecondaryRoles {
+		if v != nil {
+			return *v
+		}
+		var ret SessionPolicyBlockedSecondaryRoles
+		return ret
+	}).(SessionPolicyBlockedSecondaryRolesOutput)
+}
+
+// When true, disallows all secondary roles.
+func (o SessionPolicyBlockedSecondaryRolesPtrOutput) All() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SessionPolicyBlockedSecondaryRoles) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When true, allows all secondary roles.
+func (o SessionPolicyBlockedSecondaryRolesPtrOutput) None() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SessionPolicyBlockedSecondaryRoles) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.None
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies roles to be blocked as secondary roles.
+func (o SessionPolicyBlockedSecondaryRolesPtrOutput) Roles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SessionPolicyBlockedSecondaryRoles) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Roles
+	}).(pulumi.StringArrayOutput)
+}
+
+type SessionPolicyDescribeOutput struct {
+	AllowedSecondaryRoles    []string `pulumi:"allowedSecondaryRoles"`
+	BlockedSecondaryRoles    []string `pulumi:"blockedSecondaryRoles"`
+	Comment                  *string  `pulumi:"comment"`
+	Id                       *string  `pulumi:"id"`
+	Owner                    *string  `pulumi:"owner"`
+	OwnerRoleType            *string  `pulumi:"ownerRoleType"`
+	SessionIdleTimeoutMins   *int     `pulumi:"sessionIdleTimeoutMins"`
+	SessionUiIdleTimeoutMins *int     `pulumi:"sessionUiIdleTimeoutMins"`
+}
+
+// SessionPolicyDescribeOutputInput is an input type that accepts SessionPolicyDescribeOutputArgs and SessionPolicyDescribeOutputOutput values.
+// You can construct a concrete instance of `SessionPolicyDescribeOutputInput` via:
+//
+//	SessionPolicyDescribeOutputArgs{...}
+type SessionPolicyDescribeOutputInput interface {
+	pulumi.Input
+
+	ToSessionPolicyDescribeOutputOutput() SessionPolicyDescribeOutputOutput
+	ToSessionPolicyDescribeOutputOutputWithContext(context.Context) SessionPolicyDescribeOutputOutput
+}
+
+type SessionPolicyDescribeOutputArgs struct {
+	AllowedSecondaryRoles    pulumi.StringArrayInput `pulumi:"allowedSecondaryRoles"`
+	BlockedSecondaryRoles    pulumi.StringArrayInput `pulumi:"blockedSecondaryRoles"`
+	Comment                  pulumi.StringPtrInput   `pulumi:"comment"`
+	Id                       pulumi.StringPtrInput   `pulumi:"id"`
+	Owner                    pulumi.StringPtrInput   `pulumi:"owner"`
+	OwnerRoleType            pulumi.StringPtrInput   `pulumi:"ownerRoleType"`
+	SessionIdleTimeoutMins   pulumi.IntPtrInput      `pulumi:"sessionIdleTimeoutMins"`
+	SessionUiIdleTimeoutMins pulumi.IntPtrInput      `pulumi:"sessionUiIdleTimeoutMins"`
+}
+
+func (SessionPolicyDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (i SessionPolicyDescribeOutputArgs) ToSessionPolicyDescribeOutputOutput() SessionPolicyDescribeOutputOutput {
+	return i.ToSessionPolicyDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i SessionPolicyDescribeOutputArgs) ToSessionPolicyDescribeOutputOutputWithContext(ctx context.Context) SessionPolicyDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionPolicyDescribeOutputOutput)
+}
+
+// SessionPolicyDescribeOutputArrayInput is an input type that accepts SessionPolicyDescribeOutputArray and SessionPolicyDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `SessionPolicyDescribeOutputArrayInput` via:
+//
+//	SessionPolicyDescribeOutputArray{ SessionPolicyDescribeOutputArgs{...} }
+type SessionPolicyDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToSessionPolicyDescribeOutputArrayOutput() SessionPolicyDescribeOutputArrayOutput
+	ToSessionPolicyDescribeOutputArrayOutputWithContext(context.Context) SessionPolicyDescribeOutputArrayOutput
+}
+
+type SessionPolicyDescribeOutputArray []SessionPolicyDescribeOutputInput
+
+func (SessionPolicyDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SessionPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (i SessionPolicyDescribeOutputArray) ToSessionPolicyDescribeOutputArrayOutput() SessionPolicyDescribeOutputArrayOutput {
+	return i.ToSessionPolicyDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i SessionPolicyDescribeOutputArray) ToSessionPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) SessionPolicyDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionPolicyDescribeOutputArrayOutput)
+}
+
+type SessionPolicyDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (SessionPolicyDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (o SessionPolicyDescribeOutputOutput) ToSessionPolicyDescribeOutputOutput() SessionPolicyDescribeOutputOutput {
+	return o
+}
+
+func (o SessionPolicyDescribeOutputOutput) ToSessionPolicyDescribeOutputOutputWithContext(ctx context.Context) SessionPolicyDescribeOutputOutput {
+	return o
+}
+
+func (o SessionPolicyDescribeOutputOutput) AllowedSecondaryRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SessionPolicyDescribeOutput) []string { return v.AllowedSecondaryRoles }).(pulumi.StringArrayOutput)
+}
+
+func (o SessionPolicyDescribeOutputOutput) BlockedSecondaryRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SessionPolicyDescribeOutput) []string { return v.BlockedSecondaryRoles }).(pulumi.StringArrayOutput)
+}
+
+func (o SessionPolicyDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyDescribeOutputOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyDescribeOutput) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyDescribeOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyDescribeOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyDescribeOutputOutput) SessionIdleTimeoutMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SessionPolicyDescribeOutput) *int { return v.SessionIdleTimeoutMins }).(pulumi.IntPtrOutput)
+}
+
+func (o SessionPolicyDescribeOutputOutput) SessionUiIdleTimeoutMins() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SessionPolicyDescribeOutput) *int { return v.SessionUiIdleTimeoutMins }).(pulumi.IntPtrOutput)
+}
+
+type SessionPolicyDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (SessionPolicyDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SessionPolicyDescribeOutput)(nil)).Elem()
+}
+
+func (o SessionPolicyDescribeOutputArrayOutput) ToSessionPolicyDescribeOutputArrayOutput() SessionPolicyDescribeOutputArrayOutput {
+	return o
+}
+
+func (o SessionPolicyDescribeOutputArrayOutput) ToSessionPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) SessionPolicyDescribeOutputArrayOutput {
+	return o
+}
+
+func (o SessionPolicyDescribeOutputArrayOutput) Index(i pulumi.IntInput) SessionPolicyDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SessionPolicyDescribeOutput {
+		return vs[0].([]SessionPolicyDescribeOutput)[vs[1].(int)]
+	}).(SessionPolicyDescribeOutputOutput)
+}
+
+type SessionPolicyShowOutput struct {
+	Comment       *string `pulumi:"comment"`
+	CreatedOn     *string `pulumi:"createdOn"`
+	DatabaseName  *string `pulumi:"databaseName"`
+	Kind          *string `pulumi:"kind"`
+	Name          *string `pulumi:"name"`
+	Options       *string `pulumi:"options"`
+	Owner         *string `pulumi:"owner"`
+	OwnerRoleType *string `pulumi:"ownerRoleType"`
+	SchemaName    *string `pulumi:"schemaName"`
+}
+
+// SessionPolicyShowOutputInput is an input type that accepts SessionPolicyShowOutputArgs and SessionPolicyShowOutputOutput values.
+// You can construct a concrete instance of `SessionPolicyShowOutputInput` via:
+//
+//	SessionPolicyShowOutputArgs{...}
+type SessionPolicyShowOutputInput interface {
+	pulumi.Input
+
+	ToSessionPolicyShowOutputOutput() SessionPolicyShowOutputOutput
+	ToSessionPolicyShowOutputOutputWithContext(context.Context) SessionPolicyShowOutputOutput
+}
+
+type SessionPolicyShowOutputArgs struct {
+	Comment       pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn     pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName  pulumi.StringPtrInput `pulumi:"databaseName"`
+	Kind          pulumi.StringPtrInput `pulumi:"kind"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Options       pulumi.StringPtrInput `pulumi:"options"`
+	Owner         pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	SchemaName    pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (SessionPolicyShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionPolicyShowOutput)(nil)).Elem()
+}
+
+func (i SessionPolicyShowOutputArgs) ToSessionPolicyShowOutputOutput() SessionPolicyShowOutputOutput {
+	return i.ToSessionPolicyShowOutputOutputWithContext(context.Background())
+}
+
+func (i SessionPolicyShowOutputArgs) ToSessionPolicyShowOutputOutputWithContext(ctx context.Context) SessionPolicyShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionPolicyShowOutputOutput)
+}
+
+// SessionPolicyShowOutputArrayInput is an input type that accepts SessionPolicyShowOutputArray and SessionPolicyShowOutputArrayOutput values.
+// You can construct a concrete instance of `SessionPolicyShowOutputArrayInput` via:
+//
+//	SessionPolicyShowOutputArray{ SessionPolicyShowOutputArgs{...} }
+type SessionPolicyShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToSessionPolicyShowOutputArrayOutput() SessionPolicyShowOutputArrayOutput
+	ToSessionPolicyShowOutputArrayOutputWithContext(context.Context) SessionPolicyShowOutputArrayOutput
+}
+
+type SessionPolicyShowOutputArray []SessionPolicyShowOutputInput
+
+func (SessionPolicyShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SessionPolicyShowOutput)(nil)).Elem()
+}
+
+func (i SessionPolicyShowOutputArray) ToSessionPolicyShowOutputArrayOutput() SessionPolicyShowOutputArrayOutput {
+	return i.ToSessionPolicyShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i SessionPolicyShowOutputArray) ToSessionPolicyShowOutputArrayOutputWithContext(ctx context.Context) SessionPolicyShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionPolicyShowOutputArrayOutput)
+}
+
+type SessionPolicyShowOutputOutput struct{ *pulumi.OutputState }
+
+func (SessionPolicyShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionPolicyShowOutput)(nil)).Elem()
+}
+
+func (o SessionPolicyShowOutputOutput) ToSessionPolicyShowOutputOutput() SessionPolicyShowOutputOutput {
+	return o
+}
+
+func (o SessionPolicyShowOutputOutput) ToSessionPolicyShowOutputOutputWithContext(ctx context.Context) SessionPolicyShowOutputOutput {
+	return o
+}
+
+func (o SessionPolicyShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyShowOutputOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyShowOutput) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyShowOutputOutput) Options() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyShowOutput) *string { return v.Options }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionPolicyShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type SessionPolicyShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (SessionPolicyShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SessionPolicyShowOutput)(nil)).Elem()
+}
+
+func (o SessionPolicyShowOutputArrayOutput) ToSessionPolicyShowOutputArrayOutput() SessionPolicyShowOutputArrayOutput {
+	return o
+}
+
+func (o SessionPolicyShowOutputArrayOutput) ToSessionPolicyShowOutputArrayOutputWithContext(ctx context.Context) SessionPolicyShowOutputArrayOutput {
+	return o
+}
+
+func (o SessionPolicyShowOutputArrayOutput) Index(i pulumi.IntInput) SessionPolicyShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SessionPolicyShowOutput {
+		return vs[0].([]SessionPolicyShowOutput)[vs[1].(int)]
+	}).(SessionPolicyShowOutputOutput)
+}
+
 type StageExternalAzureCredentials struct {
 	// Specifies the shared access signature (SAS) token for Azure.
 	AzureSasToken string `pulumi:"azureSasToken"`
@@ -65704,1664 +66646,6 @@ func (o StageExternalAzureEncryptionPtrOutput) None() StageExternalAzureEncrypti
 	}).(StageExternalAzureEncryptionNonePtrOutput)
 }
 
-type StageExternalAzureEncryptionAzureCse struct {
-	// Specifies the 128-bit or 256-bit client-side master key.
-	MasterKey string `pulumi:"masterKey"`
-}
-
-// StageExternalAzureEncryptionAzureCseInput is an input type that accepts StageExternalAzureEncryptionAzureCseArgs and StageExternalAzureEncryptionAzureCseOutput values.
-// You can construct a concrete instance of `StageExternalAzureEncryptionAzureCseInput` via:
-//
-//	StageExternalAzureEncryptionAzureCseArgs{...}
-type StageExternalAzureEncryptionAzureCseInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureEncryptionAzureCseOutput() StageExternalAzureEncryptionAzureCseOutput
-	ToStageExternalAzureEncryptionAzureCseOutputWithContext(context.Context) StageExternalAzureEncryptionAzureCseOutput
-}
-
-type StageExternalAzureEncryptionAzureCseArgs struct {
-	// Specifies the 128-bit or 256-bit client-side master key.
-	MasterKey pulumi.StringInput `pulumi:"masterKey"`
-}
-
-func (StageExternalAzureEncryptionAzureCseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureEncryptionAzureCse)(nil)).Elem()
-}
-
-func (i StageExternalAzureEncryptionAzureCseArgs) ToStageExternalAzureEncryptionAzureCseOutput() StageExternalAzureEncryptionAzureCseOutput {
-	return i.ToStageExternalAzureEncryptionAzureCseOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureEncryptionAzureCseArgs) ToStageExternalAzureEncryptionAzureCseOutputWithContext(ctx context.Context) StageExternalAzureEncryptionAzureCseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureEncryptionAzureCseOutput)
-}
-
-func (i StageExternalAzureEncryptionAzureCseArgs) ToStageExternalAzureEncryptionAzureCsePtrOutput() StageExternalAzureEncryptionAzureCsePtrOutput {
-	return i.ToStageExternalAzureEncryptionAzureCsePtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureEncryptionAzureCseArgs) ToStageExternalAzureEncryptionAzureCsePtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionAzureCsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureEncryptionAzureCseOutput).ToStageExternalAzureEncryptionAzureCsePtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureEncryptionAzureCsePtrInput is an input type that accepts StageExternalAzureEncryptionAzureCseArgs, StageExternalAzureEncryptionAzureCsePtr and StageExternalAzureEncryptionAzureCsePtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureEncryptionAzureCsePtrInput` via:
-//
-//	        StageExternalAzureEncryptionAzureCseArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureEncryptionAzureCsePtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureEncryptionAzureCsePtrOutput() StageExternalAzureEncryptionAzureCsePtrOutput
-	ToStageExternalAzureEncryptionAzureCsePtrOutputWithContext(context.Context) StageExternalAzureEncryptionAzureCsePtrOutput
-}
-
-type stageExternalAzureEncryptionAzureCsePtrType StageExternalAzureEncryptionAzureCseArgs
-
-func StageExternalAzureEncryptionAzureCsePtr(v *StageExternalAzureEncryptionAzureCseArgs) StageExternalAzureEncryptionAzureCsePtrInput {
-	return (*stageExternalAzureEncryptionAzureCsePtrType)(v)
-}
-
-func (*stageExternalAzureEncryptionAzureCsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureEncryptionAzureCse)(nil)).Elem()
-}
-
-func (i *stageExternalAzureEncryptionAzureCsePtrType) ToStageExternalAzureEncryptionAzureCsePtrOutput() StageExternalAzureEncryptionAzureCsePtrOutput {
-	return i.ToStageExternalAzureEncryptionAzureCsePtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureEncryptionAzureCsePtrType) ToStageExternalAzureEncryptionAzureCsePtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionAzureCsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureEncryptionAzureCsePtrOutput)
-}
-
-type StageExternalAzureEncryptionAzureCseOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureEncryptionAzureCseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureEncryptionAzureCse)(nil)).Elem()
-}
-
-func (o StageExternalAzureEncryptionAzureCseOutput) ToStageExternalAzureEncryptionAzureCseOutput() StageExternalAzureEncryptionAzureCseOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionAzureCseOutput) ToStageExternalAzureEncryptionAzureCseOutputWithContext(ctx context.Context) StageExternalAzureEncryptionAzureCseOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionAzureCseOutput) ToStageExternalAzureEncryptionAzureCsePtrOutput() StageExternalAzureEncryptionAzureCsePtrOutput {
-	return o.ToStageExternalAzureEncryptionAzureCsePtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureEncryptionAzureCseOutput) ToStageExternalAzureEncryptionAzureCsePtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionAzureCsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureEncryptionAzureCse) *StageExternalAzureEncryptionAzureCse {
-		return &v
-	}).(StageExternalAzureEncryptionAzureCsePtrOutput)
-}
-
-// Specifies the 128-bit or 256-bit client-side master key.
-func (o StageExternalAzureEncryptionAzureCseOutput) MasterKey() pulumi.StringOutput {
-	return o.ApplyT(func(v StageExternalAzureEncryptionAzureCse) string { return v.MasterKey }).(pulumi.StringOutput)
-}
-
-type StageExternalAzureEncryptionAzureCsePtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureEncryptionAzureCsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureEncryptionAzureCse)(nil)).Elem()
-}
-
-func (o StageExternalAzureEncryptionAzureCsePtrOutput) ToStageExternalAzureEncryptionAzureCsePtrOutput() StageExternalAzureEncryptionAzureCsePtrOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionAzureCsePtrOutput) ToStageExternalAzureEncryptionAzureCsePtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionAzureCsePtrOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionAzureCsePtrOutput) Elem() StageExternalAzureEncryptionAzureCseOutput {
-	return o.ApplyT(func(v *StageExternalAzureEncryptionAzureCse) StageExternalAzureEncryptionAzureCse {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureEncryptionAzureCse
-		return ret
-	}).(StageExternalAzureEncryptionAzureCseOutput)
-}
-
-// Specifies the 128-bit or 256-bit client-side master key.
-func (o StageExternalAzureEncryptionAzureCsePtrOutput) MasterKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureEncryptionAzureCse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.MasterKey
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureEncryptionNone struct {
-}
-
-// StageExternalAzureEncryptionNoneInput is an input type that accepts StageExternalAzureEncryptionNoneArgs and StageExternalAzureEncryptionNoneOutput values.
-// You can construct a concrete instance of `StageExternalAzureEncryptionNoneInput` via:
-//
-//	StageExternalAzureEncryptionNoneArgs{...}
-type StageExternalAzureEncryptionNoneInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureEncryptionNoneOutput() StageExternalAzureEncryptionNoneOutput
-	ToStageExternalAzureEncryptionNoneOutputWithContext(context.Context) StageExternalAzureEncryptionNoneOutput
-}
-
-type StageExternalAzureEncryptionNoneArgs struct {
-}
-
-func (StageExternalAzureEncryptionNoneArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureEncryptionNone)(nil)).Elem()
-}
-
-func (i StageExternalAzureEncryptionNoneArgs) ToStageExternalAzureEncryptionNoneOutput() StageExternalAzureEncryptionNoneOutput {
-	return i.ToStageExternalAzureEncryptionNoneOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureEncryptionNoneArgs) ToStageExternalAzureEncryptionNoneOutputWithContext(ctx context.Context) StageExternalAzureEncryptionNoneOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureEncryptionNoneOutput)
-}
-
-func (i StageExternalAzureEncryptionNoneArgs) ToStageExternalAzureEncryptionNonePtrOutput() StageExternalAzureEncryptionNonePtrOutput {
-	return i.ToStageExternalAzureEncryptionNonePtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureEncryptionNoneArgs) ToStageExternalAzureEncryptionNonePtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionNonePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureEncryptionNoneOutput).ToStageExternalAzureEncryptionNonePtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureEncryptionNonePtrInput is an input type that accepts StageExternalAzureEncryptionNoneArgs, StageExternalAzureEncryptionNonePtr and StageExternalAzureEncryptionNonePtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureEncryptionNonePtrInput` via:
-//
-//	        StageExternalAzureEncryptionNoneArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureEncryptionNonePtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureEncryptionNonePtrOutput() StageExternalAzureEncryptionNonePtrOutput
-	ToStageExternalAzureEncryptionNonePtrOutputWithContext(context.Context) StageExternalAzureEncryptionNonePtrOutput
-}
-
-type stageExternalAzureEncryptionNonePtrType StageExternalAzureEncryptionNoneArgs
-
-func StageExternalAzureEncryptionNonePtr(v *StageExternalAzureEncryptionNoneArgs) StageExternalAzureEncryptionNonePtrInput {
-	return (*stageExternalAzureEncryptionNonePtrType)(v)
-}
-
-func (*stageExternalAzureEncryptionNonePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureEncryptionNone)(nil)).Elem()
-}
-
-func (i *stageExternalAzureEncryptionNonePtrType) ToStageExternalAzureEncryptionNonePtrOutput() StageExternalAzureEncryptionNonePtrOutput {
-	return i.ToStageExternalAzureEncryptionNonePtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureEncryptionNonePtrType) ToStageExternalAzureEncryptionNonePtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionNonePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureEncryptionNonePtrOutput)
-}
-
-type StageExternalAzureEncryptionNoneOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureEncryptionNoneOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureEncryptionNone)(nil)).Elem()
-}
-
-func (o StageExternalAzureEncryptionNoneOutput) ToStageExternalAzureEncryptionNoneOutput() StageExternalAzureEncryptionNoneOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionNoneOutput) ToStageExternalAzureEncryptionNoneOutputWithContext(ctx context.Context) StageExternalAzureEncryptionNoneOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionNoneOutput) ToStageExternalAzureEncryptionNonePtrOutput() StageExternalAzureEncryptionNonePtrOutput {
-	return o.ToStageExternalAzureEncryptionNonePtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureEncryptionNoneOutput) ToStageExternalAzureEncryptionNonePtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionNonePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureEncryptionNone) *StageExternalAzureEncryptionNone {
-		return &v
-	}).(StageExternalAzureEncryptionNonePtrOutput)
-}
-
-type StageExternalAzureEncryptionNonePtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureEncryptionNonePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureEncryptionNone)(nil)).Elem()
-}
-
-func (o StageExternalAzureEncryptionNonePtrOutput) ToStageExternalAzureEncryptionNonePtrOutput() StageExternalAzureEncryptionNonePtrOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionNonePtrOutput) ToStageExternalAzureEncryptionNonePtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionNonePtrOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionNonePtrOutput) Elem() StageExternalAzureEncryptionNoneOutput {
-	return o.ApplyT(func(v *StageExternalAzureEncryptionNone) StageExternalAzureEncryptionNone {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureEncryptionNone
-		return ret
-	}).(StageExternalAzureEncryptionNoneOutput)
-}
-
-type StageExternalAzureFileFormat struct {
-	// AVRO file format options.
-	Avro *StageExternalAzureFileFormatAvro `pulumi:"avro"`
-	// CSV file format options.
-	Csv *StageExternalAzureFileFormatCsv `pulumi:"csv"`
-	// Fully qualified name of the file format (e.g., 'database.schema.format_name').
-	FormatName *string `pulumi:"formatName"`
-	// JSON file format options.
-	Json *StageExternalAzureFileFormatJson `pulumi:"json"`
-	// ORC file format options.
-	Orc *StageExternalAzureFileFormatOrc `pulumi:"orc"`
-	// Parquet file format options.
-	Parquet *StageExternalAzureFileFormatParquet `pulumi:"parquet"`
-	// XML file format options.
-	Xml *StageExternalAzureFileFormatXml `pulumi:"xml"`
-}
-
-// StageExternalAzureFileFormatInput is an input type that accepts StageExternalAzureFileFormatArgs and StageExternalAzureFileFormatOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatInput` via:
-//
-//	StageExternalAzureFileFormatArgs{...}
-type StageExternalAzureFileFormatInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatOutput() StageExternalAzureFileFormatOutput
-	ToStageExternalAzureFileFormatOutputWithContext(context.Context) StageExternalAzureFileFormatOutput
-}
-
-type StageExternalAzureFileFormatArgs struct {
-	// AVRO file format options.
-	Avro StageExternalAzureFileFormatAvroPtrInput `pulumi:"avro"`
-	// CSV file format options.
-	Csv StageExternalAzureFileFormatCsvPtrInput `pulumi:"csv"`
-	// Fully qualified name of the file format (e.g., 'database.schema.format_name').
-	FormatName pulumi.StringPtrInput `pulumi:"formatName"`
-	// JSON file format options.
-	Json StageExternalAzureFileFormatJsonPtrInput `pulumi:"json"`
-	// ORC file format options.
-	Orc StageExternalAzureFileFormatOrcPtrInput `pulumi:"orc"`
-	// Parquet file format options.
-	Parquet StageExternalAzureFileFormatParquetPtrInput `pulumi:"parquet"`
-	// XML file format options.
-	Xml StageExternalAzureFileFormatXmlPtrInput `pulumi:"xml"`
-}
-
-func (StageExternalAzureFileFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormat)(nil)).Elem()
-}
-
-func (i StageExternalAzureFileFormatArgs) ToStageExternalAzureFileFormatOutput() StageExternalAzureFileFormatOutput {
-	return i.ToStageExternalAzureFileFormatOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatArgs) ToStageExternalAzureFileFormatOutputWithContext(ctx context.Context) StageExternalAzureFileFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatOutput)
-}
-
-func (i StageExternalAzureFileFormatArgs) ToStageExternalAzureFileFormatPtrOutput() StageExternalAzureFileFormatPtrOutput {
-	return i.ToStageExternalAzureFileFormatPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatArgs) ToStageExternalAzureFileFormatPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatOutput).ToStageExternalAzureFileFormatPtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureFileFormatPtrInput is an input type that accepts StageExternalAzureFileFormatArgs, StageExternalAzureFileFormatPtr and StageExternalAzureFileFormatPtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatPtrInput` via:
-//
-//	        StageExternalAzureFileFormatArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureFileFormatPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatPtrOutput() StageExternalAzureFileFormatPtrOutput
-	ToStageExternalAzureFileFormatPtrOutputWithContext(context.Context) StageExternalAzureFileFormatPtrOutput
-}
-
-type stageExternalAzureFileFormatPtrType StageExternalAzureFileFormatArgs
-
-func StageExternalAzureFileFormatPtr(v *StageExternalAzureFileFormatArgs) StageExternalAzureFileFormatPtrInput {
-	return (*stageExternalAzureFileFormatPtrType)(v)
-}
-
-func (*stageExternalAzureFileFormatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormat)(nil)).Elem()
-}
-
-func (i *stageExternalAzureFileFormatPtrType) ToStageExternalAzureFileFormatPtrOutput() StageExternalAzureFileFormatPtrOutput {
-	return i.ToStageExternalAzureFileFormatPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureFileFormatPtrType) ToStageExternalAzureFileFormatPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatPtrOutput)
-}
-
-type StageExternalAzureFileFormatOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormat)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatOutput) ToStageExternalAzureFileFormatOutput() StageExternalAzureFileFormatOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatOutput) ToStageExternalAzureFileFormatOutputWithContext(ctx context.Context) StageExternalAzureFileFormatOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatOutput) ToStageExternalAzureFileFormatPtrOutput() StageExternalAzureFileFormatPtrOutput {
-	return o.ToStageExternalAzureFileFormatPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureFileFormatOutput) ToStageExternalAzureFileFormatPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureFileFormat) *StageExternalAzureFileFormat {
-		return &v
-	}).(StageExternalAzureFileFormatPtrOutput)
-}
-
-// AVRO file format options.
-func (o StageExternalAzureFileFormatOutput) Avro() StageExternalAzureFileFormatAvroPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormat) *StageExternalAzureFileFormatAvro { return v.Avro }).(StageExternalAzureFileFormatAvroPtrOutput)
-}
-
-// CSV file format options.
-func (o StageExternalAzureFileFormatOutput) Csv() StageExternalAzureFileFormatCsvPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormat) *StageExternalAzureFileFormatCsv { return v.Csv }).(StageExternalAzureFileFormatCsvPtrOutput)
-}
-
-// Fully qualified name of the file format (e.g., 'database.schema.format_name').
-func (o StageExternalAzureFileFormatOutput) FormatName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormat) *string { return v.FormatName }).(pulumi.StringPtrOutput)
-}
-
-// JSON file format options.
-func (o StageExternalAzureFileFormatOutput) Json() StageExternalAzureFileFormatJsonPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormat) *StageExternalAzureFileFormatJson { return v.Json }).(StageExternalAzureFileFormatJsonPtrOutput)
-}
-
-// ORC file format options.
-func (o StageExternalAzureFileFormatOutput) Orc() StageExternalAzureFileFormatOrcPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormat) *StageExternalAzureFileFormatOrc { return v.Orc }).(StageExternalAzureFileFormatOrcPtrOutput)
-}
-
-// Parquet file format options.
-func (o StageExternalAzureFileFormatOutput) Parquet() StageExternalAzureFileFormatParquetPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormat) *StageExternalAzureFileFormatParquet { return v.Parquet }).(StageExternalAzureFileFormatParquetPtrOutput)
-}
-
-// XML file format options.
-func (o StageExternalAzureFileFormatOutput) Xml() StageExternalAzureFileFormatXmlPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormat) *StageExternalAzureFileFormatXml { return v.Xml }).(StageExternalAzureFileFormatXmlPtrOutput)
-}
-
-type StageExternalAzureFileFormatPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormat)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatPtrOutput) ToStageExternalAzureFileFormatPtrOutput() StageExternalAzureFileFormatPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatPtrOutput) ToStageExternalAzureFileFormatPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatPtrOutput) Elem() StageExternalAzureFileFormatOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormat) StageExternalAzureFileFormat {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureFileFormat
-		return ret
-	}).(StageExternalAzureFileFormatOutput)
-}
-
-// AVRO file format options.
-func (o StageExternalAzureFileFormatPtrOutput) Avro() StageExternalAzureFileFormatAvroPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormat) *StageExternalAzureFileFormatAvro {
-		if v == nil {
-			return nil
-		}
-		return v.Avro
-	}).(StageExternalAzureFileFormatAvroPtrOutput)
-}
-
-// CSV file format options.
-func (o StageExternalAzureFileFormatPtrOutput) Csv() StageExternalAzureFileFormatCsvPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormat) *StageExternalAzureFileFormatCsv {
-		if v == nil {
-			return nil
-		}
-		return v.Csv
-	}).(StageExternalAzureFileFormatCsvPtrOutput)
-}
-
-// Fully qualified name of the file format (e.g., 'database.schema.format_name').
-func (o StageExternalAzureFileFormatPtrOutput) FormatName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormat) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FormatName
-	}).(pulumi.StringPtrOutput)
-}
-
-// JSON file format options.
-func (o StageExternalAzureFileFormatPtrOutput) Json() StageExternalAzureFileFormatJsonPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormat) *StageExternalAzureFileFormatJson {
-		if v == nil {
-			return nil
-		}
-		return v.Json
-	}).(StageExternalAzureFileFormatJsonPtrOutput)
-}
-
-// ORC file format options.
-func (o StageExternalAzureFileFormatPtrOutput) Orc() StageExternalAzureFileFormatOrcPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormat) *StageExternalAzureFileFormatOrc {
-		if v == nil {
-			return nil
-		}
-		return v.Orc
-	}).(StageExternalAzureFileFormatOrcPtrOutput)
-}
-
-// Parquet file format options.
-func (o StageExternalAzureFileFormatPtrOutput) Parquet() StageExternalAzureFileFormatParquetPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormat) *StageExternalAzureFileFormatParquet {
-		if v == nil {
-			return nil
-		}
-		return v.Parquet
-	}).(StageExternalAzureFileFormatParquetPtrOutput)
-}
-
-// XML file format options.
-func (o StageExternalAzureFileFormatPtrOutput) Xml() StageExternalAzureFileFormatXmlPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormat) *StageExternalAzureFileFormatXml {
-		if v == nil {
-			return nil
-		}
-		return v.Xml
-	}).(StageExternalAzureFileFormatXmlPtrOutput)
-}
-
-type StageExternalAzureFileFormatAvro struct {
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression *string `pulumi:"compression"`
-	// String used to convert to and from SQL NULL.
-	NullIfs []string `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace *string `pulumi:"trimSpace"`
-}
-
-// StageExternalAzureFileFormatAvroInput is an input type that accepts StageExternalAzureFileFormatAvroArgs and StageExternalAzureFileFormatAvroOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatAvroInput` via:
-//
-//	StageExternalAzureFileFormatAvroArgs{...}
-type StageExternalAzureFileFormatAvroInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatAvroOutput() StageExternalAzureFileFormatAvroOutput
-	ToStageExternalAzureFileFormatAvroOutputWithContext(context.Context) StageExternalAzureFileFormatAvroOutput
-}
-
-type StageExternalAzureFileFormatAvroArgs struct {
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// String used to convert to and from SQL NULL.
-	NullIfs pulumi.StringArrayInput `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace pulumi.StringPtrInput `pulumi:"trimSpace"`
-}
-
-func (StageExternalAzureFileFormatAvroArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatAvro)(nil)).Elem()
-}
-
-func (i StageExternalAzureFileFormatAvroArgs) ToStageExternalAzureFileFormatAvroOutput() StageExternalAzureFileFormatAvroOutput {
-	return i.ToStageExternalAzureFileFormatAvroOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatAvroArgs) ToStageExternalAzureFileFormatAvroOutputWithContext(ctx context.Context) StageExternalAzureFileFormatAvroOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatAvroOutput)
-}
-
-func (i StageExternalAzureFileFormatAvroArgs) ToStageExternalAzureFileFormatAvroPtrOutput() StageExternalAzureFileFormatAvroPtrOutput {
-	return i.ToStageExternalAzureFileFormatAvroPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatAvroArgs) ToStageExternalAzureFileFormatAvroPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatAvroPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatAvroOutput).ToStageExternalAzureFileFormatAvroPtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureFileFormatAvroPtrInput is an input type that accepts StageExternalAzureFileFormatAvroArgs, StageExternalAzureFileFormatAvroPtr and StageExternalAzureFileFormatAvroPtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatAvroPtrInput` via:
-//
-//	        StageExternalAzureFileFormatAvroArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureFileFormatAvroPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatAvroPtrOutput() StageExternalAzureFileFormatAvroPtrOutput
-	ToStageExternalAzureFileFormatAvroPtrOutputWithContext(context.Context) StageExternalAzureFileFormatAvroPtrOutput
-}
-
-type stageExternalAzureFileFormatAvroPtrType StageExternalAzureFileFormatAvroArgs
-
-func StageExternalAzureFileFormatAvroPtr(v *StageExternalAzureFileFormatAvroArgs) StageExternalAzureFileFormatAvroPtrInput {
-	return (*stageExternalAzureFileFormatAvroPtrType)(v)
-}
-
-func (*stageExternalAzureFileFormatAvroPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatAvro)(nil)).Elem()
-}
-
-func (i *stageExternalAzureFileFormatAvroPtrType) ToStageExternalAzureFileFormatAvroPtrOutput() StageExternalAzureFileFormatAvroPtrOutput {
-	return i.ToStageExternalAzureFileFormatAvroPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureFileFormatAvroPtrType) ToStageExternalAzureFileFormatAvroPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatAvroPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatAvroPtrOutput)
-}
-
-type StageExternalAzureFileFormatAvroOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatAvroOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatAvro)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatAvroOutput) ToStageExternalAzureFileFormatAvroOutput() StageExternalAzureFileFormatAvroOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatAvroOutput) ToStageExternalAzureFileFormatAvroOutputWithContext(ctx context.Context) StageExternalAzureFileFormatAvroOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatAvroOutput) ToStageExternalAzureFileFormatAvroPtrOutput() StageExternalAzureFileFormatAvroPtrOutput {
-	return o.ToStageExternalAzureFileFormatAvroPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureFileFormatAvroOutput) ToStageExternalAzureFileFormatAvroPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatAvroPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureFileFormatAvro) *StageExternalAzureFileFormatAvro {
-		return &v
-	}).(StageExternalAzureFileFormatAvroPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalAzureFileFormatAvroOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatAvro) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalAzureFileFormatAvroOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatAvro) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatAvroOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatAvro) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatAvroOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatAvro) *string { return v.TrimSpace }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureFileFormatAvroPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatAvroPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatAvro)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatAvroPtrOutput) ToStageExternalAzureFileFormatAvroPtrOutput() StageExternalAzureFileFormatAvroPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatAvroPtrOutput) ToStageExternalAzureFileFormatAvroPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatAvroPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatAvroPtrOutput) Elem() StageExternalAzureFileFormatAvroOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatAvro) StageExternalAzureFileFormatAvro {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureFileFormatAvro
-		return ret
-	}).(StageExternalAzureFileFormatAvroOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalAzureFileFormatAvroPtrOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatAvro) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Compression
-	}).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalAzureFileFormatAvroPtrOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatAvro) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NullIfs
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatAvroPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatAvro) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatAvroPtrOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatAvro) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrimSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureFileFormatCsv struct {
-	// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-	BinaryFormat *string `pulumi:"binaryFormat"`
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression *string `pulumi:"compression"`
-	// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	DateFormat *string `pulumi:"dateFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	EmptyFieldAsNull *string `pulumi:"emptyFieldAsNull"`
-	// Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
-	Encoding *string `pulumi:"encoding"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ErrorOnColumnCountMismatch *string `pulumi:"errorOnColumnCountMismatch"`
-	// Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-	Escape *string `pulumi:"escape"`
-	// Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-	EscapeUnenclosedField *string `pulumi:"escapeUnenclosedField"`
-	// One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
-	FieldDelimiter *string `pulumi:"fieldDelimiter"`
-	// Character used to enclose strings. Use `NONE` to specify no enclosure character.
-	FieldOptionallyEnclosedBy *string `pulumi:"fieldOptionallyEnclosedBy"`
-	// Specifies the extension for files unloaded to a stage.
-	FileExtension *string `pulumi:"fileExtension"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	MultiLine *string `pulumi:"multiLine"`
-	// String used to convert to and from SQL NULL.
-	NullIfs []string `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ParseHeader *string `pulumi:"parseHeader"`
-	// One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
-	RecordDelimiter *string `pulumi:"recordDelimiter"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipBlankLines *string `pulumi:"skipBlankLines"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark *string `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
-	SkipHeader *int `pulumi:"skipHeader"`
-	// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimeFormat *string `pulumi:"timeFormat"`
-	// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimestampFormat *string `pulumi:"timestampFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace *string `pulumi:"trimSpace"`
-}
-
-// StageExternalAzureFileFormatCsvInput is an input type that accepts StageExternalAzureFileFormatCsvArgs and StageExternalAzureFileFormatCsvOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatCsvInput` via:
-//
-//	StageExternalAzureFileFormatCsvArgs{...}
-type StageExternalAzureFileFormatCsvInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatCsvOutput() StageExternalAzureFileFormatCsvOutput
-	ToStageExternalAzureFileFormatCsvOutputWithContext(context.Context) StageExternalAzureFileFormatCsvOutput
-}
-
-type StageExternalAzureFileFormatCsvArgs struct {
-	// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-	BinaryFormat pulumi.StringPtrInput `pulumi:"binaryFormat"`
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	DateFormat pulumi.StringPtrInput `pulumi:"dateFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	EmptyFieldAsNull pulumi.StringPtrInput `pulumi:"emptyFieldAsNull"`
-	// Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
-	Encoding pulumi.StringPtrInput `pulumi:"encoding"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ErrorOnColumnCountMismatch pulumi.StringPtrInput `pulumi:"errorOnColumnCountMismatch"`
-	// Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-	Escape pulumi.StringPtrInput `pulumi:"escape"`
-	// Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-	EscapeUnenclosedField pulumi.StringPtrInput `pulumi:"escapeUnenclosedField"`
-	// One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
-	FieldDelimiter pulumi.StringPtrInput `pulumi:"fieldDelimiter"`
-	// Character used to enclose strings. Use `NONE` to specify no enclosure character.
-	FieldOptionallyEnclosedBy pulumi.StringPtrInput `pulumi:"fieldOptionallyEnclosedBy"`
-	// Specifies the extension for files unloaded to a stage.
-	FileExtension pulumi.StringPtrInput `pulumi:"fileExtension"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	MultiLine pulumi.StringPtrInput `pulumi:"multiLine"`
-	// String used to convert to and from SQL NULL.
-	NullIfs pulumi.StringArrayInput `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ParseHeader pulumi.StringPtrInput `pulumi:"parseHeader"`
-	// One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
-	RecordDelimiter pulumi.StringPtrInput `pulumi:"recordDelimiter"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipBlankLines pulumi.StringPtrInput `pulumi:"skipBlankLines"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark pulumi.StringPtrInput `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
-	SkipHeader pulumi.IntPtrInput `pulumi:"skipHeader"`
-	// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
-	// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimestampFormat pulumi.StringPtrInput `pulumi:"timestampFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace pulumi.StringPtrInput `pulumi:"trimSpace"`
-}
-
-func (StageExternalAzureFileFormatCsvArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatCsv)(nil)).Elem()
-}
-
-func (i StageExternalAzureFileFormatCsvArgs) ToStageExternalAzureFileFormatCsvOutput() StageExternalAzureFileFormatCsvOutput {
-	return i.ToStageExternalAzureFileFormatCsvOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatCsvArgs) ToStageExternalAzureFileFormatCsvOutputWithContext(ctx context.Context) StageExternalAzureFileFormatCsvOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatCsvOutput)
-}
-
-func (i StageExternalAzureFileFormatCsvArgs) ToStageExternalAzureFileFormatCsvPtrOutput() StageExternalAzureFileFormatCsvPtrOutput {
-	return i.ToStageExternalAzureFileFormatCsvPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatCsvArgs) ToStageExternalAzureFileFormatCsvPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatCsvPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatCsvOutput).ToStageExternalAzureFileFormatCsvPtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureFileFormatCsvPtrInput is an input type that accepts StageExternalAzureFileFormatCsvArgs, StageExternalAzureFileFormatCsvPtr and StageExternalAzureFileFormatCsvPtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatCsvPtrInput` via:
-//
-//	        StageExternalAzureFileFormatCsvArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureFileFormatCsvPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatCsvPtrOutput() StageExternalAzureFileFormatCsvPtrOutput
-	ToStageExternalAzureFileFormatCsvPtrOutputWithContext(context.Context) StageExternalAzureFileFormatCsvPtrOutput
-}
-
-type stageExternalAzureFileFormatCsvPtrType StageExternalAzureFileFormatCsvArgs
-
-func StageExternalAzureFileFormatCsvPtr(v *StageExternalAzureFileFormatCsvArgs) StageExternalAzureFileFormatCsvPtrInput {
-	return (*stageExternalAzureFileFormatCsvPtrType)(v)
-}
-
-func (*stageExternalAzureFileFormatCsvPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatCsv)(nil)).Elem()
-}
-
-func (i *stageExternalAzureFileFormatCsvPtrType) ToStageExternalAzureFileFormatCsvPtrOutput() StageExternalAzureFileFormatCsvPtrOutput {
-	return i.ToStageExternalAzureFileFormatCsvPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureFileFormatCsvPtrType) ToStageExternalAzureFileFormatCsvPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatCsvPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatCsvPtrOutput)
-}
-
-type StageExternalAzureFileFormatCsvOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatCsvOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatCsv)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatCsvOutput) ToStageExternalAzureFileFormatCsvOutput() StageExternalAzureFileFormatCsvOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatCsvOutput) ToStageExternalAzureFileFormatCsvOutputWithContext(ctx context.Context) StageExternalAzureFileFormatCsvOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatCsvOutput) ToStageExternalAzureFileFormatCsvPtrOutput() StageExternalAzureFileFormatCsvPtrOutput {
-	return o.ToStageExternalAzureFileFormatCsvPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureFileFormatCsvOutput) ToStageExternalAzureFileFormatCsvPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatCsvPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureFileFormatCsv) *StageExternalAzureFileFormatCsv {
-		return &v
-	}).(StageExternalAzureFileFormatCsvPtrOutput)
-}
-
-// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-func (o StageExternalAzureFileFormatCsvOutput) BinaryFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.BinaryFormat }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalAzureFileFormatCsvOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatCsvOutput) DateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvOutput) EmptyFieldAsNull() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.EmptyFieldAsNull }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
-func (o StageExternalAzureFileFormatCsvOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.Encoding }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvOutput) ErrorOnColumnCountMismatch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.ErrorOnColumnCountMismatch }).(pulumi.StringPtrOutput)
-}
-
-// Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-func (o StageExternalAzureFileFormatCsvOutput) Escape() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.Escape }).(pulumi.StringPtrOutput)
-}
-
-// Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-func (o StageExternalAzureFileFormatCsvOutput) EscapeUnenclosedField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.EscapeUnenclosedField }).(pulumi.StringPtrOutput)
-}
-
-// One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
-func (o StageExternalAzureFileFormatCsvOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.FieldDelimiter }).(pulumi.StringPtrOutput)
-}
-
-// Character used to enclose strings. Use `NONE` to specify no enclosure character.
-func (o StageExternalAzureFileFormatCsvOutput) FieldOptionallyEnclosedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.FieldOptionallyEnclosedBy }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the extension for files unloaded to a stage.
-func (o StageExternalAzureFileFormatCsvOutput) FileExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.FileExtension }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvOutput) MultiLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.MultiLine }).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalAzureFileFormatCsvOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvOutput) ParseHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.ParseHeader }).(pulumi.StringPtrOutput)
-}
-
-// One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
-func (o StageExternalAzureFileFormatCsvOutput) RecordDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.RecordDelimiter }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvOutput) SkipBlankLines() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.SkipBlankLines }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.SkipByteOrderMark }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
-func (o StageExternalAzureFileFormatCsvOutput) SkipHeader() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *int { return v.SkipHeader }).(pulumi.IntPtrOutput)
-}
-
-// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatCsvOutput) TimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatCsvOutput) TimestampFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.TimestampFormat }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatCsv) *string { return v.TrimSpace }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureFileFormatCsvPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatCsvPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatCsv)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatCsvPtrOutput) ToStageExternalAzureFileFormatCsvPtrOutput() StageExternalAzureFileFormatCsvPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatCsvPtrOutput) ToStageExternalAzureFileFormatCsvPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatCsvPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatCsvPtrOutput) Elem() StageExternalAzureFileFormatCsvOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) StageExternalAzureFileFormatCsv {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureFileFormatCsv
-		return ret
-	}).(StageExternalAzureFileFormatCsvOutput)
-}
-
-// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-func (o StageExternalAzureFileFormatCsvPtrOutput) BinaryFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BinaryFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalAzureFileFormatCsvPtrOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Compression
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatCsvPtrOutput) DateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DateFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvPtrOutput) EmptyFieldAsNull() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EmptyFieldAsNull
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
-func (o StageExternalAzureFileFormatCsvPtrOutput) Encoding() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Encoding
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvPtrOutput) ErrorOnColumnCountMismatch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ErrorOnColumnCountMismatch
-	}).(pulumi.StringPtrOutput)
-}
-
-// Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-func (o StageExternalAzureFileFormatCsvPtrOutput) Escape() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Escape
-	}).(pulumi.StringPtrOutput)
-}
-
-// Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
-func (o StageExternalAzureFileFormatCsvPtrOutput) EscapeUnenclosedField() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EscapeUnenclosedField
-	}).(pulumi.StringPtrOutput)
-}
-
-// One or more singlebyte or multibyte characters that separate fields in an input file. Use `NONE` to specify no delimiter.
-func (o StageExternalAzureFileFormatCsvPtrOutput) FieldDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// Character used to enclose strings. Use `NONE` to specify no enclosure character.
-func (o StageExternalAzureFileFormatCsvPtrOutput) FieldOptionallyEnclosedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldOptionallyEnclosedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the extension for files unloaded to a stage.
-func (o StageExternalAzureFileFormatCsvPtrOutput) FileExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileExtension
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to parse CSV files containing multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvPtrOutput) MultiLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MultiLine
-	}).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalAzureFileFormatCsvPtrOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NullIfs
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use the first row headers in the data files to determine column names. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvPtrOutput) ParseHeader() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ParseHeader
-	}).(pulumi.StringPtrOutput)
-}
-
-// One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
-func (o StageExternalAzureFileFormatCsvPtrOutput) RecordDelimiter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RecordDelimiter
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvPtrOutput) SkipBlankLines() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SkipBlankLines
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvPtrOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SkipByteOrderMark
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.
-func (o StageExternalAzureFileFormatCsvPtrOutput) SkipHeader() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *int {
-		if v == nil {
-			return nil
-		}
-		return v.SkipHeader
-	}).(pulumi.IntPtrOutput)
-}
-
-// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatCsvPtrOutput) TimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatCsvPtrOutput) TimestampFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimestampFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatCsvPtrOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatCsv) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrimSpace
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureFileFormatJson struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	AllowDuplicate *string `pulumi:"allowDuplicate"`
-	// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-	BinaryFormat *string `pulumi:"binaryFormat"`
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression *string `pulumi:"compression"`
-	// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	DateFormat *string `pulumi:"dateFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	EnableOctal *string `pulumi:"enableOctal"`
-	// Specifies the extension for files unloaded to a stage.
-	FileExtension *string `pulumi:"fileExtension"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	IgnoreUtf8Errors *string `pulumi:"ignoreUtf8Errors"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	MultiLine *string `pulumi:"multiLine"`
-	// String used to convert to and from SQL NULL.
-	NullIfs []string `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters *string `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark *string `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripNullValues *string `pulumi:"stripNullValues"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripOuterArray *string `pulumi:"stripOuterArray"`
-	// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimeFormat *string `pulumi:"timeFormat"`
-	// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimestampFormat *string `pulumi:"timestampFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace *string `pulumi:"trimSpace"`
-}
-
-// StageExternalAzureFileFormatJsonInput is an input type that accepts StageExternalAzureFileFormatJsonArgs and StageExternalAzureFileFormatJsonOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatJsonInput` via:
-//
-//	StageExternalAzureFileFormatJsonArgs{...}
-type StageExternalAzureFileFormatJsonInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatJsonOutput() StageExternalAzureFileFormatJsonOutput
-	ToStageExternalAzureFileFormatJsonOutputWithContext(context.Context) StageExternalAzureFileFormatJsonOutput
-}
-
-type StageExternalAzureFileFormatJsonArgs struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	AllowDuplicate pulumi.StringPtrInput `pulumi:"allowDuplicate"`
-	// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-	BinaryFormat pulumi.StringPtrInput `pulumi:"binaryFormat"`
-	// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	DateFormat pulumi.StringPtrInput `pulumi:"dateFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	EnableOctal pulumi.StringPtrInput `pulumi:"enableOctal"`
-	// Specifies the extension for files unloaded to a stage.
-	FileExtension pulumi.StringPtrInput `pulumi:"fileExtension"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	IgnoreUtf8Errors pulumi.StringPtrInput `pulumi:"ignoreUtf8Errors"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	MultiLine pulumi.StringPtrInput `pulumi:"multiLine"`
-	// String used to convert to and from SQL NULL.
-	NullIfs pulumi.StringArrayInput `pulumi:"nullIfs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	ReplaceInvalidCharacters pulumi.StringPtrInput `pulumi:"replaceInvalidCharacters"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	SkipByteOrderMark pulumi.StringPtrInput `pulumi:"skipByteOrderMark"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripNullValues pulumi.StringPtrInput `pulumi:"stripNullValues"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	StripOuterArray pulumi.StringPtrInput `pulumi:"stripOuterArray"`
-	// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimeFormat pulumi.StringPtrInput `pulumi:"timeFormat"`
-	// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-	TimestampFormat pulumi.StringPtrInput `pulumi:"timestampFormat"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-	TrimSpace pulumi.StringPtrInput `pulumi:"trimSpace"`
-}
-
-func (StageExternalAzureFileFormatJsonArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatJson)(nil)).Elem()
-}
-
-func (i StageExternalAzureFileFormatJsonArgs) ToStageExternalAzureFileFormatJsonOutput() StageExternalAzureFileFormatJsonOutput {
-	return i.ToStageExternalAzureFileFormatJsonOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatJsonArgs) ToStageExternalAzureFileFormatJsonOutputWithContext(ctx context.Context) StageExternalAzureFileFormatJsonOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatJsonOutput)
-}
-
-func (i StageExternalAzureFileFormatJsonArgs) ToStageExternalAzureFileFormatJsonPtrOutput() StageExternalAzureFileFormatJsonPtrOutput {
-	return i.ToStageExternalAzureFileFormatJsonPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureFileFormatJsonArgs) ToStageExternalAzureFileFormatJsonPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatJsonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatJsonOutput).ToStageExternalAzureFileFormatJsonPtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureFileFormatJsonPtrInput is an input type that accepts StageExternalAzureFileFormatJsonArgs, StageExternalAzureFileFormatJsonPtr and StageExternalAzureFileFormatJsonPtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureFileFormatJsonPtrInput` via:
-//
-//	        StageExternalAzureFileFormatJsonArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureFileFormatJsonPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureFileFormatJsonPtrOutput() StageExternalAzureFileFormatJsonPtrOutput
-	ToStageExternalAzureFileFormatJsonPtrOutputWithContext(context.Context) StageExternalAzureFileFormatJsonPtrOutput
-}
-
-type stageExternalAzureFileFormatJsonPtrType StageExternalAzureFileFormatJsonArgs
-
-func StageExternalAzureFileFormatJsonPtr(v *StageExternalAzureFileFormatJsonArgs) StageExternalAzureFileFormatJsonPtrInput {
-	return (*stageExternalAzureFileFormatJsonPtrType)(v)
-}
-
-func (*stageExternalAzureFileFormatJsonPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatJson)(nil)).Elem()
-}
-
-func (i *stageExternalAzureFileFormatJsonPtrType) ToStageExternalAzureFileFormatJsonPtrOutput() StageExternalAzureFileFormatJsonPtrOutput {
-	return i.ToStageExternalAzureFileFormatJsonPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureFileFormatJsonPtrType) ToStageExternalAzureFileFormatJsonPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatJsonPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureFileFormatJsonPtrOutput)
-}
-
-type StageExternalAzureFileFormatJsonOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatJsonOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureFileFormatJson)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatJsonOutput) ToStageExternalAzureFileFormatJsonOutput() StageExternalAzureFileFormatJsonOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatJsonOutput) ToStageExternalAzureFileFormatJsonOutputWithContext(ctx context.Context) StageExternalAzureFileFormatJsonOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatJsonOutput) ToStageExternalAzureFileFormatJsonPtrOutput() StageExternalAzureFileFormatJsonPtrOutput {
-	return o.ToStageExternalAzureFileFormatJsonPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureFileFormatJsonOutput) ToStageExternalAzureFileFormatJsonPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatJsonPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureFileFormatJson) *StageExternalAzureFileFormatJson {
-		return &v
-	}).(StageExternalAzureFileFormatJsonPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonOutput) AllowDuplicate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.AllowDuplicate }).(pulumi.StringPtrOutput)
-}
-
-// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-func (o StageExternalAzureFileFormatJsonOutput) BinaryFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.BinaryFormat }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalAzureFileFormatJsonOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatJsonOutput) DateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.DateFormat }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonOutput) EnableOctal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.EnableOctal }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the extension for files unloaded to a stage.
-func (o StageExternalAzureFileFormatJsonOutput) FileExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.FileExtension }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonOutput) IgnoreUtf8Errors() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.IgnoreUtf8Errors }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonOutput) MultiLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.MultiLine }).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalAzureFileFormatJsonOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.ReplaceInvalidCharacters }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.SkipByteOrderMark }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonOutput) StripNullValues() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.StripNullValues }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonOutput) StripOuterArray() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.StripOuterArray }).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatJsonOutput) TimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.TimeFormat }).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatJsonOutput) TimestampFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.TimestampFormat }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureFileFormatJson) *string { return v.TrimSpace }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureFileFormatJsonPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureFileFormatJsonPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureFileFormatJson)(nil)).Elem()
-}
-
-func (o StageExternalAzureFileFormatJsonPtrOutput) ToStageExternalAzureFileFormatJsonPtrOutput() StageExternalAzureFileFormatJsonPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatJsonPtrOutput) ToStageExternalAzureFileFormatJsonPtrOutputWithContext(ctx context.Context) StageExternalAzureFileFormatJsonPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureFileFormatJsonPtrOutput) Elem() StageExternalAzureFileFormatJsonOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) StageExternalAzureFileFormatJson {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureFileFormatJson
-		return ret
-	}).(StageExternalAzureFileFormatJsonOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonPtrOutput) AllowDuplicate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowDuplicate
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
-func (o StageExternalAzureFileFormatJsonPtrOutput) BinaryFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BinaryFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
-func (o StageExternalAzureFileFormatJsonPtrOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Compression
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatJsonPtrOutput) DateFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DateFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonPtrOutput) EnableOctal() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnableOctal
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the extension for files unloaded to a stage.
-func (o StageExternalAzureFileFormatJsonPtrOutput) FileExtension() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileExtension
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonPtrOutput) IgnoreUtf8Errors() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IgnoreUtf8Errors
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow multiple records on a single line. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonPtrOutput) MultiLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MultiLine
-	}).(pulumi.StringPtrOutput)
-}
-
-// String used to convert to and from SQL NULL.
-func (o StageExternalAzureFileFormatJsonPtrOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) []string {
-		if v == nil {
-			return nil
-		}
-		return v.NullIfs
-	}).(pulumi.StringArrayOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonPtrOutput) ReplaceInvalidCharacters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ReplaceInvalidCharacters
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonPtrOutput) SkipByteOrderMark() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SkipByteOrderMark
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonPtrOutput) StripNullValues() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StripNullValues
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonPtrOutput) StripOuterArray() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StripOuterArray
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of time values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatJsonPtrOutput) TimeFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimeFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the format of timestamp values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-func (o StageExternalAzureFileFormatJsonPtrOutput) TimestampFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TimestampFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-func (o StageExternalAzureFileFormatJsonPtrOutput) TrimSpace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureFileFormatJson) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrimSpace
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -67953,6 +67237,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsShowOutputArrayInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectParameterObjectIdentifierInput)(nil)).Elem(), ObjectParameterObjectIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectParameterObjectIdentifierArrayInput)(nil)).Elem(), ObjectParameterObjectIdentifierArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyDescribeOutputInput)(nil)).Elem(), PasswordPolicyDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyDescribeOutputArrayInput)(nil)).Elem(), PasswordPolicyDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyShowOutputInput)(nil)).Elem(), PasswordPolicyShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyShowOutputArrayInput)(nil)).Elem(), PasswordPolicyShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrimaryConnectionShowOutputInput)(nil)).Elem(), PrimaryConnectionShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrimaryConnectionShowOutputArrayInput)(nil)).Elem(), PrimaryConnectionShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProcedureJavaArgumentInput)(nil)).Elem(), ProcedureJavaArgumentArgs{})
@@ -68325,6 +67613,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUserParameterWeekStartArrayInput)(nil)).Elem(), ServiceUserParameterWeekStartArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUserShowOutputInput)(nil)).Elem(), ServiceUserShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUserShowOutputArrayInput)(nil)).Elem(), ServiceUserShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionPolicyAllowedSecondaryRolesInput)(nil)).Elem(), SessionPolicyAllowedSecondaryRolesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionPolicyAllowedSecondaryRolesPtrInput)(nil)).Elem(), SessionPolicyAllowedSecondaryRolesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionPolicyBlockedSecondaryRolesInput)(nil)).Elem(), SessionPolicyBlockedSecondaryRolesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionPolicyBlockedSecondaryRolesPtrInput)(nil)).Elem(), SessionPolicyBlockedSecondaryRolesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionPolicyDescribeOutputInput)(nil)).Elem(), SessionPolicyDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionPolicyDescribeOutputArrayInput)(nil)).Elem(), SessionPolicyDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionPolicyShowOutputInput)(nil)).Elem(), SessionPolicyShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionPolicyShowOutputArrayInput)(nil)).Elem(), SessionPolicyShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureCredentialsInput)(nil)).Elem(), StageExternalAzureCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureCredentialsPtrInput)(nil)).Elem(), StageExternalAzureCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDescribeOutputInput)(nil)).Elem(), StageExternalAzureDescribeOutputArgs{})
@@ -68349,18 +67645,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDirectoryPtrInput)(nil)).Elem(), StageExternalAzureDirectoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureEncryptionInput)(nil)).Elem(), StageExternalAzureEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureEncryptionPtrInput)(nil)).Elem(), StageExternalAzureEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureEncryptionAzureCseInput)(nil)).Elem(), StageExternalAzureEncryptionAzureCseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureEncryptionAzureCsePtrInput)(nil)).Elem(), StageExternalAzureEncryptionAzureCseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureEncryptionNoneInput)(nil)).Elem(), StageExternalAzureEncryptionNoneArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureEncryptionNonePtrInput)(nil)).Elem(), StageExternalAzureEncryptionNoneArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatInput)(nil)).Elem(), StageExternalAzureFileFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatPtrInput)(nil)).Elem(), StageExternalAzureFileFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatAvroInput)(nil)).Elem(), StageExternalAzureFileFormatAvroArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatAvroPtrInput)(nil)).Elem(), StageExternalAzureFileFormatAvroArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatCsvInput)(nil)).Elem(), StageExternalAzureFileFormatCsvArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatCsvPtrInput)(nil)).Elem(), StageExternalAzureFileFormatCsvArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatJsonInput)(nil)).Elem(), StageExternalAzureFileFormatJsonArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureFileFormatJsonPtrInput)(nil)).Elem(), StageExternalAzureFileFormatJsonArgs{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -68951,6 +68235,10 @@ func init() {
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ObjectParameterObjectIdentifierOutput{})
 	pulumi.RegisterOutputType(ObjectParameterObjectIdentifierArrayOutput{})
+	pulumi.RegisterOutputType(PasswordPolicyDescribeOutputOutput{})
+	pulumi.RegisterOutputType(PasswordPolicyDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(PasswordPolicyShowOutputOutput{})
+	pulumi.RegisterOutputType(PasswordPolicyShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(PrimaryConnectionShowOutputOutput{})
 	pulumi.RegisterOutputType(PrimaryConnectionShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ProcedureJavaArgumentOutput{})
@@ -69323,6 +68611,14 @@ func init() {
 	pulumi.RegisterOutputType(ServiceUserParameterWeekStartArrayOutput{})
 	pulumi.RegisterOutputType(ServiceUserShowOutputOutput{})
 	pulumi.RegisterOutputType(ServiceUserShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(SessionPolicyAllowedSecondaryRolesOutput{})
+	pulumi.RegisterOutputType(SessionPolicyAllowedSecondaryRolesPtrOutput{})
+	pulumi.RegisterOutputType(SessionPolicyBlockedSecondaryRolesOutput{})
+	pulumi.RegisterOutputType(SessionPolicyBlockedSecondaryRolesPtrOutput{})
+	pulumi.RegisterOutputType(SessionPolicyDescribeOutputOutput{})
+	pulumi.RegisterOutputType(SessionPolicyDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(SessionPolicyShowOutputOutput{})
+	pulumi.RegisterOutputType(SessionPolicyShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(StageExternalAzureCredentialsOutput{})
 	pulumi.RegisterOutputType(StageExternalAzureCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(StageExternalAzureDescribeOutputOutput{})
@@ -69347,16 +68643,4 @@ func init() {
 	pulumi.RegisterOutputType(StageExternalAzureDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(StageExternalAzureEncryptionOutput{})
 	pulumi.RegisterOutputType(StageExternalAzureEncryptionPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureEncryptionAzureCseOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureEncryptionAzureCsePtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureEncryptionNoneOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureEncryptionNonePtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatAvroOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatAvroPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatCsvOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatCsvPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatJsonOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureFileFormatJsonPtrOutput{})
 }

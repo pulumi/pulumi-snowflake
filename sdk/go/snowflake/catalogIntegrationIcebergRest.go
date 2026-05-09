@@ -127,6 +127,8 @@ type CatalogIntegrationIcebergRest struct {
 	BearerRestAuthentication CatalogIntegrationIcebergRestBearerRestAuthenticationPtrOutput `pulumi:"bearerRestAuthentication"`
 	// Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace pulumi.StringPtrOutput `pulumi:"catalogNamespace"`
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource pulumi.StringOutput `pulumi:"catalogSource"`
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -189,6 +191,8 @@ type catalogIntegrationIcebergRestState struct {
 	BearerRestAuthentication *CatalogIntegrationIcebergRestBearerRestAuthentication `pulumi:"bearerRestAuthentication"`
 	// Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource *string `pulumi:"catalogSource"`
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -216,6 +220,8 @@ type CatalogIntegrationIcebergRestState struct {
 	BearerRestAuthentication CatalogIntegrationIcebergRestBearerRestAuthenticationPtrInput
 	// Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace pulumi.StringPtrInput
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource pulumi.StringPtrInput
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -382,6 +388,11 @@ func (o CatalogIntegrationIcebergRestOutput) BearerRestAuthentication() CatalogI
 // Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
 func (o CatalogIntegrationIcebergRestOutput) CatalogNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationIcebergRest) pulumi.StringPtrOutput { return v.CatalogNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+func (o CatalogIntegrationIcebergRestOutput) CatalogSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *CatalogIntegrationIcebergRest) pulumi.StringOutput { return v.CatalogSource }).(pulumi.StringOutput)
 }
 
 // (Default: “) Specifies a comment for the catalog integration.

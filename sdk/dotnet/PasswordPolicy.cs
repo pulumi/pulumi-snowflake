@@ -16,7 +16,57 @@ namespace Pulumi.Snowflake
     /// 
     /// A password policy specifies the requirements that must be met to create and reset a password to authenticate to Snowflake.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     //# Minimal
+    ///     var basic = new Snowflake.PasswordPolicy("basic", new()
+    ///     {
+    ///         Database = "database_name",
+    ///         Schema = "schema_name",
+    ///         Name = "password_policy_name",
+    ///     });
+    /// 
+    ///     //# Complete (with every optional set)
+    ///     var complete = new Snowflake.PasswordPolicy("complete", new()
+    ///     {
+    ///         Database = "database_name",
+    ///         Schema = "schema_name",
+    ///         Name = "password_policy_name",
+    ///         MinLength = 10,
+    ///         MaxLength = 30,
+    ///         MinUpperCaseChars = 2,
+    ///         MinLowerCaseChars = 3,
+    ///         MinNumericChars = 4,
+    ///         MinSpecialChars = 5,
+    ///         MinAgeDays = 1,
+    ///         MaxAgeDays = 30,
+    ///         MaxRetries = 3,
+    ///         LockoutTimeMins = 30,
+    ///         History = 5,
+    ///         Comment = "My password policy",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
     /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/passwordPolicy:PasswordPolicy example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;password_policy_name&gt;"'
+    /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/passwordPolicy:PasswordPolicy")]
     public partial class PasswordPolicy : global::Pulumi.CustomResource
@@ -28,10 +78,16 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The database this password policy belongs to.
+        /// The database this password policy belongs to. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
+
+        /// <summary>
+        /// Outputs the result of `DESCRIBE PASSWORD POLICY` for the given password policy.
+        /// </summary>
+        [Output("describeOutputs")]
+        public Output<ImmutableArray<Outputs.PasswordPolicyDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
         /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -40,7 +96,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history.
         /// </summary>
         [Output("history")]
         public Output<int?> History { get; private set; } = null!;
@@ -52,67 +108,67 @@ namespace Pulumi.Snowflake
         public Output<bool?> IfNotExists { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
+        /// Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES).
         /// </summary>
         [Output("lockoutTimeMins")]
         public Output<int?> LockoutTimeMins { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum number of days before the password must be changed. A value of zero (i.e. 0) indicates that the password does not need to be changed.
         /// </summary>
         [Output("maxAgeDays")]
         public Output<int?> MaxAgeDays { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
+        /// Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS.
         /// </summary>
         [Output("maxLength")]
         public Output<int?> MaxLength { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+        /// Specifies the maximum number of attempts to enter a password before being locked out.
         /// </summary>
         [Output("maxRetries")]
         public Output<int?> MaxRetries { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of days the user must wait before a recently changed password can be changed again.
         /// </summary>
         [Output("minAgeDays")]
         public Output<int?> MinAgeDays { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
+        /// Specifies the minimum number of characters the password must contain.
         /// </summary>
         [Output("minLength")]
         public Output<int?> MinLength { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of lowercase characters the password must contain.
         /// </summary>
         [Output("minLowerCaseChars")]
         public Output<int?> MinLowerCaseChars { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of numeric characters the password must contain.
         /// </summary>
         [Output("minNumericChars")]
         public Output<int?> MinNumericChars { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of special characters the password must contain.
         /// </summary>
         [Output("minSpecialChars")]
         public Output<int?> MinSpecialChars { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of uppercase characters the password must contain.
         /// </summary>
         [Output("minUpperCaseChars")]
         public Output<int?> MinUpperCaseChars { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier for the password policy; must be unique for your account.
+        /// Identifier for the password policy; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -124,10 +180,16 @@ namespace Pulumi.Snowflake
         public Output<bool?> OrReplace { get; private set; } = null!;
 
         /// <summary>
-        /// The schema this password policy belongs to.
+        /// The schema this password policy belongs to. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
+
+        /// <summary>
+        /// Outputs the result of `SHOW PASSWORD POLICIES` for the given password policy.
+        /// </summary>
+        [Output("showOutputs")]
+        public Output<ImmutableArray<Outputs.PasswordPolicyShowOutput>> ShowOutputs { get; private set; } = null!;
 
 
         /// <summary>
@@ -182,13 +244,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database this password policy belongs to.
+        /// The database this password policy belongs to. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history.
         /// </summary>
         [Input("history")]
         public Input<int>? History { get; set; }
@@ -200,67 +262,67 @@ namespace Pulumi.Snowflake
         public Input<bool>? IfNotExists { get; set; }
 
         /// <summary>
-        /// (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
+        /// Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES).
         /// </summary>
         [Input("lockoutTimeMins")]
         public Input<int>? LockoutTimeMins { get; set; }
 
         /// <summary>
-        /// (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum number of days before the password must be changed. A value of zero (i.e. 0) indicates that the password does not need to be changed.
         /// </summary>
         [Input("maxAgeDays")]
         public Input<int>? MaxAgeDays { get; set; }
 
         /// <summary>
-        /// (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
+        /// Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS.
         /// </summary>
         [Input("maxLength")]
         public Input<int>? MaxLength { get; set; }
 
         /// <summary>
-        /// (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+        /// Specifies the maximum number of attempts to enter a password before being locked out.
         /// </summary>
         [Input("maxRetries")]
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of days the user must wait before a recently changed password can be changed again.
         /// </summary>
         [Input("minAgeDays")]
         public Input<int>? MinAgeDays { get; set; }
 
         /// <summary>
-        /// (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
+        /// Specifies the minimum number of characters the password must contain.
         /// </summary>
         [Input("minLength")]
         public Input<int>? MinLength { get; set; }
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of lowercase characters the password must contain.
         /// </summary>
         [Input("minLowerCaseChars")]
         public Input<int>? MinLowerCaseChars { get; set; }
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of numeric characters the password must contain.
         /// </summary>
         [Input("minNumericChars")]
         public Input<int>? MinNumericChars { get; set; }
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of special characters the password must contain.
         /// </summary>
         [Input("minSpecialChars")]
         public Input<int>? MinSpecialChars { get; set; }
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of uppercase characters the password must contain.
         /// </summary>
         [Input("minUpperCaseChars")]
         public Input<int>? MinUpperCaseChars { get; set; }
 
         /// <summary>
-        /// Identifier for the password policy; must be unique for your account.
+        /// Identifier for the password policy; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -272,7 +334,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? OrReplace { get; set; }
 
         /// <summary>
-        /// The schema this password policy belongs to.
+        /// The schema this password policy belongs to. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -292,10 +354,22 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database this password policy belongs to.
+        /// The database this password policy belongs to. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        [Input("describeOutputs")]
+        private InputList<Inputs.PasswordPolicyDescribeOutputGetArgs>? _describeOutputs;
+
+        /// <summary>
+        /// Outputs the result of `DESCRIBE PASSWORD POLICY` for the given password policy.
+        /// </summary>
+        public InputList<Inputs.PasswordPolicyDescribeOutputGetArgs> DescribeOutputs
+        {
+            get => _describeOutputs ?? (_describeOutputs = new InputList<Inputs.PasswordPolicyDescribeOutputGetArgs>());
+            set => _describeOutputs = value;
+        }
 
         /// <summary>
         /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -304,7 +378,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history.
         /// </summary>
         [Input("history")]
         public Input<int>? History { get; set; }
@@ -316,67 +390,67 @@ namespace Pulumi.Snowflake
         public Input<bool>? IfNotExists { get; set; }
 
         /// <summary>
-        /// (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
+        /// Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES).
         /// </summary>
         [Input("lockoutTimeMins")]
         public Input<int>? LockoutTimeMins { get; set; }
 
         /// <summary>
-        /// (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum number of days before the password must be changed. A value of zero (i.e. 0) indicates that the password does not need to be changed.
         /// </summary>
         [Input("maxAgeDays")]
         public Input<int>? MaxAgeDays { get; set; }
 
         /// <summary>
-        /// (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
+        /// Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS.
         /// </summary>
         [Input("maxLength")]
         public Input<int>? MaxLength { get; set; }
 
         /// <summary>
-        /// (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+        /// Specifies the maximum number of attempts to enter a password before being locked out.
         /// </summary>
         [Input("maxRetries")]
         public Input<int>? MaxRetries { get; set; }
 
         /// <summary>
-        /// (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of days the user must wait before a recently changed password can be changed again.
         /// </summary>
         [Input("minAgeDays")]
         public Input<int>? MinAgeDays { get; set; }
 
         /// <summary>
-        /// (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
+        /// Specifies the minimum number of characters the password must contain.
         /// </summary>
         [Input("minLength")]
         public Input<int>? MinLength { get; set; }
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of lowercase characters the password must contain.
         /// </summary>
         [Input("minLowerCaseChars")]
         public Input<int>? MinLowerCaseChars { get; set; }
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of numeric characters the password must contain.
         /// </summary>
         [Input("minNumericChars")]
         public Input<int>? MinNumericChars { get; set; }
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of special characters the password must contain.
         /// </summary>
         [Input("minSpecialChars")]
         public Input<int>? MinSpecialChars { get; set; }
 
         /// <summary>
-        /// (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the minimum number of uppercase characters the password must contain.
         /// </summary>
         [Input("minUpperCaseChars")]
         public Input<int>? MinUpperCaseChars { get; set; }
 
         /// <summary>
-        /// Identifier for the password policy; must be unique for your account.
+        /// Identifier for the password policy; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -388,10 +462,22 @@ namespace Pulumi.Snowflake
         public Input<bool>? OrReplace { get; set; }
 
         /// <summary>
-        /// The schema this password policy belongs to.
+        /// The schema this password policy belongs to. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
+
+        [Input("showOutputs")]
+        private InputList<Inputs.PasswordPolicyShowOutputGetArgs>? _showOutputs;
+
+        /// <summary>
+        /// Outputs the result of `SHOW PASSWORD POLICIES` for the given password policy.
+        /// </summary>
+        public InputList<Inputs.PasswordPolicyShowOutputGetArgs> ShowOutputs
+        {
+            get => _showOutputs ?? (_showOutputs = new InputList<Inputs.PasswordPolicyShowOutputGetArgs>());
+            set => _showOutputs = value;
+        }
 
         public PasswordPolicyState()
         {

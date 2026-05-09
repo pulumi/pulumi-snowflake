@@ -108,6 +108,7 @@ class CatalogIntegrationObjectStorageArgs:
 @pulumi.input_type
 class _CatalogIntegrationObjectStorageState:
     def __init__(__self__, *,
+                 catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationObjectStorageDescribeOutputArgs']]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -119,6 +120,7 @@ class _CatalogIntegrationObjectStorageState:
         """
         Input properties used for looking up and filtering CatalogIntegrationObjectStorage resources.
 
+        :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationObjectStorageDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
@@ -128,6 +130,8 @@ class _CatalogIntegrationObjectStorageState:
         :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationObjectStorageShowOutputArgs']]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
         :param pulumi.Input[_builtins.str] table_format: Specifies the table format. Valid values are (case-insensitive): `ICEBERG` | `DELTA`.
         """
+        if catalog_source is not None:
+            pulumi.set(__self__, "catalog_source", catalog_source)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if describe_outputs is not None:
@@ -144,6 +148,18 @@ class _CatalogIntegrationObjectStorageState:
             pulumi.set(__self__, "show_outputs", show_outputs)
         if table_format is not None:
             pulumi.set(__self__, "table_format", table_format)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSource")
+    def catalog_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+        """
+        return pulumi.get(self, "catalog_source")
+
+    @catalog_source.setter
+    def catalog_source(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "catalog_source", value)
 
     @_builtins.property
     @pulumi.getter
@@ -380,6 +396,7 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
             if table_format is None and not opts.urn:
                 raise TypeError("Missing required property 'table_format'")
             __props__.__dict__["table_format"] = table_format
+            __props__.__dict__["catalog_source"] = None
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
@@ -393,6 +410,7 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageDescribeOutputArgs', 'CatalogIntegrationObjectStorageDescribeOutputArgsDict']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -408,6 +426,7 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageDescribeOutputArgs', 'CatalogIntegrationObjectStorageDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
@@ -421,6 +440,7 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
 
         __props__ = _CatalogIntegrationObjectStorageState.__new__(_CatalogIntegrationObjectStorageState)
 
+        __props__.__dict__["catalog_source"] = catalog_source
         __props__.__dict__["comment"] = comment
         __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["enabled"] = enabled
@@ -430,6 +450,14 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         __props__.__dict__["table_format"] = table_format
         return CatalogIntegrationObjectStorage(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSource")
+    def catalog_source(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+        """
+        return pulumi.get(self, "catalog_source")
 
     @_builtins.property
     @pulumi.getter

@@ -95,6 +95,8 @@ type CatalogIntegrationOpenCatalog struct {
 
 	// Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace pulumi.StringPtrOutput `pulumi:"catalogNamespace"`
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource pulumi.StringOutput `pulumi:"catalogSource"`
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -156,6 +158,8 @@ func GetCatalogIntegrationOpenCatalog(ctx *pulumi.Context,
 type catalogIntegrationOpenCatalogState struct {
 	// Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource *string `pulumi:"catalogSource"`
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -179,6 +183,8 @@ type catalogIntegrationOpenCatalogState struct {
 type CatalogIntegrationOpenCatalogState struct {
 	// Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace pulumi.StringPtrInput
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource pulumi.StringPtrInput
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -328,6 +334,11 @@ func (o CatalogIntegrationOpenCatalogOutput) ToCatalogIntegrationOpenCatalogOutp
 // Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 func (o CatalogIntegrationOpenCatalogOutput) CatalogNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationOpenCatalog) pulumi.StringPtrOutput { return v.CatalogNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+func (o CatalogIntegrationOpenCatalogOutput) CatalogSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *CatalogIntegrationOpenCatalog) pulumi.StringOutput { return v.CatalogSource }).(pulumi.StringOutput)
 }
 
 // (Default: “) Specifies a comment for the catalog integration.

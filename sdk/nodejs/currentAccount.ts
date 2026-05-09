@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  *
  * !> **Warning** This resource shouldn't be used with `snowflake.CurrentOrganizationAccount`, `snowflake.ObjectParameter` (with `onAccount` field set), and `snowflake.AccountParameter` resources in the same configuration, as it may lead to unexpected behavior. Unless they're used to manage the following parameters that are not supported by `snowflake.CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. They are not supported, because they are not in the [official parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters). Once they are publicly documented, they will be added to the `snowflake.CurrentAccount` resource.
  *
- * !> **Warning** This resource shouldn't be also used with `snowflake.AccountPasswordPolicyAttachment`, `snowflake.NetworkPolicyAttachment`, `snowflake.AccountAuthenticationPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
+ * !> **Warning** This resource shouldn't be also used with `snowflake.AccountPasswordPolicyAttachment`, `snowflake.NetworkPolicyAttachment`, `snowflake.AccountAuthenticationPolicyAttachment`, `snowflake.AccountSessionPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
  *
  * > **Note** On removal, the resource will unset all account properties. To remove the resource without unsetting properties, use terraform state rm command.
  *

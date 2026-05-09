@@ -69,6 +69,8 @@ import (
 type CatalogIntegrationObjectStorage struct {
 	pulumi.CustomResourceState
 
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource pulumi.StringOutput `pulumi:"catalogSource"`
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -123,6 +125,8 @@ func GetCatalogIntegrationObjectStorage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CatalogIntegrationObjectStorage resources.
 type catalogIntegrationObjectStorageState struct {
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource *string `pulumi:"catalogSource"`
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -142,6 +146,8 @@ type catalogIntegrationObjectStorageState struct {
 }
 
 type CatalogIntegrationObjectStorageState struct {
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource pulumi.StringPtrInput
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -276,6 +282,11 @@ func (o CatalogIntegrationObjectStorageOutput) ToCatalogIntegrationObjectStorage
 
 func (o CatalogIntegrationObjectStorageOutput) ToCatalogIntegrationObjectStorageOutputWithContext(ctx context.Context) CatalogIntegrationObjectStorageOutput {
 	return o
+}
+
+// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+func (o CatalogIntegrationObjectStorageOutput) CatalogSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *CatalogIntegrationObjectStorage) pulumi.StringOutput { return v.CatalogSource }).(pulumi.StringOutput)
 }
 
 // (Default: “) Specifies a comment for the catalog integration.

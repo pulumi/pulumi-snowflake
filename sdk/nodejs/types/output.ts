@@ -3092,6 +3092,91 @@ export interface GetParametersParameter {
     value: string;
 }
 
+export interface GetPasswordPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetPasswordPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetPasswordPoliciesOn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified user.
+     */
+    user?: string;
+}
+
+export interface GetPasswordPoliciesPasswordPolicy {
+    /**
+     * Holds the output of DESCRIBE PASSWORD POLICY.
+     */
+    describeOutputs: outputs.GetPasswordPoliciesPasswordPolicyDescribeOutput[];
+    /**
+     * Holds the output of SHOW PASSWORD POLICIES.
+     */
+    showOutputs: outputs.GetPasswordPoliciesPasswordPolicyShowOutput[];
+}
+
+export interface GetPasswordPoliciesPasswordPolicyDescribeOutput {
+    comment: string;
+    name: string;
+    owner: string;
+    passwordHistory: number;
+    passwordLockoutTimeMins: number;
+    passwordMaxAgeDays: number;
+    passwordMaxLength: number;
+    passwordMaxRetries: number;
+    passwordMinAgeDays: number;
+    passwordMinLength: number;
+    passwordMinLowerCaseChars: number;
+    passwordMinNumericChars: number;
+    passwordMinSpecialChars: number;
+    passwordMinUpperCaseChars: number;
+}
+
+export interface GetPasswordPoliciesPasswordPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
 export interface GetPipesPipe {
     comment: string;
     database: string;
@@ -4075,6 +4160,85 @@ export interface GetServicesServiceShowOutput {
     suspendedOn: string;
     targetInstances: number;
     updatedOn: string;
+}
+
+export interface GetSessionPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetSessionPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetSessionPoliciesOn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified user.
+     */
+    user?: string;
+}
+
+export interface GetSessionPoliciesSessionPolicy {
+    /**
+     * Holds the output of DESCRIBE SESSION POLICY.
+     */
+    describeOutputs: outputs.GetSessionPoliciesSessionPolicyDescribeOutput[];
+    /**
+     * Holds the output of SHOW SESSION POLICIES.
+     */
+    showOutputs: outputs.GetSessionPoliciesSessionPolicyShowOutput[];
+}
+
+export interface GetSessionPoliciesSessionPolicyDescribeOutput {
+    allowedSecondaryRoles: string[];
+    blockedSecondaryRoles: string[];
+    comment: string;
+    id: string;
+    owner: string;
+    ownerRoleType: string;
+    sessionIdleTimeoutMins: number;
+    sessionUiIdleTimeoutMins: number;
+}
+
+export interface GetSessionPoliciesSessionPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
 }
 
 export interface GetSharesShare {
@@ -7492,6 +7656,35 @@ export interface ObjectParameterObjectIdentifier {
     schema?: string;
 }
 
+export interface PasswordPolicyDescribeOutput {
+    comment: string;
+    name: string;
+    owner: string;
+    passwordHistory: number;
+    passwordLockoutTimeMins: number;
+    passwordMaxAgeDays: number;
+    passwordMaxLength: number;
+    passwordMaxRetries: number;
+    passwordMinAgeDays: number;
+    passwordMinLength: number;
+    passwordMinLowerCaseChars: number;
+    passwordMinNumericChars: number;
+    passwordMinSpecialChars: number;
+    passwordMinUpperCaseChars: number;
+}
+
+export interface PasswordPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
 export interface PrimaryConnectionShowOutput {
     accountLocator: string;
     accountName: string;
@@ -9436,6 +9629,59 @@ export interface ServiceUserShowOutput {
     owner: string;
     snowflakeLock: boolean;
     type: string;
+}
+
+export interface SessionPolicyAllowedSecondaryRoles {
+    /**
+     * When true, allows all secondary roles.
+     */
+    all?: boolean;
+    /**
+     * When true, disallows all secondary roles.
+     */
+    none?: boolean;
+    /**
+     * Specifies roles to be allowed as secondary roles.
+     */
+    roles?: string[];
+}
+
+export interface SessionPolicyBlockedSecondaryRoles {
+    /**
+     * When true, disallows all secondary roles.
+     */
+    all?: boolean;
+    /**
+     * When true, allows all secondary roles.
+     */
+    none?: boolean;
+    /**
+     * Specifies roles to be blocked as secondary roles.
+     */
+    roles?: string[];
+}
+
+export interface SessionPolicyDescribeOutput {
+    allowedSecondaryRoles: string[];
+    blockedSecondaryRoles: string[];
+    comment: string;
+    id: string;
+    owner: string;
+    ownerRoleType: string;
+    sessionIdleTimeoutMins: number;
+    sessionUiIdleTimeoutMins: number;
+}
+
+export interface SessionPolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
 }
 
 export interface StageExternalAzureCredentials {

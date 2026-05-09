@@ -97,6 +97,10 @@ export class CatalogIntegrationOpenCatalog extends pulumi.CustomResource {
      */
     declare public readonly catalogNamespace: pulumi.Output<string | undefined>;
     /**
+     * Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+     */
+    declare public /*out*/ readonly catalogSource: pulumi.Output<string>;
+    /**
      * (Default: ``) Specifies a comment for the catalog integration.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
@@ -147,6 +151,7 @@ export class CatalogIntegrationOpenCatalog extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CatalogIntegrationOpenCatalogState | undefined;
             resourceInputs["catalogNamespace"] = state?.catalogNamespace;
+            resourceInputs["catalogSource"] = state?.catalogSource;
             resourceInputs["comment"] = state?.comment;
             resourceInputs["describeOutputs"] = state?.describeOutputs;
             resourceInputs["enabled"] = state?.enabled;
@@ -174,6 +179,7 @@ export class CatalogIntegrationOpenCatalog extends pulumi.CustomResource {
             resourceInputs["refreshIntervalSeconds"] = args?.refreshIntervalSeconds;
             resourceInputs["restAuthentication"] = args?.restAuthentication;
             resourceInputs["restConfig"] = args?.restConfig;
+            resourceInputs["catalogSource"] = undefined /*out*/;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
@@ -191,6 +197,10 @@ export interface CatalogIntegrationOpenCatalogState {
      * Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
      */
     catalogNamespace?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+     */
+    catalogSource?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Specifies a comment for the catalog integration.
      */
