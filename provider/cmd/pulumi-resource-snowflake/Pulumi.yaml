@@ -1,3 +1,0 @@
-name: snowflake
-description: A Pulumi resource provider for snowflake.
-language: schema
