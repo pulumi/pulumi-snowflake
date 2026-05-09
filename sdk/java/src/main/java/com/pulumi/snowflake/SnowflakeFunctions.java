@@ -68,6 +68,8 @@ import com.pulumi.snowflake.inputs.GetNotebooksArgs;
 import com.pulumi.snowflake.inputs.GetNotebooksPlainArgs;
 import com.pulumi.snowflake.inputs.GetParametersArgs;
 import com.pulumi.snowflake.inputs.GetParametersPlainArgs;
+import com.pulumi.snowflake.inputs.GetPasswordPoliciesArgs;
+import com.pulumi.snowflake.inputs.GetPasswordPoliciesPlainArgs;
 import com.pulumi.snowflake.inputs.GetPipesArgs;
 import com.pulumi.snowflake.inputs.GetPipesPlainArgs;
 import com.pulumi.snowflake.inputs.GetProceduresArgs;
@@ -88,6 +90,8 @@ import com.pulumi.snowflake.inputs.GetSequencesArgs;
 import com.pulumi.snowflake.inputs.GetSequencesPlainArgs;
 import com.pulumi.snowflake.inputs.GetServicesArgs;
 import com.pulumi.snowflake.inputs.GetServicesPlainArgs;
+import com.pulumi.snowflake.inputs.GetSessionPoliciesArgs;
+import com.pulumi.snowflake.inputs.GetSessionPoliciesPlainArgs;
 import com.pulumi.snowflake.inputs.GetSharesArgs;
 import com.pulumi.snowflake.inputs.GetSharesPlainArgs;
 import com.pulumi.snowflake.inputs.GetStagesArgs;
@@ -147,6 +151,7 @@ import com.pulumi.snowflake.outputs.GetNetworkPoliciesResult;
 import com.pulumi.snowflake.outputs.GetNetworkRulesResult;
 import com.pulumi.snowflake.outputs.GetNotebooksResult;
 import com.pulumi.snowflake.outputs.GetParametersResult;
+import com.pulumi.snowflake.outputs.GetPasswordPoliciesResult;
 import com.pulumi.snowflake.outputs.GetPipesResult;
 import com.pulumi.snowflake.outputs.GetProceduresResult;
 import com.pulumi.snowflake.outputs.GetResourceMonitorsResult;
@@ -157,6 +162,7 @@ import com.pulumi.snowflake.outputs.GetSecurityIntegrationsResult;
 import com.pulumi.snowflake.outputs.GetSemanticViewsResult;
 import com.pulumi.snowflake.outputs.GetSequencesResult;
 import com.pulumi.snowflake.outputs.GetServicesResult;
+import com.pulumi.snowflake.outputs.GetSessionPoliciesResult;
 import com.pulumi.snowflake.outputs.GetSharesResult;
 import com.pulumi.snowflake.outputs.GetStagesResult;
 import com.pulumi.snowflake.outputs.GetStorageIntegrationsResult;
@@ -5615,6 +5621,83 @@ public final class SnowflakeFunctions {
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
+     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * 
+     * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
+     * 
+     */
+    public static Output<GetPasswordPoliciesResult> getPasswordPolicies() {
+        return getPasswordPolicies(GetPasswordPoliciesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * 
+     * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
+     * 
+     */
+    public static CompletableFuture<GetPasswordPoliciesResult> getPasswordPoliciesPlain() {
+        return getPasswordPoliciesPlain(GetPasswordPoliciesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * 
+     * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
+     * 
+     */
+    public static Output<GetPasswordPoliciesResult> getPasswordPolicies(GetPasswordPoliciesArgs args) {
+        return getPasswordPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * 
+     * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
+     * 
+     */
+    public static CompletableFuture<GetPasswordPoliciesResult> getPasswordPoliciesPlain(GetPasswordPoliciesPlainArgs args) {
+        return getPasswordPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * 
+     * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
+     * 
+     */
+    public static Output<GetPasswordPoliciesResult> getPasswordPolicies(GetPasswordPoliciesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getPasswordPolicies:getPasswordPolicies", TypeShape.of(GetPasswordPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * 
+     * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
+     * 
+     */
+    public static Output<GetPasswordPoliciesResult> getPasswordPolicies(GetPasswordPoliciesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getPasswordPolicies:getPasswordPolicies", TypeShape.of(GetPasswordPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * 
+     * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
+     * 
+     */
+    public static CompletableFuture<GetPasswordPoliciesResult> getPasswordPoliciesPlain(GetPasswordPoliciesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getPasswordPolicies:getPasswordPolicies", TypeShape.of(GetPasswordPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -7131,6 +7214,69 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetServicesResult> getServicesPlain(GetServicesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getServices:getServices", TypeShape.of(GetServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
+     * 
+     */
+    public static Output<GetSessionPoliciesResult> getSessionPolicies() {
+        return getSessionPolicies(GetSessionPoliciesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
+     * 
+     */
+    public static CompletableFuture<GetSessionPoliciesResult> getSessionPoliciesPlain() {
+        return getSessionPoliciesPlain(GetSessionPoliciesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
+     * 
+     */
+    public static Output<GetSessionPoliciesResult> getSessionPolicies(GetSessionPoliciesArgs args) {
+        return getSessionPolicies(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
+     * 
+     */
+    public static CompletableFuture<GetSessionPoliciesResult> getSessionPoliciesPlain(GetSessionPoliciesPlainArgs args) {
+        return getSessionPoliciesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
+     * 
+     */
+    public static Output<GetSessionPoliciesResult> getSessionPolicies(GetSessionPoliciesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getSessionPolicies:getSessionPolicies", TypeShape.of(GetSessionPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
+     * 
+     */
+    public static Output<GetSessionPoliciesResult> getSessionPolicies(GetSessionPoliciesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getSessionPolicies:getSessionPolicies", TypeShape.of(GetSessionPoliciesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
+     * 
+     */
+    public static CompletableFuture<GetSessionPoliciesResult> getSessionPoliciesPlain(GetSessionPoliciesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getSessionPolicies:getSessionPolicies", TypeShape.of(GetSessionPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

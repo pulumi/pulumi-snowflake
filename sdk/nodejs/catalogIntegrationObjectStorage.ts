@@ -73,6 +73,10 @@ export class CatalogIntegrationObjectStorage extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+     */
+    declare public /*out*/ readonly catalogSource: pulumi.Output<string>;
+    /**
      * (Default: ``) Specifies a comment for the catalog integration.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
@@ -118,6 +122,7 @@ export class CatalogIntegrationObjectStorage extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CatalogIntegrationObjectStorageState | undefined;
+            resourceInputs["catalogSource"] = state?.catalogSource;
             resourceInputs["comment"] = state?.comment;
             resourceInputs["describeOutputs"] = state?.describeOutputs;
             resourceInputs["enabled"] = state?.enabled;
@@ -139,6 +144,7 @@ export class CatalogIntegrationObjectStorage extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["refreshIntervalSeconds"] = args?.refreshIntervalSeconds;
             resourceInputs["tableFormat"] = args?.tableFormat;
+            resourceInputs["catalogSource"] = undefined /*out*/;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
@@ -152,6 +158,10 @@ export class CatalogIntegrationObjectStorage extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CatalogIntegrationObjectStorage resources.
  */
 export interface CatalogIntegrationObjectStorageState {
+    /**
+     * Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+     */
+    catalogSource?: pulumi.Input<string | undefined>;
     /**
      * (Default: ``) Specifies a comment for the catalog integration.
      */

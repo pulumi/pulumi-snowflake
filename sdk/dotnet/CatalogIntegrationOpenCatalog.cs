@@ -96,6 +96,12 @@ namespace Pulumi.Snowflake
         public Output<string?> CatalogNamespace { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+        /// </summary>
+        [Output("catalogSource")]
+        public Output<string> CatalogSource { get; private set; } = null!;
+
+        /// <summary>
         /// (Default: ``) Specifies a comment for the catalog integration.
         /// </summary>
         [Output("comment")]
@@ -250,6 +256,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("catalogNamespace")]
         public Input<string>? CatalogNamespace { get; set; }
+
+        /// <summary>
+        /// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+        /// </summary>
+        [Input("catalogSource")]
+        public Input<string>? CatalogSource { get; set; }
 
         /// <summary>
         /// (Default: ``) Specifies a comment for the catalog integration.

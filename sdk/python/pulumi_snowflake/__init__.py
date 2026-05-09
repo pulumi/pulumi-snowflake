@@ -11,6 +11,7 @@ from .account_authentication_policy_attachment import *
 from .account_parameter import *
 from .account_password_policy_attachment import *
 from .account_role import *
+from .account_session_policy_attachment import *
 from .alert import *
 from .api_authentication_integration_with_authorization_code_grant import *
 from .api_authentication_integration_with_client_credentials import *
@@ -72,6 +73,7 @@ from .get_network_policies import *
 from .get_network_rules import *
 from .get_notebooks import *
 from .get_parameters import *
+from .get_password_policies import *
 from .get_pipes import *
 from .get_procedures import *
 from .get_resource_monitors import *
@@ -82,6 +84,7 @@ from .get_security_integrations import *
 from .get_semantic_views import *
 from .get_sequences import *
 from .get_services import *
+from .get_session_policies import *
 from .get_shares import *
 from .get_stages import *
 from .get_storage_integrations import *
@@ -145,6 +148,7 @@ from .semantic_view import *
 from .sequence import *
 from .service import *
 from .service_user import *
+from .session_policy import *
 from .share import *
 from .shared_database import *
 from .stage import *
@@ -173,6 +177,7 @@ from .user_authentication_policy_attachment import *
 from .user_password_policy_attachment import *
 from .user_programmatic_access_token import *
 from .user_public_keys import *
+from .user_session_policy_attachment import *
 from .view import *
 from .warehouse import *
 from .warehouse_adaptive import *
@@ -227,6 +232,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/accountRole:AccountRole": "AccountRole"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/accountSessionPolicyAttachment",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment": "AccountSessionPolicyAttachment"
   }
  },
  {
@@ -839,6 +852,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/sessionPolicy",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/sessionPolicy:SessionPolicy": "SessionPolicy"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/share",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -1059,6 +1080,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/userPublicKeys:UserPublicKeys": "UserPublicKeys"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/userSessionPolicyAttachment",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/userSessionPolicyAttachment:UserSessionPolicyAttachment": "UserSessionPolicyAttachment"
   }
  },
  {

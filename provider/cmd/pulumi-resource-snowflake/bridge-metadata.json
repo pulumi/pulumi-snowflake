@@ -31,6 +31,10 @@
                     }
                 }
             },
+            "snowflake_account_session_policy_attachment": {
+                "current": "snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment",
+                "majorVersion": 2
+            },
             "snowflake_alert": {
                 "current": "snowflake:index/alert:Alert",
                 "majorVersion": 2,
@@ -1555,7 +1559,15 @@
             },
             "snowflake_password_policy": {
                 "current": "snowflake:index/passwordPolicy:PasswordPolicy",
-                "majorVersion": 2
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "snowflake_pipe": {
                 "current": "snowflake:index/pipe:Pipe",
@@ -2465,6 +2477,48 @@
                                     "maxItemsOne": false
                                 },
                                 "week_start": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_session_policy": {
+                "current": "snowflake:index/sessionPolicy:SessionPolicy",
+                "majorVersion": 2,
+                "fields": {
+                    "allowed_secondary_roles": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "roles": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "blocked_secondary_roles": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "roles": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_secondary_roles": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_secondary_roles": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -4127,6 +4181,10 @@
                 "current": "snowflake:index/userPublicKeys:UserPublicKeys",
                 "majorVersion": 2
             },
+            "snowflake_user_session_policy_attachment": {
+                "current": "snowflake:index/userSessionPolicyAttachment:UserSessionPolicyAttachment",
+                "majorVersion": 2
+            },
             "snowflake_view": {
                 "current": "snowflake:index/view:View",
                 "majorVersion": 2,
@@ -4872,6 +4930,34 @@
                     }
                 }
             },
+            "snowflake_password_policies": {
+                "current": "snowflake:index/getPasswordPolicies:getPasswordPolicies",
+                "majorVersion": 2,
+                "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "on": {
+                        "maxItemsOne": true
+                    },
+                    "password_policies": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "snowflake_pipes": {
                 "current": "snowflake:index/getPipes:getPipes",
                 "majorVersion": 2,
@@ -5307,6 +5393,44 @@
                                             }
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "snowflake_session_policies": {
+                "current": "snowflake:index/getSessionPolicies:getSessionPolicies",
+                "majorVersion": 2,
+                "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "on": {
+                        "maxItemsOne": true
+                    },
+                    "session_policies": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_secondary_roles": {
+                                                "maxItemsOne": false
+                                            },
+                                            "blocked_secondary_roles": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }

@@ -75,6 +75,8 @@ type CatalogIntegrationAwsGlue struct {
 
 	// Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace pulumi.StringPtrOutput `pulumi:"catalogNamespace"`
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource pulumi.StringOutput `pulumi:"catalogSource"`
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -138,6 +140,8 @@ func GetCatalogIntegrationAwsGlue(ctx *pulumi.Context,
 type catalogIntegrationAwsGlueState struct {
 	// Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource *string `pulumi:"catalogSource"`
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -163,6 +167,8 @@ type catalogIntegrationAwsGlueState struct {
 type CatalogIntegrationAwsGlueState struct {
 	// Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace pulumi.StringPtrInput
+	// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+	CatalogSource pulumi.StringPtrInput
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
@@ -318,6 +324,11 @@ func (o CatalogIntegrationAwsGlueOutput) ToCatalogIntegrationAwsGlueOutputWithCo
 // Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 func (o CatalogIntegrationAwsGlueOutput) CatalogNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) pulumi.StringPtrOutput { return v.CatalogNamespace }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+func (o CatalogIntegrationAwsGlueOutput) CatalogSource() pulumi.StringOutput {
+	return o.ApplyT(func(v *CatalogIntegrationAwsGlue) pulumi.StringOutput { return v.CatalogSource }).(pulumi.StringOutput)
 }
 
 // (Default: “) Specifies a comment for the catalog integration.

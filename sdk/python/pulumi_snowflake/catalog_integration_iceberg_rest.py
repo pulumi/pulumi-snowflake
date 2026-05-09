@@ -174,6 +174,7 @@ class _CatalogIntegrationIcebergRestState:
     def __init__(__self__, *,
                  bearer_rest_authentication: pulumi.Input[Optional['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs']] = None,
                  catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputArgs']]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -189,6 +190,7 @@ class _CatalogIntegrationIcebergRestState:
 
         :param pulumi.Input['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs'] bearer_rest_authentication: Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
+        :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
@@ -204,6 +206,8 @@ class _CatalogIntegrationIcebergRestState:
             pulumi.set(__self__, "bearer_rest_authentication", bearer_rest_authentication)
         if catalog_namespace is not None:
             pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        if catalog_source is not None:
+            pulumi.set(__self__, "catalog_source", catalog_source)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if describe_outputs is not None:
@@ -248,6 +252,18 @@ class _CatalogIntegrationIcebergRestState:
     @catalog_namespace.setter
     def catalog_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "catalog_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSource")
+    def catalog_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+        """
+        return pulumi.get(self, "catalog_source")
+
+    @catalog_source.setter
+    def catalog_source(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "catalog_source", value)
 
     @_builtins.property
     @pulumi.getter
@@ -608,6 +624,7 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rest_config'")
             __props__.__dict__["rest_config"] = rest_config
             __props__.__dict__["sigv4_rest_authentication"] = sigv4_rest_authentication
+            __props__.__dict__["catalog_source"] = None
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
@@ -623,6 +640,7 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             bearer_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict']]] = None,
             catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestDescribeOutputArgs', 'CatalogIntegrationIcebergRestDescribeOutputArgsDict']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -642,6 +660,7 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict']] bearer_rest_authentication: Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
+        :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestDescribeOutputArgs', 'CatalogIntegrationIcebergRestDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
@@ -659,6 +678,7 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
 
         __props__.__dict__["bearer_rest_authentication"] = bearer_rest_authentication
         __props__.__dict__["catalog_namespace"] = catalog_namespace
+        __props__.__dict__["catalog_source"] = catalog_source
         __props__.__dict__["comment"] = comment
         __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["enabled"] = enabled
@@ -686,6 +706,14 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
         Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
         """
         return pulumi.get(self, "catalog_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSource")
+    def catalog_source(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+        """
+        return pulumi.get(self, "catalog_source")
 
     @_builtins.property
     @pulumi.getter

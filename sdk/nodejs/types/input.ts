@@ -2318,6 +2318,96 @@ export interface GetNotebooksLimitArgs {
     rows: pulumi.Input<number>;
 }
 
+export interface GetPasswordPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetPasswordPoliciesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
+}
+
+export interface GetPasswordPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetPasswordPoliciesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetPasswordPoliciesOn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified user.
+     */
+    user?: string;
+}
+
+export interface GetPasswordPoliciesOnArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the specified user.
+     */
+    user?: pulumi.Input<string | undefined>;
+}
+
 export interface GetRowAccessPoliciesIn {
     /**
      * Returns records for the entire account.
@@ -2602,6 +2692,96 @@ export interface GetServicesLimitArgs {
      * The maximum number of rows to return.
      */
     rows: pulumi.Input<number>;
+}
+
+export interface GetSessionPoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetSessionPoliciesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
+}
+
+export interface GetSessionPoliciesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetSessionPoliciesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetSessionPoliciesOn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified user.
+     */
+    user?: string;
+}
+
+export interface GetSessionPoliciesOnArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the specified user.
+     */
+    user?: pulumi.Input<string | undefined>;
 }
 
 export interface GetStagesIn {
@@ -4519,6 +4699,35 @@ export interface ObjectParameterObjectIdentifier {
      * Name of the schema that the object was created in.
      */
     schema?: pulumi.Input<string | undefined>;
+}
+
+export interface PasswordPolicyDescribeOutput {
+    comment?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    passwordHistory?: pulumi.Input<number | undefined>;
+    passwordLockoutTimeMins?: pulumi.Input<number | undefined>;
+    passwordMaxAgeDays?: pulumi.Input<number | undefined>;
+    passwordMaxLength?: pulumi.Input<number | undefined>;
+    passwordMaxRetries?: pulumi.Input<number | undefined>;
+    passwordMinAgeDays?: pulumi.Input<number | undefined>;
+    passwordMinLength?: pulumi.Input<number | undefined>;
+    passwordMinLowerCaseChars?: pulumi.Input<number | undefined>;
+    passwordMinNumericChars?: pulumi.Input<number | undefined>;
+    passwordMinSpecialChars?: pulumi.Input<number | undefined>;
+    passwordMinUpperCaseChars?: pulumi.Input<number | undefined>;
+}
+
+export interface PasswordPolicyShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    options?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface PrimaryConnectionShowOutput {
@@ -6488,6 +6697,59 @@ export interface ServiceUserShowOutput {
     owner?: pulumi.Input<string | undefined>;
     snowflakeLock?: pulumi.Input<boolean | undefined>;
     type?: pulumi.Input<string | undefined>;
+}
+
+export interface SessionPolicyAllowedSecondaryRoles {
+    /**
+     * When true, allows all secondary roles.
+     */
+    all?: pulumi.Input<boolean | undefined>;
+    /**
+     * When true, disallows all secondary roles.
+     */
+    none?: pulumi.Input<boolean | undefined>;
+    /**
+     * Specifies roles to be allowed as secondary roles.
+     */
+    roles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface SessionPolicyBlockedSecondaryRoles {
+    /**
+     * When true, disallows all secondary roles.
+     */
+    all?: pulumi.Input<boolean | undefined>;
+    /**
+     * When true, allows all secondary roles.
+     */
+    none?: pulumi.Input<boolean | undefined>;
+    /**
+     * Specifies roles to be blocked as secondary roles.
+     */
+    roles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface SessionPolicyDescribeOutput {
+    allowedSecondaryRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    blockedSecondaryRoles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    sessionIdleTimeoutMins?: pulumi.Input<number | undefined>;
+    sessionUiIdleTimeoutMins?: pulumi.Input<number | undefined>;
+}
+
+export interface SessionPolicyShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    options?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface StageExternalAzureCredentials {

@@ -311,6 +311,8 @@ __all__ = [
     'OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList',
     'OauthIntegrationForPartnerApplicationsShowOutput',
     'ObjectParameterObjectIdentifier',
+    'PasswordPolicyDescribeOutput',
+    'PasswordPolicyShowOutput',
     'PrimaryConnectionShowOutput',
     'ProcedureJavaArgument',
     'ProcedureJavaImport',
@@ -497,6 +499,10 @@ __all__ = [
     'ServiceUserParameterWeekOfYearPolicy',
     'ServiceUserParameterWeekStart',
     'ServiceUserShowOutput',
+    'SessionPolicyAllowedSecondaryRoles',
+    'SessionPolicyBlockedSecondaryRoles',
+    'SessionPolicyDescribeOutput',
+    'SessionPolicyShowOutput',
     'StageExternalAzureCredentials',
     'StageExternalAzureDescribeOutput',
     'StageExternalAzureDescribeOutputDirectoryTable',
@@ -905,6 +911,12 @@ __all__ = [
     'GetNotebooksNotebookDescribeOutputResult',
     'GetNotebooksNotebookShowOutputResult',
     'GetParametersParameterResult',
+    'GetPasswordPoliciesInResult',
+    'GetPasswordPoliciesLimitResult',
+    'GetPasswordPoliciesOnResult',
+    'GetPasswordPoliciesPasswordPolicyResult',
+    'GetPasswordPoliciesPasswordPolicyDescribeOutputResult',
+    'GetPasswordPoliciesPasswordPolicyShowOutputResult',
     'GetPipesPipeResult',
     'GetProceduresProcedureResult',
     'GetResourceMonitorsResourceMonitorResult',
@@ -1007,6 +1019,12 @@ __all__ = [
     'GetServicesServiceResult',
     'GetServicesServiceDescribeOutputResult',
     'GetServicesServiceShowOutputResult',
+    'GetSessionPoliciesInResult',
+    'GetSessionPoliciesLimitResult',
+    'GetSessionPoliciesOnResult',
+    'GetSessionPoliciesSessionPolicyResult',
+    'GetSessionPoliciesSessionPolicyDescribeOutputResult',
+    'GetSessionPoliciesSessionPolicyShowOutputResult',
     'GetSharesShareResult',
     'GetStagesInResult',
     'GetStagesStageResult',
@@ -20092,6 +20110,260 @@ class ObjectParameterObjectIdentifier(dict):
 
 
 @pulumi.output_type
+class PasswordPolicyDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordHistory":
+            suggest = "password_history"
+        elif key == "passwordLockoutTimeMins":
+            suggest = "password_lockout_time_mins"
+        elif key == "passwordMaxAgeDays":
+            suggest = "password_max_age_days"
+        elif key == "passwordMaxLength":
+            suggest = "password_max_length"
+        elif key == "passwordMaxRetries":
+            suggest = "password_max_retries"
+        elif key == "passwordMinAgeDays":
+            suggest = "password_min_age_days"
+        elif key == "passwordMinLength":
+            suggest = "password_min_length"
+        elif key == "passwordMinLowerCaseChars":
+            suggest = "password_min_lower_case_chars"
+        elif key == "passwordMinNumericChars":
+            suggest = "password_min_numeric_chars"
+        elif key == "passwordMinSpecialChars":
+            suggest = "password_min_special_chars"
+        elif key == "passwordMinUpperCaseChars":
+            suggest = "password_min_upper_case_chars"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PasswordPolicyDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PasswordPolicyDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PasswordPolicyDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 password_history: Optional[_builtins.int] = None,
+                 password_lockout_time_mins: Optional[_builtins.int] = None,
+                 password_max_age_days: Optional[_builtins.int] = None,
+                 password_max_length: Optional[_builtins.int] = None,
+                 password_max_retries: Optional[_builtins.int] = None,
+                 password_min_age_days: Optional[_builtins.int] = None,
+                 password_min_length: Optional[_builtins.int] = None,
+                 password_min_lower_case_chars: Optional[_builtins.int] = None,
+                 password_min_numeric_chars: Optional[_builtins.int] = None,
+                 password_min_special_chars: Optional[_builtins.int] = None,
+                 password_min_upper_case_chars: Optional[_builtins.int] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if password_history is not None:
+            pulumi.set(__self__, "password_history", password_history)
+        if password_lockout_time_mins is not None:
+            pulumi.set(__self__, "password_lockout_time_mins", password_lockout_time_mins)
+        if password_max_age_days is not None:
+            pulumi.set(__self__, "password_max_age_days", password_max_age_days)
+        if password_max_length is not None:
+            pulumi.set(__self__, "password_max_length", password_max_length)
+        if password_max_retries is not None:
+            pulumi.set(__self__, "password_max_retries", password_max_retries)
+        if password_min_age_days is not None:
+            pulumi.set(__self__, "password_min_age_days", password_min_age_days)
+        if password_min_length is not None:
+            pulumi.set(__self__, "password_min_length", password_min_length)
+        if password_min_lower_case_chars is not None:
+            pulumi.set(__self__, "password_min_lower_case_chars", password_min_lower_case_chars)
+        if password_min_numeric_chars is not None:
+            pulumi.set(__self__, "password_min_numeric_chars", password_min_numeric_chars)
+        if password_min_special_chars is not None:
+            pulumi.set(__self__, "password_min_special_chars", password_min_special_chars)
+        if password_min_upper_case_chars is not None:
+            pulumi.set(__self__, "password_min_upper_case_chars", password_min_upper_case_chars)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordHistory")
+    def password_history(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_history")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordLockoutTimeMins")
+    def password_lockout_time_mins(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_lockout_time_mins")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMaxAgeDays")
+    def password_max_age_days(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_max_age_days")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMaxLength")
+    def password_max_length(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_max_length")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMaxRetries")
+    def password_max_retries(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_max_retries")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinAgeDays")
+    def password_min_age_days(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_min_age_days")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinLength")
+    def password_min_length(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_min_length")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinLowerCaseChars")
+    def password_min_lower_case_chars(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_min_lower_case_chars")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinNumericChars")
+    def password_min_numeric_chars(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_min_numeric_chars")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinSpecialChars")
+    def password_min_special_chars(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_min_special_chars")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinUpperCaseChars")
+    def password_min_upper_case_chars(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "password_min_upper_case_chars")
+
+
+@pulumi.output_type
+class PasswordPolicyShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PasswordPolicyShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PasswordPolicyShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PasswordPolicyShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 options: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
 class PrimaryConnectionShowOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -31982,6 +32254,286 @@ class ServiceUserShowOutput(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SessionPolicyAllowedSecondaryRoles(dict):
+    def __init__(__self__, *,
+                 all: Optional[_builtins.bool] = None,
+                 none: Optional[_builtins.bool] = None,
+                 roles: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.bool all: When true, allows all secondary roles.
+        :param _builtins.bool none: When true, disallows all secondary roles.
+        :param Sequence[_builtins.str] roles: Specifies roles to be allowed as secondary roles.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @_builtins.property
+    @pulumi.getter
+    def all(self) -> Optional[_builtins.bool]:
+        """
+        When true, allows all secondary roles.
+        """
+        return pulumi.get(self, "all")
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> Optional[_builtins.bool]:
+        """
+        When true, disallows all secondary roles.
+        """
+        return pulumi.get(self, "none")
+
+    @_builtins.property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies roles to be allowed as secondary roles.
+        """
+        return pulumi.get(self, "roles")
+
+
+@pulumi.output_type
+class SessionPolicyBlockedSecondaryRoles(dict):
+    def __init__(__self__, *,
+                 all: Optional[_builtins.bool] = None,
+                 none: Optional[_builtins.bool] = None,
+                 roles: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.bool all: When true, disallows all secondary roles.
+        :param _builtins.bool none: When true, allows all secondary roles.
+        :param Sequence[_builtins.str] roles: Specifies roles to be blocked as secondary roles.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+        if roles is not None:
+            pulumi.set(__self__, "roles", roles)
+
+    @_builtins.property
+    @pulumi.getter
+    def all(self) -> Optional[_builtins.bool]:
+        """
+        When true, disallows all secondary roles.
+        """
+        return pulumi.get(self, "all")
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> Optional[_builtins.bool]:
+        """
+        When true, allows all secondary roles.
+        """
+        return pulumi.get(self, "none")
+
+    @_builtins.property
+    @pulumi.getter
+    def roles(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies roles to be blocked as secondary roles.
+        """
+        return pulumi.get(self, "roles")
+
+
+@pulumi.output_type
+class SessionPolicyDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedSecondaryRoles":
+            suggest = "allowed_secondary_roles"
+        elif key == "blockedSecondaryRoles":
+            suggest = "blocked_secondary_roles"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "sessionIdleTimeoutMins":
+            suggest = "session_idle_timeout_mins"
+        elif key == "sessionUiIdleTimeoutMins":
+            suggest = "session_ui_idle_timeout_mins"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SessionPolicyDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SessionPolicyDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SessionPolicyDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_secondary_roles: Optional[Sequence[_builtins.str]] = None,
+                 blocked_secondary_roles: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 session_idle_timeout_mins: Optional[_builtins.int] = None,
+                 session_ui_idle_timeout_mins: Optional[_builtins.int] = None):
+        if allowed_secondary_roles is not None:
+            pulumi.set(__self__, "allowed_secondary_roles", allowed_secondary_roles)
+        if blocked_secondary_roles is not None:
+            pulumi.set(__self__, "blocked_secondary_roles", blocked_secondary_roles)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if session_idle_timeout_mins is not None:
+            pulumi.set(__self__, "session_idle_timeout_mins", session_idle_timeout_mins)
+        if session_ui_idle_timeout_mins is not None:
+            pulumi.set(__self__, "session_ui_idle_timeout_mins", session_ui_idle_timeout_mins)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedSecondaryRoles")
+    def allowed_secondary_roles(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_secondary_roles")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedSecondaryRoles")
+    def blocked_secondary_roles(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_secondary_roles")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionIdleTimeoutMins")
+    def session_idle_timeout_mins(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "session_idle_timeout_mins")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionUiIdleTimeoutMins")
+    def session_ui_idle_timeout_mins(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "session_ui_idle_timeout_mins")
+
+
+@pulumi.output_type
+class SessionPolicyShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SessionPolicyShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SessionPolicyShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SessionPolicyShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 options: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type
@@ -62128,6 +62680,334 @@ class GetParametersParameterResult(dict):
 
 
 @pulumi.output_type
+class GetPasswordPoliciesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 application: Optional[_builtins.str] = None,
+                 application_package: Optional[_builtins.str] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str application: Returns records for the specified application.
+        :param _builtins.str application_package: Returns records for the specified application package.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def application(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetPasswordPoliciesLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
+class GetPasswordPoliciesOnResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 user: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str user: Returns records for the specified user.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def user(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified user.
+        """
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class GetPasswordPoliciesPasswordPolicyResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetPasswordPoliciesPasswordPolicyDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetPasswordPoliciesPasswordPolicyShowOutputResult']):
+        """
+        :param Sequence['GetPasswordPoliciesPasswordPolicyDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE PASSWORD POLICY.
+        :param Sequence['GetPasswordPoliciesPasswordPolicyShowOutputArgs'] show_outputs: Holds the output of SHOW PASSWORD POLICIES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetPasswordPoliciesPasswordPolicyDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE PASSWORD POLICY.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetPasswordPoliciesPasswordPolicyShowOutputResult']:
+        """
+        Holds the output of SHOW PASSWORD POLICIES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetPasswordPoliciesPasswordPolicyDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 name: _builtins.str,
+                 owner: _builtins.str,
+                 password_history: _builtins.int,
+                 password_lockout_time_mins: _builtins.int,
+                 password_max_age_days: _builtins.int,
+                 password_max_length: _builtins.int,
+                 password_max_retries: _builtins.int,
+                 password_min_age_days: _builtins.int,
+                 password_min_length: _builtins.int,
+                 password_min_lower_case_chars: _builtins.int,
+                 password_min_numeric_chars: _builtins.int,
+                 password_min_special_chars: _builtins.int,
+                 password_min_upper_case_chars: _builtins.int):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "password_history", password_history)
+        pulumi.set(__self__, "password_lockout_time_mins", password_lockout_time_mins)
+        pulumi.set(__self__, "password_max_age_days", password_max_age_days)
+        pulumi.set(__self__, "password_max_length", password_max_length)
+        pulumi.set(__self__, "password_max_retries", password_max_retries)
+        pulumi.set(__self__, "password_min_age_days", password_min_age_days)
+        pulumi.set(__self__, "password_min_length", password_min_length)
+        pulumi.set(__self__, "password_min_lower_case_chars", password_min_lower_case_chars)
+        pulumi.set(__self__, "password_min_numeric_chars", password_min_numeric_chars)
+        pulumi.set(__self__, "password_min_special_chars", password_min_special_chars)
+        pulumi.set(__self__, "password_min_upper_case_chars", password_min_upper_case_chars)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordHistory")
+    def password_history(self) -> _builtins.int:
+        return pulumi.get(self, "password_history")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordLockoutTimeMins")
+    def password_lockout_time_mins(self) -> _builtins.int:
+        return pulumi.get(self, "password_lockout_time_mins")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMaxAgeDays")
+    def password_max_age_days(self) -> _builtins.int:
+        return pulumi.get(self, "password_max_age_days")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMaxLength")
+    def password_max_length(self) -> _builtins.int:
+        return pulumi.get(self, "password_max_length")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMaxRetries")
+    def password_max_retries(self) -> _builtins.int:
+        return pulumi.get(self, "password_max_retries")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinAgeDays")
+    def password_min_age_days(self) -> _builtins.int:
+        return pulumi.get(self, "password_min_age_days")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinLength")
+    def password_min_length(self) -> _builtins.int:
+        return pulumi.get(self, "password_min_length")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinLowerCaseChars")
+    def password_min_lower_case_chars(self) -> _builtins.int:
+        return pulumi.get(self, "password_min_lower_case_chars")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinNumericChars")
+    def password_min_numeric_chars(self) -> _builtins.int:
+        return pulumi.get(self, "password_min_numeric_chars")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinSpecialChars")
+    def password_min_special_chars(self) -> _builtins.int:
+        return pulumi.get(self, "password_min_special_chars")
+
+    @_builtins.property
+    @pulumi.getter(name="passwordMinUpperCaseChars")
+    def password_min_upper_case_chars(self) -> _builtins.int:
+        return pulumi.get(self, "password_min_upper_case_chars")
+
+
+@pulumi.output_type
+class GetPasswordPoliciesPasswordPolicyShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 database_name: _builtins.str,
+                 kind: _builtins.str,
+                 name: _builtins.str,
+                 options: _builtins.str,
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 schema_name: _builtins.str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> _builtins.str:
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
 class GetPipesPipeResult(dict):
     def __init__(__self__, *,
                  comment: _builtins.str,
@@ -66731,6 +67611,292 @@ class GetServicesServiceShowOutputResult(dict):
     @pulumi.getter(name="updatedOn")
     def updated_on(self) -> _builtins.str:
         return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
+class GetSessionPoliciesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 application: Optional[_builtins.str] = None,
+                 application_package: Optional[_builtins.str] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str application: Returns records for the specified application.
+        :param _builtins.str application_package: Returns records for the specified application package.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def application(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @_builtins.property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetSessionPoliciesLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
+class GetSessionPoliciesOnResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 user: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str user: Returns records for the specified user.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def user(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified user.
+        """
+        return pulumi.get(self, "user")
+
+
+@pulumi.output_type
+class GetSessionPoliciesSessionPolicyResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetSessionPoliciesSessionPolicyDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetSessionPoliciesSessionPolicyShowOutputResult']):
+        """
+        :param Sequence['GetSessionPoliciesSessionPolicyDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE SESSION POLICY.
+        :param Sequence['GetSessionPoliciesSessionPolicyShowOutputArgs'] show_outputs: Holds the output of SHOW SESSION POLICIES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetSessionPoliciesSessionPolicyDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE SESSION POLICY.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetSessionPoliciesSessionPolicyShowOutputResult']:
+        """
+        Holds the output of SHOW SESSION POLICIES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetSessionPoliciesSessionPolicyDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 allowed_secondary_roles: Sequence[_builtins.str],
+                 blocked_secondary_roles: Sequence[_builtins.str],
+                 comment: _builtins.str,
+                 id: _builtins.str,
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 session_idle_timeout_mins: _builtins.int,
+                 session_ui_idle_timeout_mins: _builtins.int):
+        pulumi.set(__self__, "allowed_secondary_roles", allowed_secondary_roles)
+        pulumi.set(__self__, "blocked_secondary_roles", blocked_secondary_roles)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "session_idle_timeout_mins", session_idle_timeout_mins)
+        pulumi.set(__self__, "session_ui_idle_timeout_mins", session_ui_idle_timeout_mins)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedSecondaryRoles")
+    def allowed_secondary_roles(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_secondary_roles")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedSecondaryRoles")
+    def blocked_secondary_roles(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "blocked_secondary_roles")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionIdleTimeoutMins")
+    def session_idle_timeout_mins(self) -> _builtins.int:
+        return pulumi.get(self, "session_idle_timeout_mins")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionUiIdleTimeoutMins")
+    def session_ui_idle_timeout_mins(self) -> _builtins.int:
+        return pulumi.get(self, "session_ui_idle_timeout_mins")
+
+
+@pulumi.output_type
+class GetSessionPoliciesSessionPolicyShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 database_name: _builtins.str,
+                 kind: _builtins.str,
+                 name: _builtins.str,
+                 options: _builtins.str,
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 schema_name: _builtins.str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> _builtins.str:
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type

@@ -453,6 +453,8 @@ class StreamOnTable(pulumi.CustomResource):
         """
         > **Note about copy_grants** Fields like `table`, `append_only`, `at`, `before`, `show_initial_rows` and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copy_grants`. Beware that even though a change is marked as update, the resource is recreated.
 
+        > **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect.
+
         Resource used to manage streams on tables. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
 
         ## Import
@@ -483,6 +485,8 @@ class StreamOnTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **Note about copy_grants** Fields like `table`, `append_only`, `at`, `before`, `show_initial_rows` and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copy_grants`. Beware that even though a change is marked as update, the resource is recreated.
+
+        > **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect.
 
         Resource used to manage streams on tables. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
 

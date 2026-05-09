@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountPasswordPolicyAttachment{}
 	case "snowflake:index/accountRole:AccountRole":
 		r = &AccountRole{}
+	case "snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment":
+		r = &AccountSessionPolicyAttachment{}
 	case "snowflake:index/alert:Alert":
 		r = &Alert{}
 	case "snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant":
@@ -183,6 +185,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "snowflake:index/serviceUser:ServiceUser":
 		r = &ServiceUser{}
+	case "snowflake:index/sessionPolicy:SessionPolicy":
+		r = &SessionPolicy{}
 	case "snowflake:index/share:Share":
 		r = &Share{}
 	case "snowflake:index/sharedDatabase:SharedDatabase":
@@ -239,6 +243,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &UserProgrammaticAccessToken{}
 	case "snowflake:index/userPublicKeys:UserPublicKeys":
 		r = &UserPublicKeys{}
+	case "snowflake:index/userSessionPolicyAttachment:UserSessionPolicyAttachment":
+		r = &UserSessionPolicyAttachment{}
 	case "snowflake:index/view:View":
 		r = &View{}
 	case "snowflake:index/warehouse:Warehouse":
@@ -299,6 +305,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/accountRole",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/accountSessionPolicyAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -683,6 +694,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/sessionPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/share",
 		&module{version},
 	)
@@ -819,6 +835,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/userPublicKeys",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/userSessionPolicyAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

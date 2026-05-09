@@ -21,6 +21,21 @@ public final class CatalogIntegrationObjectStorageState extends com.pulumi.resou
     public static final CatalogIntegrationObjectStorageState Empty = new CatalogIntegrationObjectStorageState();
 
     /**
+     * Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+     * 
+     */
+    @Import(name="catalogSource")
+    private @Nullable Output<String> catalogSource;
+
+    /**
+     * @return Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+     * 
+     */
+    public Optional<Output<String>> catalogSource() {
+        return Optional.ofNullable(this.catalogSource);
+    }
+
+    /**
      * (Default: ``) Specifies a comment for the catalog integration.
      * 
      */
@@ -143,6 +158,7 @@ public final class CatalogIntegrationObjectStorageState extends com.pulumi.resou
     private CatalogIntegrationObjectStorageState() {}
 
     private CatalogIntegrationObjectStorageState(CatalogIntegrationObjectStorageState $) {
+        this.catalogSource = $.catalogSource;
         this.comment = $.comment;
         this.describeOutputs = $.describeOutputs;
         this.enabled = $.enabled;
@@ -169,6 +185,27 @@ public final class CatalogIntegrationObjectStorageState extends com.pulumi.resou
 
         public Builder(CatalogIntegrationObjectStorageState defaults) {
             $ = new CatalogIntegrationObjectStorageState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param catalogSource Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catalogSource(@Nullable Output<String> catalogSource) {
+            $.catalogSource = catalogSource;
+            return this;
+        }
+
+        /**
+         * @param catalogSource Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder catalogSource(String catalogSource) {
+            return catalogSource(Output.of(catalogSource));
         }
 
         /**

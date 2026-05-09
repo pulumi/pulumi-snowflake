@@ -30,6 +30,11 @@ export type AccountRole = import("./accountRole").AccountRole;
 export const AccountRole: typeof import("./accountRole").AccountRole = null as any;
 utilities.lazyLoad(exports, ["AccountRole"], () => require("./accountRole"));
 
+export { AccountSessionPolicyAttachmentArgs, AccountSessionPolicyAttachmentState } from "./accountSessionPolicyAttachment";
+export type AccountSessionPolicyAttachment = import("./accountSessionPolicyAttachment").AccountSessionPolicyAttachment;
+export const AccountSessionPolicyAttachment: typeof import("./accountSessionPolicyAttachment").AccountSessionPolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["AccountSessionPolicyAttachment"], () => require("./accountSessionPolicyAttachment"));
+
 export { AlertArgs, AlertState } from "./alert";
 export type Alert = import("./alert").Alert;
 export const Alert: typeof import("./alert").Alert = null as any;
@@ -335,6 +340,11 @@ export const getParameters: typeof import("./getParameters").getParameters = nul
 export const getParametersOutput: typeof import("./getParameters").getParametersOutput = null as any;
 utilities.lazyLoad(exports, ["getParameters","getParametersOutput"], () => require("./getParameters"));
 
+export { GetPasswordPoliciesArgs, GetPasswordPoliciesResult, GetPasswordPoliciesOutputArgs } from "./getPasswordPolicies";
+export const getPasswordPolicies: typeof import("./getPasswordPolicies").getPasswordPolicies = null as any;
+export const getPasswordPoliciesOutput: typeof import("./getPasswordPolicies").getPasswordPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getPasswordPolicies","getPasswordPoliciesOutput"], () => require("./getPasswordPolicies"));
+
 export { GetPipesArgs, GetPipesResult, GetPipesOutputArgs } from "./getPipes";
 export const getPipes: typeof import("./getPipes").getPipes = null as any;
 export const getPipesOutput: typeof import("./getPipes").getPipesOutput = null as any;
@@ -384,6 +394,11 @@ export { GetServicesArgs, GetServicesResult, GetServicesOutputArgs } from "./get
 export const getServices: typeof import("./getServices").getServices = null as any;
 export const getServicesOutput: typeof import("./getServices").getServicesOutput = null as any;
 utilities.lazyLoad(exports, ["getServices","getServicesOutput"], () => require("./getServices"));
+
+export { GetSessionPoliciesArgs, GetSessionPoliciesResult, GetSessionPoliciesOutputArgs } from "./getSessionPolicies";
+export const getSessionPolicies: typeof import("./getSessionPolicies").getSessionPolicies = null as any;
+export const getSessionPoliciesOutput: typeof import("./getSessionPolicies").getSessionPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getSessionPolicies","getSessionPoliciesOutput"], () => require("./getSessionPolicies"));
 
 export { GetSharesArgs, GetSharesResult, GetSharesOutputArgs } from "./getShares";
 export const getShares: typeof import("./getShares").getShares = null as any;
@@ -698,6 +713,11 @@ export type ServiceUser = import("./serviceUser").ServiceUser;
 export const ServiceUser: typeof import("./serviceUser").ServiceUser = null as any;
 utilities.lazyLoad(exports, ["ServiceUser"], () => require("./serviceUser"));
 
+export { SessionPolicyArgs, SessionPolicyState } from "./sessionPolicy";
+export type SessionPolicy = import("./sessionPolicy").SessionPolicy;
+export const SessionPolicy: typeof import("./sessionPolicy").SessionPolicy = null as any;
+utilities.lazyLoad(exports, ["SessionPolicy"], () => require("./sessionPolicy"));
+
 export { ShareArgs, ShareState } from "./share";
 export type Share = import("./share").Share;
 export const Share: typeof import("./share").Share = null as any;
@@ -838,6 +858,11 @@ export type UserPublicKeys = import("./userPublicKeys").UserPublicKeys;
 export const UserPublicKeys: typeof import("./userPublicKeys").UserPublicKeys = null as any;
 utilities.lazyLoad(exports, ["UserPublicKeys"], () => require("./userPublicKeys"));
 
+export { UserSessionPolicyAttachmentArgs, UserSessionPolicyAttachmentState } from "./userSessionPolicyAttachment";
+export type UserSessionPolicyAttachment = import("./userSessionPolicyAttachment").UserSessionPolicyAttachment;
+export const UserSessionPolicyAttachment: typeof import("./userSessionPolicyAttachment").UserSessionPolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["UserSessionPolicyAttachment"], () => require("./userSessionPolicyAttachment"));
+
 export { ViewArgs, ViewState } from "./view";
 export type View = import("./view").View;
 export const View: typeof import("./view").View = null as any;
@@ -877,6 +902,8 @@ const _module = {
                 return new AccountPasswordPolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/accountRole:AccountRole":
                 return new AccountRole(name, <any>undefined, { urn })
+            case "snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment":
+                return new AccountSessionPolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/alert:Alert":
                 return new Alert(name, <any>undefined, { urn })
             case "snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant":
@@ -1029,6 +1056,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "snowflake:index/serviceUser:ServiceUser":
                 return new ServiceUser(name, <any>undefined, { urn })
+            case "snowflake:index/sessionPolicy:SessionPolicy":
+                return new SessionPolicy(name, <any>undefined, { urn })
             case "snowflake:index/share:Share":
                 return new Share(name, <any>undefined, { urn })
             case "snowflake:index/sharedDatabase:SharedDatabase":
@@ -1085,6 +1114,8 @@ const _module = {
                 return new UserProgrammaticAccessToken(name, <any>undefined, { urn })
             case "snowflake:index/userPublicKeys:UserPublicKeys":
                 return new UserPublicKeys(name, <any>undefined, { urn })
+            case "snowflake:index/userSessionPolicyAttachment:UserSessionPolicyAttachment":
+                return new UserSessionPolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/view:View":
                 return new View(name, <any>undefined, { urn })
             case "snowflake:index/warehouse:Warehouse":
@@ -1101,6 +1132,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/accountAuthenticationP
 pulumi.runtime.registerResourceModule("snowflake", "index/accountParameter", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/accountPasswordPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/accountRole", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/accountSessionPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/alert", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithAuthorizationCodeGrant", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithClientCredentials", _module)
@@ -1177,6 +1209,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/semanticView", _module
 pulumi.runtime.registerResourceModule("snowflake", "index/sequence", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/service", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/serviceUser", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/sessionPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/share", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sharedDatabase", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/stage", _module)
@@ -1205,6 +1238,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/userAuthenticationPoli
 pulumi.runtime.registerResourceModule("snowflake", "index/userPasswordPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userProgrammaticAccessToken", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userPublicKeys", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/userSessionPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/view", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/warehouse", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/warehouseAdaptive", _module)
