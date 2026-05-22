@@ -2225,7 +2225,7 @@ class AccountShowOutputArgs:
 
 
 class AlertAlertScheduleArgsDict(TypedDict):
-    cron: NotRequired[pulumi.Input[Optional['AlertAlertScheduleCronArgs']]]
+    cron: NotRequired[pulumi.Input[Optional['AlertAlertScheduleCronArgsDict']]]
     """
     Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
     """
@@ -2321,17 +2321,17 @@ class AlertAlertScheduleCronArgs:
 
 
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgsDict(TypedDict):
-    auth_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeArgs']]]]]
-    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputCommentArgs']]]]]
-    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabledArgs']]]]]
-    oauth_access_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidityArgs']]]]]
-    oauth_allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgs']]]]]
-    oauth_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgs']]]]]
-    oauth_client_auth_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgs']]]]]
-    oauth_grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgs']]]]]
-    oauth_refresh_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgs']]]]]
-    oauth_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgs']]]]]
-    parent_integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegrationArgs']]]]]
+    auth_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputAuthTypeArgsDict']]]]]
+    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputCommentArgsDict']]]]]
+    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputEnabledArgsDict']]]]]
+    oauth_access_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAccessTokenValidityArgsDict']]]]]
+    oauth_allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgsDict']]]]]
+    oauth_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgsDict']]]]]
+    oauth_client_auth_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgsDict']]]]]
+    oauth_grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgsDict']]]]]
+    oauth_refresh_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgsDict']]]]]
+    oauth_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgsDict']]]]]
+    parent_integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputParentIntegrationArgsDict']]]]]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs:
@@ -3205,17 +3205,17 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantShowOutputArgs:
 
 
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgsDict(TypedDict):
-    auth_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthTypeArgs']]]]]
-    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputCommentArgs']]]]]
-    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabledArgs']]]]]
-    oauth_access_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidityArgs']]]]]
-    oauth_allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArgs']]]]]
-    oauth_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgs']]]]]
-    oauth_client_auth_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgs']]]]]
-    oauth_grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgs']]]]]
-    oauth_refresh_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgs']]]]]
-    oauth_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArgs']]]]]
-    parent_integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegrationArgs']]]]]
+    auth_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputAuthTypeArgsDict']]]]]
+    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputCommentArgsDict']]]]]
+    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputEnabledArgsDict']]]]]
+    oauth_access_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAccessTokenValidityArgsDict']]]]]
+    oauth_allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArgsDict']]]]]
+    oauth_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgsDict']]]]]
+    oauth_client_auth_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgsDict']]]]]
+    oauth_grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgsDict']]]]]
+    oauth_refresh_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgsDict']]]]]
+    oauth_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArgsDict']]]]]
+    parent_integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputParentIntegrationArgsDict']]]]]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgs:
@@ -4089,17 +4089,17 @@ class ApiAuthenticationIntegrationWithClientCredentialsShowOutputArgs:
 
 
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgsDict(TypedDict):
-    auth_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthTypeArgs']]]]]
-    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputCommentArgs']]]]]
-    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabledArgs']]]]]
-    oauth_access_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidityArgs']]]]]
-    oauth_allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArgs']]]]]
-    oauth_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgs']]]]]
-    oauth_client_auth_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgs']]]]]
-    oauth_grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgs']]]]]
-    oauth_refresh_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgs']]]]]
-    oauth_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArgs']]]]]
-    parent_integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArgs']]]]]
+    auth_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputAuthTypeArgsDict']]]]]
+    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputCommentArgsDict']]]]]
+    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputEnabledArgsDict']]]]]
+    oauth_access_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAccessTokenValidityArgsDict']]]]]
+    oauth_allowed_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArgsDict']]]]]
+    oauth_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgsDict']]]]]
+    oauth_client_auth_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgsDict']]]]]
+    oauth_grants: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgsDict']]]]]
+    oauth_refresh_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgsDict']]]]]
+    oauth_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArgsDict']]]]]
+    parent_integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegrationArgsDict']]]]]
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs:
@@ -5771,16 +5771,16 @@ class CatalogIntegrationIcebergRestBearerRestAuthenticationArgs:
 
 
 class CatalogIntegrationIcebergRestDescribeOutputArgsDict(TypedDict):
-    bearer_rest_authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgs']]]]]
+    bearer_rest_authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputBearerRestAuthenticationArgsDict']]]]]
     catalog_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     catalog_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    oauth_rest_authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgs']]]]]
+    oauth_rest_authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputOauthRestAuthenticationArgsDict']]]]]
     refresh_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    rest_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputRestConfigArgs']]]]]
-    sigv4_rest_authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgs']]]]]
+    rest_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputRestConfigArgsDict']]]]]
+    sigv4_rest_authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationIcebergRestDescribeOutputSigv4RestAuthenticationArgsDict']]]]]
     table_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
@@ -6604,8 +6604,8 @@ class CatalogIntegrationOpenCatalogDescribeOutputArgsDict(TypedDict):
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     refresh_interval_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    rest_authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgs']]]]]
-    rest_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgs']]]]]
+    rest_authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestAuthenticationArgsDict']]]]]
+    rest_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CatalogIntegrationOpenCatalogDescribeOutputRestConfigArgsDict']]]]]
     table_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
@@ -8542,19 +8542,19 @@ class ExternalFunctionHeaderArgs:
 
 
 class ExternalOauthIntegrationDescribeOutputArgsDict(TypedDict):
-    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputCommentArgs']]]]]
-    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputEnabledArgs']]]]]
-    external_oauth_allowed_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesListArgs']]]]]
-    external_oauth_any_role_modes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleModeArgs']]]]]
-    external_oauth_audience_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthAudienceListArgs']]]]]
-    external_oauth_blocked_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesListArgs']]]]]
-    external_oauth_issuers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthIssuerArgs']]]]]
-    external_oauth_jws_keys_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrlArgs']]]]]
-    external_oauth_rsa_public_key2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2Args']]]]]
-    external_oauth_rsa_public_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKeyArgs']]]]]
-    external_oauth_scope_delimiters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiterArgs']]]]]
-    external_oauth_snowflake_user_mapping_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeArgs']]]]]
-    external_oauth_token_user_mapping_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaimArgs']]]]]
+    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputCommentArgsDict']]]]]
+    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputEnabledArgsDict']]]]]
+    external_oauth_allowed_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthAllowedRolesListArgsDict']]]]]
+    external_oauth_any_role_modes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthAnyRoleModeArgsDict']]]]]
+    external_oauth_audience_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthAudienceListArgsDict']]]]]
+    external_oauth_blocked_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthBlockedRolesListArgsDict']]]]]
+    external_oauth_issuers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthIssuerArgsDict']]]]]
+    external_oauth_jws_keys_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthJwsKeysUrlArgsDict']]]]]
+    external_oauth_rsa_public_key2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKey2ArgsDict']]]]]
+    external_oauth_rsa_public_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthRsaPublicKeyArgsDict']]]]]
+    external_oauth_scope_delimiters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthScopeDelimiterArgsDict']]]]]
+    external_oauth_snowflake_user_mapping_attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthSnowflakeUserMappingAttributeArgsDict']]]]]
+    external_oauth_token_user_mapping_claims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaimArgsDict']]]]]
 
 @pulumi.input_type
 class ExternalOauthIntegrationDescribeOutputArgs:
@@ -9485,7 +9485,7 @@ class ExternalOauthIntegrationDescribeOutputExternalOauthTokenUserMappingClaimAr
 
 
 class ExternalOauthIntegrationRelatedParameterArgsDict(TypedDict):
-    external_oauth_add_privileged_roles_to_blocked_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedListArgs']]]]]
+    external_oauth_add_privileged_roles_to_blocked_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalOauthIntegrationRelatedParameterExternalOauthAddPrivilegedRolesToBlockedListArgsDict']]]]]
 
 @pulumi.input_type
 class ExternalOauthIntegrationRelatedParameterArgs:
@@ -9818,7 +9818,7 @@ class ExternalVolumeDescribeOutputArgsDict(TypedDict):
     active: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     allow_writes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    storage_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationArgs']]]]]
+    storage_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationArgsDict']]]]]
 
 @pulumi.input_type
 class ExternalVolumeDescribeOutputArgs:
@@ -9874,12 +9874,12 @@ class ExternalVolumeDescribeOutputArgs:
 
 
 class ExternalVolumeDescribeOutputStorageLocationArgsDict(TypedDict):
-    azure_storage_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs']]]]]
+    azure_storage_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgsDict']]]]]
     encryption_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    gcs_storage_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs']]]]]
+    gcs_storage_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgsDict']]]]]
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    s3_compat_storage_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs']]]]]
-    s3_storage_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs']]]]]
+    s3_compat_storage_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgsDict']]]]]
+    s3_storage_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgsDict']]]]]
     storage_allowed_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     storage_base_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     storage_provider: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -10586,7 +10586,7 @@ class FailoverGroupFromReplicaArgs:
 
 
 class FailoverGroupReplicationScheduleArgsDict(TypedDict):
-    cron: NotRequired[pulumi.Input[Optional['FailoverGroupReplicationScheduleCronArgs']]]
+    cron: NotRequired[pulumi.Input[Optional['FailoverGroupReplicationScheduleCronArgsDict']]]
     """
     Specifies the cron expression for the replication schedule. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
     """
@@ -10796,10 +10796,10 @@ class FunctionJavaImportArgs:
 
 
 class FunctionJavaParameterArgsDict(TypedDict):
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavaParameterEnableConsoleOutputArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavaParameterLogLevelArgs']]]]]
-    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavaParameterMetricLevelArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavaParameterTraceLevelArgs']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavaParameterEnableConsoleOutputArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavaParameterLogLevelArgsDict']]]]]
+    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavaParameterMetricLevelArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavaParameterTraceLevelArgsDict']]]]]
 
 @pulumi.input_type
 class FunctionJavaParameterArgs:
@@ -11571,10 +11571,10 @@ class FunctionJavascriptArgumentArgs:
 
 
 class FunctionJavascriptParameterArgsDict(TypedDict):
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptParameterEnableConsoleOutputArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptParameterLogLevelArgs']]]]]
-    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptParameterMetricLevelArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptParameterTraceLevelArgs']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptParameterEnableConsoleOutputArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptParameterLogLevelArgsDict']]]]]
+    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptParameterMetricLevelArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionJavascriptParameterTraceLevelArgsDict']]]]]
 
 @pulumi.input_type
 class FunctionJavascriptParameterArgs:
@@ -12299,10 +12299,10 @@ class FunctionPythonImportArgs:
 
 
 class FunctionPythonParameterArgsDict(TypedDict):
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionPythonParameterEnableConsoleOutputArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionPythonParameterLogLevelArgs']]]]]
-    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionPythonParameterMetricLevelArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionPythonParameterTraceLevelArgs']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionPythonParameterEnableConsoleOutputArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionPythonParameterLogLevelArgsDict']]]]]
+    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionPythonParameterMetricLevelArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionPythonParameterTraceLevelArgsDict']]]]]
 
 @pulumi.input_type
 class FunctionPythonParameterArgs:
@@ -13074,10 +13074,10 @@ class FunctionScalaImportArgs:
 
 
 class FunctionScalaParameterArgsDict(TypedDict):
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterEnableConsoleOutputArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterLogLevelArgs']]]]]
-    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterMetricLevelArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterTraceLevelArgs']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterEnableConsoleOutputArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterLogLevelArgsDict']]]]]
+    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterMetricLevelArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionScalaParameterTraceLevelArgsDict']]]]]
 
 @pulumi.input_type
 class FunctionScalaParameterArgs:
@@ -13849,10 +13849,10 @@ class FunctionSqlArgumentArgs:
 
 
 class FunctionSqlParameterArgsDict(TypedDict):
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionSqlParameterEnableConsoleOutputArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionSqlParameterLogLevelArgs']]]]]
-    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionSqlParameterMetricLevelArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionSqlParameterTraceLevelArgs']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionSqlParameterEnableConsoleOutputArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionSqlParameterLogLevelArgsDict']]]]]
+    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionSqlParameterMetricLevelArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionSqlParameterTraceLevelArgsDict']]]]]
 
 @pulumi.input_type
 class FunctionSqlParameterArgs:
@@ -14763,11 +14763,11 @@ class GitRepositoryShowOutputArgs:
 
 
 class GrantOwnershipOnArgsDict(TypedDict):
-    all: NotRequired[pulumi.Input[Optional['GrantOwnershipOnAllArgs']]]
+    all: NotRequired[pulumi.Input[Optional['GrantOwnershipOnAllArgsDict']]]
     """
     Configures the privilege to be granted on all objects in either a database or schema.
     """
-    future: NotRequired[pulumi.Input[Optional['GrantOwnershipOnFutureArgs']]]
+    future: NotRequired[pulumi.Input[Optional['GrantOwnershipOnFutureArgsDict']]]
     """
     Configures the privilege to be granted on all objects in either a database or schema.
     """
@@ -15104,11 +15104,11 @@ class GrantPrivilegesToAccountRoleOnSchemaArgs:
 
 
 class GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict(TypedDict):
-    all: NotRequired[pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs']]]
+    all: NotRequired[pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectAllArgsDict']]]
     """
     Configures the privilege to be granted on all objects in either a database or schema.
     """
-    future: NotRequired[pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs']]]
+    future: NotRequired[pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict']]]
     """
     Configures the privilege to be granted on future objects in either a database or schema.
     """
@@ -15370,11 +15370,11 @@ class GrantPrivilegesToDatabaseRoleOnSchemaArgs:
 
 
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict(TypedDict):
-    all: NotRequired[pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs']]]
+    all: NotRequired[pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgsDict']]]
     """
     Configures the privilege to be granted on all objects in either a database or schema.
     """
-    future: NotRequired[pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs']]]
+    future: NotRequired[pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict']]]
     """
     Configures the privilege to be granted on future objects in either a database or schema.
     """
@@ -16731,19 +16731,19 @@ class JobServiceShowOutputArgs:
 
 
 class LegacyServiceUserDefaultWorkloadIdentityArgsDict(TypedDict):
-    aws: NotRequired[pulumi.Input[Optional['LegacyServiceUserDefaultWorkloadIdentityAwsArgs']]]
+    aws: NotRequired[pulumi.Input[Optional['LegacyServiceUserDefaultWorkloadIdentityAwsArgsDict']]]
     """
     AWS workload identity configuration.
     """
-    azure: NotRequired[pulumi.Input[Optional['LegacyServiceUserDefaultWorkloadIdentityAzureArgs']]]
+    azure: NotRequired[pulumi.Input[Optional['LegacyServiceUserDefaultWorkloadIdentityAzureArgsDict']]]
     """
     Azure workload identity configuration.
     """
-    gcp: NotRequired[pulumi.Input[Optional['LegacyServiceUserDefaultWorkloadIdentityGcpArgs']]]
+    gcp: NotRequired[pulumi.Input[Optional['LegacyServiceUserDefaultWorkloadIdentityGcpArgsDict']]]
     """
     GCP workload identity configuration.
     """
-    oidc: NotRequired[pulumi.Input[Optional['LegacyServiceUserDefaultWorkloadIdentityOidcArgs']]]
+    oidc: NotRequired[pulumi.Input[Optional['LegacyServiceUserDefaultWorkloadIdentityOidcArgsDict']]]
     """
     Generic OIDC workload identity configuration.
     """
@@ -16990,64 +16990,64 @@ class LegacyServiceUserDefaultWorkloadIdentityOidcArgs:
 
 
 class LegacyServiceUserParameterArgsDict(TypedDict):
-    abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterAbortDetachedQueryArgs']]]]]
-    autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterAutocommitArgs']]]]]
-    binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterBinaryInputFormatArgs']]]]]
-    binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterBinaryOutputFormatArgs']]]]]
-    client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMemoryLimitArgs']]]]]
-    client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArgs']]]]]
-    client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientPrefetchThreadArgs']]]]]
-    client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientResultChunkSizeArgs']]]]]
-    client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientResultColumnCaseInsensitiveArgs']]]]]
-    client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgs']]]]]
-    client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientSessionKeepAlifeArgs']]]]]
-    client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientTimestampTypeMappingArgs']]]]]
-    date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterDateInputFormatArgs']]]]]
-    date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterDateOutputFormatArgs']]]]]
-    enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgs']]]]]
-    enable_unredacted_query_syntax_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableUnredactedQuerySyntaxErrorArgs']]]]]
-    error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterErrorOnNondeterministicMergeArgs']]]]]
-    error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterErrorOnNondeterministicUpdateArgs']]]]]
-    geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterGeographyOutputFormatArgs']]]]]
-    geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterGeometryOutputFormatArgs']]]]]
-    jdbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcTreatDecimalAsIntArgs']]]]]
-    jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArgs']]]]]
-    jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcUseSessionTimezoneArgs']]]]]
-    json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJsonIndentArgs']]]]]
-    lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterLockTimeoutArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterLogLevelArgs']]]]]
-    multi_statement_counts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterMultiStatementCountArgs']]]]]
-    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterNetworkPolicyArgs']]]]]
-    noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterNoorderSequenceAsDefaultArgs']]]]]
-    odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterOdbcTreatDecimalAsIntArgs']]]]]
-    prevent_unload_to_internal_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPreventUnloadToInternalStageArgs']]]]]
-    query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterQueryTagArgs']]]]]
-    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterQuotedIdentifiersIgnoreCaseArgs']]]]]
-    rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterRowsPerResultsetArgs']]]]]
-    s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterS3StageVpceDnsNameArgs']]]]]
-    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterSearchPathArgs']]]]]
-    simulated_data_sharing_consumers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterSimulatedDataSharingConsumerArgs']]]]]
-    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterStatementQueuedTimeoutInSecondArgs']]]]]
-    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterStatementTimeoutInSecondArgs']]]]]
-    strict_json_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterStrictJsonOutputArgs']]]]]
-    time_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimeInputFormatArgs']]]]]
-    time_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimeOutputFormatArgs']]]]]
-    timestamp_day_is_always24hs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampDayIsAlways24hArgs']]]]]
-    timestamp_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampInputFormatArgs']]]]]
-    timestamp_ltz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampLtzOutputFormatArgs']]]]]
-    timestamp_ntz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampNtzOutputFormatArgs']]]]]
-    timestamp_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampOutputFormatArgs']]]]]
-    timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampTypeMappingArgs']]]]]
-    timestamp_tz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampTzOutputFormatArgs']]]]]
-    timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimezoneArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTraceLevelArgs']]]]]
-    transaction_abort_on_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTransactionAbortOnErrorArgs']]]]]
-    transaction_default_isolation_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTransactionDefaultIsolationLevelArgs']]]]]
-    two_digit_century_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTwoDigitCenturyStartArgs']]]]]
-    unsupported_ddl_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterUnsupportedDdlActionArgs']]]]]
-    use_cached_results: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterUseCachedResultArgs']]]]]
-    week_of_year_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterWeekOfYearPolicyArgs']]]]]
-    week_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterWeekStartArgs']]]]]
+    abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterAbortDetachedQueryArgsDict']]]]]
+    autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterAutocommitArgsDict']]]]]
+    binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterBinaryInputFormatArgsDict']]]]]
+    binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterBinaryOutputFormatArgsDict']]]]]
+    client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMemoryLimitArgsDict']]]]]
+    client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientMetadataRequestUseConnectionCtxArgsDict']]]]]
+    client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientPrefetchThreadArgsDict']]]]]
+    client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientResultChunkSizeArgsDict']]]]]
+    client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientResultColumnCaseInsensitiveArgsDict']]]]]
+    client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict']]]]]
+    client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientSessionKeepAlifeArgsDict']]]]]
+    client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterClientTimestampTypeMappingArgsDict']]]]]
+    date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterDateInputFormatArgsDict']]]]]
+    date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterDateOutputFormatArgsDict']]]]]
+    enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgsDict']]]]]
+    enable_unredacted_query_syntax_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterEnableUnredactedQuerySyntaxErrorArgsDict']]]]]
+    error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterErrorOnNondeterministicMergeArgsDict']]]]]
+    error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterErrorOnNondeterministicUpdateArgsDict']]]]]
+    geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterGeographyOutputFormatArgsDict']]]]]
+    geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterGeometryOutputFormatArgsDict']]]]]
+    jdbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcTreatDecimalAsIntArgsDict']]]]]
+    jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcTreatTimestampNtzAsUtcArgsDict']]]]]
+    jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJdbcUseSessionTimezoneArgsDict']]]]]
+    json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterJsonIndentArgsDict']]]]]
+    lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterLockTimeoutArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterLogLevelArgsDict']]]]]
+    multi_statement_counts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterMultiStatementCountArgsDict']]]]]
+    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterNetworkPolicyArgsDict']]]]]
+    noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterNoorderSequenceAsDefaultArgsDict']]]]]
+    odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterOdbcTreatDecimalAsIntArgsDict']]]]]
+    prevent_unload_to_internal_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterPreventUnloadToInternalStageArgsDict']]]]]
+    query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterQueryTagArgsDict']]]]]
+    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]]
+    rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterRowsPerResultsetArgsDict']]]]]
+    s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterS3StageVpceDnsNameArgsDict']]]]]
+    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterSearchPathArgsDict']]]]]
+    simulated_data_sharing_consumers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterSimulatedDataSharingConsumerArgsDict']]]]]
+    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterStatementQueuedTimeoutInSecondArgsDict']]]]]
+    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterStatementTimeoutInSecondArgsDict']]]]]
+    strict_json_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterStrictJsonOutputArgsDict']]]]]
+    time_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimeInputFormatArgsDict']]]]]
+    time_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimeOutputFormatArgsDict']]]]]
+    timestamp_day_is_always24hs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampDayIsAlways24hArgsDict']]]]]
+    timestamp_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampInputFormatArgsDict']]]]]
+    timestamp_ltz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampLtzOutputFormatArgsDict']]]]]
+    timestamp_ntz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampNtzOutputFormatArgsDict']]]]]
+    timestamp_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampOutputFormatArgsDict']]]]]
+    timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampTypeMappingArgsDict']]]]]
+    timestamp_tz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimestampTzOutputFormatArgsDict']]]]]
+    timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTimezoneArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTraceLevelArgsDict']]]]]
+    transaction_abort_on_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTransactionAbortOnErrorArgsDict']]]]]
+    transaction_default_isolation_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTransactionDefaultIsolationLevelArgsDict']]]]]
+    two_digit_century_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterTwoDigitCenturyStartArgsDict']]]]]
+    unsupported_ddl_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterUnsupportedDdlActionArgsDict']]]]]
+    use_cached_results: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterUseCachedResultArgsDict']]]]]
+    week_of_year_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterWeekOfYearPolicyArgsDict']]]]]
+    week_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LegacyServiceUserParameterWeekStartArgsDict']]]]]
 
 @pulumi.input_type
 class LegacyServiceUserParameterArgs:
@@ -22311,7 +22311,7 @@ class LegacyServiceUserShowOutputArgs:
 
 
 class ListingManifestArgsDict(TypedDict):
-    from_stage: NotRequired[pulumi.Input[Optional['ListingManifestFromStageArgs']]]
+    from_stage: NotRequired[pulumi.Input[Optional['ListingManifestFromStageArgsDict']]]
     """
     Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
     """
@@ -22843,7 +22843,7 @@ class MaskingPolicyDescribeOutputArgsDict(TypedDict):
     body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     return_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    signatures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MaskingPolicyDescribeOutputSignatureArgs']]]]]
+    signatures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MaskingPolicyDescribeOutputSignatureArgsDict']]]]]
 
 @pulumi.input_type
 class MaskingPolicyDescribeOutputArgs:
@@ -24130,23 +24130,23 @@ class NotebookShowOutputArgs:
 
 
 class OauthIntegrationForCustomClientsDescribeOutputArgsDict(TypedDict):
-    blocked_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgs']]]]]
-    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputCommentArgs']]]]]
-    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputEnabledArgs']]]]]
-    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputNetworkPolicyArgs']]]]]
-    oauth_allow_non_tls_redirect_uris: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUriArgs']]]]]
-    oauth_allowed_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgs']]]]]
-    oauth_allowed_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgs']]]]]
-    oauth_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgs']]]]]
-    oauth_client_rsa_public_key2_fps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgs']]]]]
-    oauth_client_rsa_public_key_fps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgs']]]]]
-    oauth_client_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgs']]]]]
-    oauth_enforce_pkces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgs']]]]]
-    oauth_issue_refresh_tokens: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs']]]]]
-    oauth_refresh_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgs']]]]]
-    oauth_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgs']]]]]
-    oauth_use_secondary_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgs']]]]]
-    pre_authorized_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesListArgs']]]]]
+    blocked_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgsDict']]]]]
+    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputCommentArgsDict']]]]]
+    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputEnabledArgsDict']]]]]
+    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputNetworkPolicyArgsDict']]]]]
+    oauth_allow_non_tls_redirect_uris: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowNonTlsRedirectUriArgsDict']]]]]
+    oauth_allowed_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict']]]]]
+    oauth_allowed_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgsDict']]]]]
+    oauth_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgsDict']]]]]
+    oauth_client_rsa_public_key2_fps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgsDict']]]]]
+    oauth_client_rsa_public_key_fps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgsDict']]]]]
+    oauth_client_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgsDict']]]]]
+    oauth_enforce_pkces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgsDict']]]]]
+    oauth_issue_refresh_tokens: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgsDict']]]]]
+    oauth_refresh_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgsDict']]]]]
+    oauth_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgsDict']]]]]
+    oauth_use_secondary_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgsDict']]]]]
+    pre_authorized_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesListArgsDict']]]]]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputArgs:
@@ -25361,7 +25361,7 @@ class OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesListArgs:
 
 
 class OauthIntegrationForCustomClientsRelatedParameterArgsDict(TypedDict):
-    oauth_add_privileged_roles_to_blocked_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedListArgs']]]]]
+    oauth_add_privileged_roles_to_blocked_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedListArgsDict']]]]]
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsRelatedParameterArgs:
@@ -25538,23 +25538,23 @@ class OauthIntegrationForCustomClientsShowOutputArgs:
 
 
 class OauthIntegrationForPartnerApplicationsDescribeOutputArgsDict(TypedDict):
-    blocked_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListArgs']]]]]
-    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputCommentArgs']]]]]
-    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputEnabledArgs']]]]]
-    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicyArgs']]]]]
-    oauth_allow_non_tls_redirect_uris: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUriArgs']]]]]
-    oauth_allowed_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgs']]]]]
-    oauth_allowed_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgs']]]]]
-    oauth_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgs']]]]]
-    oauth_client_rsa_public_key2_fps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgs']]]]]
-    oauth_client_rsa_public_key_fps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgs']]]]]
-    oauth_client_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgs']]]]]
-    oauth_enforce_pkces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgs']]]]]
-    oauth_issue_refresh_tokens: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs']]]]]
-    oauth_refresh_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgs']]]]]
-    oauth_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgs']]]]]
-    oauth_use_secondary_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgs']]]]]
-    pre_authorized_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesListArgs']]]]]
+    blocked_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListArgsDict']]]]]
+    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputCommentArgsDict']]]]]
+    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputEnabledArgsDict']]]]]
+    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputNetworkPolicyArgsDict']]]]]
+    oauth_allow_non_tls_redirect_uris: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowNonTlsRedirectUriArgsDict']]]]]
+    oauth_allowed_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict']]]]]
+    oauth_allowed_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgsDict']]]]]
+    oauth_authorization_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgsDict']]]]]
+    oauth_client_rsa_public_key2_fps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgsDict']]]]]
+    oauth_client_rsa_public_key_fps: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgsDict']]]]]
+    oauth_client_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgsDict']]]]]
+    oauth_enforce_pkces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgsDict']]]]]
+    oauth_issue_refresh_tokens: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgsDict']]]]]
+    oauth_refresh_token_validities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgsDict']]]]]
+    oauth_token_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgsDict']]]]]
+    oauth_use_secondary_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgsDict']]]]]
+    pre_authorized_roles_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesListArgsDict']]]]]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputArgs:
@@ -26769,7 +26769,7 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList
 
 
 class OauthIntegrationForPartnerApplicationsRelatedParameterArgsDict(TypedDict):
-    oauth_add_privileged_roles_to_blocked_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedListArgs']]]]]
+    oauth_add_privileged_roles_to_blocked_lists: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedListArgsDict']]]]]
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsRelatedParameterArgs:
@@ -27604,10 +27604,10 @@ class ProcedureJavaImportArgs:
 
 
 class ProcedureJavaParameterArgsDict(TypedDict):
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavaParameterEnableConsoleOutputArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavaParameterLogLevelArgs']]]]]
-    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavaParameterMetricLevelArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavaParameterTraceLevelArgs']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavaParameterEnableConsoleOutputArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavaParameterLogLevelArgsDict']]]]]
+    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavaParameterMetricLevelArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavaParameterTraceLevelArgsDict']]]]]
 
 @pulumi.input_type
 class ProcedureJavaParameterArgs:
@@ -28327,10 +28327,10 @@ class ProcedureJavascriptArgumentArgs:
 
 
 class ProcedureJavascriptParameterArgsDict(TypedDict):
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavascriptParameterEnableConsoleOutputArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavascriptParameterLogLevelArgs']]]]]
-    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavascriptParameterMetricLevelArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavascriptParameterTraceLevelArgs']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavascriptParameterEnableConsoleOutputArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavascriptParameterLogLevelArgsDict']]]]]
+    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavascriptParameterMetricLevelArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureJavascriptParameterTraceLevelArgsDict']]]]]
 
 @pulumi.input_type
 class ProcedureJavascriptParameterArgs:
@@ -29003,10 +29003,10 @@ class ProcedurePythonImportArgs:
 
 
 class ProcedurePythonParameterArgsDict(TypedDict):
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterEnableConsoleOutputArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterLogLevelArgs']]]]]
-    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterMetricLevelArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterTraceLevelArgs']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterEnableConsoleOutputArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterLogLevelArgsDict']]]]]
+    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterMetricLevelArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedurePythonParameterTraceLevelArgsDict']]]]]
 
 @pulumi.input_type
 class ProcedurePythonParameterArgs:
@@ -29726,10 +29726,10 @@ class ProcedureScalaImportArgs:
 
 
 class ProcedureScalaParameterArgsDict(TypedDict):
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureScalaParameterEnableConsoleOutputArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureScalaParameterLogLevelArgs']]]]]
-    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureScalaParameterMetricLevelArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureScalaParameterTraceLevelArgs']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureScalaParameterEnableConsoleOutputArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureScalaParameterLogLevelArgsDict']]]]]
+    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureScalaParameterMetricLevelArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureScalaParameterTraceLevelArgsDict']]]]]
 
 @pulumi.input_type
 class ProcedureScalaParameterArgs:
@@ -30449,10 +30449,10 @@ class ProcedureSqlArgumentArgs:
 
 
 class ProcedureSqlParameterArgsDict(TypedDict):
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureSqlParameterEnableConsoleOutputArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureSqlParameterLogLevelArgs']]]]]
-    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureSqlParameterMetricLevelArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureSqlParameterTraceLevelArgs']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureSqlParameterEnableConsoleOutputArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureSqlParameterLogLevelArgsDict']]]]]
+    metric_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureSqlParameterMetricLevelArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcedureSqlParameterTraceLevelArgsDict']]]]]
 
 @pulumi.input_type
 class ProcedureSqlParameterArgs:
@@ -31341,7 +31341,7 @@ class RowAccessPolicyDescribeOutputArgsDict(TypedDict):
     body: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     return_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    signatures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RowAccessPolicyDescribeOutputSignatureArgs']]]]]
+    signatures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RowAccessPolicyDescribeOutputSignatureArgsDict']]]]]
 
 @pulumi.input_type
 class RowAccessPolicyDescribeOutputArgs:
@@ -31554,23 +31554,23 @@ class RowAccessPolicyShowOutputArgs:
 
 
 class Saml2IntegrationDescribeOutputArgsDict(TypedDict):
-    allowed_email_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputAllowedEmailPatternArgs']]]]]
-    allowed_user_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputAllowedUserDomainArgs']]]]]
-    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputCommentArgs']]]]]
-    saml2_digest_methods_useds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs']]]]]
-    saml2_enable_sp_initiateds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs']]]]]
-    saml2_force_authns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs']]]]]
-    saml2_issuers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2IssuerArgs']]]]]
-    saml2_post_logout_redirect_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs']]]]]
-    saml2_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2ProviderArgs']]]]]
-    saml2_requested_nameid_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs']]]]]
-    saml2_sign_requests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SignRequestArgs']]]]]
-    saml2_signature_methods_useds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs']]]]]
-    saml2_snowflake_acs_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs']]]]]
-    saml2_snowflake_issuer_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs']]]]]
-    saml2_snowflake_metadatas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs']]]]]
-    saml2_sp_initiated_login_page_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs']]]]]
-    saml2_sso_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SsoUrlArgs']]]]]
+    allowed_email_patterns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputAllowedEmailPatternArgsDict']]]]]
+    allowed_user_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputAllowedUserDomainArgsDict']]]]]
+    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputCommentArgsDict']]]]]
+    saml2_digest_methods_useds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgsDict']]]]]
+    saml2_enable_sp_initiateds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgsDict']]]]]
+    saml2_force_authns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2ForceAuthnArgsDict']]]]]
+    saml2_issuers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2IssuerArgsDict']]]]]
+    saml2_post_logout_redirect_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgsDict']]]]]
+    saml2_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2ProviderArgsDict']]]]]
+    saml2_requested_nameid_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgsDict']]]]]
+    saml2_sign_requests: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SignRequestArgsDict']]]]]
+    saml2_signature_methods_useds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgsDict']]]]]
+    saml2_snowflake_acs_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgsDict']]]]]
+    saml2_snowflake_issuer_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgsDict']]]]]
+    saml2_snowflake_metadatas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgsDict']]]]]
+    saml2_sp_initiated_login_page_labels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgsDict']]]]]
+    saml2_sso_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SsoUrlArgsDict']]]]]
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputArgs:
@@ -32916,23 +32916,23 @@ class SchemaDescribeOutputArgs:
 
 
 class SchemaParameterArgsDict(TypedDict):
-    catalogs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterCatalogArgs']]]]]
-    data_retention_time_in_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDataRetentionTimeInDayArgs']]]]]
-    default_ddl_collations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultDdlCollationArgs']]]]]
-    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterEnableConsoleOutputArgs']]]]]
-    external_volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterExternalVolumeArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterLogLevelArgs']]]]]
-    max_data_extension_time_in_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterMaxDataExtensionTimeInDayArgs']]]]]
-    pipe_execution_pauseds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterPipeExecutionPausedArgs']]]]]
-    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterQuotedIdentifiersIgnoreCaseArgs']]]]]
-    replace_invalid_characters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterReplaceInvalidCharacterArgs']]]]]
-    storage_serialization_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterStorageSerializationPolicyArgs']]]]]
-    suspend_task_after_num_failures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterSuspendTaskAfterNumFailureArgs']]]]]
-    task_auto_retry_attempts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterTaskAutoRetryAttemptArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterTraceLevelArgs']]]]]
-    user_task_managed_initial_warehouse_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterUserTaskManagedInitialWarehouseSizeArgs']]]]]
-    user_task_minimum_trigger_interval_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]]]
-    user_task_timeout_ms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterUserTaskTimeoutMArgs']]]]]
+    catalogs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterCatalogArgsDict']]]]]
+    data_retention_time_in_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDataRetentionTimeInDayArgsDict']]]]]
+    default_ddl_collations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultDdlCollationArgsDict']]]]]
+    enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterEnableConsoleOutputArgsDict']]]]]
+    external_volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterExternalVolumeArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterLogLevelArgsDict']]]]]
+    max_data_extension_time_in_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterMaxDataExtensionTimeInDayArgsDict']]]]]
+    pipe_execution_pauseds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterPipeExecutionPausedArgsDict']]]]]
+    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]]
+    replace_invalid_characters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterReplaceInvalidCharacterArgsDict']]]]]
+    storage_serialization_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterStorageSerializationPolicyArgsDict']]]]]
+    suspend_task_after_num_failures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterSuspendTaskAfterNumFailureArgsDict']]]]]
+    task_auto_retry_attempts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterTaskAutoRetryAttemptArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterTraceLevelArgsDict']]]]]
+    user_task_managed_initial_warehouse_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterUserTaskManagedInitialWarehouseSizeArgsDict']]]]]
+    user_task_minimum_trigger_interval_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterUserTaskMinimumTriggerIntervalInSecondArgsDict']]]]]
+    user_task_timeout_ms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterUserTaskTimeoutMArgsDict']]]]]
 
 @pulumi.input_type
 class SchemaParameterArgs:
@@ -34518,11 +34518,11 @@ class SchemaShowOutputArgs:
 
 
 class ScimIntegrationDescribeOutputArgsDict(TypedDict):
-    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputCommentArgs']]]]]
-    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputEnabledArgs']]]]]
-    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputNetworkPolicyArgs']]]]]
-    run_as_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputRunAsRoleArgs']]]]]
-    sync_passwords: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputSyncPasswordArgs']]]]]
+    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputCommentArgsDict']]]]]
+    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputEnabledArgsDict']]]]]
+    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputNetworkPolicyArgsDict']]]]]
+    run_as_roles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputRunAsRoleArgsDict']]]]]
+    sync_passwords: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScimIntegrationDescribeOutputSyncPasswordArgsDict']]]]]
 
 @pulumi.input_type
 class ScimIntegrationDescribeOutputArgs:
@@ -36479,11 +36479,11 @@ class SemanticViewMetricArgsDict(TypedDict):
     """
     (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the metric is private.
     """
-    semantic_expression: NotRequired[pulumi.Input[Optional['SemanticViewMetricSemanticExpressionArgs']]]
+    semantic_expression: NotRequired[pulumi.Input[Optional['SemanticViewMetricSemanticExpressionArgsDict']]]
     """
     Specifies a semantic expression for a metric definition. Cannot be used in combination with a window function.
     """
-    window_function: NotRequired[pulumi.Input[Optional['SemanticViewMetricWindowFunctionArgs']]]
+    window_function: NotRequired[pulumi.Input[Optional['SemanticViewMetricWindowFunctionArgsDict']]]
     """
     Specifies a window function for a metric definition. Cannot be used in combination with a semantic expression.
     """
@@ -37101,7 +37101,7 @@ class SemanticViewTableArgsDict(TypedDict):
     """
     List of synonyms for the logical table.
     """
-    uniques: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SemanticViewTableUniqueArgs']]]]]
+    uniques: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SemanticViewTableUniqueArgsDict']]]]]
     """
     Definitions of unique key combinations in the logical table. This field is case-sensitive - the provider uses double quotes to wrap it when sending the SQL to Snowflake.
     """
@@ -38235,19 +38235,19 @@ class ServiceShowOutputArgs:
 
 
 class ServiceUserDefaultWorkloadIdentityArgsDict(TypedDict):
-    aws: NotRequired[pulumi.Input[Optional['ServiceUserDefaultWorkloadIdentityAwsArgs']]]
+    aws: NotRequired[pulumi.Input[Optional['ServiceUserDefaultWorkloadIdentityAwsArgsDict']]]
     """
     AWS workload identity configuration.
     """
-    azure: NotRequired[pulumi.Input[Optional['ServiceUserDefaultWorkloadIdentityAzureArgs']]]
+    azure: NotRequired[pulumi.Input[Optional['ServiceUserDefaultWorkloadIdentityAzureArgsDict']]]
     """
     Azure workload identity configuration.
     """
-    gcp: NotRequired[pulumi.Input[Optional['ServiceUserDefaultWorkloadIdentityGcpArgs']]]
+    gcp: NotRequired[pulumi.Input[Optional['ServiceUserDefaultWorkloadIdentityGcpArgsDict']]]
     """
     GCP workload identity configuration.
     """
-    oidc: NotRequired[pulumi.Input[Optional['ServiceUserDefaultWorkloadIdentityOidcArgs']]]
+    oidc: NotRequired[pulumi.Input[Optional['ServiceUserDefaultWorkloadIdentityOidcArgsDict']]]
     """
     Generic OIDC workload identity configuration.
     """
@@ -38494,64 +38494,64 @@ class ServiceUserDefaultWorkloadIdentityOidcArgs:
 
 
 class ServiceUserParameterArgsDict(TypedDict):
-    abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterAbortDetachedQueryArgs']]]]]
-    autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterAutocommitArgs']]]]]
-    binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterBinaryInputFormatArgs']]]]]
-    binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterBinaryOutputFormatArgs']]]]]
-    client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMemoryLimitArgs']]]]]
-    client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMetadataRequestUseConnectionCtxArgs']]]]]
-    client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientPrefetchThreadArgs']]]]]
-    client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientResultChunkSizeArgs']]]]]
-    client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientResultColumnCaseInsensitiveArgs']]]]]
-    client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgs']]]]]
-    client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientSessionKeepAlifeArgs']]]]]
-    client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientTimestampTypeMappingArgs']]]]]
-    date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterDateInputFormatArgs']]]]]
-    date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterDateOutputFormatArgs']]]]]
-    enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgs']]]]]
-    enable_unredacted_query_syntax_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableUnredactedQuerySyntaxErrorArgs']]]]]
-    error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterErrorOnNondeterministicMergeArgs']]]]]
-    error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterErrorOnNondeterministicUpdateArgs']]]]]
-    geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterGeographyOutputFormatArgs']]]]]
-    geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterGeometryOutputFormatArgs']]]]]
-    jdbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcTreatDecimalAsIntArgs']]]]]
-    jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcTreatTimestampNtzAsUtcArgs']]]]]
-    jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcUseSessionTimezoneArgs']]]]]
-    json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJsonIndentArgs']]]]]
-    lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterLockTimeoutArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterLogLevelArgs']]]]]
-    multi_statement_counts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterMultiStatementCountArgs']]]]]
-    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterNetworkPolicyArgs']]]]]
-    noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterNoorderSequenceAsDefaultArgs']]]]]
-    odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterOdbcTreatDecimalAsIntArgs']]]]]
-    prevent_unload_to_internal_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPreventUnloadToInternalStageArgs']]]]]
-    query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterQueryTagArgs']]]]]
-    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterQuotedIdentifiersIgnoreCaseArgs']]]]]
-    rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterRowsPerResultsetArgs']]]]]
-    s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterS3StageVpceDnsNameArgs']]]]]
-    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterSearchPathArgs']]]]]
-    simulated_data_sharing_consumers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterSimulatedDataSharingConsumerArgs']]]]]
-    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterStatementQueuedTimeoutInSecondArgs']]]]]
-    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterStatementTimeoutInSecondArgs']]]]]
-    strict_json_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterStrictJsonOutputArgs']]]]]
-    time_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimeInputFormatArgs']]]]]
-    time_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimeOutputFormatArgs']]]]]
-    timestamp_day_is_always24hs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampDayIsAlways24hArgs']]]]]
-    timestamp_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampInputFormatArgs']]]]]
-    timestamp_ltz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampLtzOutputFormatArgs']]]]]
-    timestamp_ntz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampNtzOutputFormatArgs']]]]]
-    timestamp_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampOutputFormatArgs']]]]]
-    timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampTypeMappingArgs']]]]]
-    timestamp_tz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampTzOutputFormatArgs']]]]]
-    timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimezoneArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTraceLevelArgs']]]]]
-    transaction_abort_on_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTransactionAbortOnErrorArgs']]]]]
-    transaction_default_isolation_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTransactionDefaultIsolationLevelArgs']]]]]
-    two_digit_century_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTwoDigitCenturyStartArgs']]]]]
-    unsupported_ddl_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterUnsupportedDdlActionArgs']]]]]
-    use_cached_results: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterUseCachedResultArgs']]]]]
-    week_of_year_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterWeekOfYearPolicyArgs']]]]]
-    week_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterWeekStartArgs']]]]]
+    abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterAbortDetachedQueryArgsDict']]]]]
+    autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterAutocommitArgsDict']]]]]
+    binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterBinaryInputFormatArgsDict']]]]]
+    binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterBinaryOutputFormatArgsDict']]]]]
+    client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMemoryLimitArgsDict']]]]]
+    client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientMetadataRequestUseConnectionCtxArgsDict']]]]]
+    client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientPrefetchThreadArgsDict']]]]]
+    client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientResultChunkSizeArgsDict']]]]]
+    client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientResultColumnCaseInsensitiveArgsDict']]]]]
+    client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict']]]]]
+    client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientSessionKeepAlifeArgsDict']]]]]
+    client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterClientTimestampTypeMappingArgsDict']]]]]
+    date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterDateInputFormatArgsDict']]]]]
+    date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterDateOutputFormatArgsDict']]]]]
+    enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableUnloadPhysicalTypeOptimizationArgsDict']]]]]
+    enable_unredacted_query_syntax_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterEnableUnredactedQuerySyntaxErrorArgsDict']]]]]
+    error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterErrorOnNondeterministicMergeArgsDict']]]]]
+    error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterErrorOnNondeterministicUpdateArgsDict']]]]]
+    geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterGeographyOutputFormatArgsDict']]]]]
+    geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterGeometryOutputFormatArgsDict']]]]]
+    jdbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcTreatDecimalAsIntArgsDict']]]]]
+    jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcTreatTimestampNtzAsUtcArgsDict']]]]]
+    jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJdbcUseSessionTimezoneArgsDict']]]]]
+    json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterJsonIndentArgsDict']]]]]
+    lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterLockTimeoutArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterLogLevelArgsDict']]]]]
+    multi_statement_counts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterMultiStatementCountArgsDict']]]]]
+    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterNetworkPolicyArgsDict']]]]]
+    noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterNoorderSequenceAsDefaultArgsDict']]]]]
+    odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterOdbcTreatDecimalAsIntArgsDict']]]]]
+    prevent_unload_to_internal_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterPreventUnloadToInternalStageArgsDict']]]]]
+    query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterQueryTagArgsDict']]]]]
+    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]]
+    rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterRowsPerResultsetArgsDict']]]]]
+    s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterS3StageVpceDnsNameArgsDict']]]]]
+    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterSearchPathArgsDict']]]]]
+    simulated_data_sharing_consumers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterSimulatedDataSharingConsumerArgsDict']]]]]
+    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterStatementQueuedTimeoutInSecondArgsDict']]]]]
+    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterStatementTimeoutInSecondArgsDict']]]]]
+    strict_json_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterStrictJsonOutputArgsDict']]]]]
+    time_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimeInputFormatArgsDict']]]]]
+    time_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimeOutputFormatArgsDict']]]]]
+    timestamp_day_is_always24hs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampDayIsAlways24hArgsDict']]]]]
+    timestamp_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampInputFormatArgsDict']]]]]
+    timestamp_ltz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampLtzOutputFormatArgsDict']]]]]
+    timestamp_ntz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampNtzOutputFormatArgsDict']]]]]
+    timestamp_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampOutputFormatArgsDict']]]]]
+    timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampTypeMappingArgsDict']]]]]
+    timestamp_tz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimestampTzOutputFormatArgsDict']]]]]
+    timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTimezoneArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTraceLevelArgsDict']]]]]
+    transaction_abort_on_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTransactionAbortOnErrorArgsDict']]]]]
+    transaction_default_isolation_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTransactionDefaultIsolationLevelArgsDict']]]]]
+    two_digit_century_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterTwoDigitCenturyStartArgsDict']]]]]
+    unsupported_ddl_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterUnsupportedDdlActionArgsDict']]]]]
+    use_cached_results: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterUseCachedResultArgsDict']]]]]
+    week_of_year_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterWeekOfYearPolicyArgsDict']]]]]
+    week_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceUserParameterWeekStartArgsDict']]]]]
 
 @pulumi.input_type
 class ServiceUserParameterArgs:
@@ -44216,8 +44216,8 @@ class StageExternalAzureCredentialsArgs:
 
 
 class StageExternalAzureDescribeOutputArgsDict(TypedDict):
-    directory_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputDirectoryTableArgs']]]]]
-    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatArgs']]]]]
+    directory_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputDirectoryTableArgsDict']]]]]
+    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatArgsDict']]]]]
 
 @pulumi.input_type
 class StageExternalAzureDescribeOutputArgs:
@@ -44295,13 +44295,13 @@ class StageExternalAzureDescribeOutputDirectoryTableArgs:
 
 
 class StageExternalAzureDescribeOutputFileFormatArgsDict(TypedDict):
-    avros: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatAvroArgs']]]]]
-    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatCsvArgs']]]]]
+    avros: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatAvroArgsDict']]]]]
+    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatCsvArgsDict']]]]]
     format_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatJsonArgs']]]]]
-    orcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatOrcArgs']]]]]
-    parquets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatParquetArgs']]]]]
-    xmls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatXmlArgs']]]]]
+    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatJsonArgsDict']]]]]
+    orcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatOrcArgsDict']]]]]
+    parquets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatParquetArgsDict']]]]]
+    xmls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalAzureDescribeOutputFileFormatXmlArgsDict']]]]]
 
 @pulumi.input_type
 class StageExternalAzureDescribeOutputFileFormatArgs:
@@ -45381,11 +45381,11 @@ class StageExternalAzureDirectoryArgs:
 
 
 class StageExternalAzureEncryptionArgsDict(TypedDict):
-    azure_cse: NotRequired[pulumi.Input[Optional['StageExternalAzureEncryptionAzureCseArgs']]]
+    azure_cse: NotRequired[pulumi.Input[Optional['StageExternalAzureEncryptionAzureCseArgsDict']]]
     """
     Azure client-side encryption using a master key.
     """
-    none: NotRequired[pulumi.Input[Optional['StageExternalAzureEncryptionNoneArgs']]]
+    none: NotRequired[pulumi.Input[Optional['StageExternalAzureEncryptionNoneArgsDict']]]
     """
     No encryption.
     """
@@ -45467,11 +45467,11 @@ class StageExternalAzureEncryptionNoneArgs:
 
 
 class StageExternalAzureFileFormatArgsDict(TypedDict):
-    avro: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatAvroArgs']]]
+    avro: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatAvroArgsDict']]]
     """
     AVRO file format options.
     """
-    csv: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatCsvArgs']]]
+    csv: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatCsvArgsDict']]]
     """
     CSV file format options.
     """
@@ -45479,19 +45479,19 @@ class StageExternalAzureFileFormatArgsDict(TypedDict):
     """
     Fully qualified name of the file format (e.g., 'database.schema.format_name').
     """
-    json: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatJsonArgs']]]
+    json: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatJsonArgsDict']]]
     """
     JSON file format options.
     """
-    orc: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatOrcArgs']]]
+    orc: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatOrcArgsDict']]]
     """
     ORC file format options.
     """
-    parquet: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatParquetArgs']]]
+    parquet: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatParquetArgsDict']]]
     """
     Parquet file format options.
     """
-    xml: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatXmlArgs']]]
+    xml: NotRequired[pulumi.Input[Optional['StageExternalAzureFileFormatXmlArgsDict']]]
     """
     XML file format options.
     """
@@ -47065,8 +47065,8 @@ class StageExternalAzureShowOutputArgs:
 
 
 class StageExternalGcsDescribeOutputArgsDict(TypedDict):
-    directory_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputDirectoryTableArgs']]]]]
-    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatArgs']]]]]
+    directory_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputDirectoryTableArgsDict']]]]]
+    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatArgsDict']]]]]
 
 @pulumi.input_type
 class StageExternalGcsDescribeOutputArgs:
@@ -47144,13 +47144,13 @@ class StageExternalGcsDescribeOutputDirectoryTableArgs:
 
 
 class StageExternalGcsDescribeOutputFileFormatArgsDict(TypedDict):
-    avros: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatAvroArgs']]]]]
-    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatCsvArgs']]]]]
+    avros: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatAvroArgsDict']]]]]
+    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatCsvArgsDict']]]]]
     format_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatJsonArgs']]]]]
-    orcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatOrcArgs']]]]]
-    parquets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatParquetArgs']]]]]
-    xmls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatXmlArgs']]]]]
+    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatJsonArgsDict']]]]]
+    orcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatOrcArgsDict']]]]]
+    parquets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatParquetArgsDict']]]]]
+    xmls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalGcsDescribeOutputFileFormatXmlArgsDict']]]]]
 
 @pulumi.input_type
 class StageExternalGcsDescribeOutputFileFormatArgs:
@@ -48230,11 +48230,11 @@ class StageExternalGcsDirectoryArgs:
 
 
 class StageExternalGcsEncryptionArgsDict(TypedDict):
-    gcs_sse_kms: NotRequired[pulumi.Input[Optional['StageExternalGcsEncryptionGcsSseKmsArgs']]]
+    gcs_sse_kms: NotRequired[pulumi.Input[Optional['StageExternalGcsEncryptionGcsSseKmsArgsDict']]]
     """
     GCS server-side encryption using a KMS key.
     """
-    none: NotRequired[pulumi.Input[Optional['StageExternalGcsEncryptionNoneArgs']]]
+    none: NotRequired[pulumi.Input[Optional['StageExternalGcsEncryptionNoneArgsDict']]]
     """
     No encryption.
     """
@@ -48317,11 +48317,11 @@ class StageExternalGcsEncryptionNoneArgs:
 
 
 class StageExternalGcsFileFormatArgsDict(TypedDict):
-    avro: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatAvroArgs']]]
+    avro: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatAvroArgsDict']]]
     """
     AVRO file format options.
     """
-    csv: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatCsvArgs']]]
+    csv: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatCsvArgsDict']]]
     """
     CSV file format options.
     """
@@ -48329,19 +48329,19 @@ class StageExternalGcsFileFormatArgsDict(TypedDict):
     """
     Fully qualified name of the file format (e.g., 'database.schema.format_name').
     """
-    json: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatJsonArgs']]]
+    json: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatJsonArgsDict']]]
     """
     JSON file format options.
     """
-    orc: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatOrcArgs']]]
+    orc: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatOrcArgsDict']]]
     """
     ORC file format options.
     """
-    parquet: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatParquetArgs']]]
+    parquet: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatParquetArgsDict']]]
     """
     Parquet file format options.
     """
-    xml: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatXmlArgs']]]
+    xml: NotRequired[pulumi.Input[Optional['StageExternalGcsFileFormatXmlArgsDict']]]
     """
     XML file format options.
     """
@@ -49962,9 +49962,9 @@ class StageExternalS3CompatibleCredentialsArgs:
 
 
 class StageExternalS3CompatibleDescribeOutputArgsDict(TypedDict):
-    directory_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputDirectoryTableArgs']]]]]
-    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatArgs']]]]]
-    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputLocationArgs']]]]]
+    directory_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputDirectoryTableArgsDict']]]]]
+    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatArgsDict']]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputLocationArgsDict']]]]]
 
 @pulumi.input_type
 class StageExternalS3CompatibleDescribeOutputArgs:
@@ -50054,13 +50054,13 @@ class StageExternalS3CompatibleDescribeOutputDirectoryTableArgs:
 
 
 class StageExternalS3CompatibleDescribeOutputFileFormatArgsDict(TypedDict):
-    avros: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatAvroArgs']]]]]
-    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatCsvArgs']]]]]
+    avros: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatAvroArgsDict']]]]]
+    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatCsvArgsDict']]]]]
     format_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatJsonArgs']]]]]
-    orcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatOrcArgs']]]]]
-    parquets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatParquetArgs']]]]]
-    xmls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatXmlArgs']]]]]
+    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatJsonArgsDict']]]]]
+    orcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatOrcArgsDict']]]]]
+    parquets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatParquetArgsDict']]]]]
+    xmls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3CompatibleDescribeOutputFileFormatXmlArgsDict']]]]]
 
 @pulumi.input_type
 class StageExternalS3CompatibleDescribeOutputFileFormatArgs:
@@ -51140,11 +51140,11 @@ class StageExternalS3CompatibleDirectoryArgs:
 
 
 class StageExternalS3CompatibleFileFormatArgsDict(TypedDict):
-    avro: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatAvroArgs']]]
+    avro: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatAvroArgsDict']]]
     """
     AVRO file format options.
     """
-    csv: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatCsvArgs']]]
+    csv: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatCsvArgsDict']]]
     """
     CSV file format options.
     """
@@ -51152,19 +51152,19 @@ class StageExternalS3CompatibleFileFormatArgsDict(TypedDict):
     """
     Fully qualified name of the file format (e.g., 'database.schema.format_name').
     """
-    json: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatJsonArgs']]]
+    json: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatJsonArgsDict']]]
     """
     JSON file format options.
     """
-    orc: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatOrcArgs']]]
+    orc: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatOrcArgsDict']]]
     """
     ORC file format options.
     """
-    parquet: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatParquetArgs']]]
+    parquet: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatParquetArgsDict']]]
     """
     Parquet file format options.
     """
-    xml: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatXmlArgs']]]
+    xml: NotRequired[pulumi.Input[Optional['StageExternalS3CompatibleFileFormatXmlArgsDict']]]
     """
     XML file format options.
     """
@@ -52827,10 +52827,10 @@ class StageExternalS3CredentialsArgs:
 
 
 class StageExternalS3DescribeOutputArgsDict(TypedDict):
-    directory_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputDirectoryTableArgs']]]]]
-    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatArgs']]]]]
-    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputLocationArgs']]]]]
-    privatelinks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputPrivatelinkArgs']]]]]
+    directory_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputDirectoryTableArgsDict']]]]]
+    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatArgsDict']]]]]
+    locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputLocationArgsDict']]]]]
+    privatelinks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputPrivatelinkArgsDict']]]]]
 
 @pulumi.input_type
 class StageExternalS3DescribeOutputArgs:
@@ -52932,13 +52932,13 @@ class StageExternalS3DescribeOutputDirectoryTableArgs:
 
 
 class StageExternalS3DescribeOutputFileFormatArgsDict(TypedDict):
-    avros: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatAvroArgs']]]]]
-    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatCsvArgs']]]]]
+    avros: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatAvroArgsDict']]]]]
+    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatCsvArgsDict']]]]]
     format_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatJsonArgs']]]]]
-    orcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatOrcArgs']]]]]
-    parquets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatParquetArgs']]]]]
-    xmls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatXmlArgs']]]]]
+    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatJsonArgsDict']]]]]
+    orcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatOrcArgsDict']]]]]
+    parquets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatParquetArgsDict']]]]]
+    xmls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageExternalS3DescribeOutputFileFormatXmlArgsDict']]]]]
 
 @pulumi.input_type
 class StageExternalS3DescribeOutputFileFormatArgs:
@@ -54051,19 +54051,19 @@ class StageExternalS3DirectoryArgs:
 
 
 class StageExternalS3EncryptionArgsDict(TypedDict):
-    aws_cse: NotRequired[pulumi.Input[Optional['StageExternalS3EncryptionAwsCseArgs']]]
+    aws_cse: NotRequired[pulumi.Input[Optional['StageExternalS3EncryptionAwsCseArgsDict']]]
     """
     AWS client-side encryption using a master key.
     """
-    aws_sse_kms: NotRequired[pulumi.Input[Optional['StageExternalS3EncryptionAwsSseKmsArgs']]]
+    aws_sse_kms: NotRequired[pulumi.Input[Optional['StageExternalS3EncryptionAwsSseKmsArgsDict']]]
     """
     AWS server-side encryption using KMS-managed keys.
     """
-    aws_sse_s3: NotRequired[pulumi.Input[Optional['StageExternalS3EncryptionAwsSseS3Args']]]
+    aws_sse_s3: NotRequired[pulumi.Input[Optional['StageExternalS3EncryptionAwsSseS3ArgsDict']]]
     """
     AWS server-side encryption using S3-managed keys.
     """
-    none: NotRequired[pulumi.Input[Optional['StageExternalS3EncryptionNoneArgs']]]
+    none: NotRequired[pulumi.Input[Optional['StageExternalS3EncryptionNoneArgsDict']]]
     """
     No encryption.
     """
@@ -54215,11 +54215,11 @@ class StageExternalS3EncryptionNoneArgs:
 
 
 class StageExternalS3FileFormatArgsDict(TypedDict):
-    avro: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatAvroArgs']]]
+    avro: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatAvroArgsDict']]]
     """
     AVRO file format options.
     """
-    csv: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatCsvArgs']]]
+    csv: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatCsvArgsDict']]]
     """
     CSV file format options.
     """
@@ -54227,19 +54227,19 @@ class StageExternalS3FileFormatArgsDict(TypedDict):
     """
     Fully qualified name of the file format (e.g., 'database.schema.format_name').
     """
-    json: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatJsonArgs']]]
+    json: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatJsonArgsDict']]]
     """
     JSON file format options.
     """
-    orc: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatOrcArgs']]]
+    orc: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatOrcArgsDict']]]
     """
     ORC file format options.
     """
-    parquet: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatParquetArgs']]]
+    parquet: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatParquetArgsDict']]]
     """
     Parquet file format options.
     """
-    xml: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatXmlArgs']]]
+    xml: NotRequired[pulumi.Input[Optional['StageExternalS3FileFormatXmlArgsDict']]]
     """
     XML file format options.
     """
@@ -55813,8 +55813,8 @@ class StageExternalS3ShowOutputArgs:
 
 
 class StageInternalDescribeOutputArgsDict(TypedDict):
-    directory_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputDirectoryTableArgs']]]]]
-    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatArgs']]]]]
+    directory_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputDirectoryTableArgsDict']]]]]
+    file_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatArgsDict']]]]]
 
 @pulumi.input_type
 class StageInternalDescribeOutputArgs:
@@ -55892,13 +55892,13 @@ class StageInternalDescribeOutputDirectoryTableArgs:
 
 
 class StageInternalDescribeOutputFileFormatArgsDict(TypedDict):
-    avros: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatAvroArgs']]]]]
-    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatCsvArgs']]]]]
+    avros: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatAvroArgsDict']]]]]
+    csvs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatCsvArgsDict']]]]]
     format_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatJsonArgs']]]]]
-    orcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatOrcArgs']]]]]
-    parquets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatParquetArgs']]]]]
-    xmls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatXmlArgs']]]]]
+    jsons: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatJsonArgsDict']]]]]
+    orcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatOrcArgsDict']]]]]
+    parquets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatParquetArgsDict']]]]]
+    xmls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StageInternalDescribeOutputFileFormatXmlArgsDict']]]]]
 
 @pulumi.input_type
 class StageInternalDescribeOutputFileFormatArgs:
@@ -56938,11 +56938,11 @@ class StageInternalDirectoryArgs:
 
 
 class StageInternalEncryptionArgsDict(TypedDict):
-    snowflake_full: NotRequired[pulumi.Input[Optional['StageInternalEncryptionSnowflakeFullArgs']]]
+    snowflake_full: NotRequired[pulumi.Input[Optional['StageInternalEncryptionSnowflakeFullArgsDict']]]
     """
     Client-side and server-side encryption.
     """
-    snowflake_sse: NotRequired[pulumi.Input[Optional['StageInternalEncryptionSnowflakeSseArgs']]]
+    snowflake_sse: NotRequired[pulumi.Input[Optional['StageInternalEncryptionSnowflakeSseArgsDict']]]
     """
     Server-side encryption only.
     """
@@ -57005,11 +57005,11 @@ class StageInternalEncryptionSnowflakeSseArgs:
 
 
 class StageInternalFileFormatArgsDict(TypedDict):
-    avro: NotRequired[pulumi.Input[Optional['StageInternalFileFormatAvroArgs']]]
+    avro: NotRequired[pulumi.Input[Optional['StageInternalFileFormatAvroArgsDict']]]
     """
     AVRO file format options.
     """
-    csv: NotRequired[pulumi.Input[Optional['StageInternalFileFormatCsvArgs']]]
+    csv: NotRequired[pulumi.Input[Optional['StageInternalFileFormatCsvArgsDict']]]
     """
     CSV file format options.
     """
@@ -57017,19 +57017,19 @@ class StageInternalFileFormatArgsDict(TypedDict):
     """
     Fully qualified name of the file format (e.g., 'database.schema.format_name').
     """
-    json: NotRequired[pulumi.Input[Optional['StageInternalFileFormatJsonArgs']]]
+    json: NotRequired[pulumi.Input[Optional['StageInternalFileFormatJsonArgsDict']]]
     """
     JSON file format options.
     """
-    orc: NotRequired[pulumi.Input[Optional['StageInternalFileFormatOrcArgs']]]
+    orc: NotRequired[pulumi.Input[Optional['StageInternalFileFormatOrcArgsDict']]]
     """
     ORC file format options.
     """
-    parquet: NotRequired[pulumi.Input[Optional['StageInternalFileFormatParquetArgs']]]
+    parquet: NotRequired[pulumi.Input[Optional['StageInternalFileFormatParquetArgsDict']]]
     """
     Parquet file format options.
     """
-    xml: NotRequired[pulumi.Input[Optional['StageInternalFileFormatXmlArgs']]]
+    xml: NotRequired[pulumi.Input[Optional['StageInternalFileFormatXmlArgsDict']]]
     """
     XML file format options.
     """
@@ -59147,19 +59147,19 @@ class StorageIntegrationAzureShowOutputArgs:
 
 
 class StorageIntegrationDescribeOutputArgsDict(TypedDict):
-    azure_consent_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureConsentUrlArgs']]]]]
-    azure_multi_tenant_app_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgs']]]]]
-    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputCommentArgs']]]]]
-    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputEnabledArgs']]]]]
-    storage_allowed_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAllowedLocationArgs']]]]]
-    storage_aws_external_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsExternalIdArgs']]]]]
-    storage_aws_iam_user_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsIamUserArnArgs']]]]]
-    storage_aws_object_acls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsObjectAclArgs']]]]]
-    storage_aws_role_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsRoleArnArgs']]]]]
-    storage_blocked_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageBlockedLocationArgs']]]]]
-    storage_gcp_service_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageGcpServiceAccountArgs']]]]]
-    storage_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageProviderArgs']]]]]
-    use_privatelink_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgs']]]]]
+    azure_consent_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureConsentUrlArgsDict']]]]]
+    azure_multi_tenant_app_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputAzureMultiTenantAppNameArgsDict']]]]]
+    comments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputCommentArgsDict']]]]]
+    enableds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputEnabledArgsDict']]]]]
+    storage_allowed_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAllowedLocationArgsDict']]]]]
+    storage_aws_external_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsExternalIdArgsDict']]]]]
+    storage_aws_iam_user_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsIamUserArnArgsDict']]]]]
+    storage_aws_object_acls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsObjectAclArgsDict']]]]]
+    storage_aws_role_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageAwsRoleArnArgsDict']]]]]
+    storage_blocked_locations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageBlockedLocationArgsDict']]]]]
+    storage_gcp_service_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageGcpServiceAccountArgsDict']]]]]
+    storage_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputStorageProviderArgsDict']]]]]
+    use_privatelink_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StorageIntegrationDescribeOutputUsePrivatelinkEndpointArgsDict']]]]]
 
 @pulumi.input_type
 class StorageIntegrationDescribeOutputArgs:
@@ -62739,11 +62739,11 @@ class TableColumnArgsDict(TypedDict):
     """
     (Default: ``) Column comment
     """
-    default: NotRequired[pulumi.Input[Optional['TableColumnDefaultArgs']]]
+    default: NotRequired[pulumi.Input[Optional['TableColumnDefaultArgsDict']]]
     """
     Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
     """
-    identity: NotRequired[pulumi.Input[Optional['TableColumnIdentityArgs']]]
+    identity: NotRequired[pulumi.Input[Optional['TableColumnIdentityArgsDict']]]
     """
     Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
     """
@@ -63471,66 +63471,66 @@ class TagShowOutputArgs:
 
 
 class TaskParameterArgsDict(TypedDict):
-    abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterAbortDetachedQueryArgs']]]]]
-    autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterAutocommitArgs']]]]]
-    binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterBinaryInputFormatArgs']]]]]
-    binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterBinaryOutputFormatArgs']]]]]
-    client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientMemoryLimitArgs']]]]]
-    client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientMetadataRequestUseConnectionCtxArgs']]]]]
-    client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientPrefetchThreadArgs']]]]]
-    client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientResultChunkSizeArgs']]]]]
-    client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientResultColumnCaseInsensitiveArgs']]]]]
-    client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgs']]]]]
-    client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientSessionKeepAlifeArgs']]]]]
-    client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientTimestampTypeMappingArgs']]]]]
-    date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterDateInputFormatArgs']]]]]
-    date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterDateOutputFormatArgs']]]]]
-    enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterEnableUnloadPhysicalTypeOptimizationArgs']]]]]
-    error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicMergeArgs']]]]]
-    error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicUpdateArgs']]]]]
-    geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterGeographyOutputFormatArgs']]]]]
-    geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterGeometryOutputFormatArgs']]]]]
-    jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterJdbcTreatTimestampNtzAsUtcArgs']]]]]
-    jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterJdbcUseSessionTimezoneArgs']]]]]
-    json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterJsonIndentArgs']]]]]
-    lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterLockTimeoutArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterLogLevelArgs']]]]]
-    multi_statement_counts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterMultiStatementCountArgs']]]]]
-    noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterNoorderSequenceAsDefaultArgs']]]]]
-    odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterOdbcTreatDecimalAsIntArgs']]]]]
-    query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterQueryTagArgs']]]]]
-    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterQuotedIdentifiersIgnoreCaseArgs']]]]]
-    rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterRowsPerResultsetArgs']]]]]
-    s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterS3StageVpceDnsNameArgs']]]]]
-    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterSearchPathArgs']]]]]
-    serverless_task_max_statement_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterServerlessTaskMaxStatementSizeArgs']]]]]
-    serverless_task_min_statement_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterServerlessTaskMinStatementSizeArgs']]]]]
-    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterStatementQueuedTimeoutInSecondArgs']]]]]
-    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterStatementTimeoutInSecondArgs']]]]]
-    strict_json_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterStrictJsonOutputArgs']]]]]
-    suspend_task_after_num_failures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterSuspendTaskAfterNumFailureArgs']]]]]
-    task_auto_retry_attempts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTaskAutoRetryAttemptArgs']]]]]
-    time_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimeInputFormatArgs']]]]]
-    time_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimeOutputFormatArgs']]]]]
-    timestamp_day_is_always24hs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampDayIsAlways24hArgs']]]]]
-    timestamp_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampInputFormatArgs']]]]]
-    timestamp_ltz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampLtzOutputFormatArgs']]]]]
-    timestamp_ntz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampNtzOutputFormatArgs']]]]]
-    timestamp_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampOutputFormatArgs']]]]]
-    timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampTypeMappingArgs']]]]]
-    timestamp_tz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampTzOutputFormatArgs']]]]]
-    timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimezoneArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTraceLevelArgs']]]]]
-    transaction_abort_on_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTransactionAbortOnErrorArgs']]]]]
-    transaction_default_isolation_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTransactionDefaultIsolationLevelArgs']]]]]
-    two_digit_century_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTwoDigitCenturyStartArgs']]]]]
-    unsupported_ddl_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterUnsupportedDdlActionArgs']]]]]
-    use_cached_results: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterUseCachedResultArgs']]]]]
-    user_task_managed_initial_warehouse_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterUserTaskManagedInitialWarehouseSizeArgs']]]]]
-    user_task_minimum_trigger_interval_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs']]]]]
-    user_task_timeout_ms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterUserTaskTimeoutMArgs']]]]]
-    week_of_year_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterWeekOfYearPolicyArgs']]]]]
-    week_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterWeekStartArgs']]]]]
+    abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterAbortDetachedQueryArgsDict']]]]]
+    autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterAutocommitArgsDict']]]]]
+    binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterBinaryInputFormatArgsDict']]]]]
+    binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterBinaryOutputFormatArgsDict']]]]]
+    client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientMemoryLimitArgsDict']]]]]
+    client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientMetadataRequestUseConnectionCtxArgsDict']]]]]
+    client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientPrefetchThreadArgsDict']]]]]
+    client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientResultChunkSizeArgsDict']]]]]
+    client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientResultColumnCaseInsensitiveArgsDict']]]]]
+    client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict']]]]]
+    client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientSessionKeepAlifeArgsDict']]]]]
+    client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterClientTimestampTypeMappingArgsDict']]]]]
+    date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterDateInputFormatArgsDict']]]]]
+    date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterDateOutputFormatArgsDict']]]]]
+    enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterEnableUnloadPhysicalTypeOptimizationArgsDict']]]]]
+    error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicMergeArgsDict']]]]]
+    error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterErrorOnNondeterministicUpdateArgsDict']]]]]
+    geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterGeographyOutputFormatArgsDict']]]]]
+    geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterGeometryOutputFormatArgsDict']]]]]
+    jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterJdbcTreatTimestampNtzAsUtcArgsDict']]]]]
+    jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterJdbcUseSessionTimezoneArgsDict']]]]]
+    json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterJsonIndentArgsDict']]]]]
+    lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterLockTimeoutArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterLogLevelArgsDict']]]]]
+    multi_statement_counts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterMultiStatementCountArgsDict']]]]]
+    noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterNoorderSequenceAsDefaultArgsDict']]]]]
+    odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterOdbcTreatDecimalAsIntArgsDict']]]]]
+    query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterQueryTagArgsDict']]]]]
+    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]]
+    rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterRowsPerResultsetArgsDict']]]]]
+    s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterS3StageVpceDnsNameArgsDict']]]]]
+    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterSearchPathArgsDict']]]]]
+    serverless_task_max_statement_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterServerlessTaskMaxStatementSizeArgsDict']]]]]
+    serverless_task_min_statement_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterServerlessTaskMinStatementSizeArgsDict']]]]]
+    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterStatementQueuedTimeoutInSecondArgsDict']]]]]
+    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterStatementTimeoutInSecondArgsDict']]]]]
+    strict_json_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterStrictJsonOutputArgsDict']]]]]
+    suspend_task_after_num_failures: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterSuspendTaskAfterNumFailureArgsDict']]]]]
+    task_auto_retry_attempts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTaskAutoRetryAttemptArgsDict']]]]]
+    time_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimeInputFormatArgsDict']]]]]
+    time_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimeOutputFormatArgsDict']]]]]
+    timestamp_day_is_always24hs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampDayIsAlways24hArgsDict']]]]]
+    timestamp_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampInputFormatArgsDict']]]]]
+    timestamp_ltz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampLtzOutputFormatArgsDict']]]]]
+    timestamp_ntz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampNtzOutputFormatArgsDict']]]]]
+    timestamp_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampOutputFormatArgsDict']]]]]
+    timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampTypeMappingArgsDict']]]]]
+    timestamp_tz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimestampTzOutputFormatArgsDict']]]]]
+    timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTimezoneArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTraceLevelArgsDict']]]]]
+    transaction_abort_on_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTransactionAbortOnErrorArgsDict']]]]]
+    transaction_default_isolation_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTransactionDefaultIsolationLevelArgsDict']]]]]
+    two_digit_century_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterTwoDigitCenturyStartArgsDict']]]]]
+    unsupported_ddl_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterUnsupportedDdlActionArgsDict']]]]]
+    use_cached_results: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterUseCachedResultArgsDict']]]]]
+    user_task_managed_initial_warehouse_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterUserTaskManagedInitialWarehouseSizeArgsDict']]]]]
+    user_task_minimum_trigger_interval_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterUserTaskMinimumTriggerIntervalInSecondArgsDict']]]]]
+    user_task_timeout_ms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterUserTaskTimeoutMArgsDict']]]]]
+    week_of_year_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterWeekOfYearPolicyArgsDict']]]]]
+    week_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskParameterWeekStartArgsDict']]]]]
 
 @pulumi.input_type
 class TaskParameterArgs:
@@ -68687,8 +68687,8 @@ class TaskShowOutputArgsDict(TypedDict):
     schedule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    target_completion_intervals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskShowOutputTargetCompletionIntervalArgs']]]]]
-    task_relations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskShowOutputTaskRelationArgs']]]]]
+    target_completion_intervals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskShowOutputTargetCompletionIntervalArgsDict']]]]]
+    task_relations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TaskShowOutputTaskRelationArgsDict']]]]]
     warehouse: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
@@ -69134,64 +69134,64 @@ class TaskTargetCompletionIntervalArgs:
 
 
 class UserParameterArgsDict(TypedDict):
-    abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterAbortDetachedQueryArgs']]]]]
-    autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterAutocommitArgs']]]]]
-    binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterBinaryInputFormatArgs']]]]]
-    binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterBinaryOutputFormatArgs']]]]]
-    client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMemoryLimitArgs']]]]]
-    client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMetadataRequestUseConnectionCtxArgs']]]]]
-    client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientPrefetchThreadArgs']]]]]
-    client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientResultChunkSizeArgs']]]]]
-    client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientResultColumnCaseInsensitiveArgs']]]]]
-    client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientSessionKeepAliveHeartbeatFrequencyArgs']]]]]
-    client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientSessionKeepAlifeArgs']]]]]
-    client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientTimestampTypeMappingArgs']]]]]
-    date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterDateInputFormatArgs']]]]]
-    date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterDateOutputFormatArgs']]]]]
-    enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableUnloadPhysicalTypeOptimizationArgs']]]]]
-    enable_unredacted_query_syntax_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableUnredactedQuerySyntaxErrorArgs']]]]]
-    error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterErrorOnNondeterministicMergeArgs']]]]]
-    error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterErrorOnNondeterministicUpdateArgs']]]]]
-    geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterGeographyOutputFormatArgs']]]]]
-    geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterGeometryOutputFormatArgs']]]]]
-    jdbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcTreatDecimalAsIntArgs']]]]]
-    jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcTreatTimestampNtzAsUtcArgs']]]]]
-    jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcUseSessionTimezoneArgs']]]]]
-    json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJsonIndentArgs']]]]]
-    lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterLockTimeoutArgs']]]]]
-    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterLogLevelArgs']]]]]
-    multi_statement_counts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterMultiStatementCountArgs']]]]]
-    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterNetworkPolicyArgs']]]]]
-    noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterNoorderSequenceAsDefaultArgs']]]]]
-    odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterOdbcTreatDecimalAsIntArgs']]]]]
-    prevent_unload_to_internal_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPreventUnloadToInternalStageArgs']]]]]
-    query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterQueryTagArgs']]]]]
-    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterQuotedIdentifiersIgnoreCaseArgs']]]]]
-    rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterRowsPerResultsetArgs']]]]]
-    s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterS3StageVpceDnsNameArgs']]]]]
-    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterSearchPathArgs']]]]]
-    simulated_data_sharing_consumers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterSimulatedDataSharingConsumerArgs']]]]]
-    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterStatementQueuedTimeoutInSecondArgs']]]]]
-    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterStatementTimeoutInSecondArgs']]]]]
-    strict_json_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterStrictJsonOutputArgs']]]]]
-    time_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimeInputFormatArgs']]]]]
-    time_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimeOutputFormatArgs']]]]]
-    timestamp_day_is_always24hs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampDayIsAlways24hArgs']]]]]
-    timestamp_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampInputFormatArgs']]]]]
-    timestamp_ltz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampLtzOutputFormatArgs']]]]]
-    timestamp_ntz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampNtzOutputFormatArgs']]]]]
-    timestamp_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampOutputFormatArgs']]]]]
-    timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampTypeMappingArgs']]]]]
-    timestamp_tz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampTzOutputFormatArgs']]]]]
-    timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimezoneArgs']]]]]
-    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTraceLevelArgs']]]]]
-    transaction_abort_on_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTransactionAbortOnErrorArgs']]]]]
-    transaction_default_isolation_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTransactionDefaultIsolationLevelArgs']]]]]
-    two_digit_century_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTwoDigitCenturyStartArgs']]]]]
-    unsupported_ddl_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterUnsupportedDdlActionArgs']]]]]
-    use_cached_results: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterUseCachedResultArgs']]]]]
-    week_of_year_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterWeekOfYearPolicyArgs']]]]]
-    week_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterWeekStartArgs']]]]]
+    abort_detached_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterAbortDetachedQueryArgsDict']]]]]
+    autocommits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterAutocommitArgsDict']]]]]
+    binary_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterBinaryInputFormatArgsDict']]]]]
+    binary_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterBinaryOutputFormatArgsDict']]]]]
+    client_memory_limits: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMemoryLimitArgsDict']]]]]
+    client_metadata_request_use_connection_ctxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientMetadataRequestUseConnectionCtxArgsDict']]]]]
+    client_prefetch_threads: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientPrefetchThreadArgsDict']]]]]
+    client_result_chunk_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientResultChunkSizeArgsDict']]]]]
+    client_result_column_case_insensitives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientResultColumnCaseInsensitiveArgsDict']]]]]
+    client_session_keep_alive_heartbeat_frequencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientSessionKeepAliveHeartbeatFrequencyArgsDict']]]]]
+    client_session_keep_alives: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientSessionKeepAlifeArgsDict']]]]]
+    client_timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterClientTimestampTypeMappingArgsDict']]]]]
+    date_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterDateInputFormatArgsDict']]]]]
+    date_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterDateOutputFormatArgsDict']]]]]
+    enable_unload_physical_type_optimizations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableUnloadPhysicalTypeOptimizationArgsDict']]]]]
+    enable_unredacted_query_syntax_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterEnableUnredactedQuerySyntaxErrorArgsDict']]]]]
+    error_on_nondeterministic_merges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterErrorOnNondeterministicMergeArgsDict']]]]]
+    error_on_nondeterministic_updates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterErrorOnNondeterministicUpdateArgsDict']]]]]
+    geography_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterGeographyOutputFormatArgsDict']]]]]
+    geometry_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterGeometryOutputFormatArgsDict']]]]]
+    jdbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcTreatDecimalAsIntArgsDict']]]]]
+    jdbc_treat_timestamp_ntz_as_utcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcTreatTimestampNtzAsUtcArgsDict']]]]]
+    jdbc_use_session_timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJdbcUseSessionTimezoneArgsDict']]]]]
+    json_indents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterJsonIndentArgsDict']]]]]
+    lock_timeouts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterLockTimeoutArgsDict']]]]]
+    log_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterLogLevelArgsDict']]]]]
+    multi_statement_counts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterMultiStatementCountArgsDict']]]]]
+    network_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterNetworkPolicyArgsDict']]]]]
+    noorder_sequence_as_defaults: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterNoorderSequenceAsDefaultArgsDict']]]]]
+    odbc_treat_decimal_as_ints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterOdbcTreatDecimalAsIntArgsDict']]]]]
+    prevent_unload_to_internal_stages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterPreventUnloadToInternalStageArgsDict']]]]]
+    query_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterQueryTagArgsDict']]]]]
+    quoted_identifiers_ignore_cases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterQuotedIdentifiersIgnoreCaseArgsDict']]]]]
+    rows_per_resultsets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterRowsPerResultsetArgsDict']]]]]
+    s3_stage_vpce_dns_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterS3StageVpceDnsNameArgsDict']]]]]
+    search_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterSearchPathArgsDict']]]]]
+    simulated_data_sharing_consumers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterSimulatedDataSharingConsumerArgsDict']]]]]
+    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterStatementQueuedTimeoutInSecondArgsDict']]]]]
+    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterStatementTimeoutInSecondArgsDict']]]]]
+    strict_json_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterStrictJsonOutputArgsDict']]]]]
+    time_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimeInputFormatArgsDict']]]]]
+    time_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimeOutputFormatArgsDict']]]]]
+    timestamp_day_is_always24hs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampDayIsAlways24hArgsDict']]]]]
+    timestamp_input_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampInputFormatArgsDict']]]]]
+    timestamp_ltz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampLtzOutputFormatArgsDict']]]]]
+    timestamp_ntz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampNtzOutputFormatArgsDict']]]]]
+    timestamp_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampOutputFormatArgsDict']]]]]
+    timestamp_type_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampTypeMappingArgsDict']]]]]
+    timestamp_tz_output_formats: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimestampTzOutputFormatArgsDict']]]]]
+    timezones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTimezoneArgsDict']]]]]
+    trace_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTraceLevelArgsDict']]]]]
+    transaction_abort_on_errors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTransactionAbortOnErrorArgsDict']]]]]
+    transaction_default_isolation_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTransactionDefaultIsolationLevelArgsDict']]]]]
+    two_digit_century_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterTwoDigitCenturyStartArgsDict']]]]]
+    unsupported_ddl_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterUnsupportedDdlActionArgsDict']]]]]
+    use_cached_results: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterUseCachedResultArgsDict']]]]]
+    week_of_year_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterWeekOfYearPolicyArgsDict']]]]]
+    week_starts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UserParameterWeekStartArgsDict']]]]]
 
 @pulumi.input_type
 class UserParameterArgs:
@@ -74648,8 +74648,8 @@ class ViewColumnArgsDict(TypedDict):
     """
     Specifies a comment for the column.
     """
-    masking_policy: NotRequired[pulumi.Input[Optional['ViewColumnMaskingPolicyArgs']]]
-    projection_policy: NotRequired[pulumi.Input[Optional['ViewColumnProjectionPolicyArgs']]]
+    masking_policy: NotRequired[pulumi.Input[Optional['ViewColumnMaskingPolicyArgsDict']]]
+    projection_policy: NotRequired[pulumi.Input[Optional['ViewColumnProjectionPolicyArgsDict']]]
 
 @pulumi.input_type
 class ViewColumnArgs:
@@ -75291,8 +75291,8 @@ class ViewShowOutputArgs:
 
 
 class WarehouseAdaptiveParameterArgsDict(TypedDict):
-    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementQueuedTimeoutInSecondArgs']]]]]
-    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementTimeoutInSecondArgs']]]]]
+    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementQueuedTimeoutInSecondArgsDict']]]]]
+    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseAdaptiveParameterStatementTimeoutInSecondArgsDict']]]]]
 
 @pulumi.input_type
 class WarehouseAdaptiveParameterArgs:
@@ -75748,9 +75748,9 @@ class WarehouseAdaptiveShowOutputArgs:
 
 
 class WarehouseParameterArgsDict(TypedDict):
-    max_concurrency_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseParameterMaxConcurrencyLevelArgs']]]]]
-    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseParameterStatementQueuedTimeoutInSecondArgs']]]]]
-    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseParameterStatementTimeoutInSecondArgs']]]]]
+    max_concurrency_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseParameterMaxConcurrencyLevelArgsDict']]]]]
+    statement_queued_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseParameterStatementQueuedTimeoutInSecondArgsDict']]]]]
+    statement_timeout_in_seconds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WarehouseParameterStatementTimeoutInSecondArgsDict']]]]]
 
 @pulumi.input_type
 class WarehouseParameterArgs:
