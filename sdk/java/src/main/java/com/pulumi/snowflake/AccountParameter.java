@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **Warning** This resource shouldn&#39;t be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `snowflake.CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the snowflake.CurrentAccount resource documentation.
+ * &gt; **Warning** This resource shouldn&#39;t be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `snowflake.CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the snowflake.CurrentAccount resource documentation.
  * 
  * &gt; **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
  * 

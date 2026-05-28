@@ -836,10 +836,10 @@ class Schema(pulumi.CustomResource):
         <!-- TODO(SNOW-1844996): Remove this note.-->
         > **Note** Field `CLASSIFICATION_ROLE` is currently missing. It will be added in the future.
 
-        !> **Note** A schema cannot be dropped successfully if it contains network rule-network policy associations. The error looks like `098508 (2BP01): Cannot drop schema SCHEMA as it includes network rule - policy associations.
+        > **Note** A schema cannot be dropped successfully if it contains network rule-network policy associations. The error looks like `098508 (2BP01): Cannot drop schema SCHEMA as it includes network rule - policy associations.
         `. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the network rule from the relevant objects. See guide for more details.
 
-        !> **Note** Setting the `default_ddl_collation` field to an empty string from non-empty value requires two steps. Firstly, set it to `null` (or just remove it from the resource configuration), and then to an empty string. This is due to the way Terraform handles empty and default values and our internal parameter handling.
+        > **Note** Setting the `default_ddl_collation` field to an empty string from non-empty value requires two steps. Firstly, set it to `null` (or just remove it from the resource configuration), and then to an empty string. This is due to the way Terraform handles empty and default values and our internal parameter handling.
 
         Resource used to manage schema objects. For more information, check [schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema).
 
@@ -888,10 +888,10 @@ class Schema(pulumi.CustomResource):
         <!-- TODO(SNOW-1844996): Remove this note.-->
         > **Note** Field `CLASSIFICATION_ROLE` is currently missing. It will be added in the future.
 
-        !> **Note** A schema cannot be dropped successfully if it contains network rule-network policy associations. The error looks like `098508 (2BP01): Cannot drop schema SCHEMA as it includes network rule - policy associations.
+        > **Note** A schema cannot be dropped successfully if it contains network rule-network policy associations. The error looks like `098508 (2BP01): Cannot drop schema SCHEMA as it includes network rule - policy associations.
         `. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the network rule from the relevant objects. See guide for more details.
 
-        !> **Note** Setting the `default_ddl_collation` field to an empty string from non-empty value requires two steps. Firstly, set it to `null` (or just remove it from the resource configuration), and then to an empty string. This is due to the way Terraform handles empty and default values and our internal parameter handling.
+        > **Note** Setting the `default_ddl_collation` field to an empty string from non-empty value requires two steps. Firstly, set it to `null` (or just remove it from the resource configuration), and then to an empty string. This is due to the way Terraform handles empty and default values and our internal parameter handling.
 
         Resource used to manage schema objects. For more information, check [schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema).
 

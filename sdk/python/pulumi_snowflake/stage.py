@@ -528,7 +528,7 @@ class Stage(pulumi.CustomResource):
                  url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
         > **Note** Starting from the [Bundle 2025_05](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_05/bcr-1989), a stage cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
 
@@ -598,7 +598,7 @@ class Stage(pulumi.CustomResource):
                  args: StageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
         > **Note** Starting from the [Bundle 2025_05](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_05/bcr-1989), a stage cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
 

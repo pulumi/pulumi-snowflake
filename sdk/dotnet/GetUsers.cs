@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     public static class GetUsers
     {
         /// <summary>
-        /// !&gt; **Sensitive values** This data source's `DisplayName`, `Email`, `LoginName`, `FirstName`, `MiddleName` and `LastName` fields nested in `ShowOutput` and `DescribeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// &gt; **Sensitive values** This data source's `DisplayName`, `Email`, `LoginName`, `FirstName`, `MiddleName` and `LastName` fields nested in `ShowOutput` and `DescribeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
         /// 
         /// &gt; **Missing fields** The `Password` field is not present in the `DescribeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("snowflake:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Sensitive values** This data source's `DisplayName`, `Email`, `LoginName`, `FirstName`, `MiddleName` and `LastName` fields nested in `ShowOutput` and `DescribeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// &gt; **Sensitive values** This data source's `DisplayName`, `Email`, `LoginName`, `FirstName`, `MiddleName` and `LastName` fields nested in `ShowOutput` and `DescribeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
         /// 
         /// &gt; **Missing fields** The `Password` field is not present in the `DescribeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("snowflake:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Sensitive values** This data source's `DisplayName`, `Email`, `LoginName`, `FirstName`, `MiddleName` and `LastName` fields nested in `ShowOutput` and `DescribeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// &gt; **Sensitive values** This data source's `DisplayName`, `Email`, `LoginName`, `FirstName`, `MiddleName` and `LastName` fields nested in `ShowOutput` and `DescribeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
         /// 
         /// &gt; **Missing fields** The `Password` field is not present in the `DescribeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
         /// 

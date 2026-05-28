@@ -90,7 +90,7 @@ def get_security_integrations(like: Optional[_builtins.str] = None,
                               with_describe: Optional[_builtins.bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityIntegrationsResult:
     """
-    !> **Sensitive values** This datasource's `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+    > **Sensitive values** This datasource's `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
 
     > **Missing fields** The `saml2_snowflake_x509_cert` and `saml2_x509_cert` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
 
@@ -115,7 +115,7 @@ def get_security_integrations_output(like: pulumi.Input[Optional[Optional[_built
                                      with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityIntegrationsResult]:
     """
-    !> **Sensitive values** This datasource's `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+    > **Sensitive values** This datasource's `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
 
     > **Missing fields** The `saml2_snowflake_x509_cert` and `saml2_x509_cert` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
 

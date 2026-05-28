@@ -290,9 +290,9 @@ class NetworkPolicy(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+        > **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
 
-        !> **Note** Due to technical limitations in Terraform SDK, changes in `allowed_network_rule_list` and `blocked_network_rule_list` do not cause diff for `show_output` and `describe_output`.
+        > **Note** Due to technical limitations in Terraform SDK, changes in `allowed_network_rule_list` and `blocked_network_rule_list` do not cause diff for `show_output` and `describe_output`.
 
         Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
 
@@ -341,9 +341,9 @@ class NetworkPolicy(pulumi.CustomResource):
                  args: Optional[NetworkPolicyArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+        > **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
 
-        !> **Note** Due to technical limitations in Terraform SDK, changes in `allowed_network_rule_list` and `blocked_network_rule_list` do not cause diff for `show_output` and `describe_output`.
+        > **Note** Due to technical limitations in Terraform SDK, changes in `allowed_network_rule_list` and `blocked_network_rule_list` do not cause diff for `show_output` and `describe_output`.
 
         Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
 

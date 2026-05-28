@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
+ * &gt; **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
  * 
  * &gt; **Note** Manage grants on `HYBRID TABLE` by specifying `TABLE` or `TABLES` in `objectType` field. This applies to a single object, all objects, or future objects. This reflects the current behavior in Snowflake.
  * 

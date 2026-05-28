@@ -12,11 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+// > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
-// !> **Important** Starting from v0.95.0, it is advised to use this resource **only** if users are not managed through terraform. Check more in the migration guide.
+// > **Important** Starting from v0.95.0, it is advised to use this resource **only** if users are not managed through terraform. Check more in the migration guide.
 //
-// !> **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
+// > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
 //
 // ## Example Usage
 //

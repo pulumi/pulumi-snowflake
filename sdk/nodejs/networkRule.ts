@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **Note** A network rule cannot be dropped successfully if it is currently assigned to a network policy. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the network rule from the relevant objects. See guide for more details.
+ * > **Note** A network rule cannot be dropped successfully if it is currently assigned to a network policy. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the network rule from the relevant objects. See guide for more details.
  *
  * ## Example Usage
  *

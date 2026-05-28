@@ -281,7 +281,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -324,7 +324,7 @@ public final class SnowflakeFunctions {
         return getAlerts(GetAlertsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -367,7 +367,7 @@ public final class SnowflakeFunctions {
         return getAlertsPlain(GetAlertsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -410,7 +410,7 @@ public final class SnowflakeFunctions {
         return getAlerts(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -453,7 +453,7 @@ public final class SnowflakeFunctions {
         return getAlertsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -496,7 +496,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -539,7 +539,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -582,9 +582,9 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered authentication policies. Filtering is aligned with the current possibilities for [SHOW AUTHENTICATION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-authentication-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `authenticationPolicies`.
      * 
@@ -593,9 +593,9 @@ public final class SnowflakeFunctions {
         return getAuthenticationPolicies(GetAuthenticationPoliciesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered authentication policies. Filtering is aligned with the current possibilities for [SHOW AUTHENTICATION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-authentication-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `authenticationPolicies`.
      * 
@@ -604,9 +604,9 @@ public final class SnowflakeFunctions {
         return getAuthenticationPoliciesPlain(GetAuthenticationPoliciesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered authentication policies. Filtering is aligned with the current possibilities for [SHOW AUTHENTICATION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-authentication-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `authenticationPolicies`.
      * 
@@ -615,9 +615,9 @@ public final class SnowflakeFunctions {
         return getAuthenticationPolicies(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered authentication policies. Filtering is aligned with the current possibilities for [SHOW AUTHENTICATION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-authentication-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `authenticationPolicies`.
      * 
@@ -626,9 +626,9 @@ public final class SnowflakeFunctions {
         return getAuthenticationPoliciesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered authentication policies. Filtering is aligned with the current possibilities for [SHOW AUTHENTICATION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-authentication-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `authenticationPolicies`.
      * 
@@ -637,9 +637,9 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getAuthenticationPolicies:getAuthenticationPolicies", TypeShape.of(GetAuthenticationPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered authentication policies. Filtering is aligned with the current possibilities for [SHOW AUTHENTICATION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-authentication-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `authenticationPolicies`.
      * 
@@ -648,9 +648,9 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getAuthenticationPolicies:getAuthenticationPolicies", TypeShape.of(GetAuthenticationPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered authentication policies. Filtering is aligned with the current possibilities for [SHOW AUTHENTICATION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-authentication-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `authenticationPolicies`.
      * 
@@ -659,7 +659,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAuthenticationPolicies:getAuthenticationPolicies", TypeShape.of(GetAuthenticationPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
      * 
@@ -668,7 +668,7 @@ public final class SnowflakeFunctions {
         return getCatalogIntegrations(GetCatalogIntegrationsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
      * 
@@ -677,7 +677,7 @@ public final class SnowflakeFunctions {
         return getCatalogIntegrationsPlain(GetCatalogIntegrationsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
      * 
@@ -686,7 +686,7 @@ public final class SnowflakeFunctions {
         return getCatalogIntegrations(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
      * 
@@ -695,7 +695,7 @@ public final class SnowflakeFunctions {
         return getCatalogIntegrationsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
      * 
@@ -704,7 +704,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getCatalogIntegrations:getCatalogIntegrations", TypeShape.of(GetCatalogIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
      * 
@@ -713,7 +713,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getCatalogIntegrations:getCatalogIntegrations", TypeShape.of(GetCatalogIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `catalogIntegrations`.
      * 
@@ -820,7 +820,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -885,7 +885,7 @@ public final class SnowflakeFunctions {
         return getCortexSearchServices(GetCortexSearchServicesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -950,7 +950,7 @@ public final class SnowflakeFunctions {
         return getCortexSearchServicesPlain(GetCortexSearchServicesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1015,7 +1015,7 @@ public final class SnowflakeFunctions {
         return getCortexSearchServices(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1080,7 +1080,7 @@ public final class SnowflakeFunctions {
         return getCortexSearchServicesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1145,7 +1145,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getCortexSearchServices:getCortexSearchServices", TypeShape.of(GetCortexSearchServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1210,7 +1210,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getCortexSearchServices:getCortexSearchServices", TypeShape.of(GetCortexSearchServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1275,7 +1275,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getCortexSearchServices:getCortexSearchServices", TypeShape.of(GetCortexSearchServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1322,7 +1322,7 @@ public final class SnowflakeFunctions {
         return getCurrentAccount(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1369,7 +1369,7 @@ public final class SnowflakeFunctions {
         return getCurrentAccountPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1416,7 +1416,7 @@ public final class SnowflakeFunctions {
         return getCurrentAccount(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1463,7 +1463,7 @@ public final class SnowflakeFunctions {
         return getCurrentAccountPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1510,7 +1510,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getCurrentAccount:getCurrentAccount", TypeShape.of(GetCurrentAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1557,7 +1557,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getCurrentAccount:getCurrentAccount", TypeShape.of(GetCurrentAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1604,7 +1604,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getCurrentAccount:getCurrentAccount", TypeShape.of(GetCurrentAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -1613,7 +1613,7 @@ public final class SnowflakeFunctions {
         return getCurrentRole(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -1622,7 +1622,7 @@ public final class SnowflakeFunctions {
         return getCurrentRolePlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -1631,7 +1631,7 @@ public final class SnowflakeFunctions {
         return getCurrentRole(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -1640,7 +1640,7 @@ public final class SnowflakeFunctions {
         return getCurrentRolePlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -1649,7 +1649,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getCurrentRole:getCurrentRole", TypeShape.of(GetCurrentRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -1658,7 +1658,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getCurrentRole:getCurrentRole", TypeShape.of(GetCurrentRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -1667,7 +1667,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getCurrentRole:getCurrentRole", TypeShape.of(GetCurrentRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1709,7 +1709,7 @@ public final class SnowflakeFunctions {
         return getDatabase(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1751,7 +1751,7 @@ public final class SnowflakeFunctions {
         return getDatabasePlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1793,7 +1793,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1835,7 +1835,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1877,7 +1877,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1920,7 +1920,7 @@ public final class SnowflakeFunctions {
         return getDatabaseRole(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1963,7 +1963,7 @@ public final class SnowflakeFunctions {
         return getDatabaseRolePlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2006,7 +2006,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getDatabaseRole:getDatabaseRole", TypeShape.of(GetDatabaseRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2049,7 +2049,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getDatabaseRole:getDatabaseRole", TypeShape.of(GetDatabaseRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2176,7 +2176,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2185,7 +2185,7 @@ public final class SnowflakeFunctions {
         return getDynamicTables(GetDynamicTablesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2194,7 +2194,7 @@ public final class SnowflakeFunctions {
         return getDynamicTablesPlain(GetDynamicTablesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2203,7 +2203,7 @@ public final class SnowflakeFunctions {
         return getDynamicTables(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2212,7 +2212,7 @@ public final class SnowflakeFunctions {
         return getDynamicTablesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2221,7 +2221,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2230,7 +2230,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2239,7 +2239,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2282,7 +2282,7 @@ public final class SnowflakeFunctions {
         return getExternalFunctions(GetExternalFunctionsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2325,7 +2325,7 @@ public final class SnowflakeFunctions {
         return getExternalFunctionsPlain(GetExternalFunctionsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2368,7 +2368,7 @@ public final class SnowflakeFunctions {
         return getExternalFunctions(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2411,7 +2411,7 @@ public final class SnowflakeFunctions {
         return getExternalFunctionsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2454,7 +2454,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getExternalFunctions:getExternalFunctions", TypeShape.of(GetExternalFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2497,7 +2497,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getExternalFunctions:getExternalFunctions", TypeShape.of(GetExternalFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2540,7 +2540,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getExternalFunctions:getExternalFunctions", TypeShape.of(GetExternalFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2583,7 +2583,7 @@ public final class SnowflakeFunctions {
         return getExternalTables(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2626,7 +2626,7 @@ public final class SnowflakeFunctions {
         return getExternalTablesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2669,7 +2669,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getExternalTables:getExternalTables", TypeShape.of(GetExternalTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2712,7 +2712,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getExternalTables:getExternalTables", TypeShape.of(GetExternalTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2755,7 +2755,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getExternalTables:getExternalTables", TypeShape.of(GetExternalTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
      * 
@@ -2764,7 +2764,7 @@ public final class SnowflakeFunctions {
         return getExternalVolumes(GetExternalVolumesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
      * 
@@ -2773,7 +2773,7 @@ public final class SnowflakeFunctions {
         return getExternalVolumesPlain(GetExternalVolumesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
      * 
@@ -2782,7 +2782,7 @@ public final class SnowflakeFunctions {
         return getExternalVolumes(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
      * 
@@ -2791,7 +2791,7 @@ public final class SnowflakeFunctions {
         return getExternalVolumesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
      * 
@@ -2800,7 +2800,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getExternalVolumes:getExternalVolumes", TypeShape.of(GetExternalVolumesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
      * 
@@ -2809,7 +2809,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getExternalVolumes:getExternalVolumes", TypeShape.of(GetExternalVolumesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered external volumes. Filtering is aligned with the current possibilities for [SHOW EXTERNAL VOLUMES](https://docs.snowflake.com/en/sql-reference/sql/show-external-volumes) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `externalVolumes`.
      * 
@@ -2818,7 +2818,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getExternalVolumes:getExternalVolumes", TypeShape.of(GetExternalVolumesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2827,7 +2827,7 @@ public final class SnowflakeFunctions {
         return getFailoverGroups(GetFailoverGroupsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2836,7 +2836,7 @@ public final class SnowflakeFunctions {
         return getFailoverGroupsPlain(GetFailoverGroupsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2845,7 +2845,7 @@ public final class SnowflakeFunctions {
         return getFailoverGroups(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2854,7 +2854,7 @@ public final class SnowflakeFunctions {
         return getFailoverGroupsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2863,7 +2863,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2872,7 +2872,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -2881,7 +2881,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2924,7 +2924,7 @@ public final class SnowflakeFunctions {
         return getFileFormats(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2967,7 +2967,7 @@ public final class SnowflakeFunctions {
         return getFileFormatsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -3010,7 +3010,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getFileFormats:getFileFormats", TypeShape.of(GetFileFormatsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -3053,7 +3053,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getFileFormats:getFileFormats", TypeShape.of(GetFileFormatsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -3096,7 +3096,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getFileFormats:getFileFormats", TypeShape.of(GetFileFormatsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -3139,7 +3139,7 @@ public final class SnowflakeFunctions {
         return getFunctions(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -3182,7 +3182,7 @@ public final class SnowflakeFunctions {
         return getFunctionsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -3225,7 +3225,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -3268,7 +3268,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4641,7 +4641,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getImageRepositories:getImageRepositories", TypeShape.of(GetImageRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
      * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
@@ -4652,7 +4652,7 @@ public final class SnowflakeFunctions {
         return getListings(GetListingsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
      * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
@@ -4663,7 +4663,7 @@ public final class SnowflakeFunctions {
         return getListingsPlain(GetListingsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
      * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
@@ -4674,7 +4674,7 @@ public final class SnowflakeFunctions {
         return getListings(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
      * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
@@ -4685,7 +4685,7 @@ public final class SnowflakeFunctions {
         return getListingsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
      * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
@@ -4696,7 +4696,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getListings:getListings", TypeShape.of(GetListingsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
      * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
@@ -4707,7 +4707,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getListings:getListings", TypeShape.of(GetListingsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
      * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
@@ -4718,7 +4718,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getListings:getListings", TypeShape.of(GetListingsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
      * 
@@ -4727,7 +4727,7 @@ public final class SnowflakeFunctions {
         return getMaskingPolicies(GetMaskingPoliciesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
      * 
@@ -4736,7 +4736,7 @@ public final class SnowflakeFunctions {
         return getMaskingPoliciesPlain(GetMaskingPoliciesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
      * 
@@ -4745,7 +4745,7 @@ public final class SnowflakeFunctions {
         return getMaskingPolicies(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
      * 
@@ -4754,7 +4754,7 @@ public final class SnowflakeFunctions {
         return getMaskingPoliciesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
      * 
@@ -4763,7 +4763,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getMaskingPolicies:getMaskingPolicies", TypeShape.of(GetMaskingPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
      * 
@@ -4772,7 +4772,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getMaskingPolicies:getMaskingPolicies", TypeShape.of(GetMaskingPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `maskingPolicies`.
      * 
@@ -4781,7 +4781,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getMaskingPolicies:getMaskingPolicies", TypeShape.of(GetMaskingPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4824,7 +4824,7 @@ public final class SnowflakeFunctions {
         return getMaterializedViews(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4867,7 +4867,7 @@ public final class SnowflakeFunctions {
         return getMaterializedViewsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4910,7 +4910,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getMaterializedViews:getMaterializedViews", TypeShape.of(GetMaterializedViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4953,7 +4953,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getMaterializedViews:getMaterializedViews", TypeShape.of(GetMaterializedViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5045,7 +5045,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getNetworkPolicies:getNetworkPolicies", TypeShape.of(GetNetworkPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
@@ -5054,7 +5054,7 @@ public final class SnowflakeFunctions {
         return getNetworkRules(GetNetworkRulesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
@@ -5063,7 +5063,7 @@ public final class SnowflakeFunctions {
         return getNetworkRulesPlain(GetNetworkRulesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
@@ -5072,7 +5072,7 @@ public final class SnowflakeFunctions {
         return getNetworkRules(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
@@ -5081,7 +5081,7 @@ public final class SnowflakeFunctions {
         return getNetworkRulesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
@@ -5090,7 +5090,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getNetworkRules:getNetworkRules", TypeShape.of(GetNetworkRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
@@ -5099,7 +5099,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getNetworkRules:getNetworkRules", TypeShape.of(GetNetworkRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
@@ -5108,7 +5108,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getNetworkRules:getNetworkRules", TypeShape.of(GetNetworkRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
      * 
@@ -5117,7 +5117,7 @@ public final class SnowflakeFunctions {
         return getNotebooks(GetNotebooksArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
      * 
@@ -5126,7 +5126,7 @@ public final class SnowflakeFunctions {
         return getNotebooksPlain(GetNotebooksPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
      * 
@@ -5135,7 +5135,7 @@ public final class SnowflakeFunctions {
         return getNotebooks(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
      * 
@@ -5144,7 +5144,7 @@ public final class SnowflakeFunctions {
         return getNotebooksPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
      * 
@@ -5153,7 +5153,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getNotebooks:getNotebooks", TypeShape.of(GetNotebooksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
      * 
@@ -5162,7 +5162,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getNotebooks:getNotebooks", TypeShape.of(GetNotebooksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `notebooks`.
      * 
@@ -5171,7 +5171,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getNotebooks:getNotebooks", TypeShape.of(GetNotebooksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5235,7 +5235,7 @@ public final class SnowflakeFunctions {
         return getParameters(GetParametersArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5299,7 +5299,7 @@ public final class SnowflakeFunctions {
         return getParametersPlain(GetParametersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5363,7 +5363,7 @@ public final class SnowflakeFunctions {
         return getParameters(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5427,7 +5427,7 @@ public final class SnowflakeFunctions {
         return getParametersPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5491,7 +5491,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getParameters:getParameters", TypeShape.of(GetParametersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5555,7 +5555,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getParameters:getParameters", TypeShape.of(GetParametersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5619,9 +5619,9 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getParameters:getParameters", TypeShape.of(GetParametersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
      * 
@@ -5630,9 +5630,9 @@ public final class SnowflakeFunctions {
         return getPasswordPolicies(GetPasswordPoliciesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
      * 
@@ -5641,9 +5641,9 @@ public final class SnowflakeFunctions {
         return getPasswordPoliciesPlain(GetPasswordPoliciesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
      * 
@@ -5652,9 +5652,9 @@ public final class SnowflakeFunctions {
         return getPasswordPolicies(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
      * 
@@ -5663,9 +5663,9 @@ public final class SnowflakeFunctions {
         return getPasswordPoliciesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
      * 
@@ -5674,9 +5674,9 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getPasswordPolicies:getPasswordPolicies", TypeShape.of(GetPasswordPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
      * 
@@ -5685,9 +5685,9 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getPasswordPolicies:getPasswordPolicies", TypeShape.of(GetPasswordPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * !&gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
+     * &gt; **Warning** When using `on.account` or `on.user` filtering option without having any user-defined authentication policy, the data source skips the output of the Snowflake&#39;s BUILT-IN authentication policy.
      * 
      * Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `passwordPolicies`.
      * 
@@ -5696,7 +5696,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getPasswordPolicies:getPasswordPolicies", TypeShape.of(GetPasswordPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5739,7 +5739,7 @@ public final class SnowflakeFunctions {
         return getPipes(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5782,7 +5782,7 @@ public final class SnowflakeFunctions {
         return getPipesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5825,7 +5825,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getPipes:getPipes", TypeShape.of(GetPipesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5868,7 +5868,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getPipes:getPipes", TypeShape.of(GetPipesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5911,7 +5911,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getPipes:getPipes", TypeShape.of(GetPipesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5954,7 +5954,7 @@ public final class SnowflakeFunctions {
         return getProcedures(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5997,7 +5997,7 @@ public final class SnowflakeFunctions {
         return getProceduresPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6040,7 +6040,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getProcedures:getProcedures", TypeShape.of(GetProceduresResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6083,7 +6083,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getProcedures:getProcedures", TypeShape.of(GetProceduresResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6175,7 +6175,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getResourceMonitors:getResourceMonitors", TypeShape.of(GetResourceMonitorsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
      * 
@@ -6184,7 +6184,7 @@ public final class SnowflakeFunctions {
         return getRowAccessPolicies(GetRowAccessPoliciesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
      * 
@@ -6193,7 +6193,7 @@ public final class SnowflakeFunctions {
         return getRowAccessPoliciesPlain(GetRowAccessPoliciesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
      * 
@@ -6202,7 +6202,7 @@ public final class SnowflakeFunctions {
         return getRowAccessPolicies(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
      * 
@@ -6211,7 +6211,7 @@ public final class SnowflakeFunctions {
         return getRowAccessPoliciesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
      * 
@@ -6220,7 +6220,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", TypeShape.of(GetRowAccessPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
      * 
@@ -6229,7 +6229,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", TypeShape.of(GetRowAccessPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
      * 
@@ -6798,7 +6798,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -6809,7 +6809,7 @@ public final class SnowflakeFunctions {
         return getSecurityIntegrations(GetSecurityIntegrationsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -6820,7 +6820,7 @@ public final class SnowflakeFunctions {
         return getSecurityIntegrationsPlain(GetSecurityIntegrationsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -6831,7 +6831,7 @@ public final class SnowflakeFunctions {
         return getSecurityIntegrations(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -6842,7 +6842,7 @@ public final class SnowflakeFunctions {
         return getSecurityIntegrationsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -6853,7 +6853,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -6864,7 +6864,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This datasource&#39;s `describe_output.redirect_uri` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -6875,7 +6875,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
      * 
@@ -6886,7 +6886,7 @@ public final class SnowflakeFunctions {
         return getSemanticViews(GetSemanticViewsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
      * 
@@ -6897,7 +6897,7 @@ public final class SnowflakeFunctions {
         return getSemanticViewsPlain(GetSemanticViewsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
      * 
@@ -6908,7 +6908,7 @@ public final class SnowflakeFunctions {
         return getSemanticViews(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
      * 
@@ -6919,7 +6919,7 @@ public final class SnowflakeFunctions {
         return getSemanticViewsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
      * 
@@ -6930,7 +6930,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSemanticViews:getSemanticViews", TypeShape.of(GetSemanticViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
      * 
@@ -6941,7 +6941,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSemanticViews:getSemanticViews", TypeShape.of(GetSemanticViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** Output from the [`DESCRIBE SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/desc-semantic-view) is not currently available.
      * 
@@ -6952,7 +6952,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSemanticViews:getSemanticViews", TypeShape.of(GetSemanticViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6995,7 +6995,7 @@ public final class SnowflakeFunctions {
         return getSequences(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7038,7 +7038,7 @@ public final class SnowflakeFunctions {
         return getSequencesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7081,7 +7081,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSequences:getSequences", TypeShape.of(GetSequencesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7124,7 +7124,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSequences:getSequences", TypeShape.of(GetSequencesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7216,7 +7216,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getServices:getServices", TypeShape.of(GetServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
      * 
@@ -7225,7 +7225,7 @@ public final class SnowflakeFunctions {
         return getSessionPolicies(GetSessionPoliciesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
      * 
@@ -7234,7 +7234,7 @@ public final class SnowflakeFunctions {
         return getSessionPoliciesPlain(GetSessionPoliciesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
      * 
@@ -7243,7 +7243,7 @@ public final class SnowflakeFunctions {
         return getSessionPolicies(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
      * 
@@ -7252,7 +7252,7 @@ public final class SnowflakeFunctions {
         return getSessionPoliciesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
      * 
@@ -7261,7 +7261,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSessionPolicies:getSessionPolicies", TypeShape.of(GetSessionPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
      * 
@@ -7270,7 +7270,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSessionPolicies:getSessionPolicies", TypeShape.of(GetSessionPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `sessionPolicies`.
      * 
@@ -7279,7 +7279,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSessionPolicies:getSessionPolicies", TypeShape.of(GetSessionPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7324,7 +7324,7 @@ public final class SnowflakeFunctions {
         return getShares(GetSharesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7369,7 +7369,7 @@ public final class SnowflakeFunctions {
         return getSharesPlain(GetSharesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7414,7 +7414,7 @@ public final class SnowflakeFunctions {
         return getShares(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7459,7 +7459,7 @@ public final class SnowflakeFunctions {
         return getSharesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7504,7 +7504,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7549,7 +7549,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7594,7 +7594,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
      * 
@@ -7603,7 +7603,7 @@ public final class SnowflakeFunctions {
         return getStages(GetStagesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
      * 
@@ -7612,7 +7612,7 @@ public final class SnowflakeFunctions {
         return getStagesPlain(GetStagesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
      * 
@@ -7621,7 +7621,7 @@ public final class SnowflakeFunctions {
         return getStages(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
      * 
@@ -7630,7 +7630,7 @@ public final class SnowflakeFunctions {
         return getStagesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
      * 
@@ -7639,7 +7639,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getStages:getStages", TypeShape.of(GetStagesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
      * 
@@ -7648,7 +7648,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getStages:getStages", TypeShape.of(GetStagesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
      * 
@@ -7657,7 +7657,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getStages:getStages", TypeShape.of(GetStagesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `storageIntegrations`.
      * 
@@ -7666,7 +7666,7 @@ public final class SnowflakeFunctions {
         return getStorageIntegrations(GetStorageIntegrationsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `storageIntegrations`.
      * 
@@ -7675,7 +7675,7 @@ public final class SnowflakeFunctions {
         return getStorageIntegrationsPlain(GetStorageIntegrationsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `storageIntegrations`.
      * 
@@ -7684,7 +7684,7 @@ public final class SnowflakeFunctions {
         return getStorageIntegrations(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `storageIntegrations`.
      * 
@@ -7693,7 +7693,7 @@ public final class SnowflakeFunctions {
         return getStorageIntegrationsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `storageIntegrations`.
      * 
@@ -7702,7 +7702,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getStorageIntegrations:getStorageIntegrations", TypeShape.of(GetStorageIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `storageIntegrations`.
      * 
@@ -7711,7 +7711,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getStorageIntegrations:getStorageIntegrations", TypeShape.of(GetStorageIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Data source used to get details of filtered storage integrations. Filtering is aligned with the current possibilities for [SHOW STORAGE INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `storageIntegrations`.
      * 
@@ -7818,7 +7818,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getStreams:getStreams", TypeShape.of(GetStreamsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7860,7 +7860,7 @@ public final class SnowflakeFunctions {
         return getSystemGenerateScimAccessToken(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7902,7 +7902,7 @@ public final class SnowflakeFunctions {
         return getSystemGenerateScimAccessTokenPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7944,7 +7944,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", TypeShape.of(GetSystemGenerateScimAccessTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7986,7 +7986,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", TypeShape.of(GetSystemGenerateScimAccessTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8028,7 +8028,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", TypeShape.of(GetSystemGenerateScimAccessTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
      * Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
@@ -8074,7 +8074,7 @@ public final class SnowflakeFunctions {
         return getSystemGetAwsSnsIamPolicy(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
      * Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
@@ -8120,7 +8120,7 @@ public final class SnowflakeFunctions {
         return getSystemGetAwsSnsIamPolicyPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
      * Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
@@ -8166,7 +8166,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
      * Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
@@ -8212,7 +8212,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * For more details, visit the official Snowflake documentation: https://docs.snowflake.com/en/sql-reference/functions/system_get_aws_sns_iam_policy.
      * Read this guide to understand how to use the snowflake.getSystemGetAwsSnsIamPolicy to integrate with AWS: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3#step-1-subscribe-the-snowflake-sqs-queue-to-the-sns-topic.
@@ -8258,7 +8258,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8352,7 +8352,7 @@ public final class SnowflakeFunctions {
         return getSystemGetPrivateLinkConfig(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8446,7 +8446,7 @@ public final class SnowflakeFunctions {
         return getSystemGetPrivateLinkConfigPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8540,7 +8540,7 @@ public final class SnowflakeFunctions {
         return getSystemGetPrivateLinkConfig(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8634,7 +8634,7 @@ public final class SnowflakeFunctions {
         return getSystemGetPrivateLinkConfigPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8728,7 +8728,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8822,7 +8822,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8916,7 +8916,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -8925,7 +8925,7 @@ public final class SnowflakeFunctions {
         return getSystemGetSnowflakePlatformInfo(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -8934,7 +8934,7 @@ public final class SnowflakeFunctions {
         return getSystemGetSnowflakePlatformInfoPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -8943,7 +8943,7 @@ public final class SnowflakeFunctions {
         return getSystemGetSnowflakePlatformInfo(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -8952,7 +8952,7 @@ public final class SnowflakeFunctions {
         return getSystemGetSnowflakePlatformInfoPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -8961,7 +8961,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", TypeShape.of(GetSystemGetSnowflakePlatformInfoResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -8970,7 +8970,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", TypeShape.of(GetSystemGetSnowflakePlatformInfoResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
@@ -8979,7 +8979,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", TypeShape.of(GetSystemGetSnowflakePlatformInfoResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
      * 
@@ -8988,7 +8988,7 @@ public final class SnowflakeFunctions {
         return getTables(GetTablesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
      * 
@@ -8997,7 +8997,7 @@ public final class SnowflakeFunctions {
         return getTablesPlain(GetTablesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
      * 
@@ -9006,7 +9006,7 @@ public final class SnowflakeFunctions {
         return getTables(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
      * 
@@ -9015,7 +9015,7 @@ public final class SnowflakeFunctions {
         return getTablesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
      * 
@@ -9024,7 +9024,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getTables:getTables", TypeShape.of(GetTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
      * 
@@ -9033,7 +9033,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getTables:getTables", TypeShape.of(GetTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
      * 
@@ -9091,7 +9091,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getTags:getTags", TypeShape.of(GetTagsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
@@ -9100,7 +9100,7 @@ public final class SnowflakeFunctions {
         return getTasks(GetTasksArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
@@ -9109,7 +9109,7 @@ public final class SnowflakeFunctions {
         return getTasksPlain(GetTasksPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
@@ -9118,7 +9118,7 @@ public final class SnowflakeFunctions {
         return getTasks(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
@@ -9127,7 +9127,7 @@ public final class SnowflakeFunctions {
         return getTasksPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
@@ -9136,7 +9136,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getTasks:getTasks", TypeShape.of(GetTasksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
@@ -9145,7 +9145,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getTasks:getTasks", TypeShape.of(GetTasksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
@@ -9189,7 +9189,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getUserProgrammaticAccessTokens:getUserProgrammaticAccessTokens", TypeShape.of(GetUserProgrammaticAccessTokensResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -9200,7 +9200,7 @@ public final class SnowflakeFunctions {
         return getUsers(GetUsersArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -9211,7 +9211,7 @@ public final class SnowflakeFunctions {
         return getUsersPlain(GetUsersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -9222,7 +9222,7 @@ public final class SnowflakeFunctions {
         return getUsers(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -9233,7 +9233,7 @@ public final class SnowflakeFunctions {
         return getUsersPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -9244,7 +9244,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -9255,7 +9255,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This data source&#39;s `displayName`, `email`, `loginName`, `firstName`, `middleName` and `lastName` fields nested in `showOutput` and `describeOutput` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * &gt; **Missing fields** The `password` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
      * 
@@ -9266,7 +9266,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
@@ -9275,7 +9275,7 @@ public final class SnowflakeFunctions {
         return getViews(GetViewsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
@@ -9284,7 +9284,7 @@ public final class SnowflakeFunctions {
         return getViewsPlain(GetViewsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
@@ -9293,7 +9293,7 @@ public final class SnowflakeFunctions {
         return getViews(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
@@ -9302,7 +9302,7 @@ public final class SnowflakeFunctions {
         return getViewsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
@@ -9311,7 +9311,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getViews:getViews", TypeShape.of(GetViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
@@ -9320,7 +9320,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getViews:getViews", TypeShape.of(GetViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * &gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
      * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 

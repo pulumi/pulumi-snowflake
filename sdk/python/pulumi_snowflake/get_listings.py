@@ -117,7 +117,7 @@ def get_listings(like: Optional[_builtins.str] = None,
                  with_describe: Optional[_builtins.bool] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListingsResult:
     """
-    !> **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflake_listings_datasource` to `preview_features_enabled` field in the provider configuration. Read more about preview features in our documentation.
+    > **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflake_listings_datasource` to `preview_features_enabled` field in the provider configuration. Read more about preview features in our documentation.
 
     > **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
 
@@ -150,7 +150,7 @@ def get_listings_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = 
                         with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListingsResult]:
     """
-    !> **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflake_listings_datasource` to `preview_features_enabled` field in the provider configuration. Read more about preview features in our documentation.
+    > **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflake_listings_datasource` to `preview_features_enabled` field in the provider configuration. Read more about preview features in our documentation.
 
     > **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
 

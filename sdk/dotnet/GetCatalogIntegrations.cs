@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     public static class GetCatalogIntegrations
     {
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
         /// Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `CatalogIntegrations`.
         /// </summary>
@@ -20,7 +20,7 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCatalogIntegrationsResult>("snowflake:index/getCatalogIntegrations:getCatalogIntegrations", args ?? new GetCatalogIntegrationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
         /// Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `CatalogIntegrations`.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.Invoke<GetCatalogIntegrationsResult>("snowflake:index/getCatalogIntegrations:getCatalogIntegrations", args ?? new GetCatalogIntegrationsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
         /// Data source used to get details of filtered catalog integrations. Filtering is aligned with the current possibilities for [SHOW CATALOG INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-catalog-integrations) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `CatalogIntegrations`.
         /// </summary>

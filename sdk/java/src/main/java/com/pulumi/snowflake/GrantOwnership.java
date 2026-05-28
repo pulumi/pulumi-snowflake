@@ -24,7 +24,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Warning** Be careful when using this resource on managed schema or any object within it, as in Snowflake managed schemas follow different ownership and privilege model. For more details, please visit [Schema documentation](https://docs.snowflake.com/en/sql-reference/sql/create-schema#optional-parameters) (scroll to `WITH MANAGED ACCESS` option).
  * 
- * !&gt; **Warning** Grant ownership resource still has some limitations. Delete operation is not implemented for onFuture grants (you have to remove the config and then revoke ownership grant on future X manually).
+ * &gt; **Warning** Grant ownership resource still has some limitations. Delete operation is not implemented for onFuture grants (you have to remove the config and then revoke ownership grant on future X manually).
  * 
  */
 @ResourceType(type="snowflake:index/grantOwnership:GrantOwnership")

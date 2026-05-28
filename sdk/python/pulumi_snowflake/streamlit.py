@@ -419,7 +419,7 @@ class Streamlit(pulumi.CustomResource):
                  __props__=None):
         """
         <!-- TODO(SNOW-1541938): remove this after fix on snowflake side -->
-        !> **Note** Setting a query warehouse with lowercase letters does not work correctly in Snowflake. As a workaround, set the query warehouse with uppercase letters only, or use execute with query warehouse ID wrapped in `'`.
+        > **Note** Setting a query warehouse with lowercase letters does not work correctly in Snowflake. As a workaround, set the query warehouse with uppercase letters only, or use execute with query warehouse ID wrapped in `'`.
 
         > **2025_01 Bundle** 2025_01 Bundle introduced the new syntax for the Streamlit creation ([link](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_01/bcr-1888#changes-to-create-streamlit-and-alter-streamlit-commands)). Provider uses the legacy syntax which has some limitations (check the [official docs](https://docs.snowflake.com/en/sql-reference/sql/create-streamlit#optional-parameters) `ROOT_LOCATION` section). It will be addressed in the next versions.
 
@@ -456,7 +456,7 @@ class Streamlit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <!-- TODO(SNOW-1541938): remove this after fix on snowflake side -->
-        !> **Note** Setting a query warehouse with lowercase letters does not work correctly in Snowflake. As a workaround, set the query warehouse with uppercase letters only, or use execute with query warehouse ID wrapped in `'`.
+        > **Note** Setting a query warehouse with lowercase letters does not work correctly in Snowflake. As a workaround, set the query warehouse with uppercase letters only, or use execute with query warehouse ID wrapped in `'`.
 
         > **2025_01 Bundle** 2025_01 Bundle introduced the new syntax for the Streamlit creation ([link](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_01/bcr-1888#changes-to-create-streamlit-and-alter-streamlit-commands)). Provider uses the legacy syntax which has some limitations (check the [official docs](https://docs.snowflake.com/en/sql-reference/sql/create-streamlit#optional-parameters) `ROOT_LOCATION` section). It will be addressed in the next versions.
 
