@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+ * > **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
  *
  * > **Missing fields** The `oauthClientId` field is not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
  * This may have impact on detecting external changes for the `oauthClientId` field.

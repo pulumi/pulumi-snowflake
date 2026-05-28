@@ -452,7 +452,7 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrant(pulumi.CustomResour
                  oauth_token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+        > **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
 
         > **Missing fields** The `oauth_client_id` field is not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
         This may have impact on detecting external changes for the `oauth_client_id` field.
@@ -487,7 +487,7 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrant(pulumi.CustomResour
                  args: ApiAuthenticationIntegrationWithAuthorizationCodeGrantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+        > **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
 
         > **Missing fields** The `oauth_client_id` field is not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
         This may have impact on detecting external changes for the `oauth_client_id` field.

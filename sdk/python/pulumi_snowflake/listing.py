@@ -273,15 +273,15 @@ class Listing(pulumi.CustomResource):
                  share: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        !> **Warning** Versioning only works if your listing ever sourced the manifest from stage. This is a Snowflake limitation.
+        > **Warning** Versioning only works if your listing ever sourced the manifest from stage. This is a Snowflake limitation.
 
-        !> **Warning** External changes to the manifest (inlined and staged) won't be detected by the provider automatically. You need to manually trigger updates when manifest content changes.
+        > **Warning** External changes to the manifest (inlined and staged) won't be detected by the provider automatically. You need to manually trigger updates when manifest content changes.
 
-        !> **Warning** This resource isn't suitable for public listings because its review process doesn't align with Terraform's standard method for managing infrastructure resources. The challenge is that the review process often takes time and might need several manual revisions. We need to reconsider how to integrate this process into a resource. Although we plan to support this in the future, it might be added later. Currently, the resource may not function well with public listings because review requests are closely connected to the publish field.
+        > **Warning** This resource isn't suitable for public listings because its review process doesn't align with Terraform's standard method for managing infrastructure resources. The challenge is that the review process often takes time and might need several manual revisions. We need to reconsider how to integrate this process into a resource. Although we plan to support this in the future, it might be added later. Currently, the resource may not function well with public listings because review requests are closely connected to the publish field.
 
-        !> **Warning** To use external resources in your manifest (e.g., company logo) you must be sourcing your manifest from a stage. Any references to external resources are relative to the manifest location in the stage.
+        > **Warning** To use external resources in your manifest (e.g., company logo) you must be sourcing your manifest from a stage. Any references to external resources are relative to the manifest location in the stage.
 
-        !> **Warning** Currently, this resource doesn't support [organization listings](https://docs.snowflake.com/en/user-guide/collaboration/listings/organizational/org-listing-about). We plan to add support for this in the future (through separate parameter or entirely new resource). There is a workaround for this provided in this issue: #3982, but beware that in the next major version of the provider such workarounds may not be allowed.
+        > **Warning** Currently, this resource doesn't support [organization listings](https://docs.snowflake.com/en/user-guide/collaboration/listings/organizational/org-listing-about). We plan to add support for this in the future (through separate parameter or entirely new resource). There is a workaround for this provided in this issue: #3982, but beware that in the next major version of the provider such workarounds may not be allowed.
 
         > **Note** When using manifest from stage, the change in either stage id, location, or version will create a new listing version that can be seen by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command.
 
@@ -316,15 +316,15 @@ class Listing(pulumi.CustomResource):
                  args: ListingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Warning** Versioning only works if your listing ever sourced the manifest from stage. This is a Snowflake limitation.
+        > **Warning** Versioning only works if your listing ever sourced the manifest from stage. This is a Snowflake limitation.
 
-        !> **Warning** External changes to the manifest (inlined and staged) won't be detected by the provider automatically. You need to manually trigger updates when manifest content changes.
+        > **Warning** External changes to the manifest (inlined and staged) won't be detected by the provider automatically. You need to manually trigger updates when manifest content changes.
 
-        !> **Warning** This resource isn't suitable for public listings because its review process doesn't align with Terraform's standard method for managing infrastructure resources. The challenge is that the review process often takes time and might need several manual revisions. We need to reconsider how to integrate this process into a resource. Although we plan to support this in the future, it might be added later. Currently, the resource may not function well with public listings because review requests are closely connected to the publish field.
+        > **Warning** This resource isn't suitable for public listings because its review process doesn't align with Terraform's standard method for managing infrastructure resources. The challenge is that the review process often takes time and might need several manual revisions. We need to reconsider how to integrate this process into a resource. Although we plan to support this in the future, it might be added later. Currently, the resource may not function well with public listings because review requests are closely connected to the publish field.
 
-        !> **Warning** To use external resources in your manifest (e.g., company logo) you must be sourcing your manifest from a stage. Any references to external resources are relative to the manifest location in the stage.
+        > **Warning** To use external resources in your manifest (e.g., company logo) you must be sourcing your manifest from a stage. Any references to external resources are relative to the manifest location in the stage.
 
-        !> **Warning** Currently, this resource doesn't support [organization listings](https://docs.snowflake.com/en/user-guide/collaboration/listings/organizational/org-listing-about). We plan to add support for this in the future (through separate parameter or entirely new resource). There is a workaround for this provided in this issue: #3982, but beware that in the next major version of the provider such workarounds may not be allowed.
+        > **Warning** Currently, this resource doesn't support [organization listings](https://docs.snowflake.com/en/user-guide/collaboration/listings/organizational/org-listing-about). We plan to add support for this in the future (through separate parameter or entirely new resource). There is a workaround for this provided in this issue: #3982, but beware that in the next major version of the provider such workarounds may not be allowed.
 
         > **Note** When using manifest from stage, the change in either stage id, location, or version will create a new listing version that can be seen by calling the [SHOW VERSIONS IN LISTING](https://docs.snowflake.com/en/sql-reference/sql/show-versions-in-listing) command.
 

@@ -12,7 +12,7 @@ replace (
 require (
 	github.com/Snowflake-Labs/terraform-provider-snowflake v1.2.1
 	github.com/pulumi/providertest v0.6.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.130.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.131.0
 	github.com/stretchr/testify v1.11.1
 )
 

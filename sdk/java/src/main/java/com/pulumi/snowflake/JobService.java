@@ -20,10 +20,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  * 
  * &lt;!-- TODO(SNOW-2129584): address this limitation --&gt;
- * !&gt; **Caution** Only asynchronous job services are supported. This resource uses `ASYNC=TRUE` during creation. In this case, the command returns immediately while the job is running. Creating a job service automatically executes the job (read more in [EXECUTE JOB SERVICE docs](https://docs.snowflake.com/en/sql-reference/sql/execute-job-service)).
+ * &gt; **Caution** Only asynchronous job services are supported. This resource uses `ASYNC=TRUE` during creation. In this case, the command returns immediately while the job is running. Creating a job service automatically executes the job (read more in [EXECUTE JOB SERVICE docs](https://docs.snowflake.com/en/sql-reference/sql/execute-job-service)).
  * 
  * &gt; **Note** For asynchronous jobs, Snowflake does not perform automatic cleanup after completion. You must either remove the resource or execute the `DROP SERVICE` command to remove the job. If you want to execute the job again, use the replace flag.
  * 

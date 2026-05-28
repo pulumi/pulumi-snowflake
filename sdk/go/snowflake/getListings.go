@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+// > **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
 //
 // > **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
 //

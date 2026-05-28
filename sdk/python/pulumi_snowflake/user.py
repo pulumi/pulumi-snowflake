@@ -2715,9 +2715,9 @@ class User(pulumi.CustomResource):
                  week_start: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
-        !> **Caution** Use `network_policy` attribute instead of the `NetworkPolicyAttachment` resource. `NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+        > **Caution** Use `network_policy` attribute instead of the `NetworkPolicyAttachment` resource. `NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
 
-        !> **Sensitive values** This resource's `display_name`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name`, `show_output.middle_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        > **Sensitive values** This resource's `display_name`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name`, `show_output.middle_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
 
         > **Note** `UserPasswordPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
 
@@ -2932,9 +2932,9 @@ class User(pulumi.CustomResource):
                  args: Optional[UserArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Caution** Use `network_policy` attribute instead of the `NetworkPolicyAttachment` resource. `NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
+        > **Caution** Use `network_policy` attribute instead of the `NetworkPolicyAttachment` resource. `NetworkPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
 
-        !> **Sensitive values** This resource's `display_name`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name`, `show_output.middle_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        > **Sensitive values** This resource's `display_name`, `show_output.display_name`, `show_output.email`, `show_output.login_name`, `show_output.first_name`, `show_output.middle_name` and `show_output.last_name` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
 
         > **Note** `UserPasswordPolicyAttachment` will be reworked in the following versions of the provider which may still affect this resource.
 

@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// !&gt; **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+    /// &gt; **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
     /// 
-    /// !&gt; **Note** To use `AllowedUserDomains` and `AllowedEmailPatterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
+    /// &gt; **Note** To use `AllowedUserDomains` and `AllowedEmailPatterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
     /// 
     /// &gt; **Missing fields** The `Saml2SnowflakeX509Cert` and `Saml2X509Cert` fields are not present in the `DescribeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
     /// This may have impact on detecting external changes for the `Saml2X509Cert` field.

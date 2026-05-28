@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// !&gt; **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+    /// &gt; **Note** The provider does not detect external changes on security integration type. In this case, remove the integration of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
     /// 
     /// &lt;!-- TODO(SNOW-1844996): Remove this note.--&gt;
     /// &gt; **Note** Field `NETWORK_POLICY` added in BCR 202506 (read our BCR Migration Guide) is currently missing. It will be added in the future.

@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
     /// 
-    /// !&gt; **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration to set parameters on the current account, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `snowflake.CurrentAccount`. More details in the snowflake.CurrentAccount resource documentation.
+    /// &gt; **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration to set parameters on the current account, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `snowflake.CurrentAccount`. More details in the snowflake.CurrentAccount resource documentation.
     /// 
     /// &gt; **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
     /// 

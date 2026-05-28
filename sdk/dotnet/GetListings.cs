@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     public static class GetListings
     {
         /// <summary>
-        /// !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `SnowflakeListingsDatasource` to `PreviewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+        /// &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `SnowflakeListingsDatasource` to `PreviewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
         /// 
         /// &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetListingsResult>("snowflake:index/getListings:getListings", args ?? new GetListingsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `SnowflakeListingsDatasource` to `PreviewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+        /// &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `SnowflakeListingsDatasource` to `PreviewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
         /// 
         /// &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.Invoke<GetListingsResult>("snowflake:index/getListings:getListings", args ?? new GetListingsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `SnowflakeListingsDatasource` to `PreviewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
+        /// &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `SnowflakeListingsDatasource` to `PreviewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
         /// 
         /// &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
         /// 

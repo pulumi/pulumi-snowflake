@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
     /// 
-    /// !&gt; **Case-sensitive names** Object names, column names, and aliases are case-sensitive. The provider would wrap them in double quotes when running SQL on Snowflake. Keep it in mind when defining the semantic view (check the example usage).
+    /// &gt; **Case-sensitive names** Object names, column names, and aliases are case-sensitive. The provider would wrap them in double quotes when running SQL on Snowflake. Keep it in mind when defining the semantic view (check the example usage).
     /// 
     /// &gt; **Note** The [`ALTER SEMANTIC VIEW`](https://docs.snowflake.com/en/sql-reference/sql/alter-semantic-view) does not currently handle changes to `Dimensions`, `Facts`, `Metrics`, `Relationships`, and `Tables`. It means that all changes to these attributes will be handled as destroy and recreate.
     /// 

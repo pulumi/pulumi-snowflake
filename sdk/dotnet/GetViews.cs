@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     public static class GetViews
     {
         /// <summary>
-        /// !&gt; **Sensitive values** This resource's `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// &gt; **Sensitive values** This resource's `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
         /// 
         /// Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `Like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `Views`.
         /// </summary>
@@ -20,7 +20,7 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetViewsResult>("snowflake:index/getViews:getViews", args ?? new GetViewsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Sensitive values** This resource's `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// &gt; **Sensitive values** This resource's `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
         /// 
         /// Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `Like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `Views`.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.Invoke<GetViewsResult>("snowflake:index/getViews:getViews", args ?? new GetViewsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Sensitive values** This resource's `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// &gt; **Sensitive values** This resource's `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
         /// 
         /// Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `Like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `Views`.
         /// </summary>

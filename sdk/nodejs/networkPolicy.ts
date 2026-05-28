@@ -7,9 +7,9 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+ * > **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-network-policy#usage-notes), a network policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
  *
- * !> **Note** Due to technical limitations in Terraform SDK, changes in `allowedNetworkRuleList` and `blockedNetworkRuleList` do not cause diff for `showOutput` and `describeOutput`.
+ * > **Note** Due to technical limitations in Terraform SDK, changes in `allowedNetworkRuleList` and `blockedNetworkRuleList` do not cause diff for `showOutput` and `describeOutput`.
  *
  * Resource used to control network traffic. For more information, check an [official guide](https://docs.snowflake.com/en/user-guide/network-policies) on controlling network traffic with network policies.
  *

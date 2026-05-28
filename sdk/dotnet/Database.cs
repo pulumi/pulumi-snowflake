@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// !&gt; **Note** The provider does not detect external changes on database type. In this case, remove the database of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
+    /// &gt; **Note** The provider does not detect external changes on database type. In this case, remove the database of wrong type manually with `terraform destroy` and recreate the resource. It will be addressed in the future.
     /// 
-    /// !&gt; **Note** A database cannot be dropped successfully if it contains network rule-network policy associations. The error looks like `098507 (2BP01): Cannot drop database DATABASE as it includes network rule - policy associations.`. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the network rule from the relevant objects. See guide for more details.
+    /// &gt; **Note** A database cannot be dropped successfully if it contains network rule-network policy associations. The error looks like `098507 (2BP01): Cannot drop database DATABASE as it includes network rule - policy associations.`. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the network rule from the relevant objects. See guide for more details.
     /// 
     /// Represents a standard database. If replication configuration is specified, the database is promoted to serve as a primary database for replication.
     /// 

@@ -4068,15 +4068,15 @@ class CurrentAccount(pulumi.CustomResource):
                  week_start: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
-        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        !> **Warning** During create operation every parameter that is not set in the resource will be unset on the account.
+        > **Warning** During create operation every parameter that is not set in the resource will be unset on the account.
 
-        !> **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
+        > **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
 
-        !> **Warning** This resource shouldn't be used with `CurrentOrganizationAccount`, `ObjectParameter` (with `on_account` field set), and `AccountParameter` resources in the same configuration, as it may lead to unexpected behavior. Unless they're used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. They are not supported, because they are not in the [official parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters). Once they are publicly documented, they will be added to the `CurrentAccount` resource.
+        > **Warning** This resource shouldn't be used with `CurrentOrganizationAccount`, `ObjectParameter` (with `on_account` field set), and `AccountParameter` resources in the same configuration, as it may lead to unexpected behavior. Unless they're used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. They are not supported, because they are not in the [official parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters). Once they are publicly documented, they will be added to the `CurrentAccount` resource.
 
-        !> **Warning** This resource shouldn't be also used with `AccountPasswordPolicyAttachment`, `NetworkPolicyAttachment`, `AccountAuthenticationPolicyAttachment`, `AccountSessionPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
+        > **Warning** This resource shouldn't be also used with `AccountPasswordPolicyAttachment`, `NetworkPolicyAttachment`, `AccountAuthenticationPolicyAttachment`, `AccountSessionPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
 
         > **Note** On removal, the resource will unset all account properties. To remove the resource without unsetting properties, use terraform state rm command.
 
@@ -4360,15 +4360,15 @@ class CurrentAccount(pulumi.CustomResource):
                  args: Optional[CurrentAccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        !> **Warning** During create operation every parameter that is not set in the resource will be unset on the account.
+        > **Warning** During create operation every parameter that is not set in the resource will be unset on the account.
 
-        !> **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
+        > **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
 
-        !> **Warning** This resource shouldn't be used with `CurrentOrganizationAccount`, `ObjectParameter` (with `on_account` field set), and `AccountParameter` resources in the same configuration, as it may lead to unexpected behavior. Unless they're used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. They are not supported, because they are not in the [official parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters). Once they are publicly documented, they will be added to the `CurrentAccount` resource.
+        > **Warning** This resource shouldn't be used with `CurrentOrganizationAccount`, `ObjectParameter` (with `on_account` field set), and `AccountParameter` resources in the same configuration, as it may lead to unexpected behavior. Unless they're used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. They are not supported, because they are not in the [official parameters documentation](https://docs.snowflake.com/en/sql-reference/parameters). Once they are publicly documented, they will be added to the `CurrentAccount` resource.
 
-        !> **Warning** This resource shouldn't be also used with `AccountPasswordPolicyAttachment`, `NetworkPolicyAttachment`, `AccountAuthenticationPolicyAttachment`, `AccountSessionPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
+        > **Warning** This resource shouldn't be also used with `AccountPasswordPolicyAttachment`, `NetworkPolicyAttachment`, `AccountAuthenticationPolicyAttachment`, `AccountSessionPolicyAttachment` resources in the same configuration to manage policies on the current account, as it may lead to unexpected behavior.
 
         > **Note** On removal, the resource will unset all account properties. To remove the resource without unsetting properties, use terraform state rm command.
 

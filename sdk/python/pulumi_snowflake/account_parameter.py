@@ -106,7 +106,7 @@ class AccountParameter(pulumi.CustomResource):
                  value: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        !> **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the CurrentAccount resource documentation.
+        > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the CurrentAccount resource documentation.
 
         > **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
 
@@ -149,7 +149,7 @@ class AccountParameter(pulumi.CustomResource):
                  args: AccountParameterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        !> **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the CurrentAccount resource documentation.
+        > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior. Unless this resource is only used to manage the following parameters that are not supported by `CurrentAccount`: ENABLE_CONSOLE_OUTPUT, ENABLE_PERSONAL_DATABASE, PREVENT_LOAD_FROM_INLINE_URL. More details in the CurrentAccount resource documentation.
 
         > **Note** This resource does not support all account parameters. The supported ones are listed below. This feature gap will be addressed in future releases.
 

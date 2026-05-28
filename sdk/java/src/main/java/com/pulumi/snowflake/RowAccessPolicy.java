@@ -19,9 +19,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-row-access-policy#usage-notes), a row access policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+ * &gt; **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-row-access-policy#usage-notes), a row access policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
  * 
- * !&gt; **Sensitive values** This resource&#39;s `body` and `describe_output.body` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ * &gt; **Sensitive values** This resource&#39;s `body` and `describe_output.body` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
  * 
  * Resource used to manage row access policy objects. For more information, check [row access policy documentation](https://docs.snowflake.com/en/sql-reference/sql/create-row-access-policy).
  * 

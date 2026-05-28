@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * !&gt; **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
+ * &gt; **Warning** Be careful when using `alwaysApply` field. It will always produce a plan (even when no changes were made) and can be harmful in some setups. For more details why we decided to introduce it to go our document explaining those design decisions (coming soon).
  * 
  * &gt; **Note** Manage grants on `HYBRID TABLE` by specifying `TABLE` or `TABLES` in `objectType` field. This applies to a single object, all objects, or future objects. This reflects the current behavior in Snowflake.
  * 
@@ -30,7 +30,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** Please, follow the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/security-access-control-considerations) for best practices on access control. The provider does not enforce any specific methodology, so it is essential for users to choose the appropriate strategy for seamless privilege management. Additionally, refer to [this link](https://docs.snowflake.com/en/user-guide/security-access-control-privileges) for a list of all available privileges in Snowflake.
  * 
- * !&gt; **Warning** The new `strictPrivilegeManagement` flag was added. It has similar behavior to the `enableMultipleGrants` flag present in the old grant resources, and it makes the resource able to detect external changes for privileges other than those present in the configuration, which can make the resource a central point of knowledge privilege management for a given object and role. See our Strict privilege management guide for more information.
+ * &gt; **Warning** The new `strictPrivilegeManagement` flag was added. It has similar behavior to the `enableMultipleGrants` flag present in the old grant resources, and it makes the resource able to detect external changes for privileges other than those present in the configuration, which can make the resource a central point of knowledge privilege management for a given object and role. See our Strict privilege management guide for more information.
  * 
  */
 @ResourceType(type="snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole")
