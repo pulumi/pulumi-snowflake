@@ -63,6 +63,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.snowflake.inputs.SemanticViewRelationshipArgs;
  * import com.pulumi.snowflake.inputs.SemanticViewRelationshipReferencedTableNameOrAliasArgs;
  * import com.pulumi.snowflake.inputs.SemanticViewRelationshipTableNameOrAliasArgs;
+ * import com.pulumi.snowflake.inputs.SemanticViewTableUniqueArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
