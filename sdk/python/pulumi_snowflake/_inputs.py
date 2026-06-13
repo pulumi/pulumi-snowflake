@@ -157,6 +157,16 @@ __all__ = [
     'ComputePoolDescribeOutputArgsDict',
     'ComputePoolShowOutputArgs',
     'ComputePoolShowOutputArgsDict',
+    'CortexAgentDescribeOutputArgs',
+    'CortexAgentDescribeOutputArgsDict',
+    'CortexAgentDescribeOutputProfileArgs',
+    'CortexAgentDescribeOutputProfileArgsDict',
+    'CortexAgentProfileArgs',
+    'CortexAgentProfileArgsDict',
+    'CortexAgentShowOutputArgs',
+    'CortexAgentShowOutputArgsDict',
+    'CortexAgentShowOutputProfileArgs',
+    'CortexAgentShowOutputProfileArgsDict',
     'CortexSearchServiceDescribeOutputArgs',
     'CortexSearchServiceDescribeOutputArgsDict',
     'CurrentOrganizationAccountShowOutputArgs',
@@ -1601,6 +1611,10 @@ __all__ = [
     'GetAuthenticationPoliciesOnArgsDict',
     'GetComputePoolsLimitArgs',
     'GetComputePoolsLimitArgsDict',
+    'GetCortexAgentsInArgs',
+    'GetCortexAgentsInArgsDict',
+    'GetCortexAgentsLimitArgs',
+    'GetCortexAgentsLimitArgsDict',
     'GetCortexSearchServicesInArgs',
     'GetCortexSearchServicesInArgsDict',
     'GetCortexSearchServicesLimitArgs',
@@ -5525,6 +5539,8 @@ class CatalogIntegrationAwsGlueDescribeOutputArgsDict(TypedDict):
     catalog_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    glue_aws_external_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    glue_aws_iam_user_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     glue_aws_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     glue_catalog_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     glue_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -5539,6 +5555,8 @@ class CatalogIntegrationAwsGlueDescribeOutputArgs:
                  catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 glue_aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 glue_aws_iam_user_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  glue_aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  glue_catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
                  glue_region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -5553,6 +5571,10 @@ class CatalogIntegrationAwsGlueDescribeOutputArgs:
             pulumi.set(__self__, "comment", comment)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if glue_aws_external_id is not None:
+            pulumi.set(__self__, "glue_aws_external_id", glue_aws_external_id)
+        if glue_aws_iam_user_arn is not None:
+            pulumi.set(__self__, "glue_aws_iam_user_arn", glue_aws_iam_user_arn)
         if glue_aws_role_arn is not None:
             pulumi.set(__self__, "glue_aws_role_arn", glue_aws_role_arn)
         if glue_catalog_id is not None:
@@ -5601,6 +5623,24 @@ class CatalogIntegrationAwsGlueDescribeOutputArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="glueAwsExternalId")
+    def glue_aws_external_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "glue_aws_external_id")
+
+    @glue_aws_external_id.setter
+    def glue_aws_external_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "glue_aws_external_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="glueAwsIamUserArn")
+    def glue_aws_iam_user_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "glue_aws_iam_user_arn")
+
+    @glue_aws_iam_user_arn.setter
+    def glue_aws_iam_user_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "glue_aws_iam_user_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="glueAwsRoleArn")
@@ -7616,6 +7656,415 @@ class ComputePoolShowOutputArgs:
     @updated_on.setter
     def updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_on", value)
+
+
+class CortexAgentDescribeOutputArgsDict(TypedDict):
+    agent_spec: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    aliases: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    profiles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CortexAgentDescribeOutputProfileArgsDict']]]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    versions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class CortexAgentDescribeOutputArgs:
+    def __init__(__self__, *,
+                 agent_spec: pulumi.Input[Optional[_builtins.str]] = None,
+                 aliases: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input['CortexAgentDescribeOutputProfileArgs']]]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[_builtins.str]] = None):
+        if agent_spec is not None:
+            pulumi.set(__self__, "agent_spec", agent_spec)
+        if aliases is not None:
+            pulumi.set(__self__, "aliases", aliases)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if default_version_name is not None:
+            pulumi.set(__self__, "default_version_name", default_version_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if versions is not None:
+            pulumi.set(__self__, "versions", versions)
+
+    @_builtins.property
+    @pulumi.getter(name="agentSpec")
+    def agent_spec(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "agent_spec")
+
+    @agent_spec.setter
+    def agent_spec(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "agent_spec", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def aliases(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "aliases")
+
+    @aliases.setter
+    def aliases(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aliases", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionName")
+    def default_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_name")
+
+    @default_version_name.setter
+    def default_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CortexAgentDescribeOutputProfileArgs']]]]:
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CortexAgentDescribeOutputProfileArgs']]]]):
+        pulumi.set(self, "profiles", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def versions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "versions")
+
+    @versions.setter
+    def versions(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "versions", value)
+
+
+class CortexAgentDescribeOutputProfileArgsDict(TypedDict):
+    avatar: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class CortexAgentDescribeOutputProfileArgs:
+    def __init__(__self__, *,
+                 avatar: pulumi.Input[Optional[_builtins.str]] = None,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
+        if avatar is not None:
+            pulumi.set(__self__, "avatar", avatar)
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def avatar(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "avatar")
+
+    @avatar.setter
+    def avatar(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "avatar", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+
+class CortexAgentProfileArgsDict(TypedDict):
+    avatar: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies an avatar image file name or identifier.
+    """
+    color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies a color theme for the Cortex agent.
+    """
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies a display name for the Cortex agent.
+    """
+
+@pulumi.input_type
+class CortexAgentProfileArgs:
+    def __init__(__self__, *,
+                 avatar: pulumi.Input[Optional[_builtins.str]] = None,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] avatar: Specifies an avatar image file name or identifier.
+        :param pulumi.Input[_builtins.str] color: Specifies a color theme for the Cortex agent.
+        :param pulumi.Input[_builtins.str] display_name: Specifies a display name for the Cortex agent.
+        """
+        if avatar is not None:
+            pulumi.set(__self__, "avatar", avatar)
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def avatar(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies an avatar image file name or identifier.
+        """
+        return pulumi.get(self, "avatar")
+
+    @avatar.setter
+    def avatar(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "avatar", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies a color theme for the Cortex agent.
+        """
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies a display name for the Cortex agent.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+
+class CortexAgentShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    profiles: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CortexAgentShowOutputProfileArgsDict']]]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class CortexAgentShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 profiles: pulumi.Input[Optional[Sequence[pulumi.Input['CortexAgentShowOutputProfileArgs']]]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def profiles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['CortexAgentShowOutputProfileArgs']]]]:
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CortexAgentShowOutputProfileArgs']]]]):
+        pulumi.set(self, "profiles", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+class CortexAgentShowOutputProfileArgsDict(TypedDict):
+    avatar: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    color: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class CortexAgentShowOutputProfileArgs:
+    def __init__(__self__, *,
+                 avatar: pulumi.Input[Optional[_builtins.str]] = None,
+                 color: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
+        if avatar is not None:
+            pulumi.set(__self__, "avatar", avatar)
+        if color is not None:
+            pulumi.set(__self__, "color", color)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def avatar(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "avatar")
+
+    @avatar.setter
+    def avatar(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "avatar", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def color(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "color")
+
+    @color.setter
+    def color(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "color", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
 
 
 class CortexSearchServiceDescribeOutputArgsDict(TypedDict):
@@ -10001,19 +10450,23 @@ class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgsDict(Ty
     azure_consent_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     azure_multi_tenant_app_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     azure_tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    use_privatelink_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs:
     def __init__(__self__, *,
                  azure_consent_url: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_multi_tenant_app_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         if azure_consent_url is not None:
             pulumi.set(__self__, "azure_consent_url", azure_consent_url)
         if azure_multi_tenant_app_name is not None:
             pulumi.set(__self__, "azure_multi_tenant_app_name", azure_multi_tenant_app_name)
         if azure_tenant_id is not None:
             pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+        if use_privatelink_endpoint is not None:
+            pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
 
     @_builtins.property
     @pulumi.getter(name="azureConsentUrl")
@@ -10041,6 +10494,15 @@ class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs:
     @azure_tenant_id.setter
     def azure_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+    @use_privatelink_endpoint.setter
+    def use_privatelink_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "use_privatelink_endpoint", value)
 
 
 class ExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgsDict(TypedDict):
@@ -63300,11 +63762,11 @@ class TableTagArgs:
 class TagOnConflictArgsDict(TypedDict):
     allowed_values_sequence: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+    The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
     """
     custom_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Whenever there is a conflict, the value of tag is set to custom_value. If `allowed_values` are set, the value set in this field should be one of the values in the `allowed_values` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+    Whenever there is a conflict, the value of tag is set to custom_value. If `allowed_values` are set, the value set in this field should be one of the values in the `allowed_values` list.
     """
 
 @pulumi.input_type
@@ -63313,8 +63775,8 @@ class TagOnConflictArgs:
                  allowed_values_sequence: pulumi.Input[Optional[_builtins.bool]] = None,
                  custom_value: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.bool] allowed_values_sequence: The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[_builtins.str] custom_value: Whenever there is a conflict, the value of tag is set to custom_value. If `allowed_values` are set, the value set in this field should be one of the values in the `allowed_values` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[_builtins.bool] allowed_values_sequence: The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
+        :param pulumi.Input[_builtins.str] custom_value: Whenever there is a conflict, the value of tag is set to custom_value. If `allowed_values` are set, the value set in this field should be one of the values in the `allowed_values` list.
         """
         if allowed_values_sequence is not None:
             pulumi.set(__self__, "allowed_values_sequence", allowed_values_sequence)
@@ -63325,7 +63787,7 @@ class TagOnConflictArgs:
     @pulumi.getter(name="allowedValuesSequence")
     def allowed_values_sequence(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
         """
         return pulumi.get(self, "allowed_values_sequence")
 
@@ -63337,7 +63799,7 @@ class TagOnConflictArgs:
     @pulumi.getter(name="customValue")
     def custom_value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Whenever there is a conflict, the value of tag is set to custom_value. If `allowed_values` are set, the value set in this field should be one of the values in the `allowed_values` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        Whenever there is a conflict, the value of tag is set to custom_value. If `allowed_values` are set, the value set in this field should be one of the values in the `allowed_values` list.
         """
         return pulumi.get(self, "custom_value")
 
@@ -63352,6 +63814,7 @@ class TagShowOutputArgsDict(TypedDict):
     created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    on_conflict: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     propagate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -63365,6 +63828,7 @@ class TagShowOutputArgs:
                  created_on: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 on_conflict: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_role_type: pulumi.Input[Optional[_builtins.str]] = None,
                  propagate: pulumi.Input[Optional[_builtins.str]] = None,
@@ -63379,6 +63843,8 @@ class TagShowOutputArgs:
             pulumi.set(__self__, "database_name", database_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if on_conflict is not None:
+            pulumi.set(__self__, "on_conflict", on_conflict)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
         if owner_role_type is not None:
@@ -63432,6 +63898,15 @@ class TagShowOutputArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="onConflict")
+    def on_conflict(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "on_conflict")
+
+    @on_conflict.setter
+    def on_conflict(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "on_conflict", value)
 
     @_builtins.property
     @pulumi.getter
@@ -76611,6 +77086,163 @@ class GetComputePoolsLimitArgsDict(TypedDict):
 
 @pulumi.input_type
 class GetComputePoolsLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+class GetCortexAgentsInArgsDict(TypedDict):
+    account: NotRequired[_builtins.bool]
+    """
+    Returns records for the entire account.
+    """
+    application: NotRequired[_builtins.str]
+    """
+    Returns records for the specified application.
+    """
+    application_package: NotRequired[_builtins.str]
+    """
+    Returns records for the specified application package.
+    """
+    database: NotRequired[_builtins.str]
+    """
+    Returns records for the current database in use or for a specified database.
+    """
+    schema: NotRequired[_builtins.str]
+    """
+    Returns records for the current schema in use or a specified schema. Use fully qualified name.
+    """
+
+@pulumi.input_type
+class GetCortexAgentsInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 application: Optional[_builtins.str] = None,
+                 application_package: Optional[_builtins.str] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str application: Returns records for the specified application.
+        :param _builtins.str application_package: Returns records for the specified application package.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def application(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "application", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "application_package", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+class GetCortexAgentsLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetCortexAgentsLimitArgs:
     def __init__(__self__, *,
                  rows: _builtins.int,
                  from_: Optional[_builtins.str] = None):

@@ -14,6 +14,7 @@ public final class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocati
     private @Nullable String azureConsentUrl;
     private @Nullable String azureMultiTenantAppName;
     private @Nullable String azureTenantId;
+    private @Nullable String usePrivatelinkEndpoint;
 
     private ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation() {}
     public Optional<String> azureConsentUrl() {
@@ -24,6 +25,9 @@ public final class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocati
     }
     public Optional<String> azureTenantId() {
         return Optional.ofNullable(this.azureTenantId);
+    }
+    public Optional<String> usePrivatelinkEndpoint() {
+        return Optional.ofNullable(this.usePrivatelinkEndpoint);
     }
 
     public static Builder builder() {
@@ -38,12 +42,14 @@ public final class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocati
         private @Nullable String azureConsentUrl;
         private @Nullable String azureMultiTenantAppName;
         private @Nullable String azureTenantId;
+        private @Nullable String usePrivatelinkEndpoint;
         public Builder() {}
         public Builder(ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureConsentUrl = defaults.azureConsentUrl;
     	      this.azureMultiTenantAppName = defaults.azureMultiTenantAppName;
     	      this.azureTenantId = defaults.azureTenantId;
+    	      this.usePrivatelinkEndpoint = defaults.usePrivatelinkEndpoint;
         }
 
         @CustomType.Setter
@@ -64,11 +70,18 @@ public final class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocati
             this.azureTenantId = azureTenantId;
             return this;
         }
+        @CustomType.Setter
+        public Builder usePrivatelinkEndpoint(@Nullable String usePrivatelinkEndpoint) {
+
+            this.usePrivatelinkEndpoint = usePrivatelinkEndpoint;
+            return this;
+        }
         public ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation build() {
             final var _resultValue = new ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation();
             _resultValue.azureConsentUrl = azureConsentUrl;
             _resultValue.azureMultiTenantAppName = azureMultiTenantAppName;
             _resultValue.azureTenantId = azureTenantId;
+            _resultValue.usePrivatelinkEndpoint = usePrivatelinkEndpoint;
             return _resultValue;
         }
     }

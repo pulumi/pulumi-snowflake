@@ -51,6 +51,13 @@ public final class TagShowOutputArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="onConflict")
+    private @Nullable Output<String> onConflict;
+
+    public Optional<Output<String>> onConflict() {
+        return Optional.ofNullable(this.onConflict);
+    }
+
     @Import(name="owner")
     private @Nullable Output<String> owner;
 
@@ -87,6 +94,7 @@ public final class TagShowOutputArgs extends com.pulumi.resources.ResourceArgs {
         this.createdOn = $.createdOn;
         this.databaseName = $.databaseName;
         this.name = $.name;
+        this.onConflict = $.onConflict;
         this.owner = $.owner;
         this.ownerRoleType = $.ownerRoleType;
         this.propagate = $.propagate;
@@ -158,6 +166,15 @@ public final class TagShowOutputArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder onConflict(@Nullable Output<String> onConflict) {
+            $.onConflict = onConflict;
+            return this;
+        }
+
+        public Builder onConflict(String onConflict) {
+            return onConflict(Output.of(onConflict));
         }
 
         public Builder owner(@Nullable Output<String> owner) {

@@ -14,12 +14,11 @@ import (
 
 // > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
+// > **Note on import behavior** After import, the first `pulumi preview` may show an in-place **update** (not recreation) for the write-only authentication secret that Snowflake does not return: `rest_authentication.oauth_client_secret`. Run `pulumi up` once to sync this value into state.
+//
 // Resource used to manage catalog integration objects for Apache Iceberg™ tables that integrate with Snowflake Open Catalog. For more information, check [catalog integration documentation](https://docs.snowflake.com/en/sql-reference/sql/create-catalog-integration-open-catalog).
 //
 // ## Example Usage
-//
-// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
-// <!-- TODO(SNOW-1634854): include an example showing both methods-->
 //
 // ```go
 // package main
@@ -82,6 +81,9 @@ import (
 //	}
 //
 // ```
+//
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
 //
 // > **Note** If a field has a default value, it is shown next to the type in the schema.
 //

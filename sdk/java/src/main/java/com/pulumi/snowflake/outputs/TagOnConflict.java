@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TagOnConflict {
     /**
-     * @return The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * @return The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
      * 
      */
     private @Nullable Boolean allowedValuesSequence;
     /**
-     * @return Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * @return Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list.
      * 
      */
     private @Nullable String customValue;
 
     private TagOnConflict() {}
     /**
-     * @return The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * @return The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
      * 
      */
     public Optional<Boolean> allowedValuesSequence() {
         return Optional.ofNullable(this.allowedValuesSequence);
     }
     /**
-     * @return Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * @return Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list.
      * 
      */
     public Optional<String> customValue() {

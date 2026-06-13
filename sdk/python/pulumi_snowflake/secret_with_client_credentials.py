@@ -23,28 +23,29 @@ class SecretWithClientCredentialsArgs:
     def __init__(__self__, *,
                  api_authentication: pulumi.Input[_builtins.str],
                  database: pulumi.Input[_builtins.str],
-                 oauth_scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  schema: pulumi.Input[_builtins.str],
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 oauth_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecretWithClientCredentials resource.
 
         :param pulumi.Input[_builtins.str] api_authentication: Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_scopes: Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_scopes: Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
         """
         pulumi.set(__self__, "api_authentication", api_authentication)
         pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "oauth_scopes", oauth_scopes)
         pulumi.set(__self__, "schema", schema)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if oauth_scopes is not None:
+            pulumi.set(__self__, "oauth_scopes", oauth_scopes)
 
     @_builtins.property
     @pulumi.getter(name="apiAuthentication")
@@ -69,18 +70,6 @@ class SecretWithClientCredentialsArgs:
     @database.setter
     def database(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "database", value)
-
-    @_builtins.property
-    @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
-        """
-        return pulumi.get(self, "oauth_scopes")
-
-    @oauth_scopes.setter
-    def oauth_scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
-        pulumi.set(self, "oauth_scopes", value)
 
     @_builtins.property
     @pulumi.getter
@@ -118,6 +107,18 @@ class SecretWithClientCredentialsArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="oauthScopes")
+    def oauth_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
+        """
+        return pulumi.get(self, "oauth_scopes")
+
+    @oauth_scopes.setter
+    def oauth_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "oauth_scopes", value)
+
 
 @pulumi.input_type
 class _SecretWithClientCredentialsState:
@@ -141,7 +142,7 @@ class _SecretWithClientCredentialsState:
         :param pulumi.Input[Sequence[pulumi.Input['SecretWithClientCredentialsDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_scopes: Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_scopes: Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] secret_type: Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[Sequence[pulumi.Input['SecretWithClientCredentialsShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SECRETS` for the given secret.
@@ -243,7 +244,7 @@ class _SecretWithClientCredentialsState:
     @pulumi.getter(name="oauthScopes")
     def oauth_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+        Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
         """
         return pulumi.get(self, "oauth_scopes")
 
@@ -304,6 +305,45 @@ class SecretWithClientCredentials(pulumi.CustomResource):
         """
         Resource used to manage secret objects with OAuth Client Credentials. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # basic resource (without oauth_scopes — scopes are inherited from the security integration)
+        basic = snowflake.SecretWithClientCredentials("basic",
+            name="EXAMPLE_SECRET",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            api_authentication=example["fullyQualifiedName"])
+        # resource with explicit oauth_scopes
+        with_scopes = snowflake.SecretWithClientCredentials("with_scopes",
+            name="EXAMPLE_SECRET",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            api_authentication=example["fullyQualifiedName"],
+            oauth_scopes=[
+                "useraccount",
+                "testscope",
+            ])
+        # resource with all fields set
+        complete = snowflake.SecretWithClientCredentials("complete",
+            name="EXAMPLE_SECRET",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            api_authentication=example["fullyQualifiedName"],
+            oauth_scopes=[
+                "useraccount",
+                "testscope",
+            ],
+            comment="EXAMPLE_COMMENT")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         ## Import
 
         ```sh
@@ -317,7 +357,7 @@ class SecretWithClientCredentials(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_scopes: Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_scopes: Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         ...
@@ -328,6 +368,45 @@ class SecretWithClientCredentials(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource used to manage secret objects with OAuth Client Credentials. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_snowflake as snowflake
+
+        # basic resource (without oauth_scopes — scopes are inherited from the security integration)
+        basic = snowflake.SecretWithClientCredentials("basic",
+            name="EXAMPLE_SECRET",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            api_authentication=example["fullyQualifiedName"])
+        # resource with explicit oauth_scopes
+        with_scopes = snowflake.SecretWithClientCredentials("with_scopes",
+            name="EXAMPLE_SECRET",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            api_authentication=example["fullyQualifiedName"],
+            oauth_scopes=[
+                "useraccount",
+                "testscope",
+            ])
+        # resource with all fields set
+        complete = snowflake.SecretWithClientCredentials("complete",
+            name="EXAMPLE_SECRET",
+            database="EXAMPLE_DB",
+            schema="EXAMPLE_SCHEMA",
+            api_authentication=example["fullyQualifiedName"],
+            oauth_scopes=[
+                "useraccount",
+                "testscope",
+            ],
+            comment="EXAMPLE_COMMENT")
+        ```
+        > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+        <!-- TODO(SNOW-1634854): include an example showing both methods-->
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
 
         ## Import
 
@@ -374,8 +453,6 @@ class SecretWithClientCredentials(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
             __props__.__dict__["name"] = name
-            if oauth_scopes is None and not opts.urn:
-                raise TypeError("Missing required property 'oauth_scopes'")
             __props__.__dict__["oauth_scopes"] = oauth_scopes
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
@@ -417,7 +494,7 @@ class SecretWithClientCredentials(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithClientCredentialsDescribeOutputArgs', 'SecretWithClientCredentialsDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_scopes: Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] oauth_scopes: Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] secret_type: Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithClientCredentialsShowOutputArgs', 'SecretWithClientCredentialsShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECRETS` for the given secret.
@@ -488,9 +565,9 @@ class SecretWithClientCredentials(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="oauthScopes")
-    def oauth_scopes(self) -> pulumi.Output[Sequence[_builtins.str]]:
+    def oauth_scopes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+        Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
         """
         return pulumi.get(self, "oauth_scopes")
 

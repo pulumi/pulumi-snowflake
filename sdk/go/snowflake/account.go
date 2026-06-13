@@ -50,7 +50,7 @@ type Account struct {
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+	// Specifies the number of days during which the account can be restored ("undropped"). The minimum is 3 days and the maximum is 90 days.
 	GracePeriodInDays pulumi.IntOutput `pulumi:"gracePeriodInDays"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin pulumi.StringPtrOutput `pulumi:"isOrgAdmin"`
@@ -58,7 +58,7 @@ type Account struct {
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	MustChangePassword pulumi.StringPtrOutput `pulumi:"mustChangePassword"`
-	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (*). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores. Note: with the 2026*03 bundle ([BCR-2215](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_03/bcr-2215)), Snowflake enforces that the combined `<orgname>-<name>` identifier is at most 63 characters and that `name` does not end with `_`; otherwise `CREATE ACCOUNT` and `ALTER ACCOUNT ... RENAME TO` fail with `ORG_ACCOUNT_NAME_EXCEEDS_DNS_LIMIT` / `ACCOUNT_NAME_INVALID_FOR_DNS`. Existing accounts that do not comply keep working but cannot be renamed back to a non-compliant value once renamed to a compliant one.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 	Region pulumi.StringPtrOutput `pulumi:"region"`
@@ -153,7 +153,7 @@ type accountState struct {
 	FirstName *string `pulumi:"firstName"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+	// Specifies the number of days during which the account can be restored ("undropped"). The minimum is 3 days and the maximum is 90 days.
 	GracePeriodInDays *int `pulumi:"gracePeriodInDays"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin *string `pulumi:"isOrgAdmin"`
@@ -161,7 +161,7 @@ type accountState struct {
 	LastName *string `pulumi:"lastName"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	MustChangePassword *string `pulumi:"mustChangePassword"`
-	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (*). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores. Note: with the 2026*03 bundle ([BCR-2215](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_03/bcr-2215)), Snowflake enforces that the combined `<orgname>-<name>` identifier is at most 63 characters and that `name` does not end with `_`; otherwise `CREATE ACCOUNT` and `ALTER ACCOUNT ... RENAME TO` fail with `ORG_ACCOUNT_NAME_EXCEEDS_DNS_LIMIT` / `ACCOUNT_NAME_INVALID_FOR_DNS`. Existing accounts that do not comply keep working but cannot be renamed back to a non-compliant value once renamed to a compliant one.
 	Name *string `pulumi:"name"`
 	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 	Region *string `pulumi:"region"`
@@ -192,7 +192,7 @@ type AccountState struct {
 	FirstName pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+	// Specifies the number of days during which the account can be restored ("undropped"). The minimum is 3 days and the maximum is 90 days.
 	GracePeriodInDays pulumi.IntPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin pulumi.StringPtrInput
@@ -200,7 +200,7 @@ type AccountState struct {
 	LastName pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	MustChangePassword pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (*). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores. Note: with the 2026*03 bundle ([BCR-2215](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_03/bcr-2215)), Snowflake enforces that the combined `<orgname>-<name>` identifier is at most 63 characters and that `name` does not end with `_`; otherwise `CREATE ACCOUNT` and `ALTER ACCOUNT ... RENAME TO` fail with `ORG_ACCOUNT_NAME_EXCEEDS_DNS_LIMIT` / `ACCOUNT_NAME_INVALID_FOR_DNS`. Existing accounts that do not comply keep working but cannot be renamed back to a non-compliant value once renamed to a compliant one.
 	Name pulumi.StringPtrInput
 	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 	Region pulumi.StringPtrInput
@@ -233,7 +233,7 @@ type accountArgs struct {
 	Email string `pulumi:"email"`
 	// First name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	FirstName *string `pulumi:"firstName"`
-	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+	// Specifies the number of days during which the account can be restored ("undropped"). The minimum is 3 days and the maximum is 90 days.
 	GracePeriodInDays int `pulumi:"gracePeriodInDays"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin *string `pulumi:"isOrgAdmin"`
@@ -241,7 +241,7 @@ type accountArgs struct {
 	LastName *string `pulumi:"lastName"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	MustChangePassword *string `pulumi:"mustChangePassword"`
-	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (*). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores. Note: with the 2026*03 bundle ([BCR-2215](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_03/bcr-2215)), Snowflake enforces that the combined `<orgname>-<name>` identifier is at most 63 characters and that `name` does not end with `_`; otherwise `CREATE ACCOUNT` and `ALTER ACCOUNT ... RENAME TO` fail with `ORG_ACCOUNT_NAME_EXCEEDS_DNS_LIMIT` / `ACCOUNT_NAME_INVALID_FOR_DNS`. Existing accounts that do not comply keep working but cannot be renamed back to a non-compliant value once renamed to a compliant one.
 	Name *string `pulumi:"name"`
 	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 	Region *string `pulumi:"region"`
@@ -269,7 +269,7 @@ type AccountArgs struct {
 	Email pulumi.StringInput
 	// First name of the initial administrative user of the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	FirstName pulumi.StringPtrInput
-	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+	// Specifies the number of days during which the account can be restored ("undropped"). The minimum is 3 days and the maximum is 90 days.
 	GracePeriodInDays pulumi.IntInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin pulumi.StringPtrInput
@@ -277,7 +277,7 @@ type AccountArgs struct {
 	LastName pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the new user created to administer the account is forced to change their password upon first login into the account. This field cannot be used whenever admin*user*type is set to SERVICE. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	MustChangePassword pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (*). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores. Note: with the 2026*03 bundle ([BCR-2215](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_03/bcr-2215)), Snowflake enforces that the combined `<orgname>-<name>` identifier is at most 63 characters and that `name` does not end with `_`; otherwise `CREATE ACCOUNT` and `ALTER ACCOUNT ... RENAME TO` fail with `ORG_ACCOUNT_NAME_EXCEEDS_DNS_LIMIT` / `ACCOUNT_NAME_INVALID_FOR_DNS`. Existing accounts that do not comply keep working but cannot be renamed back to a non-compliant value once renamed to a compliant one.
 	Name pulumi.StringPtrInput
 	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 	Region pulumi.StringPtrInput
@@ -422,7 +422,7 @@ func (o AccountOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+// Specifies the number of days during which the account can be restored ("undropped"). The minimum is 3 days and the maximum is 90 days.
 func (o AccountOutput) GracePeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *Account) pulumi.IntOutput { return v.GracePeriodInDays }).(pulumi.IntOutput)
 }
@@ -442,7 +442,7 @@ func (o AccountOutput) MustChangePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.MustChangePassword }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (*). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores. Note: with the 2026*03 bundle ([BCR-2215](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_03/bcr-2215)), Snowflake enforces that the combined `<orgname>-<name>` identifier is at most 63 characters and that `name` does not end with `_`; otherwise `CREATE ACCOUNT` and `ALTER ACCOUNT ... RENAME TO` fail with `ORG_ACCOUNT_NAME_EXCEEDS_DNS_LIMIT` / `ACCOUNT_NAME_INVALID_FOR_DNS`. Existing accounts that do not comply keep working but cannot be renamed back to a non-compliant value once renamed to a compliant one.
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

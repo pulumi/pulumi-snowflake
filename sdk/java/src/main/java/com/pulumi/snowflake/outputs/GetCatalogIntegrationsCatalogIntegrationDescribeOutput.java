@@ -22,6 +22,8 @@ public final class GetCatalogIntegrationsCatalogIntegrationDescribeOutput {
     private String catalogSource;
     private String comment;
     private Boolean enabled;
+    private String glueAwsExternalId;
+    private String glueAwsIamUserArn;
     private String glueAwsRoleArn;
     private String glueCatalogId;
     private String glueRegion;
@@ -47,6 +49,12 @@ public final class GetCatalogIntegrationsCatalogIntegrationDescribeOutput {
     }
     public Boolean enabled() {
         return this.enabled;
+    }
+    public String glueAwsExternalId() {
+        return this.glueAwsExternalId;
+    }
+    public String glueAwsIamUserArn() {
+        return this.glueAwsIamUserArn;
     }
     public String glueAwsRoleArn() {
         return this.glueAwsRoleArn;
@@ -90,6 +98,8 @@ public final class GetCatalogIntegrationsCatalogIntegrationDescribeOutput {
         private String catalogSource;
         private String comment;
         private Boolean enabled;
+        private String glueAwsExternalId;
+        private String glueAwsIamUserArn;
         private String glueAwsRoleArn;
         private String glueCatalogId;
         private String glueRegion;
@@ -107,6 +117,8 @@ public final class GetCatalogIntegrationsCatalogIntegrationDescribeOutput {
     	      this.catalogSource = defaults.catalogSource;
     	      this.comment = defaults.comment;
     	      this.enabled = defaults.enabled;
+    	      this.glueAwsExternalId = defaults.glueAwsExternalId;
+    	      this.glueAwsIamUserArn = defaults.glueAwsIamUserArn;
     	      this.glueAwsRoleArn = defaults.glueAwsRoleArn;
     	      this.glueCatalogId = defaults.glueCatalogId;
     	      this.glueRegion = defaults.glueRegion;
@@ -159,6 +171,22 @@ public final class GetCatalogIntegrationsCatalogIntegrationDescribeOutput {
               throw new MissingRequiredPropertyException("GetCatalogIntegrationsCatalogIntegrationDescribeOutput", "enabled");
             }
             this.enabled = enabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder glueAwsExternalId(String glueAwsExternalId) {
+            if (glueAwsExternalId == null) {
+              throw new MissingRequiredPropertyException("GetCatalogIntegrationsCatalogIntegrationDescribeOutput", "glueAwsExternalId");
+            }
+            this.glueAwsExternalId = glueAwsExternalId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder glueAwsIamUserArn(String glueAwsIamUserArn) {
+            if (glueAwsIamUserArn == null) {
+              throw new MissingRequiredPropertyException("GetCatalogIntegrationsCatalogIntegrationDescribeOutput", "glueAwsIamUserArn");
+            }
+            this.glueAwsIamUserArn = glueAwsIamUserArn;
             return this;
         }
         @CustomType.Setter
@@ -249,6 +277,8 @@ public final class GetCatalogIntegrationsCatalogIntegrationDescribeOutput {
             _resultValue.catalogSource = catalogSource;
             _resultValue.comment = comment;
             _resultValue.enabled = enabled;
+            _resultValue.glueAwsExternalId = glueAwsExternalId;
+            _resultValue.glueAwsIamUserArn = glueAwsIamUserArn;
             _resultValue.glueAwsRoleArn = glueAwsRoleArn;
             _resultValue.glueCatalogId = glueCatalogId;
             _resultValue.glueRegion = glueRegion;

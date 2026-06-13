@@ -463,6 +463,8 @@ export interface CatalogIntegrationAwsGlueDescribeOutput {
     catalogSource: string;
     comment: string;
     enabled: boolean;
+    glueAwsExternalId: string;
+    glueAwsIamUserArn: string;
     glueAwsRoleArn: string;
     glueCatalogId: string;
     glueRegion: string;
@@ -723,6 +725,57 @@ export interface ComputePoolShowOutput {
     state: string;
     targetNodes: number;
     updatedOn: string;
+}
+
+export interface CortexAgentDescribeOutput {
+    agentSpec: string;
+    aliases: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    defaultVersionName: string;
+    name: string;
+    owner: string;
+    profiles: outputs.CortexAgentDescribeOutputProfile[];
+    schemaName: string;
+    versions: string;
+}
+
+export interface CortexAgentDescribeOutputProfile {
+    avatar: string;
+    color: string;
+    displayName: string;
+}
+
+export interface CortexAgentProfile {
+    /**
+     * Specifies an avatar image file name or identifier.
+     */
+    avatar?: string;
+    /**
+     * Specifies a color theme for the Cortex agent.
+     */
+    color?: string;
+    /**
+     * Specifies a display name for the Cortex agent.
+     */
+    displayName?: string;
+}
+
+export interface CortexAgentShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    profiles: outputs.CortexAgentShowOutputProfile[];
+    schemaName: string;
+}
+
+export interface CortexAgentShowOutputProfile {
+    avatar: string;
+    color: string;
+    displayName: string;
 }
 
 export interface CortexSearchServiceDescribeOutput {
@@ -1025,6 +1078,7 @@ export interface ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation
     azureConsentUrl: string;
     azureMultiTenantAppName: string;
     azureTenantId: string;
+    usePrivatelinkEndpoint: string;
 }
 
 export interface ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
@@ -1807,6 +1861,8 @@ export interface GetCatalogIntegrationsCatalogIntegrationDescribeOutput {
     catalogSource: string;
     comment: string;
     enabled: boolean;
+    glueAwsExternalId: string;
+    glueAwsIamUserArn: string;
     glueAwsRoleArn: string;
     glueCatalogId: string;
     glueRegion: string;
@@ -1937,6 +1993,87 @@ export interface GetConnectionsConnectionShowOutput {
     primary: string;
     regionGroup: string;
     snowflakeRegion: string;
+}
+
+export interface GetCortexAgentsCortexAgent {
+    /**
+     * Holds the output of DESCRIBE AGENT.
+     */
+    describeOutputs: outputs.GetCortexAgentsCortexAgentDescribeOutput[];
+    /**
+     * Holds the output of SHOW AGENTS.
+     */
+    showOutputs: outputs.GetCortexAgentsCortexAgentShowOutput[];
+}
+
+export interface GetCortexAgentsCortexAgentDescribeOutput {
+    agentSpec: string;
+    aliases: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    defaultVersionName: string;
+    name: string;
+    owner: string;
+    profiles: outputs.GetCortexAgentsCortexAgentDescribeOutputProfile[];
+    schemaName: string;
+    versions: string;
+}
+
+export interface GetCortexAgentsCortexAgentDescribeOutputProfile {
+    avatar: string;
+    color: string;
+    displayName: string;
+}
+
+export interface GetCortexAgentsCortexAgentShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    profiles: outputs.GetCortexAgentsCortexAgentShowOutputProfile[];
+    schemaName: string;
+}
+
+export interface GetCortexAgentsCortexAgentShowOutputProfile {
+    avatar: string;
+    color: string;
+    displayName: string;
+}
+
+export interface GetCortexAgentsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetCortexAgentsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
 }
 
 export interface GetCortexSearchServicesCortexSearchService {
@@ -2382,6 +2519,7 @@ export interface GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAz
     azureConsentUrl: string;
     azureMultiTenantAppName: string;
     azureTenantId: string;
+    usePrivatelinkEndpoint: string;
 }
 
 export interface GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
@@ -4738,6 +4876,7 @@ export interface GetTagsTagShowOutput {
     createdOn: string;
     databaseName: string;
     name: string;
+    onConflict: string;
     owner: string;
     ownerRoleType: string;
     propagate: string;
@@ -12562,11 +12701,11 @@ export interface TableTag {
 
 export interface TagOnConflict {
     /**
-     * The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     * The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
      */
     allowedValuesSequence?: boolean;
     /**
-     * Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     * Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list.
      */
     customValue?: string;
 }
@@ -12577,6 +12716,7 @@ export interface TagShowOutput {
     createdOn: string;
     databaseName: string;
     name: string;
+    onConflict: string;
     owner: string;
     ownerRoleType: string;
     propagate: string;

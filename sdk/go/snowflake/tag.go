@@ -44,7 +44,7 @@ type Tag struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
 	NoAllowedValues pulumi.BoolPtrOutput `pulumi:"noAllowedValues"`
-	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 	OnConflict TagOnConflictPtrOutput `pulumi:"onConflict"`
 	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
 	OrderedAllowedValues pulumi.StringArrayOutput `pulumi:"orderedAllowedValues"`
@@ -108,7 +108,7 @@ type tagState struct {
 	Name *string `pulumi:"name"`
 	// When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
 	NoAllowedValues *bool `pulumi:"noAllowedValues"`
-	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 	OnConflict *TagOnConflict `pulumi:"onConflict"`
 	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
 	OrderedAllowedValues []string `pulumi:"orderedAllowedValues"`
@@ -137,7 +137,7 @@ type TagState struct {
 	Name pulumi.StringPtrInput
 	// When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
 	NoAllowedValues pulumi.BoolPtrInput
-	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 	OnConflict TagOnConflictPtrInput
 	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
 	OrderedAllowedValues pulumi.StringArrayInput
@@ -168,7 +168,7 @@ type tagArgs struct {
 	Name *string `pulumi:"name"`
 	// When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
 	NoAllowedValues *bool `pulumi:"noAllowedValues"`
-	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 	OnConflict *TagOnConflict `pulumi:"onConflict"`
 	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
 	OrderedAllowedValues []string `pulumi:"orderedAllowedValues"`
@@ -194,7 +194,7 @@ type TagArgs struct {
 	Name pulumi.StringPtrInput
 	// When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowedValues`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowedValues` and `orderedAllowedValues`.
 	NoAllowedValues pulumi.BoolPtrInput
-	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 	OnConflict TagOnConflictPtrInput
 	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
 	OrderedAllowedValues pulumi.StringArrayInput
@@ -328,7 +328,7 @@ func (o TagOutput) NoAllowedValues() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Tag) pulumi.BoolPtrOutput { return v.NoAllowedValues }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 func (o TagOutput) OnConflict() TagOnConflictPtrOutput {
 	return o.ApplyT(func(v *Tag) TagOnConflictPtrOutput { return v.OnConflict }).(TagOnConflictPtrOutput)
 }

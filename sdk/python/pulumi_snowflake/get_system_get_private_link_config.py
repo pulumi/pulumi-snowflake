@@ -26,13 +26,16 @@ class GetSystemGetPrivateLinkConfigResult:
     """
     A collection of values returned by getSystemGetPrivateLinkConfig.
     """
-    def __init__(__self__, account_name=None, account_url=None, aws_vpce_id=None, azure_pls_id=None, id=None, internal_stage=None, ocsp_url=None, regionless_account_url=None, regionless_snowsight_url=None, snowsight_url=None):
+    def __init__(__self__, account_name=None, account_url=None, app_service_privatelink_url=None, aws_vpce_id=None, azure_pls_id=None, id=None, internal_stage=None, ocsp_url=None, privatelink_account_principal=None, privatelink_connection_ocsp_urls=None, privatelink_connection_urls=None, privatelink_dashed_urls_for_duo=None, privatelink_gcp_service_attachment=None, privatelink_snowflake_managed_storage_volume_fs=None, privatelink_snowflake_managed_storage_volume_nfs=None, regionless_account_url=None, regionless_privatelink_ocsp_url=None, regionless_snowsight_url=None, snowsight_url=None):
         if account_name and not isinstance(account_name, str):
             raise TypeError("Expected argument 'account_name' to be a str")
         pulumi.set(__self__, "account_name", account_name)
         if account_url and not isinstance(account_url, str):
             raise TypeError("Expected argument 'account_url' to be a str")
         pulumi.set(__self__, "account_url", account_url)
+        if app_service_privatelink_url and not isinstance(app_service_privatelink_url, str):
+            raise TypeError("Expected argument 'app_service_privatelink_url' to be a str")
+        pulumi.set(__self__, "app_service_privatelink_url", app_service_privatelink_url)
         if aws_vpce_id and not isinstance(aws_vpce_id, str):
             raise TypeError("Expected argument 'aws_vpce_id' to be a str")
         pulumi.set(__self__, "aws_vpce_id", aws_vpce_id)
@@ -48,9 +51,33 @@ class GetSystemGetPrivateLinkConfigResult:
         if ocsp_url and not isinstance(ocsp_url, str):
             raise TypeError("Expected argument 'ocsp_url' to be a str")
         pulumi.set(__self__, "ocsp_url", ocsp_url)
+        if privatelink_account_principal and not isinstance(privatelink_account_principal, str):
+            raise TypeError("Expected argument 'privatelink_account_principal' to be a str")
+        pulumi.set(__self__, "privatelink_account_principal", privatelink_account_principal)
+        if privatelink_connection_ocsp_urls and not isinstance(privatelink_connection_ocsp_urls, str):
+            raise TypeError("Expected argument 'privatelink_connection_ocsp_urls' to be a str")
+        pulumi.set(__self__, "privatelink_connection_ocsp_urls", privatelink_connection_ocsp_urls)
+        if privatelink_connection_urls and not isinstance(privatelink_connection_urls, str):
+            raise TypeError("Expected argument 'privatelink_connection_urls' to be a str")
+        pulumi.set(__self__, "privatelink_connection_urls", privatelink_connection_urls)
+        if privatelink_dashed_urls_for_duo and not isinstance(privatelink_dashed_urls_for_duo, str):
+            raise TypeError("Expected argument 'privatelink_dashed_urls_for_duo' to be a str")
+        pulumi.set(__self__, "privatelink_dashed_urls_for_duo", privatelink_dashed_urls_for_duo)
+        if privatelink_gcp_service_attachment and not isinstance(privatelink_gcp_service_attachment, str):
+            raise TypeError("Expected argument 'privatelink_gcp_service_attachment' to be a str")
+        pulumi.set(__self__, "privatelink_gcp_service_attachment", privatelink_gcp_service_attachment)
+        if privatelink_snowflake_managed_storage_volume_fs and not isinstance(privatelink_snowflake_managed_storage_volume_fs, str):
+            raise TypeError("Expected argument 'privatelink_snowflake_managed_storage_volume_fs' to be a str")
+        pulumi.set(__self__, "privatelink_snowflake_managed_storage_volume_fs", privatelink_snowflake_managed_storage_volume_fs)
+        if privatelink_snowflake_managed_storage_volume_nfs and not isinstance(privatelink_snowflake_managed_storage_volume_nfs, str):
+            raise TypeError("Expected argument 'privatelink_snowflake_managed_storage_volume_nfs' to be a str")
+        pulumi.set(__self__, "privatelink_snowflake_managed_storage_volume_nfs", privatelink_snowflake_managed_storage_volume_nfs)
         if regionless_account_url and not isinstance(regionless_account_url, str):
             raise TypeError("Expected argument 'regionless_account_url' to be a str")
         pulumi.set(__self__, "regionless_account_url", regionless_account_url)
+        if regionless_privatelink_ocsp_url and not isinstance(regionless_privatelink_ocsp_url, str):
+            raise TypeError("Expected argument 'regionless_privatelink_ocsp_url' to be a str")
+        pulumi.set(__self__, "regionless_privatelink_ocsp_url", regionless_privatelink_ocsp_url)
         if regionless_snowsight_url and not isinstance(regionless_snowsight_url, str):
             raise TypeError("Expected argument 'regionless_snowsight_url' to be a str")
         pulumi.set(__self__, "regionless_snowsight_url", regionless_snowsight_url)
@@ -70,9 +97,17 @@ class GetSystemGetPrivateLinkConfigResult:
     @pulumi.getter(name="accountUrl")
     def account_url(self) -> _builtins.str:
         """
-        The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+        The URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
         """
         return pulumi.get(self, "account_url")
+
+    @_builtins.property
+    @pulumi.getter(name="appServicePrivatelinkUrl")
+    def app_service_privatelink_url(self) -> _builtins.str:
+        """
+        The PrivateLink endpoint URL used to route traffic to Snowflake-hosted app services, such as Streamlit or Notebooks.
+        """
+        return pulumi.get(self, "app_service_privatelink_url")
 
     @_builtins.property
     @pulumi.getter(name="awsVpceId")
@@ -86,7 +121,7 @@ class GetSystemGetPrivateLinkConfigResult:
     @pulumi.getter(name="azurePlsId")
     def azure_pls_id(self) -> _builtins.str:
         """
-        The Azure Private Link Service ID for your account.
+        The Microsoft Azure Private Link Service ID for your account identifier in the format of an alias.
         """
         return pulumi.get(self, "azure_pls_id")
 
@@ -110,9 +145,65 @@ class GetSystemGetPrivateLinkConfigResult:
     @pulumi.getter(name="ocspUrl")
     def ocsp_url(self) -> _builtins.str:
         """
-        The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+        The OCSP URL corresponding to your Snowflake account identifier.
         """
         return pulumi.get(self, "ocsp_url")
+
+    @_builtins.property
+    @pulumi.getter(name="privatelinkAccountPrincipal")
+    def privatelink_account_principal(self) -> _builtins.str:
+        """
+        The AWS principal ARN to allow for outbound private connections to your VPC endpoint services.
+        """
+        return pulumi.get(self, "privatelink_account_principal")
+
+    @_builtins.property
+    @pulumi.getter(name="privatelinkConnectionOcspUrls")
+    def privatelink_connection_ocsp_urls(self) -> _builtins.str:
+        """
+        The list of OCSP URLs for use with redirecting client connections when using client redirect.
+        """
+        return pulumi.get(self, "privatelink_connection_ocsp_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="privatelinkConnectionUrls")
+    def privatelink_connection_urls(self) -> _builtins.str:
+        """
+        The private connectivity connection URLs for your account when using client redirect.
+        """
+        return pulumi.get(self, "privatelink_connection_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="privatelinkDashedUrlsForDuo")
+    def privatelink_dashed_urls_for_duo(self) -> _builtins.str:
+        """
+        The list of dashed variant URLs for Duo Multi-Factor Authentication, shown only when the hostname contains an underscore.
+        """
+        return pulumi.get(self, "privatelink_dashed_urls_for_duo")
+
+    @_builtins.property
+    @pulumi.getter(name="privatelinkGcpServiceAttachment")
+    def privatelink_gcp_service_attachment(self) -> _builtins.str:
+        """
+        The endpoint for the Snowflake service when using Google Cloud Private Service Connect.
+        """
+        return pulumi.get(self, "privatelink_gcp_service_attachment")
+
+    @_builtins.property
+    @pulumi.getter(name="privatelinkSnowflakeManagedStorageVolumeFs")
+    def privatelink_snowflake_managed_storage_volume_fs(self) -> _builtins.str:
+        """
+        The endpoint for failsafe Snowflake-managed storage volumes when using Azure Private Link.
+        """
+        return pulumi.get(self, "privatelink_snowflake_managed_storage_volume_fs")
+
+    @_builtins.property
+    @pulumi.getter(name="privatelinkSnowflakeManagedStorageVolumeNfs")
+    def privatelink_snowflake_managed_storage_volume_nfs(self) -> _builtins.str:
+        """
+        The endpoint for non-failsafe Snowflake-managed storage volumes when using Azure Private Link.
+        """
+        return pulumi.get(self, "privatelink_snowflake_managed_storage_volume_nfs")
 
     @_builtins.property
     @pulumi.getter(name="regionlessAccountUrl")
@@ -121,6 +212,14 @@ class GetSystemGetPrivateLinkConfigResult:
         The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
         """
         return pulumi.get(self, "regionless_account_url")
+
+    @_builtins.property
+    @pulumi.getter(name="regionlessPrivatelinkOcspUrl")
+    def regionless_privatelink_ocsp_url(self) -> _builtins.str:
+        """
+        The regionless OCSP URL to connect to Snowflake OCSP using private connectivity.
+        """
+        return pulumi.get(self, "regionless_privatelink_ocsp_url")
 
     @_builtins.property
     @pulumi.getter(name="regionlessSnowsightUrl")
@@ -147,12 +246,21 @@ class AwaitableGetSystemGetPrivateLinkConfigResult(GetSystemGetPrivateLinkConfig
         return GetSystemGetPrivateLinkConfigResult(
             account_name=self.account_name,
             account_url=self.account_url,
+            app_service_privatelink_url=self.app_service_privatelink_url,
             aws_vpce_id=self.aws_vpce_id,
             azure_pls_id=self.azure_pls_id,
             id=self.id,
             internal_stage=self.internal_stage,
             ocsp_url=self.ocsp_url,
+            privatelink_account_principal=self.privatelink_account_principal,
+            privatelink_connection_ocsp_urls=self.privatelink_connection_ocsp_urls,
+            privatelink_connection_urls=self.privatelink_connection_urls,
+            privatelink_dashed_urls_for_duo=self.privatelink_dashed_urls_for_duo,
+            privatelink_gcp_service_attachment=self.privatelink_gcp_service_attachment,
+            privatelink_snowflake_managed_storage_volume_fs=self.privatelink_snowflake_managed_storage_volume_fs,
+            privatelink_snowflake_managed_storage_volume_nfs=self.privatelink_snowflake_managed_storage_volume_nfs,
             regionless_account_url=self.regionless_account_url,
+            regionless_privatelink_ocsp_url=self.regionless_privatelink_ocsp_url,
             regionless_snowsight_url=self.regionless_snowsight_url,
             snowsight_url=self.snowsight_url)
 
@@ -220,12 +328,21 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
     return AwaitableGetSystemGetPrivateLinkConfigResult(
         account_name=pulumi.get(__ret__, 'account_name'),
         account_url=pulumi.get(__ret__, 'account_url'),
+        app_service_privatelink_url=pulumi.get(__ret__, 'app_service_privatelink_url'),
         aws_vpce_id=pulumi.get(__ret__, 'aws_vpce_id'),
         azure_pls_id=pulumi.get(__ret__, 'azure_pls_id'),
         id=pulumi.get(__ret__, 'id'),
         internal_stage=pulumi.get(__ret__, 'internal_stage'),
         ocsp_url=pulumi.get(__ret__, 'ocsp_url'),
+        privatelink_account_principal=pulumi.get(__ret__, 'privatelink_account_principal'),
+        privatelink_connection_ocsp_urls=pulumi.get(__ret__, 'privatelink_connection_ocsp_urls'),
+        privatelink_connection_urls=pulumi.get(__ret__, 'privatelink_connection_urls'),
+        privatelink_dashed_urls_for_duo=pulumi.get(__ret__, 'privatelink_dashed_urls_for_duo'),
+        privatelink_gcp_service_attachment=pulumi.get(__ret__, 'privatelink_gcp_service_attachment'),
+        privatelink_snowflake_managed_storage_volume_fs=pulumi.get(__ret__, 'privatelink_snowflake_managed_storage_volume_fs'),
+        privatelink_snowflake_managed_storage_volume_nfs=pulumi.get(__ret__, 'privatelink_snowflake_managed_storage_volume_nfs'),
         regionless_account_url=pulumi.get(__ret__, 'regionless_account_url'),
+        regionless_privatelink_ocsp_url=pulumi.get(__ret__, 'regionless_privatelink_ocsp_url'),
         regionless_snowsight_url=pulumi.get(__ret__, 'regionless_snowsight_url'),
         snowsight_url=pulumi.get(__ret__, 'snowsight_url'))
 def get_system_get_private_link_config_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemGetPrivateLinkConfigResult]:
@@ -290,11 +407,20 @@ def get_system_get_private_link_config_output(opts: Optional[Union[pulumi.Invoke
     return __ret__.apply(lambda __response__: GetSystemGetPrivateLinkConfigResult(
         account_name=pulumi.get(__response__, 'account_name'),
         account_url=pulumi.get(__response__, 'account_url'),
+        app_service_privatelink_url=pulumi.get(__response__, 'app_service_privatelink_url'),
         aws_vpce_id=pulumi.get(__response__, 'aws_vpce_id'),
         azure_pls_id=pulumi.get(__response__, 'azure_pls_id'),
         id=pulumi.get(__response__, 'id'),
         internal_stage=pulumi.get(__response__, 'internal_stage'),
         ocsp_url=pulumi.get(__response__, 'ocsp_url'),
+        privatelink_account_principal=pulumi.get(__response__, 'privatelink_account_principal'),
+        privatelink_connection_ocsp_urls=pulumi.get(__response__, 'privatelink_connection_ocsp_urls'),
+        privatelink_connection_urls=pulumi.get(__response__, 'privatelink_connection_urls'),
+        privatelink_dashed_urls_for_duo=pulumi.get(__response__, 'privatelink_dashed_urls_for_duo'),
+        privatelink_gcp_service_attachment=pulumi.get(__response__, 'privatelink_gcp_service_attachment'),
+        privatelink_snowflake_managed_storage_volume_fs=pulumi.get(__response__, 'privatelink_snowflake_managed_storage_volume_fs'),
+        privatelink_snowflake_managed_storage_volume_nfs=pulumi.get(__response__, 'privatelink_snowflake_managed_storage_volume_nfs'),
         regionless_account_url=pulumi.get(__response__, 'regionless_account_url'),
+        regionless_privatelink_ocsp_url=pulumi.get(__response__, 'regionless_privatelink_ocsp_url'),
         regionless_snowsight_url=pulumi.get(__response__, 'regionless_snowsight_url'),
         snowsight_url=pulumi.get(__response__, 'snowsight_url')))

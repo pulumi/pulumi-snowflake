@@ -463,6 +463,8 @@ export interface CatalogIntegrationAwsGlueDescribeOutput {
     catalogSource?: pulumi.Input<string | undefined>;
     comment?: pulumi.Input<string | undefined>;
     enabled?: pulumi.Input<boolean | undefined>;
+    glueAwsExternalId?: pulumi.Input<string | undefined>;
+    glueAwsIamUserArn?: pulumi.Input<string | undefined>;
     glueAwsRoleArn?: pulumi.Input<string | undefined>;
     glueCatalogId?: pulumi.Input<string | undefined>;
     glueRegion?: pulumi.Input<string | undefined>;
@@ -723,6 +725,57 @@ export interface ComputePoolShowOutput {
     state?: pulumi.Input<string | undefined>;
     targetNodes?: pulumi.Input<number | undefined>;
     updatedOn?: pulumi.Input<string | undefined>;
+}
+
+export interface CortexAgentDescribeOutput {
+    agentSpec?: pulumi.Input<string | undefined>;
+    aliases?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    defaultVersionName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    profiles?: pulumi.Input<pulumi.Input<inputs.CortexAgentDescribeOutputProfile>[] | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    versions?: pulumi.Input<string | undefined>;
+}
+
+export interface CortexAgentDescribeOutputProfile {
+    avatar?: pulumi.Input<string | undefined>;
+    color?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string | undefined>;
+}
+
+export interface CortexAgentProfile {
+    /**
+     * Specifies an avatar image file name or identifier.
+     */
+    avatar?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies a color theme for the Cortex agent.
+     */
+    color?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies a display name for the Cortex agent.
+     */
+    displayName?: pulumi.Input<string | undefined>;
+}
+
+export interface CortexAgentShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    profiles?: pulumi.Input<pulumi.Input<inputs.CortexAgentShowOutputProfile>[] | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+}
+
+export interface CortexAgentShowOutputProfile {
+    avatar?: pulumi.Input<string | undefined>;
+    color?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string | undefined>;
 }
 
 export interface CortexSearchServiceDescribeOutput {
@@ -1025,6 +1078,7 @@ export interface ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation
     azureConsentUrl?: pulumi.Input<string | undefined>;
     azureMultiTenantAppName?: pulumi.Input<string | undefined>;
     azureTenantId?: pulumi.Input<string | undefined>;
+    usePrivatelinkEndpoint?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
@@ -1720,6 +1774,74 @@ export interface GetComputePoolsLimit {
 }
 
 export interface GetComputePoolsLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetCortexAgentsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetCortexAgentsInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
+}
+
+export interface GetCortexAgentsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetCortexAgentsLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
@@ -9630,11 +9752,11 @@ export interface TableTag {
 
 export interface TagOnConflict {
     /**
-     * The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     * The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
      */
     allowedValuesSequence?: pulumi.Input<boolean | undefined>;
     /**
-     * Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     * Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list.
      */
     customValue?: pulumi.Input<string | undefined>;
 }
@@ -9645,6 +9767,7 @@ export interface TagShowOutput {
     createdOn?: pulumi.Input<string | undefined>;
     databaseName?: pulumi.Input<string | undefined>;
     name?: pulumi.Input<string | undefined>;
+    onConflict?: pulumi.Input<string | undefined>;
     owner?: pulumi.Input<string | undefined>;
     ownerRoleType?: pulumi.Input<string | undefined>;
     propagate?: pulumi.Input<string | undefined>;
