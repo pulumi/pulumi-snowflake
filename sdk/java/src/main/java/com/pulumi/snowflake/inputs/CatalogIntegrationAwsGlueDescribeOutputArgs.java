@@ -45,6 +45,20 @@ public final class CatalogIntegrationAwsGlueDescribeOutputArgs extends com.pulum
         return Optional.ofNullable(this.enabled);
     }
 
+    @Import(name="glueAwsExternalId")
+    private @Nullable Output<String> glueAwsExternalId;
+
+    public Optional<Output<String>> glueAwsExternalId() {
+        return Optional.ofNullable(this.glueAwsExternalId);
+    }
+
+    @Import(name="glueAwsIamUserArn")
+    private @Nullable Output<String> glueAwsIamUserArn;
+
+    public Optional<Output<String>> glueAwsIamUserArn() {
+        return Optional.ofNullable(this.glueAwsIamUserArn);
+    }
+
     @Import(name="glueAwsRoleArn")
     private @Nullable Output<String> glueAwsRoleArn;
 
@@ -94,6 +108,8 @@ public final class CatalogIntegrationAwsGlueDescribeOutputArgs extends com.pulum
         this.catalogSource = $.catalogSource;
         this.comment = $.comment;
         this.enabled = $.enabled;
+        this.glueAwsExternalId = $.glueAwsExternalId;
+        this.glueAwsIamUserArn = $.glueAwsIamUserArn;
         this.glueAwsRoleArn = $.glueAwsRoleArn;
         this.glueCatalogId = $.glueCatalogId;
         this.glueRegion = $.glueRegion;
@@ -154,6 +170,24 @@ public final class CatalogIntegrationAwsGlueDescribeOutputArgs extends com.pulum
 
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
+        }
+
+        public Builder glueAwsExternalId(@Nullable Output<String> glueAwsExternalId) {
+            $.glueAwsExternalId = glueAwsExternalId;
+            return this;
+        }
+
+        public Builder glueAwsExternalId(String glueAwsExternalId) {
+            return glueAwsExternalId(Output.of(glueAwsExternalId));
+        }
+
+        public Builder glueAwsIamUserArn(@Nullable Output<String> glueAwsIamUserArn) {
+            $.glueAwsIamUserArn = glueAwsIamUserArn;
+            return this;
+        }
+
+        public Builder glueAwsIamUserArn(String glueAwsIamUserArn) {
+            return glueAwsIamUserArn(Output.of(glueAwsIamUserArn));
         }
 
         public Builder glueAwsRoleArn(@Nullable Output<String> glueAwsRoleArn) {

@@ -21,6 +21,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
 
+        [Input("usePrivatelinkEndpoint")]
+        public Input<string>? UsePrivatelinkEndpoint { get; set; }
+
         public ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs()
         {
         }

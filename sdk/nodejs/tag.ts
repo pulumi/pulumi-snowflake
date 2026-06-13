@@ -80,7 +80,7 @@ export class Tag extends pulumi.CustomResource {
      */
     declare public readonly noAllowedValues: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
      */
     declare public readonly onConflict: pulumi.Output<outputs.TagOnConflict | undefined>;
     /**
@@ -186,7 +186,7 @@ export interface TagState {
      */
     noAllowedValues?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
      */
     onConflict?: pulumi.Input<inputs.TagOnConflict | undefined>;
     /**
@@ -238,7 +238,7 @@ export interface TagArgs {
      */
     noAllowedValues?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
      */
     onConflict?: pulumi.Input<inputs.TagOnConflict | undefined>;
     /**

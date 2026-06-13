@@ -32,6 +32,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("onConflict")]
+        public Input<string>? OnConflict { get; set; }
+
         [Input("owner")]
         public Input<string>? Owner { get; set; }
 

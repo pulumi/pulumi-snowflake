@@ -6500,6 +6500,8 @@ type CatalogIntegrationAwsGlueDescribeOutput struct {
 	CatalogSource          *string `pulumi:"catalogSource"`
 	Comment                *string `pulumi:"comment"`
 	Enabled                *bool   `pulumi:"enabled"`
+	GlueAwsExternalId      *string `pulumi:"glueAwsExternalId"`
+	GlueAwsIamUserArn      *string `pulumi:"glueAwsIamUserArn"`
 	GlueAwsRoleArn         *string `pulumi:"glueAwsRoleArn"`
 	GlueCatalogId          *string `pulumi:"glueCatalogId"`
 	GlueRegion             *string `pulumi:"glueRegion"`
@@ -6524,6 +6526,8 @@ type CatalogIntegrationAwsGlueDescribeOutputArgs struct {
 	CatalogSource          pulumi.StringPtrInput `pulumi:"catalogSource"`
 	Comment                pulumi.StringPtrInput `pulumi:"comment"`
 	Enabled                pulumi.BoolPtrInput   `pulumi:"enabled"`
+	GlueAwsExternalId      pulumi.StringPtrInput `pulumi:"glueAwsExternalId"`
+	GlueAwsIamUserArn      pulumi.StringPtrInput `pulumi:"glueAwsIamUserArn"`
 	GlueAwsRoleArn         pulumi.StringPtrInput `pulumi:"glueAwsRoleArn"`
 	GlueCatalogId          pulumi.StringPtrInput `pulumi:"glueCatalogId"`
 	GlueRegion             pulumi.StringPtrInput `pulumi:"glueRegion"`
@@ -6597,6 +6601,14 @@ func (o CatalogIntegrationAwsGlueDescribeOutputOutput) Comment() pulumi.StringPt
 
 func (o CatalogIntegrationAwsGlueDescribeOutputOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) GlueAwsExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *string { return v.GlueAwsExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o CatalogIntegrationAwsGlueDescribeOutputOutput) GlueAwsIamUserArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CatalogIntegrationAwsGlueDescribeOutput) *string { return v.GlueAwsIamUserArn }).(pulumi.StringPtrOutput)
 }
 
 func (o CatalogIntegrationAwsGlueDescribeOutputOutput) GlueAwsRoleArn() pulumi.StringPtrOutput {
@@ -9734,6 +9746,677 @@ func (o ComputePoolShowOutputArrayOutput) Index(i pulumi.IntInput) ComputePoolSh
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputePoolShowOutput {
 		return vs[0].([]ComputePoolShowOutput)[vs[1].(int)]
 	}).(ComputePoolShowOutputOutput)
+}
+
+type CortexAgentDescribeOutput struct {
+	AgentSpec          *string                            `pulumi:"agentSpec"`
+	Aliases            *string                            `pulumi:"aliases"`
+	Comment            *string                            `pulumi:"comment"`
+	CreatedOn          *string                            `pulumi:"createdOn"`
+	DatabaseName       *string                            `pulumi:"databaseName"`
+	DefaultVersionName *string                            `pulumi:"defaultVersionName"`
+	Name               *string                            `pulumi:"name"`
+	Owner              *string                            `pulumi:"owner"`
+	Profiles           []CortexAgentDescribeOutputProfile `pulumi:"profiles"`
+	SchemaName         *string                            `pulumi:"schemaName"`
+	Versions           *string                            `pulumi:"versions"`
+}
+
+// CortexAgentDescribeOutputInput is an input type that accepts CortexAgentDescribeOutputArgs and CortexAgentDescribeOutputOutput values.
+// You can construct a concrete instance of `CortexAgentDescribeOutputInput` via:
+//
+//	CortexAgentDescribeOutputArgs{...}
+type CortexAgentDescribeOutputInput interface {
+	pulumi.Input
+
+	ToCortexAgentDescribeOutputOutput() CortexAgentDescribeOutputOutput
+	ToCortexAgentDescribeOutputOutputWithContext(context.Context) CortexAgentDescribeOutputOutput
+}
+
+type CortexAgentDescribeOutputArgs struct {
+	AgentSpec          pulumi.StringPtrInput                      `pulumi:"agentSpec"`
+	Aliases            pulumi.StringPtrInput                      `pulumi:"aliases"`
+	Comment            pulumi.StringPtrInput                      `pulumi:"comment"`
+	CreatedOn          pulumi.StringPtrInput                      `pulumi:"createdOn"`
+	DatabaseName       pulumi.StringPtrInput                      `pulumi:"databaseName"`
+	DefaultVersionName pulumi.StringPtrInput                      `pulumi:"defaultVersionName"`
+	Name               pulumi.StringPtrInput                      `pulumi:"name"`
+	Owner              pulumi.StringPtrInput                      `pulumi:"owner"`
+	Profiles           CortexAgentDescribeOutputProfileArrayInput `pulumi:"profiles"`
+	SchemaName         pulumi.StringPtrInput                      `pulumi:"schemaName"`
+	Versions           pulumi.StringPtrInput                      `pulumi:"versions"`
+}
+
+func (CortexAgentDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexAgentDescribeOutput)(nil)).Elem()
+}
+
+func (i CortexAgentDescribeOutputArgs) ToCortexAgentDescribeOutputOutput() CortexAgentDescribeOutputOutput {
+	return i.ToCortexAgentDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i CortexAgentDescribeOutputArgs) ToCortexAgentDescribeOutputOutputWithContext(ctx context.Context) CortexAgentDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentDescribeOutputOutput)
+}
+
+// CortexAgentDescribeOutputArrayInput is an input type that accepts CortexAgentDescribeOutputArray and CortexAgentDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `CortexAgentDescribeOutputArrayInput` via:
+//
+//	CortexAgentDescribeOutputArray{ CortexAgentDescribeOutputArgs{...} }
+type CortexAgentDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToCortexAgentDescribeOutputArrayOutput() CortexAgentDescribeOutputArrayOutput
+	ToCortexAgentDescribeOutputArrayOutputWithContext(context.Context) CortexAgentDescribeOutputArrayOutput
+}
+
+type CortexAgentDescribeOutputArray []CortexAgentDescribeOutputInput
+
+func (CortexAgentDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CortexAgentDescribeOutput)(nil)).Elem()
+}
+
+func (i CortexAgentDescribeOutputArray) ToCortexAgentDescribeOutputArrayOutput() CortexAgentDescribeOutputArrayOutput {
+	return i.ToCortexAgentDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CortexAgentDescribeOutputArray) ToCortexAgentDescribeOutputArrayOutputWithContext(ctx context.Context) CortexAgentDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentDescribeOutputArrayOutput)
+}
+
+type CortexAgentDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (CortexAgentDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexAgentDescribeOutput)(nil)).Elem()
+}
+
+func (o CortexAgentDescribeOutputOutput) ToCortexAgentDescribeOutputOutput() CortexAgentDescribeOutputOutput {
+	return o
+}
+
+func (o CortexAgentDescribeOutputOutput) ToCortexAgentDescribeOutputOutputWithContext(ctx context.Context) CortexAgentDescribeOutputOutput {
+	return o
+}
+
+func (o CortexAgentDescribeOutputOutput) AgentSpec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) *string { return v.AgentSpec }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputOutput) Aliases() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) *string { return v.Aliases }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputOutput) DefaultVersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) *string { return v.DefaultVersionName }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputOutput) Profiles() CortexAgentDescribeOutputProfileArrayOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) []CortexAgentDescribeOutputProfile { return v.Profiles }).(CortexAgentDescribeOutputProfileArrayOutput)
+}
+
+func (o CortexAgentDescribeOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputOutput) Versions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutput) *string { return v.Versions }).(pulumi.StringPtrOutput)
+}
+
+type CortexAgentDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CortexAgentDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CortexAgentDescribeOutput)(nil)).Elem()
+}
+
+func (o CortexAgentDescribeOutputArrayOutput) ToCortexAgentDescribeOutputArrayOutput() CortexAgentDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CortexAgentDescribeOutputArrayOutput) ToCortexAgentDescribeOutputArrayOutputWithContext(ctx context.Context) CortexAgentDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CortexAgentDescribeOutputArrayOutput) Index(i pulumi.IntInput) CortexAgentDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CortexAgentDescribeOutput {
+		return vs[0].([]CortexAgentDescribeOutput)[vs[1].(int)]
+	}).(CortexAgentDescribeOutputOutput)
+}
+
+type CortexAgentDescribeOutputProfile struct {
+	Avatar      *string `pulumi:"avatar"`
+	Color       *string `pulumi:"color"`
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// CortexAgentDescribeOutputProfileInput is an input type that accepts CortexAgentDescribeOutputProfileArgs and CortexAgentDescribeOutputProfileOutput values.
+// You can construct a concrete instance of `CortexAgentDescribeOutputProfileInput` via:
+//
+//	CortexAgentDescribeOutputProfileArgs{...}
+type CortexAgentDescribeOutputProfileInput interface {
+	pulumi.Input
+
+	ToCortexAgentDescribeOutputProfileOutput() CortexAgentDescribeOutputProfileOutput
+	ToCortexAgentDescribeOutputProfileOutputWithContext(context.Context) CortexAgentDescribeOutputProfileOutput
+}
+
+type CortexAgentDescribeOutputProfileArgs struct {
+	Avatar      pulumi.StringPtrInput `pulumi:"avatar"`
+	Color       pulumi.StringPtrInput `pulumi:"color"`
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (CortexAgentDescribeOutputProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexAgentDescribeOutputProfile)(nil)).Elem()
+}
+
+func (i CortexAgentDescribeOutputProfileArgs) ToCortexAgentDescribeOutputProfileOutput() CortexAgentDescribeOutputProfileOutput {
+	return i.ToCortexAgentDescribeOutputProfileOutputWithContext(context.Background())
+}
+
+func (i CortexAgentDescribeOutputProfileArgs) ToCortexAgentDescribeOutputProfileOutputWithContext(ctx context.Context) CortexAgentDescribeOutputProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentDescribeOutputProfileOutput)
+}
+
+// CortexAgentDescribeOutputProfileArrayInput is an input type that accepts CortexAgentDescribeOutputProfileArray and CortexAgentDescribeOutputProfileArrayOutput values.
+// You can construct a concrete instance of `CortexAgentDescribeOutputProfileArrayInput` via:
+//
+//	CortexAgentDescribeOutputProfileArray{ CortexAgentDescribeOutputProfileArgs{...} }
+type CortexAgentDescribeOutputProfileArrayInput interface {
+	pulumi.Input
+
+	ToCortexAgentDescribeOutputProfileArrayOutput() CortexAgentDescribeOutputProfileArrayOutput
+	ToCortexAgentDescribeOutputProfileArrayOutputWithContext(context.Context) CortexAgentDescribeOutputProfileArrayOutput
+}
+
+type CortexAgentDescribeOutputProfileArray []CortexAgentDescribeOutputProfileInput
+
+func (CortexAgentDescribeOutputProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CortexAgentDescribeOutputProfile)(nil)).Elem()
+}
+
+func (i CortexAgentDescribeOutputProfileArray) ToCortexAgentDescribeOutputProfileArrayOutput() CortexAgentDescribeOutputProfileArrayOutput {
+	return i.ToCortexAgentDescribeOutputProfileArrayOutputWithContext(context.Background())
+}
+
+func (i CortexAgentDescribeOutputProfileArray) ToCortexAgentDescribeOutputProfileArrayOutputWithContext(ctx context.Context) CortexAgentDescribeOutputProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentDescribeOutputProfileArrayOutput)
+}
+
+type CortexAgentDescribeOutputProfileOutput struct{ *pulumi.OutputState }
+
+func (CortexAgentDescribeOutputProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexAgentDescribeOutputProfile)(nil)).Elem()
+}
+
+func (o CortexAgentDescribeOutputProfileOutput) ToCortexAgentDescribeOutputProfileOutput() CortexAgentDescribeOutputProfileOutput {
+	return o
+}
+
+func (o CortexAgentDescribeOutputProfileOutput) ToCortexAgentDescribeOutputProfileOutputWithContext(ctx context.Context) CortexAgentDescribeOutputProfileOutput {
+	return o
+}
+
+func (o CortexAgentDescribeOutputProfileOutput) Avatar() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutputProfile) *string { return v.Avatar }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputProfileOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutputProfile) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentDescribeOutputProfileOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentDescribeOutputProfile) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type CortexAgentDescribeOutputProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (CortexAgentDescribeOutputProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CortexAgentDescribeOutputProfile)(nil)).Elem()
+}
+
+func (o CortexAgentDescribeOutputProfileArrayOutput) ToCortexAgentDescribeOutputProfileArrayOutput() CortexAgentDescribeOutputProfileArrayOutput {
+	return o
+}
+
+func (o CortexAgentDescribeOutputProfileArrayOutput) ToCortexAgentDescribeOutputProfileArrayOutputWithContext(ctx context.Context) CortexAgentDescribeOutputProfileArrayOutput {
+	return o
+}
+
+func (o CortexAgentDescribeOutputProfileArrayOutput) Index(i pulumi.IntInput) CortexAgentDescribeOutputProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CortexAgentDescribeOutputProfile {
+		return vs[0].([]CortexAgentDescribeOutputProfile)[vs[1].(int)]
+	}).(CortexAgentDescribeOutputProfileOutput)
+}
+
+type CortexAgentProfile struct {
+	// Specifies an avatar image file name or identifier.
+	Avatar *string `pulumi:"avatar"`
+	// Specifies a color theme for the Cortex agent.
+	Color *string `pulumi:"color"`
+	// Specifies a display name for the Cortex agent.
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// CortexAgentProfileInput is an input type that accepts CortexAgentProfileArgs and CortexAgentProfileOutput values.
+// You can construct a concrete instance of `CortexAgentProfileInput` via:
+//
+//	CortexAgentProfileArgs{...}
+type CortexAgentProfileInput interface {
+	pulumi.Input
+
+	ToCortexAgentProfileOutput() CortexAgentProfileOutput
+	ToCortexAgentProfileOutputWithContext(context.Context) CortexAgentProfileOutput
+}
+
+type CortexAgentProfileArgs struct {
+	// Specifies an avatar image file name or identifier.
+	Avatar pulumi.StringPtrInput `pulumi:"avatar"`
+	// Specifies a color theme for the Cortex agent.
+	Color pulumi.StringPtrInput `pulumi:"color"`
+	// Specifies a display name for the Cortex agent.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (CortexAgentProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexAgentProfile)(nil)).Elem()
+}
+
+func (i CortexAgentProfileArgs) ToCortexAgentProfileOutput() CortexAgentProfileOutput {
+	return i.ToCortexAgentProfileOutputWithContext(context.Background())
+}
+
+func (i CortexAgentProfileArgs) ToCortexAgentProfileOutputWithContext(ctx context.Context) CortexAgentProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentProfileOutput)
+}
+
+func (i CortexAgentProfileArgs) ToCortexAgentProfilePtrOutput() CortexAgentProfilePtrOutput {
+	return i.ToCortexAgentProfilePtrOutputWithContext(context.Background())
+}
+
+func (i CortexAgentProfileArgs) ToCortexAgentProfilePtrOutputWithContext(ctx context.Context) CortexAgentProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentProfileOutput).ToCortexAgentProfilePtrOutputWithContext(ctx)
+}
+
+// CortexAgentProfilePtrInput is an input type that accepts CortexAgentProfileArgs, CortexAgentProfilePtr and CortexAgentProfilePtrOutput values.
+// You can construct a concrete instance of `CortexAgentProfilePtrInput` via:
+//
+//	        CortexAgentProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type CortexAgentProfilePtrInput interface {
+	pulumi.Input
+
+	ToCortexAgentProfilePtrOutput() CortexAgentProfilePtrOutput
+	ToCortexAgentProfilePtrOutputWithContext(context.Context) CortexAgentProfilePtrOutput
+}
+
+type cortexAgentProfilePtrType CortexAgentProfileArgs
+
+func CortexAgentProfilePtr(v *CortexAgentProfileArgs) CortexAgentProfilePtrInput {
+	return (*cortexAgentProfilePtrType)(v)
+}
+
+func (*cortexAgentProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CortexAgentProfile)(nil)).Elem()
+}
+
+func (i *cortexAgentProfilePtrType) ToCortexAgentProfilePtrOutput() CortexAgentProfilePtrOutput {
+	return i.ToCortexAgentProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *cortexAgentProfilePtrType) ToCortexAgentProfilePtrOutputWithContext(ctx context.Context) CortexAgentProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentProfilePtrOutput)
+}
+
+type CortexAgentProfileOutput struct{ *pulumi.OutputState }
+
+func (CortexAgentProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexAgentProfile)(nil)).Elem()
+}
+
+func (o CortexAgentProfileOutput) ToCortexAgentProfileOutput() CortexAgentProfileOutput {
+	return o
+}
+
+func (o CortexAgentProfileOutput) ToCortexAgentProfileOutputWithContext(ctx context.Context) CortexAgentProfileOutput {
+	return o
+}
+
+func (o CortexAgentProfileOutput) ToCortexAgentProfilePtrOutput() CortexAgentProfilePtrOutput {
+	return o.ToCortexAgentProfilePtrOutputWithContext(context.Background())
+}
+
+func (o CortexAgentProfileOutput) ToCortexAgentProfilePtrOutputWithContext(ctx context.Context) CortexAgentProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CortexAgentProfile) *CortexAgentProfile {
+		return &v
+	}).(CortexAgentProfilePtrOutput)
+}
+
+// Specifies an avatar image file name or identifier.
+func (o CortexAgentProfileOutput) Avatar() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentProfile) *string { return v.Avatar }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a color theme for the Cortex agent.
+func (o CortexAgentProfileOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentProfile) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a display name for the Cortex agent.
+func (o CortexAgentProfileOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentProfile) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type CortexAgentProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (CortexAgentProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CortexAgentProfile)(nil)).Elem()
+}
+
+func (o CortexAgentProfilePtrOutput) ToCortexAgentProfilePtrOutput() CortexAgentProfilePtrOutput {
+	return o
+}
+
+func (o CortexAgentProfilePtrOutput) ToCortexAgentProfilePtrOutputWithContext(ctx context.Context) CortexAgentProfilePtrOutput {
+	return o
+}
+
+func (o CortexAgentProfilePtrOutput) Elem() CortexAgentProfileOutput {
+	return o.ApplyT(func(v *CortexAgentProfile) CortexAgentProfile {
+		if v != nil {
+			return *v
+		}
+		var ret CortexAgentProfile
+		return ret
+	}).(CortexAgentProfileOutput)
+}
+
+// Specifies an avatar image file name or identifier.
+func (o CortexAgentProfilePtrOutput) Avatar() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CortexAgentProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Avatar
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a color theme for the Cortex agent.
+func (o CortexAgentProfilePtrOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CortexAgentProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Color
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a display name for the Cortex agent.
+func (o CortexAgentProfilePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CortexAgentProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+type CortexAgentShowOutput struct {
+	Comment      *string                        `pulumi:"comment"`
+	CreatedOn    *string                        `pulumi:"createdOn"`
+	DatabaseName *string                        `pulumi:"databaseName"`
+	Name         *string                        `pulumi:"name"`
+	Owner        *string                        `pulumi:"owner"`
+	Profiles     []CortexAgentShowOutputProfile `pulumi:"profiles"`
+	SchemaName   *string                        `pulumi:"schemaName"`
+}
+
+// CortexAgentShowOutputInput is an input type that accepts CortexAgentShowOutputArgs and CortexAgentShowOutputOutput values.
+// You can construct a concrete instance of `CortexAgentShowOutputInput` via:
+//
+//	CortexAgentShowOutputArgs{...}
+type CortexAgentShowOutputInput interface {
+	pulumi.Input
+
+	ToCortexAgentShowOutputOutput() CortexAgentShowOutputOutput
+	ToCortexAgentShowOutputOutputWithContext(context.Context) CortexAgentShowOutputOutput
+}
+
+type CortexAgentShowOutputArgs struct {
+	Comment      pulumi.StringPtrInput                  `pulumi:"comment"`
+	CreatedOn    pulumi.StringPtrInput                  `pulumi:"createdOn"`
+	DatabaseName pulumi.StringPtrInput                  `pulumi:"databaseName"`
+	Name         pulumi.StringPtrInput                  `pulumi:"name"`
+	Owner        pulumi.StringPtrInput                  `pulumi:"owner"`
+	Profiles     CortexAgentShowOutputProfileArrayInput `pulumi:"profiles"`
+	SchemaName   pulumi.StringPtrInput                  `pulumi:"schemaName"`
+}
+
+func (CortexAgentShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexAgentShowOutput)(nil)).Elem()
+}
+
+func (i CortexAgentShowOutputArgs) ToCortexAgentShowOutputOutput() CortexAgentShowOutputOutput {
+	return i.ToCortexAgentShowOutputOutputWithContext(context.Background())
+}
+
+func (i CortexAgentShowOutputArgs) ToCortexAgentShowOutputOutputWithContext(ctx context.Context) CortexAgentShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentShowOutputOutput)
+}
+
+// CortexAgentShowOutputArrayInput is an input type that accepts CortexAgentShowOutputArray and CortexAgentShowOutputArrayOutput values.
+// You can construct a concrete instance of `CortexAgentShowOutputArrayInput` via:
+//
+//	CortexAgentShowOutputArray{ CortexAgentShowOutputArgs{...} }
+type CortexAgentShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToCortexAgentShowOutputArrayOutput() CortexAgentShowOutputArrayOutput
+	ToCortexAgentShowOutputArrayOutputWithContext(context.Context) CortexAgentShowOutputArrayOutput
+}
+
+type CortexAgentShowOutputArray []CortexAgentShowOutputInput
+
+func (CortexAgentShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CortexAgentShowOutput)(nil)).Elem()
+}
+
+func (i CortexAgentShowOutputArray) ToCortexAgentShowOutputArrayOutput() CortexAgentShowOutputArrayOutput {
+	return i.ToCortexAgentShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CortexAgentShowOutputArray) ToCortexAgentShowOutputArrayOutputWithContext(ctx context.Context) CortexAgentShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentShowOutputArrayOutput)
+}
+
+type CortexAgentShowOutputOutput struct{ *pulumi.OutputState }
+
+func (CortexAgentShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexAgentShowOutput)(nil)).Elem()
+}
+
+func (o CortexAgentShowOutputOutput) ToCortexAgentShowOutputOutput() CortexAgentShowOutputOutput {
+	return o
+}
+
+func (o CortexAgentShowOutputOutput) ToCortexAgentShowOutputOutputWithContext(ctx context.Context) CortexAgentShowOutputOutput {
+	return o
+}
+
+func (o CortexAgentShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentShowOutputOutput) Profiles() CortexAgentShowOutputProfileArrayOutput {
+	return o.ApplyT(func(v CortexAgentShowOutput) []CortexAgentShowOutputProfile { return v.Profiles }).(CortexAgentShowOutputProfileArrayOutput)
+}
+
+func (o CortexAgentShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type CortexAgentShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CortexAgentShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CortexAgentShowOutput)(nil)).Elem()
+}
+
+func (o CortexAgentShowOutputArrayOutput) ToCortexAgentShowOutputArrayOutput() CortexAgentShowOutputArrayOutput {
+	return o
+}
+
+func (o CortexAgentShowOutputArrayOutput) ToCortexAgentShowOutputArrayOutputWithContext(ctx context.Context) CortexAgentShowOutputArrayOutput {
+	return o
+}
+
+func (o CortexAgentShowOutputArrayOutput) Index(i pulumi.IntInput) CortexAgentShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CortexAgentShowOutput {
+		return vs[0].([]CortexAgentShowOutput)[vs[1].(int)]
+	}).(CortexAgentShowOutputOutput)
+}
+
+type CortexAgentShowOutputProfile struct {
+	Avatar      *string `pulumi:"avatar"`
+	Color       *string `pulumi:"color"`
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// CortexAgentShowOutputProfileInput is an input type that accepts CortexAgentShowOutputProfileArgs and CortexAgentShowOutputProfileOutput values.
+// You can construct a concrete instance of `CortexAgentShowOutputProfileInput` via:
+//
+//	CortexAgentShowOutputProfileArgs{...}
+type CortexAgentShowOutputProfileInput interface {
+	pulumi.Input
+
+	ToCortexAgentShowOutputProfileOutput() CortexAgentShowOutputProfileOutput
+	ToCortexAgentShowOutputProfileOutputWithContext(context.Context) CortexAgentShowOutputProfileOutput
+}
+
+type CortexAgentShowOutputProfileArgs struct {
+	Avatar      pulumi.StringPtrInput `pulumi:"avatar"`
+	Color       pulumi.StringPtrInput `pulumi:"color"`
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (CortexAgentShowOutputProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexAgentShowOutputProfile)(nil)).Elem()
+}
+
+func (i CortexAgentShowOutputProfileArgs) ToCortexAgentShowOutputProfileOutput() CortexAgentShowOutputProfileOutput {
+	return i.ToCortexAgentShowOutputProfileOutputWithContext(context.Background())
+}
+
+func (i CortexAgentShowOutputProfileArgs) ToCortexAgentShowOutputProfileOutputWithContext(ctx context.Context) CortexAgentShowOutputProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentShowOutputProfileOutput)
+}
+
+// CortexAgentShowOutputProfileArrayInput is an input type that accepts CortexAgentShowOutputProfileArray and CortexAgentShowOutputProfileArrayOutput values.
+// You can construct a concrete instance of `CortexAgentShowOutputProfileArrayInput` via:
+//
+//	CortexAgentShowOutputProfileArray{ CortexAgentShowOutputProfileArgs{...} }
+type CortexAgentShowOutputProfileArrayInput interface {
+	pulumi.Input
+
+	ToCortexAgentShowOutputProfileArrayOutput() CortexAgentShowOutputProfileArrayOutput
+	ToCortexAgentShowOutputProfileArrayOutputWithContext(context.Context) CortexAgentShowOutputProfileArrayOutput
+}
+
+type CortexAgentShowOutputProfileArray []CortexAgentShowOutputProfileInput
+
+func (CortexAgentShowOutputProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CortexAgentShowOutputProfile)(nil)).Elem()
+}
+
+func (i CortexAgentShowOutputProfileArray) ToCortexAgentShowOutputProfileArrayOutput() CortexAgentShowOutputProfileArrayOutput {
+	return i.ToCortexAgentShowOutputProfileArrayOutputWithContext(context.Background())
+}
+
+func (i CortexAgentShowOutputProfileArray) ToCortexAgentShowOutputProfileArrayOutputWithContext(ctx context.Context) CortexAgentShowOutputProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexAgentShowOutputProfileArrayOutput)
+}
+
+type CortexAgentShowOutputProfileOutput struct{ *pulumi.OutputState }
+
+func (CortexAgentShowOutputProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexAgentShowOutputProfile)(nil)).Elem()
+}
+
+func (o CortexAgentShowOutputProfileOutput) ToCortexAgentShowOutputProfileOutput() CortexAgentShowOutputProfileOutput {
+	return o
+}
+
+func (o CortexAgentShowOutputProfileOutput) ToCortexAgentShowOutputProfileOutputWithContext(ctx context.Context) CortexAgentShowOutputProfileOutput {
+	return o
+}
+
+func (o CortexAgentShowOutputProfileOutput) Avatar() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentShowOutputProfile) *string { return v.Avatar }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentShowOutputProfileOutput) Color() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentShowOutputProfile) *string { return v.Color }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexAgentShowOutputProfileOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexAgentShowOutputProfile) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type CortexAgentShowOutputProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (CortexAgentShowOutputProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CortexAgentShowOutputProfile)(nil)).Elem()
+}
+
+func (o CortexAgentShowOutputProfileArrayOutput) ToCortexAgentShowOutputProfileArrayOutput() CortexAgentShowOutputProfileArrayOutput {
+	return o
+}
+
+func (o CortexAgentShowOutputProfileArrayOutput) ToCortexAgentShowOutputProfileArrayOutputWithContext(ctx context.Context) CortexAgentShowOutputProfileArrayOutput {
+	return o
+}
+
+func (o CortexAgentShowOutputProfileArrayOutput) Index(i pulumi.IntInput) CortexAgentShowOutputProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CortexAgentShowOutputProfile {
+		return vs[0].([]CortexAgentShowOutputProfile)[vs[1].(int)]
+	}).(CortexAgentShowOutputProfileOutput)
 }
 
 type CortexSearchServiceDescribeOutput struct {
@@ -13455,6 +14138,7 @@ type ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation struct {
 	AzureConsentUrl         *string `pulumi:"azureConsentUrl"`
 	AzureMultiTenantAppName *string `pulumi:"azureMultiTenantAppName"`
 	AzureTenantId           *string `pulumi:"azureTenantId"`
+	UsePrivatelinkEndpoint  *string `pulumi:"usePrivatelinkEndpoint"`
 }
 
 // ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput is an input type that accepts ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs and ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput values.
@@ -13472,6 +14156,7 @@ type ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs struct 
 	AzureConsentUrl         pulumi.StringPtrInput `pulumi:"azureConsentUrl"`
 	AzureMultiTenantAppName pulumi.StringPtrInput `pulumi:"azureMultiTenantAppName"`
 	AzureTenantId           pulumi.StringPtrInput `pulumi:"azureTenantId"`
+	UsePrivatelinkEndpoint  pulumi.StringPtrInput `pulumi:"usePrivatelinkEndpoint"`
 }
 
 func (ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs) ElementType() reflect.Type {
@@ -13540,6 +14225,12 @@ func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) A
 func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) AzureTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation) *string {
 		return v.AzureTenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) UsePrivatelinkEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalVolumeDescribeOutputStorageLocationAzureStorageLocation) *string {
+		return v.UsePrivatelinkEndpoint
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -65912,740 +66603,6 @@ func (o StageExternalAzureDescribeOutputFileFormatJsonArrayOutput) Index(i pulum
 	}).(StageExternalAzureDescribeOutputFileFormatJsonOutput)
 }
 
-type StageExternalAzureDescribeOutputFileFormatOrc struct {
-	NullIfs                  []string `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters *bool    `pulumi:"replaceInvalidCharacters"`
-	TrimSpace                *bool    `pulumi:"trimSpace"`
-	Type                     *string  `pulumi:"type"`
-}
-
-// StageExternalAzureDescribeOutputFileFormatOrcInput is an input type that accepts StageExternalAzureDescribeOutputFileFormatOrcArgs and StageExternalAzureDescribeOutputFileFormatOrcOutput values.
-// You can construct a concrete instance of `StageExternalAzureDescribeOutputFileFormatOrcInput` via:
-//
-//	StageExternalAzureDescribeOutputFileFormatOrcArgs{...}
-type StageExternalAzureDescribeOutputFileFormatOrcInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureDescribeOutputFileFormatOrcOutput() StageExternalAzureDescribeOutputFileFormatOrcOutput
-	ToStageExternalAzureDescribeOutputFileFormatOrcOutputWithContext(context.Context) StageExternalAzureDescribeOutputFileFormatOrcOutput
-}
-
-type StageExternalAzureDescribeOutputFileFormatOrcArgs struct {
-	NullIfs                  pulumi.StringArrayInput `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters pulumi.BoolPtrInput     `pulumi:"replaceInvalidCharacters"`
-	TrimSpace                pulumi.BoolPtrInput     `pulumi:"trimSpace"`
-	Type                     pulumi.StringPtrInput   `pulumi:"type"`
-}
-
-func (StageExternalAzureDescribeOutputFileFormatOrcArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatOrc)(nil)).Elem()
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatOrcArgs) ToStageExternalAzureDescribeOutputFileFormatOrcOutput() StageExternalAzureDescribeOutputFileFormatOrcOutput {
-	return i.ToStageExternalAzureDescribeOutputFileFormatOrcOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatOrcArgs) ToStageExternalAzureDescribeOutputFileFormatOrcOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatOrcOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureDescribeOutputFileFormatOrcOutput)
-}
-
-// StageExternalAzureDescribeOutputFileFormatOrcArrayInput is an input type that accepts StageExternalAzureDescribeOutputFileFormatOrcArray and StageExternalAzureDescribeOutputFileFormatOrcArrayOutput values.
-// You can construct a concrete instance of `StageExternalAzureDescribeOutputFileFormatOrcArrayInput` via:
-//
-//	StageExternalAzureDescribeOutputFileFormatOrcArray{ StageExternalAzureDescribeOutputFileFormatOrcArgs{...} }
-type StageExternalAzureDescribeOutputFileFormatOrcArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureDescribeOutputFileFormatOrcArrayOutput() StageExternalAzureDescribeOutputFileFormatOrcArrayOutput
-	ToStageExternalAzureDescribeOutputFileFormatOrcArrayOutputWithContext(context.Context) StageExternalAzureDescribeOutputFileFormatOrcArrayOutput
-}
-
-type StageExternalAzureDescribeOutputFileFormatOrcArray []StageExternalAzureDescribeOutputFileFormatOrcInput
-
-func (StageExternalAzureDescribeOutputFileFormatOrcArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalAzureDescribeOutputFileFormatOrc)(nil)).Elem()
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatOrcArray) ToStageExternalAzureDescribeOutputFileFormatOrcArrayOutput() StageExternalAzureDescribeOutputFileFormatOrcArrayOutput {
-	return i.ToStageExternalAzureDescribeOutputFileFormatOrcArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatOrcArray) ToStageExternalAzureDescribeOutputFileFormatOrcArrayOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatOrcArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureDescribeOutputFileFormatOrcArrayOutput)
-}
-
-type StageExternalAzureDescribeOutputFileFormatOrcOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureDescribeOutputFileFormatOrcOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatOrc)(nil)).Elem()
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatOrcOutput) ToStageExternalAzureDescribeOutputFileFormatOrcOutput() StageExternalAzureDescribeOutputFileFormatOrcOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatOrcOutput) ToStageExternalAzureDescribeOutputFileFormatOrcOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatOrcOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatOrcOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatOrc) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatOrcOutput) ReplaceInvalidCharacters() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatOrc) *bool { return v.ReplaceInvalidCharacters }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatOrcOutput) TrimSpace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatOrc) *bool { return v.TrimSpace }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatOrcOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatOrc) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureDescribeOutputFileFormatOrcArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureDescribeOutputFileFormatOrcArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalAzureDescribeOutputFileFormatOrc)(nil)).Elem()
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatOrcArrayOutput) ToStageExternalAzureDescribeOutputFileFormatOrcArrayOutput() StageExternalAzureDescribeOutputFileFormatOrcArrayOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatOrcArrayOutput) ToStageExternalAzureDescribeOutputFileFormatOrcArrayOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatOrcArrayOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatOrcArrayOutput) Index(i pulumi.IntInput) StageExternalAzureDescribeOutputFileFormatOrcOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalAzureDescribeOutputFileFormatOrc {
-		return vs[0].([]StageExternalAzureDescribeOutputFileFormatOrc)[vs[1].(int)]
-	}).(StageExternalAzureDescribeOutputFileFormatOrcOutput)
-}
-
-type StageExternalAzureDescribeOutputFileFormatParquet struct {
-	BinaryAsText             *bool    `pulumi:"binaryAsText"`
-	Compression              *string  `pulumi:"compression"`
-	NullIfs                  []string `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters *bool    `pulumi:"replaceInvalidCharacters"`
-	TrimSpace                *bool    `pulumi:"trimSpace"`
-	Type                     *string  `pulumi:"type"`
-	UseLogicalType           *bool    `pulumi:"useLogicalType"`
-	UseVectorizedScanner     *bool    `pulumi:"useVectorizedScanner"`
-}
-
-// StageExternalAzureDescribeOutputFileFormatParquetInput is an input type that accepts StageExternalAzureDescribeOutputFileFormatParquetArgs and StageExternalAzureDescribeOutputFileFormatParquetOutput values.
-// You can construct a concrete instance of `StageExternalAzureDescribeOutputFileFormatParquetInput` via:
-//
-//	StageExternalAzureDescribeOutputFileFormatParquetArgs{...}
-type StageExternalAzureDescribeOutputFileFormatParquetInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureDescribeOutputFileFormatParquetOutput() StageExternalAzureDescribeOutputFileFormatParquetOutput
-	ToStageExternalAzureDescribeOutputFileFormatParquetOutputWithContext(context.Context) StageExternalAzureDescribeOutputFileFormatParquetOutput
-}
-
-type StageExternalAzureDescribeOutputFileFormatParquetArgs struct {
-	BinaryAsText             pulumi.BoolPtrInput     `pulumi:"binaryAsText"`
-	Compression              pulumi.StringPtrInput   `pulumi:"compression"`
-	NullIfs                  pulumi.StringArrayInput `pulumi:"nullIfs"`
-	ReplaceInvalidCharacters pulumi.BoolPtrInput     `pulumi:"replaceInvalidCharacters"`
-	TrimSpace                pulumi.BoolPtrInput     `pulumi:"trimSpace"`
-	Type                     pulumi.StringPtrInput   `pulumi:"type"`
-	UseLogicalType           pulumi.BoolPtrInput     `pulumi:"useLogicalType"`
-	UseVectorizedScanner     pulumi.BoolPtrInput     `pulumi:"useVectorizedScanner"`
-}
-
-func (StageExternalAzureDescribeOutputFileFormatParquetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatParquet)(nil)).Elem()
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatParquetArgs) ToStageExternalAzureDescribeOutputFileFormatParquetOutput() StageExternalAzureDescribeOutputFileFormatParquetOutput {
-	return i.ToStageExternalAzureDescribeOutputFileFormatParquetOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatParquetArgs) ToStageExternalAzureDescribeOutputFileFormatParquetOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatParquetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureDescribeOutputFileFormatParquetOutput)
-}
-
-// StageExternalAzureDescribeOutputFileFormatParquetArrayInput is an input type that accepts StageExternalAzureDescribeOutputFileFormatParquetArray and StageExternalAzureDescribeOutputFileFormatParquetArrayOutput values.
-// You can construct a concrete instance of `StageExternalAzureDescribeOutputFileFormatParquetArrayInput` via:
-//
-//	StageExternalAzureDescribeOutputFileFormatParquetArray{ StageExternalAzureDescribeOutputFileFormatParquetArgs{...} }
-type StageExternalAzureDescribeOutputFileFormatParquetArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureDescribeOutputFileFormatParquetArrayOutput() StageExternalAzureDescribeOutputFileFormatParquetArrayOutput
-	ToStageExternalAzureDescribeOutputFileFormatParquetArrayOutputWithContext(context.Context) StageExternalAzureDescribeOutputFileFormatParquetArrayOutput
-}
-
-type StageExternalAzureDescribeOutputFileFormatParquetArray []StageExternalAzureDescribeOutputFileFormatParquetInput
-
-func (StageExternalAzureDescribeOutputFileFormatParquetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalAzureDescribeOutputFileFormatParquet)(nil)).Elem()
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatParquetArray) ToStageExternalAzureDescribeOutputFileFormatParquetArrayOutput() StageExternalAzureDescribeOutputFileFormatParquetArrayOutput {
-	return i.ToStageExternalAzureDescribeOutputFileFormatParquetArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatParquetArray) ToStageExternalAzureDescribeOutputFileFormatParquetArrayOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatParquetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureDescribeOutputFileFormatParquetArrayOutput)
-}
-
-type StageExternalAzureDescribeOutputFileFormatParquetOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureDescribeOutputFileFormatParquetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatParquet)(nil)).Elem()
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetOutput) ToStageExternalAzureDescribeOutputFileFormatParquetOutput() StageExternalAzureDescribeOutputFileFormatParquetOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetOutput) ToStageExternalAzureDescribeOutputFileFormatParquetOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatParquetOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetOutput) BinaryAsText() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatParquet) *bool { return v.BinaryAsText }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatParquet) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetOutput) NullIfs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatParquet) []string { return v.NullIfs }).(pulumi.StringArrayOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetOutput) ReplaceInvalidCharacters() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatParquet) *bool { return v.ReplaceInvalidCharacters }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetOutput) TrimSpace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatParquet) *bool { return v.TrimSpace }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatParquet) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetOutput) UseLogicalType() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatParquet) *bool { return v.UseLogicalType }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetOutput) UseVectorizedScanner() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatParquet) *bool { return v.UseVectorizedScanner }).(pulumi.BoolPtrOutput)
-}
-
-type StageExternalAzureDescribeOutputFileFormatParquetArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureDescribeOutputFileFormatParquetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalAzureDescribeOutputFileFormatParquet)(nil)).Elem()
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetArrayOutput) ToStageExternalAzureDescribeOutputFileFormatParquetArrayOutput() StageExternalAzureDescribeOutputFileFormatParquetArrayOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetArrayOutput) ToStageExternalAzureDescribeOutputFileFormatParquetArrayOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatParquetArrayOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatParquetArrayOutput) Index(i pulumi.IntInput) StageExternalAzureDescribeOutputFileFormatParquetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalAzureDescribeOutputFileFormatParquet {
-		return vs[0].([]StageExternalAzureDescribeOutputFileFormatParquet)[vs[1].(int)]
-	}).(StageExternalAzureDescribeOutputFileFormatParquetOutput)
-}
-
-type StageExternalAzureDescribeOutputFileFormatXml struct {
-	Compression              *string `pulumi:"compression"`
-	DisableAutoConvert       *bool   `pulumi:"disableAutoConvert"`
-	IgnoreUtf8Errors         *bool   `pulumi:"ignoreUtf8Errors"`
-	PreserveSpace            *bool   `pulumi:"preserveSpace"`
-	ReplaceInvalidCharacters *bool   `pulumi:"replaceInvalidCharacters"`
-	SkipByteOrderMark        *bool   `pulumi:"skipByteOrderMark"`
-	StripOuterElement        *bool   `pulumi:"stripOuterElement"`
-	Type                     *string `pulumi:"type"`
-}
-
-// StageExternalAzureDescribeOutputFileFormatXmlInput is an input type that accepts StageExternalAzureDescribeOutputFileFormatXmlArgs and StageExternalAzureDescribeOutputFileFormatXmlOutput values.
-// You can construct a concrete instance of `StageExternalAzureDescribeOutputFileFormatXmlInput` via:
-//
-//	StageExternalAzureDescribeOutputFileFormatXmlArgs{...}
-type StageExternalAzureDescribeOutputFileFormatXmlInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureDescribeOutputFileFormatXmlOutput() StageExternalAzureDescribeOutputFileFormatXmlOutput
-	ToStageExternalAzureDescribeOutputFileFormatXmlOutputWithContext(context.Context) StageExternalAzureDescribeOutputFileFormatXmlOutput
-}
-
-type StageExternalAzureDescribeOutputFileFormatXmlArgs struct {
-	Compression              pulumi.StringPtrInput `pulumi:"compression"`
-	DisableAutoConvert       pulumi.BoolPtrInput   `pulumi:"disableAutoConvert"`
-	IgnoreUtf8Errors         pulumi.BoolPtrInput   `pulumi:"ignoreUtf8Errors"`
-	PreserveSpace            pulumi.BoolPtrInput   `pulumi:"preserveSpace"`
-	ReplaceInvalidCharacters pulumi.BoolPtrInput   `pulumi:"replaceInvalidCharacters"`
-	SkipByteOrderMark        pulumi.BoolPtrInput   `pulumi:"skipByteOrderMark"`
-	StripOuterElement        pulumi.BoolPtrInput   `pulumi:"stripOuterElement"`
-	Type                     pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (StageExternalAzureDescribeOutputFileFormatXmlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatXml)(nil)).Elem()
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatXmlArgs) ToStageExternalAzureDescribeOutputFileFormatXmlOutput() StageExternalAzureDescribeOutputFileFormatXmlOutput {
-	return i.ToStageExternalAzureDescribeOutputFileFormatXmlOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatXmlArgs) ToStageExternalAzureDescribeOutputFileFormatXmlOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatXmlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureDescribeOutputFileFormatXmlOutput)
-}
-
-// StageExternalAzureDescribeOutputFileFormatXmlArrayInput is an input type that accepts StageExternalAzureDescribeOutputFileFormatXmlArray and StageExternalAzureDescribeOutputFileFormatXmlArrayOutput values.
-// You can construct a concrete instance of `StageExternalAzureDescribeOutputFileFormatXmlArrayInput` via:
-//
-//	StageExternalAzureDescribeOutputFileFormatXmlArray{ StageExternalAzureDescribeOutputFileFormatXmlArgs{...} }
-type StageExternalAzureDescribeOutputFileFormatXmlArrayInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureDescribeOutputFileFormatXmlArrayOutput() StageExternalAzureDescribeOutputFileFormatXmlArrayOutput
-	ToStageExternalAzureDescribeOutputFileFormatXmlArrayOutputWithContext(context.Context) StageExternalAzureDescribeOutputFileFormatXmlArrayOutput
-}
-
-type StageExternalAzureDescribeOutputFileFormatXmlArray []StageExternalAzureDescribeOutputFileFormatXmlInput
-
-func (StageExternalAzureDescribeOutputFileFormatXmlArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalAzureDescribeOutputFileFormatXml)(nil)).Elem()
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatXmlArray) ToStageExternalAzureDescribeOutputFileFormatXmlArrayOutput() StageExternalAzureDescribeOutputFileFormatXmlArrayOutput {
-	return i.ToStageExternalAzureDescribeOutputFileFormatXmlArrayOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureDescribeOutputFileFormatXmlArray) ToStageExternalAzureDescribeOutputFileFormatXmlArrayOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatXmlArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureDescribeOutputFileFormatXmlArrayOutput)
-}
-
-type StageExternalAzureDescribeOutputFileFormatXmlOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureDescribeOutputFileFormatXmlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatXml)(nil)).Elem()
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlOutput) ToStageExternalAzureDescribeOutputFileFormatXmlOutput() StageExternalAzureDescribeOutputFileFormatXmlOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlOutput) ToStageExternalAzureDescribeOutputFileFormatXmlOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatXmlOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlOutput) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatXml) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlOutput) DisableAutoConvert() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatXml) *bool { return v.DisableAutoConvert }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlOutput) IgnoreUtf8Errors() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatXml) *bool { return v.IgnoreUtf8Errors }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlOutput) PreserveSpace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatXml) *bool { return v.PreserveSpace }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlOutput) ReplaceInvalidCharacters() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatXml) *bool { return v.ReplaceInvalidCharacters }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlOutput) SkipByteOrderMark() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatXml) *bool { return v.SkipByteOrderMark }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlOutput) StripOuterElement() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatXml) *bool { return v.StripOuterElement }).(pulumi.BoolPtrOutput)
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDescribeOutputFileFormatXml) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureDescribeOutputFileFormatXmlArrayOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureDescribeOutputFileFormatXmlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StageExternalAzureDescribeOutputFileFormatXml)(nil)).Elem()
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlArrayOutput) ToStageExternalAzureDescribeOutputFileFormatXmlArrayOutput() StageExternalAzureDescribeOutputFileFormatXmlArrayOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlArrayOutput) ToStageExternalAzureDescribeOutputFileFormatXmlArrayOutputWithContext(ctx context.Context) StageExternalAzureDescribeOutputFileFormatXmlArrayOutput {
-	return o
-}
-
-func (o StageExternalAzureDescribeOutputFileFormatXmlArrayOutput) Index(i pulumi.IntInput) StageExternalAzureDescribeOutputFileFormatXmlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StageExternalAzureDescribeOutputFileFormatXml {
-		return vs[0].([]StageExternalAzureDescribeOutputFileFormatXml)[vs[1].(int)]
-	}).(StageExternalAzureDescribeOutputFileFormatXmlOutput)
-}
-
-type StageExternalAzureDirectory struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
-	AutoRefresh *string `pulumi:"autoRefresh"`
-	// Specifies whether to enable a directory table on the external stage.
-	Enable bool `pulumi:"enable"`
-	// Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	NotificationIntegration *string `pulumi:"notificationIntegration"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
-	RefreshOnCreate *string `pulumi:"refreshOnCreate"`
-}
-
-// StageExternalAzureDirectoryInput is an input type that accepts StageExternalAzureDirectoryArgs and StageExternalAzureDirectoryOutput values.
-// You can construct a concrete instance of `StageExternalAzureDirectoryInput` via:
-//
-//	StageExternalAzureDirectoryArgs{...}
-type StageExternalAzureDirectoryInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureDirectoryOutput() StageExternalAzureDirectoryOutput
-	ToStageExternalAzureDirectoryOutputWithContext(context.Context) StageExternalAzureDirectoryOutput
-}
-
-type StageExternalAzureDirectoryArgs struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
-	AutoRefresh pulumi.StringPtrInput `pulumi:"autoRefresh"`
-	// Specifies whether to enable a directory table on the external stage.
-	Enable pulumi.BoolInput `pulumi:"enable"`
-	// Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-	NotificationIntegration pulumi.StringPtrInput `pulumi:"notificationIntegration"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
-	RefreshOnCreate pulumi.StringPtrInput `pulumi:"refreshOnCreate"`
-}
-
-func (StageExternalAzureDirectoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureDirectory)(nil)).Elem()
-}
-
-func (i StageExternalAzureDirectoryArgs) ToStageExternalAzureDirectoryOutput() StageExternalAzureDirectoryOutput {
-	return i.ToStageExternalAzureDirectoryOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureDirectoryArgs) ToStageExternalAzureDirectoryOutputWithContext(ctx context.Context) StageExternalAzureDirectoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureDirectoryOutput)
-}
-
-func (i StageExternalAzureDirectoryArgs) ToStageExternalAzureDirectoryPtrOutput() StageExternalAzureDirectoryPtrOutput {
-	return i.ToStageExternalAzureDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureDirectoryArgs) ToStageExternalAzureDirectoryPtrOutputWithContext(ctx context.Context) StageExternalAzureDirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureDirectoryOutput).ToStageExternalAzureDirectoryPtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureDirectoryPtrInput is an input type that accepts StageExternalAzureDirectoryArgs, StageExternalAzureDirectoryPtr and StageExternalAzureDirectoryPtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureDirectoryPtrInput` via:
-//
-//	        StageExternalAzureDirectoryArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureDirectoryPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureDirectoryPtrOutput() StageExternalAzureDirectoryPtrOutput
-	ToStageExternalAzureDirectoryPtrOutputWithContext(context.Context) StageExternalAzureDirectoryPtrOutput
-}
-
-type stageExternalAzureDirectoryPtrType StageExternalAzureDirectoryArgs
-
-func StageExternalAzureDirectoryPtr(v *StageExternalAzureDirectoryArgs) StageExternalAzureDirectoryPtrInput {
-	return (*stageExternalAzureDirectoryPtrType)(v)
-}
-
-func (*stageExternalAzureDirectoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureDirectory)(nil)).Elem()
-}
-
-func (i *stageExternalAzureDirectoryPtrType) ToStageExternalAzureDirectoryPtrOutput() StageExternalAzureDirectoryPtrOutput {
-	return i.ToStageExternalAzureDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureDirectoryPtrType) ToStageExternalAzureDirectoryPtrOutputWithContext(ctx context.Context) StageExternalAzureDirectoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureDirectoryPtrOutput)
-}
-
-type StageExternalAzureDirectoryOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureDirectoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureDirectory)(nil)).Elem()
-}
-
-func (o StageExternalAzureDirectoryOutput) ToStageExternalAzureDirectoryOutput() StageExternalAzureDirectoryOutput {
-	return o
-}
-
-func (o StageExternalAzureDirectoryOutput) ToStageExternalAzureDirectoryOutputWithContext(ctx context.Context) StageExternalAzureDirectoryOutput {
-	return o
-}
-
-func (o StageExternalAzureDirectoryOutput) ToStageExternalAzureDirectoryPtrOutput() StageExternalAzureDirectoryPtrOutput {
-	return o.ToStageExternalAzureDirectoryPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureDirectoryOutput) ToStageExternalAzureDirectoryPtrOutputWithContext(ctx context.Context) StageExternalAzureDirectoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureDirectory) *StageExternalAzureDirectory {
-		return &v
-	}).(StageExternalAzureDirectoryPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
-func (o StageExternalAzureDirectoryOutput) AutoRefresh() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDirectory) *string { return v.AutoRefresh }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether to enable a directory table on the external stage.
-func (o StageExternalAzureDirectoryOutput) Enable() pulumi.BoolOutput {
-	return o.ApplyT(func(v StageExternalAzureDirectory) bool { return v.Enable }).(pulumi.BoolOutput)
-}
-
-// Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-func (o StageExternalAzureDirectoryOutput) NotificationIntegration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDirectory) *string { return v.NotificationIntegration }).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
-func (o StageExternalAzureDirectoryOutput) RefreshOnCreate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StageExternalAzureDirectory) *string { return v.RefreshOnCreate }).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureDirectoryPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureDirectoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureDirectory)(nil)).Elem()
-}
-
-func (o StageExternalAzureDirectoryPtrOutput) ToStageExternalAzureDirectoryPtrOutput() StageExternalAzureDirectoryPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureDirectoryPtrOutput) ToStageExternalAzureDirectoryPtrOutputWithContext(ctx context.Context) StageExternalAzureDirectoryPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureDirectoryPtrOutput) Elem() StageExternalAzureDirectoryOutput {
-	return o.ApplyT(func(v *StageExternalAzureDirectory) StageExternalAzureDirectory {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureDirectory
-		return ret
-	}).(StageExternalAzureDirectoryOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
-func (o StageExternalAzureDirectoryPtrOutput) AutoRefresh() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AutoRefresh
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether to enable a directory table on the external stage.
-func (o StageExternalAzureDirectoryPtrOutput) Enable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureDirectory) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enable
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the name of the notification integration used to automatically refresh the directory table metadata. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-func (o StageExternalAzureDirectoryPtrOutput) NotificationIntegration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NotificationIntegration
-	}).(pulumi.StringPtrOutput)
-}
-
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
-func (o StageExternalAzureDirectoryPtrOutput) RefreshOnCreate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureDirectory) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RefreshOnCreate
-	}).(pulumi.StringPtrOutput)
-}
-
-type StageExternalAzureEncryption struct {
-	// Azure client-side encryption using a master key.
-	AzureCse *StageExternalAzureEncryptionAzureCse `pulumi:"azureCse"`
-	// No encryption.
-	None *StageExternalAzureEncryptionNone `pulumi:"none"`
-}
-
-// StageExternalAzureEncryptionInput is an input type that accepts StageExternalAzureEncryptionArgs and StageExternalAzureEncryptionOutput values.
-// You can construct a concrete instance of `StageExternalAzureEncryptionInput` via:
-//
-//	StageExternalAzureEncryptionArgs{...}
-type StageExternalAzureEncryptionInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureEncryptionOutput() StageExternalAzureEncryptionOutput
-	ToStageExternalAzureEncryptionOutputWithContext(context.Context) StageExternalAzureEncryptionOutput
-}
-
-type StageExternalAzureEncryptionArgs struct {
-	// Azure client-side encryption using a master key.
-	AzureCse StageExternalAzureEncryptionAzureCsePtrInput `pulumi:"azureCse"`
-	// No encryption.
-	None StageExternalAzureEncryptionNonePtrInput `pulumi:"none"`
-}
-
-func (StageExternalAzureEncryptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureEncryption)(nil)).Elem()
-}
-
-func (i StageExternalAzureEncryptionArgs) ToStageExternalAzureEncryptionOutput() StageExternalAzureEncryptionOutput {
-	return i.ToStageExternalAzureEncryptionOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureEncryptionArgs) ToStageExternalAzureEncryptionOutputWithContext(ctx context.Context) StageExternalAzureEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureEncryptionOutput)
-}
-
-func (i StageExternalAzureEncryptionArgs) ToStageExternalAzureEncryptionPtrOutput() StageExternalAzureEncryptionPtrOutput {
-	return i.ToStageExternalAzureEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i StageExternalAzureEncryptionArgs) ToStageExternalAzureEncryptionPtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureEncryptionOutput).ToStageExternalAzureEncryptionPtrOutputWithContext(ctx)
-}
-
-// StageExternalAzureEncryptionPtrInput is an input type that accepts StageExternalAzureEncryptionArgs, StageExternalAzureEncryptionPtr and StageExternalAzureEncryptionPtrOutput values.
-// You can construct a concrete instance of `StageExternalAzureEncryptionPtrInput` via:
-//
-//	        StageExternalAzureEncryptionArgs{...}
-//
-//	or:
-//
-//	        nil
-type StageExternalAzureEncryptionPtrInput interface {
-	pulumi.Input
-
-	ToStageExternalAzureEncryptionPtrOutput() StageExternalAzureEncryptionPtrOutput
-	ToStageExternalAzureEncryptionPtrOutputWithContext(context.Context) StageExternalAzureEncryptionPtrOutput
-}
-
-type stageExternalAzureEncryptionPtrType StageExternalAzureEncryptionArgs
-
-func StageExternalAzureEncryptionPtr(v *StageExternalAzureEncryptionArgs) StageExternalAzureEncryptionPtrInput {
-	return (*stageExternalAzureEncryptionPtrType)(v)
-}
-
-func (*stageExternalAzureEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureEncryption)(nil)).Elem()
-}
-
-func (i *stageExternalAzureEncryptionPtrType) ToStageExternalAzureEncryptionPtrOutput() StageExternalAzureEncryptionPtrOutput {
-	return i.ToStageExternalAzureEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *stageExternalAzureEncryptionPtrType) ToStageExternalAzureEncryptionPtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StageExternalAzureEncryptionPtrOutput)
-}
-
-type StageExternalAzureEncryptionOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureEncryptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StageExternalAzureEncryption)(nil)).Elem()
-}
-
-func (o StageExternalAzureEncryptionOutput) ToStageExternalAzureEncryptionOutput() StageExternalAzureEncryptionOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionOutput) ToStageExternalAzureEncryptionOutputWithContext(ctx context.Context) StageExternalAzureEncryptionOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionOutput) ToStageExternalAzureEncryptionPtrOutput() StageExternalAzureEncryptionPtrOutput {
-	return o.ToStageExternalAzureEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o StageExternalAzureEncryptionOutput) ToStageExternalAzureEncryptionPtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageExternalAzureEncryption) *StageExternalAzureEncryption {
-		return &v
-	}).(StageExternalAzureEncryptionPtrOutput)
-}
-
-// Azure client-side encryption using a master key.
-func (o StageExternalAzureEncryptionOutput) AzureCse() StageExternalAzureEncryptionAzureCsePtrOutput {
-	return o.ApplyT(func(v StageExternalAzureEncryption) *StageExternalAzureEncryptionAzureCse { return v.AzureCse }).(StageExternalAzureEncryptionAzureCsePtrOutput)
-}
-
-// No encryption.
-func (o StageExternalAzureEncryptionOutput) None() StageExternalAzureEncryptionNonePtrOutput {
-	return o.ApplyT(func(v StageExternalAzureEncryption) *StageExternalAzureEncryptionNone { return v.None }).(StageExternalAzureEncryptionNonePtrOutput)
-}
-
-type StageExternalAzureEncryptionPtrOutput struct{ *pulumi.OutputState }
-
-func (StageExternalAzureEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StageExternalAzureEncryption)(nil)).Elem()
-}
-
-func (o StageExternalAzureEncryptionPtrOutput) ToStageExternalAzureEncryptionPtrOutput() StageExternalAzureEncryptionPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionPtrOutput) ToStageExternalAzureEncryptionPtrOutputWithContext(ctx context.Context) StageExternalAzureEncryptionPtrOutput {
-	return o
-}
-
-func (o StageExternalAzureEncryptionPtrOutput) Elem() StageExternalAzureEncryptionOutput {
-	return o.ApplyT(func(v *StageExternalAzureEncryption) StageExternalAzureEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret StageExternalAzureEncryption
-		return ret
-	}).(StageExternalAzureEncryptionOutput)
-}
-
-// Azure client-side encryption using a master key.
-func (o StageExternalAzureEncryptionPtrOutput) AzureCse() StageExternalAzureEncryptionAzureCsePtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureEncryption) *StageExternalAzureEncryptionAzureCse {
-		if v == nil {
-			return nil
-		}
-		return v.AzureCse
-	}).(StageExternalAzureEncryptionAzureCsePtrOutput)
-}
-
-// No encryption.
-func (o StageExternalAzureEncryptionPtrOutput) None() StageExternalAzureEncryptionNonePtrOutput {
-	return o.ApplyT(func(v *StageExternalAzureEncryption) *StageExternalAzureEncryptionNone {
-		if v == nil {
-			return nil
-		}
-		return v.None
-	}).(StageExternalAzureEncryptionNonePtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -66789,6 +66746,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolDescribeOutputArrayInput)(nil)).Elem(), ComputePoolDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolShowOutputInput)(nil)).Elem(), ComputePoolShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolShowOutputArrayInput)(nil)).Elem(), ComputePoolShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexAgentDescribeOutputInput)(nil)).Elem(), CortexAgentDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexAgentDescribeOutputArrayInput)(nil)).Elem(), CortexAgentDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexAgentDescribeOutputProfileInput)(nil)).Elem(), CortexAgentDescribeOutputProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexAgentDescribeOutputProfileArrayInput)(nil)).Elem(), CortexAgentDescribeOutputProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexAgentProfileInput)(nil)).Elem(), CortexAgentProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexAgentProfilePtrInput)(nil)).Elem(), CortexAgentProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexAgentShowOutputInput)(nil)).Elem(), CortexAgentShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexAgentShowOutputArrayInput)(nil)).Elem(), CortexAgentShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexAgentShowOutputProfileInput)(nil)).Elem(), CortexAgentShowOutputProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexAgentShowOutputProfileArrayInput)(nil)).Elem(), CortexAgentShowOutputProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CortexSearchServiceDescribeOutputInput)(nil)).Elem(), CortexSearchServiceDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CortexSearchServiceDescribeOutputArrayInput)(nil)).Elem(), CortexSearchServiceDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CurrentOrganizationAccountShowOutputInput)(nil)).Elem(), CurrentOrganizationAccountShowOutputArgs{})
@@ -67635,16 +67602,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatCsvArrayInput)(nil)).Elem(), StageExternalAzureDescribeOutputFileFormatCsvArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatJsonInput)(nil)).Elem(), StageExternalAzureDescribeOutputFileFormatJsonArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatJsonArrayInput)(nil)).Elem(), StageExternalAzureDescribeOutputFileFormatJsonArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatOrcInput)(nil)).Elem(), StageExternalAzureDescribeOutputFileFormatOrcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatOrcArrayInput)(nil)).Elem(), StageExternalAzureDescribeOutputFileFormatOrcArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatParquetInput)(nil)).Elem(), StageExternalAzureDescribeOutputFileFormatParquetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatParquetArrayInput)(nil)).Elem(), StageExternalAzureDescribeOutputFileFormatParquetArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatXmlInput)(nil)).Elem(), StageExternalAzureDescribeOutputFileFormatXmlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDescribeOutputFileFormatXmlArrayInput)(nil)).Elem(), StageExternalAzureDescribeOutputFileFormatXmlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDirectoryInput)(nil)).Elem(), StageExternalAzureDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureDirectoryPtrInput)(nil)).Elem(), StageExternalAzureDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureEncryptionInput)(nil)).Elem(), StageExternalAzureEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StageExternalAzureEncryptionPtrInput)(nil)).Elem(), StageExternalAzureEncryptionArgs{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -67787,6 +67744,16 @@ func init() {
 	pulumi.RegisterOutputType(ComputePoolDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(ComputePoolShowOutputOutput{})
 	pulumi.RegisterOutputType(ComputePoolShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(CortexAgentDescribeOutputOutput{})
+	pulumi.RegisterOutputType(CortexAgentDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(CortexAgentDescribeOutputProfileOutput{})
+	pulumi.RegisterOutputType(CortexAgentDescribeOutputProfileArrayOutput{})
+	pulumi.RegisterOutputType(CortexAgentProfileOutput{})
+	pulumi.RegisterOutputType(CortexAgentProfilePtrOutput{})
+	pulumi.RegisterOutputType(CortexAgentShowOutputOutput{})
+	pulumi.RegisterOutputType(CortexAgentShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(CortexAgentShowOutputProfileOutput{})
+	pulumi.RegisterOutputType(CortexAgentShowOutputProfileArrayOutput{})
 	pulumi.RegisterOutputType(CortexSearchServiceDescribeOutputOutput{})
 	pulumi.RegisterOutputType(CortexSearchServiceDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(CurrentOrganizationAccountShowOutputOutput{})
@@ -68633,14 +68600,4 @@ func init() {
 	pulumi.RegisterOutputType(StageExternalAzureDescribeOutputFileFormatCsvArrayOutput{})
 	pulumi.RegisterOutputType(StageExternalAzureDescribeOutputFileFormatJsonOutput{})
 	pulumi.RegisterOutputType(StageExternalAzureDescribeOutputFileFormatJsonArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureDescribeOutputFileFormatOrcOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureDescribeOutputFileFormatOrcArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureDescribeOutputFileFormatParquetOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureDescribeOutputFileFormatParquetArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureDescribeOutputFileFormatXmlOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureDescribeOutputFileFormatXmlArrayOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureDirectoryOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureDirectoryPtrOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureEncryptionOutput{})
-	pulumi.RegisterOutputType(StageExternalAzureEncryptionPtrOutput{})
 }

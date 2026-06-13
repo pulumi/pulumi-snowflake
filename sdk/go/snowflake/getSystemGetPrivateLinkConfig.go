@@ -121,20 +121,38 @@ func GetSystemGetPrivateLinkConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOpt
 type GetSystemGetPrivateLinkConfigResult struct {
 	// The name of your Snowflake account.
 	AccountName string `pulumi:"accountName"`
-	// The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+	// The URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
 	AccountUrl string `pulumi:"accountUrl"`
+	// The PrivateLink endpoint URL used to route traffic to Snowflake-hosted app services, such as Streamlit or Notebooks.
+	AppServicePrivatelinkUrl string `pulumi:"appServicePrivatelinkUrl"`
 	// The AWS VPCE ID for your account.
 	AwsVpceId string `pulumi:"awsVpceId"`
-	// The Azure Private Link Service ID for your account.
+	// The Microsoft Azure Private Link Service ID for your account identifier in the format of an alias.
 	AzurePlsId string `pulumi:"azurePlsId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
 	InternalStage string `pulumi:"internalStage"`
-	// The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+	// The OCSP URL corresponding to your Snowflake account identifier.
 	OcspUrl string `pulumi:"ocspUrl"`
+	// The AWS principal ARN to allow for outbound private connections to your VPC endpoint services.
+	PrivatelinkAccountPrincipal string `pulumi:"privatelinkAccountPrincipal"`
+	// The list of OCSP URLs for use with redirecting client connections when using client redirect.
+	PrivatelinkConnectionOcspUrls string `pulumi:"privatelinkConnectionOcspUrls"`
+	// The private connectivity connection URLs for your account when using client redirect.
+	PrivatelinkConnectionUrls string `pulumi:"privatelinkConnectionUrls"`
+	// The list of dashed variant URLs for Duo Multi-Factor Authentication, shown only when the hostname contains an underscore.
+	PrivatelinkDashedUrlsForDuo string `pulumi:"privatelinkDashedUrlsForDuo"`
+	// The endpoint for the Snowflake service when using Google Cloud Private Service Connect.
+	PrivatelinkGcpServiceAttachment string `pulumi:"privatelinkGcpServiceAttachment"`
+	// The endpoint for failsafe Snowflake-managed storage volumes when using Azure Private Link.
+	PrivatelinkSnowflakeManagedStorageVolumeFs string `pulumi:"privatelinkSnowflakeManagedStorageVolumeFs"`
+	// The endpoint for non-failsafe Snowflake-managed storage volumes when using Azure Private Link.
+	PrivatelinkSnowflakeManagedStorageVolumeNfs string `pulumi:"privatelinkSnowflakeManagedStorageVolumeNfs"`
 	// The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
 	RegionlessAccountUrl string `pulumi:"regionlessAccountUrl"`
+	// The regionless OCSP URL to connect to Snowflake OCSP using private connectivity.
+	RegionlessPrivatelinkOcspUrl string `pulumi:"regionlessPrivatelinkOcspUrl"`
 	// The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
 	RegionlessSnowsightUrl string `pulumi:"regionlessSnowsightUrl"`
 	// The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
@@ -168,9 +186,14 @@ func (o GetSystemGetPrivateLinkConfigResultOutput) AccountName() pulumi.StringOu
 	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+// The URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
 func (o GetSystemGetPrivateLinkConfigResultOutput) AccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.AccountUrl }).(pulumi.StringOutput)
+}
+
+// The PrivateLink endpoint URL used to route traffic to Snowflake-hosted app services, such as Streamlit or Notebooks.
+func (o GetSystemGetPrivateLinkConfigResultOutput) AppServicePrivatelinkUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.AppServicePrivatelinkUrl }).(pulumi.StringOutput)
 }
 
 // The AWS VPCE ID for your account.
@@ -178,7 +201,7 @@ func (o GetSystemGetPrivateLinkConfigResultOutput) AwsVpceId() pulumi.StringOutp
 	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.AwsVpceId }).(pulumi.StringOutput)
 }
 
-// The Azure Private Link Service ID for your account.
+// The Microsoft Azure Private Link Service ID for your account identifier in the format of an alias.
 func (o GetSystemGetPrivateLinkConfigResultOutput) AzurePlsId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.AzurePlsId }).(pulumi.StringOutput)
 }
@@ -193,14 +216,58 @@ func (o GetSystemGetPrivateLinkConfigResultOutput) InternalStage() pulumi.String
 	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.InternalStage }).(pulumi.StringOutput)
 }
 
-// The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+// The OCSP URL corresponding to your Snowflake account identifier.
 func (o GetSystemGetPrivateLinkConfigResultOutput) OcspUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.OcspUrl }).(pulumi.StringOutput)
+}
+
+// The AWS principal ARN to allow for outbound private connections to your VPC endpoint services.
+func (o GetSystemGetPrivateLinkConfigResultOutput) PrivatelinkAccountPrincipal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.PrivatelinkAccountPrincipal }).(pulumi.StringOutput)
+}
+
+// The list of OCSP URLs for use with redirecting client connections when using client redirect.
+func (o GetSystemGetPrivateLinkConfigResultOutput) PrivatelinkConnectionOcspUrls() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.PrivatelinkConnectionOcspUrls }).(pulumi.StringOutput)
+}
+
+// The private connectivity connection URLs for your account when using client redirect.
+func (o GetSystemGetPrivateLinkConfigResultOutput) PrivatelinkConnectionUrls() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.PrivatelinkConnectionUrls }).(pulumi.StringOutput)
+}
+
+// The list of dashed variant URLs for Duo Multi-Factor Authentication, shown only when the hostname contains an underscore.
+func (o GetSystemGetPrivateLinkConfigResultOutput) PrivatelinkDashedUrlsForDuo() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.PrivatelinkDashedUrlsForDuo }).(pulumi.StringOutput)
+}
+
+// The endpoint for the Snowflake service when using Google Cloud Private Service Connect.
+func (o GetSystemGetPrivateLinkConfigResultOutput) PrivatelinkGcpServiceAttachment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.PrivatelinkGcpServiceAttachment }).(pulumi.StringOutput)
+}
+
+// The endpoint for failsafe Snowflake-managed storage volumes when using Azure Private Link.
+func (o GetSystemGetPrivateLinkConfigResultOutput) PrivatelinkSnowflakeManagedStorageVolumeFs() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string {
+		return v.PrivatelinkSnowflakeManagedStorageVolumeFs
+	}).(pulumi.StringOutput)
+}
+
+// The endpoint for non-failsafe Snowflake-managed storage volumes when using Azure Private Link.
+func (o GetSystemGetPrivateLinkConfigResultOutput) PrivatelinkSnowflakeManagedStorageVolumeNfs() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string {
+		return v.PrivatelinkSnowflakeManagedStorageVolumeNfs
+	}).(pulumi.StringOutput)
 }
 
 // The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
 func (o GetSystemGetPrivateLinkConfigResultOutput) RegionlessAccountUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.RegionlessAccountUrl }).(pulumi.StringOutput)
+}
+
+// The regionless OCSP URL to connect to Snowflake OCSP using private connectivity.
+func (o GetSystemGetPrivateLinkConfigResultOutput) RegionlessPrivatelinkOcspUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSystemGetPrivateLinkConfigResult) string { return v.RegionlessPrivatelinkOcspUrl }).(pulumi.StringOutput)
 }
 
 // The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.

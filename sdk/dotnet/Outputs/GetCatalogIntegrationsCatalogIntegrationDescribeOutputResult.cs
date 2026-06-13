@@ -18,6 +18,8 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string CatalogSource;
         public readonly string Comment;
         public readonly bool Enabled;
+        public readonly string GlueAwsExternalId;
+        public readonly string GlueAwsIamUserArn;
         public readonly string GlueAwsRoleArn;
         public readonly string GlueCatalogId;
         public readonly string GlueRegion;
@@ -39,6 +41,10 @@ namespace Pulumi.Snowflake.Outputs
             string comment,
 
             bool enabled,
+
+            string glueAwsExternalId,
+
+            string glueAwsIamUserArn,
 
             string glueAwsRoleArn,
 
@@ -63,6 +69,8 @@ namespace Pulumi.Snowflake.Outputs
             CatalogSource = catalogSource;
             Comment = comment;
             Enabled = enabled;
+            GlueAwsExternalId = glueAwsExternalId;
+            GlueAwsIamUserArn = glueAwsIamUserArn;
             GlueAwsRoleArn = glueAwsRoleArn;
             GlueCatalogId = glueCatalogId;
             GlueRegion = glueRegion;

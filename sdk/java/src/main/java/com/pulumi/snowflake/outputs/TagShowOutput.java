@@ -17,6 +17,7 @@ public final class TagShowOutput {
     private @Nullable String createdOn;
     private @Nullable String databaseName;
     private @Nullable String name;
+    private @Nullable String onConflict;
     private @Nullable String owner;
     private @Nullable String ownerRoleType;
     private @Nullable String propagate;
@@ -37,6 +38,9 @@ public final class TagShowOutput {
     }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
+    }
+    public Optional<String> onConflict() {
+        return Optional.ofNullable(this.onConflict);
     }
     public Optional<String> owner() {
         return Optional.ofNullable(this.owner);
@@ -65,6 +69,7 @@ public final class TagShowOutput {
         private @Nullable String createdOn;
         private @Nullable String databaseName;
         private @Nullable String name;
+        private @Nullable String onConflict;
         private @Nullable String owner;
         private @Nullable String ownerRoleType;
         private @Nullable String propagate;
@@ -77,6 +82,7 @@ public final class TagShowOutput {
     	      this.createdOn = defaults.createdOn;
     	      this.databaseName = defaults.databaseName;
     	      this.name = defaults.name;
+    	      this.onConflict = defaults.onConflict;
     	      this.owner = defaults.owner;
     	      this.ownerRoleType = defaults.ownerRoleType;
     	      this.propagate = defaults.propagate;
@@ -117,6 +123,12 @@ public final class TagShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder onConflict(@Nullable String onConflict) {
+
+            this.onConflict = onConflict;
+            return this;
+        }
+        @CustomType.Setter
         public Builder owner(@Nullable String owner) {
 
             this.owner = owner;
@@ -147,6 +159,7 @@ public final class TagShowOutput {
             _resultValue.createdOn = createdOn;
             _resultValue.databaseName = databaseName;
             _resultValue.name = name;
+            _resultValue.onConflict = onConflict;
             _resultValue.owner = owner;
             _resultValue.ownerRoleType = ownerRoleType;
             _resultValue.propagate = propagate;

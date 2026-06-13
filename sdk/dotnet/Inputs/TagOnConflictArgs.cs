@@ -13,13 +13,13 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class TagOnConflictArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
         /// </summary>
         [Input("allowedValuesSequence")]
         public Input<bool>? AllowedValuesSequence { get; set; }
 
         /// <summary>
-        /// Whenever there is a conflict, the value of tag is set to custom_value. If `AllowedValues` are set, the value set in this field should be one of the values in the `AllowedValues` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// Whenever there is a conflict, the value of tag is set to custom_value. If `AllowedValues` are set, the value set in this field should be one of the values in the `AllowedValues` list.
         /// </summary>
         [Input("customValue")]
         public Input<string>? CustomValue { get; set; }

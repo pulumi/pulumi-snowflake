@@ -23,6 +23,7 @@ from .catalog_integration_iceberg_rest import *
 from .catalog_integration_object_storage import *
 from .catalog_integration_open_catalog import *
 from .compute_pool import *
+from .cortex_agent import *
 from .cortex_search_service import *
 from .current_account import *
 from .current_organization_account import *
@@ -49,6 +50,7 @@ from .get_authentication_policies import *
 from .get_catalog_integrations import *
 from .get_compute_pools import *
 from .get_connections import *
+from .get_cortex_agents import *
 from .get_cortex_search_services import *
 from .get_current_account import *
 from .get_current_role import *
@@ -328,6 +330,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/computePool:ComputePool": "ComputePool"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/cortexAgent",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/cortexAgent:CortexAgent": "CortexAgent"
   }
  },
  {

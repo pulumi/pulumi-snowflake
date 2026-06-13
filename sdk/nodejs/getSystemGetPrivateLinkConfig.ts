@@ -79,15 +79,19 @@ export interface GetSystemGetPrivateLinkConfigResult {
      */
     readonly accountName: string;
     /**
-     * The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+     * The URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
      */
     readonly accountUrl: string;
+    /**
+     * The PrivateLink endpoint URL used to route traffic to Snowflake-hosted app services, such as Streamlit or Notebooks.
+     */
+    readonly appServicePrivatelinkUrl: string;
     /**
      * The AWS VPCE ID for your account.
      */
     readonly awsVpceId: string;
     /**
-     * The Azure Private Link Service ID for your account.
+     * The Microsoft Azure Private Link Service ID for your account identifier in the format of an alias.
      */
     readonly azurePlsId: string;
     /**
@@ -99,13 +103,45 @@ export interface GetSystemGetPrivateLinkConfigResult {
      */
     readonly internalStage: string;
     /**
-     * The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+     * The OCSP URL corresponding to your Snowflake account identifier.
      */
     readonly ocspUrl: string;
+    /**
+     * The AWS principal ARN to allow for outbound private connections to your VPC endpoint services.
+     */
+    readonly privatelinkAccountPrincipal: string;
+    /**
+     * The list of OCSP URLs for use with redirecting client connections when using client redirect.
+     */
+    readonly privatelinkConnectionOcspUrls: string;
+    /**
+     * The private connectivity connection URLs for your account when using client redirect.
+     */
+    readonly privatelinkConnectionUrls: string;
+    /**
+     * The list of dashed variant URLs for Duo Multi-Factor Authentication, shown only when the hostname contains an underscore.
+     */
+    readonly privatelinkDashedUrlsForDuo: string;
+    /**
+     * The endpoint for the Snowflake service when using Google Cloud Private Service Connect.
+     */
+    readonly privatelinkGcpServiceAttachment: string;
+    /**
+     * The endpoint for failsafe Snowflake-managed storage volumes when using Azure Private Link.
+     */
+    readonly privatelinkSnowflakeManagedStorageVolumeFs: string;
+    /**
+     * The endpoint for non-failsafe Snowflake-managed storage volumes when using Azure Private Link.
+     */
+    readonly privatelinkSnowflakeManagedStorageVolumeNfs: string;
     /**
      * The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
      */
     readonly regionlessAccountUrl: string;
+    /**
+     * The regionless OCSP URL to connect to Snowflake OCSP using private connectivity.
+     */
+    readonly regionlessPrivatelinkOcspUrl: string;
     /**
      * The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
      */
