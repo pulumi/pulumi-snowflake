@@ -126,6 +126,8 @@ func Provider() info.Provider {
 	return prov
 }
 
+const indexPath = "index.md"
+
 func docEditRules(defaults []info.DocsEdit) []info.DocsEdit {
 	//nolint:lll
 	const (
@@ -151,7 +153,7 @@ func docEditRules(defaults []info.DocsEdit) []info.DocsEdit {
 func removeLiteralFromIndex(s string) info.DocsEdit {
 	b := []byte(s)
 	return info.DocsEdit{
-		Path: "index.md",
+		Path: indexPath,
 		Edit: func(_ string, content []byte) ([]byte, error) {
 			dst := bytes.ReplaceAll(content, b, nil)
 			if len(dst) == len(content) {
@@ -164,7 +166,7 @@ func removeLiteralFromIndex(s string) info.DocsEdit {
 
 // Separates multiple "provider" declarations in top-level example
 var fixExample = info.DocsEdit{
-	Path: "index.md",
+	Path: indexPath,
 	Edit: func(_ string, content []byte) ([]byte, error) {
 		replacesDir := "docs/index-md-replaces/"
 
@@ -192,7 +194,7 @@ var fixExample = info.DocsEdit{
 }
 
 var removeMainTf = info.DocsEdit{
-	Path: "index.md",
+	Path: indexPath,
 	Edit: func(_ string, content []byte) ([]byte, error) {
 		removeBytes := []byte(" in `main.tf` in a configuration directory")
 		return bytes.ReplaceAll(content, removeBytes, nil), nil
@@ -201,7 +203,7 @@ var removeMainTf = info.DocsEdit{
 
 // We do not want to send Pulumi users to Snowflake support
 var removeSnowflakeSupport = info.DocsEdit{
-	Path: "index.md",
+	Path: indexPath,
 	Edit: func(_ string, content []byte) ([]byte, error) {
 		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
 			return headerText == "Support"
@@ -211,7 +213,7 @@ var removeSnowflakeSupport = info.DocsEdit{
 
 // This has TF/hashicorp-specific instructions in it
 var removeSupportedArchitectures = info.DocsEdit{
-	Path: "index.md",
+	Path: indexPath,
 	Edit: func(_ string, content []byte) ([]byte, error) {
 		return tfgen.SkipSectionByHeaderContent(content, func(headerText string) bool {
 			return headerText == "Supported architectures"
