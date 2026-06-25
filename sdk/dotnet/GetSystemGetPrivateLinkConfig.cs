@@ -306,15 +306,19 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string AccountName;
         /// <summary>
-        /// The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+        /// The URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
         /// </summary>
         public readonly string AccountUrl;
+        /// <summary>
+        /// The PrivateLink endpoint URL used to route traffic to Snowflake-hosted app services, such as Streamlit or Notebooks.
+        /// </summary>
+        public readonly string AppServicePrivatelinkUrl;
         /// <summary>
         /// The AWS VPCE ID for your account.
         /// </summary>
         public readonly string AwsVpceId;
         /// <summary>
-        /// The Azure Private Link Service ID for your account.
+        /// The Microsoft Azure Private Link Service ID for your account identifier in the format of an alias.
         /// </summary>
         public readonly string AzurePlsId;
         /// <summary>
@@ -326,13 +330,45 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string InternalStage;
         /// <summary>
-        /// The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+        /// The OCSP URL corresponding to your Snowflake account identifier.
         /// </summary>
         public readonly string OcspUrl;
+        /// <summary>
+        /// The AWS principal ARN to allow for outbound private connections to your VPC endpoint services.
+        /// </summary>
+        public readonly string PrivatelinkAccountPrincipal;
+        /// <summary>
+        /// The list of OCSP URLs for use with redirecting client connections when using client redirect.
+        /// </summary>
+        public readonly string PrivatelinkConnectionOcspUrls;
+        /// <summary>
+        /// The private connectivity connection URLs for your account when using client redirect.
+        /// </summary>
+        public readonly string PrivatelinkConnectionUrls;
+        /// <summary>
+        /// The list of dashed variant URLs for Duo Multi-Factor Authentication, shown only when the hostname contains an underscore.
+        /// </summary>
+        public readonly string PrivatelinkDashedUrlsForDuo;
+        /// <summary>
+        /// The endpoint for the Snowflake service when using Google Cloud Private Service Connect.
+        /// </summary>
+        public readonly string PrivatelinkGcpServiceAttachment;
+        /// <summary>
+        /// The endpoint for failsafe Snowflake-managed storage volumes when using Azure Private Link.
+        /// </summary>
+        public readonly string PrivatelinkSnowflakeManagedStorageVolumeFs;
+        /// <summary>
+        /// The endpoint for non-failsafe Snowflake-managed storage volumes when using Azure Private Link.
+        /// </summary>
+        public readonly string PrivatelinkSnowflakeManagedStorageVolumeNfs;
         /// <summary>
         /// The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
         /// </summary>
         public readonly string RegionlessAccountUrl;
+        /// <summary>
+        /// The regionless OCSP URL to connect to Snowflake OCSP using private connectivity.
+        /// </summary>
+        public readonly string RegionlessPrivatelinkOcspUrl;
         /// <summary>
         /// The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
         /// </summary>
@@ -348,6 +384,8 @@ namespace Pulumi.Snowflake
 
             string accountUrl,
 
+            string appServicePrivatelinkUrl,
+
             string awsVpceId,
 
             string azurePlsId,
@@ -358,7 +396,23 @@ namespace Pulumi.Snowflake
 
             string ocspUrl,
 
+            string privatelinkAccountPrincipal,
+
+            string privatelinkConnectionOcspUrls,
+
+            string privatelinkConnectionUrls,
+
+            string privatelinkDashedUrlsForDuo,
+
+            string privatelinkGcpServiceAttachment,
+
+            string privatelinkSnowflakeManagedStorageVolumeFs,
+
+            string privatelinkSnowflakeManagedStorageVolumeNfs,
+
             string regionlessAccountUrl,
+
+            string regionlessPrivatelinkOcspUrl,
 
             string regionlessSnowsightUrl,
 
@@ -366,12 +420,21 @@ namespace Pulumi.Snowflake
         {
             AccountName = accountName;
             AccountUrl = accountUrl;
+            AppServicePrivatelinkUrl = appServicePrivatelinkUrl;
             AwsVpceId = awsVpceId;
             AzurePlsId = azurePlsId;
             Id = id;
             InternalStage = internalStage;
             OcspUrl = ocspUrl;
+            PrivatelinkAccountPrincipal = privatelinkAccountPrincipal;
+            PrivatelinkConnectionOcspUrls = privatelinkConnectionOcspUrls;
+            PrivatelinkConnectionUrls = privatelinkConnectionUrls;
+            PrivatelinkDashedUrlsForDuo = privatelinkDashedUrlsForDuo;
+            PrivatelinkGcpServiceAttachment = privatelinkGcpServiceAttachment;
+            PrivatelinkSnowflakeManagedStorageVolumeFs = privatelinkSnowflakeManagedStorageVolumeFs;
+            PrivatelinkSnowflakeManagedStorageVolumeNfs = privatelinkSnowflakeManagedStorageVolumeNfs;
             RegionlessAccountUrl = regionlessAccountUrl;
+            RegionlessPrivatelinkOcspUrl = regionlessPrivatelinkOcspUrl;
             RegionlessSnowsightUrl = regionlessSnowsightUrl;
             SnowsightUrl = snowsightUrl;
         }

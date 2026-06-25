@@ -16,6 +16,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string AzureConsentUrl;
         public readonly string AzureMultiTenantAppName;
         public readonly string AzureTenantId;
+        public readonly string UsePrivatelinkEndpoint;
 
         [OutputConstructor]
         private GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationResult(
@@ -23,11 +24,14 @@ namespace Pulumi.Snowflake.Outputs
 
             string azureMultiTenantAppName,
 
-            string azureTenantId)
+            string azureTenantId,
+
+            string usePrivatelinkEndpoint)
         {
             AzureConsentUrl = azureConsentUrl;
             AzureMultiTenantAppName = azureMultiTenantAppName;
             AzureTenantId = azureTenantId;
+            UsePrivatelinkEndpoint = usePrivatelinkEndpoint;
         }
     }
 }

@@ -9,6 +9,48 @@ import * as utilities from "./utilities";
 /**
  * Resource used to manage secret objects with OAuth Client Credentials. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * // basic resource (without oauth_scopes — scopes are inherited from the security integration)
+ * const basic = new snowflake.SecretWithClientCredentials("basic", {
+ *     name: "EXAMPLE_SECRET",
+ *     database: "EXAMPLE_DB",
+ *     schema: "EXAMPLE_SCHEMA",
+ *     apiAuthentication: example.fullyQualifiedName,
+ * });
+ * // resource with explicit oauth_scopes
+ * const withScopes = new snowflake.SecretWithClientCredentials("with_scopes", {
+ *     name: "EXAMPLE_SECRET",
+ *     database: "EXAMPLE_DB",
+ *     schema: "EXAMPLE_SCHEMA",
+ *     apiAuthentication: example.fullyQualifiedName,
+ *     oauthScopes: [
+ *         "useraccount",
+ *         "testscope",
+ *     ],
+ * });
+ * // resource with all fields set
+ * const complete = new snowflake.SecretWithClientCredentials("complete", {
+ *     name: "EXAMPLE_SECRET",
+ *     database: "EXAMPLE_DB",
+ *     schema: "EXAMPLE_SCHEMA",
+ *     apiAuthentication: example.fullyQualifiedName,
+ *     oauthScopes: [
+ *         "useraccount",
+ *         "testscope",
+ *     ],
+ *     comment: "EXAMPLE_COMMENT",
+ * });
+ * ```
+ * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * <!-- TODO(SNOW-1634854): include an example showing both methods-->
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
  * ## Import
  *
  * ```sh
@@ -68,9 +110,9 @@ export class SecretWithClientCredentials extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
      */
-    declare public readonly oauthScopes: pulumi.Output<string[]>;
+    declare public readonly oauthScopes: pulumi.Output<string[] | undefined>;
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
@@ -114,9 +156,6 @@ export class SecretWithClientCredentials extends pulumi.CustomResource {
             }
             if (args?.database === undefined && !opts.urn) {
                 throw new Error("Missing required property 'database'");
-            }
-            if (args?.oauthScopes === undefined && !opts.urn) {
-                throw new Error("Missing required property 'oauthScopes'");
             }
             if (args?.schema === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schema'");
@@ -166,7 +205,7 @@ export interface SecretWithClientCredentialsState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
      */
     oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -204,9 +243,9 @@ export interface SecretWithClientCredentialsArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
      */
-    oauthScopes: pulumi.Input<pulumi.Input<string>[]>;
+    oauthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */

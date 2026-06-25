@@ -18,6 +18,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? CreatedOn;
         public readonly string? DatabaseName;
         public readonly string? Name;
+        public readonly string? OnConflict;
         public readonly string? Owner;
         public readonly string? OwnerRoleType;
         public readonly string? Propagate;
@@ -35,6 +36,8 @@ namespace Pulumi.Snowflake.Outputs
 
             string? name,
 
+            string? onConflict,
+
             string? owner,
 
             string? ownerRoleType,
@@ -48,6 +51,7 @@ namespace Pulumi.Snowflake.Outputs
             CreatedOn = createdOn;
             DatabaseName = databaseName;
             Name = name;
+            OnConflict = onConflict;
             Owner = owner;
             OwnerRoleType = ownerRoleType;
             Propagate = propagate;

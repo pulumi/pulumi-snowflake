@@ -139,14 +139,14 @@ public class Tag extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.noAllowedValues);
     }
     /**
-     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
      * 
      */
     @Export(name="onConflict", refs={TagOnConflict.class}, tree="[0]")
     private Output</* @Nullable */ TagOnConflict> onConflict;
 
     /**
-     * @return Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * @return Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
      * 
      */
     public Output<Optional<TagOnConflict>> onConflict() {

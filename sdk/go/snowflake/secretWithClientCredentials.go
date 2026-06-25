@@ -14,6 +14,69 @@ import (
 
 // Resource used to manage secret objects with OAuth Client Credentials. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// basic resource (without oauth_scopes — scopes are inherited from the security integration)
+//			_, err := snowflake.NewSecretWithClientCredentials(ctx, "basic", &snowflake.SecretWithClientCredentialsArgs{
+//				Name:              pulumi.String("EXAMPLE_SECRET"),
+//				Database:          pulumi.String("EXAMPLE_DB"),
+//				Schema:            pulumi.String("EXAMPLE_SCHEMA"),
+//				ApiAuthentication: pulumi.Any(example.FullyQualifiedName),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// resource with explicit oauth_scopes
+//			_, err = snowflake.NewSecretWithClientCredentials(ctx, "with_scopes", &snowflake.SecretWithClientCredentialsArgs{
+//				Name:              pulumi.String("EXAMPLE_SECRET"),
+//				Database:          pulumi.String("EXAMPLE_DB"),
+//				Schema:            pulumi.String("EXAMPLE_SCHEMA"),
+//				ApiAuthentication: pulumi.Any(example.FullyQualifiedName),
+//				OauthScopes: pulumi.StringArray{
+//					pulumi.String("useraccount"),
+//					pulumi.String("testscope"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// resource with all fields set
+//			_, err = snowflake.NewSecretWithClientCredentials(ctx, "complete", &snowflake.SecretWithClientCredentialsArgs{
+//				Name:              pulumi.String("EXAMPLE_SECRET"),
+//				Database:          pulumi.String("EXAMPLE_DB"),
+//				Schema:            pulumi.String("EXAMPLE_SCHEMA"),
+//				ApiAuthentication: pulumi.Any(example.FullyQualifiedName),
+//				OauthScopes: pulumi.StringArray{
+//					pulumi.String("useraccount"),
+//					pulumi.String("testscope"),
+//				},
+//				Comment: pulumi.String("EXAMPLE_COMMENT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+// <!-- TODO(SNOW-1634854): include an example showing both methods-->
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
 // ## Import
 //
 // ```sh
@@ -34,7 +97,7 @@ type SecretWithClientCredentials struct {
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
 	OauthScopes pulumi.StringArrayOutput `pulumi:"oauthScopes"`
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -56,9 +119,6 @@ func NewSecretWithClientCredentials(ctx *pulumi.Context,
 	}
 	if args.Database == nil {
 		return nil, errors.New("invalid value for required argument 'Database'")
-	}
-	if args.OauthScopes == nil {
-		return nil, errors.New("invalid value for required argument 'OauthScopes'")
 	}
 	if args.Schema == nil {
 		return nil, errors.New("invalid value for required argument 'Schema'")
@@ -98,7 +158,7 @@ type secretWithClientCredentialsState struct {
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
 	OauthScopes []string `pulumi:"oauthScopes"`
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
@@ -121,7 +181,7 @@ type SecretWithClientCredentialsState struct {
 	FullyQualifiedName pulumi.StringPtrInput
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
 	OauthScopes pulumi.StringArrayInput
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
@@ -144,7 +204,7 @@ type secretWithClientCredentialsArgs struct {
 	Database string `pulumi:"database"`
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
 	OauthScopes []string `pulumi:"oauthScopes"`
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
@@ -160,7 +220,7 @@ type SecretWithClientCredentialsArgs struct {
 	Database pulumi.StringInput
 	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
 	OauthScopes pulumi.StringArrayInput
 	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
@@ -285,7 +345,7 @@ func (o SecretWithClientCredentialsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithClientCredentials) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
 func (o SecretWithClientCredentialsOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecretWithClientCredentials) pulumi.StringArrayOutput { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }

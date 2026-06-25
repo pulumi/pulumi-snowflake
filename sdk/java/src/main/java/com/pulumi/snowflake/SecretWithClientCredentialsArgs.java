@@ -78,18 +78,18 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
      * 
      */
-    @Import(name="oauthScopes", required=true)
-    private Output<List<String>> oauthScopes;
+    @Import(name="oauthScopes")
+    private @Nullable Output<List<String>> oauthScopes;
 
     /**
-     * @return Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+     * @return Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
      * 
      */
-    public Output<List<String>> oauthScopes() {
-        return this.oauthScopes;
+    public Optional<Output<List<String>>> oauthScopes() {
+        return Optional.ofNullable(this.oauthScopes);
     }
 
     /**
@@ -221,18 +221,18 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
          * 
          * @return builder
          * 
          */
-        public Builder oauthScopes(Output<List<String>> oauthScopes) {
+        public Builder oauthScopes(@Nullable Output<List<String>> oauthScopes) {
             $.oauthScopes = oauthScopes;
             return this;
         }
 
         /**
-         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
          * 
          * @return builder
          * 
@@ -278,9 +278,6 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
             }
             if ($.database == null) {
                 throw new MissingRequiredPropertyException("SecretWithClientCredentialsArgs", "database");
-            }
-            if ($.oauthScopes == null) {
-                throw new MissingRequiredPropertyException("SecretWithClientCredentialsArgs", "oauthScopes");
             }
             if ($.schema == null) {
                 throw new MissingRequiredPropertyException("SecretWithClientCredentialsArgs", "schema");

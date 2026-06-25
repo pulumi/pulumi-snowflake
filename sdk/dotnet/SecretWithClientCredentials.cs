@@ -12,6 +12,61 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// Resource used to manage secret objects with OAuth Client Credentials. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Snowflake = Pulumi.Snowflake;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     // basic resource (without oauth_scopes — scopes are inherited from the security integration)
+    ///     var basic = new Snowflake.SecretWithClientCredentials("basic", new()
+    ///     {
+    ///         Name = "EXAMPLE_SECRET",
+    ///         Database = "EXAMPLE_DB",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///         ApiAuthentication = example.FullyQualifiedName,
+    ///     });
+    /// 
+    ///     // resource with explicit oauth_scopes
+    ///     var withScopes = new Snowflake.SecretWithClientCredentials("with_scopes", new()
+    ///     {
+    ///         Name = "EXAMPLE_SECRET",
+    ///         Database = "EXAMPLE_DB",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///         ApiAuthentication = example.FullyQualifiedName,
+    ///         OauthScopes = new[]
+    ///         {
+    ///             "useraccount",
+    ///             "testscope",
+    ///         },
+    ///     });
+    /// 
+    ///     // resource with all fields set
+    ///     var complete = new Snowflake.SecretWithClientCredentials("complete", new()
+    ///     {
+    ///         Name = "EXAMPLE_SECRET",
+    ///         Database = "EXAMPLE_DB",
+    ///         Schema = "EXAMPLE_SCHEMA",
+    ///         ApiAuthentication = example.FullyQualifiedName,
+    ///         OauthScopes = new[]
+    ///         {
+    ///             "useraccount",
+    ///             "testscope",
+    ///         },
+    ///         Comment = "EXAMPLE_COMMENT",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+    /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+    /// 
+    /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
     /// ## Import
     /// 
     /// ```sh
@@ -58,7 +113,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+        /// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
         /// </summary>
         [Output("oauthScopes")]
         public Output<ImmutableArray<string>> OauthScopes { get; private set; } = null!;
@@ -151,11 +206,11 @@ namespace Pulumi.Snowflake
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("oauthScopes", required: true)]
+        [Input("oauthScopes")]
         private InputList<string>? _oauthScopes;
 
         /// <summary>
-        /// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+        /// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
         /// </summary>
         public InputList<string> OauthScopes
         {
@@ -223,7 +278,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _oauthScopes;
 
         /// <summary>
-        /// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+        /// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
         /// </summary>
         public InputList<string> OauthScopes
         {

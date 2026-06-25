@@ -14,11 +14,11 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class TagOnConflict
     {
         /// <summary>
-        /// The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
         /// </summary>
         public readonly bool? AllowedValuesSequence;
         /// <summary>
-        /// Whenever there is a conflict, the value of tag is set to custom_value. If `AllowedValues` are set, the value set in this field should be one of the values in the `AllowedValues` list. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// Whenever there is a conflict, the value of tag is set to custom_value. If `AllowedValues` are set, the value set in this field should be one of the values in the `AllowedValues` list.
         /// </summary>
         public readonly string? CustomValue;
 
