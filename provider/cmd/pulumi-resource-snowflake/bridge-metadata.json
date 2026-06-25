@@ -407,6 +407,35 @@
                     }
                 }
             },
+            "snowflake_cortex_agent": {
+                "current": "snowflake:index/cortexAgent:CortexAgent",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "profile": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "profile": {
+                        "maxItemsOne": true
+                    },
+                    "show_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "profile": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "snowflake_cortex_search_service": {
                 "current": "snowflake:index/cortexSearchService:CortexSearchService",
                 "majorVersion": 2,
@@ -4452,6 +4481,45 @@
                                 }
                             }
                         }
+                    }
+                }
+            },
+            "snowflake_cortex_agents": {
+                "current": "snowflake:index/getCortexAgents:getCortexAgents",
+                "majorVersion": 2,
+                "fields": {
+                    "cortex_agents": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "profile": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "profile": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
                     }
                 }
             },
