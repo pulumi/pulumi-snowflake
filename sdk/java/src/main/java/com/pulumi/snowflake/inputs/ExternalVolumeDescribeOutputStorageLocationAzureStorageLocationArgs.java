@@ -36,12 +36,20 @@ public final class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocati
         return Optional.ofNullable(this.azureTenantId);
     }
 
+    @Import(name="usePrivatelinkEndpoint")
+    private @Nullable Output<String> usePrivatelinkEndpoint;
+
+    public Optional<Output<String>> usePrivatelinkEndpoint() {
+        return Optional.ofNullable(this.usePrivatelinkEndpoint);
+    }
+
     private ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs() {}
 
     private ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs(ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs $) {
         this.azureConsentUrl = $.azureConsentUrl;
         this.azureMultiTenantAppName = $.azureMultiTenantAppName;
         this.azureTenantId = $.azureTenantId;
+        this.usePrivatelinkEndpoint = $.usePrivatelinkEndpoint;
     }
 
     public static Builder builder() {
@@ -87,6 +95,15 @@ public final class ExternalVolumeDescribeOutputStorageLocationAzureStorageLocati
 
         public Builder azureTenantId(String azureTenantId) {
             return azureTenantId(Output.of(azureTenantId));
+        }
+
+        public Builder usePrivatelinkEndpoint(@Nullable Output<String> usePrivatelinkEndpoint) {
+            $.usePrivatelinkEndpoint = usePrivatelinkEndpoint;
+            return this;
+        }
+
+        public Builder usePrivatelinkEndpoint(String usePrivatelinkEndpoint) {
+            return usePrivatelinkEndpoint(Output.of(usePrivatelinkEndpoint));
         }
 
         public ExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs build() {

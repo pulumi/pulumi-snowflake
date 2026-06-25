@@ -90,7 +90,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+        /// Specifies the number of days during which the account can be restored ("undropped"). The minimum is 3 days and the maximum is 90 days.
         /// </summary>
         [Output("gracePeriodInDays")]
         public Output<int> GracePeriodInDays { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Snowflake
         public Output<string?> MustChangePassword { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+        /// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (*). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores. Note: with the 2026*03 bundle ([BCR-2215](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_03/bcr-2215)), Snowflake enforces that the combined `&lt;orgname&gt;-&lt;name&gt;` identifier is at most 63 characters and that `Name` does not end with `_`; otherwise `CREATE ACCOUNT` and `ALTER ACCOUNT ... RENAME TO` fail with `ORG_ACCOUNT_NAME_EXCEEDS_DNS_LIMIT` / `ACCOUNT_NAME_INVALID_FOR_DNS`. Existing accounts that do not comply keep working but cannot be renamed back to a non-compliant value once renamed to a compliant one.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -286,7 +286,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+        /// Specifies the number of days during which the account can be restored ("undropped"). The minimum is 3 days and the maximum is 90 days.
         /// </summary>
         [Input("gracePeriodInDays", required: true)]
         public Input<int> GracePeriodInDays { get; set; } = null!;
@@ -320,7 +320,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MustChangePassword { get; set; }
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+        /// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (*). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores. Note: with the 2026*03 bundle ([BCR-2215](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_03/bcr-2215)), Snowflake enforces that the combined `&lt;orgname&gt;-&lt;name&gt;` identifier is at most 63 characters and that `Name` does not end with `_`; otherwise `CREATE ACCOUNT` and `ALTER ACCOUNT ... RENAME TO` fail with `ORG_ACCOUNT_NAME_EXCEEDS_DNS_LIMIT` / `ACCOUNT_NAME_INVALID_FOR_DNS`. Existing accounts that do not comply keep working but cannot be renamed back to a non-compliant value once renamed to a compliant one.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -446,7 +446,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+        /// Specifies the number of days during which the account can be restored ("undropped"). The minimum is 3 days and the maximum is 90 days.
         /// </summary>
         [Input("gracePeriodInDays")]
         public Input<int>? GracePeriodInDays { get; set; }
@@ -480,7 +480,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MustChangePassword { get; set; }
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+        /// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (*). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores. Note: with the 2026*03 bundle ([BCR-2215](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_03/bcr-2215)), Snowflake enforces that the combined `&lt;orgname&gt;-&lt;name&gt;` identifier is at most 63 characters and that `Name` does not end with `_`; otherwise `CREATE ACCOUNT` and `ALTER ACCOUNT ... RENAME TO` fail with `ORG_ACCOUNT_NAME_EXCEEDS_DNS_LIMIT` / `ACCOUNT_NAME_INVALID_FOR_DNS`. Existing accounts that do not comply keep working but cannot be renamed back to a non-compliant value once renamed to a compliant one.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

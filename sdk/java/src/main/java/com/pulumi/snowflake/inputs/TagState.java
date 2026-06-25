@@ -133,14 +133,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
      * 
      */
     @Import(name="onConflict")
     private @Nullable Output<TagOnConflictArgs> onConflict;
 
     /**
-     * @return Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * @return Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
      * 
      */
     public Optional<Output<TagOnConflictArgs>> onConflict() {
@@ -422,7 +422,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onConflict Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * @param onConflict Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
          * 
          * @return builder
          * 
@@ -433,7 +433,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param onConflict Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * @param onConflict Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
          * 
          * @return builder
          * 

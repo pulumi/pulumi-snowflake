@@ -17,14 +17,14 @@ public final class TagOnConflictArgs extends com.pulumi.resources.ResourceArgs {
     public static final TagOnConflictArgs Empty = new TagOnConflictArgs();
 
     /**
-     * The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
      * 
      */
     @Import(name="allowedValuesSequence")
     private @Nullable Output<Boolean> allowedValuesSequence;
 
     /**
-     * @return The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * @return The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
      * 
      */
     public Optional<Output<Boolean>> allowedValuesSequence() {
@@ -32,14 +32,14 @@ public final class TagOnConflictArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list.
      * 
      */
     @Import(name="customValue")
     private @Nullable Output<String> customValue;
 
     /**
-     * @return Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * @return Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list.
      * 
      */
     public Optional<Output<String>> customValue() {
@@ -72,7 +72,7 @@ public final class TagOnConflictArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedValuesSequence The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * @param allowedValuesSequence The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class TagOnConflictArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedValuesSequence The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * @param allowedValuesSequence The order of the values in the ALLOWED_VALUES property of the tag determines which value is used when there is a conflict.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class TagOnConflictArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customValue Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * @param customValue Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class TagOnConflictArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customValue Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * @param customValue Whenever there is a conflict, the value of tag is set to custom_value. If `allowedValues` are set, the value set in this field should be one of the values in the `allowedValues` list.
          * 
          * @return builder
          * 

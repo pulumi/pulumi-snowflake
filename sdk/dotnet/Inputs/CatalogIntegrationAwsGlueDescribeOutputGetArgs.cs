@@ -24,6 +24,12 @@ namespace Pulumi.Snowflake.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("glueAwsExternalId")]
+        public Input<string>? GlueAwsExternalId { get; set; }
+
+        [Input("glueAwsIamUserArn")]
+        public Input<string>? GlueAwsIamUserArn { get; set; }
+
         [Input("glueAwsRoleArn")]
         public Input<string>? GlueAwsRoleArn { get; set; }
 

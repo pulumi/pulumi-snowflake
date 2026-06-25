@@ -90,6 +90,11 @@ export type ComputePool = import("./computePool").ComputePool;
 export const ComputePool: typeof import("./computePool").ComputePool = null as any;
 utilities.lazyLoad(exports, ["ComputePool"], () => require("./computePool"));
 
+export { CortexAgentArgs, CortexAgentState } from "./cortexAgent";
+export type CortexAgent = import("./cortexAgent").CortexAgent;
+export const CortexAgent: typeof import("./cortexAgent").CortexAgent = null as any;
+utilities.lazyLoad(exports, ["CortexAgent"], () => require("./cortexAgent"));
+
 export { CortexSearchServiceArgs, CortexSearchServiceState } from "./cortexSearchService";
 export type CortexSearchService = import("./cortexSearchService").CortexSearchService;
 export const CortexSearchService: typeof import("./cortexSearchService").CortexSearchService = null as any;
@@ -219,6 +224,11 @@ export { GetConnectionsArgs, GetConnectionsResult, GetConnectionsOutputArgs } fr
 export const getConnections: typeof import("./getConnections").getConnections = null as any;
 export const getConnectionsOutput: typeof import("./getConnections").getConnectionsOutput = null as any;
 utilities.lazyLoad(exports, ["getConnections","getConnectionsOutput"], () => require("./getConnections"));
+
+export { GetCortexAgentsArgs, GetCortexAgentsResult, GetCortexAgentsOutputArgs } from "./getCortexAgents";
+export const getCortexAgents: typeof import("./getCortexAgents").getCortexAgents = null as any;
+export const getCortexAgentsOutput: typeof import("./getCortexAgents").getCortexAgentsOutput = null as any;
+utilities.lazyLoad(exports, ["getCortexAgents","getCortexAgentsOutput"], () => require("./getCortexAgents"));
 
 export { GetCortexSearchServicesArgs, GetCortexSearchServicesResult, GetCortexSearchServicesOutputArgs } from "./getCortexSearchServices";
 export const getCortexSearchServices: typeof import("./getCortexSearchServices").getCortexSearchServices = null as any;
@@ -926,6 +936,8 @@ const _module = {
                 return new CatalogIntegrationOpenCatalog(name, <any>undefined, { urn })
             case "snowflake:index/computePool:ComputePool":
                 return new ComputePool(name, <any>undefined, { urn })
+            case "snowflake:index/cortexAgent:CortexAgent":
+                return new CortexAgent(name, <any>undefined, { urn })
             case "snowflake:index/cortexSearchService:CortexSearchService":
                 return new CortexSearchService(name, <any>undefined, { urn })
             case "snowflake:index/currentAccount:CurrentAccount":
@@ -1144,6 +1156,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationIceb
 pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationObjectStorage", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationOpenCatalog", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/computePool", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/cortexAgent", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/cortexSearchService", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/currentAccount", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/currentOrganizationAccount", _module)

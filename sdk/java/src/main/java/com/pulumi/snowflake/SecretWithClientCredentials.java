@@ -20,6 +20,70 @@ import javax.annotation.Nullable;
 /**
  * Resource used to manage secret objects with OAuth Client Credentials. For more information, check [secret documentation](https://docs.snowflake.com/en/sql-reference/sql/create-secret).
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.snowflake.SecretWithClientCredentials;
+ * import com.pulumi.snowflake.SecretWithClientCredentialsArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         // basic resource (without oauth_scopes — scopes are inherited from the security integration)
+ *         var basic = new SecretWithClientCredentials("basic", SecretWithClientCredentialsArgs.builder()
+ *             .name("EXAMPLE_SECRET")
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
+ *             .apiAuthentication(example.fullyQualifiedName())
+ *             .build());
+ * 
+ *         // resource with explicit oauth_scopes
+ *         var withScopes = new SecretWithClientCredentials("withScopes", SecretWithClientCredentialsArgs.builder()
+ *             .name("EXAMPLE_SECRET")
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
+ *             .apiAuthentication(example.fullyQualifiedName())
+ *             .oauthScopes(            
+ *                 "useraccount",
+ *                 "testscope")
+ *             .build());
+ * 
+ *         // resource with all fields set
+ *         var complete = new SecretWithClientCredentials("complete", SecretWithClientCredentialsArgs.builder()
+ *             .name("EXAMPLE_SECRET")
+ *             .database("EXAMPLE_DB")
+ *             .schema("EXAMPLE_SCHEMA")
+ *             .apiAuthentication(example.fullyQualifiedName())
+ *             .oauthScopes(            
+ *                 "useraccount",
+ *                 "testscope")
+ *             .comment("EXAMPLE_COMMENT")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
+ * &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
+ * 
+ * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+ * 
  * ## Import
  * 
  * ```sh
@@ -114,18 +178,18 @@ public class SecretWithClientCredentials extends com.pulumi.resources.CustomReso
         return this.name;
     }
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
      * 
      */
     @Export(name="oauthScopes", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> oauthScopes;
+    private Output</* @Nullable */ List<String>> oauthScopes;
 
     /**
-     * @return Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+     * @return Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow. If not specified, no scopes are set on the secret; the effective scopes during the OAuth flow are inherited from the security integration.
      * 
      */
-    public Output<List<String>> oauthScopes() {
-        return this.oauthScopes;
+    public Output<Optional<List<String>>> oauthScopes() {
+        return Codegen.optional(this.oauthScopes);
     }
     /**
      * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.

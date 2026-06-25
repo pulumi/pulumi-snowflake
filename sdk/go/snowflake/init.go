@@ -55,6 +55,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CatalogIntegrationOpenCatalog{}
 	case "snowflake:index/computePool:ComputePool":
 		r = &ComputePool{}
+	case "snowflake:index/cortexAgent:CortexAgent":
+		r = &CortexAgent{}
 	case "snowflake:index/cortexSearchService:CortexSearchService":
 		r = &CortexSearchService{}
 	case "snowflake:index/currentAccount:CurrentAccount":
@@ -365,6 +367,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/computePool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/cortexAgent",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

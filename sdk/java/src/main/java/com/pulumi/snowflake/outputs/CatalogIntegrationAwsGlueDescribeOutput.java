@@ -17,6 +17,8 @@ public final class CatalogIntegrationAwsGlueDescribeOutput {
     private @Nullable String catalogSource;
     private @Nullable String comment;
     private @Nullable Boolean enabled;
+    private @Nullable String glueAwsExternalId;
+    private @Nullable String glueAwsIamUserArn;
     private @Nullable String glueAwsRoleArn;
     private @Nullable String glueCatalogId;
     private @Nullable String glueRegion;
@@ -36,6 +38,12 @@ public final class CatalogIntegrationAwsGlueDescribeOutput {
     }
     public Optional<Boolean> enabled() {
         return Optional.ofNullable(this.enabled);
+    }
+    public Optional<String> glueAwsExternalId() {
+        return Optional.ofNullable(this.glueAwsExternalId);
+    }
+    public Optional<String> glueAwsIamUserArn() {
+        return Optional.ofNullable(this.glueAwsIamUserArn);
     }
     public Optional<String> glueAwsRoleArn() {
         return Optional.ofNullable(this.glueAwsRoleArn);
@@ -69,6 +77,8 @@ public final class CatalogIntegrationAwsGlueDescribeOutput {
         private @Nullable String catalogSource;
         private @Nullable String comment;
         private @Nullable Boolean enabled;
+        private @Nullable String glueAwsExternalId;
+        private @Nullable String glueAwsIamUserArn;
         private @Nullable String glueAwsRoleArn;
         private @Nullable String glueCatalogId;
         private @Nullable String glueRegion;
@@ -82,6 +92,8 @@ public final class CatalogIntegrationAwsGlueDescribeOutput {
     	      this.catalogSource = defaults.catalogSource;
     	      this.comment = defaults.comment;
     	      this.enabled = defaults.enabled;
+    	      this.glueAwsExternalId = defaults.glueAwsExternalId;
+    	      this.glueAwsIamUserArn = defaults.glueAwsIamUserArn;
     	      this.glueAwsRoleArn = defaults.glueAwsRoleArn;
     	      this.glueCatalogId = defaults.glueCatalogId;
     	      this.glueRegion = defaults.glueRegion;
@@ -112,6 +124,18 @@ public final class CatalogIntegrationAwsGlueDescribeOutput {
         public Builder enabled(@Nullable Boolean enabled) {
 
             this.enabled = enabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder glueAwsExternalId(@Nullable String glueAwsExternalId) {
+
+            this.glueAwsExternalId = glueAwsExternalId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder glueAwsIamUserArn(@Nullable String glueAwsIamUserArn) {
+
+            this.glueAwsIamUserArn = glueAwsIamUserArn;
             return this;
         }
         @CustomType.Setter
@@ -156,6 +180,8 @@ public final class CatalogIntegrationAwsGlueDescribeOutput {
             _resultValue.catalogSource = catalogSource;
             _resultValue.comment = comment;
             _resultValue.enabled = enabled;
+            _resultValue.glueAwsExternalId = glueAwsExternalId;
+            _resultValue.glueAwsIamUserArn = glueAwsIamUserArn;
             _resultValue.glueAwsRoleArn = glueAwsRoleArn;
             _resultValue.glueCatalogId = glueCatalogId;
             _resultValue.glueRegion = glueRegion;

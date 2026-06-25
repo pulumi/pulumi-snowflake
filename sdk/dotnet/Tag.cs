@@ -70,7 +70,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> NoAllowedValues { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
         /// </summary>
         [Output("onConflict")]
         public Output<Outputs.TagOnConflict?> OnConflict { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? NoAllowedValues { get; set; }
 
         /// <summary>
-        /// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
         /// </summary>
         [Input("onConflict")]
         public Input<Inputs.TagOnConflictArgs>? OnConflict { get; set; }
@@ -288,7 +288,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? NoAllowedValues { get; set; }
 
         /// <summary>
-        /// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
         /// </summary>
         [Input("onConflict")]
         public Input<Inputs.TagOnConflictGetArgs>? OnConflict { get; set; }

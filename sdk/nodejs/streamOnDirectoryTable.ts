@@ -78,7 +78,7 @@ export class StreamOnDirectoryTable extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.StreamOnDirectoryTableShowOutput[]>;
     /**
-     * Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+     * Specifies an identifier for the stage the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     declare public readonly stage: pulumi.Output<string>;
     /**
@@ -179,7 +179,7 @@ export interface StreamOnDirectoryTableState {
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnDirectoryTableShowOutput>[] | undefined>;
     /**
-     * Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+     * Specifies an identifier for the stage the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     stage?: pulumi.Input<string | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface StreamOnDirectoryTableArgs {
      */
     schema: pulumi.Input<string>;
     /**
-     * Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+     * Specifies an identifier for the stage the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     stage: pulumi.Input<string>;
 }

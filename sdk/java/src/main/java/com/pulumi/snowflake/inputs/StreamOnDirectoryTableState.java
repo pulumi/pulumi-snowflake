@@ -140,14 +140,14 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * Specifies an identifier for the stage the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     @Import(name="stage")
     private @Nullable Output<String> stage;
 
     /**
-     * @return Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * @return Specifies an identifier for the stage the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> stage() {
@@ -407,7 +407,7 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param stage Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param stage Specifies an identifier for the stage the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param stage Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param stage Specifies an identifier for the stage the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 

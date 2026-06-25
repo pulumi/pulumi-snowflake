@@ -16,17 +16,22 @@ public final class GetSystemGetPrivateLinkConfigResult {
      */
     private String accountName;
     /**
-     * @return The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+     * @return The URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
      * 
      */
     private String accountUrl;
+    /**
+     * @return The PrivateLink endpoint URL used to route traffic to Snowflake-hosted app services, such as Streamlit or Notebooks.
+     * 
+     */
+    private String appServicePrivatelinkUrl;
     /**
      * @return The AWS VPCE ID for your account.
      * 
      */
     private String awsVpceId;
     /**
-     * @return The Azure Private Link Service ID for your account.
+     * @return The Microsoft Azure Private Link Service ID for your account identifier in the format of an alias.
      * 
      */
     private String azurePlsId;
@@ -41,15 +46,55 @@ public final class GetSystemGetPrivateLinkConfigResult {
      */
     private String internalStage;
     /**
-     * @return The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+     * @return The OCSP URL corresponding to your Snowflake account identifier.
      * 
      */
     private String ocspUrl;
+    /**
+     * @return The AWS principal ARN to allow for outbound private connections to your VPC endpoint services.
+     * 
+     */
+    private String privatelinkAccountPrincipal;
+    /**
+     * @return The list of OCSP URLs for use with redirecting client connections when using client redirect.
+     * 
+     */
+    private String privatelinkConnectionOcspUrls;
+    /**
+     * @return The private connectivity connection URLs for your account when using client redirect.
+     * 
+     */
+    private String privatelinkConnectionUrls;
+    /**
+     * @return The list of dashed variant URLs for Duo Multi-Factor Authentication, shown only when the hostname contains an underscore.
+     * 
+     */
+    private String privatelinkDashedUrlsForDuo;
+    /**
+     * @return The endpoint for the Snowflake service when using Google Cloud Private Service Connect.
+     * 
+     */
+    private String privatelinkGcpServiceAttachment;
+    /**
+     * @return The endpoint for failsafe Snowflake-managed storage volumes when using Azure Private Link.
+     * 
+     */
+    private String privatelinkSnowflakeManagedStorageVolumeFs;
+    /**
+     * @return The endpoint for non-failsafe Snowflake-managed storage volumes when using Azure Private Link.
+     * 
+     */
+    private String privatelinkSnowflakeManagedStorageVolumeNfs;
     /**
      * @return The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
      * 
      */
     private String regionlessAccountUrl;
+    /**
+     * @return The regionless OCSP URL to connect to Snowflake OCSP using private connectivity.
+     * 
+     */
+    private String regionlessPrivatelinkOcspUrl;
     /**
      * @return The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
      * 
@@ -70,11 +115,18 @@ public final class GetSystemGetPrivateLinkConfigResult {
         return this.accountName;
     }
     /**
-     * @return The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+     * @return The URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
      * 
      */
     public String accountUrl() {
         return this.accountUrl;
+    }
+    /**
+     * @return The PrivateLink endpoint URL used to route traffic to Snowflake-hosted app services, such as Streamlit or Notebooks.
+     * 
+     */
+    public String appServicePrivatelinkUrl() {
+        return this.appServicePrivatelinkUrl;
     }
     /**
      * @return The AWS VPCE ID for your account.
@@ -84,7 +136,7 @@ public final class GetSystemGetPrivateLinkConfigResult {
         return this.awsVpceId;
     }
     /**
-     * @return The Azure Private Link Service ID for your account.
+     * @return The Microsoft Azure Private Link Service ID for your account identifier in the format of an alias.
      * 
      */
     public String azurePlsId() {
@@ -105,11 +157,60 @@ public final class GetSystemGetPrivateLinkConfigResult {
         return this.internalStage;
     }
     /**
-     * @return The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+     * @return The OCSP URL corresponding to your Snowflake account identifier.
      * 
      */
     public String ocspUrl() {
         return this.ocspUrl;
+    }
+    /**
+     * @return The AWS principal ARN to allow for outbound private connections to your VPC endpoint services.
+     * 
+     */
+    public String privatelinkAccountPrincipal() {
+        return this.privatelinkAccountPrincipal;
+    }
+    /**
+     * @return The list of OCSP URLs for use with redirecting client connections when using client redirect.
+     * 
+     */
+    public String privatelinkConnectionOcspUrls() {
+        return this.privatelinkConnectionOcspUrls;
+    }
+    /**
+     * @return The private connectivity connection URLs for your account when using client redirect.
+     * 
+     */
+    public String privatelinkConnectionUrls() {
+        return this.privatelinkConnectionUrls;
+    }
+    /**
+     * @return The list of dashed variant URLs for Duo Multi-Factor Authentication, shown only when the hostname contains an underscore.
+     * 
+     */
+    public String privatelinkDashedUrlsForDuo() {
+        return this.privatelinkDashedUrlsForDuo;
+    }
+    /**
+     * @return The endpoint for the Snowflake service when using Google Cloud Private Service Connect.
+     * 
+     */
+    public String privatelinkGcpServiceAttachment() {
+        return this.privatelinkGcpServiceAttachment;
+    }
+    /**
+     * @return The endpoint for failsafe Snowflake-managed storage volumes when using Azure Private Link.
+     * 
+     */
+    public String privatelinkSnowflakeManagedStorageVolumeFs() {
+        return this.privatelinkSnowflakeManagedStorageVolumeFs;
+    }
+    /**
+     * @return The endpoint for non-failsafe Snowflake-managed storage volumes when using Azure Private Link.
+     * 
+     */
+    public String privatelinkSnowflakeManagedStorageVolumeNfs() {
+        return this.privatelinkSnowflakeManagedStorageVolumeNfs;
     }
     /**
      * @return The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
@@ -117,6 +218,13 @@ public final class GetSystemGetPrivateLinkConfigResult {
      */
     public String regionlessAccountUrl() {
         return this.regionlessAccountUrl;
+    }
+    /**
+     * @return The regionless OCSP URL to connect to Snowflake OCSP using private connectivity.
+     * 
+     */
+    public String regionlessPrivatelinkOcspUrl() {
+        return this.regionlessPrivatelinkOcspUrl;
     }
     /**
      * @return The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
@@ -144,12 +252,21 @@ public final class GetSystemGetPrivateLinkConfigResult {
     public static final class Builder {
         private String accountName;
         private String accountUrl;
+        private String appServicePrivatelinkUrl;
         private String awsVpceId;
         private String azurePlsId;
         private String id;
         private String internalStage;
         private String ocspUrl;
+        private String privatelinkAccountPrincipal;
+        private String privatelinkConnectionOcspUrls;
+        private String privatelinkConnectionUrls;
+        private String privatelinkDashedUrlsForDuo;
+        private String privatelinkGcpServiceAttachment;
+        private String privatelinkSnowflakeManagedStorageVolumeFs;
+        private String privatelinkSnowflakeManagedStorageVolumeNfs;
         private String regionlessAccountUrl;
+        private String regionlessPrivatelinkOcspUrl;
         private String regionlessSnowsightUrl;
         private String snowsightUrl;
         public Builder() {}
@@ -157,12 +274,21 @@ public final class GetSystemGetPrivateLinkConfigResult {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
     	      this.accountUrl = defaults.accountUrl;
+    	      this.appServicePrivatelinkUrl = defaults.appServicePrivatelinkUrl;
     	      this.awsVpceId = defaults.awsVpceId;
     	      this.azurePlsId = defaults.azurePlsId;
     	      this.id = defaults.id;
     	      this.internalStage = defaults.internalStage;
     	      this.ocspUrl = defaults.ocspUrl;
+    	      this.privatelinkAccountPrincipal = defaults.privatelinkAccountPrincipal;
+    	      this.privatelinkConnectionOcspUrls = defaults.privatelinkConnectionOcspUrls;
+    	      this.privatelinkConnectionUrls = defaults.privatelinkConnectionUrls;
+    	      this.privatelinkDashedUrlsForDuo = defaults.privatelinkDashedUrlsForDuo;
+    	      this.privatelinkGcpServiceAttachment = defaults.privatelinkGcpServiceAttachment;
+    	      this.privatelinkSnowflakeManagedStorageVolumeFs = defaults.privatelinkSnowflakeManagedStorageVolumeFs;
+    	      this.privatelinkSnowflakeManagedStorageVolumeNfs = defaults.privatelinkSnowflakeManagedStorageVolumeNfs;
     	      this.regionlessAccountUrl = defaults.regionlessAccountUrl;
+    	      this.regionlessPrivatelinkOcspUrl = defaults.regionlessPrivatelinkOcspUrl;
     	      this.regionlessSnowsightUrl = defaults.regionlessSnowsightUrl;
     	      this.snowsightUrl = defaults.snowsightUrl;
         }
@@ -181,6 +307,14 @@ public final class GetSystemGetPrivateLinkConfigResult {
               throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "accountUrl");
             }
             this.accountUrl = accountUrl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder appServicePrivatelinkUrl(String appServicePrivatelinkUrl) {
+            if (appServicePrivatelinkUrl == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "appServicePrivatelinkUrl");
+            }
+            this.appServicePrivatelinkUrl = appServicePrivatelinkUrl;
             return this;
         }
         @CustomType.Setter
@@ -224,11 +358,75 @@ public final class GetSystemGetPrivateLinkConfigResult {
             return this;
         }
         @CustomType.Setter
+        public Builder privatelinkAccountPrincipal(String privatelinkAccountPrincipal) {
+            if (privatelinkAccountPrincipal == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "privatelinkAccountPrincipal");
+            }
+            this.privatelinkAccountPrincipal = privatelinkAccountPrincipal;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privatelinkConnectionOcspUrls(String privatelinkConnectionOcspUrls) {
+            if (privatelinkConnectionOcspUrls == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "privatelinkConnectionOcspUrls");
+            }
+            this.privatelinkConnectionOcspUrls = privatelinkConnectionOcspUrls;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privatelinkConnectionUrls(String privatelinkConnectionUrls) {
+            if (privatelinkConnectionUrls == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "privatelinkConnectionUrls");
+            }
+            this.privatelinkConnectionUrls = privatelinkConnectionUrls;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privatelinkDashedUrlsForDuo(String privatelinkDashedUrlsForDuo) {
+            if (privatelinkDashedUrlsForDuo == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "privatelinkDashedUrlsForDuo");
+            }
+            this.privatelinkDashedUrlsForDuo = privatelinkDashedUrlsForDuo;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privatelinkGcpServiceAttachment(String privatelinkGcpServiceAttachment) {
+            if (privatelinkGcpServiceAttachment == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "privatelinkGcpServiceAttachment");
+            }
+            this.privatelinkGcpServiceAttachment = privatelinkGcpServiceAttachment;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privatelinkSnowflakeManagedStorageVolumeFs(String privatelinkSnowflakeManagedStorageVolumeFs) {
+            if (privatelinkSnowflakeManagedStorageVolumeFs == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "privatelinkSnowflakeManagedStorageVolumeFs");
+            }
+            this.privatelinkSnowflakeManagedStorageVolumeFs = privatelinkSnowflakeManagedStorageVolumeFs;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder privatelinkSnowflakeManagedStorageVolumeNfs(String privatelinkSnowflakeManagedStorageVolumeNfs) {
+            if (privatelinkSnowflakeManagedStorageVolumeNfs == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "privatelinkSnowflakeManagedStorageVolumeNfs");
+            }
+            this.privatelinkSnowflakeManagedStorageVolumeNfs = privatelinkSnowflakeManagedStorageVolumeNfs;
+            return this;
+        }
+        @CustomType.Setter
         public Builder regionlessAccountUrl(String regionlessAccountUrl) {
             if (regionlessAccountUrl == null) {
               throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "regionlessAccountUrl");
             }
             this.regionlessAccountUrl = regionlessAccountUrl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder regionlessPrivatelinkOcspUrl(String regionlessPrivatelinkOcspUrl) {
+            if (regionlessPrivatelinkOcspUrl == null) {
+              throw new MissingRequiredPropertyException("GetSystemGetPrivateLinkConfigResult", "regionlessPrivatelinkOcspUrl");
+            }
+            this.regionlessPrivatelinkOcspUrl = regionlessPrivatelinkOcspUrl;
             return this;
         }
         @CustomType.Setter
@@ -251,12 +449,21 @@ public final class GetSystemGetPrivateLinkConfigResult {
             final var _resultValue = new GetSystemGetPrivateLinkConfigResult();
             _resultValue.accountName = accountName;
             _resultValue.accountUrl = accountUrl;
+            _resultValue.appServicePrivatelinkUrl = appServicePrivatelinkUrl;
             _resultValue.awsVpceId = awsVpceId;
             _resultValue.azurePlsId = azurePlsId;
             _resultValue.id = id;
             _resultValue.internalStage = internalStage;
             _resultValue.ocspUrl = ocspUrl;
+            _resultValue.privatelinkAccountPrincipal = privatelinkAccountPrincipal;
+            _resultValue.privatelinkConnectionOcspUrls = privatelinkConnectionOcspUrls;
+            _resultValue.privatelinkConnectionUrls = privatelinkConnectionUrls;
+            _resultValue.privatelinkDashedUrlsForDuo = privatelinkDashedUrlsForDuo;
+            _resultValue.privatelinkGcpServiceAttachment = privatelinkGcpServiceAttachment;
+            _resultValue.privatelinkSnowflakeManagedStorageVolumeFs = privatelinkSnowflakeManagedStorageVolumeFs;
+            _resultValue.privatelinkSnowflakeManagedStorageVolumeNfs = privatelinkSnowflakeManagedStorageVolumeNfs;
             _resultValue.regionlessAccountUrl = regionlessAccountUrl;
+            _resultValue.regionlessPrivatelinkOcspUrl = regionlessPrivatelinkOcspUrl;
             _resultValue.regionlessSnowsightUrl = regionlessSnowsightUrl;
             _resultValue.snowsightUrl = snowsightUrl;
             return _resultValue;
