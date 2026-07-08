@@ -38,6 +38,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.GetUsersUserParameterJdbcUseSessionTimezoneResult> JdbcUseSessionTimezones;
         public readonly ImmutableArray<Outputs.GetUsersUserParameterJsonIndentResult> JsonIndents;
         public readonly ImmutableArray<Outputs.GetUsersUserParameterLockTimeoutResult> LockTimeouts;
+        public readonly ImmutableArray<Outputs.GetUsersUserParameterLogEventLevelResult> LogEventLevels;
         public readonly ImmutableArray<Outputs.GetUsersUserParameterLogLevelResult> LogLevels;
         public readonly ImmutableArray<Outputs.GetUsersUserParameterMultiStatementCountResult> MultiStatementCounts;
         public readonly ImmutableArray<Outputs.GetUsersUserParameterNetworkPolicyResult> NetworkPolicies;
@@ -123,6 +124,8 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.GetUsersUserParameterJsonIndentResult> jsonIndents,
 
             ImmutableArray<Outputs.GetUsersUserParameterLockTimeoutResult> lockTimeouts,
+
+            ImmutableArray<Outputs.GetUsersUserParameterLogEventLevelResult> logEventLevels,
 
             ImmutableArray<Outputs.GetUsersUserParameterLogLevelResult> logLevels,
 
@@ -215,6 +218,7 @@ namespace Pulumi.Snowflake.Outputs
             JdbcUseSessionTimezones = jdbcUseSessionTimezones;
             JsonIndents = jsonIndents;
             LockTimeouts = lockTimeouts;
+            LogEventLevels = logEventLevels;
             LogLevels = logLevels;
             MultiStatementCounts = multiStatementCounts;
             NetworkPolicies = networkPolicies;

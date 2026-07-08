@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.FunctionPythonParameterEnableConsoleOutputArgs;
+import com.pulumi.snowflake.inputs.FunctionPythonParameterLogEventLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionPythonParameterLogLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionPythonParameterMetricLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionPythonParameterTraceLevelArgs;
@@ -24,6 +25,13 @@ public final class FunctionPythonParameterArgs extends com.pulumi.resources.Reso
 
     public Optional<Output<List<FunctionPythonParameterEnableConsoleOutputArgs>>> enableConsoleOutputs() {
         return Optional.ofNullable(this.enableConsoleOutputs);
+    }
+
+    @Import(name="logEventLevels")
+    private @Nullable Output<List<FunctionPythonParameterLogEventLevelArgs>> logEventLevels;
+
+    public Optional<Output<List<FunctionPythonParameterLogEventLevelArgs>>> logEventLevels() {
+        return Optional.ofNullable(this.logEventLevels);
     }
 
     @Import(name="logLevels")
@@ -51,6 +59,7 @@ public final class FunctionPythonParameterArgs extends com.pulumi.resources.Reso
 
     private FunctionPythonParameterArgs(FunctionPythonParameterArgs $) {
         this.enableConsoleOutputs = $.enableConsoleOutputs;
+        this.logEventLevels = $.logEventLevels;
         this.logLevels = $.logLevels;
         this.metricLevels = $.metricLevels;
         this.traceLevels = $.traceLevels;
@@ -85,6 +94,19 @@ public final class FunctionPythonParameterArgs extends com.pulumi.resources.Reso
 
         public Builder enableConsoleOutputs(FunctionPythonParameterEnableConsoleOutputArgs... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+
+        public Builder logEventLevels(@Nullable Output<List<FunctionPythonParameterLogEventLevelArgs>> logEventLevels) {
+            $.logEventLevels = logEventLevels;
+            return this;
+        }
+
+        public Builder logEventLevels(List<FunctionPythonParameterLogEventLevelArgs> logEventLevels) {
+            return logEventLevels(Output.of(logEventLevels));
+        }
+
+        public Builder logEventLevels(FunctionPythonParameterLogEventLevelArgs... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
 
         public Builder logLevels(@Nullable Output<List<FunctionPythonParameterLogLevelArgs>> logLevels) {

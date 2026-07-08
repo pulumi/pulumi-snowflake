@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.FunctionScalaParameterEnableConsoleOutputArgs;
+import com.pulumi.snowflake.inputs.FunctionScalaParameterLogEventLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionScalaParameterLogLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionScalaParameterMetricLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionScalaParameterTraceLevelArgs;
@@ -24,6 +25,13 @@ public final class FunctionScalaParameterArgs extends com.pulumi.resources.Resou
 
     public Optional<Output<List<FunctionScalaParameterEnableConsoleOutputArgs>>> enableConsoleOutputs() {
         return Optional.ofNullable(this.enableConsoleOutputs);
+    }
+
+    @Import(name="logEventLevels")
+    private @Nullable Output<List<FunctionScalaParameterLogEventLevelArgs>> logEventLevels;
+
+    public Optional<Output<List<FunctionScalaParameterLogEventLevelArgs>>> logEventLevels() {
+        return Optional.ofNullable(this.logEventLevels);
     }
 
     @Import(name="logLevels")
@@ -51,6 +59,7 @@ public final class FunctionScalaParameterArgs extends com.pulumi.resources.Resou
 
     private FunctionScalaParameterArgs(FunctionScalaParameterArgs $) {
         this.enableConsoleOutputs = $.enableConsoleOutputs;
+        this.logEventLevels = $.logEventLevels;
         this.logLevels = $.logLevels;
         this.metricLevels = $.metricLevels;
         this.traceLevels = $.traceLevels;
@@ -85,6 +94,19 @@ public final class FunctionScalaParameterArgs extends com.pulumi.resources.Resou
 
         public Builder enableConsoleOutputs(FunctionScalaParameterEnableConsoleOutputArgs... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+
+        public Builder logEventLevels(@Nullable Output<List<FunctionScalaParameterLogEventLevelArgs>> logEventLevels) {
+            $.logEventLevels = logEventLevels;
+            return this;
+        }
+
+        public Builder logEventLevels(List<FunctionScalaParameterLogEventLevelArgs> logEventLevels) {
+            return logEventLevels(Output.of(logEventLevels));
+        }
+
+        public Builder logEventLevels(FunctionScalaParameterLogEventLevelArgs... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
 
         public Builder logLevels(@Nullable Output<List<FunctionScalaParameterLogLevelArgs>> logLevels) {

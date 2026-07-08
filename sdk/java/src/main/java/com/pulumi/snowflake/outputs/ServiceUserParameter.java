@@ -29,6 +29,7 @@ import com.pulumi.snowflake.outputs.ServiceUserParameterJdbcTreatTimestampNtzAsU
 import com.pulumi.snowflake.outputs.ServiceUserParameterJdbcUseSessionTimezone;
 import com.pulumi.snowflake.outputs.ServiceUserParameterJsonIndent;
 import com.pulumi.snowflake.outputs.ServiceUserParameterLockTimeout;
+import com.pulumi.snowflake.outputs.ServiceUserParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.ServiceUserParameterLogLevel;
 import com.pulumi.snowflake.outputs.ServiceUserParameterMultiStatementCount;
 import com.pulumi.snowflake.outputs.ServiceUserParameterNetworkPolicy;
@@ -93,6 +94,7 @@ public final class ServiceUserParameter {
     private @Nullable List<ServiceUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
     private @Nullable List<ServiceUserParameterJsonIndent> jsonIndents;
     private @Nullable List<ServiceUserParameterLockTimeout> lockTimeouts;
+    private @Nullable List<ServiceUserParameterLogEventLevel> logEventLevels;
     private @Nullable List<ServiceUserParameterLogLevel> logLevels;
     private @Nullable List<ServiceUserParameterMultiStatementCount> multiStatementCounts;
     private @Nullable List<ServiceUserParameterNetworkPolicy> networkPolicies;
@@ -202,6 +204,9 @@ public final class ServiceUserParameter {
     }
     public List<ServiceUserParameterLockTimeout> lockTimeouts() {
         return this.lockTimeouts == null ? List.of() : this.lockTimeouts;
+    }
+    public List<ServiceUserParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels == null ? List.of() : this.logEventLevels;
     }
     public List<ServiceUserParameterLogLevel> logLevels() {
         return this.logLevels == null ? List.of() : this.logLevels;
@@ -337,6 +342,7 @@ public final class ServiceUserParameter {
         private @Nullable List<ServiceUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
         private @Nullable List<ServiceUserParameterJsonIndent> jsonIndents;
         private @Nullable List<ServiceUserParameterLockTimeout> lockTimeouts;
+        private @Nullable List<ServiceUserParameterLogEventLevel> logEventLevels;
         private @Nullable List<ServiceUserParameterLogLevel> logLevels;
         private @Nullable List<ServiceUserParameterMultiStatementCount> multiStatementCounts;
         private @Nullable List<ServiceUserParameterNetworkPolicy> networkPolicies;
@@ -398,6 +404,7 @@ public final class ServiceUserParameter {
     	      this.jdbcUseSessionTimezones = defaults.jdbcUseSessionTimezones;
     	      this.jsonIndents = defaults.jsonIndents;
     	      this.lockTimeouts = defaults.lockTimeouts;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.multiStatementCounts = defaults.multiStatementCounts;
     	      this.networkPolicies = defaults.networkPolicies;
@@ -657,6 +664,15 @@ public final class ServiceUserParameter {
         }
         public Builder lockTimeouts(ServiceUserParameterLockTimeout... lockTimeouts) {
             return lockTimeouts(List.of(lockTimeouts));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(@Nullable List<ServiceUserParameterLogEventLevel> logEventLevels) {
+
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(ServiceUserParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(@Nullable List<ServiceUserParameterLogLevel> logLevels) {
@@ -982,6 +998,7 @@ public final class ServiceUserParameter {
             _resultValue.jdbcUseSessionTimezones = jdbcUseSessionTimezones;
             _resultValue.jsonIndents = jsonIndents;
             _resultValue.lockTimeouts = lockTimeouts;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.multiStatementCounts = multiStatementCounts;
             _resultValue.networkPolicies = networkPolicies;

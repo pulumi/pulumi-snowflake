@@ -76,6 +76,10 @@ export class SharedDatabase extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly fullyQualifiedName: pulumi.Output<string>;
     /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+     */
+    declare public readonly logEventLevel: pulumi.Output<string>;
+    /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      */
     declare public readonly logLevel: pulumi.Output<string>;
@@ -140,6 +144,7 @@ export class SharedDatabase extends pulumi.CustomResource {
             resourceInputs["externalVolume"] = state?.externalVolume;
             resourceInputs["fromShare"] = state?.fromShare;
             resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
+            resourceInputs["logEventLevel"] = state?.logEventLevel;
             resourceInputs["logLevel"] = state?.logLevel;
             resourceInputs["name"] = state?.name;
             resourceInputs["quotedIdentifiersIgnoreCase"] = state?.quotedIdentifiersIgnoreCase;
@@ -162,6 +167,7 @@ export class SharedDatabase extends pulumi.CustomResource {
             resourceInputs["enableConsoleOutput"] = args?.enableConsoleOutput;
             resourceInputs["externalVolume"] = args?.externalVolume;
             resourceInputs["fromShare"] = args?.fromShare;
+            resourceInputs["logEventLevel"] = args?.logEventLevel;
             resourceInputs["logLevel"] = args?.logLevel;
             resourceInputs["name"] = args?.name;
             resourceInputs["quotedIdentifiersIgnoreCase"] = args?.quotedIdentifiersIgnoreCase;
@@ -212,6 +218,10 @@ export interface SharedDatabaseState {
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      */
@@ -286,6 +296,10 @@ export interface SharedDatabaseArgs {
      * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
      */
     fromShare: pulumi.Input<string>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      */

@@ -28,6 +28,7 @@ import com.pulumi.snowflake.outputs.GetTasksTaskParameterJdbcTreatTimestampNtzAs
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterJdbcUseSessionTimezone;
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterJsonIndent;
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterLockTimeout;
+import com.pulumi.snowflake.outputs.GetTasksTaskParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterLogLevel;
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterMultiStatementCount;
 import com.pulumi.snowflake.outputs.GetTasksTaskParameterNoorderSequenceAsDefault;
@@ -93,6 +94,7 @@ public final class GetTasksTaskParameter {
     private List<GetTasksTaskParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
     private List<GetTasksTaskParameterJsonIndent> jsonIndents;
     private List<GetTasksTaskParameterLockTimeout> lockTimeouts;
+    private List<GetTasksTaskParameterLogEventLevel> logEventLevels;
     private List<GetTasksTaskParameterLogLevel> logLevels;
     private List<GetTasksTaskParameterMultiStatementCount> multiStatementCounts;
     private List<GetTasksTaskParameterNoorderSequenceAsDefault> noorderSequenceAsDefaults;
@@ -200,6 +202,9 @@ public final class GetTasksTaskParameter {
     }
     public List<GetTasksTaskParameterLockTimeout> lockTimeouts() {
         return this.lockTimeouts;
+    }
+    public List<GetTasksTaskParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels;
     }
     public List<GetTasksTaskParameterLogLevel> logLevels() {
         return this.logLevels;
@@ -345,6 +350,7 @@ public final class GetTasksTaskParameter {
         private List<GetTasksTaskParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
         private List<GetTasksTaskParameterJsonIndent> jsonIndents;
         private List<GetTasksTaskParameterLockTimeout> lockTimeouts;
+        private List<GetTasksTaskParameterLogEventLevel> logEventLevels;
         private List<GetTasksTaskParameterLogLevel> logLevels;
         private List<GetTasksTaskParameterMultiStatementCount> multiStatementCounts;
         private List<GetTasksTaskParameterNoorderSequenceAsDefault> noorderSequenceAsDefaults;
@@ -408,6 +414,7 @@ public final class GetTasksTaskParameter {
     	      this.jdbcUseSessionTimezones = defaults.jdbcUseSessionTimezones;
     	      this.jsonIndents = defaults.jsonIndents;
     	      this.lockTimeouts = defaults.lockTimeouts;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.multiStatementCounts = defaults.multiStatementCounts;
     	      this.noorderSequenceAsDefaults = defaults.noorderSequenceAsDefaults;
@@ -699,6 +706,17 @@ public final class GetTasksTaskParameter {
         }
         public Builder lockTimeouts(GetTasksTaskParameterLockTimeout... lockTimeouts) {
             return lockTimeouts(List.of(lockTimeouts));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(List<GetTasksTaskParameterLogEventLevel> logEventLevels) {
+            if (logEventLevels == null) {
+              throw new MissingRequiredPropertyException("GetTasksTaskParameter", "logEventLevels");
+            }
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(GetTasksTaskParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(List<GetTasksTaskParameterLogLevel> logLevels) {
@@ -1132,6 +1150,7 @@ public final class GetTasksTaskParameter {
             _resultValue.jdbcUseSessionTimezones = jdbcUseSessionTimezones;
             _resultValue.jsonIndents = jsonIndents;
             _resultValue.lockTimeouts = lockTimeouts;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.multiStatementCounts = multiStatementCounts;
             _resultValue.noorderSequenceAsDefaults = noorderSequenceAsDefaults;

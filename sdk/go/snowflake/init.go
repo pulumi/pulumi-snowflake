@@ -43,6 +43,24 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiAuthenticationIntegrationWithJwtBearer{}
 	case "snowflake:index/apiIntegration:ApiIntegration":
 		r = &ApiIntegration{}
+	case "snowflake:index/apiIntegrationAmazonApiGateway:ApiIntegrationAmazonApiGateway":
+		r = &ApiIntegrationAmazonApiGateway{}
+	case "snowflake:index/apiIntegrationAzureApiManagement:ApiIntegrationAzureApiManagement":
+		r = &ApiIntegrationAzureApiManagement{}
+	case "snowflake:index/apiIntegrationExternalMcpDynamicClient:ApiIntegrationExternalMcpDynamicClient":
+		r = &ApiIntegrationExternalMcpDynamicClient{}
+	case "snowflake:index/apiIntegrationExternalMcpOauth2:ApiIntegrationExternalMcpOauth2":
+		r = &ApiIntegrationExternalMcpOauth2{}
+	case "snowflake:index/apiIntegrationGitRepositoryGithubApp:ApiIntegrationGitRepositoryGithubApp":
+		r = &ApiIntegrationGitRepositoryGithubApp{}
+	case "snowflake:index/apiIntegrationGitRepositoryOauth2:ApiIntegrationGitRepositoryOauth2":
+		r = &ApiIntegrationGitRepositoryOauth2{}
+	case "snowflake:index/apiIntegrationGitRepositoryPrivateLink:ApiIntegrationGitRepositoryPrivateLink":
+		r = &ApiIntegrationGitRepositoryPrivateLink{}
+	case "snowflake:index/apiIntegrationGitRepositoryToken:ApiIntegrationGitRepositoryToken":
+		r = &ApiIntegrationGitRepositoryToken{}
+	case "snowflake:index/apiIntegrationGoogleCloudApiGateway:ApiIntegrationGoogleCloudApiGateway":
+		r = &ApiIntegrationGoogleCloudApiGateway{}
 	case "snowflake:index/authenticationPolicy:AuthenticationPolicy":
 		r = &AuthenticationPolicy{}
 	case "snowflake:index/catalogIntegrationAwsGlue:CatalogIntegrationAwsGlue":
@@ -111,6 +129,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GrantPrivilegesToDatabaseRole{}
 	case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
 		r = &GrantPrivilegesToShare{}
+	case "snowflake:index/icebergTableFromDeltaFiles:IcebergTableFromDeltaFiles":
+		r = &IcebergTableFromDeltaFiles{}
+	case "snowflake:index/icebergTableFromFiles:IcebergTableFromFiles":
+		r = &IcebergTableFromFiles{}
 	case "snowflake:index/imageRepository:ImageRepository":
 		r = &ImageRepository{}
 	case "snowflake:index/jobService:JobService":
@@ -145,6 +167,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PasswordPolicy{}
 	case "snowflake:index/pipe:Pipe":
 		r = &Pipe{}
+	case "snowflake:index/postgresInstance:PostgresInstance":
+		r = &PostgresInstance{}
 	case "snowflake:index/primaryConnection:PrimaryConnection":
 		r = &PrimaryConnection{}
 	case "snowflake:index/procedureJava:ProcedureJava":
@@ -213,6 +237,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StorageIntegrationAzure{}
 	case "snowflake:index/storageIntegrationGcs:StorageIntegrationGcs":
 		r = &StorageIntegrationGcs{}
+	case "snowflake:index/storageLifecyclePolicy:StorageLifecyclePolicy":
+		r = &StorageLifecyclePolicy{}
 	case "snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable":
 		r = &StreamOnDirectoryTable{}
 	case "snowflake:index/streamOnExternalTable:StreamOnExternalTable":
@@ -229,6 +255,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TableColumnMaskingPolicyApplication{}
 	case "snowflake:index/tableConstraint:TableConstraint":
 		r = &TableConstraint{}
+	case "snowflake:index/tableStorageLifecyclePolicyAttachment:TableStorageLifecyclePolicyAttachment":
+		r = &TableStorageLifecyclePolicyAttachment{}
 	case "snowflake:index/tag:Tag":
 		r = &Tag{}
 	case "snowflake:index/tagAssociation:TagAssociation":
@@ -337,6 +365,51 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/apiIntegration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiIntegrationAmazonApiGateway",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiIntegrationAzureApiManagement",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiIntegrationExternalMcpDynamicClient",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiIntegrationExternalMcpOauth2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiIntegrationGitRepositoryGithubApp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiIntegrationGitRepositoryOauth2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiIntegrationGitRepositoryPrivateLink",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiIntegrationGitRepositoryToken",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/apiIntegrationGoogleCloudApiGateway",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -511,6 +584,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/icebergTableFromDeltaFiles",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/icebergTableFromFiles",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/imageRepository",
 		&module{version},
 	)
@@ -592,6 +675,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/pipe",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/postgresInstance",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -766,6 +854,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/storageLifecyclePolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/streamOnDirectoryTable",
 		&module{version},
 	)
@@ -802,6 +895,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/tableConstraint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/tableStorageLifecyclePolicyAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

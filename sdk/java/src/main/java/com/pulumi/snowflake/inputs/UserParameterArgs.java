@@ -30,6 +30,7 @@ import com.pulumi.snowflake.inputs.UserParameterJdbcTreatTimestampNtzAsUtcArgs;
 import com.pulumi.snowflake.inputs.UserParameterJdbcUseSessionTimezoneArgs;
 import com.pulumi.snowflake.inputs.UserParameterJsonIndentArgs;
 import com.pulumi.snowflake.inputs.UserParameterLockTimeoutArgs;
+import com.pulumi.snowflake.inputs.UserParameterLogEventLevelArgs;
 import com.pulumi.snowflake.inputs.UserParameterLogLevelArgs;
 import com.pulumi.snowflake.inputs.UserParameterMultiStatementCountArgs;
 import com.pulumi.snowflake.inputs.UserParameterNetworkPolicyArgs;
@@ -246,6 +247,13 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<List<UserParameterLockTimeoutArgs>>> lockTimeouts() {
         return Optional.ofNullable(this.lockTimeouts);
+    }
+
+    @Import(name="logEventLevels")
+    private @Nullable Output<List<UserParameterLogEventLevelArgs>> logEventLevels;
+
+    public Optional<Output<List<UserParameterLogEventLevelArgs>>> logEventLevels() {
+        return Optional.ofNullable(this.logEventLevels);
     }
 
     @Import(name="logLevels")
@@ -507,6 +515,7 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
         this.jdbcUseSessionTimezones = $.jdbcUseSessionTimezones;
         this.jsonIndents = $.jsonIndents;
         this.lockTimeouts = $.lockTimeouts;
+        this.logEventLevels = $.logEventLevels;
         this.logLevels = $.logLevels;
         this.multiStatementCounts = $.multiStatementCounts;
         this.networkPolicies = $.networkPolicies;
@@ -883,6 +892,19 @@ public final class UserParameterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder lockTimeouts(UserParameterLockTimeoutArgs... lockTimeouts) {
             return lockTimeouts(List.of(lockTimeouts));
+        }
+
+        public Builder logEventLevels(@Nullable Output<List<UserParameterLogEventLevelArgs>> logEventLevels) {
+            $.logEventLevels = logEventLevels;
+            return this;
+        }
+
+        public Builder logEventLevels(List<UserParameterLogEventLevelArgs> logEventLevels) {
+            return logEventLevels(Output.of(logEventLevels));
+        }
+
+        public Builder logEventLevels(UserParameterLogEventLevelArgs... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
 
         public Builder logLevels(@Nullable Output<List<UserParameterLogLevelArgs>> logLevels) {

@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.ProcedurePythonParameterEnableConsoleOutputArgs;
+import com.pulumi.snowflake.inputs.ProcedurePythonParameterLogEventLevelArgs;
 import com.pulumi.snowflake.inputs.ProcedurePythonParameterLogLevelArgs;
 import com.pulumi.snowflake.inputs.ProcedurePythonParameterMetricLevelArgs;
 import com.pulumi.snowflake.inputs.ProcedurePythonParameterTraceLevelArgs;
@@ -24,6 +25,13 @@ public final class ProcedurePythonParameterArgs extends com.pulumi.resources.Res
 
     public Optional<Output<List<ProcedurePythonParameterEnableConsoleOutputArgs>>> enableConsoleOutputs() {
         return Optional.ofNullable(this.enableConsoleOutputs);
+    }
+
+    @Import(name="logEventLevels")
+    private @Nullable Output<List<ProcedurePythonParameterLogEventLevelArgs>> logEventLevels;
+
+    public Optional<Output<List<ProcedurePythonParameterLogEventLevelArgs>>> logEventLevels() {
+        return Optional.ofNullable(this.logEventLevels);
     }
 
     @Import(name="logLevels")
@@ -51,6 +59,7 @@ public final class ProcedurePythonParameterArgs extends com.pulumi.resources.Res
 
     private ProcedurePythonParameterArgs(ProcedurePythonParameterArgs $) {
         this.enableConsoleOutputs = $.enableConsoleOutputs;
+        this.logEventLevels = $.logEventLevels;
         this.logLevels = $.logLevels;
         this.metricLevels = $.metricLevels;
         this.traceLevels = $.traceLevels;
@@ -85,6 +94,19 @@ public final class ProcedurePythonParameterArgs extends com.pulumi.resources.Res
 
         public Builder enableConsoleOutputs(ProcedurePythonParameterEnableConsoleOutputArgs... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+
+        public Builder logEventLevels(@Nullable Output<List<ProcedurePythonParameterLogEventLevelArgs>> logEventLevels) {
+            $.logEventLevels = logEventLevels;
+            return this;
+        }
+
+        public Builder logEventLevels(List<ProcedurePythonParameterLogEventLevelArgs> logEventLevels) {
+            return logEventLevels(Output.of(logEventLevels));
+        }
+
+        public Builder logEventLevels(ProcedurePythonParameterLogEventLevelArgs... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
 
         public Builder logLevels(@Nullable Output<List<ProcedurePythonParameterLogLevelArgs>> logLevels) {

@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.FunctionPythonParameterEnableConsoleOutput;
+import com.pulumi.snowflake.outputs.FunctionPythonParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.FunctionPythonParameterLogLevel;
 import com.pulumi.snowflake.outputs.FunctionPythonParameterMetricLevel;
 import com.pulumi.snowflake.outputs.FunctionPythonParameterTraceLevel;
@@ -15,6 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FunctionPythonParameter {
     private @Nullable List<FunctionPythonParameterEnableConsoleOutput> enableConsoleOutputs;
+    private @Nullable List<FunctionPythonParameterLogEventLevel> logEventLevels;
     private @Nullable List<FunctionPythonParameterLogLevel> logLevels;
     private @Nullable List<FunctionPythonParameterMetricLevel> metricLevels;
     private @Nullable List<FunctionPythonParameterTraceLevel> traceLevels;
@@ -22,6 +24,9 @@ public final class FunctionPythonParameter {
     private FunctionPythonParameter() {}
     public List<FunctionPythonParameterEnableConsoleOutput> enableConsoleOutputs() {
         return this.enableConsoleOutputs == null ? List.of() : this.enableConsoleOutputs;
+    }
+    public List<FunctionPythonParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels == null ? List.of() : this.logEventLevels;
     }
     public List<FunctionPythonParameterLogLevel> logLevels() {
         return this.logLevels == null ? List.of() : this.logLevels;
@@ -43,6 +48,7 @@ public final class FunctionPythonParameter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FunctionPythonParameterEnableConsoleOutput> enableConsoleOutputs;
+        private @Nullable List<FunctionPythonParameterLogEventLevel> logEventLevels;
         private @Nullable List<FunctionPythonParameterLogLevel> logLevels;
         private @Nullable List<FunctionPythonParameterMetricLevel> metricLevels;
         private @Nullable List<FunctionPythonParameterTraceLevel> traceLevels;
@@ -50,6 +56,7 @@ public final class FunctionPythonParameter {
         public Builder(FunctionPythonParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.metricLevels = defaults.metricLevels;
     	      this.traceLevels = defaults.traceLevels;
@@ -63,6 +70,15 @@ public final class FunctionPythonParameter {
         }
         public Builder enableConsoleOutputs(FunctionPythonParameterEnableConsoleOutput... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(@Nullable List<FunctionPythonParameterLogEventLevel> logEventLevels) {
+
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(FunctionPythonParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(@Nullable List<FunctionPythonParameterLogLevel> logLevels) {
@@ -94,6 +110,7 @@ public final class FunctionPythonParameter {
         public FunctionPythonParameter build() {
             final var _resultValue = new FunctionPythonParameter();
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.metricLevels = metricLevels;
             _resultValue.traceLevels = traceLevels;

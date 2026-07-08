@@ -78,7 +78,7 @@ export class CortexAgent extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.CortexAgentShowOutput[]>;
     /**
-     * Specifies a YAML object containing the settings for the Cortex agent.
+     * Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
     declare public readonly specification: pulumi.Output<string>;
 
@@ -167,7 +167,7 @@ export interface CortexAgentState {
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.CortexAgentShowOutput>[] | undefined>;
     /**
-     * Specifies a YAML object containing the settings for the Cortex agent.
+     * Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
     specification?: pulumi.Input<string | undefined>;
 }
@@ -197,7 +197,7 @@ export interface CortexAgentArgs {
      */
     schema: pulumi.Input<string>;
     /**
-     * Specifies a YAML object containing the settings for the Cortex agent.
+     * Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
     specification: pulumi.Input<string>;
 }

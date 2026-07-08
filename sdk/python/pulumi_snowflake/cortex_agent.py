@@ -32,7 +32,7 @@ class CortexAgentArgs:
 
         :param pulumi.Input[_builtins.str] database: The database in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the settings for the Cortex agent.
+        :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Cortex agent.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input['CortexAgentProfileArgs'] profile: Specifies agent profile information, such as display_name, avatar, and color.
@@ -75,7 +75,7 @@ class CortexAgentArgs:
     @pulumi.getter
     def specification(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies a YAML object containing the settings for the Cortex agent.
+        Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         return pulumi.get(self, "specification")
 
@@ -143,7 +143,7 @@ class _CortexAgentState:
         :param pulumi.Input['CortexAgentProfileArgs'] profile: Specifies agent profile information, such as display_name, avatar, and color.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['CortexAgentShowOutputArgs']]] show_outputs: Outputs the result of `SHOW AGENTS` for this Cortex agent.
-        :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the settings for the Cortex agent.
+        :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -264,7 +264,7 @@ class _CortexAgentState:
     @pulumi.getter
     def specification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a YAML object containing the settings for the Cortex agent.
+        Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         return pulumi.get(self, "specification")
 
@@ -305,7 +305,7 @@ class CortexAgent(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict']] profile: Specifies agent profile information, such as display_name, avatar, and color.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the settings for the Cortex agent.
+        :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         ...
     @overload
@@ -404,7 +404,7 @@ class CortexAgent(pulumi.CustomResource):
         :param pulumi.Input[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict']] profile: Specifies agent profile information, such as display_name, avatar, and color.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CortexAgentShowOutputArgs', 'CortexAgentShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW AGENTS` for this Cortex agent.
-        :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the settings for the Cortex agent.
+        :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -489,7 +489,7 @@ class CortexAgent(pulumi.CustomResource):
     @pulumi.getter
     def specification(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies a YAML object containing the settings for the Cortex agent.
+        Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         return pulumi.get(self, "specification")
 

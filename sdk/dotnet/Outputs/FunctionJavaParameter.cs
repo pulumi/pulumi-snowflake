@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class FunctionJavaParameter
     {
         public readonly ImmutableArray<Outputs.FunctionJavaParameterEnableConsoleOutput> EnableConsoleOutputs;
+        public readonly ImmutableArray<Outputs.FunctionJavaParameterLogEventLevel> LogEventLevels;
         public readonly ImmutableArray<Outputs.FunctionJavaParameterLogLevel> LogLevels;
         public readonly ImmutableArray<Outputs.FunctionJavaParameterMetricLevel> MetricLevels;
         public readonly ImmutableArray<Outputs.FunctionJavaParameterTraceLevel> TraceLevels;
@@ -22,6 +23,8 @@ namespace Pulumi.Snowflake.Outputs
         private FunctionJavaParameter(
             ImmutableArray<Outputs.FunctionJavaParameterEnableConsoleOutput> enableConsoleOutputs,
 
+            ImmutableArray<Outputs.FunctionJavaParameterLogEventLevel> logEventLevels,
+
             ImmutableArray<Outputs.FunctionJavaParameterLogLevel> logLevels,
 
             ImmutableArray<Outputs.FunctionJavaParameterMetricLevel> metricLevels,
@@ -29,6 +32,7 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.FunctionJavaParameterTraceLevel> traceLevels)
         {
             EnableConsoleOutputs = enableConsoleOutputs;
+            LogEventLevels = logEventLevels;
             LogLevels = logLevels;
             MetricLevels = metricLevels;
             TraceLevels = traceLevels;

@@ -10,6 +10,7 @@ import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterDataRetentionTimeIn
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterDefaultDdlCollation;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterEnableConsoleOutput;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterExternalVolume;
+import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterLogLevel;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterMaxDataExtensionTimeInDay;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterPipeExecutionPaused;
@@ -32,6 +33,7 @@ public final class GetSchemasSchemaParameter {
     private List<GetSchemasSchemaParameterDefaultDdlCollation> defaultDdlCollations;
     private List<GetSchemasSchemaParameterEnableConsoleOutput> enableConsoleOutputs;
     private List<GetSchemasSchemaParameterExternalVolume> externalVolumes;
+    private List<GetSchemasSchemaParameterLogEventLevel> logEventLevels;
     private List<GetSchemasSchemaParameterLogLevel> logLevels;
     private List<GetSchemasSchemaParameterMaxDataExtensionTimeInDay> maxDataExtensionTimeInDays;
     private List<GetSchemasSchemaParameterPipeExecutionPaused> pipeExecutionPauseds;
@@ -60,6 +62,9 @@ public final class GetSchemasSchemaParameter {
     }
     public List<GetSchemasSchemaParameterExternalVolume> externalVolumes() {
         return this.externalVolumes;
+    }
+    public List<GetSchemasSchemaParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels;
     }
     public List<GetSchemasSchemaParameterLogLevel> logLevels() {
         return this.logLevels;
@@ -112,6 +117,7 @@ public final class GetSchemasSchemaParameter {
         private List<GetSchemasSchemaParameterDefaultDdlCollation> defaultDdlCollations;
         private List<GetSchemasSchemaParameterEnableConsoleOutput> enableConsoleOutputs;
         private List<GetSchemasSchemaParameterExternalVolume> externalVolumes;
+        private List<GetSchemasSchemaParameterLogEventLevel> logEventLevels;
         private List<GetSchemasSchemaParameterLogLevel> logLevels;
         private List<GetSchemasSchemaParameterMaxDataExtensionTimeInDay> maxDataExtensionTimeInDays;
         private List<GetSchemasSchemaParameterPipeExecutionPaused> pipeExecutionPauseds;
@@ -132,6 +138,7 @@ public final class GetSchemasSchemaParameter {
     	      this.defaultDdlCollations = defaults.defaultDdlCollations;
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
     	      this.externalVolumes = defaults.externalVolumes;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.maxDataExtensionTimeInDays = defaults.maxDataExtensionTimeInDays;
     	      this.pipeExecutionPauseds = defaults.pipeExecutionPauseds;
@@ -200,6 +207,17 @@ public final class GetSchemasSchemaParameter {
         }
         public Builder externalVolumes(GetSchemasSchemaParameterExternalVolume... externalVolumes) {
             return externalVolumes(List.of(externalVolumes));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(List<GetSchemasSchemaParameterLogEventLevel> logEventLevels) {
+            if (logEventLevels == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchemaParameter", "logEventLevels");
+            }
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(GetSchemasSchemaParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(List<GetSchemasSchemaParameterLogLevel> logLevels) {
@@ -340,6 +358,7 @@ public final class GetSchemasSchemaParameter {
             _resultValue.defaultDdlCollations = defaultDdlCollations;
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
             _resultValue.externalVolumes = externalVolumes;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.maxDataExtensionTimeInDays = maxDataExtensionTimeInDays;
             _resultValue.pipeExecutionPauseds = pipeExecutionPauseds;

@@ -93,6 +93,12 @@ namespace Pulumi.Snowflake
         public Output<string?> IsTransient { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+        /// </summary>
+        [Output("logEventLevel")]
+        public Output<string> LogEventLevel { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         /// </summary>
         [Output("logLevel")]
@@ -283,6 +289,12 @@ namespace Pulumi.Snowflake
         public Input<string>? IsTransient { get; set; }
 
         /// <summary>
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+        /// </summary>
+        [Input("logEventLevel")]
+        public Input<string>? LogEventLevel { get; set; }
+
+        /// <summary>
         /// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         /// </summary>
         [Input("logLevel")]
@@ -439,6 +451,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("isTransient")]
         public Input<string>? IsTransient { get; set; }
+
+        /// <summary>
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+        /// </summary>
+        [Input("logEventLevel")]
+        public Input<string>? LogEventLevel { get; set; }
 
         /// <summary>
         /// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).

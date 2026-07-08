@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.ProcedurePythonParameterEnableConsoleOutput;
+import com.pulumi.snowflake.outputs.ProcedurePythonParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.ProcedurePythonParameterLogLevel;
 import com.pulumi.snowflake.outputs.ProcedurePythonParameterMetricLevel;
 import com.pulumi.snowflake.outputs.ProcedurePythonParameterTraceLevel;
@@ -15,6 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProcedurePythonParameter {
     private @Nullable List<ProcedurePythonParameterEnableConsoleOutput> enableConsoleOutputs;
+    private @Nullable List<ProcedurePythonParameterLogEventLevel> logEventLevels;
     private @Nullable List<ProcedurePythonParameterLogLevel> logLevels;
     private @Nullable List<ProcedurePythonParameterMetricLevel> metricLevels;
     private @Nullable List<ProcedurePythonParameterTraceLevel> traceLevels;
@@ -22,6 +24,9 @@ public final class ProcedurePythonParameter {
     private ProcedurePythonParameter() {}
     public List<ProcedurePythonParameterEnableConsoleOutput> enableConsoleOutputs() {
         return this.enableConsoleOutputs == null ? List.of() : this.enableConsoleOutputs;
+    }
+    public List<ProcedurePythonParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels == null ? List.of() : this.logEventLevels;
     }
     public List<ProcedurePythonParameterLogLevel> logLevels() {
         return this.logLevels == null ? List.of() : this.logLevels;
@@ -43,6 +48,7 @@ public final class ProcedurePythonParameter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ProcedurePythonParameterEnableConsoleOutput> enableConsoleOutputs;
+        private @Nullable List<ProcedurePythonParameterLogEventLevel> logEventLevels;
         private @Nullable List<ProcedurePythonParameterLogLevel> logLevels;
         private @Nullable List<ProcedurePythonParameterMetricLevel> metricLevels;
         private @Nullable List<ProcedurePythonParameterTraceLevel> traceLevels;
@@ -50,6 +56,7 @@ public final class ProcedurePythonParameter {
         public Builder(ProcedurePythonParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.metricLevels = defaults.metricLevels;
     	      this.traceLevels = defaults.traceLevels;
@@ -63,6 +70,15 @@ public final class ProcedurePythonParameter {
         }
         public Builder enableConsoleOutputs(ProcedurePythonParameterEnableConsoleOutput... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(@Nullable List<ProcedurePythonParameterLogEventLevel> logEventLevels) {
+
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(ProcedurePythonParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(@Nullable List<ProcedurePythonParameterLogLevel> logLevels) {
@@ -94,6 +110,7 @@ public final class ProcedurePythonParameter {
         public ProcedurePythonParameter build() {
             final var _resultValue = new ProcedurePythonParameter();
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.metricLevels = metricLevels;
             _resultValue.traceLevels = traceLevels;

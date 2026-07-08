@@ -60,6 +60,51 @@ export type ApiIntegration = import("./apiIntegration").ApiIntegration;
 export const ApiIntegration: typeof import("./apiIntegration").ApiIntegration = null as any;
 utilities.lazyLoad(exports, ["ApiIntegration"], () => require("./apiIntegration"));
 
+export { ApiIntegrationAmazonApiGatewayArgs, ApiIntegrationAmazonApiGatewayState } from "./apiIntegrationAmazonApiGateway";
+export type ApiIntegrationAmazonApiGateway = import("./apiIntegrationAmazonApiGateway").ApiIntegrationAmazonApiGateway;
+export const ApiIntegrationAmazonApiGateway: typeof import("./apiIntegrationAmazonApiGateway").ApiIntegrationAmazonApiGateway = null as any;
+utilities.lazyLoad(exports, ["ApiIntegrationAmazonApiGateway"], () => require("./apiIntegrationAmazonApiGateway"));
+
+export { ApiIntegrationAzureApiManagementArgs, ApiIntegrationAzureApiManagementState } from "./apiIntegrationAzureApiManagement";
+export type ApiIntegrationAzureApiManagement = import("./apiIntegrationAzureApiManagement").ApiIntegrationAzureApiManagement;
+export const ApiIntegrationAzureApiManagement: typeof import("./apiIntegrationAzureApiManagement").ApiIntegrationAzureApiManagement = null as any;
+utilities.lazyLoad(exports, ["ApiIntegrationAzureApiManagement"], () => require("./apiIntegrationAzureApiManagement"));
+
+export { ApiIntegrationExternalMcpDynamicClientArgs, ApiIntegrationExternalMcpDynamicClientState } from "./apiIntegrationExternalMcpDynamicClient";
+export type ApiIntegrationExternalMcpDynamicClient = import("./apiIntegrationExternalMcpDynamicClient").ApiIntegrationExternalMcpDynamicClient;
+export const ApiIntegrationExternalMcpDynamicClient: typeof import("./apiIntegrationExternalMcpDynamicClient").ApiIntegrationExternalMcpDynamicClient = null as any;
+utilities.lazyLoad(exports, ["ApiIntegrationExternalMcpDynamicClient"], () => require("./apiIntegrationExternalMcpDynamicClient"));
+
+export { ApiIntegrationExternalMcpOauth2Args, ApiIntegrationExternalMcpOauth2State } from "./apiIntegrationExternalMcpOauth2";
+export type ApiIntegrationExternalMcpOauth2 = import("./apiIntegrationExternalMcpOauth2").ApiIntegrationExternalMcpOauth2;
+export const ApiIntegrationExternalMcpOauth2: typeof import("./apiIntegrationExternalMcpOauth2").ApiIntegrationExternalMcpOauth2 = null as any;
+utilities.lazyLoad(exports, ["ApiIntegrationExternalMcpOauth2"], () => require("./apiIntegrationExternalMcpOauth2"));
+
+export { ApiIntegrationGitRepositoryGithubAppArgs, ApiIntegrationGitRepositoryGithubAppState } from "./apiIntegrationGitRepositoryGithubApp";
+export type ApiIntegrationGitRepositoryGithubApp = import("./apiIntegrationGitRepositoryGithubApp").ApiIntegrationGitRepositoryGithubApp;
+export const ApiIntegrationGitRepositoryGithubApp: typeof import("./apiIntegrationGitRepositoryGithubApp").ApiIntegrationGitRepositoryGithubApp = null as any;
+utilities.lazyLoad(exports, ["ApiIntegrationGitRepositoryGithubApp"], () => require("./apiIntegrationGitRepositoryGithubApp"));
+
+export { ApiIntegrationGitRepositoryOauth2Args, ApiIntegrationGitRepositoryOauth2State } from "./apiIntegrationGitRepositoryOauth2";
+export type ApiIntegrationGitRepositoryOauth2 = import("./apiIntegrationGitRepositoryOauth2").ApiIntegrationGitRepositoryOauth2;
+export const ApiIntegrationGitRepositoryOauth2: typeof import("./apiIntegrationGitRepositoryOauth2").ApiIntegrationGitRepositoryOauth2 = null as any;
+utilities.lazyLoad(exports, ["ApiIntegrationGitRepositoryOauth2"], () => require("./apiIntegrationGitRepositoryOauth2"));
+
+export { ApiIntegrationGitRepositoryPrivateLinkArgs, ApiIntegrationGitRepositoryPrivateLinkState } from "./apiIntegrationGitRepositoryPrivateLink";
+export type ApiIntegrationGitRepositoryPrivateLink = import("./apiIntegrationGitRepositoryPrivateLink").ApiIntegrationGitRepositoryPrivateLink;
+export const ApiIntegrationGitRepositoryPrivateLink: typeof import("./apiIntegrationGitRepositoryPrivateLink").ApiIntegrationGitRepositoryPrivateLink = null as any;
+utilities.lazyLoad(exports, ["ApiIntegrationGitRepositoryPrivateLink"], () => require("./apiIntegrationGitRepositoryPrivateLink"));
+
+export { ApiIntegrationGitRepositoryTokenArgs, ApiIntegrationGitRepositoryTokenState } from "./apiIntegrationGitRepositoryToken";
+export type ApiIntegrationGitRepositoryToken = import("./apiIntegrationGitRepositoryToken").ApiIntegrationGitRepositoryToken;
+export const ApiIntegrationGitRepositoryToken: typeof import("./apiIntegrationGitRepositoryToken").ApiIntegrationGitRepositoryToken = null as any;
+utilities.lazyLoad(exports, ["ApiIntegrationGitRepositoryToken"], () => require("./apiIntegrationGitRepositoryToken"));
+
+export { ApiIntegrationGoogleCloudApiGatewayArgs, ApiIntegrationGoogleCloudApiGatewayState } from "./apiIntegrationGoogleCloudApiGateway";
+export type ApiIntegrationGoogleCloudApiGateway = import("./apiIntegrationGoogleCloudApiGateway").ApiIntegrationGoogleCloudApiGateway;
+export const ApiIntegrationGoogleCloudApiGateway: typeof import("./apiIntegrationGoogleCloudApiGateway").ApiIntegrationGoogleCloudApiGateway = null as any;
+utilities.lazyLoad(exports, ["ApiIntegrationGoogleCloudApiGateway"], () => require("./apiIntegrationGoogleCloudApiGateway"));
+
 export { AuthenticationPolicyArgs, AuthenticationPolicyState } from "./authenticationPolicy";
 export type AuthenticationPolicy = import("./authenticationPolicy").AuthenticationPolicy;
 export const AuthenticationPolicy: typeof import("./authenticationPolicy").AuthenticationPolicy = null as any;
@@ -204,6 +249,11 @@ export { GetAlertsArgs, GetAlertsResult, GetAlertsOutputArgs } from "./getAlerts
 export const getAlerts: typeof import("./getAlerts").getAlerts = null as any;
 export const getAlertsOutput: typeof import("./getAlerts").getAlertsOutput = null as any;
 utilities.lazyLoad(exports, ["getAlerts","getAlertsOutput"], () => require("./getAlerts"));
+
+export { GetApiIntegrationsArgs, GetApiIntegrationsResult, GetApiIntegrationsOutputArgs } from "./getApiIntegrations";
+export const getApiIntegrations: typeof import("./getApiIntegrations").getApiIntegrations = null as any;
+export const getApiIntegrationsOutput: typeof import("./getApiIntegrations").getApiIntegrationsOutput = null as any;
+utilities.lazyLoad(exports, ["getApiIntegrations","getApiIntegrationsOutput"], () => require("./getApiIntegrations"));
 
 export { GetAuthenticationPoliciesArgs, GetAuthenticationPoliciesResult, GetAuthenticationPoliciesOutputArgs } from "./getAuthenticationPolicies";
 export const getAuthenticationPolicies: typeof import("./getAuthenticationPolicies").getAuthenticationPolicies = null as any;
@@ -425,6 +475,11 @@ export const getStorageIntegrations: typeof import("./getStorageIntegrations").g
 export const getStorageIntegrationsOutput: typeof import("./getStorageIntegrations").getStorageIntegrationsOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageIntegrations","getStorageIntegrationsOutput"], () => require("./getStorageIntegrations"));
 
+export { GetStorageLifecyclePoliciesArgs, GetStorageLifecyclePoliciesResult, GetStorageLifecyclePoliciesOutputArgs } from "./getStorageLifecyclePolicies";
+export const getStorageLifecyclePolicies: typeof import("./getStorageLifecyclePolicies").getStorageLifecyclePolicies = null as any;
+export const getStorageLifecyclePoliciesOutput: typeof import("./getStorageLifecyclePolicies").getStorageLifecyclePoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getStorageLifecyclePolicies","getStorageLifecyclePoliciesOutput"], () => require("./getStorageLifecyclePolicies"));
+
 export { GetStreamlitsArgs, GetStreamlitsResult, GetStreamlitsOutputArgs } from "./getStreamlits";
 export const getStreamlits: typeof import("./getStreamlits").getStreamlits = null as any;
 export const getStreamlitsOutput: typeof import("./getStreamlits").getStreamlitsOutput = null as any;
@@ -530,6 +585,16 @@ export type GrantPrivilegesToShare = import("./grantPrivilegesToShare").GrantPri
 export const GrantPrivilegesToShare: typeof import("./grantPrivilegesToShare").GrantPrivilegesToShare = null as any;
 utilities.lazyLoad(exports, ["GrantPrivilegesToShare"], () => require("./grantPrivilegesToShare"));
 
+export { IcebergTableFromDeltaFilesArgs, IcebergTableFromDeltaFilesState } from "./icebergTableFromDeltaFiles";
+export type IcebergTableFromDeltaFiles = import("./icebergTableFromDeltaFiles").IcebergTableFromDeltaFiles;
+export const IcebergTableFromDeltaFiles: typeof import("./icebergTableFromDeltaFiles").IcebergTableFromDeltaFiles = null as any;
+utilities.lazyLoad(exports, ["IcebergTableFromDeltaFiles"], () => require("./icebergTableFromDeltaFiles"));
+
+export { IcebergTableFromFilesArgs, IcebergTableFromFilesState } from "./icebergTableFromFiles";
+export type IcebergTableFromFiles = import("./icebergTableFromFiles").IcebergTableFromFiles;
+export const IcebergTableFromFiles: typeof import("./icebergTableFromFiles").IcebergTableFromFiles = null as any;
+utilities.lazyLoad(exports, ["IcebergTableFromFiles"], () => require("./icebergTableFromFiles"));
+
 export { ImageRepositoryArgs, ImageRepositoryState } from "./imageRepository";
 export type ImageRepository = import("./imageRepository").ImageRepository;
 export const ImageRepository: typeof import("./imageRepository").ImageRepository = null as any;
@@ -614,6 +679,11 @@ export { PipeArgs, PipeState } from "./pipe";
 export type Pipe = import("./pipe").Pipe;
 export const Pipe: typeof import("./pipe").Pipe = null as any;
 utilities.lazyLoad(exports, ["Pipe"], () => require("./pipe"));
+
+export { PostgresInstanceArgs, PostgresInstanceState } from "./postgresInstance";
+export type PostgresInstance = import("./postgresInstance").PostgresInstance;
+export const PostgresInstance: typeof import("./postgresInstance").PostgresInstance = null as any;
+utilities.lazyLoad(exports, ["PostgresInstance"], () => require("./postgresInstance"));
 
 export { PrimaryConnectionArgs, PrimaryConnectionState } from "./primaryConnection";
 export type PrimaryConnection = import("./primaryConnection").PrimaryConnection;
@@ -788,6 +858,11 @@ export type StorageIntegrationGcs = import("./storageIntegrationGcs").StorageInt
 export const StorageIntegrationGcs: typeof import("./storageIntegrationGcs").StorageIntegrationGcs = null as any;
 utilities.lazyLoad(exports, ["StorageIntegrationGcs"], () => require("./storageIntegrationGcs"));
 
+export { StorageLifecyclePolicyArgs, StorageLifecyclePolicyState } from "./storageLifecyclePolicy";
+export type StorageLifecyclePolicy = import("./storageLifecyclePolicy").StorageLifecyclePolicy;
+export const StorageLifecyclePolicy: typeof import("./storageLifecyclePolicy").StorageLifecyclePolicy = null as any;
+utilities.lazyLoad(exports, ["StorageLifecyclePolicy"], () => require("./storageLifecyclePolicy"));
+
 export { StreamOnDirectoryTableArgs, StreamOnDirectoryTableState } from "./streamOnDirectoryTable";
 export type StreamOnDirectoryTable = import("./streamOnDirectoryTable").StreamOnDirectoryTable;
 export const StreamOnDirectoryTable: typeof import("./streamOnDirectoryTable").StreamOnDirectoryTable = null as any;
@@ -827,6 +902,11 @@ export { TableConstraintArgs, TableConstraintState } from "./tableConstraint";
 export type TableConstraint = import("./tableConstraint").TableConstraint;
 export const TableConstraint: typeof import("./tableConstraint").TableConstraint = null as any;
 utilities.lazyLoad(exports, ["TableConstraint"], () => require("./tableConstraint"));
+
+export { TableStorageLifecyclePolicyAttachmentArgs, TableStorageLifecyclePolicyAttachmentState } from "./tableStorageLifecyclePolicyAttachment";
+export type TableStorageLifecyclePolicyAttachment = import("./tableStorageLifecyclePolicyAttachment").TableStorageLifecyclePolicyAttachment;
+export const TableStorageLifecyclePolicyAttachment: typeof import("./tableStorageLifecyclePolicyAttachment").TableStorageLifecyclePolicyAttachment = null as any;
+utilities.lazyLoad(exports, ["TableStorageLifecyclePolicyAttachment"], () => require("./tableStorageLifecyclePolicyAttachment"));
 
 export { TagArgs, TagState } from "./tag";
 export type Tag = import("./tag").Tag;
@@ -924,6 +1004,24 @@ const _module = {
                 return new ApiAuthenticationIntegrationWithJwtBearer(name, <any>undefined, { urn })
             case "snowflake:index/apiIntegration:ApiIntegration":
                 return new ApiIntegration(name, <any>undefined, { urn })
+            case "snowflake:index/apiIntegrationAmazonApiGateway:ApiIntegrationAmazonApiGateway":
+                return new ApiIntegrationAmazonApiGateway(name, <any>undefined, { urn })
+            case "snowflake:index/apiIntegrationAzureApiManagement:ApiIntegrationAzureApiManagement":
+                return new ApiIntegrationAzureApiManagement(name, <any>undefined, { urn })
+            case "snowflake:index/apiIntegrationExternalMcpDynamicClient:ApiIntegrationExternalMcpDynamicClient":
+                return new ApiIntegrationExternalMcpDynamicClient(name, <any>undefined, { urn })
+            case "snowflake:index/apiIntegrationExternalMcpOauth2:ApiIntegrationExternalMcpOauth2":
+                return new ApiIntegrationExternalMcpOauth2(name, <any>undefined, { urn })
+            case "snowflake:index/apiIntegrationGitRepositoryGithubApp:ApiIntegrationGitRepositoryGithubApp":
+                return new ApiIntegrationGitRepositoryGithubApp(name, <any>undefined, { urn })
+            case "snowflake:index/apiIntegrationGitRepositoryOauth2:ApiIntegrationGitRepositoryOauth2":
+                return new ApiIntegrationGitRepositoryOauth2(name, <any>undefined, { urn })
+            case "snowflake:index/apiIntegrationGitRepositoryPrivateLink:ApiIntegrationGitRepositoryPrivateLink":
+                return new ApiIntegrationGitRepositoryPrivateLink(name, <any>undefined, { urn })
+            case "snowflake:index/apiIntegrationGitRepositoryToken:ApiIntegrationGitRepositoryToken":
+                return new ApiIntegrationGitRepositoryToken(name, <any>undefined, { urn })
+            case "snowflake:index/apiIntegrationGoogleCloudApiGateway:ApiIntegrationGoogleCloudApiGateway":
+                return new ApiIntegrationGoogleCloudApiGateway(name, <any>undefined, { urn })
             case "snowflake:index/authenticationPolicy:AuthenticationPolicy":
                 return new AuthenticationPolicy(name, <any>undefined, { urn })
             case "snowflake:index/catalogIntegrationAwsGlue:CatalogIntegrationAwsGlue":
@@ -992,6 +1090,10 @@ const _module = {
                 return new GrantPrivilegesToDatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
                 return new GrantPrivilegesToShare(name, <any>undefined, { urn })
+            case "snowflake:index/icebergTableFromDeltaFiles:IcebergTableFromDeltaFiles":
+                return new IcebergTableFromDeltaFiles(name, <any>undefined, { urn })
+            case "snowflake:index/icebergTableFromFiles:IcebergTableFromFiles":
+                return new IcebergTableFromFiles(name, <any>undefined, { urn })
             case "snowflake:index/imageRepository:ImageRepository":
                 return new ImageRepository(name, <any>undefined, { urn })
             case "snowflake:index/jobService:JobService":
@@ -1026,6 +1128,8 @@ const _module = {
                 return new PasswordPolicy(name, <any>undefined, { urn })
             case "snowflake:index/pipe:Pipe":
                 return new Pipe(name, <any>undefined, { urn })
+            case "snowflake:index/postgresInstance:PostgresInstance":
+                return new PostgresInstance(name, <any>undefined, { urn })
             case "snowflake:index/primaryConnection:PrimaryConnection":
                 return new PrimaryConnection(name, <any>undefined, { urn })
             case "snowflake:index/procedureJava:ProcedureJava":
@@ -1094,6 +1198,8 @@ const _module = {
                 return new StorageIntegrationAzure(name, <any>undefined, { urn })
             case "snowflake:index/storageIntegrationGcs:StorageIntegrationGcs":
                 return new StorageIntegrationGcs(name, <any>undefined, { urn })
+            case "snowflake:index/storageLifecyclePolicy:StorageLifecyclePolicy":
+                return new StorageLifecyclePolicy(name, <any>undefined, { urn })
             case "snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable":
                 return new StreamOnDirectoryTable(name, <any>undefined, { urn })
             case "snowflake:index/streamOnExternalTable:StreamOnExternalTable":
@@ -1110,6 +1216,8 @@ const _module = {
                 return new TableColumnMaskingPolicyApplication(name, <any>undefined, { urn })
             case "snowflake:index/tableConstraint:TableConstraint":
                 return new TableConstraint(name, <any>undefined, { urn })
+            case "snowflake:index/tableStorageLifecyclePolicyAttachment:TableStorageLifecyclePolicyAttachment":
+                return new TableStorageLifecyclePolicyAttachment(name, <any>undefined, { urn })
             case "snowflake:index/tag:Tag":
                 return new Tag(name, <any>undefined, { urn })
             case "snowflake:index/tagAssociation:TagAssociation":
@@ -1150,6 +1258,15 @@ pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationInteg
 pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithClientCredentials", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithJwtBearer", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegration", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationAmazonApiGateway", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationAzureApiManagement", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationExternalMcpDynamicClient", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationExternalMcpOauth2", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationGitRepositoryGithubApp", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationGitRepositoryOauth2", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationGitRepositoryPrivateLink", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationGitRepositoryToken", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegrationGoogleCloudApiGateway", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/authenticationPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationAwsGlue", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/catalogIntegrationIcebergRest", _module)
@@ -1184,6 +1301,8 @@ pulumi.runtime.registerResourceModule("snowflake", "index/grantOwnership", _modu
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToDatabaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToShare", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromDeltaFiles", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromFiles", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/imageRepository", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/jobService", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/legacyServiceUser", _module)
@@ -1201,6 +1320,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegrationForPar
 pulumi.runtime.registerResourceModule("snowflake", "index/objectParameter", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/passwordPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipe", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/postgresInstance", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/primaryConnection", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedureJava", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/procedureJavascript", _module)
@@ -1235,6 +1355,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegration", _
 pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegrationAws", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegrationAzure", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegrationGcs", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/storageLifecyclePolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamOnDirectoryTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamOnExternalTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamOnTable", _module)
@@ -1243,6 +1364,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/streamlit", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/table", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableColumnMaskingPolicyApplication", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tableConstraint", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/tableStorageLifecyclePolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tag", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tagAssociation", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/task", _module)

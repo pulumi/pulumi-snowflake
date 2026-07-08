@@ -10,6 +10,7 @@ import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterDataRetentionTi
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterDefaultDdlCollation;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterEnableConsoleOutput;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterExternalVolume;
+import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterLogLevel;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase;
@@ -31,6 +32,7 @@ public final class GetDatabasesDatabaseParameter {
     private List<GetDatabasesDatabaseParameterDefaultDdlCollation> defaultDdlCollations;
     private List<GetDatabasesDatabaseParameterEnableConsoleOutput> enableConsoleOutputs;
     private List<GetDatabasesDatabaseParameterExternalVolume> externalVolumes;
+    private List<GetDatabasesDatabaseParameterLogEventLevel> logEventLevels;
     private List<GetDatabasesDatabaseParameterLogLevel> logLevels;
     private List<GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay> maxDataExtensionTimeInDays;
     private List<GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase> quotedIdentifiersIgnoreCases;
@@ -58,6 +60,9 @@ public final class GetDatabasesDatabaseParameter {
     }
     public List<GetDatabasesDatabaseParameterExternalVolume> externalVolumes() {
         return this.externalVolumes;
+    }
+    public List<GetDatabasesDatabaseParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels;
     }
     public List<GetDatabasesDatabaseParameterLogLevel> logLevels() {
         return this.logLevels;
@@ -107,6 +112,7 @@ public final class GetDatabasesDatabaseParameter {
         private List<GetDatabasesDatabaseParameterDefaultDdlCollation> defaultDdlCollations;
         private List<GetDatabasesDatabaseParameterEnableConsoleOutput> enableConsoleOutputs;
         private List<GetDatabasesDatabaseParameterExternalVolume> externalVolumes;
+        private List<GetDatabasesDatabaseParameterLogEventLevel> logEventLevels;
         private List<GetDatabasesDatabaseParameterLogLevel> logLevels;
         private List<GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay> maxDataExtensionTimeInDays;
         private List<GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase> quotedIdentifiersIgnoreCases;
@@ -126,6 +132,7 @@ public final class GetDatabasesDatabaseParameter {
     	      this.defaultDdlCollations = defaults.defaultDdlCollations;
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
     	      this.externalVolumes = defaults.externalVolumes;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.maxDataExtensionTimeInDays = defaults.maxDataExtensionTimeInDays;
     	      this.quotedIdentifiersIgnoreCases = defaults.quotedIdentifiersIgnoreCases;
@@ -193,6 +200,17 @@ public final class GetDatabasesDatabaseParameter {
         }
         public Builder externalVolumes(GetDatabasesDatabaseParameterExternalVolume... externalVolumes) {
             return externalVolumes(List.of(externalVolumes));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(List<GetDatabasesDatabaseParameterLogEventLevel> logEventLevels) {
+            if (logEventLevels == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabaseParameter", "logEventLevels");
+            }
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(GetDatabasesDatabaseParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(List<GetDatabasesDatabaseParameterLogLevel> logLevels) {
@@ -322,6 +340,7 @@ public final class GetDatabasesDatabaseParameter {
             _resultValue.defaultDdlCollations = defaultDdlCollations;
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
             _resultValue.externalVolumes = externalVolumes;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.maxDataExtensionTimeInDays = maxDataExtensionTimeInDays;
             _resultValue.quotedIdentifiersIgnoreCases = quotedIdentifiersIgnoreCases;

@@ -14,7 +14,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Notebooks`.
+        /// Data source used to get details of filtered notebooks. This data source returns [Legacy Notebooks](https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks), not the newer Notebooks in Workspaces / Notebook Project Objects. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Notebooks`.
         /// </summary>
         public static Task<GetNotebooksResult> InvokeAsync(GetNotebooksArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNotebooksResult>("snowflake:index/getNotebooks:getNotebooks", args ?? new GetNotebooksArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Notebooks`.
+        /// Data source used to get details of filtered notebooks. This data source returns [Legacy Notebooks](https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks), not the newer Notebooks in Workspaces / Notebook Project Objects. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Notebooks`.
         /// </summary>
         public static Output<GetNotebooksResult> Invoke(GetNotebooksInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotebooksResult>("snowflake:index/getNotebooks:getNotebooks", args ?? new GetNotebooksInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// Data source used to get details of filtered notebooks. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Notebooks`.
+        /// Data source used to get details of filtered notebooks. This data source returns [Legacy Notebooks](https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks), not the newer Notebooks in Workspaces / Notebook Project Objects. Filtering is aligned with the current possibilities for [SHOW NOTEBOOKS](https://docs.snowflake.com/en/sql-reference/sql/show-notebooks) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `Notebooks`.
         /// </summary>
         public static Output<GetNotebooksResult> Invoke(GetNotebooksInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotebooksResult>("snowflake:index/getNotebooks:getNotebooks", args ?? new GetNotebooksInvokeArgs(), options.WithDefaults());

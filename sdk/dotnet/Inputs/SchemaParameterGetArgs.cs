@@ -52,6 +52,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _externalVolumes = value;
         }
 
+        [Input("logEventLevels")]
+        private InputList<Inputs.SchemaParameterLogEventLevelGetArgs>? _logEventLevels;
+        public InputList<Inputs.SchemaParameterLogEventLevelGetArgs> LogEventLevels
+        {
+            get => _logEventLevels ?? (_logEventLevels = new InputList<Inputs.SchemaParameterLogEventLevelGetArgs>());
+            set => _logEventLevels = value;
+        }
+
         [Input("logLevels")]
         private InputList<Inputs.SchemaParameterLogLevelGetArgs>? _logLevels;
         public InputList<Inputs.SchemaParameterLogLevelGetArgs> LogLevels

@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
  * > **Warning** During create operation every parameter that is not set in the resource will be unset on the account.
  *
  * > **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
@@ -282,6 +280,18 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly clientTimestampTypeMapping: pulumi.Output<string>;
     /**
+     * Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+     */
+    declare public readonly cortexCodeCliDailyEstCreditLimitPerUser: pulumi.Output<number>;
+    /**
+     * Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+     */
+    declare public readonly cortexCodeDesktopDailyEstCreditLimitPerUser: pulumi.Output<number>;
+    /**
+     * Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
+     */
+    declare public readonly cortexCodeSnowsightDailyEstCreditLimitPerUser: pulumi.Output<number>;
+    /**
      * Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
      */
     declare public readonly cortexEnabledCrossRegion: pulumi.Output<string>;
@@ -349,6 +359,10 @@ export class CurrentAccount extends pulumi.CustomResource {
      * Specifies whether the [SYSTEM$GET*PRIVATELINK*CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config) function returns the private-internal-stages key in the query result. The corresponding value in the query result is used during the configuration process for private connectivity to internal stages. For more information, check [ENABLE*INTERNAL*STAGES_PRIVATELINK docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-internal-stages-privatelink).
      */
     declare public readonly enableInternalStagesPrivatelink: pulumi.Output<boolean>;
+    /**
+     * Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
+     */
+    declare public readonly enablePerAccountAppServicePrivatelinkUrl: pulumi.Output<boolean>;
     /**
      * Specifies choice for the [image repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository.html#label-registry-and-repository-image-repository) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*IMAGE_REPOSITORY docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-image-repository).
      */
@@ -445,6 +459,10 @@ export class CurrentAccount extends pulumi.CustomResource {
      * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      */
     declare public readonly lockTimeout: pulumi.Output<number>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    declare public readonly logEventLevel: pulumi.Output<string>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
@@ -717,6 +735,9 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["clientSessionKeepAlive"] = state?.clientSessionKeepAlive;
             resourceInputs["clientSessionKeepAliveHeartbeatFrequency"] = state?.clientSessionKeepAliveHeartbeatFrequency;
             resourceInputs["clientTimestampTypeMapping"] = state?.clientTimestampTypeMapping;
+            resourceInputs["cortexCodeCliDailyEstCreditLimitPerUser"] = state?.cortexCodeCliDailyEstCreditLimitPerUser;
+            resourceInputs["cortexCodeDesktopDailyEstCreditLimitPerUser"] = state?.cortexCodeDesktopDailyEstCreditLimitPerUser;
+            resourceInputs["cortexCodeSnowsightDailyEstCreditLimitPerUser"] = state?.cortexCodeSnowsightDailyEstCreditLimitPerUser;
             resourceInputs["cortexEnabledCrossRegion"] = state?.cortexEnabledCrossRegion;
             resourceInputs["cortexModelsAllowlist"] = state?.cortexModelsAllowlist;
             resourceInputs["csvTimestampFormat"] = state?.csvTimestampFormat;
@@ -734,6 +755,7 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["enableEgressCostOptimizer"] = state?.enableEgressCostOptimizer;
             resourceInputs["enableIdentifierFirstLogin"] = state?.enableIdentifierFirstLogin;
             resourceInputs["enableInternalStagesPrivatelink"] = state?.enableInternalStagesPrivatelink;
+            resourceInputs["enablePerAccountAppServicePrivatelinkUrl"] = state?.enablePerAccountAppServicePrivatelinkUrl;
             resourceInputs["enableTriSecretAndRekeyOptOutForImageRepository"] = state?.enableTriSecretAndRekeyOptOutForImageRepository;
             resourceInputs["enableTriSecretAndRekeyOptOutForSpcsBlockStorage"] = state?.enableTriSecretAndRekeyOptOutForSpcsBlockStorage;
             resourceInputs["enableUnhandledExceptionsReporting"] = state?.enableUnhandledExceptionsReporting;
@@ -758,6 +780,7 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["jsonIndent"] = state?.jsonIndent;
             resourceInputs["listingAutoFulfillmentReplicationRefreshSchedule"] = state?.listingAutoFulfillmentReplicationRefreshSchedule;
             resourceInputs["lockTimeout"] = state?.lockTimeout;
+            resourceInputs["logEventLevel"] = state?.logEventLevel;
             resourceInputs["logLevel"] = state?.logLevel;
             resourceInputs["maxConcurrencyLevel"] = state?.maxConcurrencyLevel;
             resourceInputs["maxDataExtensionTimeInDays"] = state?.maxDataExtensionTimeInDays;
@@ -841,6 +864,9 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["clientSessionKeepAlive"] = args?.clientSessionKeepAlive;
             resourceInputs["clientSessionKeepAliveHeartbeatFrequency"] = args?.clientSessionKeepAliveHeartbeatFrequency;
             resourceInputs["clientTimestampTypeMapping"] = args?.clientTimestampTypeMapping;
+            resourceInputs["cortexCodeCliDailyEstCreditLimitPerUser"] = args?.cortexCodeCliDailyEstCreditLimitPerUser;
+            resourceInputs["cortexCodeDesktopDailyEstCreditLimitPerUser"] = args?.cortexCodeDesktopDailyEstCreditLimitPerUser;
+            resourceInputs["cortexCodeSnowsightDailyEstCreditLimitPerUser"] = args?.cortexCodeSnowsightDailyEstCreditLimitPerUser;
             resourceInputs["cortexEnabledCrossRegion"] = args?.cortexEnabledCrossRegion;
             resourceInputs["cortexModelsAllowlist"] = args?.cortexModelsAllowlist;
             resourceInputs["csvTimestampFormat"] = args?.csvTimestampFormat;
@@ -858,6 +884,7 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["enableEgressCostOptimizer"] = args?.enableEgressCostOptimizer;
             resourceInputs["enableIdentifierFirstLogin"] = args?.enableIdentifierFirstLogin;
             resourceInputs["enableInternalStagesPrivatelink"] = args?.enableInternalStagesPrivatelink;
+            resourceInputs["enablePerAccountAppServicePrivatelinkUrl"] = args?.enablePerAccountAppServicePrivatelinkUrl;
             resourceInputs["enableTriSecretAndRekeyOptOutForImageRepository"] = args?.enableTriSecretAndRekeyOptOutForImageRepository;
             resourceInputs["enableTriSecretAndRekeyOptOutForSpcsBlockStorage"] = args?.enableTriSecretAndRekeyOptOutForSpcsBlockStorage;
             resourceInputs["enableUnhandledExceptionsReporting"] = args?.enableUnhandledExceptionsReporting;
@@ -882,6 +909,7 @@ export class CurrentAccount extends pulumi.CustomResource {
             resourceInputs["jsonIndent"] = args?.jsonIndent;
             resourceInputs["listingAutoFulfillmentReplicationRefreshSchedule"] = args?.listingAutoFulfillmentReplicationRefreshSchedule;
             resourceInputs["lockTimeout"] = args?.lockTimeout;
+            resourceInputs["logEventLevel"] = args?.logEventLevel;
             resourceInputs["logLevel"] = args?.logLevel;
             resourceInputs["maxConcurrencyLevel"] = args?.maxConcurrencyLevel;
             resourceInputs["maxDataExtensionTimeInDays"] = args?.maxDataExtensionTimeInDays;
@@ -1040,6 +1068,18 @@ export interface CurrentAccountState {
      */
     clientTimestampTypeMapping?: pulumi.Input<string | undefined>;
     /**
+     * Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+     */
+    cortexCodeCliDailyEstCreditLimitPerUser?: pulumi.Input<number | undefined>;
+    /**
+     * Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+     */
+    cortexCodeDesktopDailyEstCreditLimitPerUser?: pulumi.Input<number | undefined>;
+    /**
+     * Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
+     */
+    cortexCodeSnowsightDailyEstCreditLimitPerUser?: pulumi.Input<number | undefined>;
+    /**
      * Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
      */
     cortexEnabledCrossRegion?: pulumi.Input<string | undefined>;
@@ -1107,6 +1147,10 @@ export interface CurrentAccountState {
      * Specifies whether the [SYSTEM$GET*PRIVATELINK*CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config) function returns the private-internal-stages key in the query result. The corresponding value in the query result is used during the configuration process for private connectivity to internal stages. For more information, check [ENABLE*INTERNAL*STAGES_PRIVATELINK docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-internal-stages-privatelink).
      */
     enableInternalStagesPrivatelink?: pulumi.Input<boolean | undefined>;
+    /**
+     * Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
+     */
+    enablePerAccountAppServicePrivatelinkUrl?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies choice for the [image repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository.html#label-registry-and-repository-image-repository) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*IMAGE_REPOSITORY docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-image-repository).
      */
@@ -1203,6 +1247,10 @@ export interface CurrentAccountState {
      * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      */
     lockTimeout?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
@@ -1534,6 +1582,18 @@ export interface CurrentAccountArgs {
      */
     clientTimestampTypeMapping?: pulumi.Input<string | undefined>;
     /**
+     * Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+     */
+    cortexCodeCliDailyEstCreditLimitPerUser?: pulumi.Input<number | undefined>;
+    /**
+     * Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+     */
+    cortexCodeDesktopDailyEstCreditLimitPerUser?: pulumi.Input<number | undefined>;
+    /**
+     * Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
+     */
+    cortexCodeSnowsightDailyEstCreditLimitPerUser?: pulumi.Input<number | undefined>;
+    /**
      * Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
      */
     cortexEnabledCrossRegion?: pulumi.Input<string | undefined>;
@@ -1601,6 +1661,10 @@ export interface CurrentAccountArgs {
      * Specifies whether the [SYSTEM$GET*PRIVATELINK*CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config) function returns the private-internal-stages key in the query result. The corresponding value in the query result is used during the configuration process for private connectivity to internal stages. For more information, check [ENABLE*INTERNAL*STAGES_PRIVATELINK docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-internal-stages-privatelink).
      */
     enableInternalStagesPrivatelink?: pulumi.Input<boolean | undefined>;
+    /**
+     * Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
+     */
+    enablePerAccountAppServicePrivatelinkUrl?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies choice for the [image repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository.html#label-registry-and-repository-image-repository) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*IMAGE_REPOSITORY docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-image-repository).
      */
@@ -1697,6 +1761,10 @@ export interface CurrentAccountArgs {
      * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      */
     lockTimeout?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */

@@ -43,6 +43,9 @@ class CurrentOrganizationAccountArgs:
                  client_session_keep_alive_heartbeat_frequency: pulumi.Input[Optional[_builtins.int]] = None,
                  client_timestamp_type_mapping: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cortex_code_cli_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 cortex_code_desktop_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 cortex_code_snowsight_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
                  cortex_enabled_cross_region: pulumi.Input[Optional[_builtins.str]] = None,
                  cortex_models_allowlist: pulumi.Input[Optional[_builtins.str]] = None,
                  csv_timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
@@ -60,6 +63,7 @@ class CurrentOrganizationAccountArgs:
                  enable_egress_cost_optimizer: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_identifier_first_login: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_internal_stages_privatelink: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_per_account_app_service_privatelink_url: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_tri_secret_and_rekey_opt_out_for_image_repository: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_unhandled_exceptions_reporting: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -83,6 +87,7 @@ class CurrentOrganizationAccountArgs:
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  listing_auto_fulfillment_replication_refresh_schedule: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  max_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
                  max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -167,6 +172,9 @@ class CurrentOrganizationAccountArgs:
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the organization account.
+        :param pulumi.Input[_builtins.int] cortex_code_cli_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+        :param pulumi.Input[_builtins.int] cortex_code_desktop_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+        :param pulumi.Input[_builtins.int] cortex_code_snowsight_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
         :param pulumi.Input[_builtins.str] cortex_enabled_cross_region: Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
         :param pulumi.Input[_builtins.str] cortex_models_allowlist: Specifies the models that users in the account can access. Use this parameter to allowlist models for all users in the account. If you need to provide specific users with access beyond what you’ve specified in the allowlist, use role-based access control instead. For more information, see [Model allowlist](https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql.html#label-cortex-llm-allowlist). For more information, check [CORTEX*MODELS*ALLOWLIST docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-models-allowlist).
         :param pulumi.Input[_builtins.str] csv_timestamp_format: Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
@@ -184,6 +192,7 @@ class CurrentOrganizationAccountArgs:
         :param pulumi.Input[_builtins.bool] enable_egress_cost_optimizer: Enables or disables the Listing Cross-cloud auto-fulfillment Egress cost optimizer. For more information, check [ENABLE*EGRESS*COST_OPTIMIZER docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-egress-cost-optimizer).
         :param pulumi.Input[_builtins.bool] enable_identifier_first_login: Determines the login flow for users. When enabled, Snowflake prompts users for their username or email address before presenting authentication methods. For details, see [Identifier-first login](https://docs.snowflake.com/en/user-guide/identifier-first-login). For more information, check [ENABLE*IDENTIFIER*FIRST_LOGIN docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-identifier-first-login).
         :param pulumi.Input[_builtins.bool] enable_internal_stages_privatelink: Specifies whether the [SYSTEM$GET*PRIVATELINK*CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config) function returns the private-internal-stages key in the query result. The corresponding value in the query result is used during the configuration process for private connectivity to internal stages. For more information, check [ENABLE*INTERNAL*STAGES_PRIVATELINK docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-internal-stages-privatelink).
+        :param pulumi.Input[_builtins.bool] enable_per_account_app_service_privatelink_url: Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
         :param pulumi.Input[_builtins.bool] enable_tri_secret_and_rekey_opt_out_for_image_repository: Specifies choice for the [image repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository.html#label-registry-and-repository-image-repository) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*IMAGE_REPOSITORY docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-image-repository).
         :param pulumi.Input[_builtins.bool] enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: Specifies the choice for the [Snowpark Container Services block storage volume](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/block-storage-volume) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*SPCS*BLOCK*STORAGE docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-spcs-block-storage).
         :param pulumi.Input[_builtins.bool] enable_unhandled_exceptions_reporting: Specifies whether Snowflake may capture – in an event table – log messages or trace event data for unhandled exceptions in procedure or UDF handler code. For more information, see [Capturing messages from unhandled exceptions](https://docs.snowflake.com/en/developer-guide/logging-tracing/unhandled-exception-messages). For more information, check [ENABLE*UNHANDLED*EXCEPTIONS_REPORTING docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unhandled-exceptions-reporting).
@@ -207,6 +216,7 @@ class CurrentOrganizationAccountArgs:
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.str] listing_auto_fulfillment_replication_refresh_schedule: Sets the time interval used to refresh the application package based data products to other regions. For more information, check [LISTING*AUTO*FULFILLMENT*REPLICATION*REFRESH_SCHEDULE docs](https://docs.snowflake.com/en/sql-reference/parameters#listing-auto-fulfillment-replication-refresh-schedule).
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.int] max_concurrency_level: Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse ([more details](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level)). For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check [MAX*DATA*EXTENSION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
@@ -311,6 +321,12 @@ class CurrentOrganizationAccountArgs:
             pulumi.set(__self__, "client_timestamp_type_mapping", client_timestamp_type_mapping)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if cortex_code_cli_daily_est_credit_limit_per_user is not None:
+            pulumi.set(__self__, "cortex_code_cli_daily_est_credit_limit_per_user", cortex_code_cli_daily_est_credit_limit_per_user)
+        if cortex_code_desktop_daily_est_credit_limit_per_user is not None:
+            pulumi.set(__self__, "cortex_code_desktop_daily_est_credit_limit_per_user", cortex_code_desktop_daily_est_credit_limit_per_user)
+        if cortex_code_snowsight_daily_est_credit_limit_per_user is not None:
+            pulumi.set(__self__, "cortex_code_snowsight_daily_est_credit_limit_per_user", cortex_code_snowsight_daily_est_credit_limit_per_user)
         if cortex_enabled_cross_region is not None:
             pulumi.set(__self__, "cortex_enabled_cross_region", cortex_enabled_cross_region)
         if cortex_models_allowlist is not None:
@@ -345,6 +361,8 @@ class CurrentOrganizationAccountArgs:
             pulumi.set(__self__, "enable_identifier_first_login", enable_identifier_first_login)
         if enable_internal_stages_privatelink is not None:
             pulumi.set(__self__, "enable_internal_stages_privatelink", enable_internal_stages_privatelink)
+        if enable_per_account_app_service_privatelink_url is not None:
+            pulumi.set(__self__, "enable_per_account_app_service_privatelink_url", enable_per_account_app_service_privatelink_url)
         if enable_tri_secret_and_rekey_opt_out_for_image_repository is not None:
             pulumi.set(__self__, "enable_tri_secret_and_rekey_opt_out_for_image_repository", enable_tri_secret_and_rekey_opt_out_for_image_repository)
         if enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage is not None:
@@ -391,6 +409,8 @@ class CurrentOrganizationAccountArgs:
             pulumi.set(__self__, "listing_auto_fulfillment_replication_refresh_schedule", listing_auto_fulfillment_replication_refresh_schedule)
         if lock_timeout is not None:
             pulumi.set(__self__, "lock_timeout", lock_timeout)
+        if log_event_level is not None:
+            pulumi.set(__self__, "log_event_level", log_event_level)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
         if max_concurrency_level is not None:
@@ -775,6 +795,42 @@ class CurrentOrganizationAccountArgs:
         pulumi.set(self, "comment", value)
 
     @_builtins.property
+    @pulumi.getter(name="cortexCodeCliDailyEstCreditLimitPerUser")
+    def cortex_code_cli_daily_est_credit_limit_per_user(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+        """
+        return pulumi.get(self, "cortex_code_cli_daily_est_credit_limit_per_user")
+
+    @cortex_code_cli_daily_est_credit_limit_per_user.setter
+    def cortex_code_cli_daily_est_credit_limit_per_user(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cortex_code_cli_daily_est_credit_limit_per_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cortexCodeDesktopDailyEstCreditLimitPerUser")
+    def cortex_code_desktop_daily_est_credit_limit_per_user(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+        """
+        return pulumi.get(self, "cortex_code_desktop_daily_est_credit_limit_per_user")
+
+    @cortex_code_desktop_daily_est_credit_limit_per_user.setter
+    def cortex_code_desktop_daily_est_credit_limit_per_user(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cortex_code_desktop_daily_est_credit_limit_per_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cortexCodeSnowsightDailyEstCreditLimitPerUser")
+    def cortex_code_snowsight_daily_est_credit_limit_per_user(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
+        """
+        return pulumi.get(self, "cortex_code_snowsight_daily_est_credit_limit_per_user")
+
+    @cortex_code_snowsight_daily_est_credit_limit_per_user.setter
+    def cortex_code_snowsight_daily_est_credit_limit_per_user(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cortex_code_snowsight_daily_est_credit_limit_per_user", value)
+
+    @_builtins.property
     @pulumi.getter(name="cortexEnabledCrossRegion")
     def cortex_enabled_cross_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -977,6 +1033,18 @@ class CurrentOrganizationAccountArgs:
     @enable_internal_stages_privatelink.setter
     def enable_internal_stages_privatelink(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_internal_stages_privatelink", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enablePerAccountAppServicePrivatelinkUrl")
+    def enable_per_account_app_service_privatelink_url(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
+        """
+        return pulumi.get(self, "enable_per_account_app_service_privatelink_url")
+
+    @enable_per_account_app_service_privatelink_url.setter
+    def enable_per_account_app_service_privatelink_url(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_per_account_app_service_privatelink_url", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTriSecretAndRekeyOptOutForImageRepository")
@@ -1253,6 +1321,18 @@ class CurrentOrganizationAccountArgs:
     @lock_timeout.setter
     def lock_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lock_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @log_event_level.setter
+    def log_event_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_event_level", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
@@ -1988,6 +2068,9 @@ class _CurrentOrganizationAccountState:
                  client_session_keep_alive_heartbeat_frequency: pulumi.Input[Optional[_builtins.int]] = None,
                  client_timestamp_type_mapping: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cortex_code_cli_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 cortex_code_desktop_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 cortex_code_snowsight_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
                  cortex_enabled_cross_region: pulumi.Input[Optional[_builtins.str]] = None,
                  cortex_models_allowlist: pulumi.Input[Optional[_builtins.str]] = None,
                  csv_timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2005,6 +2088,7 @@ class _CurrentOrganizationAccountState:
                  enable_egress_cost_optimizer: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_identifier_first_login: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_internal_stages_privatelink: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_per_account_app_service_privatelink_url: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_tri_secret_and_rekey_opt_out_for_image_repository: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_unhandled_exceptions_reporting: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2028,6 +2112,7 @@ class _CurrentOrganizationAccountState:
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  listing_auto_fulfillment_replication_refresh_schedule: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  max_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
                  max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -2113,6 +2198,9 @@ class _CurrentOrganizationAccountState:
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the organization account.
+        :param pulumi.Input[_builtins.int] cortex_code_cli_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+        :param pulumi.Input[_builtins.int] cortex_code_desktop_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+        :param pulumi.Input[_builtins.int] cortex_code_snowsight_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
         :param pulumi.Input[_builtins.str] cortex_enabled_cross_region: Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
         :param pulumi.Input[_builtins.str] cortex_models_allowlist: Specifies the models that users in the account can access. Use this parameter to allowlist models for all users in the account. If you need to provide specific users with access beyond what you’ve specified in the allowlist, use role-based access control instead. For more information, see [Model allowlist](https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql.html#label-cortex-llm-allowlist). For more information, check [CORTEX*MODELS*ALLOWLIST docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-models-allowlist).
         :param pulumi.Input[_builtins.str] csv_timestamp_format: Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
@@ -2130,6 +2218,7 @@ class _CurrentOrganizationAccountState:
         :param pulumi.Input[_builtins.bool] enable_egress_cost_optimizer: Enables or disables the Listing Cross-cloud auto-fulfillment Egress cost optimizer. For more information, check [ENABLE*EGRESS*COST_OPTIMIZER docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-egress-cost-optimizer).
         :param pulumi.Input[_builtins.bool] enable_identifier_first_login: Determines the login flow for users. When enabled, Snowflake prompts users for their username or email address before presenting authentication methods. For details, see [Identifier-first login](https://docs.snowflake.com/en/user-guide/identifier-first-login). For more information, check [ENABLE*IDENTIFIER*FIRST_LOGIN docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-identifier-first-login).
         :param pulumi.Input[_builtins.bool] enable_internal_stages_privatelink: Specifies whether the [SYSTEM$GET*PRIVATELINK*CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config) function returns the private-internal-stages key in the query result. The corresponding value in the query result is used during the configuration process for private connectivity to internal stages. For more information, check [ENABLE*INTERNAL*STAGES_PRIVATELINK docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-internal-stages-privatelink).
+        :param pulumi.Input[_builtins.bool] enable_per_account_app_service_privatelink_url: Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
         :param pulumi.Input[_builtins.bool] enable_tri_secret_and_rekey_opt_out_for_image_repository: Specifies choice for the [image repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository.html#label-registry-and-repository-image-repository) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*IMAGE_REPOSITORY docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-image-repository).
         :param pulumi.Input[_builtins.bool] enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: Specifies the choice for the [Snowpark Container Services block storage volume](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/block-storage-volume) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*SPCS*BLOCK*STORAGE docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-spcs-block-storage).
         :param pulumi.Input[_builtins.bool] enable_unhandled_exceptions_reporting: Specifies whether Snowflake may capture – in an event table – log messages or trace event data for unhandled exceptions in procedure or UDF handler code. For more information, see [Capturing messages from unhandled exceptions](https://docs.snowflake.com/en/developer-guide/logging-tracing/unhandled-exception-messages). For more information, check [ENABLE*UNHANDLED*EXCEPTIONS_REPORTING docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unhandled-exceptions-reporting).
@@ -2153,6 +2242,7 @@ class _CurrentOrganizationAccountState:
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.str] listing_auto_fulfillment_replication_refresh_schedule: Sets the time interval used to refresh the application package based data products to other regions. For more information, check [LISTING*AUTO*FULFILLMENT*REPLICATION*REFRESH_SCHEDULE docs](https://docs.snowflake.com/en/sql-reference/parameters#listing-auto-fulfillment-replication-refresh-schedule).
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.int] max_concurrency_level: Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse ([more details](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level)). For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check [MAX*DATA*EXTENSION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
@@ -2258,6 +2348,12 @@ class _CurrentOrganizationAccountState:
             pulumi.set(__self__, "client_timestamp_type_mapping", client_timestamp_type_mapping)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if cortex_code_cli_daily_est_credit_limit_per_user is not None:
+            pulumi.set(__self__, "cortex_code_cli_daily_est_credit_limit_per_user", cortex_code_cli_daily_est_credit_limit_per_user)
+        if cortex_code_desktop_daily_est_credit_limit_per_user is not None:
+            pulumi.set(__self__, "cortex_code_desktop_daily_est_credit_limit_per_user", cortex_code_desktop_daily_est_credit_limit_per_user)
+        if cortex_code_snowsight_daily_est_credit_limit_per_user is not None:
+            pulumi.set(__self__, "cortex_code_snowsight_daily_est_credit_limit_per_user", cortex_code_snowsight_daily_est_credit_limit_per_user)
         if cortex_enabled_cross_region is not None:
             pulumi.set(__self__, "cortex_enabled_cross_region", cortex_enabled_cross_region)
         if cortex_models_allowlist is not None:
@@ -2292,6 +2388,8 @@ class _CurrentOrganizationAccountState:
             pulumi.set(__self__, "enable_identifier_first_login", enable_identifier_first_login)
         if enable_internal_stages_privatelink is not None:
             pulumi.set(__self__, "enable_internal_stages_privatelink", enable_internal_stages_privatelink)
+        if enable_per_account_app_service_privatelink_url is not None:
+            pulumi.set(__self__, "enable_per_account_app_service_privatelink_url", enable_per_account_app_service_privatelink_url)
         if enable_tri_secret_and_rekey_opt_out_for_image_repository is not None:
             pulumi.set(__self__, "enable_tri_secret_and_rekey_opt_out_for_image_repository", enable_tri_secret_and_rekey_opt_out_for_image_repository)
         if enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage is not None:
@@ -2338,6 +2436,8 @@ class _CurrentOrganizationAccountState:
             pulumi.set(__self__, "listing_auto_fulfillment_replication_refresh_schedule", listing_auto_fulfillment_replication_refresh_schedule)
         if lock_timeout is not None:
             pulumi.set(__self__, "lock_timeout", lock_timeout)
+        if log_event_level is not None:
+            pulumi.set(__self__, "log_event_level", log_event_level)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
         if max_concurrency_level is not None:
@@ -2724,6 +2824,42 @@ class _CurrentOrganizationAccountState:
         pulumi.set(self, "comment", value)
 
     @_builtins.property
+    @pulumi.getter(name="cortexCodeCliDailyEstCreditLimitPerUser")
+    def cortex_code_cli_daily_est_credit_limit_per_user(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+        """
+        return pulumi.get(self, "cortex_code_cli_daily_est_credit_limit_per_user")
+
+    @cortex_code_cli_daily_est_credit_limit_per_user.setter
+    def cortex_code_cli_daily_est_credit_limit_per_user(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cortex_code_cli_daily_est_credit_limit_per_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cortexCodeDesktopDailyEstCreditLimitPerUser")
+    def cortex_code_desktop_daily_est_credit_limit_per_user(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+        """
+        return pulumi.get(self, "cortex_code_desktop_daily_est_credit_limit_per_user")
+
+    @cortex_code_desktop_daily_est_credit_limit_per_user.setter
+    def cortex_code_desktop_daily_est_credit_limit_per_user(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cortex_code_desktop_daily_est_credit_limit_per_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cortexCodeSnowsightDailyEstCreditLimitPerUser")
+    def cortex_code_snowsight_daily_est_credit_limit_per_user(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
+        """
+        return pulumi.get(self, "cortex_code_snowsight_daily_est_credit_limit_per_user")
+
+    @cortex_code_snowsight_daily_est_credit_limit_per_user.setter
+    def cortex_code_snowsight_daily_est_credit_limit_per_user(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cortex_code_snowsight_daily_est_credit_limit_per_user", value)
+
+    @_builtins.property
     @pulumi.getter(name="cortexEnabledCrossRegion")
     def cortex_enabled_cross_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -2926,6 +3062,18 @@ class _CurrentOrganizationAccountState:
     @enable_internal_stages_privatelink.setter
     def enable_internal_stages_privatelink(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_internal_stages_privatelink", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enablePerAccountAppServicePrivatelinkUrl")
+    def enable_per_account_app_service_privatelink_url(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
+        """
+        return pulumi.get(self, "enable_per_account_app_service_privatelink_url")
+
+    @enable_per_account_app_service_privatelink_url.setter
+    def enable_per_account_app_service_privatelink_url(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable_per_account_app_service_privatelink_url", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTriSecretAndRekeyOptOutForImageRepository")
@@ -3202,6 +3350,18 @@ class _CurrentOrganizationAccountState:
     @lock_timeout.setter
     def lock_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lock_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @log_event_level.setter
+    def log_event_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_event_level", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
@@ -3952,6 +4112,9 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  client_session_keep_alive_heartbeat_frequency: pulumi.Input[Optional[_builtins.int]] = None,
                  client_timestamp_type_mapping: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cortex_code_cli_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 cortex_code_desktop_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 cortex_code_snowsight_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
                  cortex_enabled_cross_region: pulumi.Input[Optional[_builtins.str]] = None,
                  cortex_models_allowlist: pulumi.Input[Optional[_builtins.str]] = None,
                  csv_timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3969,6 +4132,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  enable_egress_cost_optimizer: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_identifier_first_login: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_internal_stages_privatelink: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_per_account_app_service_privatelink_url: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_tri_secret_and_rekey_opt_out_for_image_repository: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_unhandled_exceptions_reporting: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -3992,6 +4156,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  listing_auto_fulfillment_replication_refresh_schedule: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  max_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
                  max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -4053,8 +4218,6 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  week_start: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
-        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
         > **Warning** Create in this resource works differently from other resources as it doesn't create anything on the Snowflake side. It works mostly as import, nothing will be created or altered during it, only the `name` field will be validated to ensure it matches the current organization account name. It's done this way, because of the Terraform limitation which prevents us from presenting planned modifications on the Snowflake side during resource creation.
 
         > **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
@@ -4233,6 +4396,9 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the organization account.
+        :param pulumi.Input[_builtins.int] cortex_code_cli_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+        :param pulumi.Input[_builtins.int] cortex_code_desktop_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+        :param pulumi.Input[_builtins.int] cortex_code_snowsight_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
         :param pulumi.Input[_builtins.str] cortex_enabled_cross_region: Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
         :param pulumi.Input[_builtins.str] cortex_models_allowlist: Specifies the models that users in the account can access. Use this parameter to allowlist models for all users in the account. If you need to provide specific users with access beyond what you’ve specified in the allowlist, use role-based access control instead. For more information, see [Model allowlist](https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql.html#label-cortex-llm-allowlist). For more information, check [CORTEX*MODELS*ALLOWLIST docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-models-allowlist).
         :param pulumi.Input[_builtins.str] csv_timestamp_format: Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
@@ -4250,6 +4416,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_egress_cost_optimizer: Enables or disables the Listing Cross-cloud auto-fulfillment Egress cost optimizer. For more information, check [ENABLE*EGRESS*COST_OPTIMIZER docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-egress-cost-optimizer).
         :param pulumi.Input[_builtins.bool] enable_identifier_first_login: Determines the login flow for users. When enabled, Snowflake prompts users for their username or email address before presenting authentication methods. For details, see [Identifier-first login](https://docs.snowflake.com/en/user-guide/identifier-first-login). For more information, check [ENABLE*IDENTIFIER*FIRST_LOGIN docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-identifier-first-login).
         :param pulumi.Input[_builtins.bool] enable_internal_stages_privatelink: Specifies whether the [SYSTEM$GET*PRIVATELINK*CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config) function returns the private-internal-stages key in the query result. The corresponding value in the query result is used during the configuration process for private connectivity to internal stages. For more information, check [ENABLE*INTERNAL*STAGES_PRIVATELINK docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-internal-stages-privatelink).
+        :param pulumi.Input[_builtins.bool] enable_per_account_app_service_privatelink_url: Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
         :param pulumi.Input[_builtins.bool] enable_tri_secret_and_rekey_opt_out_for_image_repository: Specifies choice for the [image repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository.html#label-registry-and-repository-image-repository) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*IMAGE_REPOSITORY docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-image-repository).
         :param pulumi.Input[_builtins.bool] enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: Specifies the choice for the [Snowpark Container Services block storage volume](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/block-storage-volume) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*SPCS*BLOCK*STORAGE docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-spcs-block-storage).
         :param pulumi.Input[_builtins.bool] enable_unhandled_exceptions_reporting: Specifies whether Snowflake may capture – in an event table – log messages or trace event data for unhandled exceptions in procedure or UDF handler code. For more information, see [Capturing messages from unhandled exceptions](https://docs.snowflake.com/en/developer-guide/logging-tracing/unhandled-exception-messages). For more information, check [ENABLE*UNHANDLED*EXCEPTIONS_REPORTING docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unhandled-exceptions-reporting).
@@ -4273,6 +4440,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.str] listing_auto_fulfillment_replication_refresh_schedule: Sets the time interval used to refresh the application package based data products to other regions. For more information, check [LISTING*AUTO*FULFILLMENT*REPLICATION*REFRESH_SCHEDULE docs](https://docs.snowflake.com/en/sql-reference/parameters#listing-auto-fulfillment-replication-refresh-schedule).
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.int] max_concurrency_level: Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse ([more details](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level)). For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check [MAX*DATA*EXTENSION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
@@ -4340,8 +4508,6 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  args: Optional[CurrentOrganizationAccountArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
         > **Warning** Create in this resource works differently from other resources as it doesn't create anything on the Snowflake side. It works mostly as import, nothing will be created or altered during it, only the `name` field will be validated to ensure it matches the current organization account name. It's done this way, because of the Terraform limitation which prevents us from presenting planned modifications on the Snowflake side during resource creation.
 
         > **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
@@ -4533,6 +4699,9 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  client_session_keep_alive_heartbeat_frequency: pulumi.Input[Optional[_builtins.int]] = None,
                  client_timestamp_type_mapping: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 cortex_code_cli_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 cortex_code_desktop_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 cortex_code_snowsight_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
                  cortex_enabled_cross_region: pulumi.Input[Optional[_builtins.str]] = None,
                  cortex_models_allowlist: pulumi.Input[Optional[_builtins.str]] = None,
                  csv_timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
@@ -4550,6 +4719,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  enable_egress_cost_optimizer: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_identifier_first_login: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_internal_stages_privatelink: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enable_per_account_app_service_privatelink_url: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_tri_secret_and_rekey_opt_out_for_image_repository: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_unhandled_exceptions_reporting: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -4573,6 +4743,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  listing_auto_fulfillment_replication_refresh_schedule: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  max_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
                  max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -4663,6 +4834,9 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
             __props__.__dict__["client_session_keep_alive_heartbeat_frequency"] = client_session_keep_alive_heartbeat_frequency
             __props__.__dict__["client_timestamp_type_mapping"] = client_timestamp_type_mapping
             __props__.__dict__["comment"] = comment
+            __props__.__dict__["cortex_code_cli_daily_est_credit_limit_per_user"] = cortex_code_cli_daily_est_credit_limit_per_user
+            __props__.__dict__["cortex_code_desktop_daily_est_credit_limit_per_user"] = cortex_code_desktop_daily_est_credit_limit_per_user
+            __props__.__dict__["cortex_code_snowsight_daily_est_credit_limit_per_user"] = cortex_code_snowsight_daily_est_credit_limit_per_user
             __props__.__dict__["cortex_enabled_cross_region"] = cortex_enabled_cross_region
             __props__.__dict__["cortex_models_allowlist"] = cortex_models_allowlist
             __props__.__dict__["csv_timestamp_format"] = csv_timestamp_format
@@ -4680,6 +4854,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
             __props__.__dict__["enable_egress_cost_optimizer"] = enable_egress_cost_optimizer
             __props__.__dict__["enable_identifier_first_login"] = enable_identifier_first_login
             __props__.__dict__["enable_internal_stages_privatelink"] = enable_internal_stages_privatelink
+            __props__.__dict__["enable_per_account_app_service_privatelink_url"] = enable_per_account_app_service_privatelink_url
             __props__.__dict__["enable_tri_secret_and_rekey_opt_out_for_image_repository"] = enable_tri_secret_and_rekey_opt_out_for_image_repository
             __props__.__dict__["enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage"] = enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage
             __props__.__dict__["enable_unhandled_exceptions_reporting"] = enable_unhandled_exceptions_reporting
@@ -4703,6 +4878,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
             __props__.__dict__["json_indent"] = json_indent
             __props__.__dict__["listing_auto_fulfillment_replication_refresh_schedule"] = listing_auto_fulfillment_replication_refresh_schedule
             __props__.__dict__["lock_timeout"] = lock_timeout
+            __props__.__dict__["log_event_level"] = log_event_level
             __props__.__dict__["log_level"] = log_level
             __props__.__dict__["max_concurrency_level"] = max_concurrency_level
             __props__.__dict__["max_data_extension_time_in_days"] = max_data_extension_time_in_days
@@ -4795,6 +4971,9 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
             client_session_keep_alive_heartbeat_frequency: pulumi.Input[Optional[_builtins.int]] = None,
             client_timestamp_type_mapping: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
+            cortex_code_cli_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+            cortex_code_desktop_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+            cortex_code_snowsight_daily_est_credit_limit_per_user: pulumi.Input[Optional[_builtins.int]] = None,
             cortex_enabled_cross_region: pulumi.Input[Optional[_builtins.str]] = None,
             cortex_models_allowlist: pulumi.Input[Optional[_builtins.str]] = None,
             csv_timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
@@ -4812,6 +4991,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
             enable_egress_cost_optimizer: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_identifier_first_login: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_internal_stages_privatelink: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_per_account_app_service_privatelink_url: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_tri_secret_and_rekey_opt_out_for_image_repository: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_unhandled_exceptions_reporting: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -4835,6 +5015,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
             json_indent: pulumi.Input[Optional[_builtins.int]] = None,
             listing_auto_fulfillment_replication_refresh_schedule: pulumi.Input[Optional[_builtins.str]] = None,
             lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
             log_level: pulumi.Input[Optional[_builtins.str]] = None,
             max_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
             max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -4924,6 +5105,9 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the organization account.
+        :param pulumi.Input[_builtins.int] cortex_code_cli_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+        :param pulumi.Input[_builtins.int] cortex_code_desktop_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+        :param pulumi.Input[_builtins.int] cortex_code_snowsight_daily_est_credit_limit_per_user: Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
         :param pulumi.Input[_builtins.str] cortex_enabled_cross_region: Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
         :param pulumi.Input[_builtins.str] cortex_models_allowlist: Specifies the models that users in the account can access. Use this parameter to allowlist models for all users in the account. If you need to provide specific users with access beyond what you’ve specified in the allowlist, use role-based access control instead. For more information, see [Model allowlist](https://docs.snowflake.com/en/user-guide/snowflake-cortex/aisql.html#label-cortex-llm-allowlist). For more information, check [CORTEX*MODELS*ALLOWLIST docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-models-allowlist).
         :param pulumi.Input[_builtins.str] csv_timestamp_format: Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
@@ -4941,6 +5125,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_egress_cost_optimizer: Enables or disables the Listing Cross-cloud auto-fulfillment Egress cost optimizer. For more information, check [ENABLE*EGRESS*COST_OPTIMIZER docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-egress-cost-optimizer).
         :param pulumi.Input[_builtins.bool] enable_identifier_first_login: Determines the login flow for users. When enabled, Snowflake prompts users for their username or email address before presenting authentication methods. For details, see [Identifier-first login](https://docs.snowflake.com/en/user-guide/identifier-first-login). For more information, check [ENABLE*IDENTIFIER*FIRST_LOGIN docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-identifier-first-login).
         :param pulumi.Input[_builtins.bool] enable_internal_stages_privatelink: Specifies whether the [SYSTEM$GET*PRIVATELINK*CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config) function returns the private-internal-stages key in the query result. The corresponding value in the query result is used during the configuration process for private connectivity to internal stages. For more information, check [ENABLE*INTERNAL*STAGES_PRIVATELINK docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-internal-stages-privatelink).
+        :param pulumi.Input[_builtins.bool] enable_per_account_app_service_privatelink_url: Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
         :param pulumi.Input[_builtins.bool] enable_tri_secret_and_rekey_opt_out_for_image_repository: Specifies choice for the [image repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository.html#label-registry-and-repository-image-repository) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*IMAGE_REPOSITORY docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-image-repository).
         :param pulumi.Input[_builtins.bool] enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage: Specifies the choice for the [Snowpark Container Services block storage volume](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/block-storage-volume) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*SPCS*BLOCK*STORAGE docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-spcs-block-storage).
         :param pulumi.Input[_builtins.bool] enable_unhandled_exceptions_reporting: Specifies whether Snowflake may capture – in an event table – log messages or trace event data for unhandled exceptions in procedure or UDF handler code. For more information, see [Capturing messages from unhandled exceptions](https://docs.snowflake.com/en/developer-guide/logging-tracing/unhandled-exception-messages). For more information, check [ENABLE*UNHANDLED*EXCEPTIONS_REPORTING docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unhandled-exceptions-reporting).
@@ -4964,6 +5149,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.str] listing_auto_fulfillment_replication_refresh_schedule: Sets the time interval used to refresh the application package based data products to other regions. For more information, check [LISTING*AUTO*FULFILLMENT*REPLICATION*REFRESH_SCHEDULE docs](https://docs.snowflake.com/en/sql-reference/parameters#listing-auto-fulfillment-replication-refresh-schedule).
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.int] max_concurrency_level: Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse ([more details](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level)). For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check [MAX*DATA*EXTENSION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
@@ -5051,6 +5237,9 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         __props__.__dict__["client_session_keep_alive_heartbeat_frequency"] = client_session_keep_alive_heartbeat_frequency
         __props__.__dict__["client_timestamp_type_mapping"] = client_timestamp_type_mapping
         __props__.__dict__["comment"] = comment
+        __props__.__dict__["cortex_code_cli_daily_est_credit_limit_per_user"] = cortex_code_cli_daily_est_credit_limit_per_user
+        __props__.__dict__["cortex_code_desktop_daily_est_credit_limit_per_user"] = cortex_code_desktop_daily_est_credit_limit_per_user
+        __props__.__dict__["cortex_code_snowsight_daily_est_credit_limit_per_user"] = cortex_code_snowsight_daily_est_credit_limit_per_user
         __props__.__dict__["cortex_enabled_cross_region"] = cortex_enabled_cross_region
         __props__.__dict__["cortex_models_allowlist"] = cortex_models_allowlist
         __props__.__dict__["csv_timestamp_format"] = csv_timestamp_format
@@ -5068,6 +5257,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         __props__.__dict__["enable_egress_cost_optimizer"] = enable_egress_cost_optimizer
         __props__.__dict__["enable_identifier_first_login"] = enable_identifier_first_login
         __props__.__dict__["enable_internal_stages_privatelink"] = enable_internal_stages_privatelink
+        __props__.__dict__["enable_per_account_app_service_privatelink_url"] = enable_per_account_app_service_privatelink_url
         __props__.__dict__["enable_tri_secret_and_rekey_opt_out_for_image_repository"] = enable_tri_secret_and_rekey_opt_out_for_image_repository
         __props__.__dict__["enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage"] = enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage
         __props__.__dict__["enable_unhandled_exceptions_reporting"] = enable_unhandled_exceptions_reporting
@@ -5091,6 +5281,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         __props__.__dict__["json_indent"] = json_indent
         __props__.__dict__["listing_auto_fulfillment_replication_refresh_schedule"] = listing_auto_fulfillment_replication_refresh_schedule
         __props__.__dict__["lock_timeout"] = lock_timeout
+        __props__.__dict__["log_event_level"] = log_event_level
         __props__.__dict__["log_level"] = log_level
         __props__.__dict__["max_concurrency_level"] = max_concurrency_level
         __props__.__dict__["max_data_extension_time_in_days"] = max_data_extension_time_in_days
@@ -5330,6 +5521,30 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         return pulumi.get(self, "comment")
 
     @_builtins.property
+    @pulumi.getter(name="cortexCodeCliDailyEstCreditLimitPerUser")
+    def cortex_code_cli_daily_est_credit_limit_per_user(self) -> pulumi.Output[_builtins.int]:
+        """
+        Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+        """
+        return pulumi.get(self, "cortex_code_cli_daily_est_credit_limit_per_user")
+
+    @_builtins.property
+    @pulumi.getter(name="cortexCodeDesktopDailyEstCreditLimitPerUser")
+    def cortex_code_desktop_daily_est_credit_limit_per_user(self) -> pulumi.Output[_builtins.int]:
+        """
+        Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+        """
+        return pulumi.get(self, "cortex_code_desktop_daily_est_credit_limit_per_user")
+
+    @_builtins.property
+    @pulumi.getter(name="cortexCodeSnowsightDailyEstCreditLimitPerUser")
+    def cortex_code_snowsight_daily_est_credit_limit_per_user(self) -> pulumi.Output[_builtins.int]:
+        """
+        Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user's estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
+        """
+        return pulumi.get(self, "cortex_code_snowsight_daily_est_credit_limit_per_user")
+
+    @_builtins.property
     @pulumi.getter(name="cortexEnabledCrossRegion")
     def cortex_enabled_cross_region(self) -> pulumi.Output[_builtins.str]:
         """
@@ -5464,6 +5679,14 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         Specifies whether the [SYSTEM$GET*PRIVATELINK*CONFIG](https://docs.snowflake.com/en/sql-reference/functions/system_get_privatelink_config) function returns the private-internal-stages key in the query result. The corresponding value in the query result is used during the configuration process for private connectivity to internal stages. For more information, check [ENABLE*INTERNAL*STAGES_PRIVATELINK docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-internal-stages-privatelink).
         """
         return pulumi.get(self, "enable_internal_stages_privatelink")
+
+    @_builtins.property
+    @pulumi.getter(name="enablePerAccountAppServicePrivatelinkUrl")
+    def enable_per_account_app_service_privatelink_url(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
+        """
+        return pulumi.get(self, "enable_per_account_app_service_privatelink_url")
 
     @_builtins.property
     @pulumi.getter(name="enableTriSecretAndRekeyOptOutForImageRepository")
@@ -5648,6 +5871,14 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
         """
         return pulumi.get(self, "lock_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
 
     @_builtins.property
     @pulumi.getter(name="logLevel")

@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class ProcedureJavascriptParameter
     {
         public readonly ImmutableArray<Outputs.ProcedureJavascriptParameterEnableConsoleOutput> EnableConsoleOutputs;
+        public readonly ImmutableArray<Outputs.ProcedureJavascriptParameterLogEventLevel> LogEventLevels;
         public readonly ImmutableArray<Outputs.ProcedureJavascriptParameterLogLevel> LogLevels;
         public readonly ImmutableArray<Outputs.ProcedureJavascriptParameterMetricLevel> MetricLevels;
         public readonly ImmutableArray<Outputs.ProcedureJavascriptParameterTraceLevel> TraceLevels;
@@ -22,6 +23,8 @@ namespace Pulumi.Snowflake.Outputs
         private ProcedureJavascriptParameter(
             ImmutableArray<Outputs.ProcedureJavascriptParameterEnableConsoleOutput> enableConsoleOutputs,
 
+            ImmutableArray<Outputs.ProcedureJavascriptParameterLogEventLevel> logEventLevels,
+
             ImmutableArray<Outputs.ProcedureJavascriptParameterLogLevel> logLevels,
 
             ImmutableArray<Outputs.ProcedureJavascriptParameterMetricLevel> metricLevels,
@@ -29,6 +32,7 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.ProcedureJavascriptParameterTraceLevel> traceLevels)
         {
             EnableConsoleOutputs = enableConsoleOutputs;
+            LogEventLevels = logEventLevels;
             LogLevels = logLevels;
             MetricLevels = metricLevels;
             TraceLevels = traceLevels;

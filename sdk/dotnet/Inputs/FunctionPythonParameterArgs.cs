@@ -20,6 +20,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _enableConsoleOutputs = value;
         }
 
+        [Input("logEventLevels")]
+        private InputList<Inputs.FunctionPythonParameterLogEventLevelArgs>? _logEventLevels;
+        public InputList<Inputs.FunctionPythonParameterLogEventLevelArgs> LogEventLevels
+        {
+            get => _logEventLevels ?? (_logEventLevels = new InputList<Inputs.FunctionPythonParameterLogEventLevelArgs>());
+            set => _logEventLevels = value;
+        }
+
         [Input("logLevels")]
         private InputList<Inputs.FunctionPythonParameterLogLevelArgs>? _logLevels;
         public InputList<Inputs.FunctionPythonParameterLogLevelArgs> LogLevels

@@ -10,6 +10,7 @@ import com.pulumi.snowflake.inputs.SchemaParameterDataRetentionTimeInDayArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterDefaultDdlCollationArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterEnableConsoleOutputArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterExternalVolumeArgs;
+import com.pulumi.snowflake.inputs.SchemaParameterLogEventLevelArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterLogLevelArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterMaxDataExtensionTimeInDayArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterPipeExecutionPausedArgs;
@@ -65,6 +66,13 @@ public final class SchemaParameterArgs extends com.pulumi.resources.ResourceArgs
 
     public Optional<Output<List<SchemaParameterExternalVolumeArgs>>> externalVolumes() {
         return Optional.ofNullable(this.externalVolumes);
+    }
+
+    @Import(name="logEventLevels")
+    private @Nullable Output<List<SchemaParameterLogEventLevelArgs>> logEventLevels;
+
+    public Optional<Output<List<SchemaParameterLogEventLevelArgs>>> logEventLevels() {
+        return Optional.ofNullable(this.logEventLevels);
     }
 
     @Import(name="logLevels")
@@ -159,6 +167,7 @@ public final class SchemaParameterArgs extends com.pulumi.resources.ResourceArgs
         this.defaultDdlCollations = $.defaultDdlCollations;
         this.enableConsoleOutputs = $.enableConsoleOutputs;
         this.externalVolumes = $.externalVolumes;
+        this.logEventLevels = $.logEventLevels;
         this.logLevels = $.logLevels;
         this.maxDataExtensionTimeInDays = $.maxDataExtensionTimeInDays;
         this.pipeExecutionPauseds = $.pipeExecutionPauseds;
@@ -254,6 +263,19 @@ public final class SchemaParameterArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder externalVolumes(SchemaParameterExternalVolumeArgs... externalVolumes) {
             return externalVolumes(List.of(externalVolumes));
+        }
+
+        public Builder logEventLevels(@Nullable Output<List<SchemaParameterLogEventLevelArgs>> logEventLevels) {
+            $.logEventLevels = logEventLevels;
+            return this;
+        }
+
+        public Builder logEventLevels(List<SchemaParameterLogEventLevelArgs> logEventLevels) {
+            return logEventLevels(Output.of(logEventLevels));
+        }
+
+        public Builder logEventLevels(SchemaParameterLogEventLevelArgs... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
 
         public Builder logLevels(@Nullable Output<List<SchemaParameterLogLevelArgs>> logLevels) {

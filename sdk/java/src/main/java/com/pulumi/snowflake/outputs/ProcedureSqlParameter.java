@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.ProcedureSqlParameterEnableConsoleOutput;
+import com.pulumi.snowflake.outputs.ProcedureSqlParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.ProcedureSqlParameterLogLevel;
 import com.pulumi.snowflake.outputs.ProcedureSqlParameterMetricLevel;
 import com.pulumi.snowflake.outputs.ProcedureSqlParameterTraceLevel;
@@ -15,6 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProcedureSqlParameter {
     private @Nullable List<ProcedureSqlParameterEnableConsoleOutput> enableConsoleOutputs;
+    private @Nullable List<ProcedureSqlParameterLogEventLevel> logEventLevels;
     private @Nullable List<ProcedureSqlParameterLogLevel> logLevels;
     private @Nullable List<ProcedureSqlParameterMetricLevel> metricLevels;
     private @Nullable List<ProcedureSqlParameterTraceLevel> traceLevels;
@@ -22,6 +24,9 @@ public final class ProcedureSqlParameter {
     private ProcedureSqlParameter() {}
     public List<ProcedureSqlParameterEnableConsoleOutput> enableConsoleOutputs() {
         return this.enableConsoleOutputs == null ? List.of() : this.enableConsoleOutputs;
+    }
+    public List<ProcedureSqlParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels == null ? List.of() : this.logEventLevels;
     }
     public List<ProcedureSqlParameterLogLevel> logLevels() {
         return this.logLevels == null ? List.of() : this.logLevels;
@@ -43,6 +48,7 @@ public final class ProcedureSqlParameter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ProcedureSqlParameterEnableConsoleOutput> enableConsoleOutputs;
+        private @Nullable List<ProcedureSqlParameterLogEventLevel> logEventLevels;
         private @Nullable List<ProcedureSqlParameterLogLevel> logLevels;
         private @Nullable List<ProcedureSqlParameterMetricLevel> metricLevels;
         private @Nullable List<ProcedureSqlParameterTraceLevel> traceLevels;
@@ -50,6 +56,7 @@ public final class ProcedureSqlParameter {
         public Builder(ProcedureSqlParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.metricLevels = defaults.metricLevels;
     	      this.traceLevels = defaults.traceLevels;
@@ -63,6 +70,15 @@ public final class ProcedureSqlParameter {
         }
         public Builder enableConsoleOutputs(ProcedureSqlParameterEnableConsoleOutput... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(@Nullable List<ProcedureSqlParameterLogEventLevel> logEventLevels) {
+
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(ProcedureSqlParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(@Nullable List<ProcedureSqlParameterLogLevel> logLevels) {
@@ -94,6 +110,7 @@ public final class ProcedureSqlParameter {
         public ProcedureSqlParameter build() {
             final var _resultValue = new ProcedureSqlParameter();
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.metricLevels = metricLevels;
             _resultValue.traceLevels = traceLevels;

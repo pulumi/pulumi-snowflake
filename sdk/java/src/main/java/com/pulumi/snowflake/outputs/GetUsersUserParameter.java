@@ -30,6 +30,7 @@ import com.pulumi.snowflake.outputs.GetUsersUserParameterJdbcTreatTimestampNtzAs
 import com.pulumi.snowflake.outputs.GetUsersUserParameterJdbcUseSessionTimezone;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterJsonIndent;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterLockTimeout;
+import com.pulumi.snowflake.outputs.GetUsersUserParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterLogLevel;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterMultiStatementCount;
 import com.pulumi.snowflake.outputs.GetUsersUserParameterNetworkPolicy;
@@ -93,6 +94,7 @@ public final class GetUsersUserParameter {
     private List<GetUsersUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
     private List<GetUsersUserParameterJsonIndent> jsonIndents;
     private List<GetUsersUserParameterLockTimeout> lockTimeouts;
+    private List<GetUsersUserParameterLogEventLevel> logEventLevels;
     private List<GetUsersUserParameterLogLevel> logLevels;
     private List<GetUsersUserParameterMultiStatementCount> multiStatementCounts;
     private List<GetUsersUserParameterNetworkPolicy> networkPolicies;
@@ -202,6 +204,9 @@ public final class GetUsersUserParameter {
     }
     public List<GetUsersUserParameterLockTimeout> lockTimeouts() {
         return this.lockTimeouts;
+    }
+    public List<GetUsersUserParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels;
     }
     public List<GetUsersUserParameterLogLevel> logLevels() {
         return this.logLevels;
@@ -337,6 +342,7 @@ public final class GetUsersUserParameter {
         private List<GetUsersUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
         private List<GetUsersUserParameterJsonIndent> jsonIndents;
         private List<GetUsersUserParameterLockTimeout> lockTimeouts;
+        private List<GetUsersUserParameterLogEventLevel> logEventLevels;
         private List<GetUsersUserParameterLogLevel> logLevels;
         private List<GetUsersUserParameterMultiStatementCount> multiStatementCounts;
         private List<GetUsersUserParameterNetworkPolicy> networkPolicies;
@@ -398,6 +404,7 @@ public final class GetUsersUserParameter {
     	      this.jdbcUseSessionTimezones = defaults.jdbcUseSessionTimezones;
     	      this.jsonIndents = defaults.jsonIndents;
     	      this.lockTimeouts = defaults.lockTimeouts;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.multiStatementCounts = defaults.multiStatementCounts;
     	      this.networkPolicies = defaults.networkPolicies;
@@ -707,6 +714,17 @@ public final class GetUsersUserParameter {
         }
         public Builder lockTimeouts(GetUsersUserParameterLockTimeout... lockTimeouts) {
             return lockTimeouts(List.of(lockTimeouts));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(List<GetUsersUserParameterLogEventLevel> logEventLevels) {
+            if (logEventLevels == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserParameter", "logEventLevels");
+            }
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(GetUsersUserParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(List<GetUsersUserParameterLogLevel> logLevels) {
@@ -1098,6 +1116,7 @@ public final class GetUsersUserParameter {
             _resultValue.jdbcUseSessionTimezones = jdbcUseSessionTimezones;
             _resultValue.jsonIndents = jsonIndents;
             _resultValue.lockTimeouts = lockTimeouts;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.multiStatementCounts = multiStatementCounts;
             _resultValue.networkPolicies = networkPolicies;

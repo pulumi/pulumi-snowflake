@@ -29,6 +29,7 @@ import com.pulumi.snowflake.outputs.LegacyServiceUserParameterJdbcTreatTimestamp
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterJdbcUseSessionTimezone;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterJsonIndent;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterLockTimeout;
+import com.pulumi.snowflake.outputs.LegacyServiceUserParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterLogLevel;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterMultiStatementCount;
 import com.pulumi.snowflake.outputs.LegacyServiceUserParameterNetworkPolicy;
@@ -93,6 +94,7 @@ public final class LegacyServiceUserParameter {
     private @Nullable List<LegacyServiceUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
     private @Nullable List<LegacyServiceUserParameterJsonIndent> jsonIndents;
     private @Nullable List<LegacyServiceUserParameterLockTimeout> lockTimeouts;
+    private @Nullable List<LegacyServiceUserParameterLogEventLevel> logEventLevels;
     private @Nullable List<LegacyServiceUserParameterLogLevel> logLevels;
     private @Nullable List<LegacyServiceUserParameterMultiStatementCount> multiStatementCounts;
     private @Nullable List<LegacyServiceUserParameterNetworkPolicy> networkPolicies;
@@ -202,6 +204,9 @@ public final class LegacyServiceUserParameter {
     }
     public List<LegacyServiceUserParameterLockTimeout> lockTimeouts() {
         return this.lockTimeouts == null ? List.of() : this.lockTimeouts;
+    }
+    public List<LegacyServiceUserParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels == null ? List.of() : this.logEventLevels;
     }
     public List<LegacyServiceUserParameterLogLevel> logLevels() {
         return this.logLevels == null ? List.of() : this.logLevels;
@@ -337,6 +342,7 @@ public final class LegacyServiceUserParameter {
         private @Nullable List<LegacyServiceUserParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
         private @Nullable List<LegacyServiceUserParameterJsonIndent> jsonIndents;
         private @Nullable List<LegacyServiceUserParameterLockTimeout> lockTimeouts;
+        private @Nullable List<LegacyServiceUserParameterLogEventLevel> logEventLevels;
         private @Nullable List<LegacyServiceUserParameterLogLevel> logLevels;
         private @Nullable List<LegacyServiceUserParameterMultiStatementCount> multiStatementCounts;
         private @Nullable List<LegacyServiceUserParameterNetworkPolicy> networkPolicies;
@@ -398,6 +404,7 @@ public final class LegacyServiceUserParameter {
     	      this.jdbcUseSessionTimezones = defaults.jdbcUseSessionTimezones;
     	      this.jsonIndents = defaults.jsonIndents;
     	      this.lockTimeouts = defaults.lockTimeouts;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.multiStatementCounts = defaults.multiStatementCounts;
     	      this.networkPolicies = defaults.networkPolicies;
@@ -657,6 +664,15 @@ public final class LegacyServiceUserParameter {
         }
         public Builder lockTimeouts(LegacyServiceUserParameterLockTimeout... lockTimeouts) {
             return lockTimeouts(List.of(lockTimeouts));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(@Nullable List<LegacyServiceUserParameterLogEventLevel> logEventLevels) {
+
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(LegacyServiceUserParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(@Nullable List<LegacyServiceUserParameterLogLevel> logLevels) {
@@ -982,6 +998,7 @@ public final class LegacyServiceUserParameter {
             _resultValue.jdbcUseSessionTimezones = jdbcUseSessionTimezones;
             _resultValue.jsonIndents = jsonIndents;
             _resultValue.lockTimeouts = lockTimeouts;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.multiStatementCounts = multiStatementCounts;
             _resultValue.networkPolicies = networkPolicies;

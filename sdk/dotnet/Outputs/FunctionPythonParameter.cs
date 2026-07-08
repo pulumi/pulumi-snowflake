@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class FunctionPythonParameter
     {
         public readonly ImmutableArray<Outputs.FunctionPythonParameterEnableConsoleOutput> EnableConsoleOutputs;
+        public readonly ImmutableArray<Outputs.FunctionPythonParameterLogEventLevel> LogEventLevels;
         public readonly ImmutableArray<Outputs.FunctionPythonParameterLogLevel> LogLevels;
         public readonly ImmutableArray<Outputs.FunctionPythonParameterMetricLevel> MetricLevels;
         public readonly ImmutableArray<Outputs.FunctionPythonParameterTraceLevel> TraceLevels;
@@ -22,6 +23,8 @@ namespace Pulumi.Snowflake.Outputs
         private FunctionPythonParameter(
             ImmutableArray<Outputs.FunctionPythonParameterEnableConsoleOutput> enableConsoleOutputs,
 
+            ImmutableArray<Outputs.FunctionPythonParameterLogEventLevel> logEventLevels,
+
             ImmutableArray<Outputs.FunctionPythonParameterLogLevel> logLevels,
 
             ImmutableArray<Outputs.FunctionPythonParameterMetricLevel> metricLevels,
@@ -29,6 +32,7 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.FunctionPythonParameterTraceLevel> traceLevels)
         {
             EnableConsoleOutputs = enableConsoleOutputs;
+            LogEventLevels = logEventLevels;
             LogLevels = logLevels;
             MetricLevels = metricLevels;
             TraceLevels = traceLevels;

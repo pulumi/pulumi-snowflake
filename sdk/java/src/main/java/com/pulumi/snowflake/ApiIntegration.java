@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** Currently, API integrations for `gitHttpsApi` API provider are not supported. It will be added in the future.
  * 
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `snowflake.ApiIntegrationAmazonApiGateway` | `snowflake.ApiIntegrationAzureApiManagement` | `snowflake.ApiIntegrationGoogleCloudApiGateway` | `snowflake.ApiIntegrationGitRepositoryGithubApp` | `snowflake.ApiIntegrationGitRepositoryOauth2` | `snowflake.ApiIntegrationGitRepositoryToken` | `snowflake.ApiIntegrationGitRepositoryPrivateLink` | `snowflake.ApiIntegrationExternalMcpOauth2` | `snowflake.ApiIntegrationExternalMcpDynamicClient`. &lt;deprecation&gt;
+ * 
  * ## Example Usage
  * 
  * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.

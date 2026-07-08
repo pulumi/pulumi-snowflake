@@ -78,7 +78,7 @@ export class Listing extends pulumi.CustomResource {
      */
     declare public readonly manifest: pulumi.Output<outputs.ListingManifest>;
     /**
-     * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+     * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export interface ListingState {
      */
     manifest?: pulumi.Input<inputs.ListingManifest | undefined>;
     /**
-     * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+     * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface ListingArgs {
      */
     manifest: pulumi.Input<inputs.ListingManifest>;
     /**
-     * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+     * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
      */
     name?: pulumi.Input<string | undefined>;
     /**

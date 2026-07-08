@@ -110,7 +110,7 @@ export class Task extends pulumi.CustomResource {
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
     /**
-     * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+     * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
     declare public readonly config: pulumi.Output<string | undefined>;
     /**
@@ -173,6 +173,10 @@ export class Task extends pulumi.CustomResource {
      * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      */
     declare public readonly lockTimeout: pulumi.Output<number>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    declare public readonly logEventLevel: pulumi.Output<string>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
@@ -406,6 +410,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["jdbcUseSessionTimezone"] = state?.jdbcUseSessionTimezone;
             resourceInputs["jsonIndent"] = state?.jsonIndent;
             resourceInputs["lockTimeout"] = state?.lockTimeout;
+            resourceInputs["logEventLevel"] = state?.logEventLevel;
             resourceInputs["logLevel"] = state?.logLevel;
             resourceInputs["multiStatementCount"] = state?.multiStatementCount;
             resourceInputs["name"] = state?.name;
@@ -497,6 +502,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["jdbcUseSessionTimezone"] = args?.jdbcUseSessionTimezone;
             resourceInputs["jsonIndent"] = args?.jsonIndent;
             resourceInputs["lockTimeout"] = args?.lockTimeout;
+            resourceInputs["logEventLevel"] = args?.logEventLevel;
             resourceInputs["logLevel"] = args?.logLevel;
             resourceInputs["multiStatementCount"] = args?.multiStatementCount;
             resourceInputs["name"] = args?.name;
@@ -616,7 +622,7 @@ export interface TaskState {
      */
     comment?: pulumi.Input<string | undefined>;
     /**
-     * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+     * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
     config?: pulumi.Input<string | undefined>;
     /**
@@ -679,6 +685,10 @@ export interface TaskState {
      * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      */
     lockTimeout?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
@@ -934,7 +944,7 @@ export interface TaskArgs {
      */
     comment?: pulumi.Input<string | undefined>;
     /**
-     * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+     * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
     config?: pulumi.Input<string | undefined>;
     /**
@@ -993,6 +1003,10 @@ export interface TaskArgs {
      * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      */
     lockTimeout?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */

@@ -484,8 +484,6 @@ class StageExternalAzure(pulumi.CustomResource):
                  use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
         > **Note** Temporary stages are not supported because they result in per-session objects.
 
         > **Note** External changes detection on `credentials.azure_sas_token`, `directory.notification_integration`, `use_privatelink_endpoint`, and `encryption` fields are not supported because Snowflake does not return such settings in DESCRIBE or SHOW STAGE output.
@@ -728,8 +726,6 @@ class StageExternalAzure(pulumi.CustomResource):
                  args: StageExternalAzureArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
         > **Note** Temporary stages are not supported because they result in per-session objects.
 
         > **Note** External changes detection on `credentials.azure_sas_token`, `directory.notification_integration`, `use_privatelink_endpoint`, and `encryption` fields are not supported because Snowflake does not return such settings in DESCRIBE or SHOW STAGE output.
