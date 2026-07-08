@@ -216,6 +216,279 @@
                     }
                 }
             },
+            "snowflake_api_integration_amazon_api_gateway": {
+                "current": "snowflake:index/apiIntegrationAmazonApiGateway:ApiIntegrationAmazonApiGateway",
+                "majorVersion": 2,
+                "fields": {
+                    "api_allowed_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "api_blocked_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_prefixes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_api_integration_azure_api_management": {
+                "current": "snowflake:index/apiIntegrationAzureApiManagement:ApiIntegrationAzureApiManagement",
+                "majorVersion": 2,
+                "fields": {
+                    "api_allowed_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "api_blocked_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_prefixes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_api_integration_external_mcp_dynamic_client": {
+                "current": "snowflake:index/apiIntegrationExternalMcpDynamicClient:ApiIntegrationExternalMcpDynamicClient",
+                "majorVersion": 2,
+                "fields": {
+                    "api_allowed_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "api_blocked_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_prefixes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_api_integration_external_mcp_oauth2": {
+                "current": "snowflake:index/apiIntegrationExternalMcpOauth2:ApiIntegrationExternalMcpOauth2",
+                "majorVersion": 2,
+                "fields": {
+                    "api_allowed_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "api_blocked_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "oauth_allowed_scopes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_api_integration_git_repository_github_app": {
+                "current": "snowflake:index/apiIntegrationGitRepositoryGithubApp:ApiIntegrationGitRepositoryGithubApp",
+                "majorVersion": 2,
+                "fields": {
+                    "api_allowed_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "api_blocked_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_prefixes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_api_integration_git_repository_oauth2": {
+                "current": "snowflake:index/apiIntegrationGitRepositoryOauth2:ApiIntegrationGitRepositoryOauth2",
+                "majorVersion": 2,
+                "fields": {
+                    "api_allowed_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "api_blocked_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "oauth_allowed_scopes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "oauth_allowed_scopes": {
+                        "maxItemsOne": false
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_api_integration_git_repository_private_link": {
+                "current": "snowflake:index/apiIntegrationGitRepositoryPrivateLink:ApiIntegrationGitRepositoryPrivateLink",
+                "majorVersion": 2,
+                "fields": {
+                    "allowed_authentication_secrets": {
+                        "maxItemsOne": false
+                    },
+                    "api_allowed_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "api_blocked_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "tls_trusted_certificates": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    },
+                    "tls_trusted_certificates": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_api_integration_git_repository_token": {
+                "current": "snowflake:index/apiIntegrationGitRepositoryToken:ApiIntegrationGitRepositoryToken",
+                "majorVersion": 2,
+                "fields": {
+                    "allowed_authentication_secrets": {
+                        "maxItemsOne": false
+                    },
+                    "api_allowed_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "api_blocked_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_prefixes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_api_integration_google_cloud_api_gateway": {
+                "current": "snowflake:index/apiIntegrationGoogleCloudApiGateway:ApiIntegrationGoogleCloudApiGateway",
+                "majorVersion": 2,
+                "fields": {
+                    "api_allowed_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "api_blocked_prefixes": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_prefixes": {
+                                    "maxItemsOne": false
+                                },
+                                "blocked_prefixes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_authentication_policy": {
                 "current": "snowflake:index/authenticationPolicy:AuthenticationPolicy",
                 "majorVersion": 2,
@@ -740,6 +1013,9 @@
                                 "enable_console_output": {
                                     "maxItemsOne": false
                                 },
+                                "log_event_level": {
+                                    "maxItemsOne": false
+                                },
                                 "log_level": {
                                     "maxItemsOne": false
                                 },
@@ -775,6 +1051,9 @@
                         "elem": {
                             "fields": {
                                 "enable_console_output": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -815,6 +1094,9 @@
                         "elem": {
                             "fields": {
                                 "enable_console_output": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -860,6 +1142,9 @@
                                 "enable_console_output": {
                                     "maxItemsOne": false
                                 },
+                                "log_event_level": {
+                                    "maxItemsOne": false
+                                },
                                 "log_level": {
                                     "maxItemsOne": false
                                 },
@@ -895,6 +1180,9 @@
                         "elem": {
                             "fields": {
                                 "enable_console_output": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -1016,6 +1304,76 @@
                 "fields": {
                     "privileges": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_iceberg_table_from_delta_files": {
+                "current": "snowflake:index/icebergTableFromDeltaFiles:IcebergTableFromDeltaFiles",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "parameters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "catalog": {
+                                    "maxItemsOne": false
+                                },
+                                "external_volume": {
+                                    "maxItemsOne": false
+                                },
+                                "replace_invalid_characters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "auto_refresh_status": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "snowflake_iceberg_table_from_files": {
+                "current": "snowflake:index/icebergTableFromFiles:IcebergTableFromFiles",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "parameters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "catalog": {
+                                    "maxItemsOne": false
+                                },
+                                "external_volume": {
+                                    "maxItemsOne": false
+                                },
+                                "replace_invalid_characters": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "auto_refresh_status": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -1177,6 +1535,9 @@
                                     "maxItemsOne": false
                                 },
                                 "lock_timeout": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -1602,6 +1963,18 @@
                 "current": "snowflake:index/pipe:Pipe",
                 "majorVersion": 2
             },
+            "snowflake_postgres_instance": {
+                "current": "snowflake:index/postgresInstance:PostgresInstance",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_primary_connection": {
                 "current": "snowflake:index/primaryConnection:PrimaryConnection",
                 "majorVersion": 2,
@@ -1644,6 +2017,9 @@
                                 "enable_console_output": {
                                     "maxItemsOne": false
                                 },
+                                "log_event_level": {
+                                    "maxItemsOne": false
+                                },
                                 "log_level": {
                                     "maxItemsOne": false
                                 },
@@ -1679,6 +2055,9 @@
                         "elem": {
                             "fields": {
                                 "enable_console_output": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -1719,6 +2098,9 @@
                         "elem": {
                             "fields": {
                                 "enable_console_output": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -1764,6 +2146,9 @@
                                 "enable_console_output": {
                                     "maxItemsOne": false
                                 },
+                                "log_event_level": {
+                                    "maxItemsOne": false
+                                },
                                 "log_level": {
                                     "maxItemsOne": false
                                 },
@@ -1799,6 +2184,9 @@
                         "elem": {
                             "fields": {
                                 "enable_console_output": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -1952,6 +2340,9 @@
                                     "maxItemsOne": false
                                 },
                                 "external_volume": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -2407,6 +2798,9 @@
                                     "maxItemsOne": false
                                 },
                                 "lock_timeout": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -3522,6 +3916,28 @@
                     }
                 }
             },
+            "snowflake_storage_lifecycle_policy": {
+                "current": "snowflake:index/storageLifecyclePolicy:StorageLifecyclePolicy",
+                "majorVersion": 2,
+                "fields": {
+                    "argument": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "signature": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_stream_on_directory_table": {
                 "current": "snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable",
                 "majorVersion": 2,
@@ -3737,6 +4153,15 @@
                     }
                 }
             },
+            "snowflake_table_storage_lifecycle_policy_attachment": {
+                "current": "snowflake:index/tableStorageLifecyclePolicyAttachment:TableStorageLifecyclePolicyAttachment",
+                "majorVersion": 2,
+                "fields": {
+                    "on": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "snowflake_tag": {
                 "current": "snowflake:index/tag:Tag",
                 "majorVersion": 2,
@@ -3852,6 +4277,9 @@
                                     "maxItemsOne": false
                                 },
                                 "lock_timeout": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -4080,6 +4508,9 @@
                                     "maxItemsOne": false
                                 },
                                 "lock_timeout": {
+                                    "maxItemsOne": false
+                                },
+                                "log_event_level": {
                                     "maxItemsOne": false
                                 },
                                 "log_level": {
@@ -4369,6 +4800,41 @@
                     }
                 }
             },
+            "snowflake_api_integrations": {
+                "current": "snowflake:index/getApiIntegrations:getApiIntegrations",
+                "majorVersion": 2,
+                "fields": {
+                    "api_integrations": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_prefixes": {
+                                                "maxItemsOne": false
+                                            },
+                                            "blocked_prefixes": {
+                                                "maxItemsOne": false
+                                            },
+                                            "oauth_allowed_scopes": {
+                                                "maxItemsOne": false
+                                            },
+                                            "tls_trusted_certificates": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "snowflake_authentication_policies": {
                 "current": "snowflake:index/getAuthenticationPolicies:getAuthenticationPolicies",
                 "majorVersion": 2,
@@ -4601,6 +5067,9 @@
                                                 "maxItemsOne": false
                                             },
                                             "external_volume": {
+                                                "maxItemsOne": false
+                                            },
+                                            "log_event_level": {
                                                 "maxItemsOne": false
                                             },
                                             "log_level": {
@@ -5135,6 +5604,9 @@
                                             "external_volume": {
                                                 "maxItemsOne": false
                                             },
+                                            "log_event_level": {
+                                                "maxItemsOne": false
+                                            },
                                             "log_level": {
                                                 "maxItemsOne": false
                                             },
@@ -5652,6 +6124,35 @@
                     }
                 }
             },
+            "snowflake_storage_lifecycle_policies": {
+                "current": "snowflake:index/getStorageLifecyclePolicies:getStorageLifecyclePolicies",
+                "majorVersion": 2,
+                "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "storage_lifecycle_policies": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "signature": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "snowflake_streamlits": {
                 "current": "snowflake:index/getStreamlits:getStreamlits",
                 "majorVersion": 2,
@@ -5889,6 +6390,9 @@
                                                 "maxItemsOne": false
                                             },
                                             "lock_timeout": {
+                                                "maxItemsOne": false
+                                            },
+                                            "log_event_level": {
                                                 "maxItemsOne": false
                                             },
                                             "log_level": {
@@ -6140,6 +6644,9 @@
                                                 "maxItemsOne": false
                                             },
                                             "lock_timeout": {
+                                                "maxItemsOne": false
+                                            },
+                                            "log_event_level": {
                                                 "maxItemsOne": false
                                             },
                                             "log_level": {
