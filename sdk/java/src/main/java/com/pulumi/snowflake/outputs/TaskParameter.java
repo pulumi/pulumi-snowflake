@@ -27,6 +27,7 @@ import com.pulumi.snowflake.outputs.TaskParameterJdbcTreatTimestampNtzAsUtc;
 import com.pulumi.snowflake.outputs.TaskParameterJdbcUseSessionTimezone;
 import com.pulumi.snowflake.outputs.TaskParameterJsonIndent;
 import com.pulumi.snowflake.outputs.TaskParameterLockTimeout;
+import com.pulumi.snowflake.outputs.TaskParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.TaskParameterLogLevel;
 import com.pulumi.snowflake.outputs.TaskParameterMultiStatementCount;
 import com.pulumi.snowflake.outputs.TaskParameterNoorderSequenceAsDefault;
@@ -93,6 +94,7 @@ public final class TaskParameter {
     private @Nullable List<TaskParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
     private @Nullable List<TaskParameterJsonIndent> jsonIndents;
     private @Nullable List<TaskParameterLockTimeout> lockTimeouts;
+    private @Nullable List<TaskParameterLogEventLevel> logEventLevels;
     private @Nullable List<TaskParameterLogLevel> logLevels;
     private @Nullable List<TaskParameterMultiStatementCount> multiStatementCounts;
     private @Nullable List<TaskParameterNoorderSequenceAsDefault> noorderSequenceAsDefaults;
@@ -200,6 +202,9 @@ public final class TaskParameter {
     }
     public List<TaskParameterLockTimeout> lockTimeouts() {
         return this.lockTimeouts == null ? List.of() : this.lockTimeouts;
+    }
+    public List<TaskParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels == null ? List.of() : this.logEventLevels;
     }
     public List<TaskParameterLogLevel> logLevels() {
         return this.logLevels == null ? List.of() : this.logLevels;
@@ -345,6 +350,7 @@ public final class TaskParameter {
         private @Nullable List<TaskParameterJdbcUseSessionTimezone> jdbcUseSessionTimezones;
         private @Nullable List<TaskParameterJsonIndent> jsonIndents;
         private @Nullable List<TaskParameterLockTimeout> lockTimeouts;
+        private @Nullable List<TaskParameterLogEventLevel> logEventLevels;
         private @Nullable List<TaskParameterLogLevel> logLevels;
         private @Nullable List<TaskParameterMultiStatementCount> multiStatementCounts;
         private @Nullable List<TaskParameterNoorderSequenceAsDefault> noorderSequenceAsDefaults;
@@ -408,6 +414,7 @@ public final class TaskParameter {
     	      this.jdbcUseSessionTimezones = defaults.jdbcUseSessionTimezones;
     	      this.jsonIndents = defaults.jsonIndents;
     	      this.lockTimeouts = defaults.lockTimeouts;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.multiStatementCounts = defaults.multiStatementCounts;
     	      this.noorderSequenceAsDefaults = defaults.noorderSequenceAsDefaults;
@@ -653,6 +660,15 @@ public final class TaskParameter {
         }
         public Builder lockTimeouts(TaskParameterLockTimeout... lockTimeouts) {
             return lockTimeouts(List.of(lockTimeouts));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(@Nullable List<TaskParameterLogEventLevel> logEventLevels) {
+
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(TaskParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(@Nullable List<TaskParameterLogLevel> logLevels) {
@@ -1012,6 +1028,7 @@ public final class TaskParameter {
             _resultValue.jdbcUseSessionTimezones = jdbcUseSessionTimezones;
             _resultValue.jsonIndents = jsonIndents;
             _resultValue.lockTimeouts = lockTimeouts;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.multiStatementCounts = multiStatementCounts;
             _resultValue.noorderSequenceAsDefaults = noorderSequenceAsDefaults;

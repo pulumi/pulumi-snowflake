@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.ProcedureJavascriptParameterEnableConsoleOutputArgs;
+import com.pulumi.snowflake.inputs.ProcedureJavascriptParameterLogEventLevelArgs;
 import com.pulumi.snowflake.inputs.ProcedureJavascriptParameterLogLevelArgs;
 import com.pulumi.snowflake.inputs.ProcedureJavascriptParameterMetricLevelArgs;
 import com.pulumi.snowflake.inputs.ProcedureJavascriptParameterTraceLevelArgs;
@@ -24,6 +25,13 @@ public final class ProcedureJavascriptParameterArgs extends com.pulumi.resources
 
     public Optional<Output<List<ProcedureJavascriptParameterEnableConsoleOutputArgs>>> enableConsoleOutputs() {
         return Optional.ofNullable(this.enableConsoleOutputs);
+    }
+
+    @Import(name="logEventLevels")
+    private @Nullable Output<List<ProcedureJavascriptParameterLogEventLevelArgs>> logEventLevels;
+
+    public Optional<Output<List<ProcedureJavascriptParameterLogEventLevelArgs>>> logEventLevels() {
+        return Optional.ofNullable(this.logEventLevels);
     }
 
     @Import(name="logLevels")
@@ -51,6 +59,7 @@ public final class ProcedureJavascriptParameterArgs extends com.pulumi.resources
 
     private ProcedureJavascriptParameterArgs(ProcedureJavascriptParameterArgs $) {
         this.enableConsoleOutputs = $.enableConsoleOutputs;
+        this.logEventLevels = $.logEventLevels;
         this.logLevels = $.logLevels;
         this.metricLevels = $.metricLevels;
         this.traceLevels = $.traceLevels;
@@ -85,6 +94,19 @@ public final class ProcedureJavascriptParameterArgs extends com.pulumi.resources
 
         public Builder enableConsoleOutputs(ProcedureJavascriptParameterEnableConsoleOutputArgs... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+
+        public Builder logEventLevels(@Nullable Output<List<ProcedureJavascriptParameterLogEventLevelArgs>> logEventLevels) {
+            $.logEventLevels = logEventLevels;
+            return this;
+        }
+
+        public Builder logEventLevels(List<ProcedureJavascriptParameterLogEventLevelArgs> logEventLevels) {
+            return logEventLevels(Output.of(logEventLevels));
+        }
+
+        public Builder logEventLevels(ProcedureJavascriptParameterLogEventLevelArgs... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
 
         public Builder logLevels(@Nullable Output<List<ProcedureJavascriptParameterLogLevelArgs>> logLevels) {

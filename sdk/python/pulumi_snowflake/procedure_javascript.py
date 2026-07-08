@@ -30,6 +30,7 @@ class ProcedureJavascriptArgs:
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  execute_as: pulumi.Input[Optional[_builtins.str]] = None,
                  is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  metric_level: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -47,6 +48,7 @@ class ProcedureJavascriptArgs:
         :param pulumi.Input[_builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         :param pulumi.Input[_builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
         :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -67,6 +69,8 @@ class ProcedureJavascriptArgs:
             pulumi.set(__self__, "execute_as", execute_as)
         if is_secure is not None:
             pulumi.set(__self__, "is_secure", is_secure)
+        if log_event_level is not None:
+            pulumi.set(__self__, "log_event_level", log_event_level)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
         if metric_level is not None:
@@ -187,6 +191,18 @@ class ProcedureJavascriptArgs:
         pulumi.set(self, "is_secure", value)
 
     @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @log_event_level.setter
+    def log_event_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_event_level", value)
+
+    @_builtins.property
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -257,6 +273,7 @@ class _ProcedureJavascriptState:
                  execute_as: pulumi.Input[Optional[_builtins.str]] = None,
                  fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
                  is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  metric_level: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -278,6 +295,7 @@ class _ProcedureJavascriptState:
         :param pulumi.Input[_builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -304,6 +322,8 @@ class _ProcedureJavascriptState:
             pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if is_secure is not None:
             pulumi.set(__self__, "is_secure", is_secure)
+        if log_event_level is not None:
+            pulumi.set(__self__, "log_event_level", log_event_level)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
         if metric_level is not None:
@@ -410,6 +430,18 @@ class _ProcedureJavascriptState:
     @is_secure.setter
     def is_secure(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "is_secure", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @log_event_level.setter
+    def log_event_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_event_level", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
@@ -556,6 +588,7 @@ class ProcedureJavascript(pulumi.CustomResource):
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  execute_as: pulumi.Input[Optional[_builtins.str]] = None,
                  is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  metric_level: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -634,6 +667,7 @@ class ProcedureJavascript(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         :param pulumi.Input[_builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
         :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -731,6 +765,7 @@ class ProcedureJavascript(pulumi.CustomResource):
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  execute_as: pulumi.Input[Optional[_builtins.str]] = None,
                  is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  metric_level: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -756,6 +791,7 @@ class ProcedureJavascript(pulumi.CustomResource):
             __props__.__dict__["enable_console_output"] = enable_console_output
             __props__.__dict__["execute_as"] = execute_as
             __props__.__dict__["is_secure"] = is_secure
+            __props__.__dict__["log_event_level"] = log_event_level
             __props__.__dict__["log_level"] = log_level
             __props__.__dict__["metric_level"] = metric_level
             __props__.__dict__["name"] = name
@@ -791,6 +827,7 @@ class ProcedureJavascript(pulumi.CustomResource):
             execute_as: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+            log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
             log_level: pulumi.Input[Optional[_builtins.str]] = None,
             metric_level: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -816,6 +853,7 @@ class ProcedureJavascript(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -839,6 +877,7 @@ class ProcedureJavascript(pulumi.CustomResource):
         __props__.__dict__["execute_as"] = execute_as
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["is_secure"] = is_secure
+        __props__.__dict__["log_event_level"] = log_event_level
         __props__.__dict__["log_level"] = log_level
         __props__.__dict__["metric_level"] = metric_level
         __props__.__dict__["name"] = name
@@ -907,6 +946,14 @@ class ProcedureJavascript(pulumi.CustomResource):
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_secure")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
 
     @_builtins.property
     @pulumi.getter(name="logLevel")

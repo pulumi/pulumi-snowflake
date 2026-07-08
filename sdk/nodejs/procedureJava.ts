@@ -196,6 +196,10 @@ export class ProcedureJava extends pulumi.CustomResource {
      */
     declare public readonly isSecure: pulumi.Output<string | undefined>;
     /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    declare public readonly logEventLevel: pulumi.Output<string>;
+    /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
     declare public readonly logLevel: pulumi.Output<string>;
@@ -283,6 +287,7 @@ export class ProcedureJava extends pulumi.CustomResource {
             resourceInputs["handler"] = state?.handler;
             resourceInputs["imports"] = state?.imports;
             resourceInputs["isSecure"] = state?.isSecure;
+            resourceInputs["logEventLevel"] = state?.logEventLevel;
             resourceInputs["logLevel"] = state?.logLevel;
             resourceInputs["metricLevel"] = state?.metricLevel;
             resourceInputs["name"] = state?.name;
@@ -328,6 +333,7 @@ export class ProcedureJava extends pulumi.CustomResource {
             resourceInputs["handler"] = args?.handler;
             resourceInputs["imports"] = args?.imports;
             resourceInputs["isSecure"] = args?.isSecure;
+            resourceInputs["logEventLevel"] = args?.logEventLevel;
             resourceInputs["logLevel"] = args?.logLevel;
             resourceInputs["metricLevel"] = args?.metricLevel;
             resourceInputs["name"] = args?.name;
@@ -395,6 +401,10 @@ export interface ProcedureJavaState {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isSecure?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
     /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
@@ -501,6 +511,10 @@ export interface ProcedureJavaArgs {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isSecure?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
     /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */

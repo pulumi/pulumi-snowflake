@@ -30,14 +30,14 @@ public final class ServiceFromSpecificationTemplateUsingArgs extends com.pulumi.
     }
 
     /**
-     * The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+     * The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      * 
      */
     @Import(name="value", required=true)
     private Output<String> value;
 
     /**
-     * @return The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+     * @return The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      * 
      */
     public Output<String> value() {
@@ -91,7 +91,7 @@ public final class ServiceFromSpecificationTemplateUsingArgs extends com.pulumi.
         }
 
         /**
-         * @param value The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+         * @param value The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class ServiceFromSpecificationTemplateUsingArgs extends com.pulumi.
         }
 
         /**
-         * @param value The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+         * @param value The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
          * 
          * @return builder
          * 

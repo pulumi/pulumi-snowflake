@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.FunctionSqlParameterEnableConsoleOutput;
+import com.pulumi.snowflake.outputs.FunctionSqlParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.FunctionSqlParameterLogLevel;
 import com.pulumi.snowflake.outputs.FunctionSqlParameterMetricLevel;
 import com.pulumi.snowflake.outputs.FunctionSqlParameterTraceLevel;
@@ -15,6 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FunctionSqlParameter {
     private @Nullable List<FunctionSqlParameterEnableConsoleOutput> enableConsoleOutputs;
+    private @Nullable List<FunctionSqlParameterLogEventLevel> logEventLevels;
     private @Nullable List<FunctionSqlParameterLogLevel> logLevels;
     private @Nullable List<FunctionSqlParameterMetricLevel> metricLevels;
     private @Nullable List<FunctionSqlParameterTraceLevel> traceLevels;
@@ -22,6 +24,9 @@ public final class FunctionSqlParameter {
     private FunctionSqlParameter() {}
     public List<FunctionSqlParameterEnableConsoleOutput> enableConsoleOutputs() {
         return this.enableConsoleOutputs == null ? List.of() : this.enableConsoleOutputs;
+    }
+    public List<FunctionSqlParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels == null ? List.of() : this.logEventLevels;
     }
     public List<FunctionSqlParameterLogLevel> logLevels() {
         return this.logLevels == null ? List.of() : this.logLevels;
@@ -43,6 +48,7 @@ public final class FunctionSqlParameter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FunctionSqlParameterEnableConsoleOutput> enableConsoleOutputs;
+        private @Nullable List<FunctionSqlParameterLogEventLevel> logEventLevels;
         private @Nullable List<FunctionSqlParameterLogLevel> logLevels;
         private @Nullable List<FunctionSqlParameterMetricLevel> metricLevels;
         private @Nullable List<FunctionSqlParameterTraceLevel> traceLevels;
@@ -50,6 +56,7 @@ public final class FunctionSqlParameter {
         public Builder(FunctionSqlParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.metricLevels = defaults.metricLevels;
     	      this.traceLevels = defaults.traceLevels;
@@ -63,6 +70,15 @@ public final class FunctionSqlParameter {
         }
         public Builder enableConsoleOutputs(FunctionSqlParameterEnableConsoleOutput... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(@Nullable List<FunctionSqlParameterLogEventLevel> logEventLevels) {
+
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(FunctionSqlParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(@Nullable List<FunctionSqlParameterLogLevel> logLevels) {
@@ -94,6 +110,7 @@ public final class FunctionSqlParameter {
         public FunctionSqlParameter build() {
             final var _resultValue = new FunctionSqlParameter();
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.metricLevels = metricLevels;
             _resultValue.traceLevels = traceLevels;

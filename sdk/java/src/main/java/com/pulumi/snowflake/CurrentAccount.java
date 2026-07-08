@@ -17,8 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- * 
  * &gt; **Warning** During create operation every parameter that is not set in the resource will be unset on the account.
  * 
  * &gt; **Warning** This resource requires warehouse to be in the context. To use this resource, specify a default warehouse in the provider configuration or on the user used in the configuration.
@@ -512,6 +510,48 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
         return this.clientTimestampTypeMapping;
     }
     /**
+     * Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user&#39;s estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+     * 
+     */
+    @Export(name="cortexCodeCliDailyEstCreditLimitPerUser", refs={Integer.class}, tree="[0]")
+    private Output<Integer> cortexCodeCliDailyEstCreditLimitPerUser;
+
+    /**
+     * @return Daily estimated credit limit per user for Cortex Code CLI usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user&#39;s estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*CLI*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-cli-daily-est-credit-limit-per-user).
+     * 
+     */
+    public Output<Integer> cortexCodeCliDailyEstCreditLimitPerUser() {
+        return this.cortexCodeCliDailyEstCreditLimitPerUser;
+    }
+    /**
+     * Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user&#39;s estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+     * 
+     */
+    @Export(name="cortexCodeDesktopDailyEstCreditLimitPerUser", refs={Integer.class}, tree="[0]")
+    private Output<Integer> cortexCodeDesktopDailyEstCreditLimitPerUser;
+
+    /**
+     * @return Daily estimated credit limit per user for Cortex Code Desktop usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user&#39;s estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*DESKTOP*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-desktop-daily-est-credit-limit-per-user).
+     * 
+     */
+    public Output<Integer> cortexCodeDesktopDailyEstCreditLimitPerUser() {
+        return this.cortexCodeDesktopDailyEstCreditLimitPerUser;
+    }
+    /**
+     * Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user&#39;s estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
+     * 
+     */
+    @Export(name="cortexCodeSnowsightDailyEstCreditLimitPerUser", refs={Integer.class}, tree="[0]")
+    private Output<Integer> cortexCodeSnowsightDailyEstCreditLimitPerUser;
+
+    /**
+     * @return Daily estimated credit limit per user for Cortex Code Snowsight usage. Set to `-1` for the default (unlimited), `0` to block usage, or a positive value to cap a user&#39;s estimated credit usage over a rolling 24-hour window. For more information, see [Cortex Code credit usage limits](https://docs.snowflake.com/en/user-guide/cortex-code/credit-usage-limit). For more information, check [CORTEX*CODE*SNOWSIGHT*DAILY*EST*CREDIT*LIMIT*PER*USER docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-code-snowsight-daily-est-credit-limit-per-user).
+     * 
+     */
+    public Output<Integer> cortexCodeSnowsightDailyEstCreditLimitPerUser() {
+        return this.cortexCodeSnowsightDailyEstCreditLimitPerUser;
+    }
+    /**
      * Specifies the regions where an inference request may be processed in case the request cannot be processed in the region where request is originally placed. Specifying DISABLED disables cross-region inferencing. For examples and details, see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference). For more information, check [CORTEX*ENABLED*CROSS_REGION docs](https://docs.snowflake.com/en/sql-reference/parameters#cortex-enabled-cross-region).
      * 
      */
@@ -748,6 +788,20 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
      */
     public Output<Boolean> enableInternalStagesPrivatelink() {
         return this.enableInternalStagesPrivatelink;
+    }
+    /**
+     * Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
+     * 
+     */
+    @Export(name="enablePerAccountAppServicePrivatelinkUrl", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enablePerAccountAppServicePrivatelinkUrl;
+
+    /**
+     * @return Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
+     * 
+     */
+    public Output<Boolean> enablePerAccountAppServicePrivatelinkUrl() {
+        return this.enablePerAccountAppServicePrivatelinkUrl;
     }
     /**
      * Specifies choice for the [image repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository.html#label-registry-and-repository-image-repository) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*IMAGE_REPOSITORY docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-image-repository).
@@ -1084,6 +1138,20 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> lockTimeout() {
         return this.lockTimeout;
+    }
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    @Export(name="logEventLevel", refs={String.class}, tree="[0]")
+    private Output<String> logEventLevel;
+
+    /**
+     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    public Output<String> logEventLevel() {
+        return this.logEventLevel;
     }
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).

@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class ProcedureJavaParameter
     {
         public readonly ImmutableArray<Outputs.ProcedureJavaParameterEnableConsoleOutput> EnableConsoleOutputs;
+        public readonly ImmutableArray<Outputs.ProcedureJavaParameterLogEventLevel> LogEventLevels;
         public readonly ImmutableArray<Outputs.ProcedureJavaParameterLogLevel> LogLevels;
         public readonly ImmutableArray<Outputs.ProcedureJavaParameterMetricLevel> MetricLevels;
         public readonly ImmutableArray<Outputs.ProcedureJavaParameterTraceLevel> TraceLevels;
@@ -22,6 +23,8 @@ namespace Pulumi.Snowflake.Outputs
         private ProcedureJavaParameter(
             ImmutableArray<Outputs.ProcedureJavaParameterEnableConsoleOutput> enableConsoleOutputs,
 
+            ImmutableArray<Outputs.ProcedureJavaParameterLogEventLevel> logEventLevels,
+
             ImmutableArray<Outputs.ProcedureJavaParameterLogLevel> logLevels,
 
             ImmutableArray<Outputs.ProcedureJavaParameterMetricLevel> metricLevels,
@@ -29,6 +32,7 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.ProcedureJavaParameterTraceLevel> traceLevels)
         {
             EnableConsoleOutputs = enableConsoleOutputs;
+            LogEventLevels = logEventLevels;
             LogLevels = logLevels;
             MetricLevels = metricLevels;
             TraceLevels = traceLevels;

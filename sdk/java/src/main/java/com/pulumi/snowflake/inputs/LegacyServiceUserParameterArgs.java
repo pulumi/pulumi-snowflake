@@ -30,6 +30,7 @@ import com.pulumi.snowflake.inputs.LegacyServiceUserParameterJdbcTreatTimestampN
 import com.pulumi.snowflake.inputs.LegacyServiceUserParameterJdbcUseSessionTimezoneArgs;
 import com.pulumi.snowflake.inputs.LegacyServiceUserParameterJsonIndentArgs;
 import com.pulumi.snowflake.inputs.LegacyServiceUserParameterLockTimeoutArgs;
+import com.pulumi.snowflake.inputs.LegacyServiceUserParameterLogEventLevelArgs;
 import com.pulumi.snowflake.inputs.LegacyServiceUserParameterLogLevelArgs;
 import com.pulumi.snowflake.inputs.LegacyServiceUserParameterMultiStatementCountArgs;
 import com.pulumi.snowflake.inputs.LegacyServiceUserParameterNetworkPolicyArgs;
@@ -246,6 +247,13 @@ public final class LegacyServiceUserParameterArgs extends com.pulumi.resources.R
 
     public Optional<Output<List<LegacyServiceUserParameterLockTimeoutArgs>>> lockTimeouts() {
         return Optional.ofNullable(this.lockTimeouts);
+    }
+
+    @Import(name="logEventLevels")
+    private @Nullable Output<List<LegacyServiceUserParameterLogEventLevelArgs>> logEventLevels;
+
+    public Optional<Output<List<LegacyServiceUserParameterLogEventLevelArgs>>> logEventLevels() {
+        return Optional.ofNullable(this.logEventLevels);
     }
 
     @Import(name="logLevels")
@@ -507,6 +515,7 @@ public final class LegacyServiceUserParameterArgs extends com.pulumi.resources.R
         this.jdbcUseSessionTimezones = $.jdbcUseSessionTimezones;
         this.jsonIndents = $.jsonIndents;
         this.lockTimeouts = $.lockTimeouts;
+        this.logEventLevels = $.logEventLevels;
         this.logLevels = $.logLevels;
         this.multiStatementCounts = $.multiStatementCounts;
         this.networkPolicies = $.networkPolicies;
@@ -883,6 +892,19 @@ public final class LegacyServiceUserParameterArgs extends com.pulumi.resources.R
 
         public Builder lockTimeouts(LegacyServiceUserParameterLockTimeoutArgs... lockTimeouts) {
             return lockTimeouts(List.of(lockTimeouts));
+        }
+
+        public Builder logEventLevels(@Nullable Output<List<LegacyServiceUserParameterLogEventLevelArgs>> logEventLevels) {
+            $.logEventLevels = logEventLevels;
+            return this;
+        }
+
+        public Builder logEventLevels(List<LegacyServiceUserParameterLogEventLevelArgs> logEventLevels) {
+            return logEventLevels(Output.of(logEventLevels));
+        }
+
+        public Builder logEventLevels(LegacyServiceUserParameterLogEventLevelArgs... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
 
         public Builder logLevels(@Nullable Output<List<LegacyServiceUserParameterLogLevelArgs>> logLevels) {

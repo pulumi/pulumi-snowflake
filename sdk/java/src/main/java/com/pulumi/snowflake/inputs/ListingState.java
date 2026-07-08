@@ -79,14 +79,14 @@ public final class ListingState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+     * Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+     * @return Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
      * 
      */
     public Optional<Output<String>> name() {
@@ -254,7 +254,7 @@ public final class ListingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+         * @param name Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class ListingState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+         * @param name Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
          * 
          * @return builder
          * 

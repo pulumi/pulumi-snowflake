@@ -54,6 +54,7 @@ class TaskArgs:
                  jdbc_use_session_timezone: pulumi.Input[Optional[_builtins.bool]] = None,
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_statement_count: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -118,7 +119,7 @@ class TaskArgs:
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the task.
-        :param pulumi.Input[_builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        :param pulumi.Input[_builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         :param pulumi.Input[_builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         :param pulumi.Input[_builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
         :param pulumi.Input[_builtins.bool] enable_unload_physical_type_optimization: Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
@@ -132,6 +133,7 @@ class TaskArgs:
         :param pulumi.Input[_builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -237,6 +239,8 @@ class TaskArgs:
             pulumi.set(__self__, "json_indent", json_indent)
         if lock_timeout is not None:
             pulumi.set(__self__, "lock_timeout", lock_timeout)
+        if log_event_level is not None:
+            pulumi.set(__self__, "log_event_level", log_event_level)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
         if multi_statement_count is not None:
@@ -554,7 +558,7 @@ class TaskArgs:
     @pulumi.getter
     def config(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         return pulumi.get(self, "config")
 
@@ -717,6 +721,18 @@ class TaskArgs:
     @lock_timeout.setter
     def lock_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lock_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @log_event_level.setter
+    def log_event_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_event_level", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
@@ -1257,6 +1273,7 @@ class _TaskState:
                  jdbc_use_session_timezone: pulumi.Input[Optional[_builtins.bool]] = None,
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_statement_count: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1322,7 +1339,7 @@ class _TaskState:
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the task.
-        :param pulumi.Input[_builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        :param pulumi.Input[_builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         :param pulumi.Input[_builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         :param pulumi.Input[_builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
@@ -1338,6 +1355,7 @@ class _TaskState:
         :param pulumi.Input[_builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -1448,6 +1466,8 @@ class _TaskState:
             pulumi.set(__self__, "json_indent", json_indent)
         if lock_timeout is not None:
             pulumi.set(__self__, "lock_timeout", lock_timeout)
+        if log_event_level is not None:
+            pulumi.set(__self__, "log_event_level", log_event_level)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
         if multi_statement_count is not None:
@@ -1727,7 +1747,7 @@ class _TaskState:
     @pulumi.getter
     def config(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         return pulumi.get(self, "config")
 
@@ -1914,6 +1934,18 @@ class _TaskState:
     @lock_timeout.setter
     def lock_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lock_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @log_event_level.setter
+    def log_event_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_event_level", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
@@ -2516,6 +2548,7 @@ class Task(pulumi.CustomResource):
                  jdbc_use_session_timezone: pulumi.Input[Optional[_builtins.bool]] = None,
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_statement_count: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2595,7 +2628,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the task.
-        :param pulumi.Input[_builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        :param pulumi.Input[_builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         :param pulumi.Input[_builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         :param pulumi.Input[_builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
@@ -2610,6 +2643,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -2723,6 +2757,7 @@ class Task(pulumi.CustomResource):
                  jdbc_use_session_timezone: pulumi.Input[Optional[_builtins.bool]] = None,
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  multi_statement_count: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2809,6 +2844,7 @@ class Task(pulumi.CustomResource):
             __props__.__dict__["jdbc_use_session_timezone"] = jdbc_use_session_timezone
             __props__.__dict__["json_indent"] = json_indent
             __props__.__dict__["lock_timeout"] = lock_timeout
+            __props__.__dict__["log_event_level"] = log_event_level
             __props__.__dict__["log_level"] = log_level
             __props__.__dict__["multi_statement_count"] = multi_statement_count
             __props__.__dict__["name"] = name
@@ -2904,6 +2940,7 @@ class Task(pulumi.CustomResource):
             jdbc_use_session_timezone: pulumi.Input[Optional[_builtins.bool]] = None,
             json_indent: pulumi.Input[Optional[_builtins.int]] = None,
             lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
             log_level: pulumi.Input[Optional[_builtins.str]] = None,
             multi_statement_count: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2973,7 +3010,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         :param pulumi.Input[_builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the task.
-        :param pulumi.Input[_builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        :param pulumi.Input[_builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         :param pulumi.Input[_builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         :param pulumi.Input[_builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
@@ -2989,6 +3026,7 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -3072,6 +3110,7 @@ class Task(pulumi.CustomResource):
         __props__.__dict__["jdbc_use_session_timezone"] = jdbc_use_session_timezone
         __props__.__dict__["json_indent"] = json_indent
         __props__.__dict__["lock_timeout"] = lock_timeout
+        __props__.__dict__["log_event_level"] = log_event_level
         __props__.__dict__["log_level"] = log_level
         __props__.__dict__["multi_statement_count"] = multi_statement_count
         __props__.__dict__["name"] = name
@@ -3245,7 +3284,7 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def config(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         return pulumi.get(self, "config")
 
@@ -3368,6 +3407,14 @@ class Task(pulumi.CustomResource):
         Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
         """
         return pulumi.get(self, "lock_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
 
     @_builtins.property
     @pulumi.getter(name="logLevel")

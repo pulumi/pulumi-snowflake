@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class FunctionScalaParameter
     {
         public readonly ImmutableArray<Outputs.FunctionScalaParameterEnableConsoleOutput> EnableConsoleOutputs;
+        public readonly ImmutableArray<Outputs.FunctionScalaParameterLogEventLevel> LogEventLevels;
         public readonly ImmutableArray<Outputs.FunctionScalaParameterLogLevel> LogLevels;
         public readonly ImmutableArray<Outputs.FunctionScalaParameterMetricLevel> MetricLevels;
         public readonly ImmutableArray<Outputs.FunctionScalaParameterTraceLevel> TraceLevels;
@@ -22,6 +23,8 @@ namespace Pulumi.Snowflake.Outputs
         private FunctionScalaParameter(
             ImmutableArray<Outputs.FunctionScalaParameterEnableConsoleOutput> enableConsoleOutputs,
 
+            ImmutableArray<Outputs.FunctionScalaParameterLogEventLevel> logEventLevels,
+
             ImmutableArray<Outputs.FunctionScalaParameterLogLevel> logLevels,
 
             ImmutableArray<Outputs.FunctionScalaParameterMetricLevel> metricLevels,
@@ -29,6 +32,7 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.FunctionScalaParameterTraceLevel> traceLevels)
         {
             EnableConsoleOutputs = enableConsoleOutputs;
+            LogEventLevels = logEventLevels;
             LogLevels = logLevels;
             MetricLevels = metricLevels;
             TraceLevels = traceLevels;

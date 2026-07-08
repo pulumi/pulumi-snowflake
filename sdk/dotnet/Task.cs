@@ -118,7 +118,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         /// </summary>
         [Output("config")]
         public Output<string?> Config { get; private set; } = null!;
@@ -212,6 +212,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("lockTimeout")]
         public Output<int> LockTimeout { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// </summary>
+        [Output("logEventLevel")]
+        public Output<string> LogEventLevel { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
@@ -638,7 +644,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         /// </summary>
         [Input("config")]
         public Input<string>? Config { get; set; }
@@ -726,6 +732,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("lockTimeout")]
         public Input<int>? LockTimeout { get; set; }
+
+        /// <summary>
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// </summary>
+        [Input("logEventLevel")]
+        public Input<string>? LogEventLevel { get; set; }
 
         /// <summary>
         /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
@@ -1102,7 +1114,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         /// </summary>
         [Input("config")]
         public Input<string>? Config { get; set; }
@@ -1196,6 +1208,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("lockTimeout")]
         public Input<int>? LockTimeout { get; set; }
+
+        /// <summary>
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// </summary>
+        [Input("logEventLevel")]
+        public Input<string>? LogEventLevel { get; set; }
 
         /// <summary>
         /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).

@@ -40,7 +40,7 @@ type CortexAgent struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW AGENTS` for this Cortex agent.
 	ShowOutputs CortexAgentShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Specifies a YAML object containing the settings for the Cortex agent.
+	// Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
 	Specification pulumi.StringOutput `pulumi:"specification"`
 }
 
@@ -99,7 +99,7 @@ type cortexAgentState struct {
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW AGENTS` for this Cortex agent.
 	ShowOutputs []CortexAgentShowOutput `pulumi:"showOutputs"`
-	// Specifies a YAML object containing the settings for the Cortex agent.
+	// Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
 	Specification *string `pulumi:"specification"`
 }
 
@@ -120,7 +120,7 @@ type CortexAgentState struct {
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW AGENTS` for this Cortex agent.
 	ShowOutputs CortexAgentShowOutputArrayInput
-	// Specifies a YAML object containing the settings for the Cortex agent.
+	// Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
 	Specification pulumi.StringPtrInput
 }
 
@@ -139,7 +139,7 @@ type cortexAgentArgs struct {
 	Profile *CortexAgentProfile `pulumi:"profile"`
 	// The schema in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
-	// Specifies a YAML object containing the settings for the Cortex agent.
+	// Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
 	Specification string `pulumi:"specification"`
 }
 
@@ -155,7 +155,7 @@ type CortexAgentArgs struct {
 	Profile CortexAgentProfilePtrInput
 	// The schema in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
-	// Specifies a YAML object containing the settings for the Cortex agent.
+	// Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
 	Specification pulumi.StringInput
 }
 
@@ -286,7 +286,7 @@ func (o CortexAgentOutput) ShowOutputs() CortexAgentShowOutputArrayOutput {
 	return o.ApplyT(func(v *CortexAgent) CortexAgentShowOutputArrayOutput { return v.ShowOutputs }).(CortexAgentShowOutputArrayOutput)
 }
 
-// Specifies a YAML object containing the settings for the Cortex agent.
+// Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
 func (o CortexAgentOutput) Specification() pulumi.StringOutput {
 	return o.ApplyT(func(v *CortexAgent) pulumi.StringOutput { return v.Specification }).(pulumi.StringOutput)
 }

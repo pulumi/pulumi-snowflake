@@ -395,7 +395,7 @@ class Notebook(pulumi.CustomResource):
 
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        Resource used to manage notebooks. For more information, check [notebooks documentation](https://docs.snowflake.com/en/sql-reference/sql/create-notebook).
+        Resource used to manage [Legacy Notebooks](https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks) (created with [CREATE NOTEBOOK](https://docs.snowflake.com/en/sql-reference/sql/create-notebook)). This resource does not manage the newer Notebooks in Workspaces / Notebook Project Objects (created with [CREATE NOTEBOOK PROJECT](https://docs.snowflake.com/en/sql-reference/sql/create-notebook-project)). For more information, check [notebooks documentation](https://docs.snowflake.com/en/sql-reference/sql/create-notebook).
 
         ## Example Usage
 
@@ -463,7 +463,7 @@ class Notebook(pulumi.CustomResource):
 
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        Resource used to manage notebooks. For more information, check [notebooks documentation](https://docs.snowflake.com/en/sql-reference/sql/create-notebook).
+        Resource used to manage [Legacy Notebooks](https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks) (created with [CREATE NOTEBOOK](https://docs.snowflake.com/en/sql-reference/sql/create-notebook)). This resource does not manage the newer Notebooks in Workspaces / Notebook Project Objects (created with [CREATE NOTEBOOK PROJECT](https://docs.snowflake.com/en/sql-reference/sql/create-notebook-project)). For more information, check [notebooks documentation](https://docs.snowflake.com/en/sql-reference/sql/create-notebook).
 
         ## Example Usage
 

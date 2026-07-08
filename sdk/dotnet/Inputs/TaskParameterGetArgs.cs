@@ -196,6 +196,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _lockTimeouts = value;
         }
 
+        [Input("logEventLevels")]
+        private InputList<Inputs.TaskParameterLogEventLevelGetArgs>? _logEventLevels;
+        public InputList<Inputs.TaskParameterLogEventLevelGetArgs> LogEventLevels
+        {
+            get => _logEventLevels ?? (_logEventLevels = new InputList<Inputs.TaskParameterLogEventLevelGetArgs>());
+            set => _logEventLevels = value;
+        }
+
         [Input("logLevels")]
         private InputList<Inputs.TaskParameterLogLevelGetArgs>? _logLevels;
         public InputList<Inputs.TaskParameterLogLevelGetArgs> LogLevels

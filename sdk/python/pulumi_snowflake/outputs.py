@@ -59,6 +59,24 @@ __all__ = [
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputParentIntegration',
     'ApiAuthenticationIntegrationWithJwtBearerShowOutput',
+    'ApiIntegrationAmazonApiGatewayDescribeOutput',
+    'ApiIntegrationAmazonApiGatewayShowOutput',
+    'ApiIntegrationAzureApiManagementDescribeOutput',
+    'ApiIntegrationAzureApiManagementShowOutput',
+    'ApiIntegrationExternalMcpDynamicClientDescribeOutput',
+    'ApiIntegrationExternalMcpDynamicClientShowOutput',
+    'ApiIntegrationExternalMcpOauth2DescribeOutput',
+    'ApiIntegrationExternalMcpOauth2ShowOutput',
+    'ApiIntegrationGitRepositoryGithubAppDescribeOutput',
+    'ApiIntegrationGitRepositoryGithubAppShowOutput',
+    'ApiIntegrationGitRepositoryOauth2DescribeOutput',
+    'ApiIntegrationGitRepositoryOauth2ShowOutput',
+    'ApiIntegrationGitRepositoryPrivateLinkDescribeOutput',
+    'ApiIntegrationGitRepositoryPrivateLinkShowOutput',
+    'ApiIntegrationGitRepositoryTokenDescribeOutput',
+    'ApiIntegrationGitRepositoryTokenShowOutput',
+    'ApiIntegrationGoogleCloudApiGatewayDescribeOutput',
+    'ApiIntegrationGoogleCloudApiGatewayShowOutput',
     'AuthenticationPolicyClientPolicy',
     'AuthenticationPolicyDescribeOutput',
     'AuthenticationPolicyMfaPolicy',
@@ -134,6 +152,7 @@ __all__ = [
     'FunctionJavaImport',
     'FunctionJavaParameter',
     'FunctionJavaParameterEnableConsoleOutput',
+    'FunctionJavaParameterLogEventLevel',
     'FunctionJavaParameterLogLevel',
     'FunctionJavaParameterMetricLevel',
     'FunctionJavaParameterTraceLevel',
@@ -143,6 +162,7 @@ __all__ = [
     'FunctionJavascriptArgument',
     'FunctionJavascriptParameter',
     'FunctionJavascriptParameterEnableConsoleOutput',
+    'FunctionJavascriptParameterLogEventLevel',
     'FunctionJavascriptParameterLogLevel',
     'FunctionJavascriptParameterMetricLevel',
     'FunctionJavascriptParameterTraceLevel',
@@ -151,6 +171,7 @@ __all__ = [
     'FunctionPythonImport',
     'FunctionPythonParameter',
     'FunctionPythonParameterEnableConsoleOutput',
+    'FunctionPythonParameterLogEventLevel',
     'FunctionPythonParameterLogLevel',
     'FunctionPythonParameterMetricLevel',
     'FunctionPythonParameterTraceLevel',
@@ -160,6 +181,7 @@ __all__ = [
     'FunctionScalaImport',
     'FunctionScalaParameter',
     'FunctionScalaParameterEnableConsoleOutput',
+    'FunctionScalaParameterLogEventLevel',
     'FunctionScalaParameterLogLevel',
     'FunctionScalaParameterMetricLevel',
     'FunctionScalaParameterTraceLevel',
@@ -169,6 +191,7 @@ __all__ = [
     'FunctionSqlArgument',
     'FunctionSqlParameter',
     'FunctionSqlParameterEnableConsoleOutput',
+    'FunctionSqlParameterLogEventLevel',
     'FunctionSqlParameterLogLevel',
     'FunctionSqlParameterMetricLevel',
     'FunctionSqlParameterTraceLevel',
@@ -187,6 +210,20 @@ __all__ = [
     'GrantPrivilegesToDatabaseRoleOnSchemaObject',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectAll',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture',
+    'IcebergTableFromDeltaFilesDescribeOutput',
+    'IcebergTableFromDeltaFilesParameter',
+    'IcebergTableFromDeltaFilesParameterCatalog',
+    'IcebergTableFromDeltaFilesParameterExternalVolume',
+    'IcebergTableFromDeltaFilesParameterReplaceInvalidCharacter',
+    'IcebergTableFromDeltaFilesShowOutput',
+    'IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus',
+    'IcebergTableFromFilesDescribeOutput',
+    'IcebergTableFromFilesParameter',
+    'IcebergTableFromFilesParameterCatalog',
+    'IcebergTableFromFilesParameterExternalVolume',
+    'IcebergTableFromFilesParameterReplaceInvalidCharacter',
+    'IcebergTableFromFilesShowOutput',
+    'IcebergTableFromFilesShowOutputAutoRefreshStatus',
     'ImageRepositoryShowOutput',
     'JobServiceDescribeOutput',
     'JobServiceFromSpecification',
@@ -224,6 +261,7 @@ __all__ = [
     'LegacyServiceUserParameterJdbcUseSessionTimezone',
     'LegacyServiceUserParameterJsonIndent',
     'LegacyServiceUserParameterLockTimeout',
+    'LegacyServiceUserParameterLogEventLevel',
     'LegacyServiceUserParameterLogLevel',
     'LegacyServiceUserParameterMultiStatementCount',
     'LegacyServiceUserParameterNetworkPolicy',
@@ -318,11 +356,14 @@ __all__ = [
     'ObjectParameterObjectIdentifier',
     'PasswordPolicyDescribeOutput',
     'PasswordPolicyShowOutput',
+    'PostgresInstanceDescribeOutput',
+    'PostgresInstanceShowOutput',
     'PrimaryConnectionShowOutput',
     'ProcedureJavaArgument',
     'ProcedureJavaImport',
     'ProcedureJavaParameter',
     'ProcedureJavaParameterEnableConsoleOutput',
+    'ProcedureJavaParameterLogEventLevel',
     'ProcedureJavaParameterLogLevel',
     'ProcedureJavaParameterMetricLevel',
     'ProcedureJavaParameterTraceLevel',
@@ -332,6 +373,7 @@ __all__ = [
     'ProcedureJavascriptArgument',
     'ProcedureJavascriptParameter',
     'ProcedureJavascriptParameterEnableConsoleOutput',
+    'ProcedureJavascriptParameterLogEventLevel',
     'ProcedureJavascriptParameterLogLevel',
     'ProcedureJavascriptParameterMetricLevel',
     'ProcedureJavascriptParameterTraceLevel',
@@ -340,6 +382,7 @@ __all__ = [
     'ProcedurePythonImport',
     'ProcedurePythonParameter',
     'ProcedurePythonParameterEnableConsoleOutput',
+    'ProcedurePythonParameterLogEventLevel',
     'ProcedurePythonParameterLogLevel',
     'ProcedurePythonParameterMetricLevel',
     'ProcedurePythonParameterTraceLevel',
@@ -349,6 +392,7 @@ __all__ = [
     'ProcedureScalaImport',
     'ProcedureScalaParameter',
     'ProcedureScalaParameterEnableConsoleOutput',
+    'ProcedureScalaParameterLogEventLevel',
     'ProcedureScalaParameterLogLevel',
     'ProcedureScalaParameterMetricLevel',
     'ProcedureScalaParameterTraceLevel',
@@ -358,6 +402,7 @@ __all__ = [
     'ProcedureSqlArgument',
     'ProcedureSqlParameter',
     'ProcedureSqlParameterEnableConsoleOutput',
+    'ProcedureSqlParameterLogEventLevel',
     'ProcedureSqlParameterLogLevel',
     'ProcedureSqlParameterMetricLevel',
     'ProcedureSqlParameterTraceLevel',
@@ -393,6 +438,7 @@ __all__ = [
     'SchemaParameterDefaultDdlCollation',
     'SchemaParameterEnableConsoleOutput',
     'SchemaParameterExternalVolume',
+    'SchemaParameterLogEventLevel',
     'SchemaParameterLogLevel',
     'SchemaParameterMaxDataExtensionTimeInDay',
     'SchemaParameterPipeExecutionPaused',
@@ -470,6 +516,7 @@ __all__ = [
     'ServiceUserParameterJdbcUseSessionTimezone',
     'ServiceUserParameterJsonIndent',
     'ServiceUserParameterLockTimeout',
+    'ServiceUserParameterLogEventLevel',
     'ServiceUserParameterLogLevel',
     'ServiceUserParameterMultiStatementCount',
     'ServiceUserParameterNetworkPolicy',
@@ -639,6 +686,10 @@ __all__ = [
     'StorageIntegrationDescribeOutputUsePrivatelinkEndpoint',
     'StorageIntegrationGcsDescribeOutput',
     'StorageIntegrationGcsShowOutput',
+    'StorageLifecyclePolicyArgument',
+    'StorageLifecyclePolicyDescribeOutput',
+    'StorageLifecyclePolicyDescribeOutputSignature',
+    'StorageLifecyclePolicyShowOutput',
     'StreamOnDirectoryTableDescribeOutput',
     'StreamOnDirectoryTableShowOutput',
     'StreamOnExternalTableAt',
@@ -688,6 +739,7 @@ __all__ = [
     'TaskParameterJdbcUseSessionTimezone',
     'TaskParameterJsonIndent',
     'TaskParameterLockTimeout',
+    'TaskParameterLogEventLevel',
     'TaskParameterLogLevel',
     'TaskParameterMultiStatementCount',
     'TaskParameterNoorderSequenceAsDefault',
@@ -756,6 +808,7 @@ __all__ = [
     'UserParameterJdbcUseSessionTimezone',
     'UserParameterJsonIndent',
     'UserParameterLockTimeout',
+    'UserParameterLogEventLevel',
     'UserParameterLogLevel',
     'UserParameterMultiStatementCount',
     'UserParameterNetworkPolicy',
@@ -814,6 +867,9 @@ __all__ = [
     'GetAccountsAccountResult',
     'GetAccountsAccountShowOutputResult',
     'GetAlertsAlertResult',
+    'GetApiIntegrationsApiIntegrationResult',
+    'GetApiIntegrationsApiIntegrationDescribeOutputResult',
+    'GetApiIntegrationsApiIntegrationShowOutputResult',
     'GetAuthenticationPoliciesAuthenticationPolicyResult',
     'GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputResult',
     'GetAuthenticationPoliciesAuthenticationPolicyShowOutputResult',
@@ -854,6 +910,7 @@ __all__ = [
     'GetDatabasesDatabaseParameterDefaultDdlCollationResult',
     'GetDatabasesDatabaseParameterEnableConsoleOutputResult',
     'GetDatabasesDatabaseParameterExternalVolumeResult',
+    'GetDatabasesDatabaseParameterLogEventLevelResult',
     'GetDatabasesDatabaseParameterLogLevelResult',
     'GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayResult',
     'GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseResult',
@@ -949,6 +1006,7 @@ __all__ = [
     'GetSchemasSchemaParameterDefaultDdlCollationResult',
     'GetSchemasSchemaParameterEnableConsoleOutputResult',
     'GetSchemasSchemaParameterExternalVolumeResult',
+    'GetSchemasSchemaParameterLogEventLevelResult',
     'GetSchemasSchemaParameterLogLevelResult',
     'GetSchemasSchemaParameterMaxDataExtensionTimeInDayResult',
     'GetSchemasSchemaParameterPipeExecutionPausedResult',
@@ -1055,6 +1113,11 @@ __all__ = [
     'GetStorageIntegrationsStorageIntegrationResult',
     'GetStorageIntegrationsStorageIntegrationDescribeOutputResult',
     'GetStorageIntegrationsStorageIntegrationShowOutputResult',
+    'GetStorageLifecyclePoliciesInResult',
+    'GetStorageLifecyclePoliciesStorageLifecyclePolicyResult',
+    'GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputResult',
+    'GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignatureResult',
+    'GetStorageLifecyclePoliciesStorageLifecyclePolicyShowOutputResult',
     'GetStreamlitsInResult',
     'GetStreamlitsLimitResult',
     'GetStreamlitsStreamlitResult',
@@ -1100,6 +1163,7 @@ __all__ = [
     'GetTasksTaskParameterJdbcUseSessionTimezoneResult',
     'GetTasksTaskParameterJsonIndentResult',
     'GetTasksTaskParameterLockTimeoutResult',
+    'GetTasksTaskParameterLogEventLevelResult',
     'GetTasksTaskParameterLogLevelResult',
     'GetTasksTaskParameterMultiStatementCountResult',
     'GetTasksTaskParameterNoorderSequenceAsDefaultResult',
@@ -1171,6 +1235,7 @@ __all__ = [
     'GetUsersUserParameterJdbcUseSessionTimezoneResult',
     'GetUsersUserParameterJsonIndentResult',
     'GetUsersUserParameterLockTimeoutResult',
+    'GetUsersUserParameterLogEventLevelResult',
     'GetUsersUserParameterLogLevelResult',
     'GetUsersUserParameterMultiStatementCountResult',
     'GetUsersUserParameterNetworkPolicyResult',
@@ -3524,6 +3589,1618 @@ class ApiAuthenticationIntegrationWithJwtBearerShowOutput(dict):
     @pulumi.getter(name="integrationType")
     def integration_type(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "integration_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiIntegrationAmazonApiGatewayDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedPrefixes":
+            suggest = "allowed_prefixes"
+        elif key == "apiAwsExternalId":
+            suggest = "api_aws_external_id"
+        elif key == "apiAwsIamUserArn":
+            suggest = "api_aws_iam_user_arn"
+        elif key == "apiAwsRoleArn":
+            suggest = "api_aws_role_arn"
+        elif key == "apiKey":
+            suggest = "api_key"
+        elif key == "apiProvider":
+            suggest = "api_provider"
+        elif key == "blockedPrefixes":
+            suggest = "blocked_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationAmazonApiGatewayDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationAmazonApiGatewayDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationAmazonApiGatewayDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 api_aws_external_id: Optional[_builtins.str] = None,
+                 api_aws_iam_user_arn: Optional[_builtins.str] = None,
+                 api_aws_role_arn: Optional[_builtins.str] = None,
+                 api_key: Optional[_builtins.str] = None,
+                 api_provider: Optional[_builtins.str] = None,
+                 blocked_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None):
+        if allowed_prefixes is not None:
+            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        if api_aws_external_id is not None:
+            pulumi.set(__self__, "api_aws_external_id", api_aws_external_id)
+        if api_aws_iam_user_arn is not None:
+            pulumi.set(__self__, "api_aws_iam_user_arn", api_aws_iam_user_arn)
+        if api_aws_role_arn is not None:
+            pulumi.set(__self__, "api_aws_role_arn", api_aws_role_arn)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if api_provider is not None:
+            pulumi.set(__self__, "api_provider", api_provider)
+        if blocked_prefixes is not None:
+            pulumi.set(__self__, "blocked_prefixes", blocked_prefixes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedPrefixes")
+    def allowed_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="apiAwsExternalId")
+    def api_aws_external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_aws_external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="apiAwsIamUserArn")
+    def api_aws_iam_user_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_aws_iam_user_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="apiAwsRoleArn")
+    def api_aws_role_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_aws_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter(name="apiProvider")
+    def api_provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedPrefixes")
+    def blocked_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_prefixes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ApiIntegrationAmazonApiGatewayShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiType":
+            suggest = "api_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationAmazonApiGatewayShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationAmazonApiGatewayShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationAmazonApiGatewayShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_type: Optional[_builtins.str] = None,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiIntegrationAzureApiManagementDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedPrefixes":
+            suggest = "allowed_prefixes"
+        elif key == "apiKey":
+            suggest = "api_key"
+        elif key == "apiProvider":
+            suggest = "api_provider"
+        elif key == "azureAdApplicationId":
+            suggest = "azure_ad_application_id"
+        elif key == "azureConsentUrl":
+            suggest = "azure_consent_url"
+        elif key == "azureMultiTenantAppName":
+            suggest = "azure_multi_tenant_app_name"
+        elif key == "azureTenantId":
+            suggest = "azure_tenant_id"
+        elif key == "blockedPrefixes":
+            suggest = "blocked_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationAzureApiManagementDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationAzureApiManagementDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationAzureApiManagementDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 api_key: Optional[_builtins.str] = None,
+                 api_provider: Optional[_builtins.str] = None,
+                 azure_ad_application_id: Optional[_builtins.str] = None,
+                 azure_consent_url: Optional[_builtins.str] = None,
+                 azure_multi_tenant_app_name: Optional[_builtins.str] = None,
+                 azure_tenant_id: Optional[_builtins.str] = None,
+                 blocked_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None):
+        if allowed_prefixes is not None:
+            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if api_provider is not None:
+            pulumi.set(__self__, "api_provider", api_provider)
+        if azure_ad_application_id is not None:
+            pulumi.set(__self__, "azure_ad_application_id", azure_ad_application_id)
+        if azure_consent_url is not None:
+            pulumi.set(__self__, "azure_consent_url", azure_consent_url)
+        if azure_multi_tenant_app_name is not None:
+            pulumi.set(__self__, "azure_multi_tenant_app_name", azure_multi_tenant_app_name)
+        if azure_tenant_id is not None:
+            pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+        if blocked_prefixes is not None:
+            pulumi.set(__self__, "blocked_prefixes", blocked_prefixes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedPrefixes")
+    def allowed_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter(name="apiProvider")
+    def api_provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="azureAdApplicationId")
+    def azure_ad_application_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "azure_ad_application_id")
+
+    @_builtins.property
+    @pulumi.getter(name="azureConsentUrl")
+    def azure_consent_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "azure_consent_url")
+
+    @_builtins.property
+    @pulumi.getter(name="azureMultiTenantAppName")
+    def azure_multi_tenant_app_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "azure_multi_tenant_app_name")
+
+    @_builtins.property
+    @pulumi.getter(name="azureTenantId")
+    def azure_tenant_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "azure_tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedPrefixes")
+    def blocked_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_prefixes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ApiIntegrationAzureApiManagementShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiType":
+            suggest = "api_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationAzureApiManagementShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationAzureApiManagementShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationAzureApiManagementShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_type: Optional[_builtins.str] = None,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiIntegrationExternalMcpDynamicClientDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedPrefixes":
+            suggest = "allowed_prefixes"
+        elif key == "apiProvider":
+            suggest = "api_provider"
+        elif key == "blockedPrefixes":
+            suggest = "blocked_prefixes"
+        elif key == "oauthResourceUrl":
+            suggest = "oauth_resource_url"
+        elif key == "userAuthType":
+            suggest = "user_auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationExternalMcpDynamicClientDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationExternalMcpDynamicClientDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationExternalMcpDynamicClientDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 api_provider: Optional[_builtins.str] = None,
+                 blocked_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 oauth_resource_url: Optional[_builtins.str] = None,
+                 user_auth_type: Optional[_builtins.str] = None):
+        if allowed_prefixes is not None:
+            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        if api_provider is not None:
+            pulumi.set(__self__, "api_provider", api_provider)
+        if blocked_prefixes is not None:
+            pulumi.set(__self__, "blocked_prefixes", blocked_prefixes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if oauth_resource_url is not None:
+            pulumi.set(__self__, "oauth_resource_url", oauth_resource_url)
+        if user_auth_type is not None:
+            pulumi.set(__self__, "user_auth_type", user_auth_type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedPrefixes")
+    def allowed_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="apiProvider")
+    def api_provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedPrefixes")
+    def blocked_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_prefixes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthResourceUrl")
+    def oauth_resource_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_resource_url")
+
+    @_builtins.property
+    @pulumi.getter(name="userAuthType")
+    def user_auth_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_auth_type")
+
+
+@pulumi.output_type
+class ApiIntegrationExternalMcpDynamicClientShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiType":
+            suggest = "api_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationExternalMcpDynamicClientShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationExternalMcpDynamicClientShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationExternalMcpDynamicClientShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_type: Optional[_builtins.str] = None,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiIntegrationExternalMcpOauth2DescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedPrefixes":
+            suggest = "allowed_prefixes"
+        elif key == "apiProvider":
+            suggest = "api_provider"
+        elif key == "blockedPrefixes":
+            suggest = "blocked_prefixes"
+        elif key == "oauthAccessTokenValidity":
+            suggest = "oauth_access_token_validity"
+        elif key == "oauthAllowedScopes":
+            suggest = "oauth_allowed_scopes"
+        elif key == "oauthAssertionIssuer":
+            suggest = "oauth_assertion_issuer"
+        elif key == "oauthAuthorizationEndpoint":
+            suggest = "oauth_authorization_endpoint"
+        elif key == "oauthClientAuthMethod":
+            suggest = "oauth_client_auth_method"
+        elif key == "oauthClientId":
+            suggest = "oauth_client_id"
+        elif key == "oauthGrant":
+            suggest = "oauth_grant"
+        elif key == "oauthRefreshTokenValidity":
+            suggest = "oauth_refresh_token_validity"
+        elif key == "oauthTokenEndpoint":
+            suggest = "oauth_token_endpoint"
+        elif key == "oauthUsername":
+            suggest = "oauth_username"
+        elif key == "userAuthType":
+            suggest = "user_auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationExternalMcpOauth2DescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationExternalMcpOauth2DescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationExternalMcpOauth2DescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 api_provider: Optional[_builtins.str] = None,
+                 blocked_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 oauth_access_token_validity: Optional[_builtins.int] = None,
+                 oauth_allowed_scopes: Optional[Sequence[_builtins.str]] = None,
+                 oauth_assertion_issuer: Optional[_builtins.str] = None,
+                 oauth_authorization_endpoint: Optional[_builtins.str] = None,
+                 oauth_client_auth_method: Optional[_builtins.str] = None,
+                 oauth_client_id: Optional[_builtins.str] = None,
+                 oauth_grant: Optional[_builtins.str] = None,
+                 oauth_refresh_token_validity: Optional[_builtins.int] = None,
+                 oauth_token_endpoint: Optional[_builtins.str] = None,
+                 oauth_username: Optional[_builtins.str] = None,
+                 user_auth_type: Optional[_builtins.str] = None):
+        if allowed_prefixes is not None:
+            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        if api_provider is not None:
+            pulumi.set(__self__, "api_provider", api_provider)
+        if blocked_prefixes is not None:
+            pulumi.set(__self__, "blocked_prefixes", blocked_prefixes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if oauth_access_token_validity is not None:
+            pulumi.set(__self__, "oauth_access_token_validity", oauth_access_token_validity)
+        if oauth_allowed_scopes is not None:
+            pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        if oauth_assertion_issuer is not None:
+            pulumi.set(__self__, "oauth_assertion_issuer", oauth_assertion_issuer)
+        if oauth_authorization_endpoint is not None:
+            pulumi.set(__self__, "oauth_authorization_endpoint", oauth_authorization_endpoint)
+        if oauth_client_auth_method is not None:
+            pulumi.set(__self__, "oauth_client_auth_method", oauth_client_auth_method)
+        if oauth_client_id is not None:
+            pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+        if oauth_grant is not None:
+            pulumi.set(__self__, "oauth_grant", oauth_grant)
+        if oauth_refresh_token_validity is not None:
+            pulumi.set(__self__, "oauth_refresh_token_validity", oauth_refresh_token_validity)
+        if oauth_token_endpoint is not None:
+            pulumi.set(__self__, "oauth_token_endpoint", oauth_token_endpoint)
+        if oauth_username is not None:
+            pulumi.set(__self__, "oauth_username", oauth_username)
+        if user_auth_type is not None:
+            pulumi.set(__self__, "user_auth_type", user_auth_type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedPrefixes")
+    def allowed_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="apiProvider")
+    def api_provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedPrefixes")
+    def blocked_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_prefixes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAccessTokenValidity")
+    def oauth_access_token_validity(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "oauth_access_token_validity")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAssertionIssuer")
+    def oauth_assertion_issuer(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_assertion_issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAuthorizationEndpoint")
+    def oauth_authorization_endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientAuthMethod")
+    def oauth_client_auth_method(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_client_auth_method")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientId")
+    def oauth_client_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthGrant")
+    def oauth_grant(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_grant")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthRefreshTokenValidity")
+    def oauth_refresh_token_validity(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "oauth_refresh_token_validity")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthTokenEndpoint")
+    def oauth_token_endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_token_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthUsername")
+    def oauth_username(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_username")
+
+    @_builtins.property
+    @pulumi.getter(name="userAuthType")
+    def user_auth_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_auth_type")
+
+
+@pulumi.output_type
+class ApiIntegrationExternalMcpOauth2ShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiType":
+            suggest = "api_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationExternalMcpOauth2ShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationExternalMcpOauth2ShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationExternalMcpOauth2ShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_type: Optional[_builtins.str] = None,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiIntegrationGitRepositoryGithubAppDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedPrefixes":
+            suggest = "allowed_prefixes"
+        elif key == "apiProvider":
+            suggest = "api_provider"
+        elif key == "blockedPrefixes":
+            suggest = "blocked_prefixes"
+        elif key == "userAuthType":
+            suggest = "user_auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationGitRepositoryGithubAppDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationGitRepositoryGithubAppDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationGitRepositoryGithubAppDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 api_provider: Optional[_builtins.str] = None,
+                 blocked_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 user_auth_type: Optional[_builtins.str] = None):
+        if allowed_prefixes is not None:
+            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        if api_provider is not None:
+            pulumi.set(__self__, "api_provider", api_provider)
+        if blocked_prefixes is not None:
+            pulumi.set(__self__, "blocked_prefixes", blocked_prefixes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if user_auth_type is not None:
+            pulumi.set(__self__, "user_auth_type", user_auth_type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedPrefixes")
+    def allowed_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="apiProvider")
+    def api_provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedPrefixes")
+    def blocked_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_prefixes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="userAuthType")
+    def user_auth_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_auth_type")
+
+
+@pulumi.output_type
+class ApiIntegrationGitRepositoryGithubAppShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiType":
+            suggest = "api_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationGitRepositoryGithubAppShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationGitRepositoryGithubAppShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationGitRepositoryGithubAppShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_type: Optional[_builtins.str] = None,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiIntegrationGitRepositoryOauth2DescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedPrefixes":
+            suggest = "allowed_prefixes"
+        elif key == "blockedPrefixes":
+            suggest = "blocked_prefixes"
+        elif key == "oauthAccessTokenValidity":
+            suggest = "oauth_access_token_validity"
+        elif key == "oauthAllowedScopes":
+            suggest = "oauth_allowed_scopes"
+        elif key == "oauthAuthorizationEndpoint":
+            suggest = "oauth_authorization_endpoint"
+        elif key == "oauthClientId":
+            suggest = "oauth_client_id"
+        elif key == "oauthRefreshTokenValidity":
+            suggest = "oauth_refresh_token_validity"
+        elif key == "oauthTokenEndpoint":
+            suggest = "oauth_token_endpoint"
+        elif key == "oauthUsername":
+            suggest = "oauth_username"
+        elif key == "userAuthType":
+            suggest = "user_auth_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationGitRepositoryOauth2DescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationGitRepositoryOauth2DescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationGitRepositoryOauth2DescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 blocked_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 oauth_access_token_validity: Optional[_builtins.int] = None,
+                 oauth_allowed_scopes: Optional[Sequence[_builtins.str]] = None,
+                 oauth_authorization_endpoint: Optional[_builtins.str] = None,
+                 oauth_client_id: Optional[_builtins.str] = None,
+                 oauth_refresh_token_validity: Optional[_builtins.int] = None,
+                 oauth_token_endpoint: Optional[_builtins.str] = None,
+                 oauth_username: Optional[_builtins.str] = None,
+                 user_auth_type: Optional[_builtins.str] = None):
+        if allowed_prefixes is not None:
+            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        if blocked_prefixes is not None:
+            pulumi.set(__self__, "blocked_prefixes", blocked_prefixes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if oauth_access_token_validity is not None:
+            pulumi.set(__self__, "oauth_access_token_validity", oauth_access_token_validity)
+        if oauth_allowed_scopes is not None:
+            pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        if oauth_authorization_endpoint is not None:
+            pulumi.set(__self__, "oauth_authorization_endpoint", oauth_authorization_endpoint)
+        if oauth_client_id is not None:
+            pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+        if oauth_refresh_token_validity is not None:
+            pulumi.set(__self__, "oauth_refresh_token_validity", oauth_refresh_token_validity)
+        if oauth_token_endpoint is not None:
+            pulumi.set(__self__, "oauth_token_endpoint", oauth_token_endpoint)
+        if oauth_username is not None:
+            pulumi.set(__self__, "oauth_username", oauth_username)
+        if user_auth_type is not None:
+            pulumi.set(__self__, "user_auth_type", user_auth_type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedPrefixes")
+    def allowed_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedPrefixes")
+    def blocked_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_prefixes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAccessTokenValidity")
+    def oauth_access_token_validity(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "oauth_access_token_validity")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAuthorizationEndpoint")
+    def oauth_authorization_endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientId")
+    def oauth_client_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthRefreshTokenValidity")
+    def oauth_refresh_token_validity(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "oauth_refresh_token_validity")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthTokenEndpoint")
+    def oauth_token_endpoint(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_token_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthUsername")
+    def oauth_username(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "oauth_username")
+
+    @_builtins.property
+    @pulumi.getter(name="userAuthType")
+    def user_auth_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "user_auth_type")
+
+
+@pulumi.output_type
+class ApiIntegrationGitRepositoryOauth2ShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiType":
+            suggest = "api_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationGitRepositoryOauth2ShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationGitRepositoryOauth2ShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationGitRepositoryOauth2ShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_type: Optional[_builtins.str] = None,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiIntegrationGitRepositoryPrivateLinkDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAuthenticationSecrets":
+            suggest = "allowed_authentication_secrets"
+        elif key == "allowedPrefixes":
+            suggest = "allowed_prefixes"
+        elif key == "apiProvider":
+            suggest = "api_provider"
+        elif key == "blockedPrefixes":
+            suggest = "blocked_prefixes"
+        elif key == "tlsTrustedCertificates":
+            suggest = "tls_trusted_certificates"
+        elif key == "usePrivatelinkEndpoint":
+            suggest = "use_privatelink_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationGitRepositoryPrivateLinkDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationGitRepositoryPrivateLinkDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationGitRepositoryPrivateLinkDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_authentication_secrets: Optional[_builtins.str] = None,
+                 allowed_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 api_provider: Optional[_builtins.str] = None,
+                 blocked_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 tls_trusted_certificates: Optional[Sequence[_builtins.str]] = None,
+                 use_privatelink_endpoint: Optional[_builtins.bool] = None):
+        if allowed_authentication_secrets is not None:
+            pulumi.set(__self__, "allowed_authentication_secrets", allowed_authentication_secrets)
+        if allowed_prefixes is not None:
+            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        if api_provider is not None:
+            pulumi.set(__self__, "api_provider", api_provider)
+        if blocked_prefixes is not None:
+            pulumi.set(__self__, "blocked_prefixes", blocked_prefixes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if tls_trusted_certificates is not None:
+            pulumi.set(__self__, "tls_trusted_certificates", tls_trusted_certificates)
+        if use_privatelink_endpoint is not None:
+            pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAuthenticationSecrets")
+    def allowed_authentication_secrets(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "allowed_authentication_secrets")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedPrefixes")
+    def allowed_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="apiProvider")
+    def api_provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedPrefixes")
+    def blocked_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_prefixes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="tlsTrustedCertificates")
+    def tls_trusted_certificates(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "tls_trusted_certificates")
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+
+@pulumi.output_type
+class ApiIntegrationGitRepositoryPrivateLinkShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiType":
+            suggest = "api_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationGitRepositoryPrivateLinkShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationGitRepositoryPrivateLinkShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationGitRepositoryPrivateLinkShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_type: Optional[_builtins.str] = None,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiIntegrationGitRepositoryTokenDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedAuthenticationSecrets":
+            suggest = "allowed_authentication_secrets"
+        elif key == "allowedPrefixes":
+            suggest = "allowed_prefixes"
+        elif key == "apiProvider":
+            suggest = "api_provider"
+        elif key == "blockedPrefixes":
+            suggest = "blocked_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationGitRepositoryTokenDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationGitRepositoryTokenDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationGitRepositoryTokenDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_authentication_secrets: Optional[_builtins.str] = None,
+                 allowed_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 api_provider: Optional[_builtins.str] = None,
+                 blocked_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None):
+        if allowed_authentication_secrets is not None:
+            pulumi.set(__self__, "allowed_authentication_secrets", allowed_authentication_secrets)
+        if allowed_prefixes is not None:
+            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        if api_provider is not None:
+            pulumi.set(__self__, "api_provider", api_provider)
+        if blocked_prefixes is not None:
+            pulumi.set(__self__, "blocked_prefixes", blocked_prefixes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAuthenticationSecrets")
+    def allowed_authentication_secrets(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "allowed_authentication_secrets")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedPrefixes")
+    def allowed_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="apiProvider")
+    def api_provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedPrefixes")
+    def blocked_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_prefixes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ApiIntegrationGitRepositoryTokenShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiType":
+            suggest = "api_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationGitRepositoryTokenShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationGitRepositoryTokenShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationGitRepositoryTokenShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_type: Optional[_builtins.str] = None,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiIntegrationGoogleCloudApiGatewayDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedPrefixes":
+            suggest = "allowed_prefixes"
+        elif key == "apiKey":
+            suggest = "api_key"
+        elif key == "apiProvider":
+            suggest = "api_provider"
+        elif key == "blockedPrefixes":
+            suggest = "blocked_prefixes"
+        elif key == "googleApiServiceAccount":
+            suggest = "google_api_service_account"
+        elif key == "googleAudience":
+            suggest = "google_audience"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationGoogleCloudApiGatewayDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationGoogleCloudApiGatewayDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationGoogleCloudApiGatewayDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 api_key: Optional[_builtins.str] = None,
+                 api_provider: Optional[_builtins.str] = None,
+                 blocked_prefixes: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 google_api_service_account: Optional[_builtins.str] = None,
+                 google_audience: Optional[_builtins.str] = None):
+        if allowed_prefixes is not None:
+            pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        if api_key is not None:
+            pulumi.set(__self__, "api_key", api_key)
+        if api_provider is not None:
+            pulumi.set(__self__, "api_provider", api_provider)
+        if blocked_prefixes is not None:
+            pulumi.set(__self__, "blocked_prefixes", blocked_prefixes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if google_api_service_account is not None:
+            pulumi.set(__self__, "google_api_service_account", google_api_service_account)
+        if google_audience is not None:
+            pulumi.set(__self__, "google_audience", google_audience)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedPrefixes")
+    def allowed_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter(name="apiProvider")
+    def api_provider(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedPrefixes")
+    def blocked_prefixes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "blocked_prefixes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="googleApiServiceAccount")
+    def google_api_service_account(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "google_api_service_account")
+
+    @_builtins.property
+    @pulumi.getter(name="googleAudience")
+    def google_audience(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "google_audience")
+
+
+@pulumi.output_type
+class ApiIntegrationGoogleCloudApiGatewayShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiType":
+            suggest = "api_type"
+        elif key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiIntegrationGoogleCloudApiGatewayShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiIntegrationGoogleCloudApiGatewayShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiIntegrationGoogleCloudApiGatewayShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_type: Optional[_builtins.str] = None,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None):
+        if api_type is not None:
+            pulumi.set(__self__, "api_type", api_type)
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "api_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -8714,6 +10391,8 @@ class FunctionJavaParameter(dict):
         suggest = None
         if key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "metricLevels":
@@ -8734,11 +10413,14 @@ class FunctionJavaParameter(dict):
 
     def __init__(__self__, *,
                  enable_console_outputs: Optional[Sequence['outputs.FunctionJavaParameterEnableConsoleOutput']] = None,
+                 log_event_levels: Optional[Sequence['outputs.FunctionJavaParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.FunctionJavaParameterLogLevel']] = None,
                  metric_levels: Optional[Sequence['outputs.FunctionJavaParameterMetricLevel']] = None,
                  trace_levels: Optional[Sequence['outputs.FunctionJavaParameterTraceLevel']] = None):
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if metric_levels is not None:
@@ -8750,6 +10432,11 @@ class FunctionJavaParameter(dict):
     @pulumi.getter(name="enableConsoleOutputs")
     def enable_console_outputs(self) -> Optional[Sequence['outputs.FunctionJavaParameterEnableConsoleOutput']]:
         return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.FunctionJavaParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -8769,6 +10456,51 @@ class FunctionJavaParameter(dict):
 
 @pulumi.output_type
 class FunctionJavaParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionJavaParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -9324,6 +11056,8 @@ class FunctionJavascriptParameter(dict):
         suggest = None
         if key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "metricLevels":
@@ -9344,11 +11078,14 @@ class FunctionJavascriptParameter(dict):
 
     def __init__(__self__, *,
                  enable_console_outputs: Optional[Sequence['outputs.FunctionJavascriptParameterEnableConsoleOutput']] = None,
+                 log_event_levels: Optional[Sequence['outputs.FunctionJavascriptParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.FunctionJavascriptParameterLogLevel']] = None,
                  metric_levels: Optional[Sequence['outputs.FunctionJavascriptParameterMetricLevel']] = None,
                  trace_levels: Optional[Sequence['outputs.FunctionJavascriptParameterTraceLevel']] = None):
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if metric_levels is not None:
@@ -9360,6 +11097,11 @@ class FunctionJavascriptParameter(dict):
     @pulumi.getter(name="enableConsoleOutputs")
     def enable_console_outputs(self) -> Optional[Sequence['outputs.FunctionJavascriptParameterEnableConsoleOutput']]:
         return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.FunctionJavascriptParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -9379,6 +11121,51 @@ class FunctionJavascriptParameter(dict):
 
 @pulumi.output_type
 class FunctionJavascriptParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionJavascriptParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -9886,6 +11673,8 @@ class FunctionPythonParameter(dict):
         suggest = None
         if key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "metricLevels":
@@ -9906,11 +11695,14 @@ class FunctionPythonParameter(dict):
 
     def __init__(__self__, *,
                  enable_console_outputs: Optional[Sequence['outputs.FunctionPythonParameterEnableConsoleOutput']] = None,
+                 log_event_levels: Optional[Sequence['outputs.FunctionPythonParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.FunctionPythonParameterLogLevel']] = None,
                  metric_levels: Optional[Sequence['outputs.FunctionPythonParameterMetricLevel']] = None,
                  trace_levels: Optional[Sequence['outputs.FunctionPythonParameterTraceLevel']] = None):
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if metric_levels is not None:
@@ -9922,6 +11714,11 @@ class FunctionPythonParameter(dict):
     @pulumi.getter(name="enableConsoleOutputs")
     def enable_console_outputs(self) -> Optional[Sequence['outputs.FunctionPythonParameterEnableConsoleOutput']]:
         return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.FunctionPythonParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -9941,6 +11738,51 @@ class FunctionPythonParameter(dict):
 
 @pulumi.output_type
 class FunctionPythonParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionPythonParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -10496,6 +12338,8 @@ class FunctionScalaParameter(dict):
         suggest = None
         if key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "metricLevels":
@@ -10516,11 +12360,14 @@ class FunctionScalaParameter(dict):
 
     def __init__(__self__, *,
                  enable_console_outputs: Optional[Sequence['outputs.FunctionScalaParameterEnableConsoleOutput']] = None,
+                 log_event_levels: Optional[Sequence['outputs.FunctionScalaParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.FunctionScalaParameterLogLevel']] = None,
                  metric_levels: Optional[Sequence['outputs.FunctionScalaParameterMetricLevel']] = None,
                  trace_levels: Optional[Sequence['outputs.FunctionScalaParameterTraceLevel']] = None):
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if metric_levels is not None:
@@ -10532,6 +12379,11 @@ class FunctionScalaParameter(dict):
     @pulumi.getter(name="enableConsoleOutputs")
     def enable_console_outputs(self) -> Optional[Sequence['outputs.FunctionScalaParameterEnableConsoleOutput']]:
         return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.FunctionScalaParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -10551,6 +12403,51 @@ class FunctionScalaParameter(dict):
 
 @pulumi.output_type
 class FunctionScalaParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionScalaParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -11106,6 +13003,8 @@ class FunctionSqlParameter(dict):
         suggest = None
         if key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "metricLevels":
@@ -11126,11 +13025,14 @@ class FunctionSqlParameter(dict):
 
     def __init__(__self__, *,
                  enable_console_outputs: Optional[Sequence['outputs.FunctionSqlParameterEnableConsoleOutput']] = None,
+                 log_event_levels: Optional[Sequence['outputs.FunctionSqlParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.FunctionSqlParameterLogLevel']] = None,
                  metric_levels: Optional[Sequence['outputs.FunctionSqlParameterMetricLevel']] = None,
                  trace_levels: Optional[Sequence['outputs.FunctionSqlParameterTraceLevel']] = None):
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if metric_levels is not None:
@@ -11142,6 +13044,11 @@ class FunctionSqlParameter(dict):
     @pulumi.getter(name="enableConsoleOutputs")
     def enable_console_outputs(self) -> Optional[Sequence['outputs.FunctionSqlParameterEnableConsoleOutput']]:
         return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.FunctionSqlParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -11161,6 +13068,51 @@ class FunctionSqlParameter(dict):
 
 @pulumi.output_type
 class FunctionSqlParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionSqlParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -11825,7 +13777,7 @@ class GrantOwnershipOn(dict):
         :param 'GrantOwnershipOnAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantOwnershipOnFutureArgs' future: Configures the privilege to be granted on all objects in either a database or schema.
         :param _builtins.str object_name: Specifies the identifier for the object on which you are transferring ownership.
-        :param _builtins.str object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        :param _builtins.str object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -11864,7 +13816,7 @@ class GrantOwnershipOn(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[_builtins.str]:
         """
-        Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
         return pulumi.get(self, "object_type")
 
@@ -11897,7 +13849,7 @@ class GrantOwnershipOnAll(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param _builtins.str in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -11911,7 +13863,7 @@ class GrantOwnershipOnAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -11960,7 +13912,7 @@ class GrantOwnershipOnFuture(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param _builtins.str in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -11974,7 +13926,7 @@ class GrantOwnershipOnFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -12556,6 +14508,1252 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
 
 
 @pulumi.output_type
+class IcebergTableFromDeltaFilesDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isNullable":
+            suggest = "is_nullable"
+        elif key == "nameMapping":
+            suggest = "name_mapping"
+        elif key == "policyName":
+            suggest = "policy_name"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "privacyDomain":
+            suggest = "privacy_domain"
+        elif key == "sourceIcebergType":
+            suggest = "source_iceberg_type"
+        elif key == "uniqueKey":
+            suggest = "unique_key"
+        elif key == "writeDefault":
+            suggest = "write_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromDeltaFilesDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromDeltaFilesDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromDeltaFilesDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 default: Optional[_builtins.str] = None,
+                 expression: Optional[_builtins.str] = None,
+                 is_nullable: Optional[_builtins.bool] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 name_mapping: Optional[_builtins.str] = None,
+                 policy_name: Optional[_builtins.str] = None,
+                 primary_key: Optional[_builtins.bool] = None,
+                 privacy_domain: Optional[_builtins.str] = None,
+                 source_iceberg_type: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 unique_key: Optional[_builtins.bool] = None,
+                 write_default: Optional[_builtins.str] = None):
+        if check is not None:
+            pulumi.set(__self__, "check", check)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if is_nullable is not None:
+            pulumi.set(__self__, "is_nullable", is_nullable)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_mapping is not None:
+            pulumi.set(__self__, "name_mapping", name_mapping)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if privacy_domain is not None:
+            pulumi.set(__self__, "privacy_domain", privacy_domain)
+        if source_iceberg_type is not None:
+            pulumi.set(__self__, "source_iceberg_type", source_iceberg_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
+        if write_default is not None:
+            pulumi.set(__self__, "write_default", write_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def check(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "check")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_nullable")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "policy_name")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "primary_key")
+
+    @_builtins.property
+    @pulumi.getter(name="privacyDomain")
+    def privacy_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "privacy_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIcebergType")
+    def source_iceberg_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_iceberg_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "unique_key")
+
+    @_builtins.property
+    @pulumi.getter(name="writeDefault")
+    def write_default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "write_default")
+
+
+@pulumi.output_type
+class IcebergTableFromDeltaFilesParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalVolumes":
+            suggest = "external_volumes"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromDeltaFilesParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromDeltaFilesParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromDeltaFilesParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalogs: Optional[Sequence['outputs.IcebergTableFromDeltaFilesParameterCatalog']] = None,
+                 external_volumes: Optional[Sequence['outputs.IcebergTableFromDeltaFilesParameterExternalVolume']] = None,
+                 replace_invalid_characters: Optional[Sequence['outputs.IcebergTableFromDeltaFilesParameterReplaceInvalidCharacter']] = None):
+        if catalogs is not None:
+            pulumi.set(__self__, "catalogs", catalogs)
+        if external_volumes is not None:
+            pulumi.set(__self__, "external_volumes", external_volumes)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+
+    @_builtins.property
+    @pulumi.getter
+    def catalogs(self) -> Optional[Sequence['outputs.IcebergTableFromDeltaFilesParameterCatalog']]:
+        return pulumi.get(self, "catalogs")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Optional[Sequence['outputs.IcebergTableFromDeltaFilesParameterExternalVolume']]:
+        return pulumi.get(self, "external_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[Sequence['outputs.IcebergTableFromDeltaFilesParameterReplaceInvalidCharacter']]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+
+@pulumi.output_type
+class IcebergTableFromDeltaFilesParameterCatalog(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromDeltaFilesParameterExternalVolume(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromDeltaFilesParameterReplaceInvalidCharacter(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromDeltaFilesShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefreshStatuses":
+            suggest = "auto_refresh_statuses"
+        elif key == "baseLocation":
+            suggest = "base_location"
+        elif key == "canWriteMetadata":
+            suggest = "can_write_metadata"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "catalogNamespace":
+            suggest = "catalog_namespace"
+        elif key == "catalogSyncName":
+            suggest = "catalog_sync_name"
+        elif key == "catalogTableName":
+            suggest = "catalog_table_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "currentPartitionSpecId":
+            suggest = "current_partition_spec_id"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "externalVolumeName":
+            suggest = "external_volume_name"
+        elif key == "icebergTableFormatVersion":
+            suggest = "iceberg_table_format_version"
+        elif key == "icebergTableType":
+            suggest = "iceberg_table_type"
+        elif key == "nameMapping":
+            suggest = "name_mapping"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "partitionSpecs":
+            suggest = "partition_specs"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromDeltaFilesShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromDeltaFilesShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromDeltaFilesShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_refresh_statuses: Optional[Sequence['outputs.IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus']] = None,
+                 base_location: Optional[_builtins.str] = None,
+                 can_write_metadata: Optional[_builtins.bool] = None,
+                 catalog_name: Optional[_builtins.str] = None,
+                 catalog_namespace: Optional[_builtins.str] = None,
+                 catalog_sync_name: Optional[_builtins.str] = None,
+                 catalog_table_name: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 current_partition_spec_id: Optional[_builtins.int] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 external_volume_name: Optional[_builtins.str] = None,
+                 iceberg_table_format_version: Optional[_builtins.int] = None,
+                 iceberg_table_type: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 name_mapping: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 partition_specs: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if auto_refresh_statuses is not None:
+            pulumi.set(__self__, "auto_refresh_statuses", auto_refresh_statuses)
+        if base_location is not None:
+            pulumi.set(__self__, "base_location", base_location)
+        if can_write_metadata is not None:
+            pulumi.set(__self__, "can_write_metadata", can_write_metadata)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if catalog_namespace is not None:
+            pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        if catalog_sync_name is not None:
+            pulumi.set(__self__, "catalog_sync_name", catalog_sync_name)
+        if catalog_table_name is not None:
+            pulumi.set(__self__, "catalog_table_name", catalog_table_name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_partition_spec_id is not None:
+            pulumi.set(__self__, "current_partition_spec_id", current_partition_spec_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if external_volume_name is not None:
+            pulumi.set(__self__, "external_volume_name", external_volume_name)
+        if iceberg_table_format_version is not None:
+            pulumi.set(__self__, "iceberg_table_format_version", iceberg_table_format_version)
+        if iceberg_table_type is not None:
+            pulumi.set(__self__, "iceberg_table_type", iceberg_table_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_mapping is not None:
+            pulumi.set(__self__, "name_mapping", name_mapping)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if partition_specs is not None:
+            pulumi.set(__self__, "partition_specs", partition_specs)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefreshStatuses")
+    def auto_refresh_statuses(self) -> Optional[Sequence['outputs.IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus']]:
+        return pulumi.get(self, "auto_refresh_statuses")
+
+    @_builtins.property
+    @pulumi.getter(name="baseLocation")
+    def base_location(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "base_location")
+
+    @_builtins.property
+    @pulumi.getter(name="canWriteMetadata")
+    def can_write_metadata(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "can_write_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogNamespace")
+    def catalog_namespace(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSyncName")
+    def catalog_sync_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_sync_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogTableName")
+    def catalog_table_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_table_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="currentPartitionSpecId")
+    def current_partition_spec_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "current_partition_spec_id")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumeName")
+    def external_volume_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_volume_name")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableFormatVersion")
+    def iceberg_table_format_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "iceberg_table_format_version")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableType")
+    def iceberg_table_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "iceberg_table_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpecs")
+    def partition_specs(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "partition_specs")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentSnapshotId":
+            suggest = "current_snapshot_id"
+        elif key == "executionState":
+            suggest = "execution_state"
+        elif key == "lastSnapshotTime":
+            suggest = "last_snapshot_time"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "pendingSnapshotCount":
+            suggest = "pending_snapshot_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_snapshot_id: Optional[_builtins.int] = None,
+                 execution_state: Optional[_builtins.str] = None,
+                 last_snapshot_time: Optional[_builtins.str] = None,
+                 last_updated_time: Optional[_builtins.str] = None,
+                 pending_snapshot_count: Optional[_builtins.int] = None):
+        if current_snapshot_id is not None:
+            pulumi.set(__self__, "current_snapshot_id", current_snapshot_id)
+        if execution_state is not None:
+            pulumi.set(__self__, "execution_state", execution_state)
+        if last_snapshot_time is not None:
+            pulumi.set(__self__, "last_snapshot_time", last_snapshot_time)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if pending_snapshot_count is not None:
+            pulumi.set(__self__, "pending_snapshot_count", pending_snapshot_count)
+
+    @_builtins.property
+    @pulumi.getter(name="currentSnapshotId")
+    def current_snapshot_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "current_snapshot_id")
+
+    @_builtins.property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "execution_state")
+
+    @_builtins.property
+    @pulumi.getter(name="lastSnapshotTime")
+    def last_snapshot_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_snapshot_time")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_time")
+
+    @_builtins.property
+    @pulumi.getter(name="pendingSnapshotCount")
+    def pending_snapshot_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "pending_snapshot_count")
+
+
+@pulumi.output_type
+class IcebergTableFromFilesDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isNullable":
+            suggest = "is_nullable"
+        elif key == "nameMapping":
+            suggest = "name_mapping"
+        elif key == "policyName":
+            suggest = "policy_name"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "privacyDomain":
+            suggest = "privacy_domain"
+        elif key == "sourceIcebergType":
+            suggest = "source_iceberg_type"
+        elif key == "uniqueKey":
+            suggest = "unique_key"
+        elif key == "writeDefault":
+            suggest = "write_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromFilesDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromFilesDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromFilesDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 default: Optional[_builtins.str] = None,
+                 expression: Optional[_builtins.str] = None,
+                 is_nullable: Optional[_builtins.bool] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 name_mapping: Optional[_builtins.str] = None,
+                 policy_name: Optional[_builtins.str] = None,
+                 primary_key: Optional[_builtins.bool] = None,
+                 privacy_domain: Optional[_builtins.str] = None,
+                 source_iceberg_type: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 unique_key: Optional[_builtins.bool] = None,
+                 write_default: Optional[_builtins.str] = None):
+        if check is not None:
+            pulumi.set(__self__, "check", check)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if is_nullable is not None:
+            pulumi.set(__self__, "is_nullable", is_nullable)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_mapping is not None:
+            pulumi.set(__self__, "name_mapping", name_mapping)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if privacy_domain is not None:
+            pulumi.set(__self__, "privacy_domain", privacy_domain)
+        if source_iceberg_type is not None:
+            pulumi.set(__self__, "source_iceberg_type", source_iceberg_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
+        if write_default is not None:
+            pulumi.set(__self__, "write_default", write_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def check(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "check")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_nullable")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "policy_name")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "primary_key")
+
+    @_builtins.property
+    @pulumi.getter(name="privacyDomain")
+    def privacy_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "privacy_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIcebergType")
+    def source_iceberg_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_iceberg_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "unique_key")
+
+    @_builtins.property
+    @pulumi.getter(name="writeDefault")
+    def write_default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "write_default")
+
+
+@pulumi.output_type
+class IcebergTableFromFilesParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalVolumes":
+            suggest = "external_volumes"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromFilesParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromFilesParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromFilesParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalogs: Optional[Sequence['outputs.IcebergTableFromFilesParameterCatalog']] = None,
+                 external_volumes: Optional[Sequence['outputs.IcebergTableFromFilesParameterExternalVolume']] = None,
+                 replace_invalid_characters: Optional[Sequence['outputs.IcebergTableFromFilesParameterReplaceInvalidCharacter']] = None):
+        if catalogs is not None:
+            pulumi.set(__self__, "catalogs", catalogs)
+        if external_volumes is not None:
+            pulumi.set(__self__, "external_volumes", external_volumes)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+
+    @_builtins.property
+    @pulumi.getter
+    def catalogs(self) -> Optional[Sequence['outputs.IcebergTableFromFilesParameterCatalog']]:
+        return pulumi.get(self, "catalogs")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Optional[Sequence['outputs.IcebergTableFromFilesParameterExternalVolume']]:
+        return pulumi.get(self, "external_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[Sequence['outputs.IcebergTableFromFilesParameterReplaceInvalidCharacter']]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+
+@pulumi.output_type
+class IcebergTableFromFilesParameterCatalog(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromFilesParameterExternalVolume(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromFilesParameterReplaceInvalidCharacter(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromFilesShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefreshStatuses":
+            suggest = "auto_refresh_statuses"
+        elif key == "baseLocation":
+            suggest = "base_location"
+        elif key == "canWriteMetadata":
+            suggest = "can_write_metadata"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "catalogNamespace":
+            suggest = "catalog_namespace"
+        elif key == "catalogSyncName":
+            suggest = "catalog_sync_name"
+        elif key == "catalogTableName":
+            suggest = "catalog_table_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "currentPartitionSpecId":
+            suggest = "current_partition_spec_id"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "externalVolumeName":
+            suggest = "external_volume_name"
+        elif key == "icebergTableFormatVersion":
+            suggest = "iceberg_table_format_version"
+        elif key == "icebergTableType":
+            suggest = "iceberg_table_type"
+        elif key == "nameMapping":
+            suggest = "name_mapping"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "partitionSpecs":
+            suggest = "partition_specs"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromFilesShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromFilesShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromFilesShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_refresh_statuses: Optional[Sequence['outputs.IcebergTableFromFilesShowOutputAutoRefreshStatus']] = None,
+                 base_location: Optional[_builtins.str] = None,
+                 can_write_metadata: Optional[_builtins.bool] = None,
+                 catalog_name: Optional[_builtins.str] = None,
+                 catalog_namespace: Optional[_builtins.str] = None,
+                 catalog_sync_name: Optional[_builtins.str] = None,
+                 catalog_table_name: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 current_partition_spec_id: Optional[_builtins.int] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 external_volume_name: Optional[_builtins.str] = None,
+                 iceberg_table_format_version: Optional[_builtins.int] = None,
+                 iceberg_table_type: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 name_mapping: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 partition_specs: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if auto_refresh_statuses is not None:
+            pulumi.set(__self__, "auto_refresh_statuses", auto_refresh_statuses)
+        if base_location is not None:
+            pulumi.set(__self__, "base_location", base_location)
+        if can_write_metadata is not None:
+            pulumi.set(__self__, "can_write_metadata", can_write_metadata)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if catalog_namespace is not None:
+            pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        if catalog_sync_name is not None:
+            pulumi.set(__self__, "catalog_sync_name", catalog_sync_name)
+        if catalog_table_name is not None:
+            pulumi.set(__self__, "catalog_table_name", catalog_table_name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_partition_spec_id is not None:
+            pulumi.set(__self__, "current_partition_spec_id", current_partition_spec_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if external_volume_name is not None:
+            pulumi.set(__self__, "external_volume_name", external_volume_name)
+        if iceberg_table_format_version is not None:
+            pulumi.set(__self__, "iceberg_table_format_version", iceberg_table_format_version)
+        if iceberg_table_type is not None:
+            pulumi.set(__self__, "iceberg_table_type", iceberg_table_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_mapping is not None:
+            pulumi.set(__self__, "name_mapping", name_mapping)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if partition_specs is not None:
+            pulumi.set(__self__, "partition_specs", partition_specs)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefreshStatuses")
+    def auto_refresh_statuses(self) -> Optional[Sequence['outputs.IcebergTableFromFilesShowOutputAutoRefreshStatus']]:
+        return pulumi.get(self, "auto_refresh_statuses")
+
+    @_builtins.property
+    @pulumi.getter(name="baseLocation")
+    def base_location(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "base_location")
+
+    @_builtins.property
+    @pulumi.getter(name="canWriteMetadata")
+    def can_write_metadata(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "can_write_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogNamespace")
+    def catalog_namespace(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSyncName")
+    def catalog_sync_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_sync_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogTableName")
+    def catalog_table_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_table_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="currentPartitionSpecId")
+    def current_partition_spec_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "current_partition_spec_id")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumeName")
+    def external_volume_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_volume_name")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableFormatVersion")
+    def iceberg_table_format_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "iceberg_table_format_version")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableType")
+    def iceberg_table_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "iceberg_table_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpecs")
+    def partition_specs(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "partition_specs")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class IcebergTableFromFilesShowOutputAutoRefreshStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentSnapshotId":
+            suggest = "current_snapshot_id"
+        elif key == "executionState":
+            suggest = "execution_state"
+        elif key == "lastSnapshotTime":
+            suggest = "last_snapshot_time"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "pendingSnapshotCount":
+            suggest = "pending_snapshot_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromFilesShowOutputAutoRefreshStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromFilesShowOutputAutoRefreshStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromFilesShowOutputAutoRefreshStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_snapshot_id: Optional[_builtins.int] = None,
+                 execution_state: Optional[_builtins.str] = None,
+                 last_snapshot_time: Optional[_builtins.str] = None,
+                 last_updated_time: Optional[_builtins.str] = None,
+                 pending_snapshot_count: Optional[_builtins.int] = None):
+        if current_snapshot_id is not None:
+            pulumi.set(__self__, "current_snapshot_id", current_snapshot_id)
+        if execution_state is not None:
+            pulumi.set(__self__, "execution_state", execution_state)
+        if last_snapshot_time is not None:
+            pulumi.set(__self__, "last_snapshot_time", last_snapshot_time)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if pending_snapshot_count is not None:
+            pulumi.set(__self__, "pending_snapshot_count", pending_snapshot_count)
+
+    @_builtins.property
+    @pulumi.getter(name="currentSnapshotId")
+    def current_snapshot_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "current_snapshot_id")
+
+    @_builtins.property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "execution_state")
+
+    @_builtins.property
+    @pulumi.getter(name="lastSnapshotTime")
+    def last_snapshot_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_snapshot_time")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_time")
+
+    @_builtins.property
+    @pulumi.getter(name="pendingSnapshotCount")
+    def pending_snapshot_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "pending_snapshot_count")
+
+
+@pulumi.output_type
 class ImageRepositoryShowOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -13095,7 +16293,7 @@ class JobServiceFromSpecificationTemplateUsing(dict):
                  value: _builtins.str):
         """
         :param _builtins.str key: The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
-        :param _builtins.str value: The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        :param _builtins.str value: The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -13112,7 +16310,7 @@ class JobServiceFromSpecificationTemplateUsing(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         return pulumi.get(self, "value")
 
@@ -13640,6 +16838,8 @@ class LegacyServiceUserParameter(dict):
             suggest = "json_indents"
         elif key == "lockTimeouts":
             suggest = "lock_timeouts"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "multiStatementCounts":
@@ -13742,6 +16942,7 @@ class LegacyServiceUserParameter(dict):
                  jdbc_use_session_timezones: Optional[Sequence['outputs.LegacyServiceUserParameterJdbcUseSessionTimezone']] = None,
                  json_indents: Optional[Sequence['outputs.LegacyServiceUserParameterJsonIndent']] = None,
                  lock_timeouts: Optional[Sequence['outputs.LegacyServiceUserParameterLockTimeout']] = None,
+                 log_event_levels: Optional[Sequence['outputs.LegacyServiceUserParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.LegacyServiceUserParameterLogLevel']] = None,
                  multi_statement_counts: Optional[Sequence['outputs.LegacyServiceUserParameterMultiStatementCount']] = None,
                  network_policies: Optional[Sequence['outputs.LegacyServiceUserParameterNetworkPolicy']] = None,
@@ -13825,6 +17026,8 @@ class LegacyServiceUserParameter(dict):
             pulumi.set(__self__, "json_indents", json_indents)
         if lock_timeouts is not None:
             pulumi.set(__self__, "lock_timeouts", lock_timeouts)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if multi_statement_counts is not None:
@@ -14016,6 +17219,11 @@ class LegacyServiceUserParameter(dict):
     @pulumi.getter(name="lockTimeouts")
     def lock_timeouts(self) -> Optional[Sequence['outputs.LegacyServiceUserParameterLockTimeout']]:
         return pulumi.get(self, "lock_timeouts")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.LegacyServiceUserParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -15265,6 +18473,51 @@ class LegacyServiceUserParameterJsonIndent(dict):
 
 @pulumi.output_type
 class LegacyServiceUserParameterLockTimeout(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class LegacyServiceUserParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -17117,7 +20370,7 @@ class ListingManifest(dict):
                  from_string: Optional[_builtins.str] = None):
         """
         :param 'ListingManifestFromStageArgs' from_stage: Manifest provided from a given stage. If the manifest file is in the root, only stage needs to be passed. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). A proper YAML indentation (2 spaces) is required.
-        :param _builtins.str from_string: Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+        :param _builtins.str from_string: Manifest provided as a string. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         if from_stage is not None:
             pulumi.set(__self__, "from_stage", from_stage)
@@ -17136,7 +20389,7 @@ class ListingManifest(dict):
     @pulumi.getter(name="fromString")
     def from_string(self) -> Optional[_builtins.str]:
         """
-        Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+        Manifest provided as a string. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         return pulumi.get(self, "from_string")
 
@@ -20758,6 +24011,408 @@ class PasswordPolicyShowOutput(dict):
 
 
 @pulumi.output_type
+class PostgresInstanceDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationAuthority":
+            suggest = "authentication_authority"
+        elif key == "computeFamily":
+            suggest = "compute_family"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "highAvailability":
+            suggest = "high_availability"
+        elif key == "maintenanceWindowStart":
+            suggest = "maintenance_window_start"
+        elif key == "networkPolicy":
+            suggest = "network_policy"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "postgresSettings":
+            suggest = "postgres_settings"
+        elif key == "postgresVersion":
+            suggest = "postgres_version"
+        elif key == "privatelinkServiceIdentifier":
+            suggest = "privatelink_service_identifier"
+        elif key == "retentionTime":
+            suggest = "retention_time"
+        elif key == "storageIntegration":
+            suggest = "storage_integration"
+        elif key == "storageSizeGb":
+            suggest = "storage_size_gb"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PostgresInstanceDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PostgresInstanceDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PostgresInstanceDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_authority: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 compute_family: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 high_availability: Optional[_builtins.bool] = None,
+                 host: Optional[_builtins.str] = None,
+                 maintenance_window_start: Optional[_builtins.int] = None,
+                 name: Optional[_builtins.str] = None,
+                 network_policy: Optional[_builtins.str] = None,
+                 origin: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 postgres_settings: Optional[_builtins.str] = None,
+                 postgres_version: Optional[_builtins.int] = None,
+                 privatelink_service_identifier: Optional[_builtins.str] = None,
+                 retention_time: Optional[_builtins.int] = None,
+                 state: Optional[_builtins.str] = None,
+                 storage_integration: Optional[_builtins.str] = None,
+                 storage_size_gb: Optional[_builtins.int] = None,
+                 type: Optional[_builtins.str] = None,
+                 updated_on: Optional[_builtins.str] = None):
+        if authentication_authority is not None:
+            pulumi.set(__self__, "authentication_authority", authentication_authority)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_family is not None:
+            pulumi.set(__self__, "compute_family", compute_family)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if high_availability is not None:
+            pulumi.set(__self__, "high_availability", high_availability)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if maintenance_window_start is not None:
+            pulumi.set(__self__, "maintenance_window_start", maintenance_window_start)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network_policy is not None:
+            pulumi.set(__self__, "network_policy", network_policy)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if postgres_settings is not None:
+            pulumi.set(__self__, "postgres_settings", postgres_settings)
+        if postgres_version is not None:
+            pulumi.set(__self__, "postgres_version", postgres_version)
+        if privatelink_service_identifier is not None:
+            pulumi.set(__self__, "privatelink_service_identifier", privatelink_service_identifier)
+        if retention_time is not None:
+            pulumi.set(__self__, "retention_time", retention_time)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if storage_integration is not None:
+            pulumi.set(__self__, "storage_integration", storage_integration)
+        if storage_size_gb is not None:
+            pulumi.set(__self__, "storage_size_gb", storage_size_gb)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationAuthority")
+    def authentication_authority(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "authentication_authority")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="computeFamily")
+    def compute_family(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compute_family")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="highAvailability")
+    def high_availability(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "high_availability")
+
+    @_builtins.property
+    @pulumi.getter
+    def host(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "host")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindowStart")
+    def maintenance_window_start(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "maintenance_window_start")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="networkPolicy")
+    def network_policy(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "network_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def origin(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "origin")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="postgresSettings")
+    def postgres_settings(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "postgres_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="postgresVersion")
+    def postgres_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "postgres_version")
+
+    @_builtins.property
+    @pulumi.getter(name="privatelinkServiceIdentifier")
+    def privatelink_service_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "privatelink_service_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionTime")
+    def retention_time(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "retention_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="storageIntegration")
+    def storage_integration(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_integration")
+
+    @_builtins.property
+    @pulumi.getter(name="storageSizeGb")
+    def storage_size_gb(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "storage_size_gb")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
+class PostgresInstanceShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationAuthority":
+            suggest = "authentication_authority"
+        elif key == "computeFamily":
+            suggest = "compute_family"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "isHa":
+            suggest = "is_ha"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "postgresSettings":
+            suggest = "postgres_settings"
+        elif key == "postgresVersion":
+            suggest = "postgres_version"
+        elif key == "privatelinkServiceIdentifier":
+            suggest = "privatelink_service_identifier"
+        elif key == "retentionTime":
+            suggest = "retention_time"
+        elif key == "storageSize":
+            suggest = "storage_size"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PostgresInstanceShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PostgresInstanceShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PostgresInstanceShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_authority: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 compute_family: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 host: Optional[_builtins.str] = None,
+                 is_ha: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 origin: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 postgres_settings: Optional[_builtins.str] = None,
+                 postgres_version: Optional[_builtins.str] = None,
+                 privatelink_service_identifier: Optional[_builtins.str] = None,
+                 retention_time: Optional[_builtins.int] = None,
+                 state: Optional[_builtins.str] = None,
+                 storage_size: Optional[_builtins.int] = None,
+                 type: Optional[_builtins.str] = None,
+                 updated_on: Optional[_builtins.str] = None):
+        if authentication_authority is not None:
+            pulumi.set(__self__, "authentication_authority", authentication_authority)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_family is not None:
+            pulumi.set(__self__, "compute_family", compute_family)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if is_ha is not None:
+            pulumi.set(__self__, "is_ha", is_ha)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if postgres_settings is not None:
+            pulumi.set(__self__, "postgres_settings", postgres_settings)
+        if postgres_version is not None:
+            pulumi.set(__self__, "postgres_version", postgres_version)
+        if privatelink_service_identifier is not None:
+            pulumi.set(__self__, "privatelink_service_identifier", privatelink_service_identifier)
+        if retention_time is not None:
+            pulumi.set(__self__, "retention_time", retention_time)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if storage_size is not None:
+            pulumi.set(__self__, "storage_size", storage_size)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationAuthority")
+    def authentication_authority(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "authentication_authority")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="computeFamily")
+    def compute_family(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compute_family")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def host(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "host")
+
+    @_builtins.property
+    @pulumi.getter(name="isHa")
+    def is_ha(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_ha")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def origin(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "origin")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="postgresSettings")
+    def postgres_settings(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "postgres_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="postgresVersion")
+    def postgres_version(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "postgres_version")
+
+    @_builtins.property
+    @pulumi.getter(name="privatelinkServiceIdentifier")
+    def privatelink_service_identifier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "privatelink_service_identifier")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionTime")
+    def retention_time(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "retention_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter(name="storageSize")
+    def storage_size(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "storage_size")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
 class PrimaryConnectionShowOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -21008,6 +24663,8 @@ class ProcedureJavaParameter(dict):
         suggest = None
         if key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "metricLevels":
@@ -21028,11 +24685,14 @@ class ProcedureJavaParameter(dict):
 
     def __init__(__self__, *,
                  enable_console_outputs: Optional[Sequence['outputs.ProcedureJavaParameterEnableConsoleOutput']] = None,
+                 log_event_levels: Optional[Sequence['outputs.ProcedureJavaParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.ProcedureJavaParameterLogLevel']] = None,
                  metric_levels: Optional[Sequence['outputs.ProcedureJavaParameterMetricLevel']] = None,
                  trace_levels: Optional[Sequence['outputs.ProcedureJavaParameterTraceLevel']] = None):
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if metric_levels is not None:
@@ -21044,6 +24704,11 @@ class ProcedureJavaParameter(dict):
     @pulumi.getter(name="enableConsoleOutputs")
     def enable_console_outputs(self) -> Optional[Sequence['outputs.ProcedureJavaParameterEnableConsoleOutput']]:
         return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.ProcedureJavaParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -21063,6 +24728,51 @@ class ProcedureJavaParameter(dict):
 
 @pulumi.output_type
 class ProcedureJavaParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureJavaParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -21580,6 +25290,8 @@ class ProcedureJavascriptParameter(dict):
         suggest = None
         if key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "metricLevels":
@@ -21600,11 +25312,14 @@ class ProcedureJavascriptParameter(dict):
 
     def __init__(__self__, *,
                  enable_console_outputs: Optional[Sequence['outputs.ProcedureJavascriptParameterEnableConsoleOutput']] = None,
+                 log_event_levels: Optional[Sequence['outputs.ProcedureJavascriptParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.ProcedureJavascriptParameterLogLevel']] = None,
                  metric_levels: Optional[Sequence['outputs.ProcedureJavascriptParameterMetricLevel']] = None,
                  trace_levels: Optional[Sequence['outputs.ProcedureJavascriptParameterTraceLevel']] = None):
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if metric_levels is not None:
@@ -21616,6 +25331,11 @@ class ProcedureJavascriptParameter(dict):
     @pulumi.getter(name="enableConsoleOutputs")
     def enable_console_outputs(self) -> Optional[Sequence['outputs.ProcedureJavascriptParameterEnableConsoleOutput']]:
         return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.ProcedureJavascriptParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -21635,6 +25355,51 @@ class ProcedureJavascriptParameter(dict):
 
 @pulumi.output_type
 class ProcedureJavascriptParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureJavascriptParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -22104,6 +25869,8 @@ class ProcedurePythonParameter(dict):
         suggest = None
         if key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "metricLevels":
@@ -22124,11 +25891,14 @@ class ProcedurePythonParameter(dict):
 
     def __init__(__self__, *,
                  enable_console_outputs: Optional[Sequence['outputs.ProcedurePythonParameterEnableConsoleOutput']] = None,
+                 log_event_levels: Optional[Sequence['outputs.ProcedurePythonParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.ProcedurePythonParameterLogLevel']] = None,
                  metric_levels: Optional[Sequence['outputs.ProcedurePythonParameterMetricLevel']] = None,
                  trace_levels: Optional[Sequence['outputs.ProcedurePythonParameterTraceLevel']] = None):
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if metric_levels is not None:
@@ -22140,6 +25910,11 @@ class ProcedurePythonParameter(dict):
     @pulumi.getter(name="enableConsoleOutputs")
     def enable_console_outputs(self) -> Optional[Sequence['outputs.ProcedurePythonParameterEnableConsoleOutput']]:
         return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.ProcedurePythonParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -22159,6 +25934,51 @@ class ProcedurePythonParameter(dict):
 
 @pulumi.output_type
 class ProcedurePythonParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedurePythonParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -22676,6 +26496,8 @@ class ProcedureScalaParameter(dict):
         suggest = None
         if key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "metricLevels":
@@ -22696,11 +26518,14 @@ class ProcedureScalaParameter(dict):
 
     def __init__(__self__, *,
                  enable_console_outputs: Optional[Sequence['outputs.ProcedureScalaParameterEnableConsoleOutput']] = None,
+                 log_event_levels: Optional[Sequence['outputs.ProcedureScalaParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.ProcedureScalaParameterLogLevel']] = None,
                  metric_levels: Optional[Sequence['outputs.ProcedureScalaParameterMetricLevel']] = None,
                  trace_levels: Optional[Sequence['outputs.ProcedureScalaParameterTraceLevel']] = None):
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if metric_levels is not None:
@@ -22712,6 +26537,11 @@ class ProcedureScalaParameter(dict):
     @pulumi.getter(name="enableConsoleOutputs")
     def enable_console_outputs(self) -> Optional[Sequence['outputs.ProcedureScalaParameterEnableConsoleOutput']]:
         return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.ProcedureScalaParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -22731,6 +26561,51 @@ class ProcedureScalaParameter(dict):
 
 @pulumi.output_type
 class ProcedureScalaParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureScalaParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -23248,6 +27123,8 @@ class ProcedureSqlParameter(dict):
         suggest = None
         if key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "metricLevels":
@@ -23268,11 +27145,14 @@ class ProcedureSqlParameter(dict):
 
     def __init__(__self__, *,
                  enable_console_outputs: Optional[Sequence['outputs.ProcedureSqlParameterEnableConsoleOutput']] = None,
+                 log_event_levels: Optional[Sequence['outputs.ProcedureSqlParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.ProcedureSqlParameterLogLevel']] = None,
                  metric_levels: Optional[Sequence['outputs.ProcedureSqlParameterMetricLevel']] = None,
                  trace_levels: Optional[Sequence['outputs.ProcedureSqlParameterTraceLevel']] = None):
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if metric_levels is not None:
@@ -23284,6 +27164,11 @@ class ProcedureSqlParameter(dict):
     @pulumi.getter(name="enableConsoleOutputs")
     def enable_console_outputs(self) -> Optional[Sequence['outputs.ProcedureSqlParameterEnableConsoleOutput']]:
         return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.ProcedureSqlParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -23303,6 +27188,51 @@ class ProcedureSqlParameter(dict):
 
 @pulumi.output_type
 class ProcedureSqlParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureSqlParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -24947,6 +28877,8 @@ class SchemaParameter(dict):
             suggest = "enable_console_outputs"
         elif key == "externalVolumes":
             suggest = "external_volumes"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "maxDataExtensionTimeInDays":
@@ -24989,6 +28921,7 @@ class SchemaParameter(dict):
                  default_ddl_collations: Optional[Sequence['outputs.SchemaParameterDefaultDdlCollation']] = None,
                  enable_console_outputs: Optional[Sequence['outputs.SchemaParameterEnableConsoleOutput']] = None,
                  external_volumes: Optional[Sequence['outputs.SchemaParameterExternalVolume']] = None,
+                 log_event_levels: Optional[Sequence['outputs.SchemaParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.SchemaParameterLogLevel']] = None,
                  max_data_extension_time_in_days: Optional[Sequence['outputs.SchemaParameterMaxDataExtensionTimeInDay']] = None,
                  pipe_execution_pauseds: Optional[Sequence['outputs.SchemaParameterPipeExecutionPaused']] = None,
@@ -25011,6 +28944,8 @@ class SchemaParameter(dict):
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
         if external_volumes is not None:
             pulumi.set(__self__, "external_volumes", external_volumes)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if max_data_extension_time_in_days is not None:
@@ -25060,6 +28995,11 @@ class SchemaParameter(dict):
     @pulumi.getter(name="externalVolumes")
     def external_volumes(self) -> Optional[Sequence['outputs.SchemaParameterExternalVolume']]:
         return pulumi.get(self, "external_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.SchemaParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -25304,6 +29244,51 @@ class SchemaParameterEnableConsoleOutput(dict):
 
 @pulumi.output_type
 class SchemaParameterExternalVolume(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -28654,7 +32639,7 @@ class ServiceFromSpecificationTemplateUsing(dict):
                  value: _builtins.str):
         """
         :param _builtins.str key: The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
-        :param _builtins.str value: The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        :param _builtins.str value: The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -28671,7 +32656,7 @@ class ServiceFromSpecificationTemplateUsing(dict):
     @pulumi.getter
     def value(self) -> _builtins.str:
         """
-        The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         return pulumi.get(self, "value")
 
@@ -29199,6 +33184,8 @@ class ServiceUserParameter(dict):
             suggest = "json_indents"
         elif key == "lockTimeouts":
             suggest = "lock_timeouts"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "multiStatementCounts":
@@ -29301,6 +33288,7 @@ class ServiceUserParameter(dict):
                  jdbc_use_session_timezones: Optional[Sequence['outputs.ServiceUserParameterJdbcUseSessionTimezone']] = None,
                  json_indents: Optional[Sequence['outputs.ServiceUserParameterJsonIndent']] = None,
                  lock_timeouts: Optional[Sequence['outputs.ServiceUserParameterLockTimeout']] = None,
+                 log_event_levels: Optional[Sequence['outputs.ServiceUserParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.ServiceUserParameterLogLevel']] = None,
                  multi_statement_counts: Optional[Sequence['outputs.ServiceUserParameterMultiStatementCount']] = None,
                  network_policies: Optional[Sequence['outputs.ServiceUserParameterNetworkPolicy']] = None,
@@ -29384,6 +33372,8 @@ class ServiceUserParameter(dict):
             pulumi.set(__self__, "json_indents", json_indents)
         if lock_timeouts is not None:
             pulumi.set(__self__, "lock_timeouts", lock_timeouts)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if multi_statement_counts is not None:
@@ -29575,6 +33565,11 @@ class ServiceUserParameter(dict):
     @pulumi.getter(name="lockTimeouts")
     def lock_timeouts(self) -> Optional[Sequence['outputs.ServiceUserParameterLockTimeout']]:
         return pulumi.get(self, "lock_timeouts")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.ServiceUserParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -30824,6 +34819,51 @@ class ServiceUserParameterJsonIndent(dict):
 
 @pulumi.output_type
 class ServiceUserParameterLockTimeout(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceUserParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -45818,6 +49858,230 @@ class StorageIntegrationGcsShowOutput(dict):
 
 
 @pulumi.output_type
+class StorageLifecyclePolicyArgument(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: _builtins.str):
+        """
+        :param _builtins.str name: The argument name.
+        :param _builtins.str type: The argument type. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The argument type. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StorageLifecyclePolicyDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "archiveForDays":
+            suggest = "archive_for_days"
+        elif key == "archiveTier":
+            suggest = "archive_tier"
+        elif key == "returnType":
+            suggest = "return_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLifecyclePolicyDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLifecyclePolicyDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLifecyclePolicyDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 archive_for_days: Optional[_builtins.int] = None,
+                 archive_tier: Optional[_builtins.str] = None,
+                 body: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 return_type: Optional[_builtins.str] = None,
+                 signatures: Optional[Sequence['outputs.StorageLifecyclePolicyDescribeOutputSignature']] = None):
+        if archive_for_days is not None:
+            pulumi.set(__self__, "archive_for_days", archive_for_days)
+        if archive_tier is not None:
+            pulumi.set(__self__, "archive_tier", archive_tier)
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if return_type is not None:
+            pulumi.set(__self__, "return_type", return_type)
+        if signatures is not None:
+            pulumi.set(__self__, "signatures", signatures)
+
+    @_builtins.property
+    @pulumi.getter(name="archiveForDays")
+    def archive_for_days(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "archive_for_days")
+
+    @_builtins.property
+    @pulumi.getter(name="archiveTier")
+    def archive_tier(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "archive_tier")
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "body")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "return_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def signatures(self) -> Optional[Sequence['outputs.StorageLifecyclePolicyDescribeOutputSignature']]:
+        return pulumi.get(self, "signatures")
+
+
+@pulumi.output_type
+class StorageLifecyclePolicyDescribeOutputSignature(dict):
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class StorageLifecyclePolicyShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageLifecyclePolicyShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageLifecyclePolicyShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageLifecyclePolicyShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 options: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
 class StreamOnDirectoryTableDescribeOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -48287,6 +52551,8 @@ class TaskParameter(dict):
             suggest = "json_indents"
         elif key == "lockTimeouts":
             suggest = "lock_timeouts"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "multiStatementCounts":
@@ -48395,6 +52661,7 @@ class TaskParameter(dict):
                  jdbc_use_session_timezones: Optional[Sequence['outputs.TaskParameterJdbcUseSessionTimezone']] = None,
                  json_indents: Optional[Sequence['outputs.TaskParameterJsonIndent']] = None,
                  lock_timeouts: Optional[Sequence['outputs.TaskParameterLockTimeout']] = None,
+                 log_event_levels: Optional[Sequence['outputs.TaskParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.TaskParameterLogLevel']] = None,
                  multi_statement_counts: Optional[Sequence['outputs.TaskParameterMultiStatementCount']] = None,
                  noorder_sequence_as_defaults: Optional[Sequence['outputs.TaskParameterNoorderSequenceAsDefault']] = None,
@@ -48478,6 +52745,8 @@ class TaskParameter(dict):
             pulumi.set(__self__, "json_indents", json_indents)
         if lock_timeouts is not None:
             pulumi.set(__self__, "lock_timeouts", lock_timeouts)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if multi_statement_counts is not None:
@@ -48667,6 +52936,11 @@ class TaskParameter(dict):
     @pulumi.getter(name="lockTimeouts")
     def lock_timeouts(self) -> Optional[Sequence['outputs.TaskParameterLockTimeout']]:
         return pulumi.get(self, "lock_timeouts")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.TaskParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -49846,6 +54120,51 @@ class TaskParameterJsonIndent(dict):
 
 @pulumi.output_type
 class TaskParameterLockTimeout(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -52023,6 +56342,8 @@ class UserParameter(dict):
             suggest = "json_indents"
         elif key == "lockTimeouts":
             suggest = "lock_timeouts"
+        elif key == "logEventLevels":
+            suggest = "log_event_levels"
         elif key == "logLevels":
             suggest = "log_levels"
         elif key == "multiStatementCounts":
@@ -52125,6 +56446,7 @@ class UserParameter(dict):
                  jdbc_use_session_timezones: Optional[Sequence['outputs.UserParameterJdbcUseSessionTimezone']] = None,
                  json_indents: Optional[Sequence['outputs.UserParameterJsonIndent']] = None,
                  lock_timeouts: Optional[Sequence['outputs.UserParameterLockTimeout']] = None,
+                 log_event_levels: Optional[Sequence['outputs.UserParameterLogEventLevel']] = None,
                  log_levels: Optional[Sequence['outputs.UserParameterLogLevel']] = None,
                  multi_statement_counts: Optional[Sequence['outputs.UserParameterMultiStatementCount']] = None,
                  network_policies: Optional[Sequence['outputs.UserParameterNetworkPolicy']] = None,
@@ -52208,6 +56530,8 @@ class UserParameter(dict):
             pulumi.set(__self__, "json_indents", json_indents)
         if lock_timeouts is not None:
             pulumi.set(__self__, "lock_timeouts", lock_timeouts)
+        if log_event_levels is not None:
+            pulumi.set(__self__, "log_event_levels", log_event_levels)
         if log_levels is not None:
             pulumi.set(__self__, "log_levels", log_levels)
         if multi_statement_counts is not None:
@@ -52399,6 +56723,11 @@ class UserParameter(dict):
     @pulumi.getter(name="lockTimeouts")
     def lock_timeouts(self) -> Optional[Sequence['outputs.UserParameterLockTimeout']]:
         return pulumi.get(self, "lock_timeouts")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Optional[Sequence['outputs.UserParameterLogEventLevel']]:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -53648,6 +57977,51 @@ class UserParameterJsonIndent(dict):
 
 @pulumi.output_type
 class UserParameterLockTimeout(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class UserParameterLogEventLevel(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -57414,6 +61788,297 @@ class GetAlertsAlertResult(dict):
 
 
 @pulumi.output_type
+class GetApiIntegrationsApiIntegrationResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetApiIntegrationsApiIntegrationDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetApiIntegrationsApiIntegrationShowOutputResult']):
+        """
+        :param Sequence['GetApiIntegrationsApiIntegrationDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE API INTEGRATION.
+        :param Sequence['GetApiIntegrationsApiIntegrationShowOutputArgs'] show_outputs: Holds the output of SHOW API INTEGRATIONS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetApiIntegrationsApiIntegrationDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE API INTEGRATION.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetApiIntegrationsApiIntegrationShowOutputResult']:
+        """
+        Holds the output of SHOW API INTEGRATIONS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetApiIntegrationsApiIntegrationDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 allowed_authentication_secrets: _builtins.str,
+                 allowed_prefixes: Sequence[_builtins.str],
+                 api_aws_external_id: _builtins.str,
+                 api_aws_iam_user_arn: _builtins.str,
+                 api_aws_role_arn: _builtins.str,
+                 api_key: _builtins.str,
+                 api_provider: _builtins.str,
+                 azure_ad_application_id: _builtins.str,
+                 azure_consent_url: _builtins.str,
+                 azure_multi_tenant_app_name: _builtins.str,
+                 azure_tenant_id: _builtins.str,
+                 blocked_prefixes: Sequence[_builtins.str],
+                 comment: _builtins.str,
+                 enabled: _builtins.bool,
+                 google_api_service_account: _builtins.str,
+                 google_audience: _builtins.str,
+                 oauth_access_token_validity: _builtins.int,
+                 oauth_allowed_scopes: Sequence[_builtins.str],
+                 oauth_assertion_issuer: _builtins.str,
+                 oauth_authorization_endpoint: _builtins.str,
+                 oauth_client_auth_method: _builtins.str,
+                 oauth_client_id: _builtins.str,
+                 oauth_grant: _builtins.str,
+                 oauth_refresh_token_validity: _builtins.int,
+                 oauth_resource_url: _builtins.str,
+                 oauth_token_endpoint: _builtins.str,
+                 oauth_username: _builtins.str,
+                 tls_trusted_certificates: Sequence[_builtins.str],
+                 use_privatelink_endpoint: _builtins.bool,
+                 user_auth_type: _builtins.str):
+        pulumi.set(__self__, "allowed_authentication_secrets", allowed_authentication_secrets)
+        pulumi.set(__self__, "allowed_prefixes", allowed_prefixes)
+        pulumi.set(__self__, "api_aws_external_id", api_aws_external_id)
+        pulumi.set(__self__, "api_aws_iam_user_arn", api_aws_iam_user_arn)
+        pulumi.set(__self__, "api_aws_role_arn", api_aws_role_arn)
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "api_provider", api_provider)
+        pulumi.set(__self__, "azure_ad_application_id", azure_ad_application_id)
+        pulumi.set(__self__, "azure_consent_url", azure_consent_url)
+        pulumi.set(__self__, "azure_multi_tenant_app_name", azure_multi_tenant_app_name)
+        pulumi.set(__self__, "azure_tenant_id", azure_tenant_id)
+        pulumi.set(__self__, "blocked_prefixes", blocked_prefixes)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "google_api_service_account", google_api_service_account)
+        pulumi.set(__self__, "google_audience", google_audience)
+        pulumi.set(__self__, "oauth_access_token_validity", oauth_access_token_validity)
+        pulumi.set(__self__, "oauth_allowed_scopes", oauth_allowed_scopes)
+        pulumi.set(__self__, "oauth_assertion_issuer", oauth_assertion_issuer)
+        pulumi.set(__self__, "oauth_authorization_endpoint", oauth_authorization_endpoint)
+        pulumi.set(__self__, "oauth_client_auth_method", oauth_client_auth_method)
+        pulumi.set(__self__, "oauth_client_id", oauth_client_id)
+        pulumi.set(__self__, "oauth_grant", oauth_grant)
+        pulumi.set(__self__, "oauth_refresh_token_validity", oauth_refresh_token_validity)
+        pulumi.set(__self__, "oauth_resource_url", oauth_resource_url)
+        pulumi.set(__self__, "oauth_token_endpoint", oauth_token_endpoint)
+        pulumi.set(__self__, "oauth_username", oauth_username)
+        pulumi.set(__self__, "tls_trusted_certificates", tls_trusted_certificates)
+        pulumi.set(__self__, "use_privatelink_endpoint", use_privatelink_endpoint)
+        pulumi.set(__self__, "user_auth_type", user_auth_type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAuthenticationSecrets")
+    def allowed_authentication_secrets(self) -> _builtins.str:
+        return pulumi.get(self, "allowed_authentication_secrets")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedPrefixes")
+    def allowed_prefixes(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="apiAwsExternalId")
+    def api_aws_external_id(self) -> _builtins.str:
+        return pulumi.get(self, "api_aws_external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="apiAwsIamUserArn")
+    def api_aws_iam_user_arn(self) -> _builtins.str:
+        return pulumi.get(self, "api_aws_iam_user_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="apiAwsRoleArn")
+    def api_aws_role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "api_aws_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="apiKey")
+    def api_key(self) -> _builtins.str:
+        return pulumi.get(self, "api_key")
+
+    @_builtins.property
+    @pulumi.getter(name="apiProvider")
+    def api_provider(self) -> _builtins.str:
+        return pulumi.get(self, "api_provider")
+
+    @_builtins.property
+    @pulumi.getter(name="azureAdApplicationId")
+    def azure_ad_application_id(self) -> _builtins.str:
+        return pulumi.get(self, "azure_ad_application_id")
+
+    @_builtins.property
+    @pulumi.getter(name="azureConsentUrl")
+    def azure_consent_url(self) -> _builtins.str:
+        return pulumi.get(self, "azure_consent_url")
+
+    @_builtins.property
+    @pulumi.getter(name="azureMultiTenantAppName")
+    def azure_multi_tenant_app_name(self) -> _builtins.str:
+        return pulumi.get(self, "azure_multi_tenant_app_name")
+
+    @_builtins.property
+    @pulumi.getter(name="azureTenantId")
+    def azure_tenant_id(self) -> _builtins.str:
+        return pulumi.get(self, "azure_tenant_id")
+
+    @_builtins.property
+    @pulumi.getter(name="blockedPrefixes")
+    def blocked_prefixes(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "blocked_prefixes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="googleApiServiceAccount")
+    def google_api_service_account(self) -> _builtins.str:
+        return pulumi.get(self, "google_api_service_account")
+
+    @_builtins.property
+    @pulumi.getter(name="googleAudience")
+    def google_audience(self) -> _builtins.str:
+        return pulumi.get(self, "google_audience")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAccessTokenValidity")
+    def oauth_access_token_validity(self) -> _builtins.int:
+        return pulumi.get(self, "oauth_access_token_validity")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAllowedScopes")
+    def oauth_allowed_scopes(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "oauth_allowed_scopes")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAssertionIssuer")
+    def oauth_assertion_issuer(self) -> _builtins.str:
+        return pulumi.get(self, "oauth_assertion_issuer")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAuthorizationEndpoint")
+    def oauth_authorization_endpoint(self) -> _builtins.str:
+        return pulumi.get(self, "oauth_authorization_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientAuthMethod")
+    def oauth_client_auth_method(self) -> _builtins.str:
+        return pulumi.get(self, "oauth_client_auth_method")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthClientId")
+    def oauth_client_id(self) -> _builtins.str:
+        return pulumi.get(self, "oauth_client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthGrant")
+    def oauth_grant(self) -> _builtins.str:
+        return pulumi.get(self, "oauth_grant")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthRefreshTokenValidity")
+    def oauth_refresh_token_validity(self) -> _builtins.int:
+        return pulumi.get(self, "oauth_refresh_token_validity")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthResourceUrl")
+    def oauth_resource_url(self) -> _builtins.str:
+        return pulumi.get(self, "oauth_resource_url")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthTokenEndpoint")
+    def oauth_token_endpoint(self) -> _builtins.str:
+        return pulumi.get(self, "oauth_token_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthUsername")
+    def oauth_username(self) -> _builtins.str:
+        return pulumi.get(self, "oauth_username")
+
+    @_builtins.property
+    @pulumi.getter(name="tlsTrustedCertificates")
+    def tls_trusted_certificates(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "tls_trusted_certificates")
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivatelinkEndpoint")
+    def use_privatelink_endpoint(self) -> _builtins.bool:
+        return pulumi.get(self, "use_privatelink_endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="userAuthType")
+    def user_auth_type(self) -> _builtins.str:
+        return pulumi.get(self, "user_auth_type")
+
+
+@pulumi.output_type
+class GetApiIntegrationsApiIntegrationShowOutputResult(dict):
+    def __init__(__self__, *,
+                 api_type: _builtins.str,
+                 category: _builtins.str,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 enabled: _builtins.bool,
+                 name: _builtins.str):
+        pulumi.set(__self__, "api_type", api_type)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="apiType")
+    def api_type(self) -> _builtins.str:
+        return pulumi.get(self, "api_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> _builtins.str:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class GetAuthenticationPoliciesAuthenticationPolicyResult(dict):
     def __init__(__self__, *,
                  describe_outputs: Sequence['outputs.GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputResult'],
@@ -59120,6 +63785,7 @@ class GetDatabasesDatabaseParameterResult(dict):
                  default_ddl_collations: Sequence['outputs.GetDatabasesDatabaseParameterDefaultDdlCollationResult'],
                  enable_console_outputs: Sequence['outputs.GetDatabasesDatabaseParameterEnableConsoleOutputResult'],
                  external_volumes: Sequence['outputs.GetDatabasesDatabaseParameterExternalVolumeResult'],
+                 log_event_levels: Sequence['outputs.GetDatabasesDatabaseParameterLogEventLevelResult'],
                  log_levels: Sequence['outputs.GetDatabasesDatabaseParameterLogLevelResult'],
                  max_data_extension_time_in_days: Sequence['outputs.GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayResult'],
                  quoted_identifiers_ignore_cases: Sequence['outputs.GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseResult'],
@@ -59136,6 +63802,7 @@ class GetDatabasesDatabaseParameterResult(dict):
         pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
         pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
         pulumi.set(__self__, "external_volumes", external_volumes)
+        pulumi.set(__self__, "log_event_levels", log_event_levels)
         pulumi.set(__self__, "log_levels", log_levels)
         pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
         pulumi.set(__self__, "quoted_identifiers_ignore_cases", quoted_identifiers_ignore_cases)
@@ -59172,6 +63839,11 @@ class GetDatabasesDatabaseParameterResult(dict):
     @pulumi.getter(name="externalVolumes")
     def external_volumes(self) -> Sequence['outputs.GetDatabasesDatabaseParameterExternalVolumeResult']:
         return pulumi.get(self, "external_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Sequence['outputs.GetDatabasesDatabaseParameterLogEventLevelResult']:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -59391,6 +64063,46 @@ class GetDatabasesDatabaseParameterEnableConsoleOutputResult(dict):
 
 @pulumi.output_type
 class GetDatabasesDatabaseParameterExternalVolumeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterLogEventLevelResult(dict):
     def __init__(__self__, *,
                  default: _builtins.str,
                  description: _builtins.str,
@@ -64352,6 +69064,7 @@ class GetSchemasSchemaParameterResult(dict):
                  default_ddl_collations: Sequence['outputs.GetSchemasSchemaParameterDefaultDdlCollationResult'],
                  enable_console_outputs: Sequence['outputs.GetSchemasSchemaParameterEnableConsoleOutputResult'],
                  external_volumes: Sequence['outputs.GetSchemasSchemaParameterExternalVolumeResult'],
+                 log_event_levels: Sequence['outputs.GetSchemasSchemaParameterLogEventLevelResult'],
                  log_levels: Sequence['outputs.GetSchemasSchemaParameterLogLevelResult'],
                  max_data_extension_time_in_days: Sequence['outputs.GetSchemasSchemaParameterMaxDataExtensionTimeInDayResult'],
                  pipe_execution_pauseds: Sequence['outputs.GetSchemasSchemaParameterPipeExecutionPausedResult'],
@@ -64369,6 +69082,7 @@ class GetSchemasSchemaParameterResult(dict):
         pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
         pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
         pulumi.set(__self__, "external_volumes", external_volumes)
+        pulumi.set(__self__, "log_event_levels", log_event_levels)
         pulumi.set(__self__, "log_levels", log_levels)
         pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
         pulumi.set(__self__, "pipe_execution_pauseds", pipe_execution_pauseds)
@@ -64406,6 +69120,11 @@ class GetSchemasSchemaParameterResult(dict):
     @pulumi.getter(name="externalVolumes")
     def external_volumes(self) -> Sequence['outputs.GetSchemasSchemaParameterExternalVolumeResult']:
         return pulumi.get(self, "external_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Sequence['outputs.GetSchemasSchemaParameterLogEventLevelResult']:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -64630,6 +69349,46 @@ class GetSchemasSchemaParameterEnableConsoleOutputResult(dict):
 
 @pulumi.output_type
 class GetSchemasSchemaParameterExternalVolumeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterLogEventLevelResult(dict):
     def __init__(__self__, *,
                  default: _builtins.str,
                  description: _builtins.str,
@@ -69736,6 +74495,212 @@ class GetStorageIntegrationsStorageIntegrationShowOutputResult(dict):
 
 
 @pulumi.output_type
+class GetStorageLifecyclePoliciesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetStorageLifecyclePoliciesStorageLifecyclePolicyResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyShowOutputResult']):
+        """
+        :param Sequence['GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE STORAGE LIFECYCLE POLICY.
+        :param Sequence['GetStorageLifecyclePoliciesStorageLifecyclePolicyShowOutputArgs'] show_outputs: Holds the output of SHOW STORAGE LIFECYCLE POLICIES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE STORAGE LIFECYCLE POLICY.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyShowOutputResult']:
+        """
+        Holds the output of SHOW STORAGE LIFECYCLE POLICIES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 archive_for_days: _builtins.int,
+                 archive_tier: _builtins.str,
+                 body: _builtins.str,
+                 name: _builtins.str,
+                 return_type: _builtins.str,
+                 signatures: Sequence['outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignatureResult']):
+        pulumi.set(__self__, "archive_for_days", archive_for_days)
+        pulumi.set(__self__, "archive_tier", archive_tier)
+        pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "return_type", return_type)
+        pulumi.set(__self__, "signatures", signatures)
+
+    @_builtins.property
+    @pulumi.getter(name="archiveForDays")
+    def archive_for_days(self) -> _builtins.int:
+        return pulumi.get(self, "archive_for_days")
+
+    @_builtins.property
+    @pulumi.getter(name="archiveTier")
+    def archive_tier(self) -> _builtins.str:
+        return pulumi.get(self, "archive_tier")
+
+    @_builtins.property
+    @pulumi.getter
+    def body(self) -> _builtins.str:
+        return pulumi.get(self, "body")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="returnType")
+    def return_type(self) -> _builtins.str:
+        return pulumi.get(self, "return_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def signatures(self) -> Sequence['outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignatureResult']:
+        return pulumi.get(self, "signatures")
+
+
+@pulumi.output_type
+class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignatureResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: _builtins.str):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetStorageLifecyclePoliciesStorageLifecyclePolicyShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 database_name: _builtins.str,
+                 kind: _builtins.str,
+                 name: _builtins.str,
+                 options: _builtins.str,
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 schema_name: _builtins.str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "options", options)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> _builtins.str:
+        return pulumi.get(self, "options")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
 class GetStreamlitsInResult(dict):
     def __init__(__self__, *,
                  account: Optional[_builtins.bool] = None,
@@ -71033,6 +75998,7 @@ class GetTasksTaskParameterResult(dict):
                  jdbc_use_session_timezones: Sequence['outputs.GetTasksTaskParameterJdbcUseSessionTimezoneResult'],
                  json_indents: Sequence['outputs.GetTasksTaskParameterJsonIndentResult'],
                  lock_timeouts: Sequence['outputs.GetTasksTaskParameterLockTimeoutResult'],
+                 log_event_levels: Sequence['outputs.GetTasksTaskParameterLogEventLevelResult'],
                  log_levels: Sequence['outputs.GetTasksTaskParameterLogLevelResult'],
                  multi_statement_counts: Sequence['outputs.GetTasksTaskParameterMultiStatementCountResult'],
                  noorder_sequence_as_defaults: Sequence['outputs.GetTasksTaskParameterNoorderSequenceAsDefaultResult'],
@@ -71093,6 +76059,7 @@ class GetTasksTaskParameterResult(dict):
         pulumi.set(__self__, "jdbc_use_session_timezones", jdbc_use_session_timezones)
         pulumi.set(__self__, "json_indents", json_indents)
         pulumi.set(__self__, "lock_timeouts", lock_timeouts)
+        pulumi.set(__self__, "log_event_levels", log_event_levels)
         pulumi.set(__self__, "log_levels", log_levels)
         pulumi.set(__self__, "multi_statement_counts", multi_statement_counts)
         pulumi.set(__self__, "noorder_sequence_as_defaults", noorder_sequence_as_defaults)
@@ -71245,6 +76212,11 @@ class GetTasksTaskParameterResult(dict):
     @pulumi.getter(name="lockTimeouts")
     def lock_timeouts(self) -> Sequence['outputs.GetTasksTaskParameterLockTimeoutResult']:
         return pulumi.get(self, "lock_timeouts")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Sequence['outputs.GetTasksTaskParameterLogEventLevelResult']:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -72314,6 +77286,46 @@ class GetTasksTaskParameterJsonIndentResult(dict):
 
 @pulumi.output_type
 class GetTasksTaskParameterLockTimeoutResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetTasksTaskParameterLogEventLevelResult(dict):
     def __init__(__self__, *,
                  default: _builtins.str,
                  description: _builtins.str,
@@ -74470,6 +79482,7 @@ class GetUsersUserParameterResult(dict):
                  jdbc_use_session_timezones: Sequence['outputs.GetUsersUserParameterJdbcUseSessionTimezoneResult'],
                  json_indents: Sequence['outputs.GetUsersUserParameterJsonIndentResult'],
                  lock_timeouts: Sequence['outputs.GetUsersUserParameterLockTimeoutResult'],
+                 log_event_levels: Sequence['outputs.GetUsersUserParameterLogEventLevelResult'],
                  log_levels: Sequence['outputs.GetUsersUserParameterLogLevelResult'],
                  multi_statement_counts: Sequence['outputs.GetUsersUserParameterMultiStatementCountResult'],
                  network_policies: Sequence['outputs.GetUsersUserParameterNetworkPolicyResult'],
@@ -74528,6 +79541,7 @@ class GetUsersUserParameterResult(dict):
         pulumi.set(__self__, "jdbc_use_session_timezones", jdbc_use_session_timezones)
         pulumi.set(__self__, "json_indents", json_indents)
         pulumi.set(__self__, "lock_timeouts", lock_timeouts)
+        pulumi.set(__self__, "log_event_levels", log_event_levels)
         pulumi.set(__self__, "log_levels", log_levels)
         pulumi.set(__self__, "multi_statement_counts", multi_statement_counts)
         pulumi.set(__self__, "network_policies", network_policies)
@@ -74686,6 +79700,11 @@ class GetUsersUserParameterResult(dict):
     @pulumi.getter(name="lockTimeouts")
     def lock_timeouts(self) -> Sequence['outputs.GetUsersUserParameterLockTimeoutResult']:
         return pulumi.get(self, "lock_timeouts")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Sequence['outputs.GetUsersUserParameterLogEventLevelResult']:
+        return pulumi.get(self, "log_event_levels")
 
     @_builtins.property
     @pulumi.getter(name="logLevels")
@@ -75815,6 +80834,46 @@ class GetUsersUserParameterJsonIndentResult(dict):
 
 @pulumi.output_type
 class GetUsersUserParameterLockTimeoutResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetUsersUserParameterLogEventLevelResult(dict):
     def __init__(__self__, *,
                  default: _builtins.str,
                  description: _builtins.str,

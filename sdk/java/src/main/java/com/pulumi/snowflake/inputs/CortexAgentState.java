@@ -140,14 +140,14 @@ public final class CortexAgentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a YAML object containing the settings for the Cortex agent.
+     * Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      * 
      */
     @Import(name="specification")
     private @Nullable Output<String> specification;
 
     /**
-     * @return Specifies a YAML object containing the settings for the Cortex agent.
+     * @return Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      * 
      */
     public Optional<Output<String>> specification() {
@@ -375,7 +375,7 @@ public final class CortexAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param specification Specifies a YAML object containing the settings for the Cortex agent.
+         * @param specification Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class CortexAgentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param specification Specifies a YAML object containing the settings for the Cortex agent.
+         * @param specification Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
          * 
          * @return builder
          * 

@@ -28,6 +28,7 @@ import com.pulumi.snowflake.inputs.TaskParameterJdbcTreatTimestampNtzAsUtcArgs;
 import com.pulumi.snowflake.inputs.TaskParameterJdbcUseSessionTimezoneArgs;
 import com.pulumi.snowflake.inputs.TaskParameterJsonIndentArgs;
 import com.pulumi.snowflake.inputs.TaskParameterLockTimeoutArgs;
+import com.pulumi.snowflake.inputs.TaskParameterLogEventLevelArgs;
 import com.pulumi.snowflake.inputs.TaskParameterLogLevelArgs;
 import com.pulumi.snowflake.inputs.TaskParameterMultiStatementCountArgs;
 import com.pulumi.snowflake.inputs.TaskParameterNoorderSequenceAsDefaultArgs;
@@ -234,6 +235,13 @@ public final class TaskParameterArgs extends com.pulumi.resources.ResourceArgs {
 
     public Optional<Output<List<TaskParameterLockTimeoutArgs>>> lockTimeouts() {
         return Optional.ofNullable(this.lockTimeouts);
+    }
+
+    @Import(name="logEventLevels")
+    private @Nullable Output<List<TaskParameterLogEventLevelArgs>> logEventLevels;
+
+    public Optional<Output<List<TaskParameterLogEventLevelArgs>>> logEventLevels() {
+        return Optional.ofNullable(this.logEventLevels);
     }
 
     @Import(name="logLevels")
@@ -521,6 +529,7 @@ public final class TaskParameterArgs extends com.pulumi.resources.ResourceArgs {
         this.jdbcUseSessionTimezones = $.jdbcUseSessionTimezones;
         this.jsonIndents = $.jsonIndents;
         this.lockTimeouts = $.lockTimeouts;
+        this.logEventLevels = $.logEventLevels;
         this.logLevels = $.logLevels;
         this.multiStatementCounts = $.multiStatementCounts;
         this.noorderSequenceAsDefaults = $.noorderSequenceAsDefaults;
@@ -875,6 +884,19 @@ public final class TaskParameterArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder lockTimeouts(TaskParameterLockTimeoutArgs... lockTimeouts) {
             return lockTimeouts(List.of(lockTimeouts));
+        }
+
+        public Builder logEventLevels(@Nullable Output<List<TaskParameterLogEventLevelArgs>> logEventLevels) {
+            $.logEventLevels = logEventLevels;
+            return this;
+        }
+
+        public Builder logEventLevels(List<TaskParameterLogEventLevelArgs> logEventLevels) {
+            return logEventLevels(Output.of(logEventLevels));
+        }
+
+        public Builder logEventLevels(TaskParameterLogEventLevelArgs... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
 
         public Builder logLevels(@Nullable Output<List<TaskParameterLogLevelArgs>> logLevels) {

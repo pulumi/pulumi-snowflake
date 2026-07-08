@@ -110,6 +110,21 @@ public final class ProcedureSqlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    @Import(name="logEventLevel")
+    private @Nullable Output<String> logEventLevel;
+
+    /**
+     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    public Optional<Output<String>> logEventLevel() {
+        return Optional.ofNullable(this.logEventLevel);
+    }
+
+    /**
      * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
@@ -238,6 +253,7 @@ public final class ProcedureSqlArgs extends com.pulumi.resources.ResourceArgs {
         this.enableConsoleOutput = $.enableConsoleOutput;
         this.executeAs = $.executeAs;
         this.isSecure = $.isSecure;
+        this.logEventLevel = $.logEventLevel;
         this.logLevel = $.logLevel;
         this.metricLevel = $.metricLevel;
         this.name = $.name;
@@ -400,6 +416,27 @@ public final class ProcedureSqlArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder isSecure(String isSecure) {
             return isSecure(Output.of(isSecure));
+        }
+
+        /**
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logEventLevel(@Nullable Output<String> logEventLevel) {
+            $.logEventLevel = logEventLevel;
+            return this;
+        }
+
+        /**
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logEventLevel(String logEventLevel) {
+            return logEventLevel(Output.of(logEventLevel));
         }
 
         /**

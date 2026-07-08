@@ -9,6 +9,7 @@ import com.pulumi.snowflake.outputs.SchemaParameterDataRetentionTimeInDay;
 import com.pulumi.snowflake.outputs.SchemaParameterDefaultDdlCollation;
 import com.pulumi.snowflake.outputs.SchemaParameterEnableConsoleOutput;
 import com.pulumi.snowflake.outputs.SchemaParameterExternalVolume;
+import com.pulumi.snowflake.outputs.SchemaParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.SchemaParameterLogLevel;
 import com.pulumi.snowflake.outputs.SchemaParameterMaxDataExtensionTimeInDay;
 import com.pulumi.snowflake.outputs.SchemaParameterPipeExecutionPaused;
@@ -32,6 +33,7 @@ public final class SchemaParameter {
     private @Nullable List<SchemaParameterDefaultDdlCollation> defaultDdlCollations;
     private @Nullable List<SchemaParameterEnableConsoleOutput> enableConsoleOutputs;
     private @Nullable List<SchemaParameterExternalVolume> externalVolumes;
+    private @Nullable List<SchemaParameterLogEventLevel> logEventLevels;
     private @Nullable List<SchemaParameterLogLevel> logLevels;
     private @Nullable List<SchemaParameterMaxDataExtensionTimeInDay> maxDataExtensionTimeInDays;
     private @Nullable List<SchemaParameterPipeExecutionPaused> pipeExecutionPauseds;
@@ -60,6 +62,9 @@ public final class SchemaParameter {
     }
     public List<SchemaParameterExternalVolume> externalVolumes() {
         return this.externalVolumes == null ? List.of() : this.externalVolumes;
+    }
+    public List<SchemaParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels == null ? List.of() : this.logEventLevels;
     }
     public List<SchemaParameterLogLevel> logLevels() {
         return this.logLevels == null ? List.of() : this.logLevels;
@@ -112,6 +117,7 @@ public final class SchemaParameter {
         private @Nullable List<SchemaParameterDefaultDdlCollation> defaultDdlCollations;
         private @Nullable List<SchemaParameterEnableConsoleOutput> enableConsoleOutputs;
         private @Nullable List<SchemaParameterExternalVolume> externalVolumes;
+        private @Nullable List<SchemaParameterLogEventLevel> logEventLevels;
         private @Nullable List<SchemaParameterLogLevel> logLevels;
         private @Nullable List<SchemaParameterMaxDataExtensionTimeInDay> maxDataExtensionTimeInDays;
         private @Nullable List<SchemaParameterPipeExecutionPaused> pipeExecutionPauseds;
@@ -132,6 +138,7 @@ public final class SchemaParameter {
     	      this.defaultDdlCollations = defaults.defaultDdlCollations;
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
     	      this.externalVolumes = defaults.externalVolumes;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.maxDataExtensionTimeInDays = defaults.maxDataExtensionTimeInDays;
     	      this.pipeExecutionPauseds = defaults.pipeExecutionPauseds;
@@ -190,6 +197,15 @@ public final class SchemaParameter {
         }
         public Builder externalVolumes(SchemaParameterExternalVolume... externalVolumes) {
             return externalVolumes(List.of(externalVolumes));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(@Nullable List<SchemaParameterLogEventLevel> logEventLevels) {
+
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(SchemaParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(@Nullable List<SchemaParameterLogLevel> logLevels) {
@@ -306,6 +322,7 @@ public final class SchemaParameter {
             _resultValue.defaultDdlCollations = defaultDdlCollations;
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
             _resultValue.externalVolumes = externalVolumes;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.maxDataExtensionTimeInDays = maxDataExtensionTimeInDays;
             _resultValue.pipeExecutionPauseds = pipeExecutionPauseds;

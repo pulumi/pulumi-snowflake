@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class FunctionSqlParameter
     {
         public readonly ImmutableArray<Outputs.FunctionSqlParameterEnableConsoleOutput> EnableConsoleOutputs;
+        public readonly ImmutableArray<Outputs.FunctionSqlParameterLogEventLevel> LogEventLevels;
         public readonly ImmutableArray<Outputs.FunctionSqlParameterLogLevel> LogLevels;
         public readonly ImmutableArray<Outputs.FunctionSqlParameterMetricLevel> MetricLevels;
         public readonly ImmutableArray<Outputs.FunctionSqlParameterTraceLevel> TraceLevels;
@@ -22,6 +23,8 @@ namespace Pulumi.Snowflake.Outputs
         private FunctionSqlParameter(
             ImmutableArray<Outputs.FunctionSqlParameterEnableConsoleOutput> enableConsoleOutputs,
 
+            ImmutableArray<Outputs.FunctionSqlParameterLogEventLevel> logEventLevels,
+
             ImmutableArray<Outputs.FunctionSqlParameterLogLevel> logLevels,
 
             ImmutableArray<Outputs.FunctionSqlParameterMetricLevel> metricLevels,
@@ -29,6 +32,7 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.FunctionSqlParameterTraceLevel> traceLevels)
         {
             EnableConsoleOutputs = enableConsoleOutputs;
+            LogEventLevels = logEventLevels;
             LogLevels = logLevels;
             MetricLevels = metricLevels;
             TraceLevels = traceLevels;

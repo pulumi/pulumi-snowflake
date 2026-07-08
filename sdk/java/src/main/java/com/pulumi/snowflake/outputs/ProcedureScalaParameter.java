@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.ProcedureScalaParameterEnableConsoleOutput;
+import com.pulumi.snowflake.outputs.ProcedureScalaParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.ProcedureScalaParameterLogLevel;
 import com.pulumi.snowflake.outputs.ProcedureScalaParameterMetricLevel;
 import com.pulumi.snowflake.outputs.ProcedureScalaParameterTraceLevel;
@@ -15,6 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ProcedureScalaParameter {
     private @Nullable List<ProcedureScalaParameterEnableConsoleOutput> enableConsoleOutputs;
+    private @Nullable List<ProcedureScalaParameterLogEventLevel> logEventLevels;
     private @Nullable List<ProcedureScalaParameterLogLevel> logLevels;
     private @Nullable List<ProcedureScalaParameterMetricLevel> metricLevels;
     private @Nullable List<ProcedureScalaParameterTraceLevel> traceLevels;
@@ -22,6 +24,9 @@ public final class ProcedureScalaParameter {
     private ProcedureScalaParameter() {}
     public List<ProcedureScalaParameterEnableConsoleOutput> enableConsoleOutputs() {
         return this.enableConsoleOutputs == null ? List.of() : this.enableConsoleOutputs;
+    }
+    public List<ProcedureScalaParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels == null ? List.of() : this.logEventLevels;
     }
     public List<ProcedureScalaParameterLogLevel> logLevels() {
         return this.logLevels == null ? List.of() : this.logLevels;
@@ -43,6 +48,7 @@ public final class ProcedureScalaParameter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ProcedureScalaParameterEnableConsoleOutput> enableConsoleOutputs;
+        private @Nullable List<ProcedureScalaParameterLogEventLevel> logEventLevels;
         private @Nullable List<ProcedureScalaParameterLogLevel> logLevels;
         private @Nullable List<ProcedureScalaParameterMetricLevel> metricLevels;
         private @Nullable List<ProcedureScalaParameterTraceLevel> traceLevels;
@@ -50,6 +56,7 @@ public final class ProcedureScalaParameter {
         public Builder(ProcedureScalaParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.metricLevels = defaults.metricLevels;
     	      this.traceLevels = defaults.traceLevels;
@@ -63,6 +70,15 @@ public final class ProcedureScalaParameter {
         }
         public Builder enableConsoleOutputs(ProcedureScalaParameterEnableConsoleOutput... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(@Nullable List<ProcedureScalaParameterLogEventLevel> logEventLevels) {
+
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(ProcedureScalaParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(@Nullable List<ProcedureScalaParameterLogLevel> logLevels) {
@@ -94,6 +110,7 @@ public final class ProcedureScalaParameter {
         public ProcedureScalaParameter build() {
             final var _resultValue = new ProcedureScalaParameter();
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.metricLevels = metricLevels;
             _resultValue.traceLevels = traceLevels;

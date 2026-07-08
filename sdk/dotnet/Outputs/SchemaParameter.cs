@@ -18,6 +18,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.SchemaParameterDefaultDdlCollation> DefaultDdlCollations;
         public readonly ImmutableArray<Outputs.SchemaParameterEnableConsoleOutput> EnableConsoleOutputs;
         public readonly ImmutableArray<Outputs.SchemaParameterExternalVolume> ExternalVolumes;
+        public readonly ImmutableArray<Outputs.SchemaParameterLogEventLevel> LogEventLevels;
         public readonly ImmutableArray<Outputs.SchemaParameterLogLevel> LogLevels;
         public readonly ImmutableArray<Outputs.SchemaParameterMaxDataExtensionTimeInDay> MaxDataExtensionTimeInDays;
         public readonly ImmutableArray<Outputs.SchemaParameterPipeExecutionPaused> PipeExecutionPauseds;
@@ -42,6 +43,8 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.SchemaParameterEnableConsoleOutput> enableConsoleOutputs,
 
             ImmutableArray<Outputs.SchemaParameterExternalVolume> externalVolumes,
+
+            ImmutableArray<Outputs.SchemaParameterLogEventLevel> logEventLevels,
 
             ImmutableArray<Outputs.SchemaParameterLogLevel> logLevels,
 
@@ -72,6 +75,7 @@ namespace Pulumi.Snowflake.Outputs
             DefaultDdlCollations = defaultDdlCollations;
             EnableConsoleOutputs = enableConsoleOutputs;
             ExternalVolumes = externalVolumes;
+            LogEventLevels = logEventLevels;
             LogLevels = logLevels;
             MaxDataExtensionTimeInDays = maxDataExtensionTimeInDays;
             PipeExecutionPauseds = pipeExecutionPauseds;

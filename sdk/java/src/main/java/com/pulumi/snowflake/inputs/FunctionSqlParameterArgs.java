@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.FunctionSqlParameterEnableConsoleOutputArgs;
+import com.pulumi.snowflake.inputs.FunctionSqlParameterLogEventLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionSqlParameterLogLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionSqlParameterMetricLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionSqlParameterTraceLevelArgs;
@@ -24,6 +25,13 @@ public final class FunctionSqlParameterArgs extends com.pulumi.resources.Resourc
 
     public Optional<Output<List<FunctionSqlParameterEnableConsoleOutputArgs>>> enableConsoleOutputs() {
         return Optional.ofNullable(this.enableConsoleOutputs);
+    }
+
+    @Import(name="logEventLevels")
+    private @Nullable Output<List<FunctionSqlParameterLogEventLevelArgs>> logEventLevels;
+
+    public Optional<Output<List<FunctionSqlParameterLogEventLevelArgs>>> logEventLevels() {
+        return Optional.ofNullable(this.logEventLevels);
     }
 
     @Import(name="logLevels")
@@ -51,6 +59,7 @@ public final class FunctionSqlParameterArgs extends com.pulumi.resources.Resourc
 
     private FunctionSqlParameterArgs(FunctionSqlParameterArgs $) {
         this.enableConsoleOutputs = $.enableConsoleOutputs;
+        this.logEventLevels = $.logEventLevels;
         this.logLevels = $.logLevels;
         this.metricLevels = $.metricLevels;
         this.traceLevels = $.traceLevels;
@@ -85,6 +94,19 @@ public final class FunctionSqlParameterArgs extends com.pulumi.resources.Resourc
 
         public Builder enableConsoleOutputs(FunctionSqlParameterEnableConsoleOutputArgs... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+
+        public Builder logEventLevels(@Nullable Output<List<FunctionSqlParameterLogEventLevelArgs>> logEventLevels) {
+            $.logEventLevels = logEventLevels;
+            return this;
+        }
+
+        public Builder logEventLevels(List<FunctionSqlParameterLogEventLevelArgs> logEventLevels) {
+            return logEventLevels(Output.of(logEventLevels));
+        }
+
+        public Builder logEventLevels(FunctionSqlParameterLogEventLevelArgs... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
 
         public Builder logLevels(@Nullable Output<List<FunctionSqlParameterLogLevelArgs>> logLevels) {

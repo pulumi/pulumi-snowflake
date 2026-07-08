@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.FunctionJavaParameterEnableConsoleOutput;
+import com.pulumi.snowflake.outputs.FunctionJavaParameterLogEventLevel;
 import com.pulumi.snowflake.outputs.FunctionJavaParameterLogLevel;
 import com.pulumi.snowflake.outputs.FunctionJavaParameterMetricLevel;
 import com.pulumi.snowflake.outputs.FunctionJavaParameterTraceLevel;
@@ -15,6 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FunctionJavaParameter {
     private @Nullable List<FunctionJavaParameterEnableConsoleOutput> enableConsoleOutputs;
+    private @Nullable List<FunctionJavaParameterLogEventLevel> logEventLevels;
     private @Nullable List<FunctionJavaParameterLogLevel> logLevels;
     private @Nullable List<FunctionJavaParameterMetricLevel> metricLevels;
     private @Nullable List<FunctionJavaParameterTraceLevel> traceLevels;
@@ -22,6 +24,9 @@ public final class FunctionJavaParameter {
     private FunctionJavaParameter() {}
     public List<FunctionJavaParameterEnableConsoleOutput> enableConsoleOutputs() {
         return this.enableConsoleOutputs == null ? List.of() : this.enableConsoleOutputs;
+    }
+    public List<FunctionJavaParameterLogEventLevel> logEventLevels() {
+        return this.logEventLevels == null ? List.of() : this.logEventLevels;
     }
     public List<FunctionJavaParameterLogLevel> logLevels() {
         return this.logLevels == null ? List.of() : this.logLevels;
@@ -43,6 +48,7 @@ public final class FunctionJavaParameter {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<FunctionJavaParameterEnableConsoleOutput> enableConsoleOutputs;
+        private @Nullable List<FunctionJavaParameterLogEventLevel> logEventLevels;
         private @Nullable List<FunctionJavaParameterLogLevel> logLevels;
         private @Nullable List<FunctionJavaParameterMetricLevel> metricLevels;
         private @Nullable List<FunctionJavaParameterTraceLevel> traceLevels;
@@ -50,6 +56,7 @@ public final class FunctionJavaParameter {
         public Builder(FunctionJavaParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
+    	      this.logEventLevels = defaults.logEventLevels;
     	      this.logLevels = defaults.logLevels;
     	      this.metricLevels = defaults.metricLevels;
     	      this.traceLevels = defaults.traceLevels;
@@ -63,6 +70,15 @@ public final class FunctionJavaParameter {
         }
         public Builder enableConsoleOutputs(FunctionJavaParameterEnableConsoleOutput... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+        @CustomType.Setter
+        public Builder logEventLevels(@Nullable List<FunctionJavaParameterLogEventLevel> logEventLevels) {
+
+            this.logEventLevels = logEventLevels;
+            return this;
+        }
+        public Builder logEventLevels(FunctionJavaParameterLogEventLevel... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
         @CustomType.Setter
         public Builder logLevels(@Nullable List<FunctionJavaParameterLogLevel> logLevels) {
@@ -94,6 +110,7 @@ public final class FunctionJavaParameter {
         public FunctionJavaParameter build() {
             final var _resultValue = new FunctionJavaParameter();
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
+            _resultValue.logEventLevels = logEventLevels;
             _resultValue.logLevels = logLevels;
             _resultValue.metricLevels = metricLevels;
             _resultValue.traceLevels = traceLevels;

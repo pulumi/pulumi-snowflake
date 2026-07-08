@@ -64,7 +64,7 @@ namespace Pulumi.Snowflake
         public Output<Outputs.ListingManifest> Manifest { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+        /// Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.ListingManifestArgs> Manifest { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+        /// Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.ListingManifestGetArgs>? Manifest { get; set; }
 
         /// <summary>
-        /// Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+        /// Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

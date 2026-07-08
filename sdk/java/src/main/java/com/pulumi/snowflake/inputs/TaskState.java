@@ -248,14 +248,14 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+     * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      * 
      */
     @Import(name="config")
     private @Nullable Output<String> config;
 
     /**
-     * @return Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+     * @return Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      * 
      */
     public Optional<Output<String>> config() {
@@ -485,6 +485,21 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> lockTimeout() {
         return Optional.ofNullable(this.lockTimeout);
+    }
+
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    @Import(name="logEventLevel")
+    private @Nullable Output<String> logEventLevel;
+
+    /**
+     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * 
+     */
+    public Optional<Output<String>> logEventLevel() {
+        return Optional.ofNullable(this.logEventLevel);
     }
 
     /**
@@ -1226,6 +1241,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         this.jdbcUseSessionTimezone = $.jdbcUseSessionTimezone;
         this.jsonIndent = $.jsonIndent;
         this.lockTimeout = $.lockTimeout;
+        this.logEventLevel = $.logEventLevel;
         this.logLevel = $.logLevel;
         this.multiStatementCount = $.multiStatementCount;
         this.name = $.name;
@@ -1619,7 +1635,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+         * @param config Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
          * 
          * @return builder
          * 
@@ -1630,7 +1646,7 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+         * @param config Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
          * 
          * @return builder
          * 
@@ -1952,6 +1968,27 @@ public final class TaskState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder lockTimeout(Integer lockTimeout) {
             return lockTimeout(Output.of(lockTimeout));
+        }
+
+        /**
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logEventLevel(@Nullable Output<String> logEventLevel) {
+            $.logEventLevel = logEventLevel;
+            return this;
+        }
+
+        /**
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logEventLevel(String logEventLevel) {
+            return logEventLevel(Output.of(logEventLevel));
         }
 
         /**

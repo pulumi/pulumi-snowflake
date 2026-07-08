@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.FunctionJavascriptParameterEnableConsoleOutputArgs;
+import com.pulumi.snowflake.inputs.FunctionJavascriptParameterLogEventLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionJavascriptParameterLogLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionJavascriptParameterMetricLevelArgs;
 import com.pulumi.snowflake.inputs.FunctionJavascriptParameterTraceLevelArgs;
@@ -24,6 +25,13 @@ public final class FunctionJavascriptParameterArgs extends com.pulumi.resources.
 
     public Optional<Output<List<FunctionJavascriptParameterEnableConsoleOutputArgs>>> enableConsoleOutputs() {
         return Optional.ofNullable(this.enableConsoleOutputs);
+    }
+
+    @Import(name="logEventLevels")
+    private @Nullable Output<List<FunctionJavascriptParameterLogEventLevelArgs>> logEventLevels;
+
+    public Optional<Output<List<FunctionJavascriptParameterLogEventLevelArgs>>> logEventLevels() {
+        return Optional.ofNullable(this.logEventLevels);
     }
 
     @Import(name="logLevels")
@@ -51,6 +59,7 @@ public final class FunctionJavascriptParameterArgs extends com.pulumi.resources.
 
     private FunctionJavascriptParameterArgs(FunctionJavascriptParameterArgs $) {
         this.enableConsoleOutputs = $.enableConsoleOutputs;
+        this.logEventLevels = $.logEventLevels;
         this.logLevels = $.logLevels;
         this.metricLevels = $.metricLevels;
         this.traceLevels = $.traceLevels;
@@ -85,6 +94,19 @@ public final class FunctionJavascriptParameterArgs extends com.pulumi.resources.
 
         public Builder enableConsoleOutputs(FunctionJavascriptParameterEnableConsoleOutputArgs... enableConsoleOutputs) {
             return enableConsoleOutputs(List.of(enableConsoleOutputs));
+        }
+
+        public Builder logEventLevels(@Nullable Output<List<FunctionJavascriptParameterLogEventLevelArgs>> logEventLevels) {
+            $.logEventLevels = logEventLevels;
+            return this;
+        }
+
+        public Builder logEventLevels(List<FunctionJavascriptParameterLogEventLevelArgs> logEventLevels) {
+            return logEventLevels(Output.of(logEventLevels));
+        }
+
+        public Builder logEventLevels(FunctionJavascriptParameterLogEventLevelArgs... logEventLevels) {
+            return logEventLevels(List.of(logEventLevels));
         }
 
         public Builder logLevels(@Nullable Output<List<FunctionJavascriptParameterLogLevelArgs>> logLevels) {

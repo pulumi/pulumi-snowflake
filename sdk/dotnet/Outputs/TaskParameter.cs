@@ -36,6 +36,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.TaskParameterJdbcUseSessionTimezone> JdbcUseSessionTimezones;
         public readonly ImmutableArray<Outputs.TaskParameterJsonIndent> JsonIndents;
         public readonly ImmutableArray<Outputs.TaskParameterLockTimeout> LockTimeouts;
+        public readonly ImmutableArray<Outputs.TaskParameterLogEventLevel> LogEventLevels;
         public readonly ImmutableArray<Outputs.TaskParameterLogLevel> LogLevels;
         public readonly ImmutableArray<Outputs.TaskParameterMultiStatementCount> MultiStatementCounts;
         public readonly ImmutableArray<Outputs.TaskParameterNoorderSequenceAsDefault> NoorderSequenceAsDefaults;
@@ -121,6 +122,8 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.TaskParameterJsonIndent> jsonIndents,
 
             ImmutableArray<Outputs.TaskParameterLockTimeout> lockTimeouts,
+
+            ImmutableArray<Outputs.TaskParameterLogEventLevel> logEventLevels,
 
             ImmutableArray<Outputs.TaskParameterLogLevel> logLevels,
 
@@ -219,6 +222,7 @@ namespace Pulumi.Snowflake.Outputs
             JdbcUseSessionTimezones = jdbcUseSessionTimezones;
             JsonIndents = jsonIndents;
             LockTimeouts = lockTimeouts;
+            LogEventLevels = logEventLevels;
             LogLevels = logLevels;
             MultiStatementCounts = multiStatementCounts;
             NoorderSequenceAsDefaults = noorderSequenceAsDefaults;

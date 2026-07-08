@@ -212,6 +212,14 @@ namespace Pulumi.Snowflake.Inputs
             set => _lockTimeouts = value;
         }
 
+        [Input("logEventLevels")]
+        private InputList<Inputs.LegacyServiceUserParameterLogEventLevelArgs>? _logEventLevels;
+        public InputList<Inputs.LegacyServiceUserParameterLogEventLevelArgs> LogEventLevels
+        {
+            get => _logEventLevels ?? (_logEventLevels = new InputList<Inputs.LegacyServiceUserParameterLogEventLevelArgs>());
+            set => _logEventLevels = value;
+        }
+
         [Input("logLevels")]
         private InputList<Inputs.LegacyServiceUserParameterLogLevelArgs>? _logLevels;
         public InputList<Inputs.LegacyServiceUserParameterLogLevelArgs> LogLevels

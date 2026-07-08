@@ -33,7 +33,7 @@ class ListingArgs:
         :param pulumi.Input['ListingManifestArgs'] manifest: Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] application_package: Specifies the application package attached to the listing.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the listing.
-        :param pulumi.Input[_builtins.str] name: Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+        :param pulumi.Input[_builtins.str] name: Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
         :param pulumi.Input[_builtins.str] publish: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.
         :param pulumi.Input[_builtins.str] share: Specifies the identifier for the share to attach to the listing.
         """
@@ -89,7 +89,7 @@ class ListingArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+        Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
         """
         return pulumi.get(self, "name")
 
@@ -140,7 +140,7 @@ class _ListingState:
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the listing.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input['ListingManifestArgs'] manifest: Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[_builtins.str] name: Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+        :param pulumi.Input[_builtins.str] name: Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
         :param pulumi.Input[_builtins.str] publish: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.
         :param pulumi.Input[_builtins.str] share: Specifies the identifier for the share to attach to the listing.
         :param pulumi.Input[Sequence[pulumi.Input['ListingShowOutputArgs']]] show_outputs: Outputs the result of `SHOW LISTINGS` for the given listing.
@@ -214,7 +214,7 @@ class _ListingState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+        Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
         """
         return pulumi.get(self, "name")
 
@@ -305,7 +305,7 @@ class Listing(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] application_package: Specifies the application package attached to the listing.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the listing.
         :param pulumi.Input[Union['ListingManifestArgs', 'ListingManifestArgsDict']] manifest: Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[_builtins.str] name: Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+        :param pulumi.Input[_builtins.str] name: Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
         :param pulumi.Input[_builtins.str] publish: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.
         :param pulumi.Input[_builtins.str] share: Specifies the identifier for the share to attach to the listing.
         """
@@ -412,7 +412,7 @@ class Listing(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the listing.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Union['ListingManifestArgs', 'ListingManifestArgsDict']] manifest: Specifies the way manifest is provided for the listing. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[_builtins.str] name: Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+        :param pulumi.Input[_builtins.str] name: Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
         :param pulumi.Input[_builtins.str] publish: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Determines if the listing should be published.
         :param pulumi.Input[_builtins.str] share: Specifies the identifier for the share to attach to the listing.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ListingShowOutputArgs', 'ListingShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW LISTINGS` for the given listing.
@@ -467,7 +467,7 @@ class Listing(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores.
+        Specifies the listing identifier (name). It must be unique within the organization, regardless of which Snowflake region the account is located in. Must start with an alphabetic character and cannot contain spaces or special characters except for underscores and hyphens.
         """
         return pulumi.get(self, "name")
 

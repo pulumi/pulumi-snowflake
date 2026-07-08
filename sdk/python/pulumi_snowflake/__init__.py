@@ -17,6 +17,15 @@ from .api_authentication_integration_with_authorization_code_grant import *
 from .api_authentication_integration_with_client_credentials import *
 from .api_authentication_integration_with_jwt_bearer import *
 from .api_integration import *
+from .api_integration_amazon_api_gateway import *
+from .api_integration_azure_api_management import *
+from .api_integration_external_mcp_dynamic_client import *
+from .api_integration_external_mcp_oauth2 import *
+from .api_integration_git_repository_github_app import *
+from .api_integration_git_repository_oauth2 import *
+from .api_integration_git_repository_private_link import *
+from .api_integration_git_repository_token import *
+from .api_integration_google_cloud_api_gateway import *
 from .authentication_policy import *
 from .catalog_integration_aws_glue import *
 from .catalog_integration_iceberg_rest import *
@@ -46,6 +55,7 @@ from .function_sql import *
 from .get_account_roles import *
 from .get_accounts import *
 from .get_alerts import *
+from .get_api_integrations import *
 from .get_authentication_policies import *
 from .get_catalog_integrations import *
 from .get_compute_pools import *
@@ -90,6 +100,7 @@ from .get_session_policies import *
 from .get_shares import *
 from .get_stages import *
 from .get_storage_integrations import *
+from .get_storage_lifecycle_policies import *
 from .get_streamlits import *
 from .get_streams import *
 from .get_system_generate_scim_access_token import *
@@ -111,6 +122,8 @@ from .grant_ownership import *
 from .grant_privileges_to_account_role import *
 from .grant_privileges_to_database_role import *
 from .grant_privileges_to_share import *
+from .iceberg_table_from_delta_files import *
+from .iceberg_table_from_files import *
 from .image_repository import *
 from .job_service import *
 from .legacy_service_user import *
@@ -128,6 +141,7 @@ from .oauth_integration_for_partner_applications import *
 from .object_parameter import *
 from .password_policy import *
 from .pipe import *
+from .postgres_instance import *
 from .primary_connection import *
 from .procedure_java import *
 from .procedure_javascript import *
@@ -163,6 +177,7 @@ from .storage_integration import *
 from .storage_integration_aws import *
 from .storage_integration_azure import *
 from .storage_integration_gcs import *
+from .storage_lifecycle_policy import *
 from .stream_on_directory_table import *
 from .stream_on_external_table import *
 from .stream_on_table import *
@@ -171,6 +186,7 @@ from .streamlit import *
 from .table import *
 from .table_column_masking_policy_application import *
 from .table_constraint import *
+from .table_storage_lifecycle_policy_attachment import *
 from .tag import *
 from .tag_association import *
 from .task import *
@@ -282,6 +298,78 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/apiIntegration:ApiIntegration": "ApiIntegration"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiIntegrationAmazonApiGateway",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiIntegrationAmazonApiGateway:ApiIntegrationAmazonApiGateway": "ApiIntegrationAmazonApiGateway"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiIntegrationAzureApiManagement",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiIntegrationAzureApiManagement:ApiIntegrationAzureApiManagement": "ApiIntegrationAzureApiManagement"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiIntegrationExternalMcpDynamicClient",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiIntegrationExternalMcpDynamicClient:ApiIntegrationExternalMcpDynamicClient": "ApiIntegrationExternalMcpDynamicClient"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiIntegrationExternalMcpOauth2",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiIntegrationExternalMcpOauth2:ApiIntegrationExternalMcpOauth2": "ApiIntegrationExternalMcpOauth2"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiIntegrationGitRepositoryGithubApp",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiIntegrationGitRepositoryGithubApp:ApiIntegrationGitRepositoryGithubApp": "ApiIntegrationGitRepositoryGithubApp"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiIntegrationGitRepositoryOauth2",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiIntegrationGitRepositoryOauth2:ApiIntegrationGitRepositoryOauth2": "ApiIntegrationGitRepositoryOauth2"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiIntegrationGitRepositoryPrivateLink",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiIntegrationGitRepositoryPrivateLink:ApiIntegrationGitRepositoryPrivateLink": "ApiIntegrationGitRepositoryPrivateLink"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiIntegrationGitRepositoryToken",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiIntegrationGitRepositoryToken:ApiIntegrationGitRepositoryToken": "ApiIntegrationGitRepositoryToken"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/apiIntegrationGoogleCloudApiGateway",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/apiIntegrationGoogleCloudApiGateway:ApiIntegrationGoogleCloudApiGateway": "ApiIntegrationGoogleCloudApiGateway"
   }
  },
  {
@@ -558,6 +646,22 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/icebergTableFromDeltaFiles",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/icebergTableFromDeltaFiles:IcebergTableFromDeltaFiles": "IcebergTableFromDeltaFiles"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/icebergTableFromFiles",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/icebergTableFromFiles:IcebergTableFromFiles": "IcebergTableFromFiles"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/imageRepository",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -690,6 +794,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/pipe:Pipe": "Pipe"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/postgresInstance",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/postgresInstance:PostgresInstance": "PostgresInstance"
   }
  },
  {
@@ -966,6 +1078,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/storageLifecyclePolicy",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/storageLifecyclePolicy:StorageLifecyclePolicy": "StorageLifecyclePolicy"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/streamOnDirectoryTable",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -1026,6 +1146,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/tableConstraint:TableConstraint": "TableConstraint"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/tableStorageLifecyclePolicyAttachment",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/tableStorageLifecyclePolicyAttachment:TableStorageLifecyclePolicyAttachment": "TableStorageLifecyclePolicyAttachment"
   }
  },
  {

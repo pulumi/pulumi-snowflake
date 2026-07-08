@@ -72,7 +72,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.CortexAgentShowOutput>> ShowOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a YAML object containing the settings for the Cortex agent.
+        /// Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         /// </summary>
         [Output("specification")]
         public Output<string> Specification { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.Snowflake
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// Specifies a YAML object containing the settings for the Cortex agent.
+        /// Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         /// </summary>
         [Input("specification", required: true)]
         public Input<string> Specification { get; set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies a YAML object containing the settings for the Cortex agent.
+        /// Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         /// </summary>
         [Input("specification")]
         public Input<string>? Specification { get; set; }

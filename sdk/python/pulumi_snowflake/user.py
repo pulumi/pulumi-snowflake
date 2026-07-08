@@ -58,6 +58,7 @@ class UserArgs:
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  last_name: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  login_name: pulumi.Input[Optional[_builtins.str]] = None,
                  middle_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -140,6 +141,7 @@ class UserArgs:
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.str] last_name: Last name of the user.
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] login_name: The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
         :param pulumi.Input[_builtins.str] middle_name: Middle name of the user.
@@ -257,6 +259,8 @@ class UserArgs:
             pulumi.set(__self__, "last_name", last_name)
         if lock_timeout is not None:
             pulumi.set(__self__, "lock_timeout", lock_timeout)
+        if log_event_level is not None:
+            pulumi.set(__self__, "log_event_level", log_event_level)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
         if login_name is not None:
@@ -785,6 +789,18 @@ class UserArgs:
     @lock_timeout.setter
     def lock_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lock_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @log_event_level.setter
+    def log_event_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_event_level", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
@@ -1332,6 +1348,7 @@ class _UserState:
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  last_name: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  login_name: pulumi.Input[Optional[_builtins.str]] = None,
                  middle_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1418,6 +1435,7 @@ class _UserState:
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.str] last_name: Last name of the user.
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] login_name: The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
         :param pulumi.Input[_builtins.str] middle_name: Middle name of the user.
@@ -1540,6 +1558,8 @@ class _UserState:
             pulumi.set(__self__, "last_name", last_name)
         if lock_timeout is not None:
             pulumi.set(__self__, "lock_timeout", lock_timeout)
+        if log_event_level is not None:
+            pulumi.set(__self__, "log_event_level", log_event_level)
         if log_level is not None:
             pulumi.set(__self__, "log_level", log_level)
         if login_name is not None:
@@ -2086,6 +2106,18 @@ class _UserState:
     @lock_timeout.setter
     def lock_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lock_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
+
+    @log_event_level.setter
+    def log_event_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "log_event_level", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
@@ -2671,6 +2703,7 @@ class User(pulumi.CustomResource):
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  last_name: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  login_name: pulumi.Input[Optional[_builtins.str]] = None,
                  middle_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2882,6 +2915,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.str] last_name: Last name of the user.
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] login_name: The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
         :param pulumi.Input[_builtins.str] middle_name: Middle name of the user.
@@ -3112,6 +3146,7 @@ class User(pulumi.CustomResource):
                  json_indent: pulumi.Input[Optional[_builtins.int]] = None,
                  last_name: pulumi.Input[Optional[_builtins.str]] = None,
                  lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
                  log_level: pulumi.Input[Optional[_builtins.str]] = None,
                  login_name: pulumi.Input[Optional[_builtins.str]] = None,
                  middle_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3200,6 +3235,7 @@ class User(pulumi.CustomResource):
             __props__.__dict__["json_indent"] = json_indent
             __props__.__dict__["last_name"] = None if last_name is None else pulumi.Output.secret(last_name)
             __props__.__dict__["lock_timeout"] = lock_timeout
+            __props__.__dict__["log_event_level"] = log_event_level
             __props__.__dict__["log_level"] = log_level
             __props__.__dict__["login_name"] = None if login_name is None else pulumi.Output.secret(login_name)
             __props__.__dict__["middle_name"] = None if middle_name is None else pulumi.Output.secret(middle_name)
@@ -3296,6 +3332,7 @@ class User(pulumi.CustomResource):
             json_indent: pulumi.Input[Optional[_builtins.int]] = None,
             last_name: pulumi.Input[Optional[_builtins.str]] = None,
             lock_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+            log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
             log_level: pulumi.Input[Optional[_builtins.str]] = None,
             login_name: pulumi.Input[Optional[_builtins.str]] = None,
             middle_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3386,6 +3423,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         :param pulumi.Input[_builtins.str] last_name: Last name of the user.
         :param pulumi.Input[_builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] login_name: The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
         :param pulumi.Input[_builtins.str] middle_name: Middle name of the user.
@@ -3474,6 +3512,7 @@ class User(pulumi.CustomResource):
         __props__.__dict__["json_indent"] = json_indent
         __props__.__dict__["last_name"] = last_name
         __props__.__dict__["lock_timeout"] = lock_timeout
+        __props__.__dict__["log_event_level"] = log_event_level
         __props__.__dict__["log_level"] = log_level
         __props__.__dict__["login_name"] = login_name
         __props__.__dict__["middle_name"] = middle_name
@@ -3824,6 +3863,14 @@ class User(pulumi.CustomResource):
         Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
         """
         return pulumi.get(self, "lock_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevel")
+    def log_event_level(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        """
+        return pulumi.get(self, "log_event_level")
 
     @_builtins.property
     @pulumi.getter(name="logLevel")

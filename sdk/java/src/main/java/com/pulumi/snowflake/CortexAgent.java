@@ -145,14 +145,14 @@ public class CortexAgent extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * Specifies a YAML object containing the settings for the Cortex agent.
+     * Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      * 
      */
     @Export(name="specification", refs={String.class}, tree="[0]")
     private Output<String> specification;
 
     /**
-     * @return Specifies a YAML object containing the settings for the Cortex agent.
+     * @return Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      * 
      */
     public Output<String> specification() {

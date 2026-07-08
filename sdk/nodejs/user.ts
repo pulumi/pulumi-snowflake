@@ -317,6 +317,10 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly lockTimeout: pulumi.Output<number>;
     /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    declare public readonly logEventLevel: pulumi.Output<string>;
+    /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
     declare public readonly logLevel: pulumi.Output<string>;
@@ -548,6 +552,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["jsonIndent"] = state?.jsonIndent;
             resourceInputs["lastName"] = state?.lastName;
             resourceInputs["lockTimeout"] = state?.lockTimeout;
+            resourceInputs["logEventLevel"] = state?.logEventLevel;
             resourceInputs["logLevel"] = state?.logLevel;
             resourceInputs["loginName"] = state?.loginName;
             resourceInputs["middleName"] = state?.middleName;
@@ -632,6 +637,7 @@ export class User extends pulumi.CustomResource {
             resourceInputs["jsonIndent"] = args?.jsonIndent;
             resourceInputs["lastName"] = args?.lastName ? pulumi.secret(args.lastName) : undefined;
             resourceInputs["lockTimeout"] = args?.lockTimeout;
+            resourceInputs["logEventLevel"] = args?.logEventLevel;
             resourceInputs["logLevel"] = args?.logLevel;
             resourceInputs["loginName"] = args?.loginName ? pulumi.secret(args.loginName) : undefined;
             resourceInputs["middleName"] = args?.middleName ? pulumi.secret(args.middleName) : undefined;
@@ -842,6 +848,10 @@ export interface UserState {
      * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      */
     lockTimeout?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */
@@ -1176,6 +1186,10 @@ export interface UserArgs {
      * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      */
     lockTimeout?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     */
+    logEventLevel?: pulumi.Input<string | undefined>;
     /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      */

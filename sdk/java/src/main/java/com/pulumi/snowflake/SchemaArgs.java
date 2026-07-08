@@ -139,6 +139,21 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+     * 
+     */
+    @Import(name="logEventLevel")
+    private @Nullable Output<String> logEventLevel;
+
+    /**
+     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+     * 
+     */
+    public Optional<Output<String>> logEventLevel() {
+        return Optional.ofNullable(this.logEventLevel);
+    }
+
+    /**
      * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      * 
      */
@@ -359,6 +374,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         this.enableConsoleOutput = $.enableConsoleOutput;
         this.externalVolume = $.externalVolume;
         this.isTransient = $.isTransient;
+        this.logEventLevel = $.logEventLevel;
         this.logLevel = $.logLevel;
         this.maxDataExtensionTimeInDays = $.maxDataExtensionTimeInDays;
         this.name = $.name;
@@ -559,6 +575,27 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder isTransient(String isTransient) {
             return isTransient(Output.of(isTransient));
+        }
+
+        /**
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logEventLevel(@Nullable Output<String> logEventLevel) {
+            $.logEventLevel = logEventLevel;
+            return this;
+        }
+
+        /**
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logEventLevel(String logEventLevel) {
+            return logEventLevel(Output.of(logEventLevel));
         }
 
         /**

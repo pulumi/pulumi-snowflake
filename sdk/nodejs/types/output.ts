@@ -372,6 +372,196 @@ export interface ApiAuthenticationIntegrationWithJwtBearerShowOutput {
     name: string;
 }
 
+export interface ApiIntegrationAmazonApiGatewayDescribeOutput {
+    allowedPrefixes: string[];
+    apiAwsExternalId: string;
+    apiAwsIamUserArn: string;
+    apiAwsRoleArn: string;
+    apiKey: string;
+    apiProvider: string;
+    blockedPrefixes: string[];
+    comment: string;
+    enabled: boolean;
+}
+
+export interface ApiIntegrationAmazonApiGatewayShowOutput {
+    apiType: string;
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+}
+
+export interface ApiIntegrationAzureApiManagementDescribeOutput {
+    allowedPrefixes: string[];
+    apiKey: string;
+    apiProvider: string;
+    azureAdApplicationId: string;
+    azureConsentUrl: string;
+    azureMultiTenantAppName: string;
+    azureTenantId: string;
+    blockedPrefixes: string[];
+    comment: string;
+    enabled: boolean;
+}
+
+export interface ApiIntegrationAzureApiManagementShowOutput {
+    apiType: string;
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+}
+
+export interface ApiIntegrationExternalMcpDynamicClientDescribeOutput {
+    allowedPrefixes: string[];
+    apiProvider: string;
+    blockedPrefixes: string[];
+    comment: string;
+    enabled: boolean;
+    oauthResourceUrl: string;
+    userAuthType: string;
+}
+
+export interface ApiIntegrationExternalMcpDynamicClientShowOutput {
+    apiType: string;
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+}
+
+export interface ApiIntegrationExternalMcpOauth2DescribeOutput {
+    allowedPrefixes: string[];
+    apiProvider: string;
+    blockedPrefixes: string[];
+    comment: string;
+    enabled: boolean;
+    oauthAccessTokenValidity: number;
+    oauthAllowedScopes: string[];
+    oauthAssertionIssuer: string;
+    oauthAuthorizationEndpoint: string;
+    oauthClientAuthMethod: string;
+    oauthClientId: string;
+    oauthGrant: string;
+    oauthRefreshTokenValidity: number;
+    oauthTokenEndpoint: string;
+    oauthUsername: string;
+    userAuthType: string;
+}
+
+export interface ApiIntegrationExternalMcpOauth2ShowOutput {
+    apiType: string;
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+}
+
+export interface ApiIntegrationGitRepositoryGithubAppDescribeOutput {
+    allowedPrefixes: string[];
+    apiProvider: string;
+    blockedPrefixes: string[];
+    comment: string;
+    enabled: boolean;
+    userAuthType: string;
+}
+
+export interface ApiIntegrationGitRepositoryGithubAppShowOutput {
+    apiType: string;
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+}
+
+export interface ApiIntegrationGitRepositoryOauth2DescribeOutput {
+    allowedPrefixes: string[];
+    blockedPrefixes: string[];
+    comment: string;
+    enabled: boolean;
+    oauthAccessTokenValidity: number;
+    oauthAllowedScopes: string[];
+    oauthAuthorizationEndpoint: string;
+    oauthClientId: string;
+    oauthRefreshTokenValidity: number;
+    oauthTokenEndpoint: string;
+    oauthUsername: string;
+    userAuthType: string;
+}
+
+export interface ApiIntegrationGitRepositoryOauth2ShowOutput {
+    apiType: string;
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+}
+
+export interface ApiIntegrationGitRepositoryPrivateLinkDescribeOutput {
+    allowedAuthenticationSecrets: string;
+    allowedPrefixes: string[];
+    apiProvider: string;
+    blockedPrefixes: string[];
+    comment: string;
+    enabled: boolean;
+    tlsTrustedCertificates: string[];
+    usePrivatelinkEndpoint: boolean;
+}
+
+export interface ApiIntegrationGitRepositoryPrivateLinkShowOutput {
+    apiType: string;
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+}
+
+export interface ApiIntegrationGitRepositoryTokenDescribeOutput {
+    allowedAuthenticationSecrets: string;
+    allowedPrefixes: string[];
+    apiProvider: string;
+    blockedPrefixes: string[];
+    comment: string;
+    enabled: boolean;
+}
+
+export interface ApiIntegrationGitRepositoryTokenShowOutput {
+    apiType: string;
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+}
+
+export interface ApiIntegrationGoogleCloudApiGatewayDescribeOutput {
+    allowedPrefixes: string[];
+    apiKey: string;
+    apiProvider: string;
+    blockedPrefixes: string[];
+    comment: string;
+    enabled: boolean;
+    googleApiServiceAccount: string;
+    googleAudience: string;
+}
+
+export interface ApiIntegrationGoogleCloudApiGatewayShowOutput {
+    apiType: string;
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+}
+
 export interface AuthenticationPolicyClientPolicy {
     /**
      * The client or driver type. Valid values (case-insensitive): `JDBC_DRIVER` | `ODBC_DRIVER` | `PYTHON_DRIVER` | `JAVASCRIPT_DRIVER` | `C_DRIVER` | `GO_DRIVER` | `PHP_DRIVER` | `DOTNET_DRIVER` | `SQL_API` | `SNOWPIPE_STREAMING_CLIENT_SDK` | `PY_CORE` | `SPROC_PYTHON` | `PYTHON_SNOWPARK` | `SQL_ALCHEMY` | `SNOWPARK` | `SNOWFLAKE_CLIENT`.
@@ -1227,12 +1417,21 @@ export interface FunctionJavaImport {
 
 export interface FunctionJavaParameter {
     enableConsoleOutputs: outputs.FunctionJavaParameterEnableConsoleOutput[];
+    logEventLevels: outputs.FunctionJavaParameterLogEventLevel[];
     logLevels: outputs.FunctionJavaParameterLogLevel[];
     metricLevels: outputs.FunctionJavaParameterMetricLevel[];
     traceLevels: outputs.FunctionJavaParameterTraceLevel[];
 }
 
 export interface FunctionJavaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionJavaParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -1326,12 +1525,21 @@ export interface FunctionJavascriptArgument {
 
 export interface FunctionJavascriptParameter {
     enableConsoleOutputs: outputs.FunctionJavascriptParameterEnableConsoleOutput[];
+    logEventLevels: outputs.FunctionJavascriptParameterLogEventLevel[];
     logLevels: outputs.FunctionJavascriptParameterLogLevel[];
     metricLevels: outputs.FunctionJavascriptParameterMetricLevel[];
     traceLevels: outputs.FunctionJavascriptParameterTraceLevel[];
 }
 
 export interface FunctionJavascriptParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionJavascriptParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -1414,12 +1622,21 @@ export interface FunctionPythonImport {
 
 export interface FunctionPythonParameter {
     enableConsoleOutputs: outputs.FunctionPythonParameterEnableConsoleOutput[];
+    logEventLevels: outputs.FunctionPythonParameterLogEventLevel[];
     logLevels: outputs.FunctionPythonParameterLogLevel[];
     metricLevels: outputs.FunctionPythonParameterMetricLevel[];
     traceLevels: outputs.FunctionPythonParameterTraceLevel[];
 }
 
 export interface FunctionPythonParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionPythonParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -1513,12 +1730,21 @@ export interface FunctionScalaImport {
 
 export interface FunctionScalaParameter {
     enableConsoleOutputs: outputs.FunctionScalaParameterEnableConsoleOutput[];
+    logEventLevels: outputs.FunctionScalaParameterLogEventLevel[];
     logLevels: outputs.FunctionScalaParameterLogLevel[];
     metricLevels: outputs.FunctionScalaParameterMetricLevel[];
     traceLevels: outputs.FunctionScalaParameterTraceLevel[];
 }
 
 export interface FunctionScalaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionScalaParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -1612,12 +1838,21 @@ export interface FunctionSqlArgument {
 
 export interface FunctionSqlParameter {
     enableConsoleOutputs: outputs.FunctionSqlParameterEnableConsoleOutput[];
+    logEventLevels: outputs.FunctionSqlParameterLogEventLevel[];
     logLevels: outputs.FunctionSqlParameterLogLevel[];
     metricLevels: outputs.FunctionSqlParameterMetricLevel[];
     traceLevels: outputs.FunctionSqlParameterTraceLevel[];
 }
 
 export interface FunctionSqlParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionSqlParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -1760,6 +1995,59 @@ export interface GetAlertsAlert {
      * Schema in which the alert is stored.
      */
     schemaName: string;
+}
+
+export interface GetApiIntegrationsApiIntegration {
+    /**
+     * Holds the output of DESCRIBE API INTEGRATION.
+     */
+    describeOutputs: outputs.GetApiIntegrationsApiIntegrationDescribeOutput[];
+    /**
+     * Holds the output of SHOW API INTEGRATIONS.
+     */
+    showOutputs: outputs.GetApiIntegrationsApiIntegrationShowOutput[];
+}
+
+export interface GetApiIntegrationsApiIntegrationDescribeOutput {
+    allowedAuthenticationSecrets: string;
+    allowedPrefixes: string[];
+    apiAwsExternalId: string;
+    apiAwsIamUserArn: string;
+    apiAwsRoleArn: string;
+    apiKey: string;
+    apiProvider: string;
+    azureAdApplicationId: string;
+    azureConsentUrl: string;
+    azureMultiTenantAppName: string;
+    azureTenantId: string;
+    blockedPrefixes: string[];
+    comment: string;
+    enabled: boolean;
+    googleApiServiceAccount: string;
+    googleAudience: string;
+    oauthAccessTokenValidity: number;
+    oauthAllowedScopes: string[];
+    oauthAssertionIssuer: string;
+    oauthAuthorizationEndpoint: string;
+    oauthClientAuthMethod: string;
+    oauthClientId: string;
+    oauthGrant: string;
+    oauthRefreshTokenValidity: number;
+    oauthResourceUrl: string;
+    oauthTokenEndpoint: string;
+    oauthUsername: string;
+    tlsTrustedCertificates: string[];
+    usePrivatelinkEndpoint: boolean;
+    userAuthType: string;
+}
+
+export interface GetApiIntegrationsApiIntegrationShowOutput {
+    apiType: string;
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
 }
 
 export interface GetAuthenticationPoliciesAuthenticationPolicy {
@@ -2185,6 +2473,7 @@ export interface GetDatabasesDatabaseParameter {
     defaultDdlCollations: outputs.GetDatabasesDatabaseParameterDefaultDdlCollation[];
     enableConsoleOutputs: outputs.GetDatabasesDatabaseParameterEnableConsoleOutput[];
     externalVolumes: outputs.GetDatabasesDatabaseParameterExternalVolume[];
+    logEventLevels: outputs.GetDatabasesDatabaseParameterLogEventLevel[];
     logLevels: outputs.GetDatabasesDatabaseParameterLogLevel[];
     maxDataExtensionTimeInDays: outputs.GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay[];
     quotedIdentifiersIgnoreCases: outputs.GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase[];
@@ -2231,6 +2520,14 @@ export interface GetDatabasesDatabaseParameterEnableConsoleOutput {
 }
 
 export interface GetDatabasesDatabaseParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -3481,6 +3778,7 @@ export interface GetSchemasSchemaParameter {
     defaultDdlCollations: outputs.GetSchemasSchemaParameterDefaultDdlCollation[];
     enableConsoleOutputs: outputs.GetSchemasSchemaParameterEnableConsoleOutput[];
     externalVolumes: outputs.GetSchemasSchemaParameterExternalVolume[];
+    logEventLevels: outputs.GetSchemasSchemaParameterLogEventLevel[];
     logLevels: outputs.GetSchemasSchemaParameterLogLevel[];
     maxDataExtensionTimeInDays: outputs.GetSchemasSchemaParameterMaxDataExtensionTimeInDay[];
     pipeExecutionPauseds: outputs.GetSchemasSchemaParameterPipeExecutionPaused[];
@@ -3528,6 +3826,14 @@ export interface GetSchemasSchemaParameterEnableConsoleOutput {
 }
 
 export interface GetSchemasSchemaParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -4609,6 +4915,58 @@ export interface GetStorageIntegrationsStorageIntegrationShowOutput {
     storageType: string;
 }
 
+export interface GetStorageLifecyclePoliciesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetStorageLifecyclePoliciesStorageLifecyclePolicy {
+    /**
+     * Holds the output of DESCRIBE STORAGE LIFECYCLE POLICY.
+     */
+    describeOutputs: outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutput[];
+    /**
+     * Holds the output of SHOW STORAGE LIFECYCLE POLICIES.
+     */
+    showOutputs: outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyShowOutput[];
+}
+
+export interface GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutput {
+    archiveForDays: number;
+    archiveTier: string;
+    body: string;
+    name: string;
+    returnType: string;
+    signatures: outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignature[];
+}
+
+export interface GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignature {
+    name: string;
+    type: string;
+}
+
+export interface GetStorageLifecyclePoliciesStorageLifecyclePolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
 export interface GetStreamlitsIn {
     /**
      * Returns records for the entire account.
@@ -4952,6 +5310,7 @@ export interface GetTasksTaskParameter {
     jdbcUseSessionTimezones: outputs.GetTasksTaskParameterJdbcUseSessionTimezone[];
     jsonIndents: outputs.GetTasksTaskParameterJsonIndent[];
     lockTimeouts: outputs.GetTasksTaskParameterLockTimeout[];
+    logEventLevels: outputs.GetTasksTaskParameterLogEventLevel[];
     logLevels: outputs.GetTasksTaskParameterLogLevel[];
     multiStatementCounts: outputs.GetTasksTaskParameterMultiStatementCount[];
     noorderSequenceAsDefaults: outputs.GetTasksTaskParameterNoorderSequenceAsDefault[];
@@ -5168,6 +5527,14 @@ export interface GetTasksTaskParameterJsonIndent {
 }
 
 export interface GetTasksTaskParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetTasksTaskParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -5616,6 +5983,7 @@ export interface GetUsersUserParameter {
     jdbcUseSessionTimezones: outputs.GetUsersUserParameterJdbcUseSessionTimezone[];
     jsonIndents: outputs.GetUsersUserParameterJsonIndent[];
     lockTimeouts: outputs.GetUsersUserParameterLockTimeout[];
+    logEventLevels: outputs.GetUsersUserParameterLogEventLevel[];
     logLevels: outputs.GetUsersUserParameterLogLevel[];
     multiStatementCounts: outputs.GetUsersUserParameterMultiStatementCount[];
     networkPolicies: outputs.GetUsersUserParameterNetworkPolicy[];
@@ -5844,6 +6212,14 @@ export interface GetUsersUserParameterJsonIndent {
 }
 
 export interface GetUsersUserParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetUsersUserParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -6342,7 +6718,7 @@ export interface GrantOwnershipOn {
      */
     objectName?: string;
     /**
-     * Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+     * Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
      */
     objectType?: string;
 }
@@ -6357,7 +6733,7 @@ export interface GrantOwnershipOnAll {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -6372,7 +6748,7 @@ export interface GrantOwnershipOnFuture {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -6504,6 +6880,164 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
     objectTypePlural: string;
 }
 
+export interface IcebergTableFromDeltaFilesDescribeOutput {
+    check: string;
+    comment: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    kind: string;
+    name: string;
+    nameMapping: string;
+    policyName: string;
+    primaryKey: boolean;
+    privacyDomain: string;
+    sourceIcebergType: string;
+    type: string;
+    uniqueKey: boolean;
+    writeDefault: string;
+}
+
+export interface IcebergTableFromDeltaFilesParameter {
+    catalogs: outputs.IcebergTableFromDeltaFilesParameterCatalog[];
+    externalVolumes: outputs.IcebergTableFromDeltaFilesParameterExternalVolume[];
+    replaceInvalidCharacters: outputs.IcebergTableFromDeltaFilesParameterReplaceInvalidCharacter[];
+}
+
+export interface IcebergTableFromDeltaFilesParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromDeltaFilesParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromDeltaFilesParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromDeltaFilesShowOutput {
+    autoRefreshStatuses: outputs.IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus[];
+    baseLocation: string;
+    canWriteMetadata: boolean;
+    catalogName: string;
+    catalogNamespace: string;
+    catalogSyncName: string;
+    catalogTableName: string;
+    comment: string;
+    createdOn: string;
+    currentPartitionSpecId: number;
+    databaseName: string;
+    externalVolumeName: string;
+    icebergTableFormatVersion: number;
+    icebergTableType: string;
+    name: string;
+    nameMapping: string;
+    owner: string;
+    ownerRoleType: string;
+    partitionSpecs: string;
+    schemaName: string;
+}
+
+export interface IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus {
+    currentSnapshotId: number;
+    executionState: string;
+    lastSnapshotTime: string;
+    lastUpdatedTime: string;
+    pendingSnapshotCount: number;
+}
+
+export interface IcebergTableFromFilesDescribeOutput {
+    check: string;
+    comment: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    kind: string;
+    name: string;
+    nameMapping: string;
+    policyName: string;
+    primaryKey: boolean;
+    privacyDomain: string;
+    sourceIcebergType: string;
+    type: string;
+    uniqueKey: boolean;
+    writeDefault: string;
+}
+
+export interface IcebergTableFromFilesParameter {
+    catalogs: outputs.IcebergTableFromFilesParameterCatalog[];
+    externalVolumes: outputs.IcebergTableFromFilesParameterExternalVolume[];
+    replaceInvalidCharacters: outputs.IcebergTableFromFilesParameterReplaceInvalidCharacter[];
+}
+
+export interface IcebergTableFromFilesParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromFilesParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromFilesParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromFilesShowOutput {
+    autoRefreshStatuses: outputs.IcebergTableFromFilesShowOutputAutoRefreshStatus[];
+    baseLocation: string;
+    canWriteMetadata: boolean;
+    catalogName: string;
+    catalogNamespace: string;
+    catalogSyncName: string;
+    catalogTableName: string;
+    comment: string;
+    createdOn: string;
+    currentPartitionSpecId: number;
+    databaseName: string;
+    externalVolumeName: string;
+    icebergTableFormatVersion: number;
+    icebergTableType: string;
+    name: string;
+    nameMapping: string;
+    owner: string;
+    ownerRoleType: string;
+    partitionSpecs: string;
+    schemaName: string;
+}
+
+export interface IcebergTableFromFilesShowOutputAutoRefreshStatus {
+    currentSnapshotId: number;
+    executionState: string;
+    lastSnapshotTime: string;
+    lastUpdatedTime: string;
+    pendingSnapshotCount: number;
+}
+
 export interface ImageRepositoryShowOutput {
     comment: string;
     createdOn: string;
@@ -6597,7 +7131,7 @@ export interface JobServiceFromSpecificationTemplateUsing {
      */
     key: string;
     /**
-     * The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+     * The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
     value: string;
 }
@@ -6718,6 +7252,7 @@ export interface LegacyServiceUserParameter {
     jdbcUseSessionTimezones: outputs.LegacyServiceUserParameterJdbcUseSessionTimezone[];
     jsonIndents: outputs.LegacyServiceUserParameterJsonIndent[];
     lockTimeouts: outputs.LegacyServiceUserParameterLockTimeout[];
+    logEventLevels: outputs.LegacyServiceUserParameterLogEventLevel[];
     logLevels: outputs.LegacyServiceUserParameterLogLevel[];
     multiStatementCounts: outputs.LegacyServiceUserParameterMultiStatementCount[];
     networkPolicies: outputs.LegacyServiceUserParameterNetworkPolicy[];
@@ -6946,6 +7481,14 @@ export interface LegacyServiceUserParameterJsonIndent {
 }
 
 export interface LegacyServiceUserParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface LegacyServiceUserParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -7255,7 +7798,7 @@ export interface ListingManifest {
      */
     fromStage?: outputs.ListingManifestFromStage;
     /**
-     * Manifest provided as a string. Wrapping `$$` signs are added by the provider automatically; do not include them. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required.
+     * Manifest provided as a string. For more information on manifest syntax, see [Listing manifest reference](https://docs.snowflake.com/en/progaccess/listing-manifest-reference). Also, the multiline string syntax is a must here. A proper YAML indentation (2 spaces) is required. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
     fromString?: string;
 }
@@ -7824,6 +8367,51 @@ export interface PasswordPolicyShowOutput {
     schemaName: string;
 }
 
+export interface PostgresInstanceDescribeOutput {
+    authenticationAuthority: string;
+    comment: string;
+    computeFamily: string;
+    createdOn: string;
+    highAvailability: boolean;
+    host: string;
+    maintenanceWindowStart: number;
+    name: string;
+    networkPolicy: string;
+    origin: string;
+    owner: string;
+    ownerRoleType: string;
+    postgresSettings: string;
+    postgresVersion: number;
+    privatelinkServiceIdentifier: string;
+    retentionTime: number;
+    state: string;
+    storageIntegration: string;
+    storageSizeGb: number;
+    type: string;
+    updatedOn: string;
+}
+
+export interface PostgresInstanceShowOutput {
+    authenticationAuthority: string;
+    comment: string;
+    computeFamily: string;
+    createdOn: string;
+    host: string;
+    isHa: boolean;
+    name: string;
+    origin: string;
+    owner: string;
+    ownerRoleType: string;
+    postgresSettings: string;
+    postgresVersion: string;
+    privatelinkServiceIdentifier: string;
+    retentionTime: number;
+    state: string;
+    storageSize: number;
+    type: string;
+    updatedOn: string;
+}
+
 export interface PrimaryConnectionShowOutput {
     accountLocator: string;
     accountName: string;
@@ -7867,12 +8455,21 @@ export interface ProcedureJavaImport {
 
 export interface ProcedureJavaParameter {
     enableConsoleOutputs: outputs.ProcedureJavaParameterEnableConsoleOutput[];
+    logEventLevels: outputs.ProcedureJavaParameterLogEventLevel[];
     logLevels: outputs.ProcedureJavaParameterLogLevel[];
     metricLevels: outputs.ProcedureJavaParameterMetricLevel[];
     traceLevels: outputs.ProcedureJavaParameterTraceLevel[];
 }
 
 export interface ProcedureJavaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureJavaParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -7962,12 +8559,21 @@ export interface ProcedureJavascriptArgument {
 
 export interface ProcedureJavascriptParameter {
     enableConsoleOutputs: outputs.ProcedureJavascriptParameterEnableConsoleOutput[];
+    logEventLevels: outputs.ProcedureJavascriptParameterLogEventLevel[];
     logLevels: outputs.ProcedureJavascriptParameterLogLevel[];
     metricLevels: outputs.ProcedureJavascriptParameterMetricLevel[];
     traceLevels: outputs.ProcedureJavascriptParameterTraceLevel[];
 }
 
 export interface ProcedureJavascriptParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureJavascriptParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -8046,12 +8652,21 @@ export interface ProcedurePythonImport {
 
 export interface ProcedurePythonParameter {
     enableConsoleOutputs: outputs.ProcedurePythonParameterEnableConsoleOutput[];
+    logEventLevels: outputs.ProcedurePythonParameterLogEventLevel[];
     logLevels: outputs.ProcedurePythonParameterLogLevel[];
     metricLevels: outputs.ProcedurePythonParameterMetricLevel[];
     traceLevels: outputs.ProcedurePythonParameterTraceLevel[];
 }
 
 export interface ProcedurePythonParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedurePythonParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -8141,12 +8756,21 @@ export interface ProcedureScalaImport {
 
 export interface ProcedureScalaParameter {
     enableConsoleOutputs: outputs.ProcedureScalaParameterEnableConsoleOutput[];
+    logEventLevels: outputs.ProcedureScalaParameterLogEventLevel[];
     logLevels: outputs.ProcedureScalaParameterLogLevel[];
     metricLevels: outputs.ProcedureScalaParameterMetricLevel[];
     traceLevels: outputs.ProcedureScalaParameterTraceLevel[];
 }
 
 export interface ProcedureScalaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureScalaParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -8236,12 +8860,21 @@ export interface ProcedureSqlArgument {
 
 export interface ProcedureSqlParameter {
     enableConsoleOutputs: outputs.ProcedureSqlParameterEnableConsoleOutput[];
+    logEventLevels: outputs.ProcedureSqlParameterLogEventLevel[];
     logLevels: outputs.ProcedureSqlParameterLogLevel[];
     metricLevels: outputs.ProcedureSqlParameterMetricLevel[];
     traceLevels: outputs.ProcedureSqlParameterTraceLevel[];
 }
 
 export interface ProcedureSqlParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureSqlParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -8503,6 +9136,7 @@ export interface SchemaParameter {
     defaultDdlCollations: outputs.SchemaParameterDefaultDdlCollation[];
     enableConsoleOutputs: outputs.SchemaParameterEnableConsoleOutput[];
     externalVolumes: outputs.SchemaParameterExternalVolume[];
+    logEventLevels: outputs.SchemaParameterLogEventLevel[];
     logLevels: outputs.SchemaParameterLogLevel[];
     maxDataExtensionTimeInDays: outputs.SchemaParameterMaxDataExtensionTimeInDay[];
     pipeExecutionPauseds: outputs.SchemaParameterPipeExecutionPaused[];
@@ -8550,6 +9184,14 @@ export interface SchemaParameterEnableConsoleOutput {
 }
 
 export interface SchemaParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -9118,7 +9760,7 @@ export interface ServiceFromSpecificationTemplateUsing {
      */
     key: string;
     /**
-     * The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+     * The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
     value: string;
 }
@@ -9239,6 +9881,7 @@ export interface ServiceUserParameter {
     jdbcUseSessionTimezones: outputs.ServiceUserParameterJdbcUseSessionTimezone[];
     jsonIndents: outputs.ServiceUserParameterJsonIndent[];
     lockTimeouts: outputs.ServiceUserParameterLockTimeout[];
+    logEventLevels: outputs.ServiceUserParameterLogEventLevel[];
     logLevels: outputs.ServiceUserParameterLogLevel[];
     multiStatementCounts: outputs.ServiceUserParameterMultiStatementCount[];
     networkPolicies: outputs.ServiceUserParameterNetworkPolicy[];
@@ -9467,6 +10110,14 @@ export interface ServiceUserParameterJsonIndent {
 }
 
 export interface ServiceUserParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ServiceUserParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -12289,6 +12940,43 @@ export interface StorageIntegrationGcsShowOutput {
     storageType: string;
 }
 
+export interface StorageLifecyclePolicyArgument {
+    /**
+     * The argument name.
+     */
+    name: string;
+    /**
+     * The argument type. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     */
+    type: string;
+}
+
+export interface StorageLifecyclePolicyDescribeOutput {
+    archiveForDays: number;
+    archiveTier: string;
+    body: string;
+    name: string;
+    returnType: string;
+    signatures: outputs.StorageLifecyclePolicyDescribeOutputSignature[];
+}
+
+export interface StorageLifecyclePolicyDescribeOutputSignature {
+    name: string;
+    type: string;
+}
+
+export interface StorageLifecyclePolicyShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    kind: string;
+    name: string;
+    options: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
 export interface StreamOnDirectoryTableDescribeOutput {
     baseTables: string[];
     comment: string;
@@ -12747,6 +13435,7 @@ export interface TaskParameter {
     jdbcUseSessionTimezones: outputs.TaskParameterJdbcUseSessionTimezone[];
     jsonIndents: outputs.TaskParameterJsonIndent[];
     lockTimeouts: outputs.TaskParameterLockTimeout[];
+    logEventLevels: outputs.TaskParameterLogEventLevel[];
     logLevels: outputs.TaskParameterLogLevel[];
     multiStatementCounts: outputs.TaskParameterMultiStatementCount[];
     noorderSequenceAsDefaults: outputs.TaskParameterNoorderSequenceAsDefault[];
@@ -12963,6 +13652,14 @@ export interface TaskParameterJsonIndent {
 }
 
 export interface TaskParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface TaskParameterLogEventLevel {
     default: string;
     description: string;
     key: string;
@@ -13364,6 +14061,7 @@ export interface UserParameter {
     jdbcUseSessionTimezones: outputs.UserParameterJdbcUseSessionTimezone[];
     jsonIndents: outputs.UserParameterJsonIndent[];
     lockTimeouts: outputs.UserParameterLockTimeout[];
+    logEventLevels: outputs.UserParameterLogEventLevel[];
     logLevels: outputs.UserParameterLogLevel[];
     multiStatementCounts: outputs.UserParameterMultiStatementCount[];
     networkPolicies: outputs.UserParameterNetworkPolicy[];
@@ -13592,6 +14290,14 @@ export interface UserParameterJsonIndent {
 }
 
 export interface UserParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface UserParameterLogEventLevel {
     default: string;
     description: string;
     key: string;

@@ -520,6 +520,8 @@ class ApiIntegration(pulumi.CustomResource):
 
         > **Note** Currently, API integrations for `git_https_api` API provider are not supported. It will be added in the future.
 
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `ApiIntegrationAmazonApiGateway` | `ApiIntegrationAzureApiManagement` | `ApiIntegrationGoogleCloudApiGateway` | `ApiIntegrationGitRepositoryGithubApp` | `ApiIntegrationGitRepositoryOauth2` | `ApiIntegrationGitRepositoryToken` | `ApiIntegrationGitRepositoryPrivateLink` | `ApiIntegrationExternalMcpOauth2` | `ApiIntegrationExternalMcpDynamicClient`. <deprecation>
+
         ## Example Usage
 
         > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
@@ -583,6 +585,8 @@ class ApiIntegration(pulumi.CustomResource):
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
         > **Note** Currently, API integrations for `git_https_api` API provider are not supported. It will be added in the future.
+
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `ApiIntegrationAmazonApiGateway` | `ApiIntegrationAzureApiManagement` | `ApiIntegrationGoogleCloudApiGateway` | `ApiIntegrationGitRepositoryGithubApp` | `ApiIntegrationGitRepositoryOauth2` | `ApiIntegrationGitRepositoryToken` | `ApiIntegrationGitRepositoryPrivateLink` | `ApiIntegrationExternalMcpOauth2` | `ApiIntegrationExternalMcpDynamicClient`. <deprecation>
 
         ## Example Usage
 

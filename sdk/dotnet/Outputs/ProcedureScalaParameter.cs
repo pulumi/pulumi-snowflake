@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class ProcedureScalaParameter
     {
         public readonly ImmutableArray<Outputs.ProcedureScalaParameterEnableConsoleOutput> EnableConsoleOutputs;
+        public readonly ImmutableArray<Outputs.ProcedureScalaParameterLogEventLevel> LogEventLevels;
         public readonly ImmutableArray<Outputs.ProcedureScalaParameterLogLevel> LogLevels;
         public readonly ImmutableArray<Outputs.ProcedureScalaParameterMetricLevel> MetricLevels;
         public readonly ImmutableArray<Outputs.ProcedureScalaParameterTraceLevel> TraceLevels;
@@ -22,6 +23,8 @@ namespace Pulumi.Snowflake.Outputs
         private ProcedureScalaParameter(
             ImmutableArray<Outputs.ProcedureScalaParameterEnableConsoleOutput> enableConsoleOutputs,
 
+            ImmutableArray<Outputs.ProcedureScalaParameterLogEventLevel> logEventLevels,
+
             ImmutableArray<Outputs.ProcedureScalaParameterLogLevel> logLevels,
 
             ImmutableArray<Outputs.ProcedureScalaParameterMetricLevel> metricLevels,
@@ -29,6 +32,7 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.ProcedureScalaParameterTraceLevel> traceLevels)
         {
             EnableConsoleOutputs = enableConsoleOutputs;
+            LogEventLevels = logEventLevels;
             LogLevels = logLevels;
             MetricLevels = metricLevels;
             TraceLevels = traceLevels;
