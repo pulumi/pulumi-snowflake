@@ -240,7 +240,7 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly clientEnableLogInfoStatementParameters: pulumi.Output<boolean>;
     /**
-     * Specifies the AES encryption key size, in bits, used by Snowflake to encrypt/decrypt files stored on internal stages (for loading/unloading data) when you use the SNOWFLAKE*FULL encryption type. For more information, check [CLIENT*ENCRYPTION*KEY*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-encryption-key-size).
+     * Specifies the AES encryption key size, in bits, used by Snowflake to encrypt/decrypt files stored on internal stages (for loading/unloading data) when you use the SNOWFLAKE*FULL encryption type. For more information, check *ENCRYPTION*KEY*SIZE docs[CLIENT](https://docs.snowflake.com/en/sql-reference/parameters#client-encryption-key-size).
      */
     declare public readonly clientEncryptionKeySize: pulumi.Output<number>;
     /**
@@ -300,7 +300,7 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly cortexModelsAllowlist: pulumi.Output<string>;
     /**
-     * Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
+     * Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, *TZ*OUTPUT_FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and *NTZ*OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check *TIMESTAMP*FORMAT docs[CSV](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
      */
     declare public readonly csvTimestampFormat: pulumi.Output<string>;
     /**
@@ -340,7 +340,7 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly disableUiDownloadButton: pulumi.Output<boolean>;
     /**
-     * Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check [DISABLE*USER*PRIVILEGE*GRANTS docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
+     * Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
      */
     declare public readonly disableUserPrivilegeGrants: pulumi.Output<boolean>;
     /**
@@ -380,11 +380,11 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly enableUnloadPhysicalTypeOptimization: pulumi.Output<boolean>;
     /**
-     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If FALSE, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If FALSE, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
      */
     declare public readonly enableUnredactedQuerySyntaxError: pulumi.Output<boolean>;
     /**
-     * Controls whether error messages related to secure objects are redacted in metadata. For more information, see [Secure objects: Redaction of information in error messages](https://docs.snowflake.com/en/release-notes/bcr-bundles/un-bundled/bcr-1858). Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*SECURE*OBJECT*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the redacted error messages in metadata, not the user who caused the error. For more information, check [ENABLE*UNREDACTED*SECURE*OBJECT*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-secure-object-error).
+     * Controls whether error messages related to secure objects are redacted in metadata. For more information, see [Secure objects: Redaction of information in error messages](https://docs.snowflake.com/en/release-notes/bcr-bundles/un-bundled/bcr-1858). Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*SECURE*OBJECT*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the redacted error messages in metadata, not the user who caused the error. For more information, check *UNREDACTED*SECURE*OBJECT*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-secure-object-error).
      */
     declare public readonly enableUnredactedSecureObjectError: pulumi.Output<boolean>;
     /**
@@ -436,7 +436,7 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly jdbcTreatDecimalAsInt: pulumi.Output<boolean>;
     /**
-     * Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      */
     declare public readonly jdbcTreatTimestampNtzAsUtc: pulumi.Output<boolean>;
     /**
@@ -472,7 +472,7 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly maxConcurrencyLevel: pulumi.Output<number>;
     /**
-     * Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check [MAX*DATA*EXTENSION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+     * Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check *DATA*EXTENSION*TIME*IN*DAYS docs[MAX](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
      */
     declare public readonly maxDataExtensionTimeInDays: pulumi.Output<number>;
     /**
@@ -480,7 +480,7 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly metricLevel: pulumi.Output<string>;
     /**
-     * Minimum number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on an object. If a minimum number of days for data retention is set on an account, the data retention period for an object is determined by MAX([DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days), MIN*DATA*RETENTION*TIME*IN*DAYS). For more information, check [MIN*DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#min-data-retention-time-in-days).
+     * Minimum number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on an object. If a minimum number of days for data retention is set on an account, the data retention period for an object is determined by MAX([DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days), MIN*DATA*RETENTION*TIME*IN*DAYS). For more information, check *DATA*RETENTION*TIME*IN*DAYS docs[MIN](https://docs.snowflake.com/en/sql-reference/parameters#min-data-retention-time-in-days).
      */
     declare public readonly minDataRetentionTimeInDays: pulumi.Output<number>;
     /**
@@ -632,11 +632,11 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly timestampInputFormat: pulumi.Output<string>;
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      */
     declare public readonly timestampLtzOutputFormat: pulumi.Output<string>;
     /**
-     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      */
     declare public readonly timestampNtzOutputFormat: pulumi.Output<string>;
     /**
@@ -648,7 +648,7 @@ export class CurrentAccount extends pulumi.CustomResource {
      */
     declare public readonly timestampTypeMapping: pulumi.Output<string>;
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      */
     declare public readonly timestampTzOutputFormat: pulumi.Output<string>;
     /**
@@ -1028,7 +1028,7 @@ export interface CurrentAccountState {
      */
     clientEnableLogInfoStatementParameters?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the AES encryption key size, in bits, used by Snowflake to encrypt/decrypt files stored on internal stages (for loading/unloading data) when you use the SNOWFLAKE*FULL encryption type. For more information, check [CLIENT*ENCRYPTION*KEY*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-encryption-key-size).
+     * Specifies the AES encryption key size, in bits, used by Snowflake to encrypt/decrypt files stored on internal stages (for loading/unloading data) when you use the SNOWFLAKE*FULL encryption type. For more information, check *ENCRYPTION*KEY*SIZE docs[CLIENT](https://docs.snowflake.com/en/sql-reference/parameters#client-encryption-key-size).
      */
     clientEncryptionKeySize?: pulumi.Input<number | undefined>;
     /**
@@ -1088,7 +1088,7 @@ export interface CurrentAccountState {
      */
     cortexModelsAllowlist?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
+     * Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, *TZ*OUTPUT_FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and *NTZ*OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check *TIMESTAMP*FORMAT docs[CSV](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
      */
     csvTimestampFormat?: pulumi.Input<string | undefined>;
     /**
@@ -1128,7 +1128,7 @@ export interface CurrentAccountState {
      */
     disableUiDownloadButton?: pulumi.Input<boolean | undefined>;
     /**
-     * Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check [DISABLE*USER*PRIVILEGE*GRANTS docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
+     * Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
      */
     disableUserPrivilegeGrants?: pulumi.Input<boolean | undefined>;
     /**
@@ -1168,11 +1168,11 @@ export interface CurrentAccountState {
      */
     enableUnloadPhysicalTypeOptimization?: pulumi.Input<boolean | undefined>;
     /**
-     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If FALSE, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If FALSE, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
      */
     enableUnredactedQuerySyntaxError?: pulumi.Input<boolean | undefined>;
     /**
-     * Controls whether error messages related to secure objects are redacted in metadata. For more information, see [Secure objects: Redaction of information in error messages](https://docs.snowflake.com/en/release-notes/bcr-bundles/un-bundled/bcr-1858). Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*SECURE*OBJECT*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the redacted error messages in metadata, not the user who caused the error. For more information, check [ENABLE*UNREDACTED*SECURE*OBJECT*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-secure-object-error).
+     * Controls whether error messages related to secure objects are redacted in metadata. For more information, see [Secure objects: Redaction of information in error messages](https://docs.snowflake.com/en/release-notes/bcr-bundles/un-bundled/bcr-1858). Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*SECURE*OBJECT*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the redacted error messages in metadata, not the user who caused the error. For more information, check *UNREDACTED*SECURE*OBJECT*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-secure-object-error).
      */
     enableUnredactedSecureObjectError?: pulumi.Input<boolean | undefined>;
     /**
@@ -1224,7 +1224,7 @@ export interface CurrentAccountState {
      */
     jdbcTreatDecimalAsInt?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      */
     jdbcTreatTimestampNtzAsUtc?: pulumi.Input<boolean | undefined>;
     /**
@@ -1260,7 +1260,7 @@ export interface CurrentAccountState {
      */
     maxConcurrencyLevel?: pulumi.Input<number | undefined>;
     /**
-     * Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check [MAX*DATA*EXTENSION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+     * Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check *DATA*EXTENSION*TIME*IN*DAYS docs[MAX](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
      */
     maxDataExtensionTimeInDays?: pulumi.Input<number | undefined>;
     /**
@@ -1268,7 +1268,7 @@ export interface CurrentAccountState {
      */
     metricLevel?: pulumi.Input<string | undefined>;
     /**
-     * Minimum number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on an object. If a minimum number of days for data retention is set on an account, the data retention period for an object is determined by MAX([DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days), MIN*DATA*RETENTION*TIME*IN*DAYS). For more information, check [MIN*DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#min-data-retention-time-in-days).
+     * Minimum number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on an object. If a minimum number of days for data retention is set on an account, the data retention period for an object is determined by MAX([DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days), MIN*DATA*RETENTION*TIME*IN*DAYS). For more information, check *DATA*RETENTION*TIME*IN*DAYS docs[MIN](https://docs.snowflake.com/en/sql-reference/parameters#min-data-retention-time-in-days).
      */
     minDataRetentionTimeInDays?: pulumi.Input<number | undefined>;
     /**
@@ -1420,11 +1420,11 @@ export interface CurrentAccountState {
      */
     timestampInputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      */
     timestampLtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      */
     timestampNtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
@@ -1436,7 +1436,7 @@ export interface CurrentAccountState {
      */
     timestampTypeMapping?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      */
     timestampTzOutputFormat?: pulumi.Input<string | undefined>;
     /**
@@ -1542,7 +1542,7 @@ export interface CurrentAccountArgs {
      */
     clientEnableLogInfoStatementParameters?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the AES encryption key size, in bits, used by Snowflake to encrypt/decrypt files stored on internal stages (for loading/unloading data) when you use the SNOWFLAKE*FULL encryption type. For more information, check [CLIENT*ENCRYPTION*KEY*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-encryption-key-size).
+     * Specifies the AES encryption key size, in bits, used by Snowflake to encrypt/decrypt files stored on internal stages (for loading/unloading data) when you use the SNOWFLAKE*FULL encryption type. For more information, check *ENCRYPTION*KEY*SIZE docs[CLIENT](https://docs.snowflake.com/en/sql-reference/parameters#client-encryption-key-size).
      */
     clientEncryptionKeySize?: pulumi.Input<number | undefined>;
     /**
@@ -1602,7 +1602,7 @@ export interface CurrentAccountArgs {
      */
     cortexModelsAllowlist?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, [TIMESTAMP*TZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and [TIMESTAMP*NTZ*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check [CSV*TIMESTAMP*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
+     * Specifies the format for TIMESTAMP values in CSV files downloaded from Snowsight. If this parameter is not set, [TIMESTAMP*LTZ*OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ltz-output-format) will be used for TIMESTAMP*LTZ values, *TZ*OUTPUT_FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-tz-output-format) will be used for TIMESTAMP*TZ and *NTZ*OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-ntz-output-format) for TIMESTAMP*NTZ values. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output) or [Download your query results](https://docs.snowflake.com/en/user-guide/ui-snowsight-query.html#label-snowsight-download-query-results). For more information, check *TIMESTAMP*FORMAT docs[CSV](https://docs.snowflake.com/en/sql-reference/parameters#csv-timestamp-format).
      */
     csvTimestampFormat?: pulumi.Input<string | undefined>;
     /**
@@ -1642,7 +1642,7 @@ export interface CurrentAccountArgs {
      */
     disableUiDownloadButton?: pulumi.Input<boolean | undefined>;
     /**
-     * Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check [DISABLE*USER*PRIVILEGE*GRANTS docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
+     * Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
      */
     disableUserPrivilegeGrants?: pulumi.Input<boolean | undefined>;
     /**
@@ -1682,11 +1682,11 @@ export interface CurrentAccountArgs {
      */
     enableUnloadPhysicalTypeOptimization?: pulumi.Input<boolean | undefined>;
     /**
-     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If FALSE, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If FALSE, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
      */
     enableUnredactedQuerySyntaxError?: pulumi.Input<boolean | undefined>;
     /**
-     * Controls whether error messages related to secure objects are redacted in metadata. For more information, see [Secure objects: Redaction of information in error messages](https://docs.snowflake.com/en/release-notes/bcr-bundles/un-bundled/bcr-1858). Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*SECURE*OBJECT*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the redacted error messages in metadata, not the user who caused the error. For more information, check [ENABLE*UNREDACTED*SECURE*OBJECT*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-secure-object-error).
+     * Controls whether error messages related to secure objects are redacted in metadata. For more information, see [Secure objects: Redaction of information in error messages](https://docs.snowflake.com/en/release-notes/bcr-bundles/un-bundled/bcr-1858). Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*SECURE*OBJECT*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the redacted error messages in metadata, not the user who caused the error. For more information, check *UNREDACTED*SECURE*OBJECT*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-secure-object-error).
      */
     enableUnredactedSecureObjectError?: pulumi.Input<boolean | undefined>;
     /**
@@ -1738,7 +1738,7 @@ export interface CurrentAccountArgs {
      */
     jdbcTreatDecimalAsInt?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      */
     jdbcTreatTimestampNtzAsUtc?: pulumi.Input<boolean | undefined>;
     /**
@@ -1774,7 +1774,7 @@ export interface CurrentAccountArgs {
      */
     maxConcurrencyLevel?: pulumi.Input<number | undefined>;
     /**
-     * Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check [MAX*DATA*EXTENSION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+     * Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check *DATA*EXTENSION*TIME*IN*DAYS docs[MAX](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
      */
     maxDataExtensionTimeInDays?: pulumi.Input<number | undefined>;
     /**
@@ -1782,7 +1782,7 @@ export interface CurrentAccountArgs {
      */
     metricLevel?: pulumi.Input<string | undefined>;
     /**
-     * Minimum number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on an object. If a minimum number of days for data retention is set on an account, the data retention period for an object is determined by MAX([DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days), MIN*DATA*RETENTION*TIME*IN*DAYS). For more information, check [MIN*DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#min-data-retention-time-in-days).
+     * Minimum number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on an object. If a minimum number of days for data retention is set on an account, the data retention period for an object is determined by MAX([DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days), MIN*DATA*RETENTION*TIME*IN*DAYS). For more information, check *DATA*RETENTION*TIME*IN*DAYS docs[MIN](https://docs.snowflake.com/en/sql-reference/parameters#min-data-retention-time-in-days).
      */
     minDataRetentionTimeInDays?: pulumi.Input<number | undefined>;
     /**
@@ -1934,11 +1934,11 @@ export interface CurrentAccountArgs {
      */
     timestampInputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      */
     timestampLtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      */
     timestampNtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
@@ -1950,7 +1950,7 @@ export interface CurrentAccountArgs {
      */
     timestampTypeMapping?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      */
     timestampTzOutputFormat?: pulumi.Input<string | undefined>;
     /**

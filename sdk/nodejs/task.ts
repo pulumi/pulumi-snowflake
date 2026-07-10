@@ -158,7 +158,7 @@ export class Task extends pulumi.CustomResource {
      */
     declare public readonly geometryOutputFormat: pulumi.Output<string>;
     /**
-     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      */
     declare public readonly jdbcTreatTimestampNtzAsUtc: pulumi.Output<boolean>;
     /**
@@ -290,11 +290,11 @@ export class Task extends pulumi.CustomResource {
      */
     declare public readonly timestampInputFormat: pulumi.Output<string>;
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      */
     declare public readonly timestampLtzOutputFormat: pulumi.Output<string>;
     /**
-     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      */
     declare public readonly timestampNtzOutputFormat: pulumi.Output<string>;
     /**
@@ -306,7 +306,7 @@ export class Task extends pulumi.CustomResource {
      */
     declare public readonly timestampTypeMapping: pulumi.Output<string>;
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      */
     declare public readonly timestampTzOutputFormat: pulumi.Output<string>;
     /**
@@ -670,7 +670,7 @@ export interface TaskState {
      */
     geometryOutputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      */
     jdbcTreatTimestampNtzAsUtc?: pulumi.Input<boolean | undefined>;
     /**
@@ -802,11 +802,11 @@ export interface TaskState {
      */
     timestampInputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      */
     timestampLtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      */
     timestampNtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
@@ -818,7 +818,7 @@ export interface TaskState {
      */
     timestampTypeMapping?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      */
     timestampTzOutputFormat?: pulumi.Input<string | undefined>;
     /**
@@ -988,7 +988,7 @@ export interface TaskArgs {
      */
     geometryOutputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      */
     jdbcTreatTimestampNtzAsUtc?: pulumi.Input<boolean | undefined>;
     /**
@@ -1112,11 +1112,11 @@ export interface TaskArgs {
      */
     timestampInputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      */
     timestampLtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      */
     timestampNtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
@@ -1128,7 +1128,7 @@ export interface TaskArgs {
      */
     timestampTypeMapping?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      */
     timestampTzOutputFormat?: pulumi.Input<string | undefined>;
     /**

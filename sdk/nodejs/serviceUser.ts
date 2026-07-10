@@ -294,7 +294,7 @@ export class ServiceUser extends pulumi.CustomResource {
      */
     declare public readonly enableUnloadPhysicalTypeOptimization: pulumi.Output<boolean>;
     /**
-     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
      */
     declare public readonly enableUnredactedQuerySyntaxError: pulumi.Output<boolean>;
     /**
@@ -322,7 +322,7 @@ export class ServiceUser extends pulumi.CustomResource {
      */
     declare public readonly jdbcTreatDecimalAsInt: pulumi.Output<boolean>;
     /**
-     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      */
     declare public readonly jdbcTreatTimestampNtzAsUtc: pulumi.Output<boolean>;
     /**
@@ -446,11 +446,11 @@ export class ServiceUser extends pulumi.CustomResource {
      */
     declare public readonly timestampInputFormat: pulumi.Output<string>;
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      */
     declare public readonly timestampLtzOutputFormat: pulumi.Output<string>;
     /**
-     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      */
     declare public readonly timestampNtzOutputFormat: pulumi.Output<string>;
     /**
@@ -462,7 +462,7 @@ export class ServiceUser extends pulumi.CustomResource {
      */
     declare public readonly timestampTypeMapping: pulumi.Output<string>;
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      */
     declare public readonly timestampTzOutputFormat: pulumi.Output<string>;
     /**
@@ -790,7 +790,7 @@ export interface ServiceUserState {
      */
     enableUnloadPhysicalTypeOptimization?: pulumi.Input<boolean | undefined>;
     /**
-     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
      */
     enableUnredactedQuerySyntaxError?: pulumi.Input<boolean | undefined>;
     /**
@@ -818,7 +818,7 @@ export interface ServiceUserState {
      */
     jdbcTreatDecimalAsInt?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      */
     jdbcTreatTimestampNtzAsUtc?: pulumi.Input<boolean | undefined>;
     /**
@@ -942,11 +942,11 @@ export interface ServiceUserState {
      */
     timestampInputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      */
     timestampLtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      */
     timestampNtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
@@ -958,7 +958,7 @@ export interface ServiceUserState {
      */
     timestampTypeMapping?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      */
     timestampTzOutputFormat?: pulumi.Input<string | undefined>;
     /**
@@ -1108,7 +1108,7 @@ export interface ServiceUserArgs {
      */
     enableUnloadPhysicalTypeOptimization?: pulumi.Input<boolean | undefined>;
     /**
-     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
      */
     enableUnredactedQuerySyntaxError?: pulumi.Input<boolean | undefined>;
     /**
@@ -1132,7 +1132,7 @@ export interface ServiceUserArgs {
      */
     jdbcTreatDecimalAsInt?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      */
     jdbcTreatTimestampNtzAsUtc?: pulumi.Input<boolean | undefined>;
     /**
@@ -1248,11 +1248,11 @@ export interface ServiceUserArgs {
      */
     timestampInputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      */
     timestampLtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      */
     timestampNtzOutputFormat?: pulumi.Input<string | undefined>;
     /**
@@ -1264,7 +1264,7 @@ export interface ServiceUserArgs {
      */
     timestampTypeMapping?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      */
     timestampTzOutputFormat?: pulumi.Input<string | undefined>;
     /**
