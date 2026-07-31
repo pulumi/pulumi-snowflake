@@ -5,9 +5,11 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.inputs.GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,38 +17,54 @@ public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.p
     public static final GrantPrivilegesToAccountRoleOnAccountObjectArgs Empty = new GrantPrivilegesToAccountRoleOnAccountObjectArgs();
 
     /**
+     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    @Import(name="inherited")
+    private @Nullable Output<GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs> inherited;
+
+    /**
+     * @return Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    public Optional<Output<GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs>> inherited() {
+        return Optional.ofNullable(this.inherited);
+    }
+
+    /**
      * The fully qualified name of the object on which privileges will be granted.
      * 
      */
-    @Import(name="objectName", required=true)
-    private Output<String> objectName;
+    @Import(name="objectName")
+    private @Nullable Output<String> objectName;
 
     /**
      * @return The fully qualified name of the object on which privileges will be granted.
      * 
      */
-    public Output<String> objectName() {
-        return this.objectName;
+    public Optional<Output<String>> objectName() {
+        return Optional.ofNullable(this.objectName);
     }
 
     /**
-     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
      * 
      */
-    @Import(name="objectType", required=true)
-    private Output<String> objectType;
+    @Import(name="objectType")
+    private @Nullable Output<String> objectType;
 
     /**
-     * @return The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+     * @return The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
      * 
      */
-    public Output<String> objectType() {
-        return this.objectType;
+    public Optional<Output<String>> objectType() {
+        return Optional.ofNullable(this.objectType);
     }
 
     private GrantPrivilegesToAccountRoleOnAccountObjectArgs() {}
 
     private GrantPrivilegesToAccountRoleOnAccountObjectArgs(GrantPrivilegesToAccountRoleOnAccountObjectArgs $) {
+        this.inherited = $.inherited;
         this.objectName = $.objectName;
         this.objectType = $.objectType;
     }
@@ -70,12 +88,33 @@ public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.p
         }
 
         /**
+         * @param inherited Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inherited(@Nullable Output<GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs> inherited) {
+            $.inherited = inherited;
+            return this;
+        }
+
+        /**
+         * @param inherited Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inherited(GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs inherited) {
+            return inherited(Output.of(inherited));
+        }
+
+        /**
          * @param objectName The fully qualified name of the object on which privileges will be granted.
          * 
          * @return builder
          * 
          */
-        public Builder objectName(Output<String> objectName) {
+        public Builder objectName(@Nullable Output<String> objectName) {
             $.objectName = objectName;
             return this;
         }
@@ -91,18 +130,18 @@ public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.p
         }
 
         /**
-         * @param objectType The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+         * @param objectType The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
          * 
          * @return builder
          * 
          */
-        public Builder objectType(Output<String> objectType) {
+        public Builder objectType(@Nullable Output<String> objectType) {
             $.objectType = objectType;
             return this;
         }
 
         /**
-         * @param objectType The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+         * @param objectType The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
          * 
          * @return builder
          * 
@@ -112,12 +151,6 @@ public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.p
         }
 
         public GrantPrivilegesToAccountRoleOnAccountObjectArgs build() {
-            if ($.objectName == null) {
-                throw new MissingRequiredPropertyException("GrantPrivilegesToAccountRoleOnAccountObjectArgs", "objectName");
-            }
-            if ($.objectType == null) {
-                throw new MissingRequiredPropertyException("GrantPrivilegesToAccountRoleOnAccountObjectArgs", "objectType");
-            }
             return $;
         }
     }

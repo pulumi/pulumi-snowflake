@@ -71,6 +71,14 @@ export class SecondaryDatabase extends pulumi.CustomResource {
      */
     declare public readonly defaultDdlCollation: pulumi.Output<string>;
     /**
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     */
+    declare public readonly defaultNotebookComputePoolCpu: pulumi.Output<string>;
+    /**
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     */
+    declare public readonly defaultNotebookComputePoolGpu: pulumi.Output<string>;
+    /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
     declare public readonly enableConsoleOutput: pulumi.Output<boolean>;
@@ -157,6 +165,8 @@ export class SecondaryDatabase extends pulumi.CustomResource {
             resourceInputs["comment"] = state?.comment;
             resourceInputs["dataRetentionTimeInDays"] = state?.dataRetentionTimeInDays;
             resourceInputs["defaultDdlCollation"] = state?.defaultDdlCollation;
+            resourceInputs["defaultNotebookComputePoolCpu"] = state?.defaultNotebookComputePoolCpu;
+            resourceInputs["defaultNotebookComputePoolGpu"] = state?.defaultNotebookComputePoolGpu;
             resourceInputs["enableConsoleOutput"] = state?.enableConsoleOutput;
             resourceInputs["externalVolume"] = state?.externalVolume;
             resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
@@ -184,6 +194,8 @@ export class SecondaryDatabase extends pulumi.CustomResource {
             resourceInputs["comment"] = args?.comment;
             resourceInputs["dataRetentionTimeInDays"] = args?.dataRetentionTimeInDays;
             resourceInputs["defaultDdlCollation"] = args?.defaultDdlCollation;
+            resourceInputs["defaultNotebookComputePoolCpu"] = args?.defaultNotebookComputePoolCpu;
+            resourceInputs["defaultNotebookComputePoolGpu"] = args?.defaultNotebookComputePoolGpu;
             resourceInputs["enableConsoleOutput"] = args?.enableConsoleOutput;
             resourceInputs["externalVolume"] = args?.externalVolume;
             resourceInputs["isTransient"] = args?.isTransient;
@@ -231,6 +243,14 @@ export interface SecondaryDatabaseState {
      * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      */
     defaultDdlCollation?: pulumi.Input<string | undefined>;
+    /**
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     */
+    defaultNotebookComputePoolCpu?: pulumi.Input<string | undefined>;
+    /**
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     */
+    defaultNotebookComputePoolGpu?: pulumi.Input<string | undefined>;
     /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */
@@ -325,6 +345,14 @@ export interface SecondaryDatabaseArgs {
      * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      */
     defaultDdlCollation?: pulumi.Input<string | undefined>;
+    /**
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     */
+    defaultNotebookComputePoolCpu?: pulumi.Input<string | undefined>;
+    /**
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     */
+    defaultNotebookComputePoolGpu?: pulumi.Input<string | undefined>;
     /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */

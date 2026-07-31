@@ -24,8 +24,8 @@ class UserAuthenticationPolicyAttachmentArgs:
         """
         The set of arguments for constructing a UserAuthenticationPolicyAttachment resource.
 
-        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to
+        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy.
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to.
         """
         pulumi.set(__self__, "authentication_policy_name", authentication_policy_name)
         pulumi.set(__self__, "user_name", user_name)
@@ -34,7 +34,7 @@ class UserAuthenticationPolicyAttachmentArgs:
     @pulumi.getter(name="authenticationPolicyName")
     def authentication_policy_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Fully qualified name of the authentication policy
+        Fully qualified name of the authentication policy.
         """
         return pulumi.get(self, "authentication_policy_name")
 
@@ -46,7 +46,7 @@ class UserAuthenticationPolicyAttachmentArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
         """
-        User name of the user you want to attach the authentication policy to
+        User name of the user you want to attach the authentication policy to.
         """
         return pulumi.get(self, "user_name")
 
@@ -63,8 +63,8 @@ class _UserAuthenticationPolicyAttachmentState:
         """
         Input properties used for looking up and filtering UserAuthenticationPolicyAttachment resources.
 
-        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to
+        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy.
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to.
         """
         if authentication_policy_name is not None:
             pulumi.set(__self__, "authentication_policy_name", authentication_policy_name)
@@ -75,7 +75,7 @@ class _UserAuthenticationPolicyAttachmentState:
     @pulumi.getter(name="authenticationPolicyName")
     def authentication_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Fully qualified name of the authentication policy
+        Fully qualified name of the authentication policy.
         """
         return pulumi.get(self, "authentication_policy_name")
 
@@ -87,7 +87,7 @@ class _UserAuthenticationPolicyAttachmentState:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        User name of the user you want to attach the authentication policy to
+        User name of the user you want to attach the authentication policy to.
         """
         return pulumi.get(self, "user_name")
 
@@ -108,7 +108,7 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        > **Required warehouse** For this resource, the provider now uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+        > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
 
         Specifies the authentication policy to use for a certain user.
 
@@ -133,11 +133,17 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
 
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment example '"<user_name>"|"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to
+        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy.
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to.
         """
         ...
     @overload
@@ -148,7 +154,7 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        > **Required warehouse** For this resource, the provider now uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+        > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
 
         Specifies the authentication policy to use for a certain user.
 
@@ -172,6 +178,12 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment example '"<user_name>"|"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+        ```
 
 
         :param str resource_name: The name of the resource.
@@ -225,8 +237,8 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to
+        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy.
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -240,7 +252,7 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
     @pulumi.getter(name="authenticationPolicyName")
     def authentication_policy_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Fully qualified name of the authentication policy
+        Fully qualified name of the authentication policy.
         """
         return pulumi.get(self, "authentication_policy_name")
 
@@ -248,7 +260,7 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
         """
-        User name of the user you want to attach the authentication policy to
+        User name of the user you want to attach the authentication policy to.
         """
         return pulumi.get(self, "user_name")
 

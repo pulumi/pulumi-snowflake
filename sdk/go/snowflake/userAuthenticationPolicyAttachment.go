@@ -14,7 +14,7 @@ import (
 
 // > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
-// > **Required warehouse** For this resource, the provider now uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+// > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
 //
 // Specifies the authentication policy to use for a certain user.
 //
@@ -63,12 +63,18 @@ import (
 // <!-- TODO(SNOW-1634854): include an example showing both methods-->
 //
 // > **Note** If a field has a default value, it is shown next to the type in the schema.
+//
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment example '"<user_name>"|"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+// ```
 type UserAuthenticationPolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// Fully qualified name of the authentication policy
+	// Fully qualified name of the authentication policy.
 	AuthenticationPolicyName pulumi.StringOutput `pulumi:"authenticationPolicyName"`
-	// User name of the user you want to attach the authentication policy to
+	// User name of the user you want to attach the authentication policy to.
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -108,16 +114,16 @@ func GetUserAuthenticationPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserAuthenticationPolicyAttachment resources.
 type userAuthenticationPolicyAttachmentState struct {
-	// Fully qualified name of the authentication policy
+	// Fully qualified name of the authentication policy.
 	AuthenticationPolicyName *string `pulumi:"authenticationPolicyName"`
-	// User name of the user you want to attach the authentication policy to
+	// User name of the user you want to attach the authentication policy to.
 	UserName *string `pulumi:"userName"`
 }
 
 type UserAuthenticationPolicyAttachmentState struct {
-	// Fully qualified name of the authentication policy
+	// Fully qualified name of the authentication policy.
 	AuthenticationPolicyName pulumi.StringPtrInput
-	// User name of the user you want to attach the authentication policy to
+	// User name of the user you want to attach the authentication policy to.
 	UserName pulumi.StringPtrInput
 }
 
@@ -126,17 +132,17 @@ func (UserAuthenticationPolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type userAuthenticationPolicyAttachmentArgs struct {
-	// Fully qualified name of the authentication policy
+	// Fully qualified name of the authentication policy.
 	AuthenticationPolicyName string `pulumi:"authenticationPolicyName"`
-	// User name of the user you want to attach the authentication policy to
+	// User name of the user you want to attach the authentication policy to.
 	UserName string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a UserAuthenticationPolicyAttachment resource.
 type UserAuthenticationPolicyAttachmentArgs struct {
-	// Fully qualified name of the authentication policy
+	// Fully qualified name of the authentication policy.
 	AuthenticationPolicyName pulumi.StringInput
-	// User name of the user you want to attach the authentication policy to
+	// User name of the user you want to attach the authentication policy to.
 	UserName pulumi.StringInput
 }
 
@@ -227,12 +233,12 @@ func (o UserAuthenticationPolicyAttachmentOutput) ToUserAuthenticationPolicyAtta
 	return o
 }
 
-// Fully qualified name of the authentication policy
+// Fully qualified name of the authentication policy.
 func (o UserAuthenticationPolicyAttachmentOutput) AuthenticationPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserAuthenticationPolicyAttachment) pulumi.StringOutput { return v.AuthenticationPolicyName }).(pulumi.StringOutput)
 }
 
-// User name of the user you want to attach the authentication policy to
+// User name of the user you want to attach the authentication policy to.
 func (o UserAuthenticationPolicyAttachmentOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserAuthenticationPolicyAttachment) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

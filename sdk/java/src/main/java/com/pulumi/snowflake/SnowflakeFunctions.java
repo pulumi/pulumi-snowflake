@@ -56,6 +56,8 @@ import com.pulumi.snowflake.inputs.GetGitRepositoriesArgs;
 import com.pulumi.snowflake.inputs.GetGitRepositoriesPlainArgs;
 import com.pulumi.snowflake.inputs.GetGrantsArgs;
 import com.pulumi.snowflake.inputs.GetGrantsPlainArgs;
+import com.pulumi.snowflake.inputs.GetIcebergTablesArgs;
+import com.pulumi.snowflake.inputs.GetIcebergTablesPlainArgs;
 import com.pulumi.snowflake.inputs.GetImageRepositoriesArgs;
 import com.pulumi.snowflake.inputs.GetImageRepositoriesPlainArgs;
 import com.pulumi.snowflake.inputs.GetListingsArgs;
@@ -64,6 +66,8 @@ import com.pulumi.snowflake.inputs.GetMaskingPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetMaskingPoliciesPlainArgs;
 import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
 import com.pulumi.snowflake.inputs.GetMaterializedViewsPlainArgs;
+import com.pulumi.snowflake.inputs.GetMcpServersArgs;
+import com.pulumi.snowflake.inputs.GetMcpServersPlainArgs;
 import com.pulumi.snowflake.inputs.GetNetworkPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetNetworkPoliciesPlainArgs;
 import com.pulumi.snowflake.inputs.GetNetworkRulesArgs;
@@ -151,10 +155,12 @@ import com.pulumi.snowflake.outputs.GetFileFormatsResult;
 import com.pulumi.snowflake.outputs.GetFunctionsResult;
 import com.pulumi.snowflake.outputs.GetGitRepositoriesResult;
 import com.pulumi.snowflake.outputs.GetGrantsResult;
+import com.pulumi.snowflake.outputs.GetIcebergTablesResult;
 import com.pulumi.snowflake.outputs.GetImageRepositoriesResult;
 import com.pulumi.snowflake.outputs.GetListingsResult;
 import com.pulumi.snowflake.outputs.GetMaskingPoliciesResult;
 import com.pulumi.snowflake.outputs.GetMaterializedViewsResult;
+import com.pulumi.snowflake.outputs.GetMcpServersResult;
 import com.pulumi.snowflake.outputs.GetNetworkPoliciesResult;
 import com.pulumi.snowflake.outputs.GetNetworkRulesResult;
 import com.pulumi.snowflake.outputs.GetNotebooksResult;
@@ -3354,41 +3360,25 @@ public final class SnowflakeFunctions {
     /**
      * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * ## Example Usage
+     * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
-     * <pre>
-     * {@code
-     * package generated_program;
+     */
+    public static Output<GetFileFormatsResult> getFileFormats() {
+        return getFileFormats(GetFileFormatsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
+     * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
+     */
+    public static CompletableFuture<GetFileFormatsResult> getFileFormatsPlain() {
+        return getFileFormatsPlain(GetFileFormatsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getFileFormats(GetFileFormatsArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
     public static Output<GetFileFormatsResult> getFileFormats(GetFileFormatsArgs args) {
@@ -3397,41 +3387,7 @@ public final class SnowflakeFunctions {
     /**
      * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * ## Example Usage
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getFileFormats(GetFileFormatsArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
     public static CompletableFuture<GetFileFormatsResult> getFileFormatsPlain(GetFileFormatsPlainArgs args) {
@@ -3440,41 +3396,7 @@ public final class SnowflakeFunctions {
     /**
      * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * ## Example Usage
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getFileFormats(GetFileFormatsArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
     public static Output<GetFileFormatsResult> getFileFormats(GetFileFormatsArgs args, InvokeOptions options) {
@@ -3483,41 +3405,7 @@ public final class SnowflakeFunctions {
     /**
      * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * ## Example Usage
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getFileFormats(GetFileFormatsArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
     public static Output<GetFileFormatsResult> getFileFormats(GetFileFormatsArgs args, InvokeOutputOptions options) {
@@ -3526,41 +3414,7 @@ public final class SnowflakeFunctions {
     /**
      * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     * ## Example Usage
-     * 
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.ArrayList;
-     * import java.util.Arrays;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getFileFormats(GetFileFormatsArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * 
-     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
     public static CompletableFuture<GetFileFormatsResult> getFileFormatsPlain(GetFileFormatsPlainArgs args, InvokeOptions options) {
@@ -3848,6 +3702,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsInheritedGrantsInArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -3992,6 +3847,27 @@ public final class SnowflakeFunctions {
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
      *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account
+     *         final var exampleInheritedInAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleInheritedInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
      *                 .build())
      *             .build());
      * 
@@ -4024,6 +3900,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsInheritedGrantsInArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4168,6 +4045,27 @@ public final class SnowflakeFunctions {
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
      *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account
+     *         final var exampleInheritedInAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleInheritedInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
      *                 .build())
      *             .build());
      * 
@@ -4200,6 +4098,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsInheritedGrantsInArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4344,6 +4243,27 @@ public final class SnowflakeFunctions {
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
      *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account
+     *         final var exampleInheritedInAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleInheritedInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
      *                 .build())
      *             .build());
      * 
@@ -4376,6 +4296,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsInheritedGrantsInArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4520,6 +4441,27 @@ public final class SnowflakeFunctions {
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
      *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account
+     *         final var exampleInheritedInAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleInheritedInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
      *                 .build())
      *             .build());
      * 
@@ -4552,6 +4494,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsInheritedGrantsInArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4696,6 +4639,27 @@ public final class SnowflakeFunctions {
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
      *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account
+     *         final var exampleInheritedInAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleInheritedInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
      *                 .build())
      *             .build());
      * 
@@ -4728,6 +4692,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsInheritedGrantsInArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4872,6 +4837,27 @@ public final class SnowflakeFunctions {
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
      *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .build())
+     *             .build());
+     * 
+     *         // account
+     *         final var exampleInheritedInAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleInheritedInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
      *                 .build())
      *             .build());
      * 
@@ -4904,6 +4890,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
      * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
+     * import com.pulumi.snowflake.inputs.GetGrantsInheritedGrantsInArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -5051,6 +5038,27 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
+     *         // account
+     *         final var exampleInheritedInAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .account(true)
+     *                 .build())
+     *             .build());
+     * 
+     *         // database
+     *         final var exampleInheritedInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .database("some_database")
+     *                 .build())
+     *             .build());
+     * 
+     *         // schema
+     *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
+     *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
+     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .build())
+     *             .build());
+     * 
      *     }
      * }
      * }
@@ -5061,6 +5069,69 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetGrantsResult> getGrantsPlain(GetGrantsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getGrants:getGrants", TypeShape.of(GetGrantsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered iceberg tables. Filtering is aligned with the current possibilities for [SHOW ICEBERG TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-iceberg-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `icebergTables`.
+     * 
+     */
+    public static Output<GetIcebergTablesResult> getIcebergTables() {
+        return getIcebergTables(GetIcebergTablesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered iceberg tables. Filtering is aligned with the current possibilities for [SHOW ICEBERG TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-iceberg-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `icebergTables`.
+     * 
+     */
+    public static CompletableFuture<GetIcebergTablesResult> getIcebergTablesPlain() {
+        return getIcebergTablesPlain(GetIcebergTablesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered iceberg tables. Filtering is aligned with the current possibilities for [SHOW ICEBERG TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-iceberg-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `icebergTables`.
+     * 
+     */
+    public static Output<GetIcebergTablesResult> getIcebergTables(GetIcebergTablesArgs args) {
+        return getIcebergTables(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered iceberg tables. Filtering is aligned with the current possibilities for [SHOW ICEBERG TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-iceberg-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `icebergTables`.
+     * 
+     */
+    public static CompletableFuture<GetIcebergTablesResult> getIcebergTablesPlain(GetIcebergTablesPlainArgs args) {
+        return getIcebergTablesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered iceberg tables. Filtering is aligned with the current possibilities for [SHOW ICEBERG TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-iceberg-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `icebergTables`.
+     * 
+     */
+    public static Output<GetIcebergTablesResult> getIcebergTables(GetIcebergTablesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getIcebergTables:getIcebergTables", TypeShape.of(GetIcebergTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered iceberg tables. Filtering is aligned with the current possibilities for [SHOW ICEBERG TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-iceberg-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `icebergTables`.
+     * 
+     */
+    public static Output<GetIcebergTablesResult> getIcebergTables(GetIcebergTablesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getIcebergTables:getIcebergTables", TypeShape.of(GetIcebergTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered iceberg tables. Filtering is aligned with the current possibilities for [SHOW ICEBERG TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-iceberg-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `icebergTables`.
+     * 
+     */
+    public static CompletableFuture<GetIcebergTablesResult> getIcebergTablesPlain(GetIcebergTablesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getIcebergTables:getIcebergTables", TypeShape.of(GetIcebergTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `imageRepositories`.
@@ -5467,6 +5538,69 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getMaterializedViews:getMaterializedViews", TypeShape.of(GetMaterializedViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
+     * 
+     */
+    public static Output<GetMcpServersResult> getMcpServers() {
+        return getMcpServers(GetMcpServersArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
+     * 
+     */
+    public static CompletableFuture<GetMcpServersResult> getMcpServersPlain() {
+        return getMcpServersPlain(GetMcpServersPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
+     * 
+     */
+    public static Output<GetMcpServersResult> getMcpServers(GetMcpServersArgs args) {
+        return getMcpServers(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
+     * 
+     */
+    public static CompletableFuture<GetMcpServersResult> getMcpServersPlain(GetMcpServersPlainArgs args) {
+        return getMcpServersPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
+     * 
+     */
+    public static Output<GetMcpServersResult> getMcpServers(GetMcpServersArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getMcpServers:getMcpServers", TypeShape.of(GetMcpServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
+     * 
+     */
+    public static Output<GetMcpServersResult> getMcpServers(GetMcpServersArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getMcpServers:getMcpServers", TypeShape.of(GetMcpServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
+     * 
+     */
+    public static CompletableFuture<GetMcpServersResult> getMcpServersPlain(GetMcpServersPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getMcpServers:getMcpServers", TypeShape.of(GetMcpServersResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
      * 
      */
@@ -5516,8 +5650,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getNetworkPolicies:getNetworkPolicies", TypeShape.of(GetNetworkPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
      */
@@ -5525,8 +5657,6 @@ public final class SnowflakeFunctions {
         return getNetworkRules(GetNetworkRulesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
      */
@@ -5534,8 +5664,6 @@ public final class SnowflakeFunctions {
         return getNetworkRulesPlain(GetNetworkRulesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
      */
@@ -5543,8 +5671,6 @@ public final class SnowflakeFunctions {
         return getNetworkRules(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
      */
@@ -5552,8 +5678,6 @@ public final class SnowflakeFunctions {
         return getNetworkRulesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
      */
@@ -5561,8 +5685,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getNetworkRules:getNetworkRules", TypeShape.of(GetNetworkRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
      */
@@ -5570,8 +5692,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getNetworkRules:getNetworkRules", TypeShape.of(GetNetworkRulesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `networkRules`.
      * 
      */

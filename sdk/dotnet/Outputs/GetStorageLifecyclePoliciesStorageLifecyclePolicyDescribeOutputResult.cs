@@ -16,8 +16,10 @@ namespace Pulumi.Snowflake.Outputs
         public readonly int ArchiveForDays;
         public readonly string ArchiveTier;
         public readonly string Body;
+        public readonly string DatabaseName;
         public readonly string Name;
         public readonly string ReturnType;
+        public readonly string SchemaName;
         public readonly ImmutableArray<Outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignatureResult> Signatures;
 
         [OutputConstructor]
@@ -28,17 +30,23 @@ namespace Pulumi.Snowflake.Outputs
 
             string body,
 
+            string databaseName,
+
             string name,
 
             string returnType,
+
+            string schemaName,
 
             ImmutableArray<Outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignatureResult> signatures)
         {
             ArchiveForDays = archiveForDays;
             ArchiveTier = archiveTier;
             Body = body;
+            DatabaseName = databaseName;
             Name = name;
             ReturnType = returnType;
+            SchemaName = schemaName;
             Signatures = signatures;
         }
     }

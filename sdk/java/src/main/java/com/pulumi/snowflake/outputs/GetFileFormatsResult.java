@@ -6,19 +6,18 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetFileFormatsFileFormat;
+import com.pulumi.snowflake.outputs.GetFileFormatsIn;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFileFormatsResult {
     /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
-    private String database;
-    /**
-     * @return The file formats in the schema
+     * @return Holds the aggregated output of all file formats details queries.
      * 
      */
     private List<GetFileFormatsFileFormat> fileFormats;
@@ -28,21 +27,24 @@ public final class GetFileFormatsResult {
      */
     private String id;
     /**
-     * @return The schema from which to return the file formats from.
+     * @return IN clause to filter the list of objects
      * 
      */
-    private String schema;
+    private @Nullable GetFileFormatsIn in;
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return (Default: `true`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withDescribe;
 
     private GetFileFormatsResult() {}
     /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
-    public String database() {
-        return this.database;
-    }
-    /**
-     * @return The file formats in the schema
+     * @return Holds the aggregated output of all file formats details queries.
      * 
      */
     public List<GetFileFormatsFileFormat> fileFormats() {
@@ -56,11 +58,25 @@ public final class GetFileFormatsResult {
         return this.id;
     }
     /**
-     * @return The schema from which to return the file formats from.
+     * @return IN clause to filter the list of objects
      * 
      */
-    public String schema() {
-        return this.schema;
+    public Optional<GetFileFormatsIn> in() {
+        return Optional.ofNullable(this.in);
+    }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return (Default: `true`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     public static Builder builder() {
@@ -72,27 +88,21 @@ public final class GetFileFormatsResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String database;
         private List<GetFileFormatsFileFormat> fileFormats;
         private String id;
-        private String schema;
+        private @Nullable GetFileFormatsIn in;
+        private @Nullable String like;
+        private @Nullable Boolean withDescribe;
         public Builder() {}
         public Builder(GetFileFormatsResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.database = defaults.database;
     	      this.fileFormats = defaults.fileFormats;
     	      this.id = defaults.id;
-    	      this.schema = defaults.schema;
+    	      this.in = defaults.in;
+    	      this.like = defaults.like;
+    	      this.withDescribe = defaults.withDescribe;
         }
 
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetFileFormatsResult", "database");
-            }
-            this.database = database;
-            return this;
-        }
         @CustomType.Setter
         public Builder fileFormats(List<GetFileFormatsFileFormat> fileFormats) {
             if (fileFormats == null) {
@@ -113,19 +123,30 @@ public final class GetFileFormatsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetFileFormatsResult", "schema");
-            }
-            this.schema = schema;
+        public Builder in(@Nullable GetFileFormatsIn in) {
+
+            this.in = in;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
             return this;
         }
         public GetFileFormatsResult build() {
             final var _resultValue = new GetFileFormatsResult();
-            _resultValue.database = database;
             _resultValue.fileFormats = fileFormats;
             _resultValue.id = id;
-            _resultValue.schema = schema;
+            _resultValue.in = in;
+            _resultValue.like = like;
+            _resultValue.withDescribe = withDescribe;
             return _resultValue;
         }
     }

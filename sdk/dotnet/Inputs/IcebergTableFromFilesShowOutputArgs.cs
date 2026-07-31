@@ -72,7 +72,12 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? OwnerRoleType { get; set; }
 
         [Input("partitionSpecs")]
-        public Input<string>? PartitionSpecs { get; set; }
+        private InputList<Inputs.IcebergTableFromFilesShowOutputPartitionSpecArgs>? _partitionSpecs;
+        public InputList<Inputs.IcebergTableFromFilesShowOutputPartitionSpecArgs> PartitionSpecs
+        {
+            get => _partitionSpecs ?? (_partitionSpecs = new InputList<Inputs.IcebergTableFromFilesShowOutputPartitionSpecArgs>());
+            set => _partitionSpecs = value;
+        }
 
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }

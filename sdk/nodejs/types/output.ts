@@ -1389,6 +1389,168 @@ export interface FailoverGroupReplicationScheduleCron {
     timeZone: string;
 }
 
+export interface FileFormatAvroDescribeOutput {
+    compression: string;
+    id: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface FileFormatAvroShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    formatOptions: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    type: string;
+}
+
+export interface FileFormatCsvDescribeOutput {
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    emptyFieldAsNull: boolean;
+    encoding: string;
+    errorOnColumnCountMismatch: boolean;
+    escape: string;
+    escapeUnenclosedField: string;
+    fieldDelimiter: string;
+    fieldOptionallyEnclosedBy: string;
+    fileExtension: string;
+    id: string;
+    multiLine: boolean;
+    nullIfs: string[];
+    parseHeader: boolean;
+    recordDelimiter: string;
+    replaceInvalidCharacters: boolean;
+    skipBlankLines: boolean;
+    skipByteOrderMark: boolean;
+    skipHeader: number;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+    validateUtf8: boolean;
+}
+
+export interface FileFormatCsvShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    formatOptions: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    type: string;
+}
+
+export interface FileFormatJsonDescribeOutput {
+    allowDuplicate: boolean;
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    enableOctal: boolean;
+    fileExtension: string;
+    id: string;
+    ignoreUtf8Errors: boolean;
+    multiLine: boolean;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripNullValues: boolean;
+    stripOuterArray: boolean;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface FileFormatJsonShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    formatOptions: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    type: string;
+}
+
+export interface FileFormatOrcDescribeOutput {
+    id: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+}
+
+export interface FileFormatOrcShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    formatOptions: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    type: string;
+}
+
+export interface FileFormatParquetDescribeOutput {
+    binaryAsText: boolean;
+    compression: string;
+    id: string;
+    nullIfs: string[];
+    replaceInvalidCharacters: boolean;
+    trimSpace: boolean;
+    type: string;
+    useLogicalType: boolean;
+    useVectorizedScanner: boolean;
+}
+
+export interface FileFormatParquetShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    formatOptions: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    type: string;
+}
+
+export interface FileFormatXmlDescribeOutput {
+    compression: string;
+    disableAutoConvert: boolean;
+    id: string;
+    ignoreUtf8Errors: boolean;
+    preserveSpace: boolean;
+    replaceInvalidCharacters: boolean;
+    skipByteOrderMark: boolean;
+    stripOuterElement: boolean;
+    type: string;
+}
+
+export interface FileFormatXmlShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    formatOptions: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    type: string;
+}
+
 export interface FunctionJavaArgument {
     /**
      * The argument type.
@@ -2917,11 +3079,80 @@ export interface GetFailoverGroupsFailoverGroup {
 }
 
 export interface GetFileFormatsFileFormat {
+    /**
+     * Holds the output of DESCRIBE FILE FORMAT. Because every file format type returns a different set of properties, this is a union of the properties of all the file format types; only the fields applicable to the given file format type are filled.
+     */
+    describeOutputs: outputs.GetFileFormatsFileFormatDescribeOutput[];
+    /**
+     * Holds the output of SHOW FILE FORMATS.
+     */
+    showOutputs: outputs.GetFileFormatsFileFormatShowOutput[];
+}
+
+export interface GetFileFormatsFileFormatDescribeOutput {
+    allowDuplicate: boolean;
+    binaryAsText: boolean;
+    binaryFormat: string;
+    compression: string;
+    dateFormat: string;
+    disableAutoConvert: boolean;
+    emptyFieldAsNull: boolean;
+    enableOctal: boolean;
+    encoding: string;
+    errorOnColumnCountMismatch: boolean;
+    escape: string;
+    escapeUnenclosedField: string;
+    fieldDelimiter: string;
+    fieldOptionallyEnclosedBy: string;
+    fileExtension: string;
+    id: string;
+    ignoreUtf8Errors: boolean;
+    multiLine: boolean;
+    nullIfs: string[];
+    parseHeader: boolean;
+    preserveSpace: boolean;
+    recordDelimiter: string;
+    replaceInvalidCharacters: boolean;
+    skipBlankLines: boolean;
+    skipByteOrderMark: boolean;
+    skipHeader: number;
+    stripNullValues: boolean;
+    stripOuterArray: boolean;
+    stripOuterElement: boolean;
+    timeFormat: string;
+    timestampFormat: string;
+    trimSpace: boolean;
+    type: string;
+    useLogicalType: boolean;
+    useVectorizedScanner: boolean;
+    validateUtf8: boolean;
+}
+
+export interface GetFileFormatsFileFormatShowOutput {
     comment: string;
-    database: string;
-    formatType: string;
+    createdOn: string;
+    databaseName: string;
+    formatOptions: string;
     name: string;
-    schema: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    type: string;
+}
+
+export interface GetFileFormatsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
 }
 
 export interface GetFunctionsFunction {
@@ -3021,37 +3252,17 @@ export interface GetGrantsFutureGrantsTo {
 }
 
 export interface GetGrantsGrant {
-    /**
-     * The date and time the grant was created.
-     */
     createdOn: string;
-    /**
-     * Whether the grantee can grant the privilege to others.
-     */
     grantOption: boolean;
-    /**
-     * The role that granted the privilege.
-     */
     grantedBy: string;
-    /**
-     * The object on which the privilege was granted.
-     */
     grantedOn: string;
-    /**
-     * The role to which the privilege was granted.
-     */
     grantedTo: string;
-    /**
-     * The name of the role to which the privilege was granted.
-     */
     granteeName: string;
-    /**
-     * The name of the object on which the privilege was granted.
-     */
+    inheritedFrom: string;
+    inheritedFromDatabase: string;
+    inheritedFromSchema: string;
+    isInherited: boolean;
     name: string;
-    /**
-     * The privilege granted.
-     */
     privilege: string;
 }
 
@@ -3121,6 +3332,225 @@ export interface GetGrantsGrantsToShare {
      * Lists all of the privileges and roles granted to the specified share.
      */
     shareName: string;
+}
+
+export interface GetGrantsInheritedGrantsIn {
+    /**
+     * Lists all inherited grants defined in the account.
+     */
+    account?: boolean;
+    /**
+     * Lists all inherited grants defined in the specified database.
+     */
+    database?: string;
+    /**
+     * Lists all inherited grants defined in the specified schema. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+     */
+    schema?: string;
+}
+
+export interface GetIcebergTablesIcebergTable {
+    /**
+     * Holds the output of DESCRIBE ICEBERG TABLE.
+     */
+    describeOutputs: outputs.GetIcebergTablesIcebergTableDescribeOutput[];
+    /**
+     * Holds the output of SHOW PARAMETERS FOR ICEBERG TABLE.
+     */
+    parameters: outputs.GetIcebergTablesIcebergTableParameter[];
+    /**
+     * Holds the output of SHOW ICEBERG TABLES.
+     */
+    showOutputs: outputs.GetIcebergTablesIcebergTableShowOutput[];
+}
+
+export interface GetIcebergTablesIcebergTableDescribeOutput {
+    check: string;
+    comment: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    kind: string;
+    name: string;
+    nameMapping: string;
+    policyName: string;
+    primaryKey: boolean;
+    privacyDomain: string;
+    sourceIcebergType: string;
+    type: string;
+    uniqueKey: boolean;
+    writeDefault: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameter {
+    catalogSyncs: outputs.GetIcebergTablesIcebergTableParameterCatalogSync[];
+    catalogs: outputs.GetIcebergTablesIcebergTableParameterCatalog[];
+    dataRetentionTimeInDays: outputs.GetIcebergTablesIcebergTableParameterDataRetentionTimeInDay[];
+    enableDataCompactions: outputs.GetIcebergTablesIcebergTableParameterEnableDataCompaction[];
+    enableIcebergMergeOnReads: outputs.GetIcebergTablesIcebergTableParameterEnableIcebergMergeOnRead[];
+    externalVolumes: outputs.GetIcebergTablesIcebergTableParameterExternalVolume[];
+    icebergMergeOnReadBehaviors: outputs.GetIcebergTablesIcebergTableParameterIcebergMergeOnReadBehavior[];
+    maxDataExtensionTimeInDays: outputs.GetIcebergTablesIcebergTableParameterMaxDataExtensionTimeInDay[];
+    replaceInvalidCharacters: outputs.GetIcebergTablesIcebergTableParameterReplaceInvalidCharacter[];
+    storageSerializationPolicies: outputs.GetIcebergTablesIcebergTableParameterStorageSerializationPolicy[];
+    targetFileSizes: outputs.GetIcebergTablesIcebergTableParameterTargetFileSize[];
+}
+
+export interface GetIcebergTablesIcebergTableParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameterCatalogSync {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameterDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameterEnableDataCompaction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameterEnableIcebergMergeOnRead {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameterIcebergMergeOnReadBehavior {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameterMaxDataExtensionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameterStorageSerializationPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableParameterTargetFileSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetIcebergTablesIcebergTableShowOutput {
+    autoRefreshStatuses: outputs.GetIcebergTablesIcebergTableShowOutputAutoRefreshStatus[];
+    baseLocation: string;
+    canWriteMetadata: boolean;
+    catalogName: string;
+    catalogNamespace: string;
+    catalogSyncName: string;
+    catalogTableName: string;
+    comment: string;
+    createdOn: string;
+    currentPartitionSpecId: number;
+    databaseName: string;
+    externalVolumeName: string;
+    icebergTableFormatVersion: number;
+    icebergTableType: string;
+    name: string;
+    nameMapping: string;
+    owner: string;
+    ownerRoleType: string;
+    partitionSpecs: outputs.GetIcebergTablesIcebergTableShowOutputPartitionSpec[];
+    schemaName: string;
+}
+
+export interface GetIcebergTablesIcebergTableShowOutputAutoRefreshStatus {
+    currentSnapshotId: number;
+    executionState: string;
+    lastSnapshotTime: string;
+    lastUpdatedTime: string;
+    pendingSnapshotCount: number;
+}
+
+export interface GetIcebergTablesIcebergTableShowOutputPartitionSpec {
+    fields: outputs.GetIcebergTablesIcebergTableShowOutputPartitionSpecField[];
+    specId: number;
+}
+
+export interface GetIcebergTablesIcebergTableShowOutputPartitionSpecField {
+    fieldId: number;
+    name: string;
+    sourceId: number;
+    transform: string;
+}
+
+export interface GetIcebergTablesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetIcebergTablesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
 }
 
 export interface GetImageRepositoriesImageRepository {
@@ -3345,6 +3775,51 @@ export interface GetMaterializedViewsMaterializedView {
     database: string;
     name: string;
     schema: string;
+}
+
+export interface GetMcpServersIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetMcpServersMcpServer {
+    /**
+     * Holds the output of DESCRIBE MCP SERVER.
+     */
+    describeOutputs: outputs.GetMcpServersMcpServerDescribeOutput[];
+    /**
+     * Holds the output of SHOW MCP SERVERS.
+     */
+    showOutputs: outputs.GetMcpServersMcpServerShowOutput[];
+}
+
+export interface GetMcpServersMcpServerDescribeOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    schemaName: string;
+    serverSpec: string;
+}
+
+export interface GetMcpServersMcpServerShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    schemaName: string;
 }
 
 export interface GetNetworkPoliciesNetworkPolicy {
@@ -3585,6 +4060,7 @@ export interface GetPasswordPoliciesPasswordPolicy {
 
 export interface GetPasswordPoliciesPasswordPolicyDescribeOutput {
     comment: string;
+    databaseName: string;
     name: string;
     owner: string;
     passwordHistory: number;
@@ -3598,6 +4074,7 @@ export interface GetPasswordPoliciesPasswordPolicyDescribeOutput {
     passwordMinNumericChars: number;
     passwordMinSpecialChars: number;
     passwordMinUpperCaseChars: number;
+    schemaName: string;
 }
 
 export interface GetPasswordPoliciesPasswordPolicyShowOutput {
@@ -4025,6 +4502,7 @@ export interface GetSecurityIntegrationsSecurityIntegration {
 
 export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     allowedEmailPatterns: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPattern[];
+    allowedRolesLists: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesList[];
     allowedUserDomains: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomain[];
     authTypes: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthType[];
     blockedRolesLists: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesList[];
@@ -4079,6 +4557,13 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
 }
 
 export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPattern {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
+}
+
+export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesList {
     default: string;
     name: string;
     type: string;
@@ -4945,8 +5430,10 @@ export interface GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutput
     archiveForDays: number;
     archiveTier: string;
     body: string;
+    databaseName: string;
     name: string;
     returnType: string;
+    schemaName: string;
     signatures: outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignature[];
 }
 
@@ -6613,9 +7100,18 @@ export interface GetWarehousesWarehouseDescribeOutput {
 }
 
 export interface GetWarehousesWarehouseParameter {
+    fallbackWarehouses: outputs.GetWarehousesWarehouseParameterFallbackWarehouse[];
     maxConcurrencyLevels: outputs.GetWarehousesWarehouseParameterMaxConcurrencyLevel[];
     statementQueuedTimeoutInSeconds: outputs.GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecond[];
     statementTimeoutInSeconds: outputs.GetWarehousesWarehouseParameterStatementTimeoutInSecond[];
+}
+
+export interface GetWarehousesWarehouseParameterFallbackWarehouse {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
 }
 
 export interface GetWarehousesWarehouseParameterMaxConcurrencyLevel {
@@ -6672,6 +7168,7 @@ export interface GetWarehousesWarehouseShowOutput {
     size: string;
     startedClusters: number;
     state: string;
+    tables: string[];
     type: string;
     updatedOn: string;
 }
@@ -6718,7 +7215,7 @@ export interface GrantOwnershipOn {
      */
     objectName?: string;
     /**
-     * Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+     * Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
      */
     objectType?: string;
 }
@@ -6733,7 +7230,7 @@ export interface GrantOwnershipOnAll {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -6748,20 +7245,31 @@ export interface GrantOwnershipOnFuture {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: string;
 }
 
 export interface GrantPrivilegesToAccountRoleOnAccountObject {
     /**
+     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     */
+    inherited?: outputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited;
+    /**
      * The fully qualified name of the object on which privileges will be granted.
      */
-    objectName: string;
+    objectName?: string;
     /**
-     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
      */
-    objectType: string;
+    objectType?: string;
+}
+
+export interface GrantPrivilegesToAccountRoleOnAccountObjectInherited {
+    /**
+     * The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+     */
+    objectTypePlural: string;
 }
 
 export interface GrantPrivilegesToAccountRoleOnSchema {
@@ -6774,9 +7282,24 @@ export interface GrantPrivilegesToAccountRoleOnSchema {
      */
     futureSchemasInDatabase?: string;
     /**
+     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     */
+    inherited?: outputs.GrantPrivilegesToAccountRoleOnSchemaInherited;
+    /**
      * The fully qualified name of the schema.
      */
     schemaName?: string;
+}
+
+export interface GrantPrivilegesToAccountRoleOnSchemaInherited {
+    /**
+     * If true, the inherited privilege will be granted on all schemas in the account.
+     */
+    inAccount?: boolean;
+    /**
+     * The fully qualified name of the database in which the inherited privilege will be granted on all schemas.
+     */
+    inDatabase?: string;
 }
 
 export interface GrantPrivilegesToAccountRoleOnSchemaObject {
@@ -6789,11 +7312,15 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     future?: outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture;
     /**
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     */
+    inherited?: outputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited;
+    /**
      * The fully qualified name of the object on which privileges will be granted.
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
     objectType?: string;
 }
@@ -6802,7 +7329,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
      */
     objectTypePlural: string;
 }
@@ -6811,7 +7338,26 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+     */
+    objectTypePlural: string;
+}
+
+export interface GrantPrivilegesToAccountRoleOnSchemaObjectInherited {
+    /**
+     * If true, the inherited privilege will be granted on all objects of the given type in the account.
+     */
+    inAccount?: boolean;
+    /**
+     * The fully qualified name of the database in which the inherited privilege will be granted on all objects of the given type.
+     */
+    inDatabase?: string;
+    /**
+     * The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
+     */
+    inSchema?: string;
+    /**
+     * The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
      */
     objectTypePlural: string;
 }
@@ -6825,6 +7371,10 @@ export interface GrantPrivilegesToDatabaseRoleOnSchema {
      * The fully qualified name of the database.
      */
     futureSchemasInDatabase?: string;
+    /**
+     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     */
+    inherited?: string;
     /**
      * The fully qualified name of the schema.
      */
@@ -6841,11 +7391,15 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     future?: outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture;
     /**
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     */
+    inherited?: outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited;
+    /**
      * The fully qualified name of the object on which privileges will be granted.
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
     objectType?: string;
 }
@@ -6860,7 +7414,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
      */
     objectTypePlural: string;
 }
@@ -6875,9 +7429,274 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
      */
     objectTypePlural: string;
+}
+
+export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
+    /**
+     * The fully qualified name of the database.
+     */
+    inDatabase?: string;
+    /**
+     * The fully qualified name of the schema.
+     */
+    inSchema?: string;
+    /**
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+     */
+    objectTypePlural: string;
+}
+
+export interface IcebergTableAggregationPolicy {
+    /**
+     * Defines which columns uniquely identify an entity within the Iceberg table.
+     */
+    entityKeys?: string[];
+    /**
+     * Aggregation policy name.
+     */
+    policyName: string;
+}
+
+export interface IcebergTableCheckConstraint {
+    /**
+     * The CHECK constraint expression.
+     */
+    expression: string;
+    /**
+     * Name of the constraint.
+     */
+    name?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether existing data is validated against the constraint (`true`, `ENABLE VALIDATE`) or not (`false`, `ENABLE NOVALIDATE`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    validate?: string;
+}
+
+export interface IcebergTableColumn {
+    /**
+     * Column comment.
+     */
+    comment?: string;
+    /**
+     * Defines the column default value.
+     */
+    default?: outputs.IcebergTableColumnDefault;
+    /**
+     * Specifies the masking policy to set on a column. For more information about this resource, see docs.
+     */
+    maskingPolicy?: outputs.IcebergTableColumnMaskingPolicy;
+    /**
+     * Column name.
+     */
+    name: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to restrict the column to NOT NULL values.
+     */
+    notNull?: string;
+    /**
+     * Specifies the projection policy to set on a column.
+     */
+    projectionPolicy?: outputs.IcebergTableColumnProjectionPolicy;
+    /**
+     * Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     */
+    type: string;
+}
+
+export interface IcebergTableColumnDefault {
+    /**
+     * The default expression value for the column.
+     */
+    expression: string;
+}
+
+export interface IcebergTableColumnMaskingPolicy {
+    /**
+     * Masking policy name. For more information about this resource, see docs.
+     */
+    policyName: string;
+    /**
+     * Specifies the arguments to pass into the conditional masking policy SQL expression, in order. The first column in the list specifies the column for the policy conditions to mask or tokenize the data and must match the column to which the masking policy is set. The additional columns specify the columns to evaluate to determine whether to mask or tokenize the data in each row of the query result when a query is made on the first column. If the USING clause is omitted, Snowflake treats the conditional masking policy as a normal masking policy.
+     */
+    usings?: string[];
+}
+
+export interface IcebergTableColumnProjectionPolicy {
+    /**
+     * Projection policy name.
+     */
+    policyName: string;
+}
+
+export interface IcebergTableDescribeOutput {
+    check: string;
+    comment: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    kind: string;
+    name: string;
+    nameMapping: string;
+    policyName: string;
+    primaryKey: boolean;
+    privacyDomain: string;
+    sourceIcebergType: string;
+    type: string;
+    uniqueKey: boolean;
+    writeDefault: string;
+}
+
+export interface IcebergTableForeignKeyConstraint {
+    /**
+     * The local column(s) the foreign key is defined on.
+     */
+    columns: string[];
+    /**
+     * Constraint comment.
+     */
+    comment?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    deferrable?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enable?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enforced?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    initiallyDeferred?: string;
+    /**
+     * The match type for the foreign key. Valid values are: [FULL SIMPLE PARTIAL].
+     */
+    match?: string;
+    /**
+     * Name of the constraint.
+     */
+    name?: string;
+    /**
+     * Specifies the action to perform when the referenced primary/unique key is deleted. Valid values are: [CASCADE SET NULL SET DEFAULT RESTRICT NO ACTION].
+     */
+    onDelete?: string;
+    /**
+     * Specifies the action to perform when the referenced primary/unique key is updated. Valid values are: [CASCADE SET NULL SET DEFAULT RESTRICT NO ACTION].
+     */
+    onUpdate?: string;
+    /**
+     * The column(s) in the referenced table that the foreign key references.
+     */
+    refColumns?: string[];
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    rely?: string;
+    /**
+     * The table that the foreign key references.
+     */
+    tableName: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    validate?: string;
+}
+
+export interface IcebergTableFromAwsGlueDescribeOutput {
+    check: string;
+    comment: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    kind: string;
+    name: string;
+    nameMapping: string;
+    policyName: string;
+    primaryKey: boolean;
+    privacyDomain: string;
+    sourceIcebergType: string;
+    type: string;
+    uniqueKey: boolean;
+    writeDefault: string;
+}
+
+export interface IcebergTableFromAwsGlueParameter {
+    catalogs: outputs.IcebergTableFromAwsGlueParameterCatalog[];
+    externalVolumes: outputs.IcebergTableFromAwsGlueParameterExternalVolume[];
+    replaceInvalidCharacters: outputs.IcebergTableFromAwsGlueParameterReplaceInvalidCharacter[];
+}
+
+export interface IcebergTableFromAwsGlueParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromAwsGlueParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromAwsGlueParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromAwsGlueShowOutput {
+    autoRefreshStatuses: outputs.IcebergTableFromAwsGlueShowOutputAutoRefreshStatus[];
+    baseLocation: string;
+    canWriteMetadata: boolean;
+    catalogName: string;
+    catalogNamespace: string;
+    catalogSyncName: string;
+    catalogTableName: string;
+    comment: string;
+    createdOn: string;
+    currentPartitionSpecId: number;
+    databaseName: string;
+    externalVolumeName: string;
+    icebergTableFormatVersion: number;
+    icebergTableType: string;
+    name: string;
+    nameMapping: string;
+    owner: string;
+    ownerRoleType: string;
+    partitionSpecs: outputs.IcebergTableFromAwsGlueShowOutputPartitionSpec[];
+    schemaName: string;
+}
+
+export interface IcebergTableFromAwsGlueShowOutputAutoRefreshStatus {
+    currentSnapshotId: number;
+    executionState: string;
+    lastSnapshotTime: string;
+    lastUpdatedTime: string;
+    pendingSnapshotCount: number;
+}
+
+export interface IcebergTableFromAwsGlueShowOutputPartitionSpec {
+    fields: outputs.IcebergTableFromAwsGlueShowOutputPartitionSpecField[];
+    specId: number;
+}
+
+export interface IcebergTableFromAwsGlueShowOutputPartitionSpecField {
+    fieldId: number;
+    name: string;
+    sourceId: number;
+    transform: string;
 }
 
 export interface IcebergTableFromDeltaFilesDescribeOutput {
@@ -6947,7 +7766,7 @@ export interface IcebergTableFromDeltaFilesShowOutput {
     nameMapping: string;
     owner: string;
     ownerRoleType: string;
-    partitionSpecs: string;
+    partitionSpecs: outputs.IcebergTableFromDeltaFilesShowOutputPartitionSpec[];
     schemaName: string;
 }
 
@@ -6957,6 +7776,18 @@ export interface IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus {
     lastSnapshotTime: string;
     lastUpdatedTime: string;
     pendingSnapshotCount: number;
+}
+
+export interface IcebergTableFromDeltaFilesShowOutputPartitionSpec {
+    fields: outputs.IcebergTableFromDeltaFilesShowOutputPartitionSpecField[];
+    specId: number;
+}
+
+export interface IcebergTableFromDeltaFilesShowOutputPartitionSpecField {
+    fieldId: number;
+    name: string;
+    sourceId: number;
+    transform: string;
 }
 
 export interface IcebergTableFromFilesDescribeOutput {
@@ -7026,7 +7857,7 @@ export interface IcebergTableFromFilesShowOutput {
     nameMapping: string;
     owner: string;
     ownerRoleType: string;
-    partitionSpecs: string;
+    partitionSpecs: outputs.IcebergTableFromFilesShowOutputPartitionSpec[];
     schemaName: string;
 }
 
@@ -7036,6 +7867,414 @@ export interface IcebergTableFromFilesShowOutputAutoRefreshStatus {
     lastSnapshotTime: string;
     lastUpdatedTime: string;
     pendingSnapshotCount: number;
+}
+
+export interface IcebergTableFromFilesShowOutputPartitionSpec {
+    fields: outputs.IcebergTableFromFilesShowOutputPartitionSpecField[];
+    specId: number;
+}
+
+export interface IcebergTableFromFilesShowOutputPartitionSpecField {
+    fieldId: number;
+    name: string;
+    sourceId: number;
+    transform: string;
+}
+
+export interface IcebergTableFromRestDescribeOutput {
+    check: string;
+    comment: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    kind: string;
+    name: string;
+    nameMapping: string;
+    policyName: string;
+    primaryKey: boolean;
+    privacyDomain: string;
+    sourceIcebergType: string;
+    type: string;
+    uniqueKey: boolean;
+    writeDefault: string;
+}
+
+export interface IcebergTableFromRestParameter {
+    catalogs: outputs.IcebergTableFromRestParameterCatalog[];
+    enableIcebergMergeOnReads: outputs.IcebergTableFromRestParameterEnableIcebergMergeOnRead[];
+    externalVolumes: outputs.IcebergTableFromRestParameterExternalVolume[];
+    icebergMergeOnReadBehaviors: outputs.IcebergTableFromRestParameterIcebergMergeOnReadBehavior[];
+    replaceInvalidCharacters: outputs.IcebergTableFromRestParameterReplaceInvalidCharacter[];
+    storageSerializationPolicies: outputs.IcebergTableFromRestParameterStorageSerializationPolicy[];
+    targetFileSizes: outputs.IcebergTableFromRestParameterTargetFileSize[];
+}
+
+export interface IcebergTableFromRestParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromRestParameterEnableIcebergMergeOnRead {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromRestParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromRestParameterIcebergMergeOnReadBehavior {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromRestParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromRestParameterStorageSerializationPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromRestParameterTargetFileSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableFromRestShowOutput {
+    autoRefreshStatuses: outputs.IcebergTableFromRestShowOutputAutoRefreshStatus[];
+    baseLocation: string;
+    canWriteMetadata: boolean;
+    catalogName: string;
+    catalogNamespace: string;
+    catalogSyncName: string;
+    catalogTableName: string;
+    comment: string;
+    createdOn: string;
+    currentPartitionSpecId: number;
+    databaseName: string;
+    externalVolumeName: string;
+    icebergTableFormatVersion: number;
+    icebergTableType: string;
+    name: string;
+    nameMapping: string;
+    owner: string;
+    ownerRoleType: string;
+    partitionSpecs: outputs.IcebergTableFromRestShowOutputPartitionSpec[];
+    schemaName: string;
+}
+
+export interface IcebergTableFromRestShowOutputAutoRefreshStatus {
+    currentSnapshotId: number;
+    executionState: string;
+    lastSnapshotTime: string;
+    lastUpdatedTime: string;
+    pendingSnapshotCount: number;
+}
+
+export interface IcebergTableFromRestShowOutputPartitionSpec {
+    fields: outputs.IcebergTableFromRestShowOutputPartitionSpecField[];
+    specId: number;
+}
+
+export interface IcebergTableFromRestShowOutputPartitionSpecField {
+    fieldId: number;
+    name: string;
+    sourceId: number;
+    transform: string;
+}
+
+export interface IcebergTableParameter {
+    catalogSyncs: outputs.IcebergTableParameterCatalogSync[];
+    catalogs: outputs.IcebergTableParameterCatalog[];
+    dataRetentionTimeInDays: outputs.IcebergTableParameterDataRetentionTimeInDay[];
+    enableDataCompactions: outputs.IcebergTableParameterEnableDataCompaction[];
+    enableIcebergMergeOnReads: outputs.IcebergTableParameterEnableIcebergMergeOnRead[];
+    externalVolumes: outputs.IcebergTableParameterExternalVolume[];
+    maxDataExtensionTimeInDays: outputs.IcebergTableParameterMaxDataExtensionTimeInDay[];
+    storageSerializationPolicies: outputs.IcebergTableParameterStorageSerializationPolicy[];
+    targetFileSizes: outputs.IcebergTableParameterTargetFileSize[];
+}
+
+export interface IcebergTableParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableParameterCatalogSync {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableParameterDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableParameterEnableDataCompaction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableParameterEnableIcebergMergeOnRead {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableParameterMaxDataExtensionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableParameterStorageSerializationPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTableParameterTargetFileSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface IcebergTablePartitionBy {
+    /**
+     * Partitions the table by hashing the column into a fixed number of buckets.
+     */
+    bucket?: outputs.IcebergTablePartitionByBucket;
+    /**
+     * Partitions the table by the day component of the column.
+     */
+    day?: string;
+    /**
+     * Partitions the table by the hour component of the column.
+     */
+    hour?: string;
+    /**
+     * Name of the column to use as-is for partitioning.
+     */
+    identity?: string;
+    /**
+     * Partitions the table by the month component of the column.
+     */
+    month?: string;
+    /**
+     * Partitions the table by truncating the column value to a fixed width.
+     */
+    truncate?: outputs.IcebergTablePartitionByTruncate;
+    /**
+     * Partitions the table by the year component of the column.
+     */
+    year?: string;
+}
+
+export interface IcebergTablePartitionByBucket {
+    /**
+     * Name of the column to bucket.
+     */
+    column: string;
+    /**
+     * Number of buckets to hash the column values into.
+     */
+    numBuckets: number;
+}
+
+export interface IcebergTablePartitionByTruncate {
+    /**
+     * Name of the column to truncate.
+     */
+    column: string;
+    /**
+     * Width to truncate the column value to.
+     */
+    width: number;
+}
+
+export interface IcebergTablePrimaryKeyConstraint {
+    /**
+     * The column(s) the constraint applies to.
+     */
+    columns: string[];
+    /**
+     * Constraint comment.
+     */
+    comment?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    deferrable?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enable?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enforced?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    initiallyDeferred?: string;
+    /**
+     * Name of the constraint.
+     */
+    name?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    rely?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    validate?: string;
+}
+
+export interface IcebergTableRowAccessPolicy {
+    /**
+     * Defines which columns are affected by the policy.
+     */
+    ons: string[];
+    /**
+     * Row access policy name. For more information about this resource, see docs.
+     */
+    policyName: string;
+}
+
+export interface IcebergTableShowOutput {
+    autoRefreshStatuses: outputs.IcebergTableShowOutputAutoRefreshStatus[];
+    baseLocation: string;
+    canWriteMetadata: boolean;
+    catalogName: string;
+    catalogNamespace: string;
+    catalogSyncName: string;
+    catalogTableName: string;
+    comment: string;
+    createdOn: string;
+    currentPartitionSpecId: number;
+    databaseName: string;
+    externalVolumeName: string;
+    icebergTableFormatVersion: number;
+    icebergTableType: string;
+    name: string;
+    nameMapping: string;
+    owner: string;
+    ownerRoleType: string;
+    partitionSpecs: outputs.IcebergTableShowOutputPartitionSpec[];
+    schemaName: string;
+}
+
+export interface IcebergTableShowOutputAutoRefreshStatus {
+    currentSnapshotId: number;
+    executionState: string;
+    lastSnapshotTime: string;
+    lastUpdatedTime: string;
+    pendingSnapshotCount: number;
+}
+
+export interface IcebergTableShowOutputPartitionSpec {
+    fields: outputs.IcebergTableShowOutputPartitionSpecField[];
+    specId: number;
+}
+
+export interface IcebergTableShowOutputPartitionSpecField {
+    fieldId: number;
+    name: string;
+    sourceId: number;
+    transform: string;
+}
+
+export interface IcebergTableUniqueConstraint {
+    /**
+     * The column(s) the constraint applies to.
+     */
+    columns: string[];
+    /**
+     * Constraint comment.
+     */
+    comment?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    deferrable?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enable?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enforced?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    initiallyDeferred?: string;
+    /**
+     * Name of the constraint.
+     */
+    name?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    rely?: string;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    validate?: string;
 }
 
 export interface ImageRepositoryShowOutput {
@@ -7191,6 +8430,10 @@ export interface LegacyServiceUserDefaultWorkloadIdentityAws {
      * The ARN of the AWS IAM role to use for workload identity federation.
      */
     arn: string;
+    /**
+     * The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+     */
+    issuer?: string;
 }
 
 export interface LegacyServiceUserDefaultWorkloadIdentityAzure {
@@ -7905,6 +9148,25 @@ export interface MaterializedViewTag {
     value: string;
 }
 
+export interface McpServerDescribeOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    schemaName: string;
+    serverSpec: string;
+}
+
+export interface McpServerShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    schemaName: string;
+}
+
 export interface NetworkPolicyDescribeOutput {
     allowedIpList: string;
     allowedNetworkRuleList: string;
@@ -8004,6 +9266,7 @@ export interface NotebookShowOutput {
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutput {
+    allowedRolesLists: outputs.OauthIntegrationForCustomClientsDescribeOutputAllowedRolesList[];
     blockedRolesLists: outputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList[];
     comments: outputs.OauthIntegrationForCustomClientsDescribeOutputComment[];
     enableds: outputs.OauthIntegrationForCustomClientsDescribeOutputEnabled[];
@@ -8021,6 +9284,13 @@ export interface OauthIntegrationForCustomClientsDescribeOutput {
     oauthTokenEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint[];
     oauthUseSecondaryRoles: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole[];
     preAuthorizedRolesLists: outputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList[];
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputAllowedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList {
@@ -8164,6 +9434,7 @@ export interface OauthIntegrationForCustomClientsShowOutput {
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutput {
+    allowedRolesLists: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList[];
     blockedRolesLists: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList[];
     comments: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputComment[];
     enableds: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputEnabled[];
@@ -8181,6 +9452,13 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutput {
     oauthTokenEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint[];
     oauthUseSecondaryRoles: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole[];
     preAuthorizedRolesLists: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList[];
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList {
+    default: string;
+    name: string;
+    type: string;
+    value: string;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList {
@@ -8340,6 +9618,7 @@ export interface ObjectParameterObjectIdentifier {
 
 export interface PasswordPolicyDescribeOutput {
     comment: string;
+    databaseName: string;
     name: string;
     owner: string;
     passwordHistory: number;
@@ -8353,6 +9632,7 @@ export interface PasswordPolicyDescribeOutput {
     passwordMinNumericChars: number;
     passwordMinSpecialChars: number;
     passwordMinUpperCaseChars: number;
+    schemaName: string;
 }
 
 export interface PasswordPolicyShowOutput {
@@ -9820,6 +11100,10 @@ export interface ServiceUserDefaultWorkloadIdentityAws {
      * The ARN of the AWS IAM role to use for workload identity federation.
      */
     arn: string;
+    /**
+     * The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+     */
+    issuer?: string;
 }
 
 export interface ServiceUserDefaultWorkloadIdentityAzure {
@@ -11960,6 +13244,10 @@ export interface StageExternalS3Directory {
      */
     autoRefresh?: string;
     /**
+     * Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+     */
+    awsSnsTopic?: string;
+    /**
      * Specifies whether to enable a directory table on the external stage.
      */
     enable: boolean;
@@ -12955,8 +14243,10 @@ export interface StorageLifecyclePolicyDescribeOutput {
     archiveForDays: number;
     archiveTier: string;
     body: string;
+    databaseName: string;
     name: string;
     returnType: string;
+    schemaName: string;
     signatures: outputs.StorageLifecyclePolicyDescribeOutputSignature[];
 }
 
@@ -14765,6 +16055,73 @@ export interface WarehouseAdaptiveShowOutput {
     resumedOn: string;
     running: number;
     state: string;
+    type: string;
+    updatedOn: string;
+}
+
+export interface WarehouseInteractiveParameter {
+    fallbackWarehouses: outputs.WarehouseInteractiveParameterFallbackWarehouse[];
+    maxConcurrencyLevels: outputs.WarehouseInteractiveParameterMaxConcurrencyLevel[];
+    statementQueuedTimeoutInSeconds: outputs.WarehouseInteractiveParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.WarehouseInteractiveParameterStatementTimeoutInSecond[];
+}
+
+export interface WarehouseInteractiveParameterFallbackWarehouse {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface WarehouseInteractiveParameterMaxConcurrencyLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface WarehouseInteractiveParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface WarehouseInteractiveParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface WarehouseInteractiveShowOutput {
+    autoResume: boolean;
+    autoSuspend: number;
+    available: number;
+    comment: string;
+    createdOn: string;
+    isCurrent: boolean;
+    isDefault: boolean;
+    maxClusterCount: number;
+    minClusterCount: number;
+    name: string;
+    other: number;
+    owner: string;
+    ownerRoleType: string;
+    provisioning: number;
+    queued: number;
+    quiescing: number;
+    resourceMonitor: string;
+    resumedOn: string;
+    running: number;
+    size: string;
+    startedClusters: number;
+    state: string;
+    tables: string[];
     type: string;
     updatedOn: string;
 }

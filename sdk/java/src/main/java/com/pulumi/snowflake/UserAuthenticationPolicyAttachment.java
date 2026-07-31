@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 /**
  * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  * 
- * &gt; **Required warehouse** For this resource, the provider now uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+ * &gt; **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
  * 
  * Specifies the authentication policy to use for a certain user.
  * 
@@ -73,32 +73,38 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
  * 
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment example &#39;&#34;&lt;user_name&gt;&#34;|&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;authentication_policy_name&gt;&#34;&#39;
+ * ```
+ * 
  */
 @ResourceType(type="snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment")
 public class UserAuthenticationPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * Fully qualified name of the authentication policy
+     * Fully qualified name of the authentication policy.
      * 
      */
     @Export(name="authenticationPolicyName", refs={String.class}, tree="[0]")
     private Output<String> authenticationPolicyName;
 
     /**
-     * @return Fully qualified name of the authentication policy
+     * @return Fully qualified name of the authentication policy.
      * 
      */
     public Output<String> authenticationPolicyName() {
         return this.authenticationPolicyName;
     }
     /**
-     * User name of the user you want to attach the authentication policy to
+     * User name of the user you want to attach the authentication policy to.
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
-     * @return User name of the user you want to attach the authentication policy to
+     * @return User name of the user you want to attach the authentication policy to.
      * 
      */
     public Output<String> userName() {

@@ -24,6 +24,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:snowflake")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
+     * Specifies the Snowflake account identifier. Can be provided in the `org-name` format (e.g. `&#34;myorg-myaccount&#34;`) or as an account locator (e.g. `&#34;xy12345&#34;`). Use as a fallback when `accountName` and `organizationName` are not set. If both `accountName` and `organizationName` are set, they take precedence. Requires the `PROVIDER_CONFIGURATION_ACCOUNT_FALLBACK` experiment to be enabled. Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
+     * 
+     */
+    @Export(name="account", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> account;
+
+    /**
+     * @return Specifies the Snowflake account identifier. Can be provided in the `org-name` format (e.g. `&#34;myorg-myaccount&#34;`) or as an account locator (e.g. `&#34;xy12345&#34;`). Use as a fallback when `accountName` and `organizationName` are not set. If both `accountName` and `organizationName` are set, they take precedence. Requires the `PROVIDER_CONFIGURATION_ACCOUNT_FALLBACK` experiment to be enabled. Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
+     * 
+     */
+    public Output<Optional<String>> account() {
+        return Codegen.optional(this.account);
+    }
+    /**
      * Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
      * 
      */

@@ -33,6 +33,21 @@ public final class StageExternalS3DirectoryArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+     * 
+     */
+    @Import(name="awsSnsTopic")
+    private @Nullable Output<String> awsSnsTopic;
+
+    /**
+     * @return Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+     * 
+     */
+    public Optional<Output<String>> awsSnsTopic() {
+        return Optional.ofNullable(this.awsSnsTopic);
+    }
+
+    /**
      * Specifies whether to enable a directory table on the external stage.
      * 
      */
@@ -66,6 +81,7 @@ public final class StageExternalS3DirectoryArgs extends com.pulumi.resources.Res
 
     private StageExternalS3DirectoryArgs(StageExternalS3DirectoryArgs $) {
         this.autoRefresh = $.autoRefresh;
+        this.awsSnsTopic = $.awsSnsTopic;
         this.enable = $.enable;
         this.refreshOnCreate = $.refreshOnCreate;
     }
@@ -107,6 +123,27 @@ public final class StageExternalS3DirectoryArgs extends com.pulumi.resources.Res
          */
         public Builder autoRefresh(String autoRefresh) {
             return autoRefresh(Output.of(autoRefresh));
+        }
+
+        /**
+         * @param awsSnsTopic Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsSnsTopic(@Nullable Output<String> awsSnsTopic) {
+            $.awsSnsTopic = awsSnsTopic;
+            return this;
+        }
+
+        /**
+         * @param awsSnsTopic Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder awsSnsTopic(String awsSnsTopic) {
+            return awsSnsTopic(Output.of(awsSnsTopic));
         }
 
         /**

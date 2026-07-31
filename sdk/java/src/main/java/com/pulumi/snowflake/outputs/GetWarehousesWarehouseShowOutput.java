@@ -9,6 +9,7 @@ import java.lang.Boolean;
 import java.lang.Double;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -42,6 +43,7 @@ public final class GetWarehousesWarehouseShowOutput {
     private String size;
     private Integer startedClusters;
     private String state;
+    private List<String> tables;
     private String type;
     private String updatedOn;
 
@@ -133,6 +135,9 @@ public final class GetWarehousesWarehouseShowOutput {
     public String state() {
         return this.state;
     }
+    public List<String> tables() {
+        return this.tables;
+    }
     public String type() {
         return this.type;
     }
@@ -178,6 +183,7 @@ public final class GetWarehousesWarehouseShowOutput {
         private String size;
         private Integer startedClusters;
         private String state;
+        private List<String> tables;
         private String type;
         private String updatedOn;
         public Builder() {}
@@ -212,6 +218,7 @@ public final class GetWarehousesWarehouseShowOutput {
     	      this.size = defaults.size;
     	      this.startedClusters = defaults.startedClusters;
     	      this.state = defaults.state;
+    	      this.tables = defaults.tables;
     	      this.type = defaults.type;
     	      this.updatedOn = defaults.updatedOn;
         }
@@ -449,6 +456,17 @@ public final class GetWarehousesWarehouseShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder tables(List<String> tables) {
+            if (tables == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouseShowOutput", "tables");
+            }
+            this.tables = tables;
+            return this;
+        }
+        public Builder tables(String... tables) {
+            return tables(List.of(tables));
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetWarehousesWarehouseShowOutput", "type");
@@ -495,6 +513,7 @@ public final class GetWarehousesWarehouseShowOutput {
             _resultValue.size = size;
             _resultValue.startedClusters = startedClusters;
             _resultValue.state = state;
+            _resultValue.tables = tables;
             _resultValue.type = type;
             _resultValue.updatedOn = updatedOn;
             return _resultValue;

@@ -16,8 +16,10 @@ public final class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutp
     private Integer archiveForDays;
     private String archiveTier;
     private String body;
+    private String databaseName;
     private String name;
     private String returnType;
+    private String schemaName;
     private List<GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignature> signatures;
 
     private GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutput() {}
@@ -30,11 +32,17 @@ public final class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutp
     public String body() {
         return this.body;
     }
+    public String databaseName() {
+        return this.databaseName;
+    }
     public String name() {
         return this.name;
     }
     public String returnType() {
         return this.returnType;
+    }
+    public String schemaName() {
+        return this.schemaName;
     }
     public List<GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignature> signatures() {
         return this.signatures;
@@ -52,8 +60,10 @@ public final class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutp
         private Integer archiveForDays;
         private String archiveTier;
         private String body;
+        private String databaseName;
         private String name;
         private String returnType;
+        private String schemaName;
         private List<GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignature> signatures;
         public Builder() {}
         public Builder(GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutput defaults) {
@@ -61,8 +71,10 @@ public final class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutp
     	      this.archiveForDays = defaults.archiveForDays;
     	      this.archiveTier = defaults.archiveTier;
     	      this.body = defaults.body;
+    	      this.databaseName = defaults.databaseName;
     	      this.name = defaults.name;
     	      this.returnType = defaults.returnType;
+    	      this.schemaName = defaults.schemaName;
     	      this.signatures = defaults.signatures;
         }
 
@@ -91,6 +103,14 @@ public final class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutp
             return this;
         }
         @CustomType.Setter
+        public Builder databaseName(String databaseName) {
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutput", "databaseName");
+            }
+            this.databaseName = databaseName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutput", "name");
@@ -104,6 +124,14 @@ public final class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutp
               throw new MissingRequiredPropertyException("GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutput", "returnType");
             }
             this.returnType = returnType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder schemaName(String schemaName) {
+            if (schemaName == null) {
+              throw new MissingRequiredPropertyException("GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutput", "schemaName");
+            }
+            this.schemaName = schemaName;
             return this;
         }
         @CustomType.Setter
@@ -122,8 +150,10 @@ public final class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutp
             _resultValue.archiveForDays = archiveForDays;
             _resultValue.archiveTier = archiveTier;
             _resultValue.body = body;
+            _resultValue.databaseName = databaseName;
             _resultValue.name = name;
             _resultValue.returnType = returnType;
+            _resultValue.schemaName = schemaName;
             _resultValue.signatures = signatures;
             return _resultValue;
         }

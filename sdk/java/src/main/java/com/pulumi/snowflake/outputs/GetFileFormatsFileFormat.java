@@ -5,32 +5,38 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetFileFormatsFileFormatDescribeOutput;
+import com.pulumi.snowflake.outputs.GetFileFormatsFileFormatShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetFileFormatsFileFormat {
-    private String comment;
-    private String database;
-    private String formatType;
-    private String name;
-    private String schema;
+    /**
+     * @return Holds the output of DESCRIBE FILE FORMAT. Because every file format type returns a different set of properties, this is a union of the properties of all the file format types; only the fields applicable to the given file format type are filled.
+     * 
+     */
+    private List<GetFileFormatsFileFormatDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW FILE FORMATS.
+     * 
+     */
+    private List<GetFileFormatsFileFormatShowOutput> showOutputs;
 
     private GetFileFormatsFileFormat() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of DESCRIBE FILE FORMAT. Because every file format type returns a different set of properties, this is a union of the properties of all the file format types; only the fields applicable to the given file format type are filled.
+     * 
+     */
+    public List<GetFileFormatsFileFormatDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public String database() {
-        return this.database;
-    }
-    public String formatType() {
-        return this.formatType;
-    }
-    public String name() {
-        return this.name;
-    }
-    public String schema() {
-        return this.schema;
+    /**
+     * @return Holds the output of SHOW FILE FORMATS.
+     * 
+     */
+    public List<GetFileFormatsFileFormatShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -42,68 +48,41 @@ public final class GetFileFormatsFileFormat {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String database;
-        private String formatType;
-        private String name;
-        private String schema;
+        private List<GetFileFormatsFileFormatDescribeOutput> describeOutputs;
+        private List<GetFileFormatsFileFormatShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetFileFormatsFileFormat defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.database = defaults.database;
-    	      this.formatType = defaults.formatType;
-    	      this.name = defaults.name;
-    	      this.schema = defaults.schema;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetFileFormatsFileFormat", "comment");
+        public Builder describeOutputs(List<GetFileFormatsFileFormatDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetFileFormatsFileFormat", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetFileFormatsFileFormat", "database");
-            }
-            this.database = database;
-            return this;
+        public Builder describeOutputs(GetFileFormatsFileFormatDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder formatType(String formatType) {
-            if (formatType == null) {
-              throw new MissingRequiredPropertyException("GetFileFormatsFileFormat", "formatType");
+        public Builder showOutputs(List<GetFileFormatsFileFormatShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetFileFormatsFileFormat", "showOutputs");
             }
-            this.formatType = formatType;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetFileFormatsFileFormat", "name");
-            }
-            this.name = name;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetFileFormatsFileFormat", "schema");
-            }
-            this.schema = schema;
-            return this;
+        public Builder showOutputs(GetFileFormatsFileFormatShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetFileFormatsFileFormat build() {
             final var _resultValue = new GetFileFormatsFileFormat();
-            _resultValue.comment = comment;
-            _resultValue.database = database;
-            _resultValue.formatType = formatType;
-            _resultValue.name = name;
-            _resultValue.schema = schema;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

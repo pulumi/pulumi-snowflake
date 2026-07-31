@@ -13,29 +13,23 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetFileFormatsFileFormatResult
     {
-        public readonly string Comment;
-        public readonly string Database;
-        public readonly string FormatType;
-        public readonly string Name;
-        public readonly string Schema;
+        /// <summary>
+        /// Holds the output of DESCRIBE FILE FORMAT. Because every file format type returns a different set of properties, this is a union of the properties of all the file format types; only the fields applicable to the given file format type are filled.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFileFormatsFileFormatDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW FILE FORMATS.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFileFormatsFileFormatShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetFileFormatsFileFormatResult(
-            string comment,
+            ImmutableArray<Outputs.GetFileFormatsFileFormatDescribeOutputResult> describeOutputs,
 
-            string database,
-
-            string formatType,
-
-            string name,
-
-            string schema)
+            ImmutableArray<Outputs.GetFileFormatsFileFormatShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Database = database;
-            FormatType = formatType;
-            Name = name;
-            Schema = schema;
+            DescribeOutputs = describeOutputs;
+            ShowOutputs = showOutputs;
         }
     }
 }

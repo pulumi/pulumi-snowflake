@@ -58,6 +58,7 @@ import javax.annotation.Nullable;
  *             .comment("My adaptive warehouse with all options set")
  *             .maxQueryPerformanceLevel("MEDIUM")
  *             .queryThroughputMultiplier(1)
+ *             .resourceMonitor("my_resource_monitor")
  *             .statementQueuedTimeoutInSeconds(30)
  *             .statementTimeoutInSeconds(3600)
  *             .build());
@@ -163,6 +164,20 @@ public class WarehouseAdaptive extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> queryThroughputMultiplier() {
         return Codegen.optional(this.queryThroughputMultiplier);
+    }
+    /**
+     * Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+     * 
+     */
+    @Export(name="resourceMonitor", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> resourceMonitor;
+
+    /**
+     * @return Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+     * 
+     */
+    public Output<Optional<String>> resourceMonitor() {
+        return Codegen.optional(this.resourceMonitor);
     }
     /**
      * Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.

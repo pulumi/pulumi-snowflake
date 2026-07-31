@@ -47,6 +47,12 @@ from .external_table import *
 from .external_volume import *
 from .failover_group import *
 from .file_format import *
+from .file_format_avro import *
+from .file_format_csv import *
+from .file_format_json import *
+from .file_format_orc import *
+from .file_format_parquet import *
+from .file_format_xml import *
 from .function_java import *
 from .function_javascript import *
 from .function_python import *
@@ -77,10 +83,12 @@ from .get_file_formats import *
 from .get_functions import *
 from .get_git_repositories import *
 from .get_grants import *
+from .get_iceberg_tables import *
 from .get_image_repositories import *
 from .get_listings import *
 from .get_masking_policies import *
 from .get_materialized_views import *
+from .get_mcp_servers import *
 from .get_network_policies import *
 from .get_network_rules import *
 from .get_notebooks import *
@@ -122,8 +130,11 @@ from .grant_ownership import *
 from .grant_privileges_to_account_role import *
 from .grant_privileges_to_database_role import *
 from .grant_privileges_to_share import *
+from .iceberg_table import *
+from .iceberg_table_from_aws_glue import *
 from .iceberg_table_from_delta_files import *
 from .iceberg_table_from_files import *
+from .iceberg_table_from_rest import *
 from .image_repository import *
 from .job_service import *
 from .legacy_service_user import *
@@ -131,6 +142,7 @@ from .listing import *
 from .managed_account import *
 from .masking_policy import *
 from .materialized_view import *
+from .mcp_server import *
 from .network_policy import *
 from .network_policy_attachment import *
 from .network_rule import *
@@ -199,6 +211,7 @@ from .user_session_policy_attachment import *
 from .view import *
 from .warehouse import *
 from .warehouse_adaptive import *
+from .warehouse_interactive import *
 from ._inputs import *
 from . import outputs
 
@@ -542,6 +555,54 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/fileFormatAvro",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/fileFormatAvro:FileFormatAvro": "FileFormatAvro"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/fileFormatCsv",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/fileFormatCsv:FileFormatCsv": "FileFormatCsv"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/fileFormatJson",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/fileFormatJson:FileFormatJson": "FileFormatJson"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/fileFormatOrc",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/fileFormatOrc:FileFormatOrc": "FileFormatOrc"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/fileFormatParquet",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/fileFormatParquet:FileFormatParquet": "FileFormatParquet"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/fileFormatXml",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/fileFormatXml:FileFormatXml": "FileFormatXml"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/functionJava",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -646,6 +707,22 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/icebergTable",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/icebergTable:IcebergTable": "IcebergTable"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/icebergTableFromAwsGlue",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/icebergTableFromAwsGlue:IcebergTableFromAwsGlue": "IcebergTableFromAwsGlue"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/icebergTableFromDeltaFiles",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -658,6 +735,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/icebergTableFromFiles:IcebergTableFromFiles": "IcebergTableFromFiles"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/icebergTableFromRest",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/icebergTableFromRest:IcebergTableFromRest": "IcebergTableFromRest"
   }
  },
  {
@@ -714,6 +799,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/materializedView:MaterializedView": "MaterializedView"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/mcpServer",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/mcpServer:McpServer": "McpServer"
   }
  },
  {
@@ -1250,6 +1343,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/warehouseAdaptive:WarehouseAdaptive": "WarehouseAdaptive"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/warehouseInteractive",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/warehouseInteractive:WarehouseInteractive": "WarehouseInteractive"
   }
  }
 ]

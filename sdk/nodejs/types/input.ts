@@ -1389,6 +1389,168 @@ export interface FailoverGroupReplicationScheduleCron {
     timeZone: pulumi.Input<string>;
 }
 
+export interface FileFormatAvroDescribeOutput {
+    compression?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface FileFormatAvroShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    formatOptions?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface FileFormatCsvDescribeOutput {
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    emptyFieldAsNull?: pulumi.Input<boolean | undefined>;
+    encoding?: pulumi.Input<string | undefined>;
+    errorOnColumnCountMismatch?: pulumi.Input<boolean | undefined>;
+    escape?: pulumi.Input<string | undefined>;
+    escapeUnenclosedField?: pulumi.Input<string | undefined>;
+    fieldDelimiter?: pulumi.Input<string | undefined>;
+    fieldOptionallyEnclosedBy?: pulumi.Input<string | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    parseHeader?: pulumi.Input<boolean | undefined>;
+    recordDelimiter?: pulumi.Input<string | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipBlankLines?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    skipHeader?: pulumi.Input<number | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    validateUtf8?: pulumi.Input<boolean | undefined>;
+}
+
+export interface FileFormatCsvShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    formatOptions?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface FileFormatJsonDescribeOutput {
+    allowDuplicate?: pulumi.Input<boolean | undefined>;
+    binaryFormat?: pulumi.Input<string | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    dateFormat?: pulumi.Input<string | undefined>;
+    enableOctal?: pulumi.Input<boolean | undefined>;
+    fileExtension?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    multiLine?: pulumi.Input<boolean | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripNullValues?: pulumi.Input<boolean | undefined>;
+    stripOuterArray?: pulumi.Input<boolean | undefined>;
+    timeFormat?: pulumi.Input<string | undefined>;
+    timestampFormat?: pulumi.Input<string | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface FileFormatJsonShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    formatOptions?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface FileFormatOrcDescribeOutput {
+    id?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface FileFormatOrcShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    formatOptions?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface FileFormatParquetDescribeOutput {
+    binaryAsText?: pulumi.Input<boolean | undefined>;
+    compression?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    nullIfs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    trimSpace?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    useLogicalType?: pulumi.Input<boolean | undefined>;
+    useVectorizedScanner?: pulumi.Input<boolean | undefined>;
+}
+
+export interface FileFormatParquetShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    formatOptions?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface FileFormatXmlDescribeOutput {
+    compression?: pulumi.Input<string | undefined>;
+    disableAutoConvert?: pulumi.Input<boolean | undefined>;
+    id?: pulumi.Input<string | undefined>;
+    ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
+    preserveSpace?: pulumi.Input<boolean | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<boolean | undefined>;
+    skipByteOrderMark?: pulumi.Input<boolean | undefined>;
+    stripOuterElement?: pulumi.Input<boolean | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
+export interface FileFormatXmlShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    formatOptions?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+}
+
 export interface FunctionJavaArgument {
     /**
      * The argument type.
@@ -2249,6 +2411,36 @@ export interface GetDynamicTablesLimitArgs {
     rows?: pulumi.Input<number | undefined>;
 }
 
+export interface GetFileFormatsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetFileFormatsInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
+}
+
 export interface GetGitRepositoriesIn {
     /**
      * Returns records for the entire account.
@@ -2481,6 +2673,88 @@ export interface GetGrantsGrantsToShareArgs {
     shareName: pulumi.Input<string>;
 }
 
+export interface GetGrantsInheritedGrantsIn {
+    /**
+     * Lists all inherited grants defined in the account.
+     */
+    account?: boolean;
+    /**
+     * Lists all inherited grants defined in the specified database.
+     */
+    database?: string;
+    /**
+     * Lists all inherited grants defined in the specified schema. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+     */
+    schema?: string;
+}
+
+export interface GetGrantsInheritedGrantsInArgs {
+    /**
+     * Lists all inherited grants defined in the account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Lists all inherited grants defined in the specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Lists all inherited grants defined in the specified schema. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+     */
+    schema?: pulumi.Input<string | undefined>;
+}
+
+export interface GetIcebergTablesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetIcebergTablesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
+}
+
+export interface GetIcebergTablesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetIcebergTablesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GetImageRepositoriesIn {
     /**
      * Returns records for the entire account.
@@ -2599,6 +2873,36 @@ export interface GetMaskingPoliciesLimitArgs {
      * The maximum number of rows to return.
      */
     rows: pulumi.Input<number>;
+}
+
+export interface GetMcpServersIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetMcpServersInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean | undefined>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string | undefined>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string | undefined>;
 }
 
 export interface GetNetworkRulesIn {
@@ -3635,7 +3939,7 @@ export interface GrantOwnershipOn {
      */
     objectName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+     * Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
      */
     objectType?: pulumi.Input<string | undefined>;
 }
@@ -3650,7 +3954,7 @@ export interface GrantOwnershipOnAll {
      */
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -3665,20 +3969,31 @@ export interface GrantOwnershipOnFuture {
      */
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
 
 export interface GrantPrivilegesToAccountRoleOnAccountObject {
     /**
+     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     */
+    inherited?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited | undefined>;
+    /**
      * The fully qualified name of the object on which privileges will be granted.
      */
-    objectName: pulumi.Input<string>;
+    objectName?: pulumi.Input<string | undefined>;
     /**
-     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
      */
-    objectType: pulumi.Input<string>;
+    objectType?: pulumi.Input<string | undefined>;
+}
+
+export interface GrantPrivilegesToAccountRoleOnAccountObjectInherited {
+    /**
+     * The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+     */
+    objectTypePlural: pulumi.Input<string>;
 }
 
 export interface GrantPrivilegesToAccountRoleOnSchema {
@@ -3691,9 +4006,24 @@ export interface GrantPrivilegesToAccountRoleOnSchema {
      */
     futureSchemasInDatabase?: pulumi.Input<string | undefined>;
     /**
+     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     */
+    inherited?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaInherited | undefined>;
+    /**
      * The fully qualified name of the schema.
      */
     schemaName?: pulumi.Input<string | undefined>;
+}
+
+export interface GrantPrivilegesToAccountRoleOnSchemaInherited {
+    /**
+     * If true, the inherited privilege will be granted on all schemas in the account.
+     */
+    inAccount?: pulumi.Input<boolean | undefined>;
+    /**
+     * The fully qualified name of the database in which the inherited privilege will be granted on all schemas.
+     */
+    inDatabase?: pulumi.Input<string | undefined>;
 }
 
 export interface GrantPrivilegesToAccountRoleOnSchemaObject {
@@ -3706,11 +4036,15 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     future?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture | undefined>;
     /**
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     */
+    inherited?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited | undefined>;
+    /**
      * The fully qualified name of the object on which privileges will be granted.
      */
     objectName?: pulumi.Input<string | undefined>;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
     objectType?: pulumi.Input<string | undefined>;
 }
@@ -3719,7 +4053,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: pulumi.Input<string | undefined>;
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -3728,7 +4062,26 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: pulumi.Input<string | undefined>;
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+     */
+    objectTypePlural: pulumi.Input<string>;
+}
+
+export interface GrantPrivilegesToAccountRoleOnSchemaObjectInherited {
+    /**
+     * If true, the inherited privilege will be granted on all objects of the given type in the account.
+     */
+    inAccount?: pulumi.Input<boolean | undefined>;
+    /**
+     * The fully qualified name of the database in which the inherited privilege will be granted on all objects of the given type.
+     */
+    inDatabase?: pulumi.Input<string | undefined>;
+    /**
+     * The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
+     */
+    inSchema?: pulumi.Input<string | undefined>;
+    /**
+     * The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -3742,6 +4095,10 @@ export interface GrantPrivilegesToDatabaseRoleOnSchema {
      * The fully qualified name of the database.
      */
     futureSchemasInDatabase?: pulumi.Input<string | undefined>;
+    /**
+     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     */
+    inherited?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified name of the schema.
      */
@@ -3758,11 +4115,15 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     future?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture | undefined>;
     /**
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     */
+    inherited?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited | undefined>;
+    /**
      * The fully qualified name of the object on which privileges will be granted.
      */
     objectName?: pulumi.Input<string | undefined>;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      */
     objectType?: pulumi.Input<string | undefined>;
 }
@@ -3777,7 +4138,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -3792,9 +4153,274 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
      */
     objectTypePlural: pulumi.Input<string>;
+}
+
+export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
+    /**
+     * The fully qualified name of the database.
+     */
+    inDatabase?: pulumi.Input<string | undefined>;
+    /**
+     * The fully qualified name of the schema.
+     */
+    inSchema?: pulumi.Input<string | undefined>;
+    /**
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+     */
+    objectTypePlural: pulumi.Input<string>;
+}
+
+export interface IcebergTableAggregationPolicy {
+    /**
+     * Defines which columns uniquely identify an entity within the Iceberg table.
+     */
+    entityKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Aggregation policy name.
+     */
+    policyName: pulumi.Input<string>;
+}
+
+export interface IcebergTableCheckConstraint {
+    /**
+     * The CHECK constraint expression.
+     */
+    expression: pulumi.Input<string>;
+    /**
+     * Name of the constraint.
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether existing data is validated against the constraint (`true`, `ENABLE VALIDATE`) or not (`false`, `ENABLE NOVALIDATE`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    validate?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableColumn {
+    /**
+     * Column comment.
+     */
+    comment?: pulumi.Input<string | undefined>;
+    /**
+     * Defines the column default value.
+     */
+    default?: pulumi.Input<inputs.IcebergTableColumnDefault | undefined>;
+    /**
+     * Specifies the masking policy to set on a column. For more information about this resource, see docs.
+     */
+    maskingPolicy?: pulumi.Input<inputs.IcebergTableColumnMaskingPolicy | undefined>;
+    /**
+     * Column name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to restrict the column to NOT NULL values.
+     */
+    notNull?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the projection policy to set on a column.
+     */
+    projectionPolicy?: pulumi.Input<inputs.IcebergTableColumnProjectionPolicy | undefined>;
+    /**
+     * Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface IcebergTableColumnDefault {
+    /**
+     * The default expression value for the column.
+     */
+    expression: pulumi.Input<string>;
+}
+
+export interface IcebergTableColumnMaskingPolicy {
+    /**
+     * Masking policy name. For more information about this resource, see docs.
+     */
+    policyName: pulumi.Input<string>;
+    /**
+     * Specifies the arguments to pass into the conditional masking policy SQL expression, in order. The first column in the list specifies the column for the policy conditions to mask or tokenize the data and must match the column to which the masking policy is set. The additional columns specify the columns to evaluate to determine whether to mask or tokenize the data in each row of the query result when a query is made on the first column. If the USING clause is omitted, Snowflake treats the conditional masking policy as a normal masking policy.
+     */
+    usings?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface IcebergTableColumnProjectionPolicy {
+    /**
+     * Projection policy name.
+     */
+    policyName: pulumi.Input<string>;
+}
+
+export interface IcebergTableDescribeOutput {
+    check?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    default?: pulumi.Input<string | undefined>;
+    expression?: pulumi.Input<string | undefined>;
+    isNullable?: pulumi.Input<boolean | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    nameMapping?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string | undefined>;
+    primaryKey?: pulumi.Input<boolean | undefined>;
+    privacyDomain?: pulumi.Input<string | undefined>;
+    sourceIcebergType?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    uniqueKey?: pulumi.Input<boolean | undefined>;
+    writeDefault?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableForeignKeyConstraint {
+    /**
+     * The local column(s) the foreign key is defined on.
+     */
+    columns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Constraint comment.
+     */
+    comment?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    deferrable?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enable?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enforced?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    initiallyDeferred?: pulumi.Input<string | undefined>;
+    /**
+     * The match type for the foreign key. Valid values are: [FULL SIMPLE PARTIAL].
+     */
+    match?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the constraint.
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the action to perform when the referenced primary/unique key is deleted. Valid values are: [CASCADE SET NULL SET DEFAULT RESTRICT NO ACTION].
+     */
+    onDelete?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the action to perform when the referenced primary/unique key is updated. Valid values are: [CASCADE SET NULL SET DEFAULT RESTRICT NO ACTION].
+     */
+    onUpdate?: pulumi.Input<string | undefined>;
+    /**
+     * The column(s) in the referenced table that the foreign key references.
+     */
+    refColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    rely?: pulumi.Input<string | undefined>;
+    /**
+     * The table that the foreign key references.
+     */
+    tableName: pulumi.Input<string>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    validate?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromAwsGlueDescribeOutput {
+    check?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    default?: pulumi.Input<string | undefined>;
+    expression?: pulumi.Input<string | undefined>;
+    isNullable?: pulumi.Input<boolean | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    nameMapping?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string | undefined>;
+    primaryKey?: pulumi.Input<boolean | undefined>;
+    privacyDomain?: pulumi.Input<string | undefined>;
+    sourceIcebergType?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    uniqueKey?: pulumi.Input<boolean | undefined>;
+    writeDefault?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromAwsGlueParameter {
+    catalogs?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromAwsGlueParameterCatalog>[] | undefined>;
+    externalVolumes?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromAwsGlueParameterExternalVolume>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromAwsGlueParameterReplaceInvalidCharacter>[] | undefined>;
+}
+
+export interface IcebergTableFromAwsGlueParameterCatalog {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromAwsGlueParameterExternalVolume {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromAwsGlueParameterReplaceInvalidCharacter {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromAwsGlueShowOutput {
+    autoRefreshStatuses?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromAwsGlueShowOutputAutoRefreshStatus>[] | undefined>;
+    baseLocation?: pulumi.Input<string | undefined>;
+    canWriteMetadata?: pulumi.Input<boolean | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
+    catalogSyncName?: pulumi.Input<string | undefined>;
+    catalogTableName?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    currentPartitionSpecId?: pulumi.Input<number | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    externalVolumeName?: pulumi.Input<string | undefined>;
+    icebergTableFormatVersion?: pulumi.Input<number | undefined>;
+    icebergTableType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    nameMapping?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    partitionSpecs?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromAwsGlueShowOutputPartitionSpec>[] | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromAwsGlueShowOutputAutoRefreshStatus {
+    currentSnapshotId?: pulumi.Input<number | undefined>;
+    executionState?: pulumi.Input<string | undefined>;
+    lastSnapshotTime?: pulumi.Input<string | undefined>;
+    lastUpdatedTime?: pulumi.Input<string | undefined>;
+    pendingSnapshotCount?: pulumi.Input<number | undefined>;
+}
+
+export interface IcebergTableFromAwsGlueShowOutputPartitionSpec {
+    fields?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromAwsGlueShowOutputPartitionSpecField>[] | undefined>;
+    specId?: pulumi.Input<number | undefined>;
+}
+
+export interface IcebergTableFromAwsGlueShowOutputPartitionSpecField {
+    fieldId?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    sourceId?: pulumi.Input<number | undefined>;
+    transform?: pulumi.Input<string | undefined>;
 }
 
 export interface IcebergTableFromDeltaFilesDescribeOutput {
@@ -3864,7 +4490,7 @@ export interface IcebergTableFromDeltaFilesShowOutput {
     nameMapping?: pulumi.Input<string | undefined>;
     owner?: pulumi.Input<string | undefined>;
     ownerRoleType?: pulumi.Input<string | undefined>;
-    partitionSpecs?: pulumi.Input<string | undefined>;
+    partitionSpecs?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromDeltaFilesShowOutputPartitionSpec>[] | undefined>;
     schemaName?: pulumi.Input<string | undefined>;
 }
 
@@ -3874,6 +4500,18 @@ export interface IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus {
     lastSnapshotTime?: pulumi.Input<string | undefined>;
     lastUpdatedTime?: pulumi.Input<string | undefined>;
     pendingSnapshotCount?: pulumi.Input<number | undefined>;
+}
+
+export interface IcebergTableFromDeltaFilesShowOutputPartitionSpec {
+    fields?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromDeltaFilesShowOutputPartitionSpecField>[] | undefined>;
+    specId?: pulumi.Input<number | undefined>;
+}
+
+export interface IcebergTableFromDeltaFilesShowOutputPartitionSpecField {
+    fieldId?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    sourceId?: pulumi.Input<number | undefined>;
+    transform?: pulumi.Input<string | undefined>;
 }
 
 export interface IcebergTableFromFilesDescribeOutput {
@@ -3943,7 +4581,7 @@ export interface IcebergTableFromFilesShowOutput {
     nameMapping?: pulumi.Input<string | undefined>;
     owner?: pulumi.Input<string | undefined>;
     ownerRoleType?: pulumi.Input<string | undefined>;
-    partitionSpecs?: pulumi.Input<string | undefined>;
+    partitionSpecs?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromFilesShowOutputPartitionSpec>[] | undefined>;
     schemaName?: pulumi.Input<string | undefined>;
 }
 
@@ -3953,6 +4591,414 @@ export interface IcebergTableFromFilesShowOutputAutoRefreshStatus {
     lastSnapshotTime?: pulumi.Input<string | undefined>;
     lastUpdatedTime?: pulumi.Input<string | undefined>;
     pendingSnapshotCount?: pulumi.Input<number | undefined>;
+}
+
+export interface IcebergTableFromFilesShowOutputPartitionSpec {
+    fields?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromFilesShowOutputPartitionSpecField>[] | undefined>;
+    specId?: pulumi.Input<number | undefined>;
+}
+
+export interface IcebergTableFromFilesShowOutputPartitionSpecField {
+    fieldId?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    sourceId?: pulumi.Input<number | undefined>;
+    transform?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromRestDescribeOutput {
+    check?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    default?: pulumi.Input<string | undefined>;
+    expression?: pulumi.Input<string | undefined>;
+    isNullable?: pulumi.Input<boolean | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    nameMapping?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string | undefined>;
+    primaryKey?: pulumi.Input<boolean | undefined>;
+    privacyDomain?: pulumi.Input<string | undefined>;
+    sourceIcebergType?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    uniqueKey?: pulumi.Input<boolean | undefined>;
+    writeDefault?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromRestParameter {
+    catalogs?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromRestParameterCatalog>[] | undefined>;
+    enableIcebergMergeOnReads?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromRestParameterEnableIcebergMergeOnRead>[] | undefined>;
+    externalVolumes?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromRestParameterExternalVolume>[] | undefined>;
+    icebergMergeOnReadBehaviors?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromRestParameterIcebergMergeOnReadBehavior>[] | undefined>;
+    replaceInvalidCharacters?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromRestParameterReplaceInvalidCharacter>[] | undefined>;
+    storageSerializationPolicies?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromRestParameterStorageSerializationPolicy>[] | undefined>;
+    targetFileSizes?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromRestParameterTargetFileSize>[] | undefined>;
+}
+
+export interface IcebergTableFromRestParameterCatalog {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromRestParameterEnableIcebergMergeOnRead {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromRestParameterExternalVolume {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromRestParameterIcebergMergeOnReadBehavior {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromRestParameterReplaceInvalidCharacter {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromRestParameterStorageSerializationPolicy {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromRestParameterTargetFileSize {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromRestShowOutput {
+    autoRefreshStatuses?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromRestShowOutputAutoRefreshStatus>[] | undefined>;
+    baseLocation?: pulumi.Input<string | undefined>;
+    canWriteMetadata?: pulumi.Input<boolean | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
+    catalogSyncName?: pulumi.Input<string | undefined>;
+    catalogTableName?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    currentPartitionSpecId?: pulumi.Input<number | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    externalVolumeName?: pulumi.Input<string | undefined>;
+    icebergTableFormatVersion?: pulumi.Input<number | undefined>;
+    icebergTableType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    nameMapping?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    partitionSpecs?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromRestShowOutputPartitionSpec>[] | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableFromRestShowOutputAutoRefreshStatus {
+    currentSnapshotId?: pulumi.Input<number | undefined>;
+    executionState?: pulumi.Input<string | undefined>;
+    lastSnapshotTime?: pulumi.Input<string | undefined>;
+    lastUpdatedTime?: pulumi.Input<string | undefined>;
+    pendingSnapshotCount?: pulumi.Input<number | undefined>;
+}
+
+export interface IcebergTableFromRestShowOutputPartitionSpec {
+    fields?: pulumi.Input<pulumi.Input<inputs.IcebergTableFromRestShowOutputPartitionSpecField>[] | undefined>;
+    specId?: pulumi.Input<number | undefined>;
+}
+
+export interface IcebergTableFromRestShowOutputPartitionSpecField {
+    fieldId?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    sourceId?: pulumi.Input<number | undefined>;
+    transform?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableParameter {
+    catalogSyncs?: pulumi.Input<pulumi.Input<inputs.IcebergTableParameterCatalogSync>[] | undefined>;
+    catalogs?: pulumi.Input<pulumi.Input<inputs.IcebergTableParameterCatalog>[] | undefined>;
+    dataRetentionTimeInDays?: pulumi.Input<pulumi.Input<inputs.IcebergTableParameterDataRetentionTimeInDay>[] | undefined>;
+    enableDataCompactions?: pulumi.Input<pulumi.Input<inputs.IcebergTableParameterEnableDataCompaction>[] | undefined>;
+    enableIcebergMergeOnReads?: pulumi.Input<pulumi.Input<inputs.IcebergTableParameterEnableIcebergMergeOnRead>[] | undefined>;
+    externalVolumes?: pulumi.Input<pulumi.Input<inputs.IcebergTableParameterExternalVolume>[] | undefined>;
+    maxDataExtensionTimeInDays?: pulumi.Input<pulumi.Input<inputs.IcebergTableParameterMaxDataExtensionTimeInDay>[] | undefined>;
+    storageSerializationPolicies?: pulumi.Input<pulumi.Input<inputs.IcebergTableParameterStorageSerializationPolicy>[] | undefined>;
+    targetFileSizes?: pulumi.Input<pulumi.Input<inputs.IcebergTableParameterTargetFileSize>[] | undefined>;
+}
+
+export interface IcebergTableParameterCatalog {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableParameterCatalogSync {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableParameterDataRetentionTimeInDay {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableParameterEnableDataCompaction {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableParameterEnableIcebergMergeOnRead {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableParameterExternalVolume {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableParameterMaxDataExtensionTimeInDay {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableParameterStorageSerializationPolicy {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableParameterTargetFileSize {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTablePartitionBy {
+    /**
+     * Partitions the table by hashing the column into a fixed number of buckets.
+     */
+    bucket?: pulumi.Input<inputs.IcebergTablePartitionByBucket | undefined>;
+    /**
+     * Partitions the table by the day component of the column.
+     */
+    day?: pulumi.Input<string | undefined>;
+    /**
+     * Partitions the table by the hour component of the column.
+     */
+    hour?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the column to use as-is for partitioning.
+     */
+    identity?: pulumi.Input<string | undefined>;
+    /**
+     * Partitions the table by the month component of the column.
+     */
+    month?: pulumi.Input<string | undefined>;
+    /**
+     * Partitions the table by truncating the column value to a fixed width.
+     */
+    truncate?: pulumi.Input<inputs.IcebergTablePartitionByTruncate | undefined>;
+    /**
+     * Partitions the table by the year component of the column.
+     */
+    year?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTablePartitionByBucket {
+    /**
+     * Name of the column to bucket.
+     */
+    column: pulumi.Input<string>;
+    /**
+     * Number of buckets to hash the column values into.
+     */
+    numBuckets: pulumi.Input<number>;
+}
+
+export interface IcebergTablePartitionByTruncate {
+    /**
+     * Name of the column to truncate.
+     */
+    column: pulumi.Input<string>;
+    /**
+     * Width to truncate the column value to.
+     */
+    width: pulumi.Input<number>;
+}
+
+export interface IcebergTablePrimaryKeyConstraint {
+    /**
+     * The column(s) the constraint applies to.
+     */
+    columns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Constraint comment.
+     */
+    comment?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    deferrable?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enable?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enforced?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    initiallyDeferred?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the constraint.
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    rely?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    validate?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableRowAccessPolicy {
+    /**
+     * Defines which columns are affected by the policy.
+     */
+    ons: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Row access policy name. For more information about this resource, see docs.
+     */
+    policyName: pulumi.Input<string>;
+}
+
+export interface IcebergTableShowOutput {
+    autoRefreshStatuses?: pulumi.Input<pulumi.Input<inputs.IcebergTableShowOutputAutoRefreshStatus>[] | undefined>;
+    baseLocation?: pulumi.Input<string | undefined>;
+    canWriteMetadata?: pulumi.Input<boolean | undefined>;
+    catalogName?: pulumi.Input<string | undefined>;
+    catalogNamespace?: pulumi.Input<string | undefined>;
+    catalogSyncName?: pulumi.Input<string | undefined>;
+    catalogTableName?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    currentPartitionSpecId?: pulumi.Input<number | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    externalVolumeName?: pulumi.Input<string | undefined>;
+    icebergTableFormatVersion?: pulumi.Input<number | undefined>;
+    icebergTableType?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    nameMapping?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    partitionSpecs?: pulumi.Input<pulumi.Input<inputs.IcebergTableShowOutputPartitionSpec>[] | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableShowOutputAutoRefreshStatus {
+    currentSnapshotId?: pulumi.Input<number | undefined>;
+    executionState?: pulumi.Input<string | undefined>;
+    lastSnapshotTime?: pulumi.Input<string | undefined>;
+    lastUpdatedTime?: pulumi.Input<string | undefined>;
+    pendingSnapshotCount?: pulumi.Input<number | undefined>;
+}
+
+export interface IcebergTableShowOutputPartitionSpec {
+    fields?: pulumi.Input<pulumi.Input<inputs.IcebergTableShowOutputPartitionSpecField>[] | undefined>;
+    specId?: pulumi.Input<number | undefined>;
+}
+
+export interface IcebergTableShowOutputPartitionSpecField {
+    fieldId?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    sourceId?: pulumi.Input<number | undefined>;
+    transform?: pulumi.Input<string | undefined>;
+}
+
+export interface IcebergTableUniqueConstraint {
+    /**
+     * The column(s) the constraint applies to.
+     */
+    columns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Constraint comment.
+     */
+    comment?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    deferrable?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enable?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    enforced?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    initiallyDeferred?: pulumi.Input<string | undefined>;
+    /**
+     * Name of the constraint.
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    rely?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     */
+    validate?: pulumi.Input<string | undefined>;
 }
 
 export interface ImageRepositoryShowOutput {
@@ -4108,6 +5154,10 @@ export interface LegacyServiceUserDefaultWorkloadIdentityAws {
      * The ARN of the AWS IAM role to use for workload identity federation.
      */
     arn: pulumi.Input<string>;
+    /**
+     * The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+     */
+    issuer?: pulumi.Input<string | undefined>;
 }
 
 export interface LegacyServiceUserDefaultWorkloadIdentityAzure {
@@ -4822,6 +5872,25 @@ export interface MaterializedViewTag {
     value: pulumi.Input<string>;
 }
 
+export interface McpServerDescribeOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+    serverSpec?: pulumi.Input<string | undefined>;
+}
+
+export interface McpServerShowOutput {
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+}
+
 export interface NetworkPolicyDescribeOutput {
     allowedIpList?: pulumi.Input<string | undefined>;
     allowedNetworkRuleList?: pulumi.Input<string | undefined>;
@@ -4921,6 +5990,7 @@ export interface NotebookShowOutput {
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutput {
+    allowedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputAllowedRolesList>[] | undefined>;
     blockedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList>[] | undefined>;
     comments?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputComment>[] | undefined>;
     enableds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputEnabled>[] | undefined>;
@@ -4938,6 +6008,13 @@ export interface OauthIntegrationForCustomClientsDescribeOutput {
     oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint>[] | undefined>;
     oauthUseSecondaryRoles?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole>[] | undefined>;
     preAuthorizedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList>[] | undefined>;
+}
+
+export interface OauthIntegrationForCustomClientsDescribeOutputAllowedRolesList {
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList {
@@ -5081,6 +6158,7 @@ export interface OauthIntegrationForCustomClientsShowOutput {
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutput {
+    allowedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList>[] | undefined>;
     blockedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList>[] | undefined>;
     comments?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputComment>[] | undefined>;
     enableds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputEnabled>[] | undefined>;
@@ -5098,6 +6176,13 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutput {
     oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint>[] | undefined>;
     oauthUseSecondaryRoles?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole>[] | undefined>;
     preAuthorizedRolesLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList>[] | undefined>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList {
+    default?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList {
@@ -5257,6 +6342,7 @@ export interface ObjectParameterObjectIdentifier {
 
 export interface PasswordPolicyDescribeOutput {
     comment?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
     name?: pulumi.Input<string | undefined>;
     owner?: pulumi.Input<string | undefined>;
     passwordHistory?: pulumi.Input<number | undefined>;
@@ -5270,6 +6356,7 @@ export interface PasswordPolicyDescribeOutput {
     passwordMinNumericChars?: pulumi.Input<number | undefined>;
     passwordMinSpecialChars?: pulumi.Input<number | undefined>;
     passwordMinUpperCaseChars?: pulumi.Input<number | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
 }
 
 export interface PasswordPolicyShowOutput {
@@ -6760,6 +7847,10 @@ export interface ServiceUserDefaultWorkloadIdentityAws {
      * The ARN of the AWS IAM role to use for workload identity federation.
      */
     arn: pulumi.Input<string>;
+    /**
+     * The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+     */
+    issuer?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceUserDefaultWorkloadIdentityAzure {
@@ -8900,6 +9991,10 @@ export interface StageExternalS3Directory {
      */
     autoRefresh?: pulumi.Input<string | undefined>;
     /**
+     * Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+     */
+    awsSnsTopic?: pulumi.Input<string | undefined>;
+    /**
      * Specifies whether to enable a directory table on the external stage.
      */
     enable: pulumi.Input<boolean>;
@@ -9895,8 +10990,10 @@ export interface StorageLifecyclePolicyDescribeOutput {
     archiveForDays?: pulumi.Input<number | undefined>;
     archiveTier?: pulumi.Input<string | undefined>;
     body?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
     name?: pulumi.Input<string | undefined>;
     returnType?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
     signatures?: pulumi.Input<pulumi.Input<inputs.StorageLifecyclePolicyDescribeOutputSignature>[] | undefined>;
 }
 
@@ -11705,6 +12802,73 @@ export interface WarehouseAdaptiveShowOutput {
     resumedOn?: pulumi.Input<string | undefined>;
     running?: pulumi.Input<number | undefined>;
     state?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    updatedOn?: pulumi.Input<string | undefined>;
+}
+
+export interface WarehouseInteractiveParameter {
+    fallbackWarehouses?: pulumi.Input<pulumi.Input<inputs.WarehouseInteractiveParameterFallbackWarehouse>[] | undefined>;
+    maxConcurrencyLevels?: pulumi.Input<pulumi.Input<inputs.WarehouseInteractiveParameterMaxConcurrencyLevel>[] | undefined>;
+    statementQueuedTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseInteractiveParameterStatementQueuedTimeoutInSecond>[] | undefined>;
+    statementTimeoutInSeconds?: pulumi.Input<pulumi.Input<inputs.WarehouseInteractiveParameterStatementTimeoutInSecond>[] | undefined>;
+}
+
+export interface WarehouseInteractiveParameterFallbackWarehouse {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface WarehouseInteractiveParameterMaxConcurrencyLevel {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface WarehouseInteractiveParameterStatementQueuedTimeoutInSecond {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface WarehouseInteractiveParameterStatementTimeoutInSecond {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface WarehouseInteractiveShowOutput {
+    autoResume?: pulumi.Input<boolean | undefined>;
+    autoSuspend?: pulumi.Input<number | undefined>;
+    available?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    isCurrent?: pulumi.Input<boolean | undefined>;
+    isDefault?: pulumi.Input<boolean | undefined>;
+    maxClusterCount?: pulumi.Input<number | undefined>;
+    minClusterCount?: pulumi.Input<number | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    other?: pulumi.Input<number | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    provisioning?: pulumi.Input<number | undefined>;
+    queued?: pulumi.Input<number | undefined>;
+    quiescing?: pulumi.Input<number | undefined>;
+    resourceMonitor?: pulumi.Input<string | undefined>;
+    resumedOn?: pulumi.Input<string | undefined>;
+    running?: pulumi.Input<number | undefined>;
+    size?: pulumi.Input<string | undefined>;
+    startedClusters?: pulumi.Input<number | undefined>;
+    state?: pulumi.Input<string | undefined>;
+    tables?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     type?: pulumi.Input<string | undefined>;
     updatedOn?: pulumi.Input<string | undefined>;
 }

@@ -53,6 +53,18 @@ namespace Pulumi.Snowflake
         public Output<string> DefaultDdlCollation { get; private set; } = null!;
 
         /// <summary>
+        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        /// </summary>
+        [Output("defaultNotebookComputePoolCpu")]
+        public Output<string> DefaultNotebookComputePoolCpu { get; private set; } = null!;
+
+        /// <summary>
+        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        /// </summary>
+        [Output("defaultNotebookComputePoolGpu")]
+        public Output<string> DefaultNotebookComputePoolGpu { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
         /// </summary>
         [Output("dropPublicSchemaOnCreation")]
@@ -237,6 +249,18 @@ namespace Pulumi.Snowflake
         public Input<string>? DefaultDdlCollation { get; set; }
 
         /// <summary>
+        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        /// </summary>
+        [Input("defaultNotebookComputePoolCpu")]
+        public Input<string>? DefaultNotebookComputePoolCpu { get; set; }
+
+        /// <summary>
+        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        /// </summary>
+        [Input("defaultNotebookComputePoolGpu")]
+        public Input<string>? DefaultNotebookComputePoolGpu { get; set; }
+
+        /// <summary>
         /// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
         /// </summary>
         [Input("dropPublicSchemaOnCreation")]
@@ -375,6 +399,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("defaultDdlCollation")]
         public Input<string>? DefaultDdlCollation { get; set; }
+
+        /// <summary>
+        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        /// </summary>
+        [Input("defaultNotebookComputePoolCpu")]
+        public Input<string>? DefaultNotebookComputePoolCpu { get; set; }
+
+        /// <summary>
+        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        /// </summary>
+        [Input("defaultNotebookComputePoolGpu")]
+        public Input<string>? DefaultNotebookComputePoolGpu { get; set; }
 
         /// <summary>
         /// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.

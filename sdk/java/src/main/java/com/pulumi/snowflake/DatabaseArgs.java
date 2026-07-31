@@ -79,6 +79,36 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     * 
+     */
+    @Import(name="defaultNotebookComputePoolCpu")
+    private @Nullable Output<String> defaultNotebookComputePoolCpu;
+
+    /**
+     * @return Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     * 
+     */
+    public Optional<Output<String>> defaultNotebookComputePoolCpu() {
+        return Optional.ofNullable(this.defaultNotebookComputePoolCpu);
+    }
+
+    /**
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     * 
+     */
+    @Import(name="defaultNotebookComputePoolGpu")
+    private @Nullable Output<String> defaultNotebookComputePoolGpu;
+
+    /**
+     * @return Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     * 
+     */
+    public Optional<Output<String>> defaultNotebookComputePoolGpu() {
+        return Optional.ofNullable(this.defaultNotebookComputePoolGpu);
+    }
+
+    /**
      * Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won&#39;t have any effect.
      * 
      */
@@ -355,6 +385,8 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
         this.comment = $.comment;
         this.dataRetentionTimeInDays = $.dataRetentionTimeInDays;
         this.defaultDdlCollation = $.defaultDdlCollation;
+        this.defaultNotebookComputePoolCpu = $.defaultNotebookComputePoolCpu;
+        this.defaultNotebookComputePoolGpu = $.defaultNotebookComputePoolGpu;
         this.dropPublicSchemaOnCreation = $.dropPublicSchemaOnCreation;
         this.enableConsoleOutput = $.enableConsoleOutput;
         this.externalVolume = $.externalVolume;
@@ -475,6 +507,48 @@ public final class DatabaseArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder defaultDdlCollation(String defaultDdlCollation) {
             return defaultDdlCollation(Output.of(defaultDdlCollation));
+        }
+
+        /**
+         * @param defaultNotebookComputePoolCpu Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultNotebookComputePoolCpu(@Nullable Output<String> defaultNotebookComputePoolCpu) {
+            $.defaultNotebookComputePoolCpu = defaultNotebookComputePoolCpu;
+            return this;
+        }
+
+        /**
+         * @param defaultNotebookComputePoolCpu Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultNotebookComputePoolCpu(String defaultNotebookComputePoolCpu) {
+            return defaultNotebookComputePoolCpu(Output.of(defaultNotebookComputePoolCpu));
+        }
+
+        /**
+         * @param defaultNotebookComputePoolGpu Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultNotebookComputePoolGpu(@Nullable Output<String> defaultNotebookComputePoolGpu) {
+            $.defaultNotebookComputePoolGpu = defaultNotebookComputePoolGpu;
+            return this;
+        }
+
+        /**
+         * @param defaultNotebookComputePoolGpu Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultNotebookComputePoolGpu(String defaultNotebookComputePoolGpu) {
+            return defaultNotebookComputePoolGpu(Output.of(defaultNotebookComputePoolGpu));
         }
 
         /**

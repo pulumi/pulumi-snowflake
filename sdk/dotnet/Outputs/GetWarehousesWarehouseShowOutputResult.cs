@@ -42,6 +42,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string Size;
         public readonly int StartedClusters;
         public readonly string State;
+        public readonly ImmutableArray<string> Tables;
         public readonly string Type;
         public readonly string UpdatedOn;
 
@@ -105,6 +106,8 @@ namespace Pulumi.Snowflake.Outputs
 
             string state,
 
+            ImmutableArray<string> tables,
+
             string type,
 
             string updatedOn)
@@ -138,6 +141,7 @@ namespace Pulumi.Snowflake.Outputs
             Size = size;
             StartedClusters = startedClusters;
             State = state;
+            Tables = tables;
             Type = type;
             UpdatedOn = updatedOn;
         }

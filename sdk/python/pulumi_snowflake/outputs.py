@@ -148,6 +148,18 @@ __all__ = [
     'FailoverGroupFromReplica',
     'FailoverGroupReplicationSchedule',
     'FailoverGroupReplicationScheduleCron',
+    'FileFormatAvroDescribeOutput',
+    'FileFormatAvroShowOutput',
+    'FileFormatCsvDescribeOutput',
+    'FileFormatCsvShowOutput',
+    'FileFormatJsonDescribeOutput',
+    'FileFormatJsonShowOutput',
+    'FileFormatOrcDescribeOutput',
+    'FileFormatOrcShowOutput',
+    'FileFormatParquetDescribeOutput',
+    'FileFormatParquetShowOutput',
+    'FileFormatXmlDescribeOutput',
+    'FileFormatXmlShowOutput',
     'FunctionJavaArgument',
     'FunctionJavaImport',
     'FunctionJavaParameter',
@@ -202,14 +214,35 @@ __all__ = [
     'GrantOwnershipOnAll',
     'GrantOwnershipOnFuture',
     'GrantPrivilegesToAccountRoleOnAccountObject',
+    'GrantPrivilegesToAccountRoleOnAccountObjectInherited',
     'GrantPrivilegesToAccountRoleOnSchema',
+    'GrantPrivilegesToAccountRoleOnSchemaInherited',
     'GrantPrivilegesToAccountRoleOnSchemaObject',
     'GrantPrivilegesToAccountRoleOnSchemaObjectAll',
     'GrantPrivilegesToAccountRoleOnSchemaObjectFuture',
+    'GrantPrivilegesToAccountRoleOnSchemaObjectInherited',
     'GrantPrivilegesToDatabaseRoleOnSchema',
     'GrantPrivilegesToDatabaseRoleOnSchemaObject',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectAll',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture',
+    'GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited',
+    'IcebergTableAggregationPolicy',
+    'IcebergTableCheckConstraint',
+    'IcebergTableColumn',
+    'IcebergTableColumnDefault',
+    'IcebergTableColumnMaskingPolicy',
+    'IcebergTableColumnProjectionPolicy',
+    'IcebergTableDescribeOutput',
+    'IcebergTableForeignKeyConstraint',
+    'IcebergTableFromAwsGlueDescribeOutput',
+    'IcebergTableFromAwsGlueParameter',
+    'IcebergTableFromAwsGlueParameterCatalog',
+    'IcebergTableFromAwsGlueParameterExternalVolume',
+    'IcebergTableFromAwsGlueParameterReplaceInvalidCharacter',
+    'IcebergTableFromAwsGlueShowOutput',
+    'IcebergTableFromAwsGlueShowOutputAutoRefreshStatus',
+    'IcebergTableFromAwsGlueShowOutputPartitionSpec',
+    'IcebergTableFromAwsGlueShowOutputPartitionSpecField',
     'IcebergTableFromDeltaFilesDescribeOutput',
     'IcebergTableFromDeltaFilesParameter',
     'IcebergTableFromDeltaFilesParameterCatalog',
@@ -217,6 +250,8 @@ __all__ = [
     'IcebergTableFromDeltaFilesParameterReplaceInvalidCharacter',
     'IcebergTableFromDeltaFilesShowOutput',
     'IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus',
+    'IcebergTableFromDeltaFilesShowOutputPartitionSpec',
+    'IcebergTableFromDeltaFilesShowOutputPartitionSpecField',
     'IcebergTableFromFilesDescribeOutput',
     'IcebergTableFromFilesParameter',
     'IcebergTableFromFilesParameterCatalog',
@@ -224,6 +259,41 @@ __all__ = [
     'IcebergTableFromFilesParameterReplaceInvalidCharacter',
     'IcebergTableFromFilesShowOutput',
     'IcebergTableFromFilesShowOutputAutoRefreshStatus',
+    'IcebergTableFromFilesShowOutputPartitionSpec',
+    'IcebergTableFromFilesShowOutputPartitionSpecField',
+    'IcebergTableFromRestDescribeOutput',
+    'IcebergTableFromRestParameter',
+    'IcebergTableFromRestParameterCatalog',
+    'IcebergTableFromRestParameterEnableIcebergMergeOnRead',
+    'IcebergTableFromRestParameterExternalVolume',
+    'IcebergTableFromRestParameterIcebergMergeOnReadBehavior',
+    'IcebergTableFromRestParameterReplaceInvalidCharacter',
+    'IcebergTableFromRestParameterStorageSerializationPolicy',
+    'IcebergTableFromRestParameterTargetFileSize',
+    'IcebergTableFromRestShowOutput',
+    'IcebergTableFromRestShowOutputAutoRefreshStatus',
+    'IcebergTableFromRestShowOutputPartitionSpec',
+    'IcebergTableFromRestShowOutputPartitionSpecField',
+    'IcebergTableParameter',
+    'IcebergTableParameterCatalog',
+    'IcebergTableParameterCatalogSync',
+    'IcebergTableParameterDataRetentionTimeInDay',
+    'IcebergTableParameterEnableDataCompaction',
+    'IcebergTableParameterEnableIcebergMergeOnRead',
+    'IcebergTableParameterExternalVolume',
+    'IcebergTableParameterMaxDataExtensionTimeInDay',
+    'IcebergTableParameterStorageSerializationPolicy',
+    'IcebergTableParameterTargetFileSize',
+    'IcebergTablePartitionBy',
+    'IcebergTablePartitionByBucket',
+    'IcebergTablePartitionByTruncate',
+    'IcebergTablePrimaryKeyConstraint',
+    'IcebergTableRowAccessPolicy',
+    'IcebergTableShowOutput',
+    'IcebergTableShowOutputAutoRefreshStatus',
+    'IcebergTableShowOutputPartitionSpec',
+    'IcebergTableShowOutputPartitionSpecField',
+    'IcebergTableUniqueConstraint',
     'ImageRepositoryShowOutput',
     'JobServiceDescribeOutput',
     'JobServiceFromSpecification',
@@ -304,6 +374,8 @@ __all__ = [
     'MaskingPolicyDescribeOutputSignature',
     'MaskingPolicyShowOutput',
     'MaterializedViewTag',
+    'McpServerDescribeOutput',
+    'McpServerShowOutput',
     'NetworkPolicyDescribeOutput',
     'NetworkPolicyShowOutput',
     'NetworkRuleDescribeOutput',
@@ -312,6 +384,7 @@ __all__ = [
     'NotebookFrom',
     'NotebookShowOutput',
     'OauthIntegrationForCustomClientsDescribeOutput',
+    'OauthIntegrationForCustomClientsDescribeOutputAllowedRolesList',
     'OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList',
     'OauthIntegrationForCustomClientsDescribeOutputComment',
     'OauthIntegrationForCustomClientsDescribeOutputEnabled',
@@ -333,6 +406,7 @@ __all__ = [
     'OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList',
     'OauthIntegrationForCustomClientsShowOutput',
     'OauthIntegrationForPartnerApplicationsDescribeOutput',
+    'OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList',
     'OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList',
     'OauthIntegrationForPartnerApplicationsDescribeOutputComment',
     'OauthIntegrationForPartnerApplicationsDescribeOutputEnabled',
@@ -857,6 +931,12 @@ __all__ = [
     'WarehouseAdaptiveParameterStatementQueuedTimeoutInSecond',
     'WarehouseAdaptiveParameterStatementTimeoutInSecond',
     'WarehouseAdaptiveShowOutput',
+    'WarehouseInteractiveParameter',
+    'WarehouseInteractiveParameterFallbackWarehouse',
+    'WarehouseInteractiveParameterMaxConcurrencyLevel',
+    'WarehouseInteractiveParameterStatementQueuedTimeoutInSecond',
+    'WarehouseInteractiveParameterStatementTimeoutInSecond',
+    'WarehouseInteractiveShowOutput',
     'WarehouseParameter',
     'WarehouseParameterMaxConcurrencyLevel',
     'WarehouseParameterStatementQueuedTimeoutInSecond',
@@ -940,6 +1020,9 @@ __all__ = [
     'GetExternalVolumesExternalVolumeShowOutputResult',
     'GetFailoverGroupsFailoverGroupResult',
     'GetFileFormatsFileFormatResult',
+    'GetFileFormatsFileFormatDescribeOutputResult',
+    'GetFileFormatsFileFormatShowOutputResult',
+    'GetFileFormatsInResult',
     'GetFunctionsFunctionResult',
     'GetGitRepositoriesGitRepositoryResult',
     'GetGitRepositoriesGitRepositoryDescribeOutputResult',
@@ -953,6 +1036,27 @@ __all__ = [
     'GetGrantsGrantsOnResult',
     'GetGrantsGrantsToResult',
     'GetGrantsGrantsToShareResult',
+    'GetGrantsInheritedGrantsInResult',
+    'GetIcebergTablesIcebergTableResult',
+    'GetIcebergTablesIcebergTableDescribeOutputResult',
+    'GetIcebergTablesIcebergTableParameterResult',
+    'GetIcebergTablesIcebergTableParameterCatalogResult',
+    'GetIcebergTablesIcebergTableParameterCatalogSyncResult',
+    'GetIcebergTablesIcebergTableParameterDataRetentionTimeInDayResult',
+    'GetIcebergTablesIcebergTableParameterEnableDataCompactionResult',
+    'GetIcebergTablesIcebergTableParameterEnableIcebergMergeOnReadResult',
+    'GetIcebergTablesIcebergTableParameterExternalVolumeResult',
+    'GetIcebergTablesIcebergTableParameterIcebergMergeOnReadBehaviorResult',
+    'GetIcebergTablesIcebergTableParameterMaxDataExtensionTimeInDayResult',
+    'GetIcebergTablesIcebergTableParameterReplaceInvalidCharacterResult',
+    'GetIcebergTablesIcebergTableParameterStorageSerializationPolicyResult',
+    'GetIcebergTablesIcebergTableParameterTargetFileSizeResult',
+    'GetIcebergTablesIcebergTableShowOutputResult',
+    'GetIcebergTablesIcebergTableShowOutputAutoRefreshStatusResult',
+    'GetIcebergTablesIcebergTableShowOutputPartitionSpecResult',
+    'GetIcebergTablesIcebergTableShowOutputPartitionSpecFieldResult',
+    'GetIcebergTablesInResult',
+    'GetIcebergTablesLimitResult',
     'GetImageRepositoriesImageRepositoryResult',
     'GetImageRepositoriesImageRepositoryShowOutputResult',
     'GetImageRepositoriesInResult',
@@ -967,6 +1071,10 @@ __all__ = [
     'GetMaskingPoliciesMaskingPolicyDescribeOutputSignatureResult',
     'GetMaskingPoliciesMaskingPolicyShowOutputResult',
     'GetMaterializedViewsMaterializedViewResult',
+    'GetMcpServersInResult',
+    'GetMcpServersMcpServerResult',
+    'GetMcpServersMcpServerDescribeOutputResult',
+    'GetMcpServersMcpServerShowOutputResult',
     'GetNetworkPoliciesNetworkPolicyResult',
     'GetNetworkPoliciesNetworkPolicyDescribeOutputResult',
     'GetNetworkPoliciesNetworkPolicyShowOutputResult',
@@ -1027,6 +1135,7 @@ __all__ = [
     'GetSecurityIntegrationsSecurityIntegrationResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPatternResult',
+    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesListResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomainResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthTypeResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesListResult',
@@ -1278,6 +1387,7 @@ __all__ = [
     'GetWarehousesWarehouseResult',
     'GetWarehousesWarehouseDescribeOutputResult',
     'GetWarehousesWarehouseParameterResult',
+    'GetWarehousesWarehouseParameterFallbackWarehouseResult',
     'GetWarehousesWarehouseParameterMaxConcurrencyLevelResult',
     'GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecondResult',
     'GetWarehousesWarehouseParameterStatementTimeoutInSecondResult',
@@ -10275,6 +10385,1420 @@ class FailoverGroupReplicationScheduleCron(dict):
 
 
 @pulumi.output_type
+class FileFormatAvroDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatAvroDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatAvroDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatAvroDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FileFormatAvroShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "formatOptions":
+            suggest = "format_options"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatAvroShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatAvroShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatAvroShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 format_options: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if format_options is not None:
+            pulumi.set(__self__, "format_options", format_options)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="formatOptions")
+    def format_options(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_options")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FileFormatCsvDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "emptyFieldAsNull":
+            suggest = "empty_field_as_null"
+        elif key == "errorOnColumnCountMismatch":
+            suggest = "error_on_column_count_mismatch"
+        elif key == "escapeUnenclosedField":
+            suggest = "escape_unenclosed_field"
+        elif key == "fieldDelimiter":
+            suggest = "field_delimiter"
+        elif key == "fieldOptionallyEnclosedBy":
+            suggest = "field_optionally_enclosed_by"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "parseHeader":
+            suggest = "parse_header"
+        elif key == "recordDelimiter":
+            suggest = "record_delimiter"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipBlankLines":
+            suggest = "skip_blank_lines"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "skipHeader":
+            suggest = "skip_header"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "validateUtf8":
+            suggest = "validate_utf8"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatCsvDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatCsvDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatCsvDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 empty_field_as_null: Optional[_builtins.bool] = None,
+                 encoding: Optional[_builtins.str] = None,
+                 error_on_column_count_mismatch: Optional[_builtins.bool] = None,
+                 escape: Optional[_builtins.str] = None,
+                 escape_unenclosed_field: Optional[_builtins.str] = None,
+                 field_delimiter: Optional[_builtins.str] = None,
+                 field_optionally_enclosed_by: Optional[_builtins.str] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 parse_header: Optional[_builtins.bool] = None,
+                 record_delimiter: Optional[_builtins.str] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_blank_lines: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 skip_header: Optional[_builtins.int] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 validate_utf8: Optional[_builtins.bool] = None):
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if empty_field_as_null is not None:
+            pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        if encoding is not None:
+            pulumi.set(__self__, "encoding", encoding)
+        if error_on_column_count_mismatch is not None:
+            pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        if escape is not None:
+            pulumi.set(__self__, "escape", escape)
+        if escape_unenclosed_field is not None:
+            pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        if field_delimiter is not None:
+            pulumi.set(__self__, "field_delimiter", field_delimiter)
+        if field_optionally_enclosed_by is not None:
+            pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if parse_header is not None:
+            pulumi.set(__self__, "parse_header", parse_header)
+        if record_delimiter is not None:
+            pulumi.set(__self__, "record_delimiter", record_delimiter)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_blank_lines is not None:
+            pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if skip_header is not None:
+            pulumi.set(__self__, "skip_header", skip_header)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if validate_utf8 is not None:
+            pulumi.set(__self__, "validate_utf8", validate_utf8)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="validateUtf8")
+    def validate_utf8(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "validate_utf8")
+
+
+@pulumi.output_type
+class FileFormatCsvShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "formatOptions":
+            suggest = "format_options"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatCsvShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatCsvShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatCsvShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 format_options: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if format_options is not None:
+            pulumi.set(__self__, "format_options", format_options)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="formatOptions")
+    def format_options(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_options")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FileFormatJsonDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowDuplicate":
+            suggest = "allow_duplicate"
+        elif key == "binaryFormat":
+            suggest = "binary_format"
+        elif key == "dateFormat":
+            suggest = "date_format"
+        elif key == "enableOctal":
+            suggest = "enable_octal"
+        elif key == "fileExtension":
+            suggest = "file_extension"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "multiLine":
+            suggest = "multi_line"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripNullValues":
+            suggest = "strip_null_values"
+        elif key == "stripOuterArray":
+            suggest = "strip_outer_array"
+        elif key == "timeFormat":
+            suggest = "time_format"
+        elif key == "timestampFormat":
+            suggest = "timestamp_format"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatJsonDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatJsonDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatJsonDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_duplicate: Optional[_builtins.bool] = None,
+                 binary_format: Optional[_builtins.str] = None,
+                 compression: Optional[_builtins.str] = None,
+                 date_format: Optional[_builtins.str] = None,
+                 enable_octal: Optional[_builtins.bool] = None,
+                 file_extension: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 multi_line: Optional[_builtins.bool] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_null_values: Optional[_builtins.bool] = None,
+                 strip_outer_array: Optional[_builtins.bool] = None,
+                 time_format: Optional[_builtins.str] = None,
+                 timestamp_format: Optional[_builtins.str] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if allow_duplicate is not None:
+            pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        if binary_format is not None:
+            pulumi.set(__self__, "binary_format", binary_format)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if date_format is not None:
+            pulumi.set(__self__, "date_format", date_format)
+        if enable_octal is not None:
+            pulumi.set(__self__, "enable_octal", enable_octal)
+        if file_extension is not None:
+            pulumi.set(__self__, "file_extension", file_extension)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if multi_line is not None:
+            pulumi.set(__self__, "multi_line", multi_line)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_null_values is not None:
+            pulumi.set(__self__, "strip_null_values", strip_null_values)
+        if strip_outer_array is not None:
+            pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        if time_format is not None:
+            pulumi.set(__self__, "time_format", time_format)
+        if timestamp_format is not None:
+            pulumi.set(__self__, "timestamp_format", timestamp_format)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FileFormatJsonShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "formatOptions":
+            suggest = "format_options"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatJsonShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatJsonShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatJsonShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 format_options: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if format_options is not None:
+            pulumi.set(__self__, "format_options", format_options)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="formatOptions")
+    def format_options(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_options")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FileFormatOrcDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatOrcDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatOrcDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatOrcDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FileFormatOrcShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "formatOptions":
+            suggest = "format_options"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatOrcShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatOrcShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatOrcShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 format_options: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if format_options is not None:
+            pulumi.set(__self__, "format_options", format_options)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="formatOptions")
+    def format_options(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_options")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FileFormatParquetDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binaryAsText":
+            suggest = "binary_as_text"
+        elif key == "nullIfs":
+            suggest = "null_ifs"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "trimSpace":
+            suggest = "trim_space"
+        elif key == "useLogicalType":
+            suggest = "use_logical_type"
+        elif key == "useVectorizedScanner":
+            suggest = "use_vectorized_scanner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatParquetDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatParquetDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatParquetDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 binary_as_text: Optional[_builtins.bool] = None,
+                 compression: Optional[_builtins.str] = None,
+                 id: Optional[_builtins.str] = None,
+                 null_ifs: Optional[Sequence[_builtins.str]] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 trim_space: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None,
+                 use_logical_type: Optional[_builtins.bool] = None,
+                 use_vectorized_scanner: Optional[_builtins.bool] = None):
+        if binary_as_text is not None:
+            pulumi.set(__self__, "binary_as_text", binary_as_text)
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if null_ifs is not None:
+            pulumi.set(__self__, "null_ifs", null_ifs)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if trim_space is not None:
+            pulumi.set(__self__, "trim_space", trim_space)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_logical_type is not None:
+            pulumi.set(__self__, "use_logical_type", use_logical_type)
+        if use_vectorized_scanner is not None:
+            pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "use_vectorized_scanner")
+
+
+@pulumi.output_type
+class FileFormatParquetShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "formatOptions":
+            suggest = "format_options"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatParquetShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatParquetShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatParquetShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 format_options: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if format_options is not None:
+            pulumi.set(__self__, "format_options", format_options)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="formatOptions")
+    def format_options(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_options")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FileFormatXmlDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disableAutoConvert":
+            suggest = "disable_auto_convert"
+        elif key == "ignoreUtf8Errors":
+            suggest = "ignore_utf8_errors"
+        elif key == "preserveSpace":
+            suggest = "preserve_space"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "skipByteOrderMark":
+            suggest = "skip_byte_order_mark"
+        elif key == "stripOuterElement":
+            suggest = "strip_outer_element"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatXmlDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatXmlDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatXmlDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression: Optional[_builtins.str] = None,
+                 disable_auto_convert: Optional[_builtins.bool] = None,
+                 id: Optional[_builtins.str] = None,
+                 ignore_utf8_errors: Optional[_builtins.bool] = None,
+                 preserve_space: Optional[_builtins.bool] = None,
+                 replace_invalid_characters: Optional[_builtins.bool] = None,
+                 skip_byte_order_mark: Optional[_builtins.bool] = None,
+                 strip_outer_element: Optional[_builtins.bool] = None,
+                 type: Optional[_builtins.str] = None):
+        if compression is not None:
+            pulumi.set(__self__, "compression", compression)
+        if disable_auto_convert is not None:
+            pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ignore_utf8_errors is not None:
+            pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        if preserve_space is not None:
+            pulumi.set(__self__, "preserve_space", preserve_space)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if skip_byte_order_mark is not None:
+            pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        if strip_outer_element is not None:
+            pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "strip_outer_element")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FileFormatXmlShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "formatOptions":
+            suggest = "format_options"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileFormatXmlShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileFormatXmlShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileFormatXmlShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 format_options: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if format_options is not None:
+            pulumi.set(__self__, "format_options", format_options)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="formatOptions")
+    def format_options(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "format_options")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class FunctionJavaArgument(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -13777,7 +15301,7 @@ class GrantOwnershipOn(dict):
         :param 'GrantOwnershipOnAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantOwnershipOnFutureArgs' future: Configures the privilege to be granted on all objects in either a database or schema.
         :param _builtins.str object_name: Specifies the identifier for the object on which you are transferring ownership.
-        :param _builtins.str object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        :param _builtins.str object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -13816,7 +15340,7 @@ class GrantOwnershipOn(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[_builtins.str]:
         """
-        Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
         """
         return pulumi.get(self, "object_type")
 
@@ -13849,7 +15373,7 @@ class GrantOwnershipOnAll(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param _builtins.str in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -13863,7 +15387,7 @@ class GrantOwnershipOnAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13912,7 +15436,7 @@ class GrantOwnershipOnFuture(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param _builtins.str in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -13926,7 +15450,7 @@ class GrantOwnershipOnFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -13969,18 +15493,32 @@ class GrantPrivilegesToAccountRoleOnAccountObject(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 object_name: _builtins.str,
-                 object_type: _builtins.str):
+                 inherited: Optional['outputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited'] = None,
+                 object_name: Optional[_builtins.str] = None,
+                 object_type: Optional[_builtins.str] = None):
         """
+        :param 'GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
         :param _builtins.str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param _builtins.str object_type: The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+        :param _builtins.str object_type: The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
         """
-        pulumi.set(__self__, "object_name", object_name)
-        pulumi.set(__self__, "object_type", object_type)
+        if inherited is not None:
+            pulumi.set(__self__, "inherited", inherited)
+        if object_name is not None:
+            pulumi.set(__self__, "object_name", object_name)
+        if object_type is not None:
+            pulumi.set(__self__, "object_type", object_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def inherited(self) -> Optional['outputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited']:
+        """
+        Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        """
+        return pulumi.get(self, "inherited")
 
     @_builtins.property
     @pulumi.getter(name="objectName")
-    def object_name(self) -> _builtins.str:
+    def object_name(self) -> Optional[_builtins.str]:
         """
         The fully qualified name of the object on which privileges will be granted.
         """
@@ -13988,11 +15526,46 @@ class GrantPrivilegesToAccountRoleOnAccountObject(dict):
 
     @_builtins.property
     @pulumi.getter(name="objectType")
-    def object_type(self) -> _builtins.str:
+    def object_type(self) -> Optional[_builtins.str]:
         """
-        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
         """
         return pulumi.get(self, "object_type")
+
+
+@pulumi.output_type
+class GrantPrivilegesToAccountRoleOnAccountObjectInherited(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectTypePlural":
+            suggest = "object_type_plural"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToAccountRoleOnAccountObjectInherited. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantPrivilegesToAccountRoleOnAccountObjectInherited.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantPrivilegesToAccountRoleOnAccountObjectInherited.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type_plural: _builtins.str):
+        """
+        :param _builtins.str object_type_plural: The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+        """
+        pulumi.set(__self__, "object_type_plural", object_type_plural)
+
+    @_builtins.property
+    @pulumi.getter(name="objectTypePlural")
+    def object_type_plural(self) -> _builtins.str:
+        """
+        The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+        """
+        return pulumi.get(self, "object_type_plural")
 
 
 @pulumi.output_type
@@ -14021,16 +15594,20 @@ class GrantPrivilegesToAccountRoleOnSchema(dict):
     def __init__(__self__, *,
                  all_schemas_in_database: Optional[_builtins.str] = None,
                  future_schemas_in_database: Optional[_builtins.str] = None,
+                 inherited: Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaInherited'] = None,
                  schema_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str all_schemas_in_database: The fully qualified name of the database.
         :param _builtins.str future_schemas_in_database: The fully qualified name of the database.
+        :param 'GrantPrivilegesToAccountRoleOnSchemaInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
         :param _builtins.str schema_name: The fully qualified name of the schema.
         """
         if all_schemas_in_database is not None:
             pulumi.set(__self__, "all_schemas_in_database", all_schemas_in_database)
         if future_schemas_in_database is not None:
             pulumi.set(__self__, "future_schemas_in_database", future_schemas_in_database)
+        if inherited is not None:
+            pulumi.set(__self__, "inherited", inherited)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
 
@@ -14051,12 +15628,70 @@ class GrantPrivilegesToAccountRoleOnSchema(dict):
         return pulumi.get(self, "future_schemas_in_database")
 
     @_builtins.property
+    @pulumi.getter
+    def inherited(self) -> Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaInherited']:
+        """
+        Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        """
+        return pulumi.get(self, "inherited")
+
+    @_builtins.property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[_builtins.str]:
         """
         The fully qualified name of the schema.
         """
         return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GrantPrivilegesToAccountRoleOnSchemaInherited(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inAccount":
+            suggest = "in_account"
+        elif key == "inDatabase":
+            suggest = "in_database"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToAccountRoleOnSchemaInherited. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantPrivilegesToAccountRoleOnSchemaInherited.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantPrivilegesToAccountRoleOnSchemaInherited.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 in_account: Optional[_builtins.bool] = None,
+                 in_database: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool in_account: If true, the inherited privilege will be granted on all schemas in the account.
+        :param _builtins.str in_database: The fully qualified name of the database in which the inherited privilege will be granted on all schemas.
+        """
+        if in_account is not None:
+            pulumi.set(__self__, "in_account", in_account)
+        if in_database is not None:
+            pulumi.set(__self__, "in_database", in_database)
+
+    @_builtins.property
+    @pulumi.getter(name="inAccount")
+    def in_account(self) -> Optional[_builtins.bool]:
+        """
+        If true, the inherited privilege will be granted on all schemas in the account.
+        """
+        return pulumi.get(self, "in_account")
+
+    @_builtins.property
+    @pulumi.getter(name="inDatabase")
+    def in_database(self) -> Optional[_builtins.str]:
+        """
+        The fully qualified name of the database in which the inherited privilege will be granted on all schemas.
+        """
+        return pulumi.get(self, "in_database")
 
 
 @pulumi.output_type
@@ -14083,18 +15718,22 @@ class GrantPrivilegesToAccountRoleOnSchemaObject(dict):
     def __init__(__self__, *,
                  all: Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaObjectAll'] = None,
                  future: Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture'] = None,
+                 inherited: Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited'] = None,
                  object_name: Optional[_builtins.str] = None,
                  object_type: Optional[_builtins.str] = None):
         """
         :param 'GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on future objects in either a database or schema.
+        :param 'GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
         :param _builtins.str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param _builtins.str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+        :param _builtins.str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if future is not None:
             pulumi.set(__self__, "future", future)
+        if inherited is not None:
+            pulumi.set(__self__, "inherited", inherited)
         if object_name is not None:
             pulumi.set(__self__, "object_name", object_name)
         if object_type is not None:
@@ -14117,6 +15756,14 @@ class GrantPrivilegesToAccountRoleOnSchemaObject(dict):
         return pulumi.get(self, "future")
 
     @_builtins.property
+    @pulumi.getter
+    def inherited(self) -> Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited']:
+        """
+        Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        """
+        return pulumi.get(self, "inherited")
+
+    @_builtins.property
     @pulumi.getter(name="objectName")
     def object_name(self) -> Optional[_builtins.str]:
         """
@@ -14128,7 +15775,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObject(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[_builtins.str]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+        The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         return pulumi.get(self, "object_type")
 
@@ -14161,7 +15808,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAll(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -14173,7 +15820,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -14216,7 +15863,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -14228,7 +15875,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -14240,6 +15887,83 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
     @_builtins.property
     @pulumi.getter(name="inSchema")
     def in_schema(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "in_schema")
+
+
+@pulumi.output_type
+class GrantPrivilegesToAccountRoleOnSchemaObjectInherited(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectTypePlural":
+            suggest = "object_type_plural"
+        elif key == "inAccount":
+            suggest = "in_account"
+        elif key == "inDatabase":
+            suggest = "in_database"
+        elif key == "inSchema":
+            suggest = "in_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToAccountRoleOnSchemaObjectInherited. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantPrivilegesToAccountRoleOnSchemaObjectInherited.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantPrivilegesToAccountRoleOnSchemaObjectInherited.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type_plural: _builtins.str,
+                 in_account: Optional[_builtins.bool] = None,
+                 in_database: Optional[_builtins.str] = None,
+                 in_schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
+        :param _builtins.bool in_account: If true, the inherited privilege will be granted on all objects of the given type in the account.
+        :param _builtins.str in_database: The fully qualified name of the database in which the inherited privilege will be granted on all objects of the given type.
+        :param _builtins.str in_schema: The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
+        """
+        pulumi.set(__self__, "object_type_plural", object_type_plural)
+        if in_account is not None:
+            pulumi.set(__self__, "in_account", in_account)
+        if in_database is not None:
+            pulumi.set(__self__, "in_database", in_database)
+        if in_schema is not None:
+            pulumi.set(__self__, "in_schema", in_schema)
+
+    @_builtins.property
+    @pulumi.getter(name="objectTypePlural")
+    def object_type_plural(self) -> _builtins.str:
+        """
+        The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
+        """
+        return pulumi.get(self, "object_type_plural")
+
+    @_builtins.property
+    @pulumi.getter(name="inAccount")
+    def in_account(self) -> Optional[_builtins.bool]:
+        """
+        If true, the inherited privilege will be granted on all objects of the given type in the account.
+        """
+        return pulumi.get(self, "in_account")
+
+    @_builtins.property
+    @pulumi.getter(name="inDatabase")
+    def in_database(self) -> Optional[_builtins.str]:
+        """
+        The fully qualified name of the database in which the inherited privilege will be granted on all objects of the given type.
+        """
+        return pulumi.get(self, "in_database")
+
+    @_builtins.property
+    @pulumi.getter(name="inSchema")
+    def in_schema(self) -> Optional[_builtins.str]:
+        """
+        The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
+        """
         return pulumi.get(self, "in_schema")
 
 
@@ -14269,16 +15993,20 @@ class GrantPrivilegesToDatabaseRoleOnSchema(dict):
     def __init__(__self__, *,
                  all_schemas_in_database: Optional[_builtins.str] = None,
                  future_schemas_in_database: Optional[_builtins.str] = None,
+                 inherited: Optional[_builtins.str] = None,
                  schema_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str all_schemas_in_database: The fully qualified name of the database.
         :param _builtins.str future_schemas_in_database: The fully qualified name of the database.
+        :param _builtins.str inherited: Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
         :param _builtins.str schema_name: The fully qualified name of the schema.
         """
         if all_schemas_in_database is not None:
             pulumi.set(__self__, "all_schemas_in_database", all_schemas_in_database)
         if future_schemas_in_database is not None:
             pulumi.set(__self__, "future_schemas_in_database", future_schemas_in_database)
+        if inherited is not None:
+            pulumi.set(__self__, "inherited", inherited)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
 
@@ -14297,6 +16025,14 @@ class GrantPrivilegesToDatabaseRoleOnSchema(dict):
         The fully qualified name of the database.
         """
         return pulumi.get(self, "future_schemas_in_database")
+
+    @_builtins.property
+    @pulumi.getter
+    def inherited(self) -> Optional[_builtins.str]:
+        """
+        Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        """
+        return pulumi.get(self, "inherited")
 
     @_builtins.property
     @pulumi.getter(name="schemaName")
@@ -14331,18 +16067,22 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObject(dict):
     def __init__(__self__, *,
                  all: Optional['outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectAll'] = None,
                  future: Optional['outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture'] = None,
+                 inherited: Optional['outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited'] = None,
                  object_name: Optional[_builtins.str] = None,
                  object_type: Optional[_builtins.str] = None):
         """
         :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on future objects in either a database or schema.
+        :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
         :param _builtins.str object_name: The fully qualified name of the object on which privileges will be granted.
-        :param _builtins.str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+        :param _builtins.str object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
         if future is not None:
             pulumi.set(__self__, "future", future)
+        if inherited is not None:
+            pulumi.set(__self__, "inherited", inherited)
         if object_name is not None:
             pulumi.set(__self__, "object_name", object_name)
         if object_type is not None:
@@ -14365,6 +16105,14 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObject(dict):
         return pulumi.get(self, "future")
 
     @_builtins.property
+    @pulumi.getter
+    def inherited(self) -> Optional['outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited']:
+        """
+        Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        """
+        return pulumi.get(self, "inherited")
+
+    @_builtins.property
     @pulumi.getter(name="objectName")
     def object_name(self) -> Optional[_builtins.str]:
         """
@@ -14376,7 +16124,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObject(dict):
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[_builtins.str]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+        The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
         """
         return pulumi.get(self, "object_type")
 
@@ -14409,7 +16157,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAll(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
         :param _builtins.str in_database: The fully qualified name of the database.
         :param _builtins.str in_schema: The fully qualified name of the schema.
         """
@@ -14423,7 +16171,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -14472,7 +16220,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
         :param _builtins.str in_database: The fully qualified name of the database.
         :param _builtins.str in_schema: The fully qualified name of the schema.
         """
@@ -14486,7 +16234,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -14505,6 +16253,1441 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
         The fully qualified name of the schema.
         """
         return pulumi.get(self, "in_schema")
+
+
+@pulumi.output_type
+class GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectTypePlural":
+            suggest = "object_type_plural"
+        elif key == "inDatabase":
+            suggest = "in_database"
+        elif key == "inSchema":
+            suggest = "in_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type_plural: _builtins.str,
+                 in_database: Optional[_builtins.str] = None,
+                 in_schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+        :param _builtins.str in_database: The fully qualified name of the database.
+        :param _builtins.str in_schema: The fully qualified name of the schema.
+        """
+        pulumi.set(__self__, "object_type_plural", object_type_plural)
+        if in_database is not None:
+            pulumi.set(__self__, "in_database", in_database)
+        if in_schema is not None:
+            pulumi.set(__self__, "in_schema", in_schema)
+
+    @_builtins.property
+    @pulumi.getter(name="objectTypePlural")
+    def object_type_plural(self) -> _builtins.str:
+        """
+        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+        """
+        return pulumi.get(self, "object_type_plural")
+
+    @_builtins.property
+    @pulumi.getter(name="inDatabase")
+    def in_database(self) -> Optional[_builtins.str]:
+        """
+        The fully qualified name of the database.
+        """
+        return pulumi.get(self, "in_database")
+
+    @_builtins.property
+    @pulumi.getter(name="inSchema")
+    def in_schema(self) -> Optional[_builtins.str]:
+        """
+        The fully qualified name of the schema.
+        """
+        return pulumi.get(self, "in_schema")
+
+
+@pulumi.output_type
+class IcebergTableAggregationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyName":
+            suggest = "policy_name"
+        elif key == "entityKeys":
+            suggest = "entity_keys"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableAggregationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableAggregationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableAggregationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_name: _builtins.str,
+                 entity_keys: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str policy_name: Aggregation policy name.
+        :param Sequence[_builtins.str] entity_keys: Defines which columns uniquely identify an entity within the Iceberg table.
+        """
+        pulumi.set(__self__, "policy_name", policy_name)
+        if entity_keys is not None:
+            pulumi.set(__self__, "entity_keys", entity_keys)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> _builtins.str:
+        """
+        Aggregation policy name.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @_builtins.property
+    @pulumi.getter(name="entityKeys")
+    def entity_keys(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Defines which columns uniquely identify an entity within the Iceberg table.
+        """
+        return pulumi.get(self, "entity_keys")
+
+
+@pulumi.output_type
+class IcebergTableCheckConstraint(dict):
+    def __init__(__self__, *,
+                 expression: _builtins.str,
+                 name: Optional[_builtins.str] = None,
+                 validate: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str expression: The CHECK constraint expression.
+        :param _builtins.str name: Name of the constraint.
+        :param _builtins.str validate: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether existing data is validated against the constraint (`true`, `ENABLE VALIDATE`) or not (`false`, `ENABLE NOVALIDATE`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        pulumi.set(__self__, "expression", expression)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        The CHECK constraint expression.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the constraint.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def validate(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether existing data is validated against the constraint (`true`, `ENABLE VALIDATE`) or not (`false`, `ENABLE NOVALIDATE`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "validate")
+
+
+@pulumi.output_type
+class IcebergTableColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maskingPolicy":
+            suggest = "masking_policy"
+        elif key == "notNull":
+            suggest = "not_null"
+        elif key == "projectionPolicy":
+            suggest = "projection_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: _builtins.str,
+                 comment: Optional[_builtins.str] = None,
+                 default: Optional['outputs.IcebergTableColumnDefault'] = None,
+                 masking_policy: Optional['outputs.IcebergTableColumnMaskingPolicy'] = None,
+                 not_null: Optional[_builtins.str] = None,
+                 projection_policy: Optional['outputs.IcebergTableColumnProjectionPolicy'] = None):
+        """
+        :param _builtins.str name: Column name.
+        :param _builtins.str type: Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        :param _builtins.str comment: Column comment.
+        :param 'IcebergTableColumnDefaultArgs' default: Defines the column default value.
+        :param 'IcebergTableColumnMaskingPolicyArgs' masking_policy: Specifies the masking policy to set on a column. For more information about this resource, see docs.
+        :param _builtins.str not_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to restrict the column to NOT NULL values.
+        :param 'IcebergTableColumnProjectionPolicyArgs' projection_policy: Specifies the projection policy to set on a column.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if masking_policy is not None:
+            pulumi.set(__self__, "masking_policy", masking_policy)
+        if not_null is not None:
+            pulumi.set(__self__, "not_null", not_null)
+        if projection_policy is not None:
+            pulumi.set(__self__, "projection_policy", projection_policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Column name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Column comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional['outputs.IcebergTableColumnDefault']:
+        """
+        Defines the column default value.
+        """
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter(name="maskingPolicy")
+    def masking_policy(self) -> Optional['outputs.IcebergTableColumnMaskingPolicy']:
+        """
+        Specifies the masking policy to set on a column. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "masking_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="notNull")
+    def not_null(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to restrict the column to NOT NULL values.
+        """
+        return pulumi.get(self, "not_null")
+
+    @_builtins.property
+    @pulumi.getter(name="projectionPolicy")
+    def projection_policy(self) -> Optional['outputs.IcebergTableColumnProjectionPolicy']:
+        """
+        Specifies the projection policy to set on a column.
+        """
+        return pulumi.get(self, "projection_policy")
+
+
+@pulumi.output_type
+class IcebergTableColumnDefault(dict):
+    def __init__(__self__, *,
+                 expression: _builtins.str):
+        """
+        :param _builtins.str expression: The default expression value for the column.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        The default expression value for the column.
+        """
+        return pulumi.get(self, "expression")
+
+
+@pulumi.output_type
+class IcebergTableColumnMaskingPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableColumnMaskingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableColumnMaskingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableColumnMaskingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_name: _builtins.str,
+                 usings: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str policy_name: Masking policy name. For more information about this resource, see docs.
+        :param Sequence[_builtins.str] usings: Specifies the arguments to pass into the conditional masking policy SQL expression, in order. The first column in the list specifies the column for the policy conditions to mask or tokenize the data and must match the column to which the masking policy is set. The additional columns specify the columns to evaluate to determine whether to mask or tokenize the data in each row of the query result when a query is made on the first column. If the USING clause is omitted, Snowflake treats the conditional masking policy as a normal masking policy.
+        """
+        pulumi.set(__self__, "policy_name", policy_name)
+        if usings is not None:
+            pulumi.set(__self__, "usings", usings)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> _builtins.str:
+        """
+        Masking policy name. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def usings(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the arguments to pass into the conditional masking policy SQL expression, in order. The first column in the list specifies the column for the policy conditions to mask or tokenize the data and must match the column to which the masking policy is set. The additional columns specify the columns to evaluate to determine whether to mask or tokenize the data in each row of the query result when a query is made on the first column. If the USING clause is omitted, Snowflake treats the conditional masking policy as a normal masking policy.
+        """
+        return pulumi.get(self, "usings")
+
+
+@pulumi.output_type
+class IcebergTableColumnProjectionPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableColumnProjectionPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableColumnProjectionPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableColumnProjectionPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_name: _builtins.str):
+        """
+        :param _builtins.str policy_name: Projection policy name.
+        """
+        pulumi.set(__self__, "policy_name", policy_name)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> _builtins.str:
+        """
+        Projection policy name.
+        """
+        return pulumi.get(self, "policy_name")
+
+
+@pulumi.output_type
+class IcebergTableDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isNullable":
+            suggest = "is_nullable"
+        elif key == "nameMapping":
+            suggest = "name_mapping"
+        elif key == "policyName":
+            suggest = "policy_name"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "privacyDomain":
+            suggest = "privacy_domain"
+        elif key == "sourceIcebergType":
+            suggest = "source_iceberg_type"
+        elif key == "uniqueKey":
+            suggest = "unique_key"
+        elif key == "writeDefault":
+            suggest = "write_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 default: Optional[_builtins.str] = None,
+                 expression: Optional[_builtins.str] = None,
+                 is_nullable: Optional[_builtins.bool] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 name_mapping: Optional[_builtins.str] = None,
+                 policy_name: Optional[_builtins.str] = None,
+                 primary_key: Optional[_builtins.bool] = None,
+                 privacy_domain: Optional[_builtins.str] = None,
+                 source_iceberg_type: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 unique_key: Optional[_builtins.bool] = None,
+                 write_default: Optional[_builtins.str] = None):
+        if check is not None:
+            pulumi.set(__self__, "check", check)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if is_nullable is not None:
+            pulumi.set(__self__, "is_nullable", is_nullable)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_mapping is not None:
+            pulumi.set(__self__, "name_mapping", name_mapping)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if privacy_domain is not None:
+            pulumi.set(__self__, "privacy_domain", privacy_domain)
+        if source_iceberg_type is not None:
+            pulumi.set(__self__, "source_iceberg_type", source_iceberg_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
+        if write_default is not None:
+            pulumi.set(__self__, "write_default", write_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def check(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "check")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_nullable")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "policy_name")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "primary_key")
+
+    @_builtins.property
+    @pulumi.getter(name="privacyDomain")
+    def privacy_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "privacy_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIcebergType")
+    def source_iceberg_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_iceberg_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "unique_key")
+
+    @_builtins.property
+    @pulumi.getter(name="writeDefault")
+    def write_default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "write_default")
+
+
+@pulumi.output_type
+class IcebergTableForeignKeyConstraint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableName":
+            suggest = "table_name"
+        elif key == "initiallyDeferred":
+            suggest = "initially_deferred"
+        elif key == "onDelete":
+            suggest = "on_delete"
+        elif key == "onUpdate":
+            suggest = "on_update"
+        elif key == "refColumns":
+            suggest = "ref_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableForeignKeyConstraint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableForeignKeyConstraint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableForeignKeyConstraint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns: Sequence[_builtins.str],
+                 table_name: _builtins.str,
+                 comment: Optional[_builtins.str] = None,
+                 deferrable: Optional[_builtins.str] = None,
+                 enable: Optional[_builtins.str] = None,
+                 enforced: Optional[_builtins.str] = None,
+                 initially_deferred: Optional[_builtins.str] = None,
+                 match: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 on_delete: Optional[_builtins.str] = None,
+                 on_update: Optional[_builtins.str] = None,
+                 ref_columns: Optional[Sequence[_builtins.str]] = None,
+                 rely: Optional[_builtins.str] = None,
+                 validate: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] columns: The local column(s) the foreign key is defined on.
+        :param _builtins.str table_name: The table that the foreign key references.
+        :param _builtins.str comment: Constraint comment.
+        :param _builtins.str deferrable: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str enable: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str enforced: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str initially_deferred: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str match: The match type for the foreign key. Valid values are: [FULL SIMPLE PARTIAL].
+        :param _builtins.str name: Name of the constraint.
+        :param _builtins.str on_delete: Specifies the action to perform when the referenced primary/unique key is deleted. Valid values are: [CASCADE SET NULL SET DEFAULT RESTRICT NO ACTION].
+        :param _builtins.str on_update: Specifies the action to perform when the referenced primary/unique key is updated. Valid values are: [CASCADE SET NULL SET DEFAULT RESTRICT NO ACTION].
+        :param Sequence[_builtins.str] ref_columns: The column(s) in the referenced table that the foreign key references.
+        :param _builtins.str rely: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str validate: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "table_name", table_name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if deferrable is not None:
+            pulumi.set(__self__, "deferrable", deferrable)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if enforced is not None:
+            pulumi.set(__self__, "enforced", enforced)
+        if initially_deferred is not None:
+            pulumi.set(__self__, "initially_deferred", initially_deferred)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if on_delete is not None:
+            pulumi.set(__self__, "on_delete", on_delete)
+        if on_update is not None:
+            pulumi.set(__self__, "on_update", on_update)
+        if ref_columns is not None:
+            pulumi.set(__self__, "ref_columns", ref_columns)
+        if rely is not None:
+            pulumi.set(__self__, "rely", rely)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Sequence[_builtins.str]:
+        """
+        The local column(s) the foreign key is defined on.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> _builtins.str:
+        """
+        The table that the foreign key references.
+        """
+        return pulumi.get(self, "table_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Constraint comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def deferrable(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "deferrable")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enable")
+
+    @_builtins.property
+    @pulumi.getter
+    def enforced(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enforced")
+
+    @_builtins.property
+    @pulumi.getter(name="initiallyDeferred")
+    def initially_deferred(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "initially_deferred")
+
+    @_builtins.property
+    @pulumi.getter
+    def match(self) -> Optional[_builtins.str]:
+        """
+        The match type for the foreign key. Valid values are: [FULL SIMPLE PARTIAL].
+        """
+        return pulumi.get(self, "match")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the constraint.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="onDelete")
+    def on_delete(self) -> Optional[_builtins.str]:
+        """
+        Specifies the action to perform when the referenced primary/unique key is deleted. Valid values are: [CASCADE SET NULL SET DEFAULT RESTRICT NO ACTION].
+        """
+        return pulumi.get(self, "on_delete")
+
+    @_builtins.property
+    @pulumi.getter(name="onUpdate")
+    def on_update(self) -> Optional[_builtins.str]:
+        """
+        Specifies the action to perform when the referenced primary/unique key is updated. Valid values are: [CASCADE SET NULL SET DEFAULT RESTRICT NO ACTION].
+        """
+        return pulumi.get(self, "on_update")
+
+    @_builtins.property
+    @pulumi.getter(name="refColumns")
+    def ref_columns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The column(s) in the referenced table that the foreign key references.
+        """
+        return pulumi.get(self, "ref_columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def rely(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "rely")
+
+    @_builtins.property
+    @pulumi.getter
+    def validate(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "validate")
+
+
+@pulumi.output_type
+class IcebergTableFromAwsGlueDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isNullable":
+            suggest = "is_nullable"
+        elif key == "nameMapping":
+            suggest = "name_mapping"
+        elif key == "policyName":
+            suggest = "policy_name"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "privacyDomain":
+            suggest = "privacy_domain"
+        elif key == "sourceIcebergType":
+            suggest = "source_iceberg_type"
+        elif key == "uniqueKey":
+            suggest = "unique_key"
+        elif key == "writeDefault":
+            suggest = "write_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromAwsGlueDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromAwsGlueDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromAwsGlueDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 default: Optional[_builtins.str] = None,
+                 expression: Optional[_builtins.str] = None,
+                 is_nullable: Optional[_builtins.bool] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 name_mapping: Optional[_builtins.str] = None,
+                 policy_name: Optional[_builtins.str] = None,
+                 primary_key: Optional[_builtins.bool] = None,
+                 privacy_domain: Optional[_builtins.str] = None,
+                 source_iceberg_type: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 unique_key: Optional[_builtins.bool] = None,
+                 write_default: Optional[_builtins.str] = None):
+        if check is not None:
+            pulumi.set(__self__, "check", check)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if is_nullable is not None:
+            pulumi.set(__self__, "is_nullable", is_nullable)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_mapping is not None:
+            pulumi.set(__self__, "name_mapping", name_mapping)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if privacy_domain is not None:
+            pulumi.set(__self__, "privacy_domain", privacy_domain)
+        if source_iceberg_type is not None:
+            pulumi.set(__self__, "source_iceberg_type", source_iceberg_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
+        if write_default is not None:
+            pulumi.set(__self__, "write_default", write_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def check(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "check")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_nullable")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "policy_name")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "primary_key")
+
+    @_builtins.property
+    @pulumi.getter(name="privacyDomain")
+    def privacy_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "privacy_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIcebergType")
+    def source_iceberg_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_iceberg_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "unique_key")
+
+    @_builtins.property
+    @pulumi.getter(name="writeDefault")
+    def write_default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "write_default")
+
+
+@pulumi.output_type
+class IcebergTableFromAwsGlueParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "externalVolumes":
+            suggest = "external_volumes"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromAwsGlueParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromAwsGlueParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromAwsGlueParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalogs: Optional[Sequence['outputs.IcebergTableFromAwsGlueParameterCatalog']] = None,
+                 external_volumes: Optional[Sequence['outputs.IcebergTableFromAwsGlueParameterExternalVolume']] = None,
+                 replace_invalid_characters: Optional[Sequence['outputs.IcebergTableFromAwsGlueParameterReplaceInvalidCharacter']] = None):
+        if catalogs is not None:
+            pulumi.set(__self__, "catalogs", catalogs)
+        if external_volumes is not None:
+            pulumi.set(__self__, "external_volumes", external_volumes)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+
+    @_builtins.property
+    @pulumi.getter
+    def catalogs(self) -> Optional[Sequence['outputs.IcebergTableFromAwsGlueParameterCatalog']]:
+        return pulumi.get(self, "catalogs")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Optional[Sequence['outputs.IcebergTableFromAwsGlueParameterExternalVolume']]:
+        return pulumi.get(self, "external_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[Sequence['outputs.IcebergTableFromAwsGlueParameterReplaceInvalidCharacter']]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+
+@pulumi.output_type
+class IcebergTableFromAwsGlueParameterCatalog(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromAwsGlueParameterExternalVolume(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromAwsGlueParameterReplaceInvalidCharacter(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromAwsGlueShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefreshStatuses":
+            suggest = "auto_refresh_statuses"
+        elif key == "baseLocation":
+            suggest = "base_location"
+        elif key == "canWriteMetadata":
+            suggest = "can_write_metadata"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "catalogNamespace":
+            suggest = "catalog_namespace"
+        elif key == "catalogSyncName":
+            suggest = "catalog_sync_name"
+        elif key == "catalogTableName":
+            suggest = "catalog_table_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "currentPartitionSpecId":
+            suggest = "current_partition_spec_id"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "externalVolumeName":
+            suggest = "external_volume_name"
+        elif key == "icebergTableFormatVersion":
+            suggest = "iceberg_table_format_version"
+        elif key == "icebergTableType":
+            suggest = "iceberg_table_type"
+        elif key == "nameMapping":
+            suggest = "name_mapping"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "partitionSpecs":
+            suggest = "partition_specs"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromAwsGlueShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromAwsGlueShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromAwsGlueShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_refresh_statuses: Optional[Sequence['outputs.IcebergTableFromAwsGlueShowOutputAutoRefreshStatus']] = None,
+                 base_location: Optional[_builtins.str] = None,
+                 can_write_metadata: Optional[_builtins.bool] = None,
+                 catalog_name: Optional[_builtins.str] = None,
+                 catalog_namespace: Optional[_builtins.str] = None,
+                 catalog_sync_name: Optional[_builtins.str] = None,
+                 catalog_table_name: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 current_partition_spec_id: Optional[_builtins.int] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 external_volume_name: Optional[_builtins.str] = None,
+                 iceberg_table_format_version: Optional[_builtins.int] = None,
+                 iceberg_table_type: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 name_mapping: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 partition_specs: Optional[Sequence['outputs.IcebergTableFromAwsGlueShowOutputPartitionSpec']] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if auto_refresh_statuses is not None:
+            pulumi.set(__self__, "auto_refresh_statuses", auto_refresh_statuses)
+        if base_location is not None:
+            pulumi.set(__self__, "base_location", base_location)
+        if can_write_metadata is not None:
+            pulumi.set(__self__, "can_write_metadata", can_write_metadata)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if catalog_namespace is not None:
+            pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        if catalog_sync_name is not None:
+            pulumi.set(__self__, "catalog_sync_name", catalog_sync_name)
+        if catalog_table_name is not None:
+            pulumi.set(__self__, "catalog_table_name", catalog_table_name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_partition_spec_id is not None:
+            pulumi.set(__self__, "current_partition_spec_id", current_partition_spec_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if external_volume_name is not None:
+            pulumi.set(__self__, "external_volume_name", external_volume_name)
+        if iceberg_table_format_version is not None:
+            pulumi.set(__self__, "iceberg_table_format_version", iceberg_table_format_version)
+        if iceberg_table_type is not None:
+            pulumi.set(__self__, "iceberg_table_type", iceberg_table_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_mapping is not None:
+            pulumi.set(__self__, "name_mapping", name_mapping)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if partition_specs is not None:
+            pulumi.set(__self__, "partition_specs", partition_specs)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefreshStatuses")
+    def auto_refresh_statuses(self) -> Optional[Sequence['outputs.IcebergTableFromAwsGlueShowOutputAutoRefreshStatus']]:
+        return pulumi.get(self, "auto_refresh_statuses")
+
+    @_builtins.property
+    @pulumi.getter(name="baseLocation")
+    def base_location(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "base_location")
+
+    @_builtins.property
+    @pulumi.getter(name="canWriteMetadata")
+    def can_write_metadata(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "can_write_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogNamespace")
+    def catalog_namespace(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSyncName")
+    def catalog_sync_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_sync_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogTableName")
+    def catalog_table_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_table_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="currentPartitionSpecId")
+    def current_partition_spec_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "current_partition_spec_id")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumeName")
+    def external_volume_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_volume_name")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableFormatVersion")
+    def iceberg_table_format_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "iceberg_table_format_version")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableType")
+    def iceberg_table_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "iceberg_table_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpecs")
+    def partition_specs(self) -> Optional[Sequence['outputs.IcebergTableFromAwsGlueShowOutputPartitionSpec']]:
+        return pulumi.get(self, "partition_specs")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class IcebergTableFromAwsGlueShowOutputAutoRefreshStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentSnapshotId":
+            suggest = "current_snapshot_id"
+        elif key == "executionState":
+            suggest = "execution_state"
+        elif key == "lastSnapshotTime":
+            suggest = "last_snapshot_time"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "pendingSnapshotCount":
+            suggest = "pending_snapshot_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromAwsGlueShowOutputAutoRefreshStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromAwsGlueShowOutputAutoRefreshStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromAwsGlueShowOutputAutoRefreshStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_snapshot_id: Optional[_builtins.int] = None,
+                 execution_state: Optional[_builtins.str] = None,
+                 last_snapshot_time: Optional[_builtins.str] = None,
+                 last_updated_time: Optional[_builtins.str] = None,
+                 pending_snapshot_count: Optional[_builtins.int] = None):
+        if current_snapshot_id is not None:
+            pulumi.set(__self__, "current_snapshot_id", current_snapshot_id)
+        if execution_state is not None:
+            pulumi.set(__self__, "execution_state", execution_state)
+        if last_snapshot_time is not None:
+            pulumi.set(__self__, "last_snapshot_time", last_snapshot_time)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if pending_snapshot_count is not None:
+            pulumi.set(__self__, "pending_snapshot_count", pending_snapshot_count)
+
+    @_builtins.property
+    @pulumi.getter(name="currentSnapshotId")
+    def current_snapshot_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "current_snapshot_id")
+
+    @_builtins.property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "execution_state")
+
+    @_builtins.property
+    @pulumi.getter(name="lastSnapshotTime")
+    def last_snapshot_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_snapshot_time")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_time")
+
+    @_builtins.property
+    @pulumi.getter(name="pendingSnapshotCount")
+    def pending_snapshot_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "pending_snapshot_count")
+
+
+@pulumi.output_type
+class IcebergTableFromAwsGlueShowOutputPartitionSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specId":
+            suggest = "spec_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromAwsGlueShowOutputPartitionSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromAwsGlueShowOutputPartitionSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromAwsGlueShowOutputPartitionSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Optional[Sequence['outputs.IcebergTableFromAwsGlueShowOutputPartitionSpecField']] = None,
+                 spec_id: Optional[_builtins.int] = None):
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+        if spec_id is not None:
+            pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence['outputs.IcebergTableFromAwsGlueShowOutputPartitionSpecField']]:
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "spec_id")
+
+
+@pulumi.output_type
+class IcebergTableFromAwsGlueShowOutputPartitionSpecField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "sourceId":
+            suggest = "source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromAwsGlueShowOutputPartitionSpecField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromAwsGlueShowOutputPartitionSpecField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromAwsGlueShowOutputPartitionSpecField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: Optional[_builtins.int] = None,
+                 name: Optional[_builtins.str] = None,
+                 source_id: Optional[_builtins.int] = None,
+                 transform: Optional[_builtins.str] = None):
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
+        if transform is not None:
+            pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "field_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "transform")
 
 
 @pulumi.output_type
@@ -14916,7 +18099,7 @@ class IcebergTableFromDeltaFilesShowOutput(dict):
                  name_mapping: Optional[_builtins.str] = None,
                  owner: Optional[_builtins.str] = None,
                  owner_role_type: Optional[_builtins.str] = None,
-                 partition_specs: Optional[_builtins.str] = None,
+                 partition_specs: Optional[Sequence['outputs.IcebergTableFromDeltaFilesShowOutputPartitionSpec']] = None,
                  schema_name: Optional[_builtins.str] = None):
         if auto_refresh_statuses is not None:
             pulumi.set(__self__, "auto_refresh_statuses", auto_refresh_statuses)
@@ -15051,7 +18234,7 @@ class IcebergTableFromDeltaFilesShowOutput(dict):
 
     @_builtins.property
     @pulumi.getter(name="partitionSpecs")
-    def partition_specs(self) -> Optional[_builtins.str]:
+    def partition_specs(self) -> Optional[Sequence['outputs.IcebergTableFromDeltaFilesShowOutputPartitionSpec']]:
         return pulumi.get(self, "partition_specs")
 
     @_builtins.property
@@ -15128,6 +18311,100 @@ class IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus(dict):
     @pulumi.getter(name="pendingSnapshotCount")
     def pending_snapshot_count(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "pending_snapshot_count")
+
+
+@pulumi.output_type
+class IcebergTableFromDeltaFilesShowOutputPartitionSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specId":
+            suggest = "spec_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromDeltaFilesShowOutputPartitionSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromDeltaFilesShowOutputPartitionSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromDeltaFilesShowOutputPartitionSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Optional[Sequence['outputs.IcebergTableFromDeltaFilesShowOutputPartitionSpecField']] = None,
+                 spec_id: Optional[_builtins.int] = None):
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+        if spec_id is not None:
+            pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence['outputs.IcebergTableFromDeltaFilesShowOutputPartitionSpecField']]:
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "spec_id")
+
+
+@pulumi.output_type
+class IcebergTableFromDeltaFilesShowOutputPartitionSpecField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "sourceId":
+            suggest = "source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromDeltaFilesShowOutputPartitionSpecField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromDeltaFilesShowOutputPartitionSpecField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromDeltaFilesShowOutputPartitionSpecField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: Optional[_builtins.int] = None,
+                 name: Optional[_builtins.str] = None,
+                 source_id: Optional[_builtins.int] = None,
+                 transform: Optional[_builtins.str] = None):
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
+        if transform is not None:
+            pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "field_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "transform")
 
 
 @pulumi.output_type
@@ -15539,7 +18816,7 @@ class IcebergTableFromFilesShowOutput(dict):
                  name_mapping: Optional[_builtins.str] = None,
                  owner: Optional[_builtins.str] = None,
                  owner_role_type: Optional[_builtins.str] = None,
-                 partition_specs: Optional[_builtins.str] = None,
+                 partition_specs: Optional[Sequence['outputs.IcebergTableFromFilesShowOutputPartitionSpec']] = None,
                  schema_name: Optional[_builtins.str] = None):
         if auto_refresh_statuses is not None:
             pulumi.set(__self__, "auto_refresh_statuses", auto_refresh_statuses)
@@ -15674,7 +18951,7 @@ class IcebergTableFromFilesShowOutput(dict):
 
     @_builtins.property
     @pulumi.getter(name="partitionSpecs")
-    def partition_specs(self) -> Optional[_builtins.str]:
+    def partition_specs(self) -> Optional[Sequence['outputs.IcebergTableFromFilesShowOutputPartitionSpec']]:
         return pulumi.get(self, "partition_specs")
 
     @_builtins.property
@@ -15751,6 +19028,2402 @@ class IcebergTableFromFilesShowOutputAutoRefreshStatus(dict):
     @pulumi.getter(name="pendingSnapshotCount")
     def pending_snapshot_count(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "pending_snapshot_count")
+
+
+@pulumi.output_type
+class IcebergTableFromFilesShowOutputPartitionSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specId":
+            suggest = "spec_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromFilesShowOutputPartitionSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromFilesShowOutputPartitionSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromFilesShowOutputPartitionSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Optional[Sequence['outputs.IcebergTableFromFilesShowOutputPartitionSpecField']] = None,
+                 spec_id: Optional[_builtins.int] = None):
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+        if spec_id is not None:
+            pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence['outputs.IcebergTableFromFilesShowOutputPartitionSpecField']]:
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "spec_id")
+
+
+@pulumi.output_type
+class IcebergTableFromFilesShowOutputPartitionSpecField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "sourceId":
+            suggest = "source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromFilesShowOutputPartitionSpecField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromFilesShowOutputPartitionSpecField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromFilesShowOutputPartitionSpecField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: Optional[_builtins.int] = None,
+                 name: Optional[_builtins.str] = None,
+                 source_id: Optional[_builtins.int] = None,
+                 transform: Optional[_builtins.str] = None):
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
+        if transform is not None:
+            pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "field_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "transform")
+
+
+@pulumi.output_type
+class IcebergTableFromRestDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isNullable":
+            suggest = "is_nullable"
+        elif key == "nameMapping":
+            suggest = "name_mapping"
+        elif key == "policyName":
+            suggest = "policy_name"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "privacyDomain":
+            suggest = "privacy_domain"
+        elif key == "sourceIcebergType":
+            suggest = "source_iceberg_type"
+        elif key == "uniqueKey":
+            suggest = "unique_key"
+        elif key == "writeDefault":
+            suggest = "write_default"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromRestDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromRestDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromRestDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 default: Optional[_builtins.str] = None,
+                 expression: Optional[_builtins.str] = None,
+                 is_nullable: Optional[_builtins.bool] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 name_mapping: Optional[_builtins.str] = None,
+                 policy_name: Optional[_builtins.str] = None,
+                 primary_key: Optional[_builtins.bool] = None,
+                 privacy_domain: Optional[_builtins.str] = None,
+                 source_iceberg_type: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 unique_key: Optional[_builtins.bool] = None,
+                 write_default: Optional[_builtins.str] = None):
+        if check is not None:
+            pulumi.set(__self__, "check", check)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if is_nullable is not None:
+            pulumi.set(__self__, "is_nullable", is_nullable)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_mapping is not None:
+            pulumi.set(__self__, "name_mapping", name_mapping)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if privacy_domain is not None:
+            pulumi.set(__self__, "privacy_domain", privacy_domain)
+        if source_iceberg_type is not None:
+            pulumi.set(__self__, "source_iceberg_type", source_iceberg_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
+        if write_default is not None:
+            pulumi.set(__self__, "write_default", write_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def check(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "check")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_nullable")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "policy_name")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "primary_key")
+
+    @_builtins.property
+    @pulumi.getter(name="privacyDomain")
+    def privacy_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "privacy_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIcebergType")
+    def source_iceberg_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "source_iceberg_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "unique_key")
+
+    @_builtins.property
+    @pulumi.getter(name="writeDefault")
+    def write_default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "write_default")
+
+
+@pulumi.output_type
+class IcebergTableFromRestParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableIcebergMergeOnReads":
+            suggest = "enable_iceberg_merge_on_reads"
+        elif key == "externalVolumes":
+            suggest = "external_volumes"
+        elif key == "icebergMergeOnReadBehaviors":
+            suggest = "iceberg_merge_on_read_behaviors"
+        elif key == "replaceInvalidCharacters":
+            suggest = "replace_invalid_characters"
+        elif key == "storageSerializationPolicies":
+            suggest = "storage_serialization_policies"
+        elif key == "targetFileSizes":
+            suggest = "target_file_sizes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromRestParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromRestParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromRestParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalogs: Optional[Sequence['outputs.IcebergTableFromRestParameterCatalog']] = None,
+                 enable_iceberg_merge_on_reads: Optional[Sequence['outputs.IcebergTableFromRestParameterEnableIcebergMergeOnRead']] = None,
+                 external_volumes: Optional[Sequence['outputs.IcebergTableFromRestParameterExternalVolume']] = None,
+                 iceberg_merge_on_read_behaviors: Optional[Sequence['outputs.IcebergTableFromRestParameterIcebergMergeOnReadBehavior']] = None,
+                 replace_invalid_characters: Optional[Sequence['outputs.IcebergTableFromRestParameterReplaceInvalidCharacter']] = None,
+                 storage_serialization_policies: Optional[Sequence['outputs.IcebergTableFromRestParameterStorageSerializationPolicy']] = None,
+                 target_file_sizes: Optional[Sequence['outputs.IcebergTableFromRestParameterTargetFileSize']] = None):
+        if catalogs is not None:
+            pulumi.set(__self__, "catalogs", catalogs)
+        if enable_iceberg_merge_on_reads is not None:
+            pulumi.set(__self__, "enable_iceberg_merge_on_reads", enable_iceberg_merge_on_reads)
+        if external_volumes is not None:
+            pulumi.set(__self__, "external_volumes", external_volumes)
+        if iceberg_merge_on_read_behaviors is not None:
+            pulumi.set(__self__, "iceberg_merge_on_read_behaviors", iceberg_merge_on_read_behaviors)
+        if replace_invalid_characters is not None:
+            pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        if storage_serialization_policies is not None:
+            pulumi.set(__self__, "storage_serialization_policies", storage_serialization_policies)
+        if target_file_sizes is not None:
+            pulumi.set(__self__, "target_file_sizes", target_file_sizes)
+
+    @_builtins.property
+    @pulumi.getter
+    def catalogs(self) -> Optional[Sequence['outputs.IcebergTableFromRestParameterCatalog']]:
+        return pulumi.get(self, "catalogs")
+
+    @_builtins.property
+    @pulumi.getter(name="enableIcebergMergeOnReads")
+    def enable_iceberg_merge_on_reads(self) -> Optional[Sequence['outputs.IcebergTableFromRestParameterEnableIcebergMergeOnRead']]:
+        return pulumi.get(self, "enable_iceberg_merge_on_reads")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Optional[Sequence['outputs.IcebergTableFromRestParameterExternalVolume']]:
+        return pulumi.get(self, "external_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergMergeOnReadBehaviors")
+    def iceberg_merge_on_read_behaviors(self) -> Optional[Sequence['outputs.IcebergTableFromRestParameterIcebergMergeOnReadBehavior']]:
+        return pulumi.get(self, "iceberg_merge_on_read_behaviors")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Optional[Sequence['outputs.IcebergTableFromRestParameterReplaceInvalidCharacter']]:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="storageSerializationPolicies")
+    def storage_serialization_policies(self) -> Optional[Sequence['outputs.IcebergTableFromRestParameterStorageSerializationPolicy']]:
+        return pulumi.get(self, "storage_serialization_policies")
+
+    @_builtins.property
+    @pulumi.getter(name="targetFileSizes")
+    def target_file_sizes(self) -> Optional[Sequence['outputs.IcebergTableFromRestParameterTargetFileSize']]:
+        return pulumi.get(self, "target_file_sizes")
+
+
+@pulumi.output_type
+class IcebergTableFromRestParameterCatalog(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromRestParameterEnableIcebergMergeOnRead(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromRestParameterExternalVolume(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromRestParameterIcebergMergeOnReadBehavior(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromRestParameterReplaceInvalidCharacter(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromRestParameterStorageSerializationPolicy(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromRestParameterTargetFileSize(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableFromRestShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefreshStatuses":
+            suggest = "auto_refresh_statuses"
+        elif key == "baseLocation":
+            suggest = "base_location"
+        elif key == "canWriteMetadata":
+            suggest = "can_write_metadata"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "catalogNamespace":
+            suggest = "catalog_namespace"
+        elif key == "catalogSyncName":
+            suggest = "catalog_sync_name"
+        elif key == "catalogTableName":
+            suggest = "catalog_table_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "currentPartitionSpecId":
+            suggest = "current_partition_spec_id"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "externalVolumeName":
+            suggest = "external_volume_name"
+        elif key == "icebergTableFormatVersion":
+            suggest = "iceberg_table_format_version"
+        elif key == "icebergTableType":
+            suggest = "iceberg_table_type"
+        elif key == "nameMapping":
+            suggest = "name_mapping"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "partitionSpecs":
+            suggest = "partition_specs"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromRestShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromRestShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromRestShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_refresh_statuses: Optional[Sequence['outputs.IcebergTableFromRestShowOutputAutoRefreshStatus']] = None,
+                 base_location: Optional[_builtins.str] = None,
+                 can_write_metadata: Optional[_builtins.bool] = None,
+                 catalog_name: Optional[_builtins.str] = None,
+                 catalog_namespace: Optional[_builtins.str] = None,
+                 catalog_sync_name: Optional[_builtins.str] = None,
+                 catalog_table_name: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 current_partition_spec_id: Optional[_builtins.int] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 external_volume_name: Optional[_builtins.str] = None,
+                 iceberg_table_format_version: Optional[_builtins.int] = None,
+                 iceberg_table_type: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 name_mapping: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 partition_specs: Optional[Sequence['outputs.IcebergTableFromRestShowOutputPartitionSpec']] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if auto_refresh_statuses is not None:
+            pulumi.set(__self__, "auto_refresh_statuses", auto_refresh_statuses)
+        if base_location is not None:
+            pulumi.set(__self__, "base_location", base_location)
+        if can_write_metadata is not None:
+            pulumi.set(__self__, "can_write_metadata", can_write_metadata)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if catalog_namespace is not None:
+            pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        if catalog_sync_name is not None:
+            pulumi.set(__self__, "catalog_sync_name", catalog_sync_name)
+        if catalog_table_name is not None:
+            pulumi.set(__self__, "catalog_table_name", catalog_table_name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_partition_spec_id is not None:
+            pulumi.set(__self__, "current_partition_spec_id", current_partition_spec_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if external_volume_name is not None:
+            pulumi.set(__self__, "external_volume_name", external_volume_name)
+        if iceberg_table_format_version is not None:
+            pulumi.set(__self__, "iceberg_table_format_version", iceberg_table_format_version)
+        if iceberg_table_type is not None:
+            pulumi.set(__self__, "iceberg_table_type", iceberg_table_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_mapping is not None:
+            pulumi.set(__self__, "name_mapping", name_mapping)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if partition_specs is not None:
+            pulumi.set(__self__, "partition_specs", partition_specs)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefreshStatuses")
+    def auto_refresh_statuses(self) -> Optional[Sequence['outputs.IcebergTableFromRestShowOutputAutoRefreshStatus']]:
+        return pulumi.get(self, "auto_refresh_statuses")
+
+    @_builtins.property
+    @pulumi.getter(name="baseLocation")
+    def base_location(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "base_location")
+
+    @_builtins.property
+    @pulumi.getter(name="canWriteMetadata")
+    def can_write_metadata(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "can_write_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogNamespace")
+    def catalog_namespace(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSyncName")
+    def catalog_sync_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_sync_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogTableName")
+    def catalog_table_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_table_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="currentPartitionSpecId")
+    def current_partition_spec_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "current_partition_spec_id")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumeName")
+    def external_volume_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_volume_name")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableFormatVersion")
+    def iceberg_table_format_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "iceberg_table_format_version")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableType")
+    def iceberg_table_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "iceberg_table_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpecs")
+    def partition_specs(self) -> Optional[Sequence['outputs.IcebergTableFromRestShowOutputPartitionSpec']]:
+        return pulumi.get(self, "partition_specs")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class IcebergTableFromRestShowOutputAutoRefreshStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentSnapshotId":
+            suggest = "current_snapshot_id"
+        elif key == "executionState":
+            suggest = "execution_state"
+        elif key == "lastSnapshotTime":
+            suggest = "last_snapshot_time"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "pendingSnapshotCount":
+            suggest = "pending_snapshot_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromRestShowOutputAutoRefreshStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromRestShowOutputAutoRefreshStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromRestShowOutputAutoRefreshStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_snapshot_id: Optional[_builtins.int] = None,
+                 execution_state: Optional[_builtins.str] = None,
+                 last_snapshot_time: Optional[_builtins.str] = None,
+                 last_updated_time: Optional[_builtins.str] = None,
+                 pending_snapshot_count: Optional[_builtins.int] = None):
+        if current_snapshot_id is not None:
+            pulumi.set(__self__, "current_snapshot_id", current_snapshot_id)
+        if execution_state is not None:
+            pulumi.set(__self__, "execution_state", execution_state)
+        if last_snapshot_time is not None:
+            pulumi.set(__self__, "last_snapshot_time", last_snapshot_time)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if pending_snapshot_count is not None:
+            pulumi.set(__self__, "pending_snapshot_count", pending_snapshot_count)
+
+    @_builtins.property
+    @pulumi.getter(name="currentSnapshotId")
+    def current_snapshot_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "current_snapshot_id")
+
+    @_builtins.property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "execution_state")
+
+    @_builtins.property
+    @pulumi.getter(name="lastSnapshotTime")
+    def last_snapshot_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_snapshot_time")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_time")
+
+    @_builtins.property
+    @pulumi.getter(name="pendingSnapshotCount")
+    def pending_snapshot_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "pending_snapshot_count")
+
+
+@pulumi.output_type
+class IcebergTableFromRestShowOutputPartitionSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specId":
+            suggest = "spec_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromRestShowOutputPartitionSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromRestShowOutputPartitionSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromRestShowOutputPartitionSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Optional[Sequence['outputs.IcebergTableFromRestShowOutputPartitionSpecField']] = None,
+                 spec_id: Optional[_builtins.int] = None):
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+        if spec_id is not None:
+            pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence['outputs.IcebergTableFromRestShowOutputPartitionSpecField']]:
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "spec_id")
+
+
+@pulumi.output_type
+class IcebergTableFromRestShowOutputPartitionSpecField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "sourceId":
+            suggest = "source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableFromRestShowOutputPartitionSpecField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableFromRestShowOutputPartitionSpecField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableFromRestShowOutputPartitionSpecField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: Optional[_builtins.int] = None,
+                 name: Optional[_builtins.str] = None,
+                 source_id: Optional[_builtins.int] = None,
+                 transform: Optional[_builtins.str] = None):
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
+        if transform is not None:
+            pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "field_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "transform")
+
+
+@pulumi.output_type
+class IcebergTableParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogSyncs":
+            suggest = "catalog_syncs"
+        elif key == "dataRetentionTimeInDays":
+            suggest = "data_retention_time_in_days"
+        elif key == "enableDataCompactions":
+            suggest = "enable_data_compactions"
+        elif key == "enableIcebergMergeOnReads":
+            suggest = "enable_iceberg_merge_on_reads"
+        elif key == "externalVolumes":
+            suggest = "external_volumes"
+        elif key == "maxDataExtensionTimeInDays":
+            suggest = "max_data_extension_time_in_days"
+        elif key == "storageSerializationPolicies":
+            suggest = "storage_serialization_policies"
+        elif key == "targetFileSizes":
+            suggest = "target_file_sizes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog_syncs: Optional[Sequence['outputs.IcebergTableParameterCatalogSync']] = None,
+                 catalogs: Optional[Sequence['outputs.IcebergTableParameterCatalog']] = None,
+                 data_retention_time_in_days: Optional[Sequence['outputs.IcebergTableParameterDataRetentionTimeInDay']] = None,
+                 enable_data_compactions: Optional[Sequence['outputs.IcebergTableParameterEnableDataCompaction']] = None,
+                 enable_iceberg_merge_on_reads: Optional[Sequence['outputs.IcebergTableParameterEnableIcebergMergeOnRead']] = None,
+                 external_volumes: Optional[Sequence['outputs.IcebergTableParameterExternalVolume']] = None,
+                 max_data_extension_time_in_days: Optional[Sequence['outputs.IcebergTableParameterMaxDataExtensionTimeInDay']] = None,
+                 storage_serialization_policies: Optional[Sequence['outputs.IcebergTableParameterStorageSerializationPolicy']] = None,
+                 target_file_sizes: Optional[Sequence['outputs.IcebergTableParameterTargetFileSize']] = None):
+        if catalog_syncs is not None:
+            pulumi.set(__self__, "catalog_syncs", catalog_syncs)
+        if catalogs is not None:
+            pulumi.set(__self__, "catalogs", catalogs)
+        if data_retention_time_in_days is not None:
+            pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
+        if enable_data_compactions is not None:
+            pulumi.set(__self__, "enable_data_compactions", enable_data_compactions)
+        if enable_iceberg_merge_on_reads is not None:
+            pulumi.set(__self__, "enable_iceberg_merge_on_reads", enable_iceberg_merge_on_reads)
+        if external_volumes is not None:
+            pulumi.set(__self__, "external_volumes", external_volumes)
+        if max_data_extension_time_in_days is not None:
+            pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
+        if storage_serialization_policies is not None:
+            pulumi.set(__self__, "storage_serialization_policies", storage_serialization_policies)
+        if target_file_sizes is not None:
+            pulumi.set(__self__, "target_file_sizes", target_file_sizes)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSyncs")
+    def catalog_syncs(self) -> Optional[Sequence['outputs.IcebergTableParameterCatalogSync']]:
+        return pulumi.get(self, "catalog_syncs")
+
+    @_builtins.property
+    @pulumi.getter
+    def catalogs(self) -> Optional[Sequence['outputs.IcebergTableParameterCatalog']]:
+        return pulumi.get(self, "catalogs")
+
+    @_builtins.property
+    @pulumi.getter(name="dataRetentionTimeInDays")
+    def data_retention_time_in_days(self) -> Optional[Sequence['outputs.IcebergTableParameterDataRetentionTimeInDay']]:
+        return pulumi.get(self, "data_retention_time_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="enableDataCompactions")
+    def enable_data_compactions(self) -> Optional[Sequence['outputs.IcebergTableParameterEnableDataCompaction']]:
+        return pulumi.get(self, "enable_data_compactions")
+
+    @_builtins.property
+    @pulumi.getter(name="enableIcebergMergeOnReads")
+    def enable_iceberg_merge_on_reads(self) -> Optional[Sequence['outputs.IcebergTableParameterEnableIcebergMergeOnRead']]:
+        return pulumi.get(self, "enable_iceberg_merge_on_reads")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Optional[Sequence['outputs.IcebergTableParameterExternalVolume']]:
+        return pulumi.get(self, "external_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="maxDataExtensionTimeInDays")
+    def max_data_extension_time_in_days(self) -> Optional[Sequence['outputs.IcebergTableParameterMaxDataExtensionTimeInDay']]:
+        return pulumi.get(self, "max_data_extension_time_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="storageSerializationPolicies")
+    def storage_serialization_policies(self) -> Optional[Sequence['outputs.IcebergTableParameterStorageSerializationPolicy']]:
+        return pulumi.get(self, "storage_serialization_policies")
+
+    @_builtins.property
+    @pulumi.getter(name="targetFileSizes")
+    def target_file_sizes(self) -> Optional[Sequence['outputs.IcebergTableParameterTargetFileSize']]:
+        return pulumi.get(self, "target_file_sizes")
+
+
+@pulumi.output_type
+class IcebergTableParameterCatalog(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableParameterCatalogSync(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableParameterDataRetentionTimeInDay(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableParameterEnableDataCompaction(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableParameterEnableIcebergMergeOnRead(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableParameterExternalVolume(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableParameterMaxDataExtensionTimeInDay(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableParameterStorageSerializationPolicy(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTableParameterTargetFileSize(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class IcebergTablePartitionBy(dict):
+    def __init__(__self__, *,
+                 bucket: Optional['outputs.IcebergTablePartitionByBucket'] = None,
+                 day: Optional[_builtins.str] = None,
+                 hour: Optional[_builtins.str] = None,
+                 identity: Optional[_builtins.str] = None,
+                 month: Optional[_builtins.str] = None,
+                 truncate: Optional['outputs.IcebergTablePartitionByTruncate'] = None,
+                 year: Optional[_builtins.str] = None):
+        """
+        :param 'IcebergTablePartitionByBucketArgs' bucket: Partitions the table by hashing the column into a fixed number of buckets.
+        :param _builtins.str day: Partitions the table by the day component of the column.
+        :param _builtins.str hour: Partitions the table by the hour component of the column.
+        :param _builtins.str identity: Name of the column to use as-is for partitioning.
+        :param _builtins.str month: Partitions the table by the month component of the column.
+        :param 'IcebergTablePartitionByTruncateArgs' truncate: Partitions the table by truncating the column value to a fixed width.
+        :param _builtins.str year: Partitions the table by the year component of the column.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if day is not None:
+            pulumi.set(__self__, "day", day)
+        if hour is not None:
+            pulumi.set(__self__, "hour", hour)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if month is not None:
+            pulumi.set(__self__, "month", month)
+        if truncate is not None:
+            pulumi.set(__self__, "truncate", truncate)
+        if year is not None:
+            pulumi.set(__self__, "year", year)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> Optional['outputs.IcebergTablePartitionByBucket']:
+        """
+        Partitions the table by hashing the column into a fixed number of buckets.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def day(self) -> Optional[_builtins.str]:
+        """
+        Partitions the table by the day component of the column.
+        """
+        return pulumi.get(self, "day")
+
+    @_builtins.property
+    @pulumi.getter
+    def hour(self) -> Optional[_builtins.str]:
+        """
+        Partitions the table by the hour component of the column.
+        """
+        return pulumi.get(self, "hour")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> Optional[_builtins.str]:
+        """
+        Name of the column to use as-is for partitioning.
+        """
+        return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter
+    def month(self) -> Optional[_builtins.str]:
+        """
+        Partitions the table by the month component of the column.
+        """
+        return pulumi.get(self, "month")
+
+    @_builtins.property
+    @pulumi.getter
+    def truncate(self) -> Optional['outputs.IcebergTablePartitionByTruncate']:
+        """
+        Partitions the table by truncating the column value to a fixed width.
+        """
+        return pulumi.get(self, "truncate")
+
+    @_builtins.property
+    @pulumi.getter
+    def year(self) -> Optional[_builtins.str]:
+        """
+        Partitions the table by the year component of the column.
+        """
+        return pulumi.get(self, "year")
+
+
+@pulumi.output_type
+class IcebergTablePartitionByBucket(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numBuckets":
+            suggest = "num_buckets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTablePartitionByBucket. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTablePartitionByBucket.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTablePartitionByBucket.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column: _builtins.str,
+                 num_buckets: _builtins.int):
+        """
+        :param _builtins.str column: Name of the column to bucket.
+        :param _builtins.int num_buckets: Number of buckets to hash the column values into.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "num_buckets", num_buckets)
+
+    @_builtins.property
+    @pulumi.getter
+    def column(self) -> _builtins.str:
+        """
+        Name of the column to bucket.
+        """
+        return pulumi.get(self, "column")
+
+    @_builtins.property
+    @pulumi.getter(name="numBuckets")
+    def num_buckets(self) -> _builtins.int:
+        """
+        Number of buckets to hash the column values into.
+        """
+        return pulumi.get(self, "num_buckets")
+
+
+@pulumi.output_type
+class IcebergTablePartitionByTruncate(dict):
+    def __init__(__self__, *,
+                 column: _builtins.str,
+                 width: _builtins.int):
+        """
+        :param _builtins.str column: Name of the column to truncate.
+        :param _builtins.int width: Width to truncate the column value to.
+        """
+        pulumi.set(__self__, "column", column)
+        pulumi.set(__self__, "width", width)
+
+    @_builtins.property
+    @pulumi.getter
+    def column(self) -> _builtins.str:
+        """
+        Name of the column to truncate.
+        """
+        return pulumi.get(self, "column")
+
+    @_builtins.property
+    @pulumi.getter
+    def width(self) -> _builtins.int:
+        """
+        Width to truncate the column value to.
+        """
+        return pulumi.get(self, "width")
+
+
+@pulumi.output_type
+class IcebergTablePrimaryKeyConstraint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initiallyDeferred":
+            suggest = "initially_deferred"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTablePrimaryKeyConstraint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTablePrimaryKeyConstraint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTablePrimaryKeyConstraint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns: Sequence[_builtins.str],
+                 comment: Optional[_builtins.str] = None,
+                 deferrable: Optional[_builtins.str] = None,
+                 enable: Optional[_builtins.str] = None,
+                 enforced: Optional[_builtins.str] = None,
+                 initially_deferred: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 rely: Optional[_builtins.str] = None,
+                 validate: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] columns: The column(s) the constraint applies to.
+        :param _builtins.str comment: Constraint comment.
+        :param _builtins.str deferrable: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str enable: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str enforced: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str initially_deferred: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str name: Name of the constraint.
+        :param _builtins.str rely: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str validate: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        pulumi.set(__self__, "columns", columns)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if deferrable is not None:
+            pulumi.set(__self__, "deferrable", deferrable)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if enforced is not None:
+            pulumi.set(__self__, "enforced", enforced)
+        if initially_deferred is not None:
+            pulumi.set(__self__, "initially_deferred", initially_deferred)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rely is not None:
+            pulumi.set(__self__, "rely", rely)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Sequence[_builtins.str]:
+        """
+        The column(s) the constraint applies to.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Constraint comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def deferrable(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "deferrable")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enable")
+
+    @_builtins.property
+    @pulumi.getter
+    def enforced(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enforced")
+
+    @_builtins.property
+    @pulumi.getter(name="initiallyDeferred")
+    def initially_deferred(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "initially_deferred")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the constraint.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def rely(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "rely")
+
+    @_builtins.property
+    @pulumi.getter
+    def validate(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "validate")
+
+
+@pulumi.output_type
+class IcebergTableRowAccessPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyName":
+            suggest = "policy_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableRowAccessPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableRowAccessPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableRowAccessPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ons: Sequence[_builtins.str],
+                 policy_name: _builtins.str):
+        """
+        :param Sequence[_builtins.str] ons: Defines which columns are affected by the policy.
+        :param _builtins.str policy_name: Row access policy name. For more information about this resource, see docs.
+        """
+        pulumi.set(__self__, "ons", ons)
+        pulumi.set(__self__, "policy_name", policy_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def ons(self) -> Sequence[_builtins.str]:
+        """
+        Defines which columns are affected by the policy.
+        """
+        return pulumi.get(self, "ons")
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> _builtins.str:
+        """
+        Row access policy name. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "policy_name")
+
+
+@pulumi.output_type
+class IcebergTableShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRefreshStatuses":
+            suggest = "auto_refresh_statuses"
+        elif key == "baseLocation":
+            suggest = "base_location"
+        elif key == "canWriteMetadata":
+            suggest = "can_write_metadata"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "catalogNamespace":
+            suggest = "catalog_namespace"
+        elif key == "catalogSyncName":
+            suggest = "catalog_sync_name"
+        elif key == "catalogTableName":
+            suggest = "catalog_table_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "currentPartitionSpecId":
+            suggest = "current_partition_spec_id"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "externalVolumeName":
+            suggest = "external_volume_name"
+        elif key == "icebergTableFormatVersion":
+            suggest = "iceberg_table_format_version"
+        elif key == "icebergTableType":
+            suggest = "iceberg_table_type"
+        elif key == "nameMapping":
+            suggest = "name_mapping"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "partitionSpecs":
+            suggest = "partition_specs"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_refresh_statuses: Optional[Sequence['outputs.IcebergTableShowOutputAutoRefreshStatus']] = None,
+                 base_location: Optional[_builtins.str] = None,
+                 can_write_metadata: Optional[_builtins.bool] = None,
+                 catalog_name: Optional[_builtins.str] = None,
+                 catalog_namespace: Optional[_builtins.str] = None,
+                 catalog_sync_name: Optional[_builtins.str] = None,
+                 catalog_table_name: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 current_partition_spec_id: Optional[_builtins.int] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 external_volume_name: Optional[_builtins.str] = None,
+                 iceberg_table_format_version: Optional[_builtins.int] = None,
+                 iceberg_table_type: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 name_mapping: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 partition_specs: Optional[Sequence['outputs.IcebergTableShowOutputPartitionSpec']] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if auto_refresh_statuses is not None:
+            pulumi.set(__self__, "auto_refresh_statuses", auto_refresh_statuses)
+        if base_location is not None:
+            pulumi.set(__self__, "base_location", base_location)
+        if can_write_metadata is not None:
+            pulumi.set(__self__, "can_write_metadata", can_write_metadata)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if catalog_namespace is not None:
+            pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        if catalog_sync_name is not None:
+            pulumi.set(__self__, "catalog_sync_name", catalog_sync_name)
+        if catalog_table_name is not None:
+            pulumi.set(__self__, "catalog_table_name", catalog_table_name)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_partition_spec_id is not None:
+            pulumi.set(__self__, "current_partition_spec_id", current_partition_spec_id)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if external_volume_name is not None:
+            pulumi.set(__self__, "external_volume_name", external_volume_name)
+        if iceberg_table_format_version is not None:
+            pulumi.set(__self__, "iceberg_table_format_version", iceberg_table_format_version)
+        if iceberg_table_type is not None:
+            pulumi.set(__self__, "iceberg_table_type", iceberg_table_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if name_mapping is not None:
+            pulumi.set(__self__, "name_mapping", name_mapping)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if partition_specs is not None:
+            pulumi.set(__self__, "partition_specs", partition_specs)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefreshStatuses")
+    def auto_refresh_statuses(self) -> Optional[Sequence['outputs.IcebergTableShowOutputAutoRefreshStatus']]:
+        return pulumi.get(self, "auto_refresh_statuses")
+
+    @_builtins.property
+    @pulumi.getter(name="baseLocation")
+    def base_location(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "base_location")
+
+    @_builtins.property
+    @pulumi.getter(name="canWriteMetadata")
+    def can_write_metadata(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "can_write_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogNamespace")
+    def catalog_namespace(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSyncName")
+    def catalog_sync_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_sync_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogTableName")
+    def catalog_table_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "catalog_table_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="currentPartitionSpecId")
+    def current_partition_spec_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "current_partition_spec_id")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumeName")
+    def external_volume_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_volume_name")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableFormatVersion")
+    def iceberg_table_format_version(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "iceberg_table_format_version")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableType")
+    def iceberg_table_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "iceberg_table_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpecs")
+    def partition_specs(self) -> Optional[Sequence['outputs.IcebergTableShowOutputPartitionSpec']]:
+        return pulumi.get(self, "partition_specs")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class IcebergTableShowOutputAutoRefreshStatus(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentSnapshotId":
+            suggest = "current_snapshot_id"
+        elif key == "executionState":
+            suggest = "execution_state"
+        elif key == "lastSnapshotTime":
+            suggest = "last_snapshot_time"
+        elif key == "lastUpdatedTime":
+            suggest = "last_updated_time"
+        elif key == "pendingSnapshotCount":
+            suggest = "pending_snapshot_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableShowOutputAutoRefreshStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableShowOutputAutoRefreshStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableShowOutputAutoRefreshStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_snapshot_id: Optional[_builtins.int] = None,
+                 execution_state: Optional[_builtins.str] = None,
+                 last_snapshot_time: Optional[_builtins.str] = None,
+                 last_updated_time: Optional[_builtins.str] = None,
+                 pending_snapshot_count: Optional[_builtins.int] = None):
+        if current_snapshot_id is not None:
+            pulumi.set(__self__, "current_snapshot_id", current_snapshot_id)
+        if execution_state is not None:
+            pulumi.set(__self__, "execution_state", execution_state)
+        if last_snapshot_time is not None:
+            pulumi.set(__self__, "last_snapshot_time", last_snapshot_time)
+        if last_updated_time is not None:
+            pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if pending_snapshot_count is not None:
+            pulumi.set(__self__, "pending_snapshot_count", pending_snapshot_count)
+
+    @_builtins.property
+    @pulumi.getter(name="currentSnapshotId")
+    def current_snapshot_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "current_snapshot_id")
+
+    @_builtins.property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "execution_state")
+
+    @_builtins.property
+    @pulumi.getter(name="lastSnapshotTime")
+    def last_snapshot_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_snapshot_time")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "last_updated_time")
+
+    @_builtins.property
+    @pulumi.getter(name="pendingSnapshotCount")
+    def pending_snapshot_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "pending_snapshot_count")
+
+
+@pulumi.output_type
+class IcebergTableShowOutputPartitionSpec(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "specId":
+            suggest = "spec_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableShowOutputPartitionSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableShowOutputPartitionSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableShowOutputPartitionSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fields: Optional[Sequence['outputs.IcebergTableShowOutputPartitionSpecField']] = None,
+                 spec_id: Optional[_builtins.int] = None):
+        if fields is not None:
+            pulumi.set(__self__, "fields", fields)
+        if spec_id is not None:
+            pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Optional[Sequence['outputs.IcebergTableShowOutputPartitionSpecField']]:
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "spec_id")
+
+
+@pulumi.output_type
+class IcebergTableShowOutputPartitionSpecField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldId":
+            suggest = "field_id"
+        elif key == "sourceId":
+            suggest = "source_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableShowOutputPartitionSpecField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableShowOutputPartitionSpecField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableShowOutputPartitionSpecField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_id: Optional[_builtins.int] = None,
+                 name: Optional[_builtins.str] = None,
+                 source_id: Optional[_builtins.int] = None,
+                 transform: Optional[_builtins.str] = None):
+        if field_id is not None:
+            pulumi.set(__self__, "field_id", field_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if source_id is not None:
+            pulumi.set(__self__, "source_id", source_id)
+        if transform is not None:
+            pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "field_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "transform")
+
+
+@pulumi.output_type
+class IcebergTableUniqueConstraint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initiallyDeferred":
+            suggest = "initially_deferred"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IcebergTableUniqueConstraint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IcebergTableUniqueConstraint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IcebergTableUniqueConstraint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns: Sequence[_builtins.str],
+                 comment: Optional[_builtins.str] = None,
+                 deferrable: Optional[_builtins.str] = None,
+                 enable: Optional[_builtins.str] = None,
+                 enforced: Optional[_builtins.str] = None,
+                 initially_deferred: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 rely: Optional[_builtins.str] = None,
+                 validate: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] columns: The column(s) the constraint applies to.
+        :param _builtins.str comment: Constraint comment.
+        :param _builtins.str deferrable: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str enable: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str enforced: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str initially_deferred: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str name: Name of the constraint.
+        :param _builtins.str rely: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param _builtins.str validate: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        pulumi.set(__self__, "columns", columns)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if deferrable is not None:
+            pulumi.set(__self__, "deferrable", deferrable)
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if enforced is not None:
+            pulumi.set(__self__, "enforced", enforced)
+        if initially_deferred is not None:
+            pulumi.set(__self__, "initially_deferred", initially_deferred)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rely is not None:
+            pulumi.set(__self__, "rely", rely)
+        if validate is not None:
+            pulumi.set(__self__, "validate", validate)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Sequence[_builtins.str]:
+        """
+        The column(s) the constraint applies to.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Constraint comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def deferrable(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is deferrable (`true`) or not deferrable (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "deferrable")
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enabled (`true`) or disabled (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enable")
+
+    @_builtins.property
+    @pulumi.getter
+    def enforced(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is enforced (`true`) or not enforced (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "enforced")
+
+    @_builtins.property
+    @pulumi.getter(name="initiallyDeferred")
+    def initially_deferred(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether the constraint is initially deferred (`true`) or initially immediate (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "initially_deferred")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the constraint.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def rely(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether a constraint in NOVALIDATE mode is taken into account (`true`) or not (`false`) during query rewrite. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "rely")
+
+    @_builtins.property
+    @pulumi.getter
+    def validate(self) -> Optional[_builtins.str]:
+        """
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Whether to validate existing data on the table when the constraint is created (`true`) or skip validation (`false`). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        """
+        return pulumi.get(self, "validate")
 
 
 @pulumi.output_type
@@ -16665,11 +22338,15 @@ class LegacyServiceUserDefaultWorkloadIdentity(dict):
 @pulumi.output_type
 class LegacyServiceUserDefaultWorkloadIdentityAws(dict):
     def __init__(__self__, *,
-                 arn: _builtins.str):
+                 arn: _builtins.str,
+                 issuer: Optional[_builtins.str] = None):
         """
         :param _builtins.str arn: The ARN of the AWS IAM role to use for workload identity federation.
+        :param _builtins.str issuer: The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
         """
         pulumi.set(__self__, "arn", arn)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
@@ -16678,6 +22355,14 @@ class LegacyServiceUserDefaultWorkloadIdentityAws(dict):
         The ARN of the AWS IAM role to use for workload identity federation.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> Optional[_builtins.str]:
+        """
+        The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+        """
+        return pulumi.get(self, "issuer")
 
 
 @pulumi.output_type
@@ -20989,6 +26674,164 @@ class MaterializedViewTag(dict):
 
 
 @pulumi.output_type
+class McpServerDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "serverSpec":
+            suggest = "server_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in McpServerDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        McpServerDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        McpServerDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
+                 server_spec: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if server_spec is not None:
+            pulumi.set(__self__, "server_spec", server_spec)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="serverSpec")
+    def server_spec(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "server_spec")
+
+
+@pulumi.output_type
+class McpServerShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in McpServerShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        McpServerShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        McpServerShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
 class NetworkPolicyDescribeOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -21795,7 +27638,9 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "blockedRolesLists":
+        if key == "allowedRolesLists":
+            suggest = "allowed_roles_lists"
+        elif key == "blockedRolesLists":
             suggest = "blocked_roles_lists"
         elif key == "networkPolicies":
             suggest = "network_policies"
@@ -21838,6 +27683,7 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 allowed_roles_lists: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputAllowedRolesList']] = None,
                  blocked_roles_lists: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList']] = None,
                  comments: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputComment']] = None,
                  enableds: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputEnabled']] = None,
@@ -21855,6 +27701,8 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
                  oauth_token_endpoints: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint']] = None,
                  oauth_use_secondary_roles: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole']] = None,
                  pre_authorized_roles_lists: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList']] = None):
+        if allowed_roles_lists is not None:
+            pulumi.set(__self__, "allowed_roles_lists", allowed_roles_lists)
         if blocked_roles_lists is not None:
             pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
         if comments is not None:
@@ -21889,6 +27737,11 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
             pulumi.set(__self__, "oauth_use_secondary_roles", oauth_use_secondary_roles)
         if pre_authorized_roles_lists is not None:
             pulumi.set(__self__, "pre_authorized_roles_lists", pre_authorized_roles_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedRolesLists")
+    def allowed_roles_lists(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputAllowedRolesList']]:
+        return pulumi.get(self, "allowed_roles_lists")
 
     @_builtins.property
     @pulumi.getter(name="blockedRolesLists")
@@ -21974,6 +27827,43 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
     @pulumi.getter(name="preAuthorizedRolesLists")
     def pre_authorized_roles_lists(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList']]:
         return pulumi.get(self, "pre_authorized_roles_lists")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsDescribeOutputAllowedRolesList(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -22757,7 +28647,9 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "blockedRolesLists":
+        if key == "allowedRolesLists":
+            suggest = "allowed_roles_lists"
+        elif key == "blockedRolesLists":
             suggest = "blocked_roles_lists"
         elif key == "networkPolicies":
             suggest = "network_policies"
@@ -22800,6 +28692,7 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 allowed_roles_lists: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList']] = None,
                  blocked_roles_lists: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList']] = None,
                  comments: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputComment']] = None,
                  enableds: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputEnabled']] = None,
@@ -22817,6 +28710,8 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
                  oauth_token_endpoints: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint']] = None,
                  oauth_use_secondary_roles: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole']] = None,
                  pre_authorized_roles_lists: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList']] = None):
+        if allowed_roles_lists is not None:
+            pulumi.set(__self__, "allowed_roles_lists", allowed_roles_lists)
         if blocked_roles_lists is not None:
             pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
         if comments is not None:
@@ -22851,6 +28746,11 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
             pulumi.set(__self__, "oauth_use_secondary_roles", oauth_use_secondary_roles)
         if pre_authorized_roles_lists is not None:
             pulumi.set(__self__, "pre_authorized_roles_lists", pre_authorized_roles_lists)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedRolesLists")
+    def allowed_roles_lists(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList']]:
+        return pulumi.get(self, "allowed_roles_lists")
 
     @_builtins.property
     @pulumi.getter(name="blockedRolesLists")
@@ -22936,6 +28836,43 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
     @pulumi.getter(name="preAuthorizedRolesLists")
     def pre_authorized_roles_lists(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList']]:
         return pulumi.get(self, "pre_authorized_roles_lists")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -23761,7 +29698,9 @@ class PasswordPolicyDescribeOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "passwordHistory":
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "passwordHistory":
             suggest = "password_history"
         elif key == "passwordLockoutTimeMins":
             suggest = "password_lockout_time_mins"
@@ -23783,6 +29722,8 @@ class PasswordPolicyDescribeOutput(dict):
             suggest = "password_min_special_chars"
         elif key == "passwordMinUpperCaseChars":
             suggest = "password_min_upper_case_chars"
+        elif key == "schemaName":
+            suggest = "schema_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PasswordPolicyDescribeOutput. Access the value via the '{suggest}' property getter instead.")
@@ -23797,6 +29738,7 @@ class PasswordPolicyDescribeOutput(dict):
 
     def __init__(__self__, *,
                  comment: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
                  owner: Optional[_builtins.str] = None,
                  password_history: Optional[_builtins.int] = None,
@@ -23809,9 +29751,12 @@ class PasswordPolicyDescribeOutput(dict):
                  password_min_lower_case_chars: Optional[_builtins.int] = None,
                  password_min_numeric_chars: Optional[_builtins.int] = None,
                  password_min_special_chars: Optional[_builtins.int] = None,
-                 password_min_upper_case_chars: Optional[_builtins.int] = None):
+                 password_min_upper_case_chars: Optional[_builtins.int] = None,
+                 schema_name: Optional[_builtins.str] = None):
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner is not None:
@@ -23838,11 +29783,18 @@ class PasswordPolicyDescribeOutput(dict):
             pulumi.set(__self__, "password_min_special_chars", password_min_special_chars)
         if password_min_upper_case_chars is not None:
             pulumi.set(__self__, "password_min_upper_case_chars", password_min_upper_case_chars)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter
@@ -23908,6 +29860,11 @@ class PasswordPolicyDescribeOutput(dict):
     @pulumi.getter(name="passwordMinUpperCaseChars")
     def password_min_upper_case_chars(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "password_min_upper_case_chars")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type
@@ -33011,11 +38968,15 @@ class ServiceUserDefaultWorkloadIdentity(dict):
 @pulumi.output_type
 class ServiceUserDefaultWorkloadIdentityAws(dict):
     def __init__(__self__, *,
-                 arn: _builtins.str):
+                 arn: _builtins.str,
+                 issuer: Optional[_builtins.str] = None):
         """
         :param _builtins.str arn: The ARN of the AWS IAM role to use for workload identity federation.
+        :param _builtins.str issuer: The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
         """
         pulumi.set(__self__, "arn", arn)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
 
     @_builtins.property
     @pulumi.getter
@@ -33024,6 +38985,14 @@ class ServiceUserDefaultWorkloadIdentityAws(dict):
         The ARN of the AWS IAM role to use for workload identity federation.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def issuer(self) -> Optional[_builtins.str]:
+        """
+        The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+        """
+        return pulumi.get(self, "issuer")
 
 
 @pulumi.output_type
@@ -44961,6 +50930,8 @@ class StageExternalS3Directory(dict):
         suggest = None
         if key == "autoRefresh":
             suggest = "auto_refresh"
+        elif key == "awsSnsTopic":
+            suggest = "aws_sns_topic"
         elif key == "refreshOnCreate":
             suggest = "refresh_on_create"
 
@@ -44978,15 +50949,19 @@ class StageExternalS3Directory(dict):
     def __init__(__self__, *,
                  enable: _builtins.bool,
                  auto_refresh: Optional[_builtins.str] = None,
+                 aws_sns_topic: Optional[_builtins.str] = None,
                  refresh_on_create: Optional[_builtins.str] = None):
         """
         :param _builtins.bool enable: Specifies whether to enable a directory table on the external stage.
         :param _builtins.str auto_refresh: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
+        :param _builtins.str aws_sns_topic: Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
         :param _builtins.str refresh_on_create: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically refresh the directory table metadata once, immediately after the stage is created.This field is used only when creating the object. Changes on this field are ignored after creation.
         """
         pulumi.set(__self__, "enable", enable)
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
         if refresh_on_create is not None:
             pulumi.set(__self__, "refresh_on_create", refresh_on_create)
 
@@ -45005,6 +50980,14 @@ class StageExternalS3Directory(dict):
         (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should enable triggering automatic refreshes of the directory table metadata.
         """
         return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> Optional[_builtins.str]:
+        """
+        Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+        """
+        return pulumi.get(self, "aws_sns_topic")
 
     @_builtins.property
     @pulumi.getter(name="refreshOnCreate")
@@ -49895,8 +55878,12 @@ class StorageLifecyclePolicyDescribeOutput(dict):
             suggest = "archive_for_days"
         elif key == "archiveTier":
             suggest = "archive_tier"
+        elif key == "databaseName":
+            suggest = "database_name"
         elif key == "returnType":
             suggest = "return_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in StorageLifecyclePolicyDescribeOutput. Access the value via the '{suggest}' property getter instead.")
@@ -49913,8 +55900,10 @@ class StorageLifecyclePolicyDescribeOutput(dict):
                  archive_for_days: Optional[_builtins.int] = None,
                  archive_tier: Optional[_builtins.str] = None,
                  body: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
                  return_type: Optional[_builtins.str] = None,
+                 schema_name: Optional[_builtins.str] = None,
                  signatures: Optional[Sequence['outputs.StorageLifecyclePolicyDescribeOutputSignature']] = None):
         if archive_for_days is not None:
             pulumi.set(__self__, "archive_for_days", archive_for_days)
@@ -49922,10 +55911,14 @@ class StorageLifecyclePolicyDescribeOutput(dict):
             pulumi.set(__self__, "archive_tier", archive_tier)
         if body is not None:
             pulumi.set(__self__, "body", body)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if return_type is not None:
             pulumi.set(__self__, "return_type", return_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
         if signatures is not None:
             pulumi.set(__self__, "signatures", signatures)
 
@@ -49945,6 +55938,11 @@ class StorageLifecyclePolicyDescribeOutput(dict):
         return pulumi.get(self, "body")
 
     @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "name")
@@ -49953,6 +55951,11 @@ class StorageLifecyclePolicyDescribeOutput(dict):
     @pulumi.getter(name="returnType")
     def return_type(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "return_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
 
     @_builtins.property
     @pulumi.getter
@@ -60916,6 +66919,490 @@ class WarehouseAdaptiveShowOutput(dict):
 
 
 @pulumi.output_type
+class WarehouseInteractiveParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fallbackWarehouses":
+            suggest = "fallback_warehouses"
+        elif key == "maxConcurrencyLevels":
+            suggest = "max_concurrency_levels"
+        elif key == "statementQueuedTimeoutInSeconds":
+            suggest = "statement_queued_timeout_in_seconds"
+        elif key == "statementTimeoutInSeconds":
+            suggest = "statement_timeout_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WarehouseInteractiveParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WarehouseInteractiveParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WarehouseInteractiveParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fallback_warehouses: Optional[Sequence['outputs.WarehouseInteractiveParameterFallbackWarehouse']] = None,
+                 max_concurrency_levels: Optional[Sequence['outputs.WarehouseInteractiveParameterMaxConcurrencyLevel']] = None,
+                 statement_queued_timeout_in_seconds: Optional[Sequence['outputs.WarehouseInteractiveParameterStatementQueuedTimeoutInSecond']] = None,
+                 statement_timeout_in_seconds: Optional[Sequence['outputs.WarehouseInteractiveParameterStatementTimeoutInSecond']] = None):
+        if fallback_warehouses is not None:
+            pulumi.set(__self__, "fallback_warehouses", fallback_warehouses)
+        if max_concurrency_levels is not None:
+            pulumi.set(__self__, "max_concurrency_levels", max_concurrency_levels)
+        if statement_queued_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
+        if statement_timeout_in_seconds is not None:
+            pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="fallbackWarehouses")
+    def fallback_warehouses(self) -> Optional[Sequence['outputs.WarehouseInteractiveParameterFallbackWarehouse']]:
+        return pulumi.get(self, "fallback_warehouses")
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrencyLevels")
+    def max_concurrency_levels(self) -> Optional[Sequence['outputs.WarehouseInteractiveParameterMaxConcurrencyLevel']]:
+        return pulumi.get(self, "max_concurrency_levels")
+
+    @_builtins.property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> Optional[Sequence['outputs.WarehouseInteractiveParameterStatementQueuedTimeoutInSecond']]:
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="statementTimeoutInSeconds")
+    def statement_timeout_in_seconds(self) -> Optional[Sequence['outputs.WarehouseInteractiveParameterStatementTimeoutInSecond']]:
+        return pulumi.get(self, "statement_timeout_in_seconds")
+
+
+@pulumi.output_type
+class WarehouseInteractiveParameterFallbackWarehouse(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WarehouseInteractiveParameterMaxConcurrencyLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WarehouseInteractiveParameterStatementQueuedTimeoutInSecond(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WarehouseInteractiveParameterStatementTimeoutInSecond(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class WarehouseInteractiveShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResume":
+            suggest = "auto_resume"
+        elif key == "autoSuspend":
+            suggest = "auto_suspend"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "isCurrent":
+            suggest = "is_current"
+        elif key == "isDefault":
+            suggest = "is_default"
+        elif key == "maxClusterCount":
+            suggest = "max_cluster_count"
+        elif key == "minClusterCount":
+            suggest = "min_cluster_count"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "resourceMonitor":
+            suggest = "resource_monitor"
+        elif key == "resumedOn":
+            suggest = "resumed_on"
+        elif key == "startedClusters":
+            suggest = "started_clusters"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WarehouseInteractiveShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WarehouseInteractiveShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WarehouseInteractiveShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resume: Optional[_builtins.bool] = None,
+                 auto_suspend: Optional[_builtins.int] = None,
+                 available: Optional[_builtins.float] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 is_current: Optional[_builtins.bool] = None,
+                 is_default: Optional[_builtins.bool] = None,
+                 max_cluster_count: Optional[_builtins.int] = None,
+                 min_cluster_count: Optional[_builtins.int] = None,
+                 name: Optional[_builtins.str] = None,
+                 other: Optional[_builtins.float] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 provisioning: Optional[_builtins.float] = None,
+                 queued: Optional[_builtins.int] = None,
+                 quiescing: Optional[_builtins.float] = None,
+                 resource_monitor: Optional[_builtins.str] = None,
+                 resumed_on: Optional[_builtins.str] = None,
+                 running: Optional[_builtins.int] = None,
+                 size: Optional[_builtins.str] = None,
+                 started_clusters: Optional[_builtins.int] = None,
+                 state: Optional[_builtins.str] = None,
+                 tables: Optional[Sequence[_builtins.str]] = None,
+                 type: Optional[_builtins.str] = None,
+                 updated_on: Optional[_builtins.str] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend is not None:
+            pulumi.set(__self__, "auto_suspend", auto_suspend)
+        if available is not None:
+            pulumi.set(__self__, "available", available)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if is_current is not None:
+            pulumi.set(__self__, "is_current", is_current)
+        if is_default is not None:
+            pulumi.set(__self__, "is_default", is_default)
+        if max_cluster_count is not None:
+            pulumi.set(__self__, "max_cluster_count", max_cluster_count)
+        if min_cluster_count is not None:
+            pulumi.set(__self__, "min_cluster_count", min_cluster_count)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if other is not None:
+            pulumi.set(__self__, "other", other)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if provisioning is not None:
+            pulumi.set(__self__, "provisioning", provisioning)
+        if queued is not None:
+            pulumi.set(__self__, "queued", queued)
+        if quiescing is not None:
+            pulumi.set(__self__, "quiescing", quiescing)
+        if resource_monitor is not None:
+            pulumi.set(__self__, "resource_monitor", resource_monitor)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if running is not None:
+            pulumi.set(__self__, "running", running)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if started_clusters is not None:
+            pulumi.set(__self__, "started_clusters", started_clusters)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if tables is not None:
+            pulumi.set(__self__, "tables", tables)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @_builtins.property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "auto_resume")
+
+    @_builtins.property
+    @pulumi.getter(name="autoSuspend")
+    def auto_suspend(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "auto_suspend")
+
+    @_builtins.property
+    @pulumi.getter
+    def available(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "available")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_current")
+
+    @_builtins.property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_default")
+
+    @_builtins.property
+    @pulumi.getter(name="maxClusterCount")
+    def max_cluster_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_cluster_count")
+
+    @_builtins.property
+    @pulumi.getter(name="minClusterCount")
+    def min_cluster_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "min_cluster_count")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def other(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "other")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def provisioning(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "provisioning")
+
+    @_builtins.property
+    @pulumi.getter
+    def queued(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "queued")
+
+    @_builtins.property
+    @pulumi.getter
+    def quiescing(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "quiescing")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceMonitor")
+    def resource_monitor(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "resource_monitor")
+
+    @_builtins.property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "resumed_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def running(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "running")
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "size")
+
+    @_builtins.property
+    @pulumi.getter(name="startedClusters")
+    def started_clusters(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "started_clusters")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def tables(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "tables")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
 class WarehouseParameter(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -65584,16 +72071,310 @@ class GetFailoverGroupsFailoverGroupResult(dict):
 @pulumi.output_type
 class GetFileFormatsFileFormatResult(dict):
     def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetFileFormatsFileFormatDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetFileFormatsFileFormatShowOutputResult']):
+        """
+        :param Sequence['GetFileFormatsFileFormatDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE FILE FORMAT. Because every file format type returns a different set of properties, this is a union of the properties of all the file format types; only the fields applicable to the given file format type are filled.
+        :param Sequence['GetFileFormatsFileFormatShowOutputArgs'] show_outputs: Holds the output of SHOW FILE FORMATS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetFileFormatsFileFormatDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE FILE FORMAT. Because every file format type returns a different set of properties, this is a union of the properties of all the file format types; only the fields applicable to the given file format type are filled.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetFileFormatsFileFormatShowOutputResult']:
+        """
+        Holds the output of SHOW FILE FORMATS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetFileFormatsFileFormatDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 allow_duplicate: _builtins.bool,
+                 binary_as_text: _builtins.bool,
+                 binary_format: _builtins.str,
+                 compression: _builtins.str,
+                 date_format: _builtins.str,
+                 disable_auto_convert: _builtins.bool,
+                 empty_field_as_null: _builtins.bool,
+                 enable_octal: _builtins.bool,
+                 encoding: _builtins.str,
+                 error_on_column_count_mismatch: _builtins.bool,
+                 escape: _builtins.str,
+                 escape_unenclosed_field: _builtins.str,
+                 field_delimiter: _builtins.str,
+                 field_optionally_enclosed_by: _builtins.str,
+                 file_extension: _builtins.str,
+                 id: _builtins.str,
+                 ignore_utf8_errors: _builtins.bool,
+                 multi_line: _builtins.bool,
+                 null_ifs: Sequence[_builtins.str],
+                 parse_header: _builtins.bool,
+                 preserve_space: _builtins.bool,
+                 record_delimiter: _builtins.str,
+                 replace_invalid_characters: _builtins.bool,
+                 skip_blank_lines: _builtins.bool,
+                 skip_byte_order_mark: _builtins.bool,
+                 skip_header: _builtins.int,
+                 strip_null_values: _builtins.bool,
+                 strip_outer_array: _builtins.bool,
+                 strip_outer_element: _builtins.bool,
+                 time_format: _builtins.str,
+                 timestamp_format: _builtins.str,
+                 trim_space: _builtins.bool,
+                 type: _builtins.str,
+                 use_logical_type: _builtins.bool,
+                 use_vectorized_scanner: _builtins.bool,
+                 validate_utf8: _builtins.bool):
+        pulumi.set(__self__, "allow_duplicate", allow_duplicate)
+        pulumi.set(__self__, "binary_as_text", binary_as_text)
+        pulumi.set(__self__, "binary_format", binary_format)
+        pulumi.set(__self__, "compression", compression)
+        pulumi.set(__self__, "date_format", date_format)
+        pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
+        pulumi.set(__self__, "enable_octal", enable_octal)
+        pulumi.set(__self__, "encoding", encoding)
+        pulumi.set(__self__, "error_on_column_count_mismatch", error_on_column_count_mismatch)
+        pulumi.set(__self__, "escape", escape)
+        pulumi.set(__self__, "escape_unenclosed_field", escape_unenclosed_field)
+        pulumi.set(__self__, "field_delimiter", field_delimiter)
+        pulumi.set(__self__, "field_optionally_enclosed_by", field_optionally_enclosed_by)
+        pulumi.set(__self__, "file_extension", file_extension)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "ignore_utf8_errors", ignore_utf8_errors)
+        pulumi.set(__self__, "multi_line", multi_line)
+        pulumi.set(__self__, "null_ifs", null_ifs)
+        pulumi.set(__self__, "parse_header", parse_header)
+        pulumi.set(__self__, "preserve_space", preserve_space)
+        pulumi.set(__self__, "record_delimiter", record_delimiter)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "skip_blank_lines", skip_blank_lines)
+        pulumi.set(__self__, "skip_byte_order_mark", skip_byte_order_mark)
+        pulumi.set(__self__, "skip_header", skip_header)
+        pulumi.set(__self__, "strip_null_values", strip_null_values)
+        pulumi.set(__self__, "strip_outer_array", strip_outer_array)
+        pulumi.set(__self__, "strip_outer_element", strip_outer_element)
+        pulumi.set(__self__, "time_format", time_format)
+        pulumi.set(__self__, "timestamp_format", timestamp_format)
+        pulumi.set(__self__, "trim_space", trim_space)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "use_logical_type", use_logical_type)
+        pulumi.set(__self__, "use_vectorized_scanner", use_vectorized_scanner)
+        pulumi.set(__self__, "validate_utf8", validate_utf8)
+
+    @_builtins.property
+    @pulumi.getter(name="allowDuplicate")
+    def allow_duplicate(self) -> _builtins.bool:
+        return pulumi.get(self, "allow_duplicate")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryAsText")
+    def binary_as_text(self) -> _builtins.bool:
+        return pulumi.get(self, "binary_as_text")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryFormat")
+    def binary_format(self) -> _builtins.str:
+        return pulumi.get(self, "binary_format")
+
+    @_builtins.property
+    @pulumi.getter
+    def compression(self) -> _builtins.str:
+        return pulumi.get(self, "compression")
+
+    @_builtins.property
+    @pulumi.getter(name="dateFormat")
+    def date_format(self) -> _builtins.str:
+        return pulumi.get(self, "date_format")
+
+    @_builtins.property
+    @pulumi.getter(name="disableAutoConvert")
+    def disable_auto_convert(self) -> _builtins.bool:
+        return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="emptyFieldAsNull")
+    def empty_field_as_null(self) -> _builtins.bool:
+        return pulumi.get(self, "empty_field_as_null")
+
+    @_builtins.property
+    @pulumi.getter(name="enableOctal")
+    def enable_octal(self) -> _builtins.bool:
+        return pulumi.get(self, "enable_octal")
+
+    @_builtins.property
+    @pulumi.getter
+    def encoding(self) -> _builtins.str:
+        return pulumi.get(self, "encoding")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnColumnCountMismatch")
+    def error_on_column_count_mismatch(self) -> _builtins.bool:
+        return pulumi.get(self, "error_on_column_count_mismatch")
+
+    @_builtins.property
+    @pulumi.getter
+    def escape(self) -> _builtins.str:
+        return pulumi.get(self, "escape")
+
+    @_builtins.property
+    @pulumi.getter(name="escapeUnenclosedField")
+    def escape_unenclosed_field(self) -> _builtins.str:
+        return pulumi.get(self, "escape_unenclosed_field")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDelimiter")
+    def field_delimiter(self) -> _builtins.str:
+        return pulumi.get(self, "field_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldOptionallyEnclosedBy")
+    def field_optionally_enclosed_by(self) -> _builtins.str:
+        return pulumi.get(self, "field_optionally_enclosed_by")
+
+    @_builtins.property
+    @pulumi.getter(name="fileExtension")
+    def file_extension(self) -> _builtins.str:
+        return pulumi.get(self, "file_extension")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUtf8Errors")
+    def ignore_utf8_errors(self) -> _builtins.bool:
+        return pulumi.get(self, "ignore_utf8_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="multiLine")
+    def multi_line(self) -> _builtins.bool:
+        return pulumi.get(self, "multi_line")
+
+    @_builtins.property
+    @pulumi.getter(name="nullIfs")
+    def null_ifs(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "null_ifs")
+
+    @_builtins.property
+    @pulumi.getter(name="parseHeader")
+    def parse_header(self) -> _builtins.bool:
+        return pulumi.get(self, "parse_header")
+
+    @_builtins.property
+    @pulumi.getter(name="preserveSpace")
+    def preserve_space(self) -> _builtins.bool:
+        return pulumi.get(self, "preserve_space")
+
+    @_builtins.property
+    @pulumi.getter(name="recordDelimiter")
+    def record_delimiter(self) -> _builtins.str:
+        return pulumi.get(self, "record_delimiter")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> _builtins.bool:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="skipBlankLines")
+    def skip_blank_lines(self) -> _builtins.bool:
+        return pulumi.get(self, "skip_blank_lines")
+
+    @_builtins.property
+    @pulumi.getter(name="skipByteOrderMark")
+    def skip_byte_order_mark(self) -> _builtins.bool:
+        return pulumi.get(self, "skip_byte_order_mark")
+
+    @_builtins.property
+    @pulumi.getter(name="skipHeader")
+    def skip_header(self) -> _builtins.int:
+        return pulumi.get(self, "skip_header")
+
+    @_builtins.property
+    @pulumi.getter(name="stripNullValues")
+    def strip_null_values(self) -> _builtins.bool:
+        return pulumi.get(self, "strip_null_values")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterArray")
+    def strip_outer_array(self) -> _builtins.bool:
+        return pulumi.get(self, "strip_outer_array")
+
+    @_builtins.property
+    @pulumi.getter(name="stripOuterElement")
+    def strip_outer_element(self) -> _builtins.bool:
+        return pulumi.get(self, "strip_outer_element")
+
+    @_builtins.property
+    @pulumi.getter(name="timeFormat")
+    def time_format(self) -> _builtins.str:
+        return pulumi.get(self, "time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampFormat")
+    def timestamp_format(self) -> _builtins.str:
+        return pulumi.get(self, "timestamp_format")
+
+    @_builtins.property
+    @pulumi.getter(name="trimSpace")
+    def trim_space(self) -> _builtins.bool:
+        return pulumi.get(self, "trim_space")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogicalType")
+    def use_logical_type(self) -> _builtins.bool:
+        return pulumi.get(self, "use_logical_type")
+
+    @_builtins.property
+    @pulumi.getter(name="useVectorizedScanner")
+    def use_vectorized_scanner(self) -> _builtins.bool:
+        return pulumi.get(self, "use_vectorized_scanner")
+
+    @_builtins.property
+    @pulumi.getter(name="validateUtf8")
+    def validate_utf8(self) -> _builtins.bool:
+        return pulumi.get(self, "validate_utf8")
+
+
+@pulumi.output_type
+class GetFileFormatsFileFormatShowOutputResult(dict):
+    def __init__(__self__, *,
                  comment: _builtins.str,
-                 database: _builtins.str,
-                 format_type: _builtins.str,
+                 created_on: _builtins.str,
+                 database_name: _builtins.str,
+                 format_options: _builtins.str,
                  name: _builtins.str,
-                 schema: _builtins.str):
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 schema_name: _builtins.str,
+                 type: _builtins.str):
         pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "format_type", format_type)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "format_options", format_options)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -65601,14 +72382,19 @@ class GetFileFormatsFileFormatResult(dict):
         return pulumi.get(self, "comment")
 
     @_builtins.property
-    @pulumi.getter
-    def database(self) -> _builtins.str:
-        return pulumi.get(self, "database")
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
 
     @_builtins.property
-    @pulumi.getter(name="formatType")
-    def format_type(self) -> _builtins.str:
-        return pulumi.get(self, "format_type")
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="formatOptions")
+    def format_options(self) -> _builtins.str:
+        return pulumi.get(self, "format_options")
 
     @_builtins.property
     @pulumi.getter
@@ -65617,7 +72403,65 @@ class GetFileFormatsFileFormatResult(dict):
 
     @_builtins.property
     @pulumi.getter
-    def schema(self) -> _builtins.str:
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetFileFormatsInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
         return pulumi.get(self, "schema")
 
 
@@ -66005,89 +72849,83 @@ class GetGrantsGrantResult(dict):
                  granted_on: _builtins.str,
                  granted_to: _builtins.str,
                  grantee_name: _builtins.str,
+                 inherited_from: _builtins.str,
+                 inherited_from_database: _builtins.str,
+                 inherited_from_schema: _builtins.str,
+                 is_inherited: _builtins.bool,
                  name: _builtins.str,
                  privilege: _builtins.str):
-        """
-        :param _builtins.str created_on: The date and time the grant was created.
-        :param _builtins.bool grant_option: Whether the grantee can grant the privilege to others.
-        :param _builtins.str granted_by: The role that granted the privilege.
-        :param _builtins.str granted_on: The object on which the privilege was granted.
-        :param _builtins.str granted_to: The role to which the privilege was granted.
-        :param _builtins.str grantee_name: The name of the role to which the privilege was granted.
-        :param _builtins.str name: The name of the object on which the privilege was granted.
-        :param _builtins.str privilege: The privilege granted.
-        """
         pulumi.set(__self__, "created_on", created_on)
         pulumi.set(__self__, "grant_option", grant_option)
         pulumi.set(__self__, "granted_by", granted_by)
         pulumi.set(__self__, "granted_on", granted_on)
         pulumi.set(__self__, "granted_to", granted_to)
         pulumi.set(__self__, "grantee_name", grantee_name)
+        pulumi.set(__self__, "inherited_from", inherited_from)
+        pulumi.set(__self__, "inherited_from_database", inherited_from_database)
+        pulumi.set(__self__, "inherited_from_schema", inherited_from_schema)
+        pulumi.set(__self__, "is_inherited", is_inherited)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "privilege", privilege)
 
     @_builtins.property
     @pulumi.getter(name="createdOn")
     def created_on(self) -> _builtins.str:
-        """
-        The date and time the grant was created.
-        """
         return pulumi.get(self, "created_on")
 
     @_builtins.property
     @pulumi.getter(name="grantOption")
     def grant_option(self) -> _builtins.bool:
-        """
-        Whether the grantee can grant the privilege to others.
-        """
         return pulumi.get(self, "grant_option")
 
     @_builtins.property
     @pulumi.getter(name="grantedBy")
     def granted_by(self) -> _builtins.str:
-        """
-        The role that granted the privilege.
-        """
         return pulumi.get(self, "granted_by")
 
     @_builtins.property
     @pulumi.getter(name="grantedOn")
     def granted_on(self) -> _builtins.str:
-        """
-        The object on which the privilege was granted.
-        """
         return pulumi.get(self, "granted_on")
 
     @_builtins.property
     @pulumi.getter(name="grantedTo")
     def granted_to(self) -> _builtins.str:
-        """
-        The role to which the privilege was granted.
-        """
         return pulumi.get(self, "granted_to")
 
     @_builtins.property
     @pulumi.getter(name="granteeName")
     def grantee_name(self) -> _builtins.str:
-        """
-        The name of the role to which the privilege was granted.
-        """
         return pulumi.get(self, "grantee_name")
+
+    @_builtins.property
+    @pulumi.getter(name="inheritedFrom")
+    def inherited_from(self) -> _builtins.str:
+        return pulumi.get(self, "inherited_from")
+
+    @_builtins.property
+    @pulumi.getter(name="inheritedFromDatabase")
+    def inherited_from_database(self) -> _builtins.str:
+        return pulumi.get(self, "inherited_from_database")
+
+    @_builtins.property
+    @pulumi.getter(name="inheritedFromSchema")
+    def inherited_from_schema(self) -> _builtins.str:
+        return pulumi.get(self, "inherited_from_schema")
+
+    @_builtins.property
+    @pulumi.getter(name="isInherited")
+    def is_inherited(self) -> _builtins.bool:
+        return pulumi.get(self, "is_inherited")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
-        """
-        The name of the object on which the privilege was granted.
-        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def privilege(self) -> _builtins.str:
-        """
-        The privilege granted.
-        """
         return pulumi.get(self, "privilege")
 
 
@@ -66284,6 +73122,1031 @@ class GetGrantsGrantsToShareResult(dict):
         Lists all of the privileges and roles granted to the specified share.
         """
         return pulumi.get(self, "share_name")
+
+
+@pulumi.output_type
+class GetGrantsInheritedGrantsInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Lists all inherited grants defined in the account.
+        :param _builtins.str database: Lists all inherited grants defined in the specified database.
+        :param _builtins.str schema: Lists all inherited grants defined in the specified schema. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Lists all inherited grants defined in the account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Lists all inherited grants defined in the specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Lists all inherited grants defined in the specified schema. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetIcebergTablesIcebergTableDescribeOutputResult'],
+                 parameters: Sequence['outputs.GetIcebergTablesIcebergTableParameterResult'],
+                 show_outputs: Sequence['outputs.GetIcebergTablesIcebergTableShowOutputResult']):
+        """
+        :param Sequence['GetIcebergTablesIcebergTableDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE ICEBERG TABLE.
+        :param Sequence['GetIcebergTablesIcebergTableParameterArgs'] parameters: Holds the output of SHOW PARAMETERS FOR ICEBERG TABLE.
+        :param Sequence['GetIcebergTablesIcebergTableShowOutputArgs'] show_outputs: Holds the output of SHOW ICEBERG TABLES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetIcebergTablesIcebergTableDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE ICEBERG TABLE.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterResult']:
+        """
+        Holds the output of SHOW PARAMETERS FOR ICEBERG TABLE.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetIcebergTablesIcebergTableShowOutputResult']:
+        """
+        Holds the output of SHOW ICEBERG TABLES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 check: _builtins.str,
+                 comment: _builtins.str,
+                 default: _builtins.str,
+                 expression: _builtins.str,
+                 is_nullable: _builtins.bool,
+                 kind: _builtins.str,
+                 name: _builtins.str,
+                 name_mapping: _builtins.str,
+                 policy_name: _builtins.str,
+                 primary_key: _builtins.bool,
+                 privacy_domain: _builtins.str,
+                 source_iceberg_type: _builtins.str,
+                 type: _builtins.str,
+                 unique_key: _builtins.bool,
+                 write_default: _builtins.str):
+        pulumi.set(__self__, "check", check)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "is_nullable", is_nullable)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "name_mapping", name_mapping)
+        pulumi.set(__self__, "policy_name", policy_name)
+        pulumi.set(__self__, "primary_key", primary_key)
+        pulumi.set(__self__, "privacy_domain", privacy_domain)
+        pulumi.set(__self__, "source_iceberg_type", source_iceberg_type)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "unique_key", unique_key)
+        pulumi.set(__self__, "write_default", write_default)
+
+    @_builtins.property
+    @pulumi.getter
+    def check(self) -> _builtins.str:
+        return pulumi.get(self, "check")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> _builtins.bool:
+        return pulumi.get(self, "is_nullable")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> _builtins.str:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> _builtins.str:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> _builtins.str:
+        return pulumi.get(self, "policy_name")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> _builtins.bool:
+        return pulumi.get(self, "primary_key")
+
+    @_builtins.property
+    @pulumi.getter(name="privacyDomain")
+    def privacy_domain(self) -> _builtins.str:
+        return pulumi.get(self, "privacy_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceIcebergType")
+    def source_iceberg_type(self) -> _builtins.str:
+        return pulumi.get(self, "source_iceberg_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> _builtins.bool:
+        return pulumi.get(self, "unique_key")
+
+    @_builtins.property
+    @pulumi.getter(name="writeDefault")
+    def write_default(self) -> _builtins.str:
+        return pulumi.get(self, "write_default")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterResult(dict):
+    def __init__(__self__, *,
+                 catalog_syncs: Sequence['outputs.GetIcebergTablesIcebergTableParameterCatalogSyncResult'],
+                 catalogs: Sequence['outputs.GetIcebergTablesIcebergTableParameterCatalogResult'],
+                 data_retention_time_in_days: Sequence['outputs.GetIcebergTablesIcebergTableParameterDataRetentionTimeInDayResult'],
+                 enable_data_compactions: Sequence['outputs.GetIcebergTablesIcebergTableParameterEnableDataCompactionResult'],
+                 enable_iceberg_merge_on_reads: Sequence['outputs.GetIcebergTablesIcebergTableParameterEnableIcebergMergeOnReadResult'],
+                 external_volumes: Sequence['outputs.GetIcebergTablesIcebergTableParameterExternalVolumeResult'],
+                 iceberg_merge_on_read_behaviors: Sequence['outputs.GetIcebergTablesIcebergTableParameterIcebergMergeOnReadBehaviorResult'],
+                 max_data_extension_time_in_days: Sequence['outputs.GetIcebergTablesIcebergTableParameterMaxDataExtensionTimeInDayResult'],
+                 replace_invalid_characters: Sequence['outputs.GetIcebergTablesIcebergTableParameterReplaceInvalidCharacterResult'],
+                 storage_serialization_policies: Sequence['outputs.GetIcebergTablesIcebergTableParameterStorageSerializationPolicyResult'],
+                 target_file_sizes: Sequence['outputs.GetIcebergTablesIcebergTableParameterTargetFileSizeResult']):
+        pulumi.set(__self__, "catalog_syncs", catalog_syncs)
+        pulumi.set(__self__, "catalogs", catalogs)
+        pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
+        pulumi.set(__self__, "enable_data_compactions", enable_data_compactions)
+        pulumi.set(__self__, "enable_iceberg_merge_on_reads", enable_iceberg_merge_on_reads)
+        pulumi.set(__self__, "external_volumes", external_volumes)
+        pulumi.set(__self__, "iceberg_merge_on_read_behaviors", iceberg_merge_on_read_behaviors)
+        pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "storage_serialization_policies", storage_serialization_policies)
+        pulumi.set(__self__, "target_file_sizes", target_file_sizes)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSyncs")
+    def catalog_syncs(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterCatalogSyncResult']:
+        return pulumi.get(self, "catalog_syncs")
+
+    @_builtins.property
+    @pulumi.getter
+    def catalogs(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterCatalogResult']:
+        return pulumi.get(self, "catalogs")
+
+    @_builtins.property
+    @pulumi.getter(name="dataRetentionTimeInDays")
+    def data_retention_time_in_days(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterDataRetentionTimeInDayResult']:
+        return pulumi.get(self, "data_retention_time_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="enableDataCompactions")
+    def enable_data_compactions(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterEnableDataCompactionResult']:
+        return pulumi.get(self, "enable_data_compactions")
+
+    @_builtins.property
+    @pulumi.getter(name="enableIcebergMergeOnReads")
+    def enable_iceberg_merge_on_reads(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterEnableIcebergMergeOnReadResult']:
+        return pulumi.get(self, "enable_iceberg_merge_on_reads")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterExternalVolumeResult']:
+        return pulumi.get(self, "external_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergMergeOnReadBehaviors")
+    def iceberg_merge_on_read_behaviors(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterIcebergMergeOnReadBehaviorResult']:
+        return pulumi.get(self, "iceberg_merge_on_read_behaviors")
+
+    @_builtins.property
+    @pulumi.getter(name="maxDataExtensionTimeInDays")
+    def max_data_extension_time_in_days(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterMaxDataExtensionTimeInDayResult']:
+        return pulumi.get(self, "max_data_extension_time_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterReplaceInvalidCharacterResult']:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="storageSerializationPolicies")
+    def storage_serialization_policies(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterStorageSerializationPolicyResult']:
+        return pulumi.get(self, "storage_serialization_policies")
+
+    @_builtins.property
+    @pulumi.getter(name="targetFileSizes")
+    def target_file_sizes(self) -> Sequence['outputs.GetIcebergTablesIcebergTableParameterTargetFileSizeResult']:
+        return pulumi.get(self, "target_file_sizes")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterCatalogResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterCatalogSyncResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterDataRetentionTimeInDayResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterEnableDataCompactionResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterEnableIcebergMergeOnReadResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterExternalVolumeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterIcebergMergeOnReadBehaviorResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterMaxDataExtensionTimeInDayResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterReplaceInvalidCharacterResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterStorageSerializationPolicyResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableParameterTargetFileSizeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableShowOutputResult(dict):
+    def __init__(__self__, *,
+                 auto_refresh_statuses: Sequence['outputs.GetIcebergTablesIcebergTableShowOutputAutoRefreshStatusResult'],
+                 base_location: _builtins.str,
+                 can_write_metadata: _builtins.bool,
+                 catalog_name: _builtins.str,
+                 catalog_namespace: _builtins.str,
+                 catalog_sync_name: _builtins.str,
+                 catalog_table_name: _builtins.str,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 current_partition_spec_id: _builtins.int,
+                 database_name: _builtins.str,
+                 external_volume_name: _builtins.str,
+                 iceberg_table_format_version: _builtins.int,
+                 iceberg_table_type: _builtins.str,
+                 name: _builtins.str,
+                 name_mapping: _builtins.str,
+                 owner: _builtins.str,
+                 owner_role_type: _builtins.str,
+                 partition_specs: Sequence['outputs.GetIcebergTablesIcebergTableShowOutputPartitionSpecResult'],
+                 schema_name: _builtins.str):
+        pulumi.set(__self__, "auto_refresh_statuses", auto_refresh_statuses)
+        pulumi.set(__self__, "base_location", base_location)
+        pulumi.set(__self__, "can_write_metadata", can_write_metadata)
+        pulumi.set(__self__, "catalog_name", catalog_name)
+        pulumi.set(__self__, "catalog_namespace", catalog_namespace)
+        pulumi.set(__self__, "catalog_sync_name", catalog_sync_name)
+        pulumi.set(__self__, "catalog_table_name", catalog_table_name)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "current_partition_spec_id", current_partition_spec_id)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "external_volume_name", external_volume_name)
+        pulumi.set(__self__, "iceberg_table_format_version", iceberg_table_format_version)
+        pulumi.set(__self__, "iceberg_table_type", iceberg_table_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "name_mapping", name_mapping)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "partition_specs", partition_specs)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter(name="autoRefreshStatuses")
+    def auto_refresh_statuses(self) -> Sequence['outputs.GetIcebergTablesIcebergTableShowOutputAutoRefreshStatusResult']:
+        return pulumi.get(self, "auto_refresh_statuses")
+
+    @_builtins.property
+    @pulumi.getter(name="baseLocation")
+    def base_location(self) -> _builtins.str:
+        return pulumi.get(self, "base_location")
+
+    @_builtins.property
+    @pulumi.getter(name="canWriteMetadata")
+    def can_write_metadata(self) -> _builtins.bool:
+        return pulumi.get(self, "can_write_metadata")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> _builtins.str:
+        return pulumi.get(self, "catalog_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogNamespace")
+    def catalog_namespace(self) -> _builtins.str:
+        return pulumi.get(self, "catalog_namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSyncName")
+    def catalog_sync_name(self) -> _builtins.str:
+        return pulumi.get(self, "catalog_sync_name")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogTableName")
+    def catalog_table_name(self) -> _builtins.str:
+        return pulumi.get(self, "catalog_table_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="currentPartitionSpecId")
+    def current_partition_spec_id(self) -> _builtins.int:
+        return pulumi.get(self, "current_partition_spec_id")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumeName")
+    def external_volume_name(self) -> _builtins.str:
+        return pulumi.get(self, "external_volume_name")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableFormatVersion")
+    def iceberg_table_format_version(self) -> _builtins.int:
+        return pulumi.get(self, "iceberg_table_format_version")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergTableType")
+    def iceberg_table_type(self) -> _builtins.str:
+        return pulumi.get(self, "iceberg_table_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nameMapping")
+    def name_mapping(self) -> _builtins.str:
+        return pulumi.get(self, "name_mapping")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> _builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpecs")
+    def partition_specs(self) -> Sequence['outputs.GetIcebergTablesIcebergTableShowOutputPartitionSpecResult']:
+        return pulumi.get(self, "partition_specs")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableShowOutputAutoRefreshStatusResult(dict):
+    def __init__(__self__, *,
+                 current_snapshot_id: _builtins.int,
+                 execution_state: _builtins.str,
+                 last_snapshot_time: _builtins.str,
+                 last_updated_time: _builtins.str,
+                 pending_snapshot_count: _builtins.int):
+        pulumi.set(__self__, "current_snapshot_id", current_snapshot_id)
+        pulumi.set(__self__, "execution_state", execution_state)
+        pulumi.set(__self__, "last_snapshot_time", last_snapshot_time)
+        pulumi.set(__self__, "last_updated_time", last_updated_time)
+        pulumi.set(__self__, "pending_snapshot_count", pending_snapshot_count)
+
+    @_builtins.property
+    @pulumi.getter(name="currentSnapshotId")
+    def current_snapshot_id(self) -> _builtins.int:
+        return pulumi.get(self, "current_snapshot_id")
+
+    @_builtins.property
+    @pulumi.getter(name="executionState")
+    def execution_state(self) -> _builtins.str:
+        return pulumi.get(self, "execution_state")
+
+    @_builtins.property
+    @pulumi.getter(name="lastSnapshotTime")
+    def last_snapshot_time(self) -> _builtins.str:
+        return pulumi.get(self, "last_snapshot_time")
+
+    @_builtins.property
+    @pulumi.getter(name="lastUpdatedTime")
+    def last_updated_time(self) -> _builtins.str:
+        return pulumi.get(self, "last_updated_time")
+
+    @_builtins.property
+    @pulumi.getter(name="pendingSnapshotCount")
+    def pending_snapshot_count(self) -> _builtins.int:
+        return pulumi.get(self, "pending_snapshot_count")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableShowOutputPartitionSpecResult(dict):
+    def __init__(__self__, *,
+                 fields: Sequence['outputs.GetIcebergTablesIcebergTableShowOutputPartitionSpecFieldResult'],
+                 spec_id: _builtins.int):
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "spec_id", spec_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> Sequence['outputs.GetIcebergTablesIcebergTableShowOutputPartitionSpecFieldResult']:
+        return pulumi.get(self, "fields")
+
+    @_builtins.property
+    @pulumi.getter(name="specId")
+    def spec_id(self) -> _builtins.int:
+        return pulumi.get(self, "spec_id")
+
+
+@pulumi.output_type
+class GetIcebergTablesIcebergTableShowOutputPartitionSpecFieldResult(dict):
+    def __init__(__self__, *,
+                 field_id: _builtins.int,
+                 name: _builtins.str,
+                 source_id: _builtins.int,
+                 transform: _builtins.str):
+        pulumi.set(__self__, "field_id", field_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "source_id", source_id)
+        pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldId")
+    def field_id(self) -> _builtins.int:
+        return pulumi.get(self, "field_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceId")
+    def source_id(self) -> _builtins.int:
+        return pulumi.get(self, "source_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> _builtins.str:
+        return pulumi.get(self, "transform")
+
+
+@pulumi.output_type
+class GetIcebergTablesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetIcebergTablesLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
 
 
 @pulumi.output_type
@@ -67366,6 +75229,179 @@ class GetMaterializedViewsMaterializedViewResult(dict):
 
 
 @pulumi.output_type
+class GetMcpServersInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetMcpServersMcpServerResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetMcpServersMcpServerDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetMcpServersMcpServerShowOutputResult']):
+        """
+        :param Sequence['GetMcpServersMcpServerDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE MCP SERVER.
+        :param Sequence['GetMcpServersMcpServerShowOutputArgs'] show_outputs: Holds the output of SHOW MCP SERVERS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetMcpServersMcpServerDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE MCP SERVER.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetMcpServersMcpServerShowOutputResult']:
+        """
+        Holds the output of SHOW MCP SERVERS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetMcpServersMcpServerDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 database_name: _builtins.str,
+                 name: _builtins.str,
+                 owner: _builtins.str,
+                 schema_name: _builtins.str,
+                 server_spec: _builtins.str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "server_spec", server_spec)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="serverSpec")
+    def server_spec(self) -> _builtins.str:
+        return pulumi.get(self, "server_spec")
+
+
+@pulumi.output_type
+class GetMcpServersMcpServerShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 database_name: _builtins.str,
+                 name: _builtins.str,
+                 owner: _builtins.str,
+                 schema_name: _builtins.str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
 class GetNetworkPoliciesNetworkPolicyResult(dict):
     def __init__(__self__, *,
                  describe_outputs: Sequence['outputs.GetNetworkPoliciesNetworkPolicyDescribeOutputResult'],
@@ -68291,6 +76327,7 @@ class GetPasswordPoliciesPasswordPolicyResult(dict):
 class GetPasswordPoliciesPasswordPolicyDescribeOutputResult(dict):
     def __init__(__self__, *,
                  comment: _builtins.str,
+                 database_name: _builtins.str,
                  name: _builtins.str,
                  owner: _builtins.str,
                  password_history: _builtins.int,
@@ -68303,8 +76340,10 @@ class GetPasswordPoliciesPasswordPolicyDescribeOutputResult(dict):
                  password_min_lower_case_chars: _builtins.int,
                  password_min_numeric_chars: _builtins.int,
                  password_min_special_chars: _builtins.int,
-                 password_min_upper_case_chars: _builtins.int):
+                 password_min_upper_case_chars: _builtins.int,
+                 schema_name: _builtins.str):
         pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "password_history", password_history)
@@ -68318,11 +76357,17 @@ class GetPasswordPoliciesPasswordPolicyDescribeOutputResult(dict):
         pulumi.set(__self__, "password_min_numeric_chars", password_min_numeric_chars)
         pulumi.set(__self__, "password_min_special_chars", password_min_special_chars)
         pulumi.set(__self__, "password_min_upper_case_chars", password_min_upper_case_chars)
+        pulumi.set(__self__, "schema_name", schema_name)
 
     @_builtins.property
     @pulumi.getter
     def comment(self) -> _builtins.str:
         return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter
@@ -68388,6 +76433,11 @@ class GetPasswordPoliciesPasswordPolicyDescribeOutputResult(dict):
     @pulumi.getter(name="passwordMinUpperCaseChars")
     def password_min_upper_case_chars(self) -> _builtins.int:
         return pulumi.get(self, "password_min_upper_case_chars")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
 
 
 @pulumi.output_type
@@ -70275,6 +78325,7 @@ class GetSecurityIntegrationsSecurityIntegrationResult(dict):
 class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
     def __init__(__self__, *,
                  allowed_email_patterns: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPatternResult'],
+                 allowed_roles_lists: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesListResult'],
                  allowed_user_domains: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomainResult'],
                  auth_types: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthTypeResult'],
                  blocked_roles_lists: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesListResult'],
@@ -70327,6 +78378,7 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
                  saml2_sso_urls: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult'],
                  sync_passwords: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult']):
         pulumi.set(__self__, "allowed_email_patterns", allowed_email_patterns)
+        pulumi.set(__self__, "allowed_roles_lists", allowed_roles_lists)
         pulumi.set(__self__, "allowed_user_domains", allowed_user_domains)
         pulumi.set(__self__, "auth_types", auth_types)
         pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
@@ -70383,6 +78435,11 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
     @pulumi.getter(name="allowedEmailPatterns")
     def allowed_email_patterns(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPatternResult']:
         return pulumi.get(self, "allowed_email_patterns")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedRolesLists")
+    def allowed_roles_lists(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesListResult']:
+        return pulumi.get(self, "allowed_roles_lists")
 
     @_builtins.property
     @pulumi.getter(name="allowedUserDomains")
@@ -70642,6 +78699,39 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
 
 @pulumi.output_type
 class GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPatternResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 name: _builtins.str,
+                 type: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesListResult(dict):
     def __init__(__self__, *,
                  default: _builtins.str,
                  name: _builtins.str,
@@ -74572,14 +82662,18 @@ class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputResult(dict
                  archive_for_days: _builtins.int,
                  archive_tier: _builtins.str,
                  body: _builtins.str,
+                 database_name: _builtins.str,
                  name: _builtins.str,
                  return_type: _builtins.str,
+                 schema_name: _builtins.str,
                  signatures: Sequence['outputs.GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputSignatureResult']):
         pulumi.set(__self__, "archive_for_days", archive_for_days)
         pulumi.set(__self__, "archive_tier", archive_tier)
         pulumi.set(__self__, "body", body)
+        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "return_type", return_type)
+        pulumi.set(__self__, "schema_name", schema_name)
         pulumi.set(__self__, "signatures", signatures)
 
     @_builtins.property
@@ -74598,6 +82692,11 @@ class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputResult(dict
         return pulumi.get(self, "body")
 
     @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         return pulumi.get(self, "name")
@@ -74606,6 +82705,11 @@ class GetStorageLifecyclePoliciesStorageLifecyclePolicyDescribeOutputResult(dict
     @pulumi.getter(name="returnType")
     def return_type(self) -> _builtins.str:
         return pulumi.get(self, "return_type")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> _builtins.str:
+        return pulumi.get(self, "schema_name")
 
     @_builtins.property
     @pulumi.getter
@@ -82796,12 +90900,19 @@ class GetWarehousesWarehouseDescribeOutputResult(dict):
 @pulumi.output_type
 class GetWarehousesWarehouseParameterResult(dict):
     def __init__(__self__, *,
+                 fallback_warehouses: Sequence['outputs.GetWarehousesWarehouseParameterFallbackWarehouseResult'],
                  max_concurrency_levels: Sequence['outputs.GetWarehousesWarehouseParameterMaxConcurrencyLevelResult'],
                  statement_queued_timeout_in_seconds: Sequence['outputs.GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecondResult'],
                  statement_timeout_in_seconds: Sequence['outputs.GetWarehousesWarehouseParameterStatementTimeoutInSecondResult']):
+        pulumi.set(__self__, "fallback_warehouses", fallback_warehouses)
         pulumi.set(__self__, "max_concurrency_levels", max_concurrency_levels)
         pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
         pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="fallbackWarehouses")
+    def fallback_warehouses(self) -> Sequence['outputs.GetWarehousesWarehouseParameterFallbackWarehouseResult']:
+        return pulumi.get(self, "fallback_warehouses")
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrencyLevels")
@@ -82817,6 +90928,46 @@ class GetWarehousesWarehouseParameterResult(dict):
     @pulumi.getter(name="statementTimeoutInSeconds")
     def statement_timeout_in_seconds(self) -> Sequence['outputs.GetWarehousesWarehouseParameterStatementTimeoutInSecondResult']:
         return pulumi.get(self, "statement_timeout_in_seconds")
+
+
+@pulumi.output_type
+class GetWarehousesWarehouseParameterFallbackWarehouseResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -82971,6 +91122,7 @@ class GetWarehousesWarehouseShowOutputResult(dict):
                  size: _builtins.str,
                  started_clusters: _builtins.int,
                  state: _builtins.str,
+                 tables: Sequence[_builtins.str],
                  type: _builtins.str,
                  updated_on: _builtins.str):
         pulumi.set(__self__, "auto_resume", auto_resume)
@@ -83002,6 +91154,7 @@ class GetWarehousesWarehouseShowOutputResult(dict):
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "started_clusters", started_clusters)
         pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "tables", tables)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "updated_on", updated_on)
 
@@ -83149,6 +91302,11 @@ class GetWarehousesWarehouseShowOutputResult(dict):
     @pulumi.getter
     def state(self) -> _builtins.str:
         return pulumi.get(self, "state")
+
+    @_builtins.property
+    @pulumi.getter
+    def tables(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "tables")
 
     @_builtins.property
     @pulumi.getter

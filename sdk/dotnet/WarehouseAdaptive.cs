@@ -37,6 +37,7 @@ namespace Pulumi.Snowflake
     ///         Comment = "My adaptive warehouse with all options set",
     ///         MaxQueryPerformanceLevel = "MEDIUM",
     ///         QueryThroughputMultiplier = 1,
+    ///         ResourceMonitor = "my_resource_monitor",
     ///         StatementQueuedTimeoutInSeconds = 30,
     ///         StatementTimeoutInSeconds = 3600,
     ///     });
@@ -92,6 +93,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("queryThroughputMultiplier")]
         public Output<int?> QueryThroughputMultiplier { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+        /// </summary>
+        [Output("resourceMonitor")]
+        public Output<string?> ResourceMonitor { get; private set; } = null!;
 
         /// <summary>
         /// Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
@@ -188,6 +195,12 @@ namespace Pulumi.Snowflake
         public Input<int>? QueryThroughputMultiplier { get; set; }
 
         /// <summary>
+        /// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+        /// </summary>
+        [Input("resourceMonitor")]
+        public Input<string>? ResourceMonitor { get; set; }
+
+        /// <summary>
         /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         /// </summary>
         [Input("statementQueuedTimeoutInSeconds")]
@@ -248,6 +261,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("queryThroughputMultiplier")]
         public Input<int>? QueryThroughputMultiplier { get; set; }
+
+        /// <summary>
+        /// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+        /// </summary>
+        [Input("resourceMonitor")]
+        public Input<string>? ResourceMonitor { get; set; }
 
         [Input("showOutputs")]
         private InputList<Inputs.WarehouseAdaptiveShowOutputGetArgs>? _showOutputs;

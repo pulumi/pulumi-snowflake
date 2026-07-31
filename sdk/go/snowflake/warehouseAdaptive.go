@@ -42,6 +42,7 @@ import (
 //				Comment:                         pulumi.String("My adaptive warehouse with all options set"),
 //				MaxQueryPerformanceLevel:        pulumi.String("MEDIUM"),
 //				QueryThroughputMultiplier:       pulumi.Int(1),
+//				ResourceMonitor:                 pulumi.String("my_resource_monitor"),
 //				StatementQueuedTimeoutInSeconds: pulumi.Int(30),
 //				StatementTimeoutInSeconds:       pulumi.Int(3600),
 //			})
@@ -78,6 +79,8 @@ type WarehouseAdaptive struct {
 	Parameters WarehouseAdaptiveParameterArrayOutput `pulumi:"parameters"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
 	QueryThroughputMultiplier pulumi.IntPtrOutput `pulumi:"queryThroughputMultiplier"`
+	// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+	ResourceMonitor pulumi.StringPtrOutput `pulumi:"resourceMonitor"`
 	// Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
 	ShowOutputs WarehouseAdaptiveShowOutputArrayOutput `pulumi:"showOutputs"`
 	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
@@ -130,6 +133,8 @@ type warehouseAdaptiveState struct {
 	Parameters []WarehouseAdaptiveParameter `pulumi:"parameters"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
 	QueryThroughputMultiplier *int `pulumi:"queryThroughputMultiplier"`
+	// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
 	ShowOutputs []WarehouseAdaptiveShowOutput `pulumi:"showOutputs"`
 	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
@@ -153,6 +158,8 @@ type WarehouseAdaptiveState struct {
 	Parameters WarehouseAdaptiveParameterArrayInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
 	QueryThroughputMultiplier pulumi.IntPtrInput
+	// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+	ResourceMonitor pulumi.StringPtrInput
 	// Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
 	ShowOutputs WarehouseAdaptiveShowOutputArrayInput
 	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
@@ -176,6 +183,8 @@ type warehouseAdaptiveArgs struct {
 	Name *string `pulumi:"name"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
 	QueryThroughputMultiplier *int `pulumi:"queryThroughputMultiplier"`
+	// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
@@ -192,6 +201,8 @@ type WarehouseAdaptiveArgs struct {
 	Name pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
 	QueryThroughputMultiplier pulumi.IntPtrInput
+	// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+	ResourceMonitor pulumi.StringPtrInput
 	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
@@ -313,6 +324,11 @@ func (o WarehouseAdaptiveOutput) Parameters() WarehouseAdaptiveParameterArrayOut
 // (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
 func (o WarehouseAdaptiveOutput) QueryThroughputMultiplier() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WarehouseAdaptive) pulumi.IntPtrOutput { return v.QueryThroughputMultiplier }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+func (o WarehouseAdaptiveOutput) ResourceMonitor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WarehouseAdaptive) pulumi.StringPtrOutput { return v.ResourceMonitor }).(pulumi.StringPtrOutput)
 }
 
 // Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.

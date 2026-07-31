@@ -75,6 +75,14 @@ export class Schema extends pulumi.CustomResource {
      */
     declare public readonly defaultDdlCollation: pulumi.Output<string>;
     /**
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     */
+    declare public readonly defaultNotebookComputePoolCpu: pulumi.Output<string>;
+    /**
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     */
+    declare public readonly defaultNotebookComputePoolGpu: pulumi.Output<string>;
+    /**
      * Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
      */
     declare public /*out*/ readonly describeOutputs: pulumi.Output<outputs.SchemaDescribeOutput[]>;
@@ -181,6 +189,8 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["dataRetentionTimeInDays"] = state?.dataRetentionTimeInDays;
             resourceInputs["database"] = state?.database;
             resourceInputs["defaultDdlCollation"] = state?.defaultDdlCollation;
+            resourceInputs["defaultNotebookComputePoolCpu"] = state?.defaultNotebookComputePoolCpu;
+            resourceInputs["defaultNotebookComputePoolGpu"] = state?.defaultNotebookComputePoolGpu;
             resourceInputs["describeOutputs"] = state?.describeOutputs;
             resourceInputs["enableConsoleOutput"] = state?.enableConsoleOutput;
             resourceInputs["externalVolume"] = state?.externalVolume;
@@ -213,6 +223,8 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["dataRetentionTimeInDays"] = args?.dataRetentionTimeInDays;
             resourceInputs["database"] = args?.database;
             resourceInputs["defaultDdlCollation"] = args?.defaultDdlCollation;
+            resourceInputs["defaultNotebookComputePoolCpu"] = args?.defaultNotebookComputePoolCpu;
+            resourceInputs["defaultNotebookComputePoolGpu"] = args?.defaultNotebookComputePoolGpu;
             resourceInputs["enableConsoleOutput"] = args?.enableConsoleOutput;
             resourceInputs["externalVolume"] = args?.externalVolume;
             resourceInputs["isTransient"] = args?.isTransient;
@@ -265,6 +277,14 @@ export interface SchemaState {
      * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      */
     defaultDdlCollation?: pulumi.Input<string | undefined>;
+    /**
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     */
+    defaultNotebookComputePoolCpu?: pulumi.Input<string | undefined>;
+    /**
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     */
+    defaultNotebookComputePoolGpu?: pulumi.Input<string | undefined>;
     /**
      * Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
      */
@@ -379,6 +399,14 @@ export interface SchemaArgs {
      * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      */
     defaultDdlCollation?: pulumi.Input<string | undefined>;
+    /**
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     */
+    defaultNotebookComputePoolCpu?: pulumi.Input<string | undefined>;
+    /**
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     */
+    defaultNotebookComputePoolGpu?: pulumi.Input<string | undefined>;
     /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      */

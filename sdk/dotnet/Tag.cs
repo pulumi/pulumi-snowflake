@@ -76,7 +76,7 @@ namespace Pulumi.Snowflake
         public Output<Outputs.TagOnConflict?> OnConflict { get; private set; } = null!;
 
         /// <summary>
-        /// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `AllowedValues` when order matters. Conflicts with `AllowedValues` and `NoAllowedValues`.
+        /// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `AllowedValues` when order matters. Conflicts with `AllowedValues` and `NoAllowedValues`. Note: transitioning from `AllowedValues` to `OrderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
         /// </summary>
         [Output("orderedAllowedValues")]
         public Output<ImmutableArray<string>> OrderedAllowedValues { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _orderedAllowedValues;
 
         /// <summary>
-        /// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `AllowedValues` when order matters. Conflicts with `AllowedValues` and `NoAllowedValues`.
+        /// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `AllowedValues` when order matters. Conflicts with `AllowedValues` and `NoAllowedValues`. Note: transitioning from `AllowedValues` to `OrderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
         /// </summary>
         public InputList<string> OrderedAllowedValues
         {
@@ -297,7 +297,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _orderedAllowedValues;
 
         /// <summary>
-        /// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `AllowedValues` when order matters. Conflicts with `AllowedValues` and `NoAllowedValues`.
+        /// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `AllowedValues` when order matters. Conflicts with `AllowedValues` and `NoAllowedValues`. Note: transitioning from `AllowedValues` to `OrderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
         /// </summary>
         public InputList<string> OrderedAllowedValues
         {

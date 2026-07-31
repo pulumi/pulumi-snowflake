@@ -15,6 +15,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -53,6 +56,9 @@ namespace Pulumi.Snowflake.Inputs
 
         [Input("passwordMinUpperCaseChars")]
         public Input<int>? PasswordMinUpperCaseChars { get; set; }
+
+        [Input("schemaName")]
+        public Input<string>? SchemaName { get; set; }
 
         public PasswordPolicyDescribeOutputArgs()
         {

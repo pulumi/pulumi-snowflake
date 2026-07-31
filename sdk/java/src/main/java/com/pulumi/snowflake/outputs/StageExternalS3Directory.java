@@ -19,6 +19,11 @@ public final class StageExternalS3Directory {
      */
     private @Nullable String autoRefresh;
     /**
+     * @return Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+     * 
+     */
+    private @Nullable String awsSnsTopic;
+    /**
      * @return Specifies whether to enable a directory table on the external stage.
      * 
      */
@@ -36,6 +41,13 @@ public final class StageExternalS3Directory {
      */
     public Optional<String> autoRefresh() {
         return Optional.ofNullable(this.autoRefresh);
+    }
+    /**
+     * @return Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+     * 
+     */
+    public Optional<String> awsSnsTopic() {
+        return Optional.ofNullable(this.awsSnsTopic);
     }
     /**
      * @return Specifies whether to enable a directory table on the external stage.
@@ -62,12 +74,14 @@ public final class StageExternalS3Directory {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String autoRefresh;
+        private @Nullable String awsSnsTopic;
         private Boolean enable;
         private @Nullable String refreshOnCreate;
         public Builder() {}
         public Builder(StageExternalS3Directory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRefresh = defaults.autoRefresh;
+    	      this.awsSnsTopic = defaults.awsSnsTopic;
     	      this.enable = defaults.enable;
     	      this.refreshOnCreate = defaults.refreshOnCreate;
         }
@@ -76,6 +90,12 @@ public final class StageExternalS3Directory {
         public Builder autoRefresh(@Nullable String autoRefresh) {
 
             this.autoRefresh = autoRefresh;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder awsSnsTopic(@Nullable String awsSnsTopic) {
+
+            this.awsSnsTopic = awsSnsTopic;
             return this;
         }
         @CustomType.Setter
@@ -95,6 +115,7 @@ public final class StageExternalS3Directory {
         public StageExternalS3Directory build() {
             final var _resultValue = new StageExternalS3Directory();
             _resultValue.autoRefresh = autoRefresh;
+            _resultValue.awsSnsTopic = awsSnsTopic;
             _resultValue.enable = enable;
             _resultValue.refreshOnCreate = refreshOnCreate;
             return _resultValue;

@@ -129,7 +129,7 @@ namespace Pulumi.Snowflake
     ///         WeekStart = 1,
     ///     });
     /// 
-    ///     // with AWS workload identity
+    ///     // with AWS workload identity (GetCallerIdentity attestation)
     ///     var withAwsWif = new Snowflake.ServiceUser("with_aws_wif", new()
     ///     {
     ///         Name = "service_user_aws",
@@ -138,6 +138,20 @@ namespace Pulumi.Snowflake
     ///             Aws = new Snowflake.Inputs.ServiceUserDefaultWorkloadIdentityAwsArgs
     ///             {
     ///                 Arn = "arn:aws:iam::123456789012:role/snowflake-service-role",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     // with AWS workload identity (JWT-based / GetWebIdentityToken attestation)
+    ///     var withAwsJwtWif = new Snowflake.ServiceUser("with_aws_jwt_wif", new()
+    ///     {
+    ///         Name = "service_user_aws_jwt",
+    ///         DefaultWorkloadIdentity = new Snowflake.Inputs.ServiceUserDefaultWorkloadIdentityArgs
+    ///         {
+    ///             Aws = new Snowflake.Inputs.ServiceUserDefaultWorkloadIdentityAwsArgs
+    ///             {
+    ///                 Arn = "arn:aws:iam::123456789012:role/snowflake-service-role",
+    ///                 Issuer = "https://sts.amazonaws.com",
     ///             },
     ///         },
     ///     });

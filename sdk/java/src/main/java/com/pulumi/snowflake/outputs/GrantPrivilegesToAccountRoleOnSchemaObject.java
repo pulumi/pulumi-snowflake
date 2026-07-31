@@ -6,6 +6,7 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.GrantPrivilegesToAccountRoleOnSchemaObjectAll;
 import com.pulumi.snowflake.outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture;
+import com.pulumi.snowflake.outputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -24,12 +25,17 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     private @Nullable GrantPrivilegesToAccountRoleOnSchemaObjectFuture future;
     /**
+     * @return Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    private @Nullable GrantPrivilegesToAccountRoleOnSchemaObjectInherited inherited;
+    /**
      * @return The fully qualified name of the object on which privileges will be granted.
      * 
      */
     private @Nullable String objectName;
     /**
-     * @return The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * @return The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      * 
      */
     private @Nullable String objectType;
@@ -50,6 +56,13 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
         return Optional.ofNullable(this.future);
     }
     /**
+     * @return Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    public Optional<GrantPrivilegesToAccountRoleOnSchemaObjectInherited> inherited() {
+        return Optional.ofNullable(this.inherited);
+    }
+    /**
      * @return The fully qualified name of the object on which privileges will be granted.
      * 
      */
@@ -57,7 +70,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
         return Optional.ofNullable(this.objectName);
     }
     /**
-     * @return The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * @return The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      * 
      */
     public Optional<String> objectType() {
@@ -75,6 +88,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
     public static final class Builder {
         private @Nullable GrantPrivilegesToAccountRoleOnSchemaObjectAll all;
         private @Nullable GrantPrivilegesToAccountRoleOnSchemaObjectFuture future;
+        private @Nullable GrantPrivilegesToAccountRoleOnSchemaObjectInherited inherited;
         private @Nullable String objectName;
         private @Nullable String objectType;
         public Builder() {}
@@ -82,6 +96,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
     	      Objects.requireNonNull(defaults);
     	      this.all = defaults.all;
     	      this.future = defaults.future;
+    	      this.inherited = defaults.inherited;
     	      this.objectName = defaults.objectName;
     	      this.objectType = defaults.objectType;
         }
@@ -96,6 +111,12 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
         public Builder future(@Nullable GrantPrivilegesToAccountRoleOnSchemaObjectFuture future) {
 
             this.future = future;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inherited(@Nullable GrantPrivilegesToAccountRoleOnSchemaObjectInherited inherited) {
+
+            this.inherited = inherited;
             return this;
         }
         @CustomType.Setter
@@ -114,6 +135,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaObject {
             final var _resultValue = new GrantPrivilegesToAccountRoleOnSchemaObject();
             _resultValue.all = all;
             _resultValue.future = future;
+            _resultValue.inherited = inherited;
             _resultValue.objectName = objectName;
             _resultValue.objectType = objectType;
             return _resultValue;

@@ -46,7 +46,7 @@ type Tag struct {
 	NoAllowedValues pulumi.BoolPtrOutput `pulumi:"noAllowedValues"`
 	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 	OnConflict TagOnConflictPtrOutput `pulumi:"onConflict"`
-	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
 	OrderedAllowedValues pulumi.StringArrayOutput `pulumi:"orderedAllowedValues"`
 	// Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
 	Propagate pulumi.StringPtrOutput `pulumi:"propagate"`
@@ -110,7 +110,7 @@ type tagState struct {
 	NoAllowedValues *bool `pulumi:"noAllowedValues"`
 	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 	OnConflict *TagOnConflict `pulumi:"onConflict"`
-	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
 	OrderedAllowedValues []string `pulumi:"orderedAllowedValues"`
 	// Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
 	Propagate *string `pulumi:"propagate"`
@@ -139,7 +139,7 @@ type TagState struct {
 	NoAllowedValues pulumi.BoolPtrInput
 	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 	OnConflict TagOnConflictPtrInput
-	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
 	OrderedAllowedValues pulumi.StringArrayInput
 	// Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
 	Propagate pulumi.StringPtrInput
@@ -170,7 +170,7 @@ type tagArgs struct {
 	NoAllowedValues *bool `pulumi:"noAllowedValues"`
 	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 	OnConflict *TagOnConflict `pulumi:"onConflict"`
-	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
 	OrderedAllowedValues []string `pulumi:"orderedAllowedValues"`
 	// Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
 	Propagate *string `pulumi:"propagate"`
@@ -196,7 +196,7 @@ type TagArgs struct {
 	NoAllowedValues pulumi.BoolPtrInput
 	// Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
 	OnConflict TagOnConflictPtrInput
-	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+	// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
 	OrderedAllowedValues pulumi.StringArrayInput
 	// Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
 	Propagate pulumi.StringPtrInput
@@ -333,7 +333,7 @@ func (o TagOutput) OnConflict() TagOnConflictPtrOutput {
 	return o.ApplyT(func(v *Tag) TagOnConflictPtrOutput { return v.OnConflict }).(TagOnConflictPtrOutput)
 }
 
-// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+// Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
 func (o TagOutput) OrderedAllowedValues() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringArrayOutput { return v.OrderedAllowedValues }).(pulumi.StringArrayOutput)
 }

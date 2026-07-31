@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class LegacyServiceUserDefaultWorkloadIdentityAws {
@@ -15,6 +17,11 @@ public final class LegacyServiceUserDefaultWorkloadIdentityAws {
      * 
      */
     private String arn;
+    /**
+     * @return The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+     * 
+     */
+    private @Nullable String issuer;
 
     private LegacyServiceUserDefaultWorkloadIdentityAws() {}
     /**
@@ -23,6 +30,13 @@ public final class LegacyServiceUserDefaultWorkloadIdentityAws {
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+     * 
+     */
+    public Optional<String> issuer() {
+        return Optional.ofNullable(this.issuer);
     }
 
     public static Builder builder() {
@@ -35,10 +49,12 @@ public final class LegacyServiceUserDefaultWorkloadIdentityAws {
     @CustomType.Builder
     public static final class Builder {
         private String arn;
+        private @Nullable String issuer;
         public Builder() {}
         public Builder(LegacyServiceUserDefaultWorkloadIdentityAws defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.issuer = defaults.issuer;
         }
 
         @CustomType.Setter
@@ -49,9 +65,16 @@ public final class LegacyServiceUserDefaultWorkloadIdentityAws {
             this.arn = arn;
             return this;
         }
+        @CustomType.Setter
+        public Builder issuer(@Nullable String issuer) {
+
+            this.issuer = issuer;
+            return this;
+        }
         public LegacyServiceUserDefaultWorkloadIdentityAws build() {
             final var _resultValue = new LegacyServiceUserDefaultWorkloadIdentityAws();
             _resultValue.arn = arn;
+            _resultValue.issuer = issuer;
             return _resultValue;
         }
     }

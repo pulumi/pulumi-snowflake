@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class LegacyServiceUserDefaultWorkloadIdentityAwsArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +31,26 @@ public final class LegacyServiceUserDefaultWorkloadIdentityAwsArgs extends com.p
         return this.arn;
     }
 
+    /**
+     * The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+     * 
+     */
+    @Import(name="issuer")
+    private @Nullable Output<String> issuer;
+
+    /**
+     * @return The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+     * 
+     */
+    public Optional<Output<String>> issuer() {
+        return Optional.ofNullable(this.issuer);
+    }
+
     private LegacyServiceUserDefaultWorkloadIdentityAwsArgs() {}
 
     private LegacyServiceUserDefaultWorkloadIdentityAwsArgs(LegacyServiceUserDefaultWorkloadIdentityAwsArgs $) {
         this.arn = $.arn;
+        this.issuer = $.issuer;
     }
 
     public static Builder builder() {
@@ -72,6 +90,27 @@ public final class LegacyServiceUserDefaultWorkloadIdentityAwsArgs extends com.p
          */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
+        }
+
+        /**
+         * @param issuer The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder issuer(@Nullable Output<String> issuer) {
+            $.issuer = issuer;
+            return this;
+        }
+
+        /**
+         * @param issuer The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder issuer(String issuer) {
+            return issuer(Output.of(issuer));
         }
 
         public LegacyServiceUserDefaultWorkloadIdentityAwsArgs build() {

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetFileFormatsResult',
@@ -27,33 +28,28 @@ class GetFileFormatsResult:
     """
     A collection of values returned by getFileFormats.
     """
-    def __init__(__self__, database=None, file_formats=None, id=None, schema=None):
-        if database and not isinstance(database, str):
-            raise TypeError("Expected argument 'database' to be a str")
-        pulumi.set(__self__, "database", database)
+    def __init__(__self__, file_formats=None, id=None, in_=None, like=None, with_describe=None):
         if file_formats and not isinstance(file_formats, list):
             raise TypeError("Expected argument 'file_formats' to be a list")
         pulumi.set(__self__, "file_formats", file_formats)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if schema and not isinstance(schema, str):
-            raise TypeError("Expected argument 'schema' to be a str")
-        pulumi.set(__self__, "schema", schema)
-
-    @_builtins.property
-    @pulumi.getter
-    def database(self) -> _builtins.str:
-        """
-        The database from which to return the schemas from.
-        """
-        return pulumi.get(self, "database")
+        if in_ and not isinstance(in_, dict):
+            raise TypeError("Expected argument 'in_' to be a dict")
+        pulumi.set(__self__, "in_", in_)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
+        if with_describe and not isinstance(with_describe, bool):
+            raise TypeError("Expected argument 'with_describe' to be a bool")
+        pulumi.set(__self__, "with_describe", with_describe)
 
     @_builtins.property
     @pulumi.getter(name="fileFormats")
     def file_formats(self) -> Sequence['outputs.GetFileFormatsFileFormatResult']:
         """
-        The file formats in the schema
+        Holds the aggregated output of all file formats details queries.
         """
         return pulumi.get(self, "file_formats")
 
@@ -66,12 +62,28 @@ class GetFileFormatsResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
+    @pulumi.getter(name="in")
+    def in_(self) -> Optional['outputs.GetFileFormatsInResult']:
+        """
+        IN clause to filter the list of objects
+        """
+        return pulumi.get(self, "in_")
+
+    @_builtins.property
     @pulumi.getter
-    def schema(self) -> _builtins.str:
+    def like(self) -> Optional[_builtins.str]:
         """
-        The schema from which to return the file formats from.
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         """
-        return pulumi.get(self, "schema")
+        return pulumi.get(self, "like")
+
+    @_builtins.property
+    @pulumi.getter(name="withDescribe")
+    def with_describe(self) -> Optional[_builtins.bool]:
+        """
+        (Default: `true`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the describe_output field. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_describe")
 
 
 class AwaitableGetFileFormatsResult(GetFileFormatsResult):
@@ -80,74 +92,63 @@ class AwaitableGetFileFormatsResult(GetFileFormatsResult):
         if False:
             yield self
         return GetFileFormatsResult(
-            database=self.database,
             file_formats=self.file_formats,
             id=self.id,
-            schema=self.schema)
+            in_=self.in_,
+            like=self.like,
+            with_describe=self.with_describe)
 
 
-def get_file_formats(database: Optional[_builtins.str] = None,
-                     schema: Optional[_builtins.str] = None,
+def get_file_formats(in_: Optional[Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict']] = None,
+                     like: Optional[_builtins.str] = None,
+                     with_describe: Optional[_builtins.bool] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileFormatsResult:
     """
     > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_file_formats(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `file_formats`.
 
 
-    :param _builtins.str database: The database from which to return the schemas from.
-    :param _builtins.str schema: The schema from which to return the file formats from.
+    :param Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict'] in_: IN clause to filter the list of objects
+    :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param _builtins.bool with_describe: (Default: `true`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getFileFormats:getFileFormats', __args__, opts=opts, typ=GetFileFormatsResult).value
 
     return AwaitableGetFileFormatsResult(
-        database=pulumi.get(__ret__, 'database'),
         file_formats=pulumi.get(__ret__, 'file_formats'),
         id=pulumi.get(__ret__, 'id'),
-        schema=pulumi.get(__ret__, 'schema'))
-def get_file_formats_output(database: pulumi.Input[Optional[_builtins.str]] = None,
-                            schema: pulumi.Input[Optional[_builtins.str]] = None,
+        in_=pulumi.get(__ret__, 'in_'),
+        like=pulumi.get(__ret__, 'like'),
+        with_describe=pulumi.get(__ret__, 'with_describe'))
+def get_file_formats_output(in_: pulumi.Input[Optional[Optional[Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict']]]] = None,
+                            like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileFormatsResult]:
     """
     > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_file_formats(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `file_formats`.
 
 
-    :param _builtins.str database: The database from which to return the schemas from.
-    :param _builtins.str schema: The schema from which to return the file formats from.
+    :param Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict'] in_: IN clause to filter the list of objects
+    :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param _builtins.bool with_describe: (Default: `true`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getFileFormats:getFileFormats', __args__, opts=opts, typ=GetFileFormatsResult)
     return __ret__.apply(lambda __response__: GetFileFormatsResult(
-        database=pulumi.get(__response__, 'database'),
         file_formats=pulumi.get(__response__, 'file_formats'),
         id=pulumi.get(__response__, 'id'),
-        schema=pulumi.get(__response__, 'schema')))
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
+        with_describe=pulumi.get(__response__, 'with_describe')))

@@ -10,6 +10,7 @@ import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
 import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
 import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
 import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
+import com.pulumi.snowflake.inputs.GetGrantsInheritedGrantsInArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -94,6 +95,21 @@ public final class GetGrantsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.grantsTo);
     }
 
+    /**
+     * Lists all inherited grants defined in a container.
+     * 
+     */
+    @Import(name="inheritedGrantsIn")
+    private @Nullable Output<GetGrantsInheritedGrantsInArgs> inheritedGrantsIn;
+
+    /**
+     * @return Lists all inherited grants defined in a container.
+     * 
+     */
+    public Optional<Output<GetGrantsInheritedGrantsInArgs>> inheritedGrantsIn() {
+        return Optional.ofNullable(this.inheritedGrantsIn);
+    }
+
     private GetGrantsArgs() {}
 
     private GetGrantsArgs(GetGrantsArgs $) {
@@ -102,6 +118,7 @@ public final class GetGrantsArgs extends com.pulumi.resources.InvokeArgs {
         this.grantsOf = $.grantsOf;
         this.grantsOn = $.grantsOn;
         this.grantsTo = $.grantsTo;
+        this.inheritedGrantsIn = $.inheritedGrantsIn;
     }
 
     public static Builder builder() {
@@ -225,6 +242,27 @@ public final class GetGrantsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder grantsTo(GetGrantsGrantsToArgs grantsTo) {
             return grantsTo(Output.of(grantsTo));
+        }
+
+        /**
+         * @param inheritedGrantsIn Lists all inherited grants defined in a container.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inheritedGrantsIn(@Nullable Output<GetGrantsInheritedGrantsInArgs> inheritedGrantsIn) {
+            $.inheritedGrantsIn = inheritedGrantsIn;
+            return this;
+        }
+
+        /**
+         * @param inheritedGrantsIn Lists all inherited grants defined in a container.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inheritedGrantsIn(GetGrantsInheritedGrantsInArgs inheritedGrantsIn) {
+            return inheritedGrantsIn(Output.of(inheritedGrantsIn));
         }
 
         public GetGrantsArgs build() {

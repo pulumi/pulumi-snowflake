@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.snowflake.outputs.GrantPrivilegesToAccountRoleOnSchemaInherited;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,6 +22,11 @@ public final class GrantPrivilegesToAccountRoleOnSchema {
      * 
      */
     private @Nullable String futureSchemasInDatabase;
+    /**
+     * @return Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    private @Nullable GrantPrivilegesToAccountRoleOnSchemaInherited inherited;
     /**
      * @return The fully qualified name of the schema.
      * 
@@ -43,6 +49,13 @@ public final class GrantPrivilegesToAccountRoleOnSchema {
         return Optional.ofNullable(this.futureSchemasInDatabase);
     }
     /**
+     * @return Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    public Optional<GrantPrivilegesToAccountRoleOnSchemaInherited> inherited() {
+        return Optional.ofNullable(this.inherited);
+    }
+    /**
      * @return The fully qualified name of the schema.
      * 
      */
@@ -61,12 +74,14 @@ public final class GrantPrivilegesToAccountRoleOnSchema {
     public static final class Builder {
         private @Nullable String allSchemasInDatabase;
         private @Nullable String futureSchemasInDatabase;
+        private @Nullable GrantPrivilegesToAccountRoleOnSchemaInherited inherited;
         private @Nullable String schemaName;
         public Builder() {}
         public Builder(GrantPrivilegesToAccountRoleOnSchema defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allSchemasInDatabase = defaults.allSchemasInDatabase;
     	      this.futureSchemasInDatabase = defaults.futureSchemasInDatabase;
+    	      this.inherited = defaults.inherited;
     	      this.schemaName = defaults.schemaName;
         }
 
@@ -83,6 +98,12 @@ public final class GrantPrivilegesToAccountRoleOnSchema {
             return this;
         }
         @CustomType.Setter
+        public Builder inherited(@Nullable GrantPrivilegesToAccountRoleOnSchemaInherited inherited) {
+
+            this.inherited = inherited;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schemaName(@Nullable String schemaName) {
 
             this.schemaName = schemaName;
@@ -92,6 +113,7 @@ public final class GrantPrivilegesToAccountRoleOnSchema {
             final var _resultValue = new GrantPrivilegesToAccountRoleOnSchema();
             _resultValue.allSchemasInDatabase = allSchemasInDatabase;
             _resultValue.futureSchemasInDatabase = futureSchemasInDatabase;
+            _resultValue.inherited = inherited;
             _resultValue.schemaName = schemaName;
             return _resultValue;
         }

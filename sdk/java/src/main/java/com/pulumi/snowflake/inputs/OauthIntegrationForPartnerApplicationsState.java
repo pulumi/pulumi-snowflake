@@ -21,6 +21,21 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     public static final OauthIntegrationForPartnerApplicationsState Empty = new OauthIntegrationForPartnerApplicationsState();
 
     /**
+     * A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+     * 
+     */
+    @Import(name="allowedRolesLists")
+    private @Nullable Output<List<String>> allowedRolesLists;
+
+    /**
+     * @return A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedRolesLists() {
+        return Optional.ofNullable(this.allowedRolesLists);
+    }
+
+    /**
      * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
@@ -218,6 +233,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     private OauthIntegrationForPartnerApplicationsState() {}
 
     private OauthIntegrationForPartnerApplicationsState(OauthIntegrationForPartnerApplicationsState $) {
+        this.allowedRolesLists = $.allowedRolesLists;
         this.blockedRolesLists = $.blockedRolesLists;
         this.comment = $.comment;
         this.describeOutputs = $.describeOutputs;
@@ -249,6 +265,37 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
 
         public Builder(OauthIntegrationForPartnerApplicationsState defaults) {
             $ = new OauthIntegrationForPartnerApplicationsState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowedRolesLists A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedRolesLists(@Nullable Output<List<String>> allowedRolesLists) {
+            $.allowedRolesLists = allowedRolesLists;
+            return this;
+        }
+
+        /**
+         * @param allowedRolesLists A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedRolesLists(List<String> allowedRolesLists) {
+            return allowedRolesLists(Output.of(allowedRolesLists));
+        }
+
+        /**
+         * @param allowedRolesLists A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedRolesLists(String... allowedRolesLists) {
+            return allowedRolesLists(List.of(allowedRolesLists));
         }
 
         /**

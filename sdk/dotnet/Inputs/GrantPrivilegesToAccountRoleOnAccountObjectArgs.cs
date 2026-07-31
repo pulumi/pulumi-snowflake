@@ -13,16 +13,22 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class GrantPrivilegesToAccountRoleOnAccountObjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the object on which privileges will be granted.
+        /// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `ExperimentalFeaturesEnabled` field.
         /// </summary>
-        [Input("objectName", required: true)]
-        public Input<string> ObjectName { get; set; } = null!;
+        [Input("inherited")]
+        public Input<Inputs.GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs>? Inherited { get; set; }
 
         /// <summary>
-        /// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+        /// The fully qualified name of the object on which privileges will be granted.
         /// </summary>
-        [Input("objectType", required: true)]
-        public Input<string> ObjectType { get; set; } = null!;
+        [Input("objectName")]
+        public Input<string>? ObjectName { get; set; }
+
+        /// <summary>
+        /// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
+        /// </summary>
+        [Input("objectType")]
+        public Input<string>? ObjectType { get; set; }
 
         public GrantPrivilegesToAccountRoleOnAccountObjectArgs()
         {

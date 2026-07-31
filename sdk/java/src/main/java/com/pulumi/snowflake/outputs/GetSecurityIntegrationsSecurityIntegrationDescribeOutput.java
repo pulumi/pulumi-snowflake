@@ -6,6 +6,7 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPattern;
+import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesList;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomain;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthType;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesList;
@@ -63,6 +64,7 @@ import java.util.Objects;
 @CustomType
 public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPattern> allowedEmailPatterns;
+    private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesList> allowedRolesLists;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomain> allowedUserDomains;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthType> authTypes;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesList> blockedRolesLists;
@@ -118,6 +120,9 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     private GetSecurityIntegrationsSecurityIntegrationDescribeOutput() {}
     public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPattern> allowedEmailPatterns() {
         return this.allowedEmailPatterns;
+    }
+    public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesList> allowedRolesLists() {
+        return this.allowedRolesLists;
     }
     public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomain> allowedUserDomains() {
         return this.allowedUserDomains;
@@ -283,6 +288,7 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     @CustomType.Builder
     public static final class Builder {
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPattern> allowedEmailPatterns;
+        private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesList> allowedRolesLists;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomain> allowedUserDomains;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthType> authTypes;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesList> blockedRolesLists;
@@ -338,6 +344,7 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
         public Builder(GetSecurityIntegrationsSecurityIntegrationDescribeOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedEmailPatterns = defaults.allowedEmailPatterns;
+    	      this.allowedRolesLists = defaults.allowedRolesLists;
     	      this.allowedUserDomains = defaults.allowedUserDomains;
     	      this.authTypes = defaults.authTypes;
     	      this.blockedRolesLists = defaults.blockedRolesLists;
@@ -401,6 +408,17 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
         }
         public Builder allowedEmailPatterns(GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPattern... allowedEmailPatterns) {
             return allowedEmailPatterns(List.of(allowedEmailPatterns));
+        }
+        @CustomType.Setter
+        public Builder allowedRolesLists(List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesList> allowedRolesLists) {
+            if (allowedRolesLists == null) {
+              throw new MissingRequiredPropertyException("GetSecurityIntegrationsSecurityIntegrationDescribeOutput", "allowedRolesLists");
+            }
+            this.allowedRolesLists = allowedRolesLists;
+            return this;
+        }
+        public Builder allowedRolesLists(GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesList... allowedRolesLists) {
+            return allowedRolesLists(List.of(allowedRolesLists));
         }
         @CustomType.Setter
         public Builder allowedUserDomains(List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomain> allowedUserDomains) {
@@ -966,6 +984,7 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
         public GetSecurityIntegrationsSecurityIntegrationDescribeOutput build() {
             final var _resultValue = new GetSecurityIntegrationsSecurityIntegrationDescribeOutput();
             _resultValue.allowedEmailPatterns = allowedEmailPatterns;
+            _resultValue.allowedRolesLists = allowedRolesLists;
             _resultValue.allowedUserDomains = allowedUserDomains;
             _resultValue.authTypes = authTypes;
             _resultValue.blockedRolesLists = blockedRolesLists;

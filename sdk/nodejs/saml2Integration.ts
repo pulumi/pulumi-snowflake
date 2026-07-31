@@ -12,7 +12,7 @@ import * as utilities from "./utilities";
  * > **Note** To use `allowedUserDomains` and `allowedEmailPatterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
  *
  * > **Missing fields** The `saml2SnowflakeX509Cert` and `saml2X509Cert` fields are not present in the `describeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
- * This may have impact on detecting external changes for the `saml2X509Cert` field.
+ * This may have impact on detecting external changes for the `saml2X509Cert` field. The `saml2SnowflakeX509Cert` field is also not present for user configuration and will be added in the future. Please use the execute resource as a workaround.
  *
  * Resource used to manage SAML2 security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-saml2).
  *
@@ -50,9 +50,6 @@ import * as utilities from "./utilities";
  *     saml2SignRequest: "true",
  *     saml2SnowflakeAcsUrl: "example.snowflakecomputing.com/fed/login",
  *     saml2SnowflakeIssuerUrl: "example.snowflakecomputing.com/fed/login",
- *     saml2SnowflakeX509Cert: std.file({
- *         input: "snowflake_cert.pem",
- *     }).then(invoke => invoke.result),
  *     saml2SpInitiatedLoginPageLabel: "foo",
  *     saml2SsoUrl: "https://example.com",
  *     saml2X509Cert: std.file({

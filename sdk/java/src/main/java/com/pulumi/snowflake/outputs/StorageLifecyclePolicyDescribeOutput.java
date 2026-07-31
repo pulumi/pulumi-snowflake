@@ -17,8 +17,10 @@ public final class StorageLifecyclePolicyDescribeOutput {
     private @Nullable Integer archiveForDays;
     private @Nullable String archiveTier;
     private @Nullable String body;
+    private @Nullable String databaseName;
     private @Nullable String name;
     private @Nullable String returnType;
+    private @Nullable String schemaName;
     private @Nullable List<StorageLifecyclePolicyDescribeOutputSignature> signatures;
 
     private StorageLifecyclePolicyDescribeOutput() {}
@@ -31,11 +33,17 @@ public final class StorageLifecyclePolicyDescribeOutput {
     public Optional<String> body() {
         return Optional.ofNullable(this.body);
     }
+    public Optional<String> databaseName() {
+        return Optional.ofNullable(this.databaseName);
+    }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
     public Optional<String> returnType() {
         return Optional.ofNullable(this.returnType);
+    }
+    public Optional<String> schemaName() {
+        return Optional.ofNullable(this.schemaName);
     }
     public List<StorageLifecyclePolicyDescribeOutputSignature> signatures() {
         return this.signatures == null ? List.of() : this.signatures;
@@ -53,8 +61,10 @@ public final class StorageLifecyclePolicyDescribeOutput {
         private @Nullable Integer archiveForDays;
         private @Nullable String archiveTier;
         private @Nullable String body;
+        private @Nullable String databaseName;
         private @Nullable String name;
         private @Nullable String returnType;
+        private @Nullable String schemaName;
         private @Nullable List<StorageLifecyclePolicyDescribeOutputSignature> signatures;
         public Builder() {}
         public Builder(StorageLifecyclePolicyDescribeOutput defaults) {
@@ -62,8 +72,10 @@ public final class StorageLifecyclePolicyDescribeOutput {
     	      this.archiveForDays = defaults.archiveForDays;
     	      this.archiveTier = defaults.archiveTier;
     	      this.body = defaults.body;
+    	      this.databaseName = defaults.databaseName;
     	      this.name = defaults.name;
     	      this.returnType = defaults.returnType;
+    	      this.schemaName = defaults.schemaName;
     	      this.signatures = defaults.signatures;
         }
 
@@ -86,6 +98,12 @@ public final class StorageLifecyclePolicyDescribeOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder databaseName(@Nullable String databaseName) {
+
+            this.databaseName = databaseName;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
 
             this.name = name;
@@ -95,6 +113,12 @@ public final class StorageLifecyclePolicyDescribeOutput {
         public Builder returnType(@Nullable String returnType) {
 
             this.returnType = returnType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder schemaName(@Nullable String schemaName) {
+
+            this.schemaName = schemaName;
             return this;
         }
         @CustomType.Setter
@@ -111,8 +135,10 @@ public final class StorageLifecyclePolicyDescribeOutput {
             _resultValue.archiveForDays = archiveForDays;
             _resultValue.archiveTier = archiveTier;
             _resultValue.body = body;
+            _resultValue.databaseName = databaseName;
             _resultValue.name = name;
             _resultValue.returnType = returnType;
+            _resultValue.schemaName = schemaName;
             _resultValue.signatures = signatures;
             return _resultValue;
         }

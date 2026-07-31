@@ -93,6 +93,34 @@ public class Database extends com.pulumi.resources.CustomResource {
         return this.defaultDdlCollation;
     }
     /**
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     * 
+     */
+    @Export(name="defaultNotebookComputePoolCpu", refs={String.class}, tree="[0]")
+    private Output<String> defaultNotebookComputePoolCpu;
+
+    /**
+     * @return Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     * 
+     */
+    public Output<String> defaultNotebookComputePoolCpu() {
+        return this.defaultNotebookComputePoolCpu;
+    }
+    /**
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     * 
+     */
+    @Export(name="defaultNotebookComputePoolGpu", refs={String.class}, tree="[0]")
+    private Output<String> defaultNotebookComputePoolGpu;
+
+    /**
+     * @return Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     * 
+     */
+    public Output<String> defaultNotebookComputePoolGpu() {
+        return this.defaultNotebookComputePoolGpu;
+    }
+    /**
      * Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won&#39;t have any effect.
      * 
      */

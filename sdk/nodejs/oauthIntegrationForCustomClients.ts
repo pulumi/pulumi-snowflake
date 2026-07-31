@@ -42,10 +42,10 @@ import * as utilities from "./utilities";
  *         one.fullyQualifiedName,
  *         two.fullyQualifiedName,
  *     ],
+ *     allowedRolesLists: [three.fullyQualifiedName],
  *     blockedRolesLists: [
  *         "ACCOUNTADMIN",
  *         "SECURITYADMIN",
- *         three.fullyQualifiedName,
  *         four.fullyQualifiedName,
  *     ],
  *     oauthIssueRefreshTokens: "true",
@@ -99,6 +99,10 @@ export class OauthIntegrationForCustomClients extends pulumi.CustomResource {
         return obj['__pulumiType'] === OauthIntegrationForCustomClients.__pulumiType;
     }
 
+    /**
+     * A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+     */
+    declare public readonly allowedRolesLists: pulumi.Output<string[] | undefined>;
     /**
      * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
@@ -189,6 +193,7 @@ export class OauthIntegrationForCustomClients extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OauthIntegrationForCustomClientsState | undefined;
+            resourceInputs["allowedRolesLists"] = state?.allowedRolesLists;
             resourceInputs["blockedRolesLists"] = state?.blockedRolesLists;
             resourceInputs["comment"] = state?.comment;
             resourceInputs["describeOutputs"] = state?.describeOutputs;
@@ -216,6 +221,7 @@ export class OauthIntegrationForCustomClients extends pulumi.CustomResource {
             if (args?.oauthRedirectUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'oauthRedirectUri'");
             }
+            resourceInputs["allowedRolesLists"] = args?.allowedRolesLists;
             resourceInputs["blockedRolesLists"] = args?.blockedRolesLists;
             resourceInputs["comment"] = args?.comment;
             resourceInputs["enabled"] = args?.enabled;
@@ -247,6 +253,10 @@ export class OauthIntegrationForCustomClients extends pulumi.CustomResource {
  * Input properties used for looking up and filtering OauthIntegrationForCustomClients resources.
  */
 export interface OauthIntegrationForCustomClientsState {
+    /**
+     * A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+     */
+    allowedRolesLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
@@ -329,6 +339,10 @@ export interface OauthIntegrationForCustomClientsState {
  * The set of arguments for constructing a OauthIntegrationForCustomClients resource.
  */
 export interface OauthIntegrationForCustomClientsArgs {
+    /**
+     * A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+     */
+    allowedRolesLists?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */

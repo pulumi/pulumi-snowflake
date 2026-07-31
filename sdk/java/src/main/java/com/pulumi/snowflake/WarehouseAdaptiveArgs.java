@@ -77,6 +77,21 @@ public final class WarehouseAdaptiveArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+     * 
+     */
+    @Import(name="resourceMonitor")
+    private @Nullable Output<String> resourceMonitor;
+
+    /**
+     * @return Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+     * 
+     */
+    public Optional<Output<String>> resourceMonitor() {
+        return Optional.ofNullable(this.resourceMonitor);
+    }
+
+    /**
      * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      * 
      */
@@ -113,6 +128,7 @@ public final class WarehouseAdaptiveArgs extends com.pulumi.resources.ResourceAr
         this.maxQueryPerformanceLevel = $.maxQueryPerformanceLevel;
         this.name = $.name;
         this.queryThroughputMultiplier = $.queryThroughputMultiplier;
+        this.resourceMonitor = $.resourceMonitor;
         this.statementQueuedTimeoutInSeconds = $.statementQueuedTimeoutInSeconds;
         this.statementTimeoutInSeconds = $.statementTimeoutInSeconds;
     }
@@ -217,6 +233,27 @@ public final class WarehouseAdaptiveArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder queryThroughputMultiplier(Integer queryThroughputMultiplier) {
             return queryThroughputMultiplier(Output.of(queryThroughputMultiplier));
+        }
+
+        /**
+         * @param resourceMonitor Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceMonitor(@Nullable Output<String> resourceMonitor) {
+            $.resourceMonitor = resourceMonitor;
+            return this;
+        }
+
+        /**
+         * @param resourceMonitor Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceMonitor(String resourceMonitor) {
+            return resourceMonitor(Output.of(resourceMonitor));
         }
 
         /**

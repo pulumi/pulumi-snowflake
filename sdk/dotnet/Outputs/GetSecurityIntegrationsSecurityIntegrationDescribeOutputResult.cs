@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult
     {
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPatternResult> AllowedEmailPatterns;
+        public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesListResult> AllowedRolesLists;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomainResult> AllowedUserDomains;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAuthTypeResult> AuthTypes;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputBlockedRolesListResult> BlockedRolesLists;
@@ -69,6 +70,8 @@ namespace Pulumi.Snowflake.Outputs
         [OutputConstructor]
         private GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedEmailPatternResult> allowedEmailPatterns,
+
+            ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedRolesListResult> allowedRolesLists,
 
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputAllowedUserDomainResult> allowedUserDomains,
 
@@ -173,6 +176,7 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult> syncPasswords)
         {
             AllowedEmailPatterns = allowedEmailPatterns;
+            AllowedRolesLists = allowedRolesLists;
             AllowedUserDomains = allowedUserDomains;
             AuthTypes = authTypes;
             BlockedRolesLists = blockedRolesLists;

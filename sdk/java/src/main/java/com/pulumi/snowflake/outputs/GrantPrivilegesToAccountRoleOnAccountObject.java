@@ -4,37 +4,51 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GrantPrivilegesToAccountRoleOnAccountObject {
     /**
+     * @return Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    private @Nullable GrantPrivilegesToAccountRoleOnAccountObjectInherited inherited;
+    /**
      * @return The fully qualified name of the object on which privileges will be granted.
      * 
      */
-    private String objectName;
+    private @Nullable String objectName;
     /**
-     * @return The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+     * @return The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
      * 
      */
-    private String objectType;
+    private @Nullable String objectType;
 
     private GrantPrivilegesToAccountRoleOnAccountObject() {}
     /**
+     * @return Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    public Optional<GrantPrivilegesToAccountRoleOnAccountObjectInherited> inherited() {
+        return Optional.ofNullable(this.inherited);
+    }
+    /**
      * @return The fully qualified name of the object on which privileges will be granted.
      * 
      */
-    public String objectName() {
-        return this.objectName;
+    public Optional<String> objectName() {
+        return Optional.ofNullable(this.objectName);
     }
     /**
-     * @return The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+     * @return The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
      * 
      */
-    public String objectType() {
-        return this.objectType;
+    public Optional<String> objectType() {
+        return Optional.ofNullable(this.objectType);
     }
 
     public static Builder builder() {
@@ -46,33 +60,38 @@ public final class GrantPrivilegesToAccountRoleOnAccountObject {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String objectName;
-        private String objectType;
+        private @Nullable GrantPrivilegesToAccountRoleOnAccountObjectInherited inherited;
+        private @Nullable String objectName;
+        private @Nullable String objectType;
         public Builder() {}
         public Builder(GrantPrivilegesToAccountRoleOnAccountObject defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.inherited = defaults.inherited;
     	      this.objectName = defaults.objectName;
     	      this.objectType = defaults.objectType;
         }
 
         @CustomType.Setter
-        public Builder objectName(String objectName) {
-            if (objectName == null) {
-              throw new MissingRequiredPropertyException("GrantPrivilegesToAccountRoleOnAccountObject", "objectName");
-            }
+        public Builder inherited(@Nullable GrantPrivilegesToAccountRoleOnAccountObjectInherited inherited) {
+
+            this.inherited = inherited;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder objectName(@Nullable String objectName) {
+
             this.objectName = objectName;
             return this;
         }
         @CustomType.Setter
-        public Builder objectType(String objectType) {
-            if (objectType == null) {
-              throw new MissingRequiredPropertyException("GrantPrivilegesToAccountRoleOnAccountObject", "objectType");
-            }
+        public Builder objectType(@Nullable String objectType) {
+
             this.objectType = objectType;
             return this;
         }
         public GrantPrivilegesToAccountRoleOnAccountObject build() {
             final var _resultValue = new GrantPrivilegesToAccountRoleOnAccountObject();
+            _resultValue.inherited = inherited;
             _resultValue.objectName = objectName;
             _resultValue.objectType = objectType;
             return _resultValue;

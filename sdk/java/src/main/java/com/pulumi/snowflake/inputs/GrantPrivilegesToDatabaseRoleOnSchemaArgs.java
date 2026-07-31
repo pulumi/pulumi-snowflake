@@ -46,6 +46,21 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaArgs extends com.pulumi.
     }
 
     /**
+     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    @Import(name="inherited")
+    private @Nullable Output<String> inherited;
+
+    /**
+     * @return Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    public Optional<Output<String>> inherited() {
+        return Optional.ofNullable(this.inherited);
+    }
+
+    /**
      * The fully qualified name of the schema.
      * 
      */
@@ -65,6 +80,7 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaArgs extends com.pulumi.
     private GrantPrivilegesToDatabaseRoleOnSchemaArgs(GrantPrivilegesToDatabaseRoleOnSchemaArgs $) {
         this.allSchemasInDatabase = $.allSchemasInDatabase;
         this.futureSchemasInDatabase = $.futureSchemasInDatabase;
+        this.inherited = $.inherited;
         this.schemaName = $.schemaName;
     }
 
@@ -126,6 +142,27 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaArgs extends com.pulumi.
          */
         public Builder futureSchemasInDatabase(String futureSchemasInDatabase) {
             return futureSchemasInDatabase(Output.of(futureSchemasInDatabase));
+        }
+
+        /**
+         * @param inherited Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inherited(@Nullable Output<String> inherited) {
+            $.inherited = inherited;
+            return this;
+        }
+
+        /**
+         * @param inherited Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inherited(String inherited) {
+            return inherited(Output.of(inherited));
         }
 
         /**

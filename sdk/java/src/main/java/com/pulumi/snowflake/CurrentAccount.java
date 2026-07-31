@@ -692,6 +692,20 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
         return this.defaultNullOrdering;
     }
     /**
+     * Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+     * 
+     */
+    @Export(name="defaultStreamlitComputePool", refs={String.class}, tree="[0]")
+    private Output<String> defaultStreamlitComputePool;
+
+    /**
+     * @return Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+     * 
+     */
+    public Output<String> defaultStreamlitComputePool() {
+        return this.defaultStreamlitComputePool;
+    }
+    /**
      * Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
      * 
      */

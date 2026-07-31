@@ -390,6 +390,12 @@ namespace Pulumi.Snowflake
         public Output<string> DefaultNullOrdering { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+        /// </summary>
+        [Output("defaultStreamlitComputePool")]
+        public Output<string> DefaultStreamlitComputePool { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
         /// </summary>
         [Output("defaultStreamlitNotebookWarehouse")]
@@ -1198,6 +1204,12 @@ namespace Pulumi.Snowflake
         public Input<string>? DefaultNullOrdering { get; set; }
 
         /// <summary>
+        /// Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+        /// </summary>
+        [Input("defaultStreamlitComputePool")]
+        public Input<string>? DefaultStreamlitComputePool { get; set; }
+
+        /// <summary>
         /// Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
         /// </summary>
         [Input("defaultStreamlitNotebookWarehouse")]
@@ -1966,6 +1978,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("defaultNullOrdering")]
         public Input<string>? DefaultNullOrdering { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+        /// </summary>
+        [Input("defaultStreamlitComputePool")]
+        public Input<string>? DefaultStreamlitComputePool { get; set; }
 
         /// <summary>
         /// Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).

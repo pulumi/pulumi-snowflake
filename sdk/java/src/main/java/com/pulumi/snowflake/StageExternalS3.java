@@ -101,6 +101,7 @@ import javax.annotation.Nullable;
  *                 .enable(true)
  *                 .refreshOnCreate("true")
  *                 .autoRefresh("false")
+ *                 .awsSnsTopic("arn:aws:sns:us-west-2:123456789012:s3-stage-directory-topic")
  *                 .build())
  *             .comment("Fully configured S3 external stage")
  *             .build());

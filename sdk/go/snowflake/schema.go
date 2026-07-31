@@ -43,6 +43,10 @@ type Schema struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringOutput `pulumi:"defaultDdlCollation"`
+	// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+	DefaultNotebookComputePoolCpu pulumi.StringOutput `pulumi:"defaultNotebookComputePoolCpu"`
+	// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+	DefaultNotebookComputePoolGpu pulumi.StringOutput `pulumi:"defaultNotebookComputePoolGpu"`
 	// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
 	DescribeOutputs SchemaDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
@@ -132,6 +136,10 @@ type schemaState struct {
 	Database *string `pulumi:"database"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation *string `pulumi:"defaultDdlCollation"`
+	// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+	DefaultNotebookComputePoolCpu *string `pulumi:"defaultNotebookComputePoolCpu"`
+	// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+	DefaultNotebookComputePoolGpu *string `pulumi:"defaultNotebookComputePoolGpu"`
 	// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
 	DescribeOutputs []SchemaDescribeOutput `pulumi:"describeOutputs"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
@@ -189,6 +197,10 @@ type SchemaState struct {
 	Database pulumi.StringPtrInput
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringPtrInput
+	// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+	DefaultNotebookComputePoolCpu pulumi.StringPtrInput
+	// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+	DefaultNotebookComputePoolGpu pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
 	DescribeOutputs SchemaDescribeOutputArrayInput
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
@@ -250,6 +262,10 @@ type schemaArgs struct {
 	Database string `pulumi:"database"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation *string `pulumi:"defaultDdlCollation"`
+	// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+	DefaultNotebookComputePoolCpu *string `pulumi:"defaultNotebookComputePoolCpu"`
+	// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+	DefaultNotebookComputePoolGpu *string `pulumi:"defaultNotebookComputePoolGpu"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
 	EnableConsoleOutput *bool `pulumi:"enableConsoleOutput"`
 	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
@@ -300,6 +316,10 @@ type SchemaArgs struct {
 	Database pulumi.StringInput
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringPtrInput
+	// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+	DefaultNotebookComputePoolCpu pulumi.StringPtrInput
+	// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+	DefaultNotebookComputePoolGpu pulumi.StringPtrInput
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
 	EnableConsoleOutput pulumi.BoolPtrInput
 	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
@@ -448,6 +468,16 @@ func (o SchemaOutput) Database() pulumi.StringOutput {
 // Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 func (o SchemaOutput) DefaultDdlCollation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.DefaultDdlCollation }).(pulumi.StringOutput)
+}
+
+// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+func (o SchemaOutput) DefaultNotebookComputePoolCpu() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.DefaultNotebookComputePoolCpu }).(pulumi.StringOutput)
+}
+
+// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+func (o SchemaOutput) DefaultNotebookComputePoolGpu() pulumi.StringOutput {
+	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.DefaultNotebookComputePoolGpu }).(pulumi.StringOutput)
 }
 
 // Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.

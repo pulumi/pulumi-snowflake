@@ -193,6 +193,33 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
+        ///     // account
+        ///     var exampleInheritedInAccount = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         InheritedGrantsIn = new Snowflake.Inputs.GetGrantsInheritedGrantsInInputArgs
+        ///         {
+        ///             Account = true,
+        ///         },
+        ///     });
+        /// 
+        ///     // database
+        ///     var exampleInheritedInDatabase = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         InheritedGrantsIn = new Snowflake.Inputs.GetGrantsInheritedGrantsInInputArgs
+        ///         {
+        ///             Database = "some_database",
+        ///         },
+        ///     });
+        /// 
+        ///     // schema
+        ///     var exampleInheritedInSchema = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         InheritedGrantsIn = new Snowflake.Inputs.GetGrantsInheritedGrantsInInputArgs
+        ///         {
+        ///             Schema = "\"some_database\".\"some_schema\"",
+        ///         },
+        ///     });
+        /// 
         /// });
         /// ```
         /// 
@@ -380,6 +407,33 @@ namespace Pulumi.Snowflake
         ///         FutureGrantsTo = new Snowflake.Inputs.GetGrantsFutureGrantsToInputArgs
         ///         {
         ///             DatabaseRole = "\"some_database\".\"some_database_role\"",
+        ///         },
+        ///     });
+        /// 
+        ///     // account
+        ///     var exampleInheritedInAccount = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         InheritedGrantsIn = new Snowflake.Inputs.GetGrantsInheritedGrantsInInputArgs
+        ///         {
+        ///             Account = true,
+        ///         },
+        ///     });
+        /// 
+        ///     // database
+        ///     var exampleInheritedInDatabase = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         InheritedGrantsIn = new Snowflake.Inputs.GetGrantsInheritedGrantsInInputArgs
+        ///         {
+        ///             Database = "some_database",
+        ///         },
+        ///     });
+        /// 
+        ///     // schema
+        ///     var exampleInheritedInSchema = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         InheritedGrantsIn = new Snowflake.Inputs.GetGrantsInheritedGrantsInInputArgs
+        ///         {
+        ///             Schema = "\"some_database\".\"some_schema\"",
         ///         },
         ///     });
         /// 
@@ -573,6 +627,33 @@ namespace Pulumi.Snowflake
         ///         },
         ///     });
         /// 
+        ///     // account
+        ///     var exampleInheritedInAccount = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         InheritedGrantsIn = new Snowflake.Inputs.GetGrantsInheritedGrantsInInputArgs
+        ///         {
+        ///             Account = true,
+        ///         },
+        ///     });
+        /// 
+        ///     // database
+        ///     var exampleInheritedInDatabase = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         InheritedGrantsIn = new Snowflake.Inputs.GetGrantsInheritedGrantsInInputArgs
+        ///         {
+        ///             Database = "some_database",
+        ///         },
+        ///     });
+        /// 
+        ///     // schema
+        ///     var exampleInheritedInSchema = Snowflake.GetGrants.Invoke(new()
+        ///     {
+        ///         InheritedGrantsIn = new Snowflake.Inputs.GetGrantsInheritedGrantsInInputArgs
+        ///         {
+        ///             Schema = "\"some_database\".\"some_schema\"",
+        ///         },
+        ///     });
+        /// 
         /// });
         /// ```
         /// 
@@ -615,6 +696,12 @@ namespace Pulumi.Snowflake
         [Input("grantsTo")]
         public Inputs.GetGrantsGrantsToArgs? GrantsTo { get; set; }
 
+        /// <summary>
+        /// Lists all inherited grants defined in a container.
+        /// </summary>
+        [Input("inheritedGrantsIn")]
+        public Inputs.GetGrantsInheritedGrantsInArgs? InheritedGrantsIn { get; set; }
+
         public GetGrantsArgs()
         {
         }
@@ -652,6 +739,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("grantsTo")]
         public Input<Inputs.GetGrantsGrantsToInputArgs>? GrantsTo { get; set; }
+
+        /// <summary>
+        /// Lists all inherited grants defined in a container.
+        /// </summary>
+        [Input("inheritedGrantsIn")]
+        public Input<Inputs.GetGrantsInheritedGrantsInInputArgs>? InheritedGrantsIn { get; set; }
 
         public GetGrantsInvokeArgs()
         {
@@ -691,6 +784,10 @@ namespace Pulumi.Snowflake
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Lists all inherited grants defined in a container.
+        /// </summary>
+        public readonly Outputs.GetGrantsInheritedGrantsInResult? InheritedGrantsIn;
 
         [OutputConstructor]
         private GetGrantsResult(
@@ -706,7 +803,9 @@ namespace Pulumi.Snowflake
 
             Outputs.GetGrantsGrantsToResult? grantsTo,
 
-            string id)
+            string id,
+
+            Outputs.GetGrantsInheritedGrantsInResult? inheritedGrantsIn)
         {
             FutureGrantsIn = futureGrantsIn;
             FutureGrantsTo = futureGrantsTo;
@@ -715,6 +814,7 @@ namespace Pulumi.Snowflake
             GrantsOn = grantsOn;
             GrantsTo = grantsTo;
             Id = id;
+            InheritedGrantsIn = inheritedGrantsIn;
         }
     }
 }

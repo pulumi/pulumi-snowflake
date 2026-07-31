@@ -562,6 +562,7 @@ class StageExternalS3(pulumi.CustomResource):
                 "enable": True,
                 "refresh_on_create": "true",
                 "auto_refresh": "false",
+                "aws_sns_topic": "arn:aws:sns:us-west-2:123456789012:s3-stage-directory-topic",
             },
             comment="Fully configured S3 external stage")
         # Resource with AWS key credentials instead of storage integration
@@ -834,6 +835,7 @@ class StageExternalS3(pulumi.CustomResource):
                 "enable": True,
                 "refresh_on_create": "true",
                 "auto_refresh": "false",
+                "aws_sns_topic": "arn:aws:sns:us-west-2:123456789012:s3-stage-directory-topic",
             },
             comment="Fully configured S3 external stage")
         # Resource with AWS key credentials instead of storage integration

@@ -156,12 +156,23 @@ import javax.annotation.Nullable;
  *             .weekStart(1)
  *             .build());
  * 
- *         // with AWS workload identity
+ *         // with AWS workload identity (GetCallerIdentity attestation)
  *         var withAwsWif = new ServiceUser("withAwsWif", ServiceUserArgs.builder()
  *             .name("service_user_aws")
  *             .defaultWorkloadIdentity(ServiceUserDefaultWorkloadIdentityArgs.builder()
  *                 .aws(ServiceUserDefaultWorkloadIdentityAwsArgs.builder()
  *                     .arn("arn:aws:iam::123456789012:role/snowflake-service-role")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         // with AWS workload identity (JWT-based / GetWebIdentityToken attestation)
+ *         var withAwsJwtWif = new ServiceUser("withAwsJwtWif", ServiceUserArgs.builder()
+ *             .name("service_user_aws_jwt")
+ *             .defaultWorkloadIdentity(ServiceUserDefaultWorkloadIdentityArgs.builder()
+ *                 .aws(ServiceUserDefaultWorkloadIdentityAwsArgs.builder()
+ *                     .arn("arn:aws:iam::123456789012:role/snowflake-service-role")
+ *                     .issuer("https://sts.amazonaws.com")
  *                     .build())
  *                 .build())
  *             .build());

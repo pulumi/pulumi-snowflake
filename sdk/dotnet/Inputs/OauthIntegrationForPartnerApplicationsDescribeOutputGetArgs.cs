@@ -12,6 +12,14 @@ namespace Pulumi.Snowflake.Inputs
 
     public sealed class OauthIntegrationForPartnerApplicationsDescribeOutputGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowedRolesLists")]
+        private InputList<Inputs.OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesListGetArgs>? _allowedRolesLists;
+        public InputList<Inputs.OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesListGetArgs> AllowedRolesLists
+        {
+            get => _allowedRolesLists ?? (_allowedRolesLists = new InputList<Inputs.OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesListGetArgs>());
+            set => _allowedRolesLists = value;
+        }
+
         [Input("blockedRolesLists")]
         private InputList<Inputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListGetArgs>? _blockedRolesLists;
         public InputList<Inputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesListGetArgs> BlockedRolesLists

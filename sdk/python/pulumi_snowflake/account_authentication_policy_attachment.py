@@ -23,7 +23,7 @@ class AccountAuthenticationPolicyAttachmentArgs:
         """
         The set of arguments for constructing a AccountAuthenticationPolicyAttachment resource.
 
-        :param pulumi.Input[_builtins.str] authentication_policy: Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
+        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account.
         """
         pulumi.set(__self__, "authentication_policy", authentication_policy)
 
@@ -31,7 +31,7 @@ class AccountAuthenticationPolicyAttachmentArgs:
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> pulumi.Input[_builtins.str]:
         """
-        Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
+        Fully qualified name of the authentication policy to apply to the current account.
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -47,7 +47,7 @@ class _AccountAuthenticationPolicyAttachmentState:
         """
         Input properties used for looking up and filtering AccountAuthenticationPolicyAttachment resources.
 
-        :param pulumi.Input[_builtins.str] authentication_policy: Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
+        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account.
         """
         if authentication_policy is not None:
             pulumi.set(__self__, "authentication_policy", authentication_policy)
@@ -56,7 +56,7 @@ class _AccountAuthenticationPolicyAttachmentState:
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
+        Fully qualified name of the authentication policy to apply to the current account.
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -76,6 +76,8 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
+        > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+
         > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
 
         Specifies the authentication policy to use for the current account. To set the authentication policy of a different account, use a provider alias.
@@ -97,10 +99,16 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
 
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_policy: Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
+        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account.
         """
         ...
     @overload
@@ -111,6 +119,8 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
+        > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+
         > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
 
         Specifies the authentication policy to use for the current account. To set the authentication policy of a different account, use a provider alias.
@@ -131,6 +141,12 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+        ```
 
 
         :param str resource_name: The name of the resource.
@@ -179,7 +195,7 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_policy: Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
+        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -192,7 +208,7 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> pulumi.Output[_builtins.str]:
         """
-        Qualified name (`"db"."schema"."policy_name"`) of the authentication policy to apply to the current account.
+        Fully qualified name of the authentication policy to apply to the current account.
         """
         return pulumi.get(self, "authentication_policy")
 

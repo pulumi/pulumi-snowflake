@@ -654,7 +654,7 @@ class Saml2Integration(pulumi.CustomResource):
         > **Note** To use `allowed_user_domains` and `allowed_email_patterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
 
         > **Missing fields** The `saml2_snowflake_x509_cert` and `saml2_x509_cert` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
-        This may have impact on detecting external changes for the `saml2_x509_cert` field.
+        This may have impact on detecting external changes for the `saml2_x509_cert` field. The `saml2_snowflake_x509_cert` field is also not present for user configuration and will be added in the future. Please use the execute resource as a workaround.
 
         Resource used to manage SAML2 security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-saml2).
 
@@ -689,7 +689,6 @@ class Saml2Integration(pulumi.CustomResource):
             saml2_sign_request="true",
             saml2_snowflake_acs_url="example.snowflakecomputing.com/fed/login",
             saml2_snowflake_issuer_url="example.snowflakecomputing.com/fed/login",
-            saml2_snowflake_x509_cert=std.file(input="snowflake_cert.pem").result,
             saml2_sp_initiated_login_page_label="foo",
             saml2_sso_url="https://example.com",
             saml2_x509_cert=std.file(input="cert.pem").result)
@@ -738,7 +737,7 @@ class Saml2Integration(pulumi.CustomResource):
         > **Note** To use `allowed_user_domains` and `allowed_email_patterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
 
         > **Missing fields** The `saml2_snowflake_x509_cert` and `saml2_x509_cert` fields are not present in the `describe_output` on purpose due to Terraform SDK limitations (more on that in the migration guide).
-        This may have impact on detecting external changes for the `saml2_x509_cert` field.
+        This may have impact on detecting external changes for the `saml2_x509_cert` field. The `saml2_snowflake_x509_cert` field is also not present for user configuration and will be added in the future. Please use the execute resource as a workaround.
 
         Resource used to manage SAML2 security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-saml2).
 
@@ -773,7 +772,6 @@ class Saml2Integration(pulumi.CustomResource):
             saml2_sign_request="true",
             saml2_snowflake_acs_url="example.snowflakecomputing.com/fed/login",
             saml2_snowflake_issuer_url="example.snowflakecomputing.com/fed/login",
-            saml2_snowflake_x509_cert=std.file(input="snowflake_cert.pem").result,
             saml2_sp_initiated_login_page_label="foo",
             saml2_sso_url="https://example.com",
             saml2_x509_cert=std.file(input="cert.pem").result)

@@ -210,6 +210,36 @@ export type FileFormat = import("./fileFormat").FileFormat;
 export const FileFormat: typeof import("./fileFormat").FileFormat = null as any;
 utilities.lazyLoad(exports, ["FileFormat"], () => require("./fileFormat"));
 
+export { FileFormatAvroArgs, FileFormatAvroState } from "./fileFormatAvro";
+export type FileFormatAvro = import("./fileFormatAvro").FileFormatAvro;
+export const FileFormatAvro: typeof import("./fileFormatAvro").FileFormatAvro = null as any;
+utilities.lazyLoad(exports, ["FileFormatAvro"], () => require("./fileFormatAvro"));
+
+export { FileFormatCsvArgs, FileFormatCsvState } from "./fileFormatCsv";
+export type FileFormatCsv = import("./fileFormatCsv").FileFormatCsv;
+export const FileFormatCsv: typeof import("./fileFormatCsv").FileFormatCsv = null as any;
+utilities.lazyLoad(exports, ["FileFormatCsv"], () => require("./fileFormatCsv"));
+
+export { FileFormatJsonArgs, FileFormatJsonState } from "./fileFormatJson";
+export type FileFormatJson = import("./fileFormatJson").FileFormatJson;
+export const FileFormatJson: typeof import("./fileFormatJson").FileFormatJson = null as any;
+utilities.lazyLoad(exports, ["FileFormatJson"], () => require("./fileFormatJson"));
+
+export { FileFormatOrcArgs, FileFormatOrcState } from "./fileFormatOrc";
+export type FileFormatOrc = import("./fileFormatOrc").FileFormatOrc;
+export const FileFormatOrc: typeof import("./fileFormatOrc").FileFormatOrc = null as any;
+utilities.lazyLoad(exports, ["FileFormatOrc"], () => require("./fileFormatOrc"));
+
+export { FileFormatParquetArgs, FileFormatParquetState } from "./fileFormatParquet";
+export type FileFormatParquet = import("./fileFormatParquet").FileFormatParquet;
+export const FileFormatParquet: typeof import("./fileFormatParquet").FileFormatParquet = null as any;
+utilities.lazyLoad(exports, ["FileFormatParquet"], () => require("./fileFormatParquet"));
+
+export { FileFormatXmlArgs, FileFormatXmlState } from "./fileFormatXml";
+export type FileFormatXml = import("./fileFormatXml").FileFormatXml;
+export const FileFormatXml: typeof import("./fileFormatXml").FileFormatXml = null as any;
+utilities.lazyLoad(exports, ["FileFormatXml"], () => require("./fileFormatXml"));
+
 export { FunctionJavaArgs, FunctionJavaState } from "./functionJava";
 export type FunctionJava = import("./functionJava").FunctionJava;
 export const FunctionJava: typeof import("./functionJava").FunctionJava = null as any;
@@ -360,6 +390,11 @@ export const getGrants: typeof import("./getGrants").getGrants = null as any;
 export const getGrantsOutput: typeof import("./getGrants").getGrantsOutput = null as any;
 utilities.lazyLoad(exports, ["getGrants","getGrantsOutput"], () => require("./getGrants"));
 
+export { GetIcebergTablesArgs, GetIcebergTablesResult, GetIcebergTablesOutputArgs } from "./getIcebergTables";
+export const getIcebergTables: typeof import("./getIcebergTables").getIcebergTables = null as any;
+export const getIcebergTablesOutput: typeof import("./getIcebergTables").getIcebergTablesOutput = null as any;
+utilities.lazyLoad(exports, ["getIcebergTables","getIcebergTablesOutput"], () => require("./getIcebergTables"));
+
 export { GetImageRepositoriesArgs, GetImageRepositoriesResult, GetImageRepositoriesOutputArgs } from "./getImageRepositories";
 export const getImageRepositories: typeof import("./getImageRepositories").getImageRepositories = null as any;
 export const getImageRepositoriesOutput: typeof import("./getImageRepositories").getImageRepositoriesOutput = null as any;
@@ -379,6 +414,11 @@ export { GetMaterializedViewsArgs, GetMaterializedViewsResult, GetMaterializedVi
 export const getMaterializedViews: typeof import("./getMaterializedViews").getMaterializedViews = null as any;
 export const getMaterializedViewsOutput: typeof import("./getMaterializedViews").getMaterializedViewsOutput = null as any;
 utilities.lazyLoad(exports, ["getMaterializedViews","getMaterializedViewsOutput"], () => require("./getMaterializedViews"));
+
+export { GetMcpServersArgs, GetMcpServersResult, GetMcpServersOutputArgs } from "./getMcpServers";
+export const getMcpServers: typeof import("./getMcpServers").getMcpServers = null as any;
+export const getMcpServersOutput: typeof import("./getMcpServers").getMcpServersOutput = null as any;
+utilities.lazyLoad(exports, ["getMcpServers","getMcpServersOutput"], () => require("./getMcpServers"));
 
 export { GetNetworkPoliciesArgs, GetNetworkPoliciesResult, GetNetworkPoliciesOutputArgs } from "./getNetworkPolicies";
 export const getNetworkPolicies: typeof import("./getNetworkPolicies").getNetworkPolicies = null as any;
@@ -585,6 +625,16 @@ export type GrantPrivilegesToShare = import("./grantPrivilegesToShare").GrantPri
 export const GrantPrivilegesToShare: typeof import("./grantPrivilegesToShare").GrantPrivilegesToShare = null as any;
 utilities.lazyLoad(exports, ["GrantPrivilegesToShare"], () => require("./grantPrivilegesToShare"));
 
+export { IcebergTableArgs, IcebergTableState } from "./icebergTable";
+export type IcebergTable = import("./icebergTable").IcebergTable;
+export const IcebergTable: typeof import("./icebergTable").IcebergTable = null as any;
+utilities.lazyLoad(exports, ["IcebergTable"], () => require("./icebergTable"));
+
+export { IcebergTableFromAwsGlueArgs, IcebergTableFromAwsGlueState } from "./icebergTableFromAwsGlue";
+export type IcebergTableFromAwsGlue = import("./icebergTableFromAwsGlue").IcebergTableFromAwsGlue;
+export const IcebergTableFromAwsGlue: typeof import("./icebergTableFromAwsGlue").IcebergTableFromAwsGlue = null as any;
+utilities.lazyLoad(exports, ["IcebergTableFromAwsGlue"], () => require("./icebergTableFromAwsGlue"));
+
 export { IcebergTableFromDeltaFilesArgs, IcebergTableFromDeltaFilesState } from "./icebergTableFromDeltaFiles";
 export type IcebergTableFromDeltaFiles = import("./icebergTableFromDeltaFiles").IcebergTableFromDeltaFiles;
 export const IcebergTableFromDeltaFiles: typeof import("./icebergTableFromDeltaFiles").IcebergTableFromDeltaFiles = null as any;
@@ -594,6 +644,11 @@ export { IcebergTableFromFilesArgs, IcebergTableFromFilesState } from "./iceberg
 export type IcebergTableFromFiles = import("./icebergTableFromFiles").IcebergTableFromFiles;
 export const IcebergTableFromFiles: typeof import("./icebergTableFromFiles").IcebergTableFromFiles = null as any;
 utilities.lazyLoad(exports, ["IcebergTableFromFiles"], () => require("./icebergTableFromFiles"));
+
+export { IcebergTableFromRestArgs, IcebergTableFromRestState } from "./icebergTableFromRest";
+export type IcebergTableFromRest = import("./icebergTableFromRest").IcebergTableFromRest;
+export const IcebergTableFromRest: typeof import("./icebergTableFromRest").IcebergTableFromRest = null as any;
+utilities.lazyLoad(exports, ["IcebergTableFromRest"], () => require("./icebergTableFromRest"));
 
 export { ImageRepositoryArgs, ImageRepositoryState } from "./imageRepository";
 export type ImageRepository = import("./imageRepository").ImageRepository;
@@ -629,6 +684,11 @@ export { MaterializedViewArgs, MaterializedViewState } from "./materializedView"
 export type MaterializedView = import("./materializedView").MaterializedView;
 export const MaterializedView: typeof import("./materializedView").MaterializedView = null as any;
 utilities.lazyLoad(exports, ["MaterializedView"], () => require("./materializedView"));
+
+export { McpServerArgs, McpServerState } from "./mcpServer";
+export type McpServer = import("./mcpServer").McpServer;
+export const McpServer: typeof import("./mcpServer").McpServer = null as any;
+utilities.lazyLoad(exports, ["McpServer"], () => require("./mcpServer"));
 
 export { NetworkPolicyArgs, NetworkPolicyState } from "./networkPolicy";
 export type NetworkPolicy = import("./networkPolicy").NetworkPolicy;
@@ -968,6 +1028,11 @@ export type WarehouseAdaptive = import("./warehouseAdaptive").WarehouseAdaptive;
 export const WarehouseAdaptive: typeof import("./warehouseAdaptive").WarehouseAdaptive = null as any;
 utilities.lazyLoad(exports, ["WarehouseAdaptive"], () => require("./warehouseAdaptive"));
 
+export { WarehouseInteractiveArgs, WarehouseInteractiveState } from "./warehouseInteractive";
+export type WarehouseInteractive = import("./warehouseInteractive").WarehouseInteractive;
+export const WarehouseInteractive: typeof import("./warehouseInteractive").WarehouseInteractive = null as any;
+utilities.lazyLoad(exports, ["WarehouseInteractive"], () => require("./warehouseInteractive"));
+
 
 // Export sub-modules:
 import * as config from "./config";
@@ -1064,6 +1129,18 @@ const _module = {
                 return new FailoverGroup(name, <any>undefined, { urn })
             case "snowflake:index/fileFormat:FileFormat":
                 return new FileFormat(name, <any>undefined, { urn })
+            case "snowflake:index/fileFormatAvro:FileFormatAvro":
+                return new FileFormatAvro(name, <any>undefined, { urn })
+            case "snowflake:index/fileFormatCsv:FileFormatCsv":
+                return new FileFormatCsv(name, <any>undefined, { urn })
+            case "snowflake:index/fileFormatJson:FileFormatJson":
+                return new FileFormatJson(name, <any>undefined, { urn })
+            case "snowflake:index/fileFormatOrc:FileFormatOrc":
+                return new FileFormatOrc(name, <any>undefined, { urn })
+            case "snowflake:index/fileFormatParquet:FileFormatParquet":
+                return new FileFormatParquet(name, <any>undefined, { urn })
+            case "snowflake:index/fileFormatXml:FileFormatXml":
+                return new FileFormatXml(name, <any>undefined, { urn })
             case "snowflake:index/functionJava:FunctionJava":
                 return new FunctionJava(name, <any>undefined, { urn })
             case "snowflake:index/functionJavascript:FunctionJavascript":
@@ -1090,10 +1167,16 @@ const _module = {
                 return new GrantPrivilegesToDatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
                 return new GrantPrivilegesToShare(name, <any>undefined, { urn })
+            case "snowflake:index/icebergTable:IcebergTable":
+                return new IcebergTable(name, <any>undefined, { urn })
+            case "snowflake:index/icebergTableFromAwsGlue:IcebergTableFromAwsGlue":
+                return new IcebergTableFromAwsGlue(name, <any>undefined, { urn })
             case "snowflake:index/icebergTableFromDeltaFiles:IcebergTableFromDeltaFiles":
                 return new IcebergTableFromDeltaFiles(name, <any>undefined, { urn })
             case "snowflake:index/icebergTableFromFiles:IcebergTableFromFiles":
                 return new IcebergTableFromFiles(name, <any>undefined, { urn })
+            case "snowflake:index/icebergTableFromRest:IcebergTableFromRest":
+                return new IcebergTableFromRest(name, <any>undefined, { urn })
             case "snowflake:index/imageRepository:ImageRepository":
                 return new ImageRepository(name, <any>undefined, { urn })
             case "snowflake:index/jobService:JobService":
@@ -1108,6 +1191,8 @@ const _module = {
                 return new MaskingPolicy(name, <any>undefined, { urn })
             case "snowflake:index/materializedView:MaterializedView":
                 return new MaterializedView(name, <any>undefined, { urn })
+            case "snowflake:index/mcpServer:McpServer":
+                return new McpServer(name, <any>undefined, { urn })
             case "snowflake:index/networkPolicy:NetworkPolicy":
                 return new NetworkPolicy(name, <any>undefined, { urn })
             case "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment":
@@ -1242,6 +1327,8 @@ const _module = {
                 return new Warehouse(name, <any>undefined, { urn })
             case "snowflake:index/warehouseAdaptive:WarehouseAdaptive":
                 return new WarehouseAdaptive(name, <any>undefined, { urn })
+            case "snowflake:index/warehouseInteractive:WarehouseInteractive":
+                return new WarehouseInteractive(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -1288,6 +1375,12 @@ pulumi.runtime.registerResourceModule("snowflake", "index/externalTable", _modul
 pulumi.runtime.registerResourceModule("snowflake", "index/externalVolume", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/failoverGroup", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormat", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatAvro", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatCsv", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatJson", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatOrc", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatParquet", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/fileFormatXml", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionJava", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionJavascript", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionPython", _module)
@@ -1301,8 +1394,11 @@ pulumi.runtime.registerResourceModule("snowflake", "index/grantOwnership", _modu
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToDatabaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToShare", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/icebergTable", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromAwsGlue", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromDeltaFiles", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromFiles", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromRest", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/imageRepository", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/jobService", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/legacyServiceUser", _module)
@@ -1310,6 +1406,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/listing", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/managedAccount", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/maskingPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/materializedView", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/mcpServer", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkRule", _module)
@@ -1377,6 +1474,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/userSessionPolicyAttac
 pulumi.runtime.registerResourceModule("snowflake", "index/view", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/warehouse", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/warehouseAdaptive", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/warehouseInteractive", _module)
 pulumi.runtime.registerResourcePackage("snowflake", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
