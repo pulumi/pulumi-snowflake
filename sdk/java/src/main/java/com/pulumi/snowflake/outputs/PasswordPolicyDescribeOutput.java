@@ -13,6 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PasswordPolicyDescribeOutput {
     private @Nullable String comment;
+    private @Nullable String databaseName;
     private @Nullable String name;
     private @Nullable String owner;
     private @Nullable Integer passwordHistory;
@@ -26,10 +27,14 @@ public final class PasswordPolicyDescribeOutput {
     private @Nullable Integer passwordMinNumericChars;
     private @Nullable Integer passwordMinSpecialChars;
     private @Nullable Integer passwordMinUpperCaseChars;
+    private @Nullable String schemaName;
 
     private PasswordPolicyDescribeOutput() {}
     public Optional<String> comment() {
         return Optional.ofNullable(this.comment);
+    }
+    public Optional<String> databaseName() {
+        return Optional.ofNullable(this.databaseName);
     }
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
@@ -70,6 +75,9 @@ public final class PasswordPolicyDescribeOutput {
     public Optional<Integer> passwordMinUpperCaseChars() {
         return Optional.ofNullable(this.passwordMinUpperCaseChars);
     }
+    public Optional<String> schemaName() {
+        return Optional.ofNullable(this.schemaName);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -81,6 +89,7 @@ public final class PasswordPolicyDescribeOutput {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String comment;
+        private @Nullable String databaseName;
         private @Nullable String name;
         private @Nullable String owner;
         private @Nullable Integer passwordHistory;
@@ -94,10 +103,12 @@ public final class PasswordPolicyDescribeOutput {
         private @Nullable Integer passwordMinNumericChars;
         private @Nullable Integer passwordMinSpecialChars;
         private @Nullable Integer passwordMinUpperCaseChars;
+        private @Nullable String schemaName;
         public Builder() {}
         public Builder(PasswordPolicyDescribeOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
+    	      this.databaseName = defaults.databaseName;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
     	      this.passwordHistory = defaults.passwordHistory;
@@ -111,12 +122,19 @@ public final class PasswordPolicyDescribeOutput {
     	      this.passwordMinNumericChars = defaults.passwordMinNumericChars;
     	      this.passwordMinSpecialChars = defaults.passwordMinSpecialChars;
     	      this.passwordMinUpperCaseChars = defaults.passwordMinUpperCaseChars;
+    	      this.schemaName = defaults.schemaName;
         }
 
         @CustomType.Setter
         public Builder comment(@Nullable String comment) {
 
             this.comment = comment;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder databaseName(@Nullable String databaseName) {
+
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
@@ -197,9 +215,16 @@ public final class PasswordPolicyDescribeOutput {
             this.passwordMinUpperCaseChars = passwordMinUpperCaseChars;
             return this;
         }
+        @CustomType.Setter
+        public Builder schemaName(@Nullable String schemaName) {
+
+            this.schemaName = schemaName;
+            return this;
+        }
         public PasswordPolicyDescribeOutput build() {
             final var _resultValue = new PasswordPolicyDescribeOutput();
             _resultValue.comment = comment;
+            _resultValue.databaseName = databaseName;
             _resultValue.name = name;
             _resultValue.owner = owner;
             _resultValue.passwordHistory = passwordHistory;
@@ -213,6 +238,7 @@ public final class PasswordPolicyDescribeOutput {
             _resultValue.passwordMinNumericChars = passwordMinNumericChars;
             _resultValue.passwordMinSpecialChars = passwordMinSpecialChars;
             _resultValue.passwordMinUpperCaseChars = passwordMinUpperCaseChars;
+            _resultValue.schemaName = schemaName;
             return _resultValue;
         }
     }

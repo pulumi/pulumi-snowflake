@@ -25,6 +25,12 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? FutureSchemasInDatabase { get; set; }
 
         /// <summary>
+        /// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `ExperimentalFeaturesEnabled` field.
+        /// </summary>
+        [Input("inherited")]
+        public Input<string>? Inherited { get; set; }
+
+        /// <summary>
         /// The fully qualified name of the schema.
         /// </summary>
         [Input("schemaName")]

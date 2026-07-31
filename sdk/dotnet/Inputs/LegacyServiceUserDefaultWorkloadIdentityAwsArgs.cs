@@ -18,6 +18,12 @@ namespace Pulumi.Snowflake.Inputs
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+        /// </summary>
+        [Input("issuer")]
+        public Input<string>? Issuer { get; set; }
+
         public LegacyServiceUserDefaultWorkloadIdentityAwsArgs()
         {
         }

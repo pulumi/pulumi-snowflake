@@ -53,11 +53,14 @@ namespace Pulumi.Snowflake
     ///             one.FullyQualifiedName,
     ///             two.FullyQualifiedName,
     ///         },
+    ///         AllowedRolesLists = new[]
+    ///         {
+    ///             three.FullyQualifiedName,
+    ///         },
     ///         BlockedRolesLists = new[]
     ///         {
     ///             "ACCOUNTADMIN",
     ///             "SECURITYADMIN",
-    ///             three.FullyQualifiedName,
     ///             four.FullyQualifiedName,
     ///         },
     ///         OauthIssueRefreshTokens = "true",
@@ -90,6 +93,12 @@ namespace Pulumi.Snowflake
     [SnowflakeResourceType("snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients")]
     public partial class OauthIntegrationForCustomClients : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+        /// </summary>
+        [Output("allowedRolesLists")]
+        public Output<ImmutableArray<string>> AllowedRolesLists { get; private set; } = null!;
+
         /// <summary>
         /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         /// </summary>
@@ -254,6 +263,18 @@ namespace Pulumi.Snowflake
 
     public sealed class OauthIntegrationForCustomClientsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowedRolesLists")]
+        private InputList<string>? _allowedRolesLists;
+
+        /// <summary>
+        /// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+        /// </summary>
+        public InputList<string> AllowedRolesLists
+        {
+            get => _allowedRolesLists ?? (_allowedRolesLists = new InputList<string>());
+            set => _allowedRolesLists = value;
+        }
+
         [Input("blockedRolesLists")]
         private InputList<string>? _blockedRolesLists;
 
@@ -374,6 +395,18 @@ namespace Pulumi.Snowflake
 
     public sealed class OauthIntegrationForCustomClientsState : global::Pulumi.ResourceArgs
     {
+        [Input("allowedRolesLists")]
+        private InputList<string>? _allowedRolesLists;
+
+        /// <summary>
+        /// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+        /// </summary>
+        public InputList<string> AllowedRolesLists
+        {
+            get => _allowedRolesLists ?? (_allowedRolesLists = new InputList<string>());
+            set => _allowedRolesLists = value;
+        }
+
         [Input("blockedRolesLists")]
         private InputList<string>? _blockedRolesLists;
 

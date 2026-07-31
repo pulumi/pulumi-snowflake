@@ -14,6 +14,8 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+ * 
  * &gt; **Warning** This resource shouldn&#39;t be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
  * 
  * Specifies the session policy to use for the current account. To set the session policy of a different account, use a provider alias.

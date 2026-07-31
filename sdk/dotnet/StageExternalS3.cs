@@ -66,6 +66,7 @@ namespace Pulumi.Snowflake
     ///             Enable = true,
     ///             RefreshOnCreate = "true",
     ///             AutoRefresh = "false",
+    ///             AwsSnsTopic = "arn:aws:sns:us-west-2:123456789012:s3-stage-directory-topic",
     ///         },
     ///         Comment = "Fully configured S3 external stage",
     ///     });

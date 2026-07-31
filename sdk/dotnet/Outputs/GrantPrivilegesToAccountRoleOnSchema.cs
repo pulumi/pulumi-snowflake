@@ -22,6 +22,10 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string? FutureSchemasInDatabase;
         /// <summary>
+        /// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `ExperimentalFeaturesEnabled` field.
+        /// </summary>
+        public readonly Outputs.GrantPrivilegesToAccountRoleOnSchemaInherited? Inherited;
+        /// <summary>
         /// The fully qualified name of the schema.
         /// </summary>
         public readonly string? SchemaName;
@@ -32,10 +36,13 @@ namespace Pulumi.Snowflake.Outputs
 
             string? futureSchemasInDatabase,
 
+            Outputs.GrantPrivilegesToAccountRoleOnSchemaInherited? inherited,
+
             string? schemaName)
         {
             AllSchemasInDatabase = allSchemasInDatabase;
             FutureSchemasInDatabase = futureSchemasInDatabase;
+            Inherited = inherited;
             SchemaName = schemaName;
         }
     }

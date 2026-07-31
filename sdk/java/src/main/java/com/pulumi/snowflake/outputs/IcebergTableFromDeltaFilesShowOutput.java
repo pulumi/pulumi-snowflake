@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.IcebergTableFromDeltaFilesShowOutputAutoRefreshStatus;
+import com.pulumi.snowflake.outputs.IcebergTableFromDeltaFilesShowOutputPartitionSpec;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -33,7 +34,7 @@ public final class IcebergTableFromDeltaFilesShowOutput {
     private @Nullable String nameMapping;
     private @Nullable String owner;
     private @Nullable String ownerRoleType;
-    private @Nullable String partitionSpecs;
+    private @Nullable List<IcebergTableFromDeltaFilesShowOutputPartitionSpec> partitionSpecs;
     private @Nullable String schemaName;
 
     private IcebergTableFromDeltaFilesShowOutput() {}
@@ -91,8 +92,8 @@ public final class IcebergTableFromDeltaFilesShowOutput {
     public Optional<String> ownerRoleType() {
         return Optional.ofNullable(this.ownerRoleType);
     }
-    public Optional<String> partitionSpecs() {
-        return Optional.ofNullable(this.partitionSpecs);
+    public List<IcebergTableFromDeltaFilesShowOutputPartitionSpec> partitionSpecs() {
+        return this.partitionSpecs == null ? List.of() : this.partitionSpecs;
     }
     public Optional<String> schemaName() {
         return Optional.ofNullable(this.schemaName);
@@ -125,7 +126,7 @@ public final class IcebergTableFromDeltaFilesShowOutput {
         private @Nullable String nameMapping;
         private @Nullable String owner;
         private @Nullable String ownerRoleType;
-        private @Nullable String partitionSpecs;
+        private @Nullable List<IcebergTableFromDeltaFilesShowOutputPartitionSpec> partitionSpecs;
         private @Nullable String schemaName;
         public Builder() {}
         public Builder(IcebergTableFromDeltaFilesShowOutput defaults) {
@@ -264,10 +265,13 @@ public final class IcebergTableFromDeltaFilesShowOutput {
             return this;
         }
         @CustomType.Setter
-        public Builder partitionSpecs(@Nullable String partitionSpecs) {
+        public Builder partitionSpecs(@Nullable List<IcebergTableFromDeltaFilesShowOutputPartitionSpec> partitionSpecs) {
 
             this.partitionSpecs = partitionSpecs;
             return this;
+        }
+        public Builder partitionSpecs(IcebergTableFromDeltaFilesShowOutputPartitionSpec... partitionSpecs) {
+            return partitionSpecs(List.of(partitionSpecs));
         }
         @CustomType.Setter
         public Builder schemaName(@Nullable String schemaName) {

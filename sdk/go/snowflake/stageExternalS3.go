@@ -69,6 +69,7 @@ import (
 //					Enable:          pulumi.Bool(true),
 //					RefreshOnCreate: pulumi.String("true"),
 //					AutoRefresh:     pulumi.String("false"),
+//					AwsSnsTopic:     pulumi.String("arn:aws:sns:us-west-2:123456789012:s3-stage-directory-topic"),
 //				},
 //				Comment: pulumi.String("Fully configured S3 external stage"),
 //			})

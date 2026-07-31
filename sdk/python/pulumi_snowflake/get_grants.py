@@ -28,7 +28,7 @@ class GetGrantsResult:
     """
     A collection of values returned by getGrants.
     """
-    def __init__(__self__, future_grants_in=None, future_grants_to=None, grants=None, grants_of=None, grants_on=None, grants_to=None, id=None):
+    def __init__(__self__, future_grants_in=None, future_grants_to=None, grants=None, grants_of=None, grants_on=None, grants_to=None, id=None, inherited_grants_in=None):
         if future_grants_in and not isinstance(future_grants_in, dict):
             raise TypeError("Expected argument 'future_grants_in' to be a dict")
         pulumi.set(__self__, "future_grants_in", future_grants_in)
@@ -50,6 +50,9 @@ class GetGrantsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if inherited_grants_in and not isinstance(inherited_grants_in, dict):
+            raise TypeError("Expected argument 'inherited_grants_in' to be a dict")
+        pulumi.set(__self__, "inherited_grants_in", inherited_grants_in)
 
     @_builtins.property
     @pulumi.getter(name="futureGrantsIn")
@@ -107,6 +110,14 @@ class GetGrantsResult:
         """
         return pulumi.get(self, "id")
 
+    @_builtins.property
+    @pulumi.getter(name="inheritedGrantsIn")
+    def inherited_grants_in(self) -> Optional['outputs.GetGrantsInheritedGrantsInResult']:
+        """
+        Lists all inherited grants defined in a container.
+        """
+        return pulumi.get(self, "inherited_grants_in")
+
 
 class AwaitableGetGrantsResult(GetGrantsResult):
     # pylint: disable=using-constant-test
@@ -120,7 +131,8 @@ class AwaitableGetGrantsResult(GetGrantsResult):
             grants_of=self.grants_of,
             grants_on=self.grants_on,
             grants_to=self.grants_to,
-            id=self.id)
+            id=self.id,
+            inherited_grants_in=self.inherited_grants_in)
 
 
 def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict']] = None,
@@ -128,6 +140,7 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
                grants_of: Optional[Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict']] = None,
                grants_on: Optional[Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict']] = None,
                grants_to: Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict']] = None,
+               inherited_grants_in: Optional[Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict']] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGrantsResult:
     """
     ## Example Usage
@@ -216,6 +229,18 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
     example_future_to_database_role = snowflake.get_grants(future_grants_to={
         "database_role": "\\"some_database\\".\\"some_database_role\\"",
     })
+    # account
+    example_inherited_in_account = snowflake.get_grants(inherited_grants_in={
+        "account": True,
+    })
+    # database
+    example_inherited_in_database = snowflake.get_grants(inherited_grants_in={
+        "database": "some_database",
+    })
+    # schema
+    example_inherited_in_schema = snowflake.get_grants(inherited_grants_in={
+        "schema": "\\"some_database\\".\\"some_schema\\"",
+    })
     ```
 
     > **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -226,6 +251,7 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
     :param Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict'] grants_of: Lists all objects to which the given object has been granted.
     :param Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict'] grants_on: Lists all privileges that have been granted on an object or on an account.
     :param Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict'] grants_to: Lists all privileges granted to the object.
+    :param Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict'] inherited_grants_in: Lists all inherited grants defined in a container.
     """
     __args__ = dict()
     __args__['futureGrantsIn'] = future_grants_in
@@ -233,6 +259,7 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
     __args__['grantsOf'] = grants_of
     __args__['grantsOn'] = grants_on
     __args__['grantsTo'] = grants_to
+    __args__['inheritedGrantsIn'] = inherited_grants_in
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getGrants:getGrants', __args__, opts=opts, typ=GetGrantsResult).value
 
@@ -243,12 +270,14 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
         grants_of=pulumi.get(__ret__, 'grants_of'),
         grants_on=pulumi.get(__ret__, 'grants_on'),
         grants_to=pulumi.get(__ret__, 'grants_to'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        inherited_grants_in=pulumi.get(__ret__, 'inherited_grants_in'))
 def get_grants_output(future_grants_in: pulumi.Input[Optional[Optional[Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict']]]] = None,
                       future_grants_to: pulumi.Input[Optional[Optional[Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict']]]] = None,
                       grants_of: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict']]]] = None,
                       grants_on: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict']]]] = None,
                       grants_to: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict']]]] = None,
+                      inherited_grants_in: pulumi.Input[Optional[Optional[Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict']]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrantsResult]:
     """
     ## Example Usage
@@ -337,6 +366,18 @@ def get_grants_output(future_grants_in: pulumi.Input[Optional[Optional[Union['Ge
     example_future_to_database_role = snowflake.get_grants(future_grants_to={
         "database_role": "\\"some_database\\".\\"some_database_role\\"",
     })
+    # account
+    example_inherited_in_account = snowflake.get_grants(inherited_grants_in={
+        "account": True,
+    })
+    # database
+    example_inherited_in_database = snowflake.get_grants(inherited_grants_in={
+        "database": "some_database",
+    })
+    # schema
+    example_inherited_in_schema = snowflake.get_grants(inherited_grants_in={
+        "schema": "\\"some_database\\".\\"some_schema\\"",
+    })
     ```
 
     > **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -347,6 +388,7 @@ def get_grants_output(future_grants_in: pulumi.Input[Optional[Optional[Union['Ge
     :param Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict'] grants_of: Lists all objects to which the given object has been granted.
     :param Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict'] grants_on: Lists all privileges that have been granted on an object or on an account.
     :param Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict'] grants_to: Lists all privileges granted to the object.
+    :param Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict'] inherited_grants_in: Lists all inherited grants defined in a container.
     """
     __args__ = dict()
     __args__['futureGrantsIn'] = future_grants_in
@@ -354,6 +396,7 @@ def get_grants_output(future_grants_in: pulumi.Input[Optional[Optional[Union['Ge
     __args__['grantsOf'] = grants_of
     __args__['grantsOn'] = grants_on
     __args__['grantsTo'] = grants_to
+    __args__['inheritedGrantsIn'] = inherited_grants_in
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getGrants:getGrants', __args__, opts=opts, typ=GetGrantsResult)
     return __ret__.apply(lambda __response__: GetGrantsResult(
@@ -363,4 +406,5 @@ def get_grants_output(future_grants_in: pulumi.Input[Optional[Optional[Union['Ge
         grants_of=pulumi.get(__response__, 'grants_of'),
         grants_on=pulumi.get(__response__, 'grants_on'),
         grants_to=pulumi.get(__response__, 'grants_to'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        inherited_grants_in=pulumi.get(__response__, 'inherited_grants_in')))

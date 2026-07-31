@@ -7,6 +7,8 @@ import * as utilities from "./utilities";
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
+ * > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+ *
  * > **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
  *
  * Specifies the authentication policy to use for the current account. To set the authentication policy of a different account, use a provider alias.
@@ -28,6 +30,12 @@ import * as utilities from "./utilities";
  * <!-- TODO(SNOW-1634854): include an example showing both methods-->
  *
  * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+ * ```
  */
 export class AccountAuthenticationPolicyAttachment extends pulumi.CustomResource {
     /**
@@ -58,7 +66,7 @@ export class AccountAuthenticationPolicyAttachment extends pulumi.CustomResource
     }
 
     /**
-     * Qualified name (`"db"."schema"."policyName"`) of the authentication policy to apply to the current account.
+     * Fully qualified name of the authentication policy to apply to the current account.
      */
     declare public readonly authenticationPolicy: pulumi.Output<string>;
 
@@ -93,7 +101,7 @@ export class AccountAuthenticationPolicyAttachment extends pulumi.CustomResource
  */
 export interface AccountAuthenticationPolicyAttachmentState {
     /**
-     * Qualified name (`"db"."schema"."policyName"`) of the authentication policy to apply to the current account.
+     * Fully qualified name of the authentication policy to apply to the current account.
      */
     authenticationPolicy?: pulumi.Input<string | undefined>;
 }
@@ -103,7 +111,7 @@ export interface AccountAuthenticationPolicyAttachmentState {
  */
 export interface AccountAuthenticationPolicyAttachmentArgs {
     /**
-     * Qualified name (`"db"."schema"."policyName"`) of the authentication policy to apply to the current account.
+     * Fully qualified name of the authentication policy to apply to the current account.
      */
     authenticationPolicy: pulumi.Input<string>;
 }

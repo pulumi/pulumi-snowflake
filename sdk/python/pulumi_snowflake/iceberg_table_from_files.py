@@ -371,6 +371,10 @@ class IcebergTableFromFiles(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
+        > **Note** Due to Snowflake limitations, external changes to the external cloud storage type is not detected.
+
+        > **Note** External changes to `metadata_file_path` are not detected. This value is not read back from Snowflake during refresh, so updates to the underlying Iceberg metadata file (for example, refreshing the table to a new metadata file outside of Terraform) will not produce a drift in the pulumi preview. After import, the first `pulumi preview` may show a resource recreation for write-only non-alterable fields that are not reconciled with Snowflake. Run `pulumi up` once to sync these values into state.
+
         Resource used to manage an Iceberg table whose metadata is created from an existing Apache Iceberg metadata file in an external volume. For more information, check [the official documentation](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-iceberg-files).
 
         ## Example Usage
@@ -402,8 +406,6 @@ class IcebergTableFromFiles(pulumi.CustomResource):
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
-
-        > **Note** External changes to `metadata_file_path` are not detected. This value is not read back from Snowflake during refresh, so updates to the underlying Iceberg metadata file (for example, refreshing the table to a new metadata file outside of Terraform) will not produce a drift in the pulumi preview. After import, the first `pulumi preview` may show a resource recreation for write-only non-alterable fields that are not reconciled with Snowflake. Run `pulumi up` once to sync these values into state.
 
         ## Import
 
@@ -432,6 +434,10 @@ class IcebergTableFromFiles(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
+        > **Note** Due to Snowflake limitations, external changes to the external cloud storage type is not detected.
+
+        > **Note** External changes to `metadata_file_path` are not detected. This value is not read back from Snowflake during refresh, so updates to the underlying Iceberg metadata file (for example, refreshing the table to a new metadata file outside of Terraform) will not produce a drift in the pulumi preview. After import, the first `pulumi preview` may show a resource recreation for write-only non-alterable fields that are not reconciled with Snowflake. Run `pulumi up` once to sync these values into state.
+
         Resource used to manage an Iceberg table whose metadata is created from an existing Apache Iceberg metadata file in an external volume. For more information, check [the official documentation](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table-iceberg-files).
 
         ## Example Usage
@@ -463,8 +469,6 @@ class IcebergTableFromFiles(pulumi.CustomResource):
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
 
         > **Note** If a field has a default value, it is shown next to the type in the schema.
-
-        > **Note** External changes to `metadata_file_path` are not detected. This value is not read back from Snowflake during refresh, so updates to the underlying Iceberg metadata file (for example, refreshing the table to a new metadata file outside of Terraform) will not produce a drift in the pulumi preview. After import, the first `pulumi preview` may show a resource recreation for write-only non-alterable fields that are not reconciled with Snowflake. Run `pulumi up` once to sync these values into state.
 
         ## Import
 

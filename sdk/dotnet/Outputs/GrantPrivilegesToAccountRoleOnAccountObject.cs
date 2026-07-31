@@ -14,20 +14,27 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GrantPrivilegesToAccountRoleOnAccountObject
     {
         /// <summary>
+        /// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `ExperimentalFeaturesEnabled` field.
+        /// </summary>
+        public readonly Outputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited? Inherited;
+        /// <summary>
         /// The fully qualified name of the object on which privileges will be granted.
         /// </summary>
-        public readonly string ObjectName;
+        public readonly string? ObjectName;
         /// <summary>
-        /// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME`
+        /// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
         /// </summary>
-        public readonly string ObjectType;
+        public readonly string? ObjectType;
 
         [OutputConstructor]
         private GrantPrivilegesToAccountRoleOnAccountObject(
-            string objectName,
+            Outputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited? inherited,
 
-            string objectType)
+            string? objectName,
+
+            string? objectType)
         {
+            Inherited = inherited;
             ObjectName = objectName;
             ObjectType = objectType;
         }

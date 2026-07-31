@@ -13,6 +13,7 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class OauthIntegrationForCustomClientsDescribeOutput
     {
+        public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputAllowedRolesList> AllowedRolesLists;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList> BlockedRolesLists;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputComment> Comments;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputEnabled> Enableds;
@@ -33,6 +34,8 @@ namespace Pulumi.Snowflake.Outputs
 
         [OutputConstructor]
         private OauthIntegrationForCustomClientsDescribeOutput(
+            ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputAllowedRolesList> allowedRolesLists,
+
             ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesList> blockedRolesLists,
 
             ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputComment> comments,
@@ -67,6 +70,7 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList> preAuthorizedRolesLists)
         {
+            AllowedRolesLists = allowedRolesLists;
             BlockedRolesLists = blockedRolesLists;
             Comments = comments;
             Enableds = enableds;

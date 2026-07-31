@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs;
 import com.pulumi.snowflake.inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs;
+import com.pulumi.snowflake.inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -48,6 +49,21 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs extends com.p
     }
 
     /**
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    @Import(name="inherited")
+    private @Nullable Output<GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs> inherited;
+
+    /**
+     * @return Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    public Optional<Output<GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs>> inherited() {
+        return Optional.ofNullable(this.inherited);
+    }
+
+    /**
      * The fully qualified name of the object on which privileges will be granted.
      * 
      */
@@ -63,14 +79,14 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs extends com.p
     }
 
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      * 
      */
     @Import(name="objectType")
     private @Nullable Output<String> objectType;
 
     /**
-     * @return The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * @return The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
      * 
      */
     public Optional<Output<String>> objectType() {
@@ -82,6 +98,7 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs extends com.p
     private GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs(GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs $) {
         this.all = $.all;
         this.future = $.future;
+        this.inherited = $.inherited;
         this.objectName = $.objectName;
         this.objectType = $.objectType;
     }
@@ -147,6 +164,27 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs extends com.p
         }
 
         /**
+         * @param inherited Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inherited(@Nullable Output<GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs> inherited) {
+            $.inherited = inherited;
+            return this;
+        }
+
+        /**
+         * @param inherited Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inherited(GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs inherited) {
+            return inherited(Output.of(inherited));
+        }
+
+        /**
          * @param objectName The fully qualified name of the object on which privileges will be granted.
          * 
          * @return builder
@@ -168,7 +206,7 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs extends com.p
         }
 
         /**
-         * @param objectType The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+         * @param objectType The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
          * 
          * @return builder
          * 
@@ -179,7 +217,7 @@ public final class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs extends com.p
         }
 
         /**
-         * @param objectType The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+         * @param objectType The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
          * 
          * @return builder
          * 

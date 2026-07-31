@@ -36,6 +36,10 @@ type Database struct {
 	DataRetentionTimeInDays pulumi.IntOutput `pulumi:"dataRetentionTimeInDays"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringOutput `pulumi:"defaultDdlCollation"`
+	// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+	DefaultNotebookComputePoolCpu pulumi.StringOutput `pulumi:"defaultNotebookComputePoolCpu"`
+	// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+	DefaultNotebookComputePoolGpu pulumi.StringOutput `pulumi:"defaultNotebookComputePoolGpu"`
 	// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
 	DropPublicSchemaOnCreation pulumi.BoolPtrOutput `pulumi:"dropPublicSchemaOnCreation"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
@@ -114,6 +118,10 @@ type databaseState struct {
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation *string `pulumi:"defaultDdlCollation"`
+	// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+	DefaultNotebookComputePoolCpu *string `pulumi:"defaultNotebookComputePoolCpu"`
+	// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+	DefaultNotebookComputePoolGpu *string `pulumi:"defaultNotebookComputePoolGpu"`
 	// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
 	DropPublicSchemaOnCreation *bool `pulumi:"dropPublicSchemaOnCreation"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
@@ -163,6 +171,10 @@ type DatabaseState struct {
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringPtrInput
+	// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+	DefaultNotebookComputePoolCpu pulumi.StringPtrInput
+	// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+	DefaultNotebookComputePoolGpu pulumi.StringPtrInput
 	// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
 	DropPublicSchemaOnCreation pulumi.BoolPtrInput
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
@@ -216,6 +228,10 @@ type databaseArgs struct {
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation *string `pulumi:"defaultDdlCollation"`
+	// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+	DefaultNotebookComputePoolCpu *string `pulumi:"defaultNotebookComputePoolCpu"`
+	// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+	DefaultNotebookComputePoolGpu *string `pulumi:"defaultNotebookComputePoolGpu"`
 	// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
 	DropPublicSchemaOnCreation *bool `pulumi:"dropPublicSchemaOnCreation"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
@@ -264,6 +280,10 @@ type DatabaseArgs struct {
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringPtrInput
+	// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+	DefaultNotebookComputePoolCpu pulumi.StringPtrInput
+	// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+	DefaultNotebookComputePoolGpu pulumi.StringPtrInput
 	// Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.
 	DropPublicSchemaOnCreation pulumi.BoolPtrInput
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
@@ -407,6 +427,16 @@ func (o DatabaseOutput) DataRetentionTimeInDays() pulumi.IntOutput {
 // Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 func (o DatabaseOutput) DefaultDdlCollation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DefaultDdlCollation }).(pulumi.StringOutput)
+}
+
+// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+func (o DatabaseOutput) DefaultNotebookComputePoolCpu() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DefaultNotebookComputePoolCpu }).(pulumi.StringOutput)
+}
+
+// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+func (o DatabaseOutput) DefaultNotebookComputePoolGpu() pulumi.StringOutput {
+	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.DefaultNotebookComputePoolGpu }).(pulumi.StringOutput)
 }
 
 // Specifies whether to drop public schema on creation or not. Modifying the parameter after database is already created won't have any effect.

@@ -63,6 +63,18 @@ namespace Pulumi.Snowflake
         public Output<string> DefaultDdlCollation { get; private set; } = null!;
 
         /// <summary>
+        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        /// </summary>
+        [Output("defaultNotebookComputePoolCpu")]
+        public Output<string> DefaultNotebookComputePoolCpu { get; private set; } = null!;
+
+        /// <summary>
+        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        /// </summary>
+        [Output("defaultNotebookComputePoolGpu")]
+        public Output<string> DefaultNotebookComputePoolGpu { get; private set; } = null!;
+
+        /// <summary>
         /// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. GrantOwnership on all objects in the schema.
         /// </summary>
         [Output("describeOutputs")]
@@ -271,6 +283,18 @@ namespace Pulumi.Snowflake
         public Input<string>? DefaultDdlCollation { get; set; }
 
         /// <summary>
+        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        /// </summary>
+        [Input("defaultNotebookComputePoolCpu")]
+        public Input<string>? DefaultNotebookComputePoolCpu { get; set; }
+
+        /// <summary>
+        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        /// </summary>
+        [Input("defaultNotebookComputePoolGpu")]
+        public Input<string>? DefaultNotebookComputePoolGpu { get; set; }
+
+        /// <summary>
         /// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         /// </summary>
         [Input("enableConsoleOutput")]
@@ -415,6 +439,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("defaultDdlCollation")]
         public Input<string>? DefaultDdlCollation { get; set; }
+
+        /// <summary>
+        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        /// </summary>
+        [Input("defaultNotebookComputePoolCpu")]
+        public Input<string>? DefaultNotebookComputePoolCpu { get; set; }
+
+        /// <summary>
+        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        /// </summary>
+        [Input("defaultNotebookComputePoolGpu")]
+        public Input<string>? DefaultNotebookComputePoolGpu { get; set; }
 
         [Input("describeOutputs")]
         private InputList<Inputs.SchemaDescribeOutputGetArgs>? _describeOutputs;

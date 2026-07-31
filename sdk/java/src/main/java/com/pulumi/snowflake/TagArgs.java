@@ -133,14 +133,14 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+     * Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
      * 
      */
     @Import(name="orderedAllowedValues")
     private @Nullable Output<List<String>> orderedAllowedValues;
 
     /**
-     * @return Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+     * @return Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
      * 
      */
     public Optional<Output<List<String>>> orderedAllowedValues() {
@@ -390,7 +390,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderedAllowedValues Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+         * @param orderedAllowedValues Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderedAllowedValues Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+         * @param orderedAllowedValues Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orderedAllowedValues Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`.
+         * @param orderedAllowedValues Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowedValues` when order matters. Conflicts with `allowedValues` and `noAllowedValues`. Note: transitioning from `allowedValues` to `orderedAllowedValues` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
          * 
          * @return builder
          * 

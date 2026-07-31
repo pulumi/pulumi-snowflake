@@ -9,6 +9,7 @@ import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsTo;
 import com.pulumi.snowflake.inputs.GetGrantsGrantsOf;
 import com.pulumi.snowflake.inputs.GetGrantsGrantsOn;
 import com.pulumi.snowflake.inputs.GetGrantsGrantsTo;
+import com.pulumi.snowflake.inputs.GetGrantsInheritedGrantsIn;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -93,6 +94,21 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.grantsTo);
     }
 
+    /**
+     * Lists all inherited grants defined in a container.
+     * 
+     */
+    @Import(name="inheritedGrantsIn")
+    private @Nullable GetGrantsInheritedGrantsIn inheritedGrantsIn;
+
+    /**
+     * @return Lists all inherited grants defined in a container.
+     * 
+     */
+    public Optional<GetGrantsInheritedGrantsIn> inheritedGrantsIn() {
+        return Optional.ofNullable(this.inheritedGrantsIn);
+    }
+
     private GetGrantsPlainArgs() {}
 
     private GetGrantsPlainArgs(GetGrantsPlainArgs $) {
@@ -101,6 +117,7 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
         this.grantsOf = $.grantsOf;
         this.grantsOn = $.grantsOn;
         this.grantsTo = $.grantsTo;
+        this.inheritedGrantsIn = $.inheritedGrantsIn;
     }
 
     public static Builder builder() {
@@ -173,6 +190,17 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder grantsTo(@Nullable GetGrantsGrantsTo grantsTo) {
             $.grantsTo = grantsTo;
+            return this;
+        }
+
+        /**
+         * @param inheritedGrantsIn Lists all inherited grants defined in a container.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inheritedGrantsIn(@Nullable GetGrantsInheritedGrantsIn inheritedGrantsIn) {
+            $.inheritedGrantsIn = inheritedGrantsIn;
             return this;
         }
 

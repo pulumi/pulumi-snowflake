@@ -74,10 +74,10 @@ import javax.annotation.Nullable;
  *             .preAuthorizedRolesLists(            
  *                 one.fullyQualifiedName(),
  *                 two.fullyQualifiedName())
+ *             .allowedRolesLists(three.fullyQualifiedName())
  *             .blockedRolesLists(            
  *                 "ACCOUNTADMIN",
  *                 "SECURITYADMIN",
- *                 three.fullyQualifiedName(),
  *                 four.fullyQualifiedName())
  *             .oauthIssueRefreshTokens("true")
  *             .oauthRefreshTokenValidity(87600)
@@ -109,6 +109,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients")
 public class OauthIntegrationForCustomClients extends com.pulumi.resources.CustomResource {
+    /**
+     * A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+     * 
+     */
+    @Export(name="allowedRolesLists", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> allowedRolesLists;
+
+    /**
+     * @return A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+     * 
+     */
+    public Output<Optional<List<String>>> allowedRolesLists() {
+        return Codegen.optional(this.allowedRolesLists);
+    }
     /**
      * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 

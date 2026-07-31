@@ -18,6 +18,10 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string? AutoRefresh;
         /// <summary>
+        /// Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+        /// </summary>
+        public readonly string? AwsSnsTopic;
+        /// <summary>
         /// Specifies whether to enable a directory table on the external stage.
         /// </summary>
         public readonly bool Enable;
@@ -30,11 +34,14 @@ namespace Pulumi.Snowflake.Outputs
         private StageExternalS3Directory(
             string? autoRefresh,
 
+            string? awsSnsTopic,
+
             bool enable,
 
             string? refreshOnCreate)
         {
             AutoRefresh = autoRefresh;
+            AwsSnsTopic = awsSnsTopic;
             Enable = enable;
             RefreshOnCreate = refreshOnCreate;
         }

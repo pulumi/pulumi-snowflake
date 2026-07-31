@@ -25,6 +25,7 @@ import * as utilities from "./utilities";
  *     comment: "My adaptive warehouse with all options set",
  *     maxQueryPerformanceLevel: "MEDIUM",
  *     queryThroughputMultiplier: 1,
+ *     resourceMonitor: "my_resource_monitor",
  *     statementQueuedTimeoutInSeconds: 30,
  *     statementTimeoutInSeconds: 3600,
  * });
@@ -93,6 +94,10 @@ export class WarehouseAdaptive extends pulumi.CustomResource {
      */
     declare public readonly queryThroughputMultiplier: pulumi.Output<number | undefined>;
     /**
+     * Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+     */
+    declare public readonly resourceMonitor: pulumi.Output<string | undefined>;
+    /**
      * Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.WarehouseAdaptiveShowOutput[]>;
@@ -128,6 +133,7 @@ export class WarehouseAdaptive extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["parameters"] = state?.parameters;
             resourceInputs["queryThroughputMultiplier"] = state?.queryThroughputMultiplier;
+            resourceInputs["resourceMonitor"] = state?.resourceMonitor;
             resourceInputs["showOutputs"] = state?.showOutputs;
             resourceInputs["statementQueuedTimeoutInSeconds"] = state?.statementQueuedTimeoutInSeconds;
             resourceInputs["statementTimeoutInSeconds"] = state?.statementTimeoutInSeconds;
@@ -138,6 +144,7 @@ export class WarehouseAdaptive extends pulumi.CustomResource {
             resourceInputs["maxQueryPerformanceLevel"] = args?.maxQueryPerformanceLevel;
             resourceInputs["name"] = args?.name;
             resourceInputs["queryThroughputMultiplier"] = args?.queryThroughputMultiplier;
+            resourceInputs["resourceMonitor"] = args?.resourceMonitor;
             resourceInputs["statementQueuedTimeoutInSeconds"] = args?.statementQueuedTimeoutInSeconds;
             resourceInputs["statementTimeoutInSeconds"] = args?.statementTimeoutInSeconds;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
@@ -179,6 +186,10 @@ export interface WarehouseAdaptiveState {
      */
     queryThroughputMultiplier?: pulumi.Input<number | undefined>;
     /**
+     * Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+     */
+    resourceMonitor?: pulumi.Input<string | undefined>;
+    /**
      * Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveShowOutput>[] | undefined>;
@@ -216,6 +227,10 @@ export interface WarehouseAdaptiveArgs {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
      */
     queryThroughputMultiplier?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
+     */
+    resourceMonitor?: pulumi.Input<string | undefined>;
     /**
      * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      */

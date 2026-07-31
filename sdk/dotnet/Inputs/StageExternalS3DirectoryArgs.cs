@@ -19,6 +19,12 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? AutoRefresh { get; set; }
 
         /// <summary>
+        /// Specifies the AWS SNS topic ARN used for directory table auto-refresh notifications. Changing this field causes resource recreation (ForceNew). External change detection for this field is not yet supported and will be addressed in a future update.
+        /// </summary>
+        [Input("awsSnsTopic")]
+        public Input<string>? AwsSnsTopic { get; set; }
+
+        /// <summary>
         /// Specifies whether to enable a directory table on the external stage.
         /// </summary>
         [Input("enable", required: true)]

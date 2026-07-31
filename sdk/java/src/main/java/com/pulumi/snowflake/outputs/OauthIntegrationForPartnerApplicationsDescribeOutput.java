@@ -4,6 +4,7 @@
 package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.snowflake.outputs.OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList;
 import com.pulumi.snowflake.outputs.OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList;
 import com.pulumi.snowflake.outputs.OauthIntegrationForPartnerApplicationsDescribeOutputComment;
 import com.pulumi.snowflake.outputs.OauthIntegrationForPartnerApplicationsDescribeOutputEnabled;
@@ -27,6 +28,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OauthIntegrationForPartnerApplicationsDescribeOutput {
+    private @Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList> allowedRolesLists;
     private @Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList> blockedRolesLists;
     private @Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputComment> comments;
     private @Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputEnabled> enableds;
@@ -46,6 +48,9 @@ public final class OauthIntegrationForPartnerApplicationsDescribeOutput {
     private @Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList> preAuthorizedRolesLists;
 
     private OauthIntegrationForPartnerApplicationsDescribeOutput() {}
+    public List<OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList> allowedRolesLists() {
+        return this.allowedRolesLists == null ? List.of() : this.allowedRolesLists;
+    }
     public List<OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList> blockedRolesLists() {
         return this.blockedRolesLists == null ? List.of() : this.blockedRolesLists;
     }
@@ -107,6 +112,7 @@ public final class OauthIntegrationForPartnerApplicationsDescribeOutput {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList> allowedRolesLists;
         private @Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList> blockedRolesLists;
         private @Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputComment> comments;
         private @Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputEnabled> enableds;
@@ -127,6 +133,7 @@ public final class OauthIntegrationForPartnerApplicationsDescribeOutput {
         public Builder() {}
         public Builder(OauthIntegrationForPartnerApplicationsDescribeOutput defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allowedRolesLists = defaults.allowedRolesLists;
     	      this.blockedRolesLists = defaults.blockedRolesLists;
     	      this.comments = defaults.comments;
     	      this.enableds = defaults.enableds;
@@ -146,6 +153,15 @@ public final class OauthIntegrationForPartnerApplicationsDescribeOutput {
     	      this.preAuthorizedRolesLists = defaults.preAuthorizedRolesLists;
         }
 
+        @CustomType.Setter
+        public Builder allowedRolesLists(@Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList> allowedRolesLists) {
+
+            this.allowedRolesLists = allowedRolesLists;
+            return this;
+        }
+        public Builder allowedRolesLists(OauthIntegrationForPartnerApplicationsDescribeOutputAllowedRolesList... allowedRolesLists) {
+            return allowedRolesLists(List.of(allowedRolesLists));
+        }
         @CustomType.Setter
         public Builder blockedRolesLists(@Nullable List<OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList> blockedRolesLists) {
 
@@ -301,6 +317,7 @@ public final class OauthIntegrationForPartnerApplicationsDescribeOutput {
         }
         public OauthIntegrationForPartnerApplicationsDescribeOutput build() {
             final var _resultValue = new OauthIntegrationForPartnerApplicationsDescribeOutput();
+            _resultValue.allowedRolesLists = allowedRolesLists;
             _resultValue.blockedRolesLists = blockedRolesLists;
             _resultValue.comments = comments;
             _resultValue.enableds = enableds;

@@ -23,6 +23,8 @@ class SharedDatabaseArgs:
                  catalog: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_volume: pulumi.Input[Optional[_builtins.str]] = None,
                  log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
@@ -44,6 +46,8 @@ class SharedDatabaseArgs:
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database.
         :param pulumi.Input[_builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
         :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[_builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
@@ -66,6 +70,10 @@ class SharedDatabaseArgs:
             pulumi.set(__self__, "comment", comment)
         if default_ddl_collation is not None:
             pulumi.set(__self__, "default_ddl_collation", default_ddl_collation)
+        if default_notebook_compute_pool_cpu is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_cpu", default_notebook_compute_pool_cpu)
+        if default_notebook_compute_pool_gpu is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_gpu", default_notebook_compute_pool_gpu)
         if enable_console_output is not None:
             pulumi.set(__self__, "enable_console_output", enable_console_output)
         if external_volume is not None:
@@ -142,6 +150,30 @@ class SharedDatabaseArgs:
     @default_ddl_collation.setter
     def default_ddl_collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_ddl_collation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpu")
+    def default_notebook_compute_pool_cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_cpu")
+
+    @default_notebook_compute_pool_cpu.setter
+    def default_notebook_compute_pool_cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_notebook_compute_pool_cpu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpu")
+    def default_notebook_compute_pool_gpu(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_gpu")
+
+    @default_notebook_compute_pool_gpu.setter
+    def default_notebook_compute_pool_gpu(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_notebook_compute_pool_gpu", value)
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutput")
@@ -318,6 +350,8 @@ class _SharedDatabaseState:
                  catalog: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_volume: pulumi.Input[Optional[_builtins.str]] = None,
                  from_share: pulumi.Input[Optional[_builtins.str]] = None,
@@ -340,6 +374,8 @@ class _SharedDatabaseState:
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database.
         :param pulumi.Input[_builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
         :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[_builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[_builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
@@ -363,6 +399,10 @@ class _SharedDatabaseState:
             pulumi.set(__self__, "comment", comment)
         if default_ddl_collation is not None:
             pulumi.set(__self__, "default_ddl_collation", default_ddl_collation)
+        if default_notebook_compute_pool_cpu is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_cpu", default_notebook_compute_pool_cpu)
+        if default_notebook_compute_pool_gpu is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_gpu", default_notebook_compute_pool_gpu)
         if enable_console_output is not None:
             pulumi.set(__self__, "enable_console_output", enable_console_output)
         if external_volume is not None:
@@ -431,6 +471,30 @@ class _SharedDatabaseState:
     @default_ddl_collation.setter
     def default_ddl_collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_ddl_collation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpu")
+    def default_notebook_compute_pool_cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_cpu")
+
+    @default_notebook_compute_pool_cpu.setter
+    def default_notebook_compute_pool_cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_notebook_compute_pool_cpu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpu")
+    def default_notebook_compute_pool_gpu(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_gpu")
+
+    @default_notebook_compute_pool_gpu.setter
+    def default_notebook_compute_pool_gpu(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_notebook_compute_pool_gpu", value)
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutput")
@@ -634,6 +698,8 @@ class SharedDatabase(pulumi.CustomResource):
                  catalog: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_volume: pulumi.Input[Optional[_builtins.str]] = None,
                  from_share: pulumi.Input[Optional[_builtins.str]] = None,
@@ -671,6 +737,8 @@ class SharedDatabase(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database.
         :param pulumi.Input[_builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
         :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[_builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[_builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
@@ -727,6 +795,8 @@ class SharedDatabase(pulumi.CustomResource):
                  catalog: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_volume: pulumi.Input[Optional[_builtins.str]] = None,
                  from_share: pulumi.Input[Optional[_builtins.str]] = None,
@@ -754,6 +824,8 @@ class SharedDatabase(pulumi.CustomResource):
             __props__.__dict__["catalog"] = catalog
             __props__.__dict__["comment"] = comment
             __props__.__dict__["default_ddl_collation"] = default_ddl_collation
+            __props__.__dict__["default_notebook_compute_pool_cpu"] = default_notebook_compute_pool_cpu
+            __props__.__dict__["default_notebook_compute_pool_gpu"] = default_notebook_compute_pool_gpu
             __props__.__dict__["enable_console_output"] = enable_console_output
             __props__.__dict__["external_volume"] = external_volume
             if from_share is None and not opts.urn:
@@ -785,6 +857,8 @@ class SharedDatabase(pulumi.CustomResource):
             catalog: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+            default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+            default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
             enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
             external_volume: pulumi.Input[Optional[_builtins.str]] = None,
             from_share: pulumi.Input[Optional[_builtins.str]] = None,
@@ -811,6 +885,8 @@ class SharedDatabase(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the database.
         :param pulumi.Input[_builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
         :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[_builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[_builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
@@ -835,6 +911,8 @@ class SharedDatabase(pulumi.CustomResource):
         __props__.__dict__["catalog"] = catalog
         __props__.__dict__["comment"] = comment
         __props__.__dict__["default_ddl_collation"] = default_ddl_collation
+        __props__.__dict__["default_notebook_compute_pool_cpu"] = default_notebook_compute_pool_cpu
+        __props__.__dict__["default_notebook_compute_pool_gpu"] = default_notebook_compute_pool_gpu
         __props__.__dict__["enable_console_output"] = enable_console_output
         __props__.__dict__["external_volume"] = external_volume
         __props__.__dict__["from_share"] = from_share
@@ -876,6 +954,22 @@ class SharedDatabase(pulumi.CustomResource):
         Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         """
         return pulumi.get(self, "default_ddl_collation")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpu")
+    def default_notebook_compute_pool_cpu(self) -> pulumi.Output[_builtins.str]:
+        """
+        Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_cpu")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpu")
+    def default_notebook_compute_pool_gpu(self) -> pulumi.Output[_builtins.str]:
+        """
+        Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_gpu")
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutput")

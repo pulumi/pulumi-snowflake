@@ -138,12 +138,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			// with AWS workload identity
+//			// with AWS workload identity (GetCallerIdentity attestation)
 //			_, err = snowflake.NewServiceUser(ctx, "with_aws_wif", &snowflake.ServiceUserArgs{
 //				Name: pulumi.String("service_user_aws"),
 //				DefaultWorkloadIdentity: &snowflake.ServiceUserDefaultWorkloadIdentityArgs{
 //					Aws: &snowflake.ServiceUserDefaultWorkloadIdentityAwsArgs{
 //						Arn: pulumi.String("arn:aws:iam::123456789012:role/snowflake-service-role"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// with AWS workload identity (JWT-based / GetWebIdentityToken attestation)
+//			_, err = snowflake.NewServiceUser(ctx, "with_aws_jwt_wif", &snowflake.ServiceUserArgs{
+//				Name: pulumi.String("service_user_aws_jwt"),
+//				DefaultWorkloadIdentity: &snowflake.ServiceUserDefaultWorkloadIdentityArgs{
+//					Aws: &snowflake.ServiceUserDefaultWorkloadIdentityAwsArgs{
+//						Arn:    pulumi.String("arn:aws:iam::123456789012:role/snowflake-service-role"),
+//						Issuer: pulumi.String("https://sts.amazonaws.com"),
 //					},
 //				},
 //			})

@@ -17,11 +17,19 @@ namespace Pulumi.Snowflake.Outputs
         /// The ARN of the AWS IAM role to use for workload identity federation.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The AWS issuer URL. Required for JWT-based (GetWebIdentityToken) workload identity federation.
+        /// </summary>
+        public readonly string? Issuer;
 
         [OutputConstructor]
-        private LegacyServiceUserDefaultWorkloadIdentityAws(string arn)
+        private LegacyServiceUserDefaultWorkloadIdentityAws(
+            string arn,
+
+            string? issuer)
         {
             Arn = arn;
+            Issuer = issuer;
         }
     }
 }

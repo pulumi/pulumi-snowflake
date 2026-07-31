@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputAllowedRolesListArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputCommentArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputEnabledArgs;
@@ -31,6 +32,13 @@ import javax.annotation.Nullable;
 public final class OauthIntegrationForCustomClientsDescribeOutputArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OauthIntegrationForCustomClientsDescribeOutputArgs Empty = new OauthIntegrationForCustomClientsDescribeOutputArgs();
+
+    @Import(name="allowedRolesLists")
+    private @Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputAllowedRolesListArgs>> allowedRolesLists;
+
+    public Optional<Output<List<OauthIntegrationForCustomClientsDescribeOutputAllowedRolesListArgs>>> allowedRolesLists() {
+        return Optional.ofNullable(this.allowedRolesLists);
+    }
 
     @Import(name="blockedRolesLists")
     private @Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgs>> blockedRolesLists;
@@ -154,6 +162,7 @@ public final class OauthIntegrationForCustomClientsDescribeOutputArgs extends co
     private OauthIntegrationForCustomClientsDescribeOutputArgs() {}
 
     private OauthIntegrationForCustomClientsDescribeOutputArgs(OauthIntegrationForCustomClientsDescribeOutputArgs $) {
+        this.allowedRolesLists = $.allowedRolesLists;
         this.blockedRolesLists = $.blockedRolesLists;
         this.comments = $.comments;
         this.enableds = $.enableds;
@@ -189,6 +198,19 @@ public final class OauthIntegrationForCustomClientsDescribeOutputArgs extends co
 
         public Builder(OauthIntegrationForCustomClientsDescribeOutputArgs defaults) {
             $ = new OauthIntegrationForCustomClientsDescribeOutputArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder allowedRolesLists(@Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputAllowedRolesListArgs>> allowedRolesLists) {
+            $.allowedRolesLists = allowedRolesLists;
+            return this;
+        }
+
+        public Builder allowedRolesLists(List<OauthIntegrationForCustomClientsDescribeOutputAllowedRolesListArgs> allowedRolesLists) {
+            return allowedRolesLists(Output.of(allowedRolesLists));
+        }
+
+        public Builder allowedRolesLists(OauthIntegrationForCustomClientsDescribeOutputAllowedRolesListArgs... allowedRolesLists) {
+            return allowedRolesLists(List.of(allowedRolesLists));
         }
 
         public Builder blockedRolesLists(@Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputBlockedRolesListArgs>> blockedRolesLists) {

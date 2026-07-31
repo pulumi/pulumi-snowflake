@@ -259,6 +259,8 @@ type CurrentAccount struct {
 	DefaultNotebookComputePoolGpu pulumi.StringOutput `pulumi:"defaultNotebookComputePoolGpu"`
 	// Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
 	DefaultNullOrdering pulumi.StringOutput `pulumi:"defaultNullOrdering"`
+	// Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+	DefaultStreamlitComputePool pulumi.StringOutput `pulumi:"defaultStreamlitComputePool"`
 	// Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
 	DefaultStreamlitNotebookWarehouse pulumi.StringOutput `pulumi:"defaultStreamlitNotebookWarehouse"`
 	// Controls whether users in an account see a button to download data in Snowsight or the Classic Console, such as a table returned from running a query in a worksheet. If the button to download is hidden in Snowsight or the Classic Console, users can still download or export data using [third-party software](https://docs.snowflake.com/en/user-guide/ecosystem). For more information, check [DISABLE*UI*DOWNLOAD_BUTTON docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-ui-download-button).
@@ -545,6 +547,8 @@ type currentAccountState struct {
 	DefaultNotebookComputePoolGpu *string `pulumi:"defaultNotebookComputePoolGpu"`
 	// Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
 	DefaultNullOrdering *string `pulumi:"defaultNullOrdering"`
+	// Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+	DefaultStreamlitComputePool *string `pulumi:"defaultStreamlitComputePool"`
 	// Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
 	DefaultStreamlitNotebookWarehouse *string `pulumi:"defaultStreamlitNotebookWarehouse"`
 	// Controls whether users in an account see a button to download data in Snowsight or the Classic Console, such as a table returned from running a query in a worksheet. If the button to download is hidden in Snowsight or the Classic Console, users can still download or export data using [third-party software](https://docs.snowflake.com/en/user-guide/ecosystem). For more information, check [DISABLE*UI*DOWNLOAD_BUTTON docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-ui-download-button).
@@ -802,6 +806,8 @@ type CurrentAccountState struct {
 	DefaultNotebookComputePoolGpu pulumi.StringPtrInput
 	// Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
 	DefaultNullOrdering pulumi.StringPtrInput
+	// Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+	DefaultStreamlitComputePool pulumi.StringPtrInput
 	// Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
 	DefaultStreamlitNotebookWarehouse pulumi.StringPtrInput
 	// Controls whether users in an account see a button to download data in Snowsight or the Classic Console, such as a table returned from running a query in a worksheet. If the button to download is hidden in Snowsight or the Classic Console, users can still download or export data using [third-party software](https://docs.snowflake.com/en/user-guide/ecosystem). For more information, check [DISABLE*UI*DOWNLOAD_BUTTON docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-ui-download-button).
@@ -1063,6 +1069,8 @@ type currentAccountArgs struct {
 	DefaultNotebookComputePoolGpu *string `pulumi:"defaultNotebookComputePoolGpu"`
 	// Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
 	DefaultNullOrdering *string `pulumi:"defaultNullOrdering"`
+	// Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+	DefaultStreamlitComputePool *string `pulumi:"defaultStreamlitComputePool"`
 	// Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
 	DefaultStreamlitNotebookWarehouse *string `pulumi:"defaultStreamlitNotebookWarehouse"`
 	// Controls whether users in an account see a button to download data in Snowsight or the Classic Console, such as a table returned from running a query in a worksheet. If the button to download is hidden in Snowsight or the Classic Console, users can still download or export data using [third-party software](https://docs.snowflake.com/en/user-guide/ecosystem). For more information, check [DISABLE*UI*DOWNLOAD_BUTTON docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-ui-download-button).
@@ -1321,6 +1329,8 @@ type CurrentAccountArgs struct {
 	DefaultNotebookComputePoolGpu pulumi.StringPtrInput
 	// Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
 	DefaultNullOrdering pulumi.StringPtrInput
+	// Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+	DefaultStreamlitComputePool pulumi.StringPtrInput
 	// Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
 	DefaultStreamlitNotebookWarehouse pulumi.StringPtrInput
 	// Controls whether users in an account see a button to download data in Snowsight or the Classic Console, such as a table returned from running a query in a worksheet. If the button to download is hidden in Snowsight or the Classic Console, users can still download or export data using [third-party software](https://docs.snowflake.com/en/user-guide/ecosystem). For more information, check [DISABLE*UI*DOWNLOAD_BUTTON docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-ui-download-button).
@@ -1767,6 +1777,11 @@ func (o CurrentAccountOutput) DefaultNotebookComputePoolGpu() pulumi.StringOutpu
 // Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
 func (o CurrentAccountOutput) DefaultNullOrdering() pulumi.StringOutput {
 	return o.ApplyT(func(v *CurrentAccount) pulumi.StringOutput { return v.DefaultNullOrdering }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+func (o CurrentAccountOutput) DefaultStreamlitComputePool() pulumi.StringOutput {
+	return o.ApplyT(func(v *CurrentAccount) pulumi.StringOutput { return v.DefaultStreamlitComputePool }).(pulumi.StringOutput)
 }
 
 // Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).

@@ -22,11 +22,15 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly Outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture? Future;
         /// <summary>
+        /// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `ExperimentalFeaturesEnabled` field.
+        /// </summary>
+        public readonly Outputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited? Inherited;
+        /// <summary>
         /// The fully qualified name of the object on which privileges will be granted.
         /// </summary>
         public readonly string? ObjectName;
         /// <summary>
-        /// The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+        /// The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
         /// </summary>
         public readonly string? ObjectType;
 
@@ -36,12 +40,15 @@ namespace Pulumi.Snowflake.Outputs
 
             Outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture? future,
 
+            Outputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited? inherited,
+
             string? objectName,
 
             string? objectType)
         {
             All = all;
             Future = future;
+            Inherited = inherited;
             ObjectName = objectName;
             ObjectType = objectType;
         }

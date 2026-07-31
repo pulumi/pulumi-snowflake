@@ -94,6 +94,36 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     * 
+     */
+    @Import(name="defaultNotebookComputePoolCpu")
+    private @Nullable Output<String> defaultNotebookComputePoolCpu;
+
+    /**
+     * @return Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     * 
+     */
+    public Optional<Output<String>> defaultNotebookComputePoolCpu() {
+        return Optional.ofNullable(this.defaultNotebookComputePoolCpu);
+    }
+
+    /**
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     * 
+     */
+    @Import(name="defaultNotebookComputePoolGpu")
+    private @Nullable Output<String> defaultNotebookComputePoolGpu;
+
+    /**
+     * @return Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     * 
+     */
+    public Optional<Output<String>> defaultNotebookComputePoolGpu() {
+        return Optional.ofNullable(this.defaultNotebookComputePoolGpu);
+    }
+
+    /**
      * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
      * 
      */
@@ -341,6 +371,8 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         this.comment = $.comment;
         this.dataRetentionTimeInDays = $.dataRetentionTimeInDays;
         this.defaultDdlCollation = $.defaultDdlCollation;
+        this.defaultNotebookComputePoolCpu = $.defaultNotebookComputePoolCpu;
+        this.defaultNotebookComputePoolGpu = $.defaultNotebookComputePoolGpu;
         this.enableConsoleOutput = $.enableConsoleOutput;
         this.externalVolume = $.externalVolume;
         this.isTransient = $.isTransient;
@@ -480,6 +512,48 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder defaultDdlCollation(String defaultDdlCollation) {
             return defaultDdlCollation(Output.of(defaultDdlCollation));
+        }
+
+        /**
+         * @param defaultNotebookComputePoolCpu Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultNotebookComputePoolCpu(@Nullable Output<String> defaultNotebookComputePoolCpu) {
+            $.defaultNotebookComputePoolCpu = defaultNotebookComputePoolCpu;
+            return this;
+        }
+
+        /**
+         * @param defaultNotebookComputePoolCpu Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultNotebookComputePoolCpu(String defaultNotebookComputePoolCpu) {
+            return defaultNotebookComputePoolCpu(Output.of(defaultNotebookComputePoolCpu));
+        }
+
+        /**
+         * @param defaultNotebookComputePoolGpu Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultNotebookComputePoolGpu(@Nullable Output<String> defaultNotebookComputePoolGpu) {
+            $.defaultNotebookComputePoolGpu = defaultNotebookComputePoolGpu;
+            return this;
+        }
+
+        /**
+         * @param defaultNotebookComputePoolGpu Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultNotebookComputePoolGpu(String defaultNotebookComputePoolGpu) {
+            return defaultNotebookComputePoolGpu(Output.of(defaultNotebookComputePoolGpu));
         }
 
         /**

@@ -14,80 +14,23 @@ namespace Pulumi.Snowflake
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetFileFormats.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `FileFormats`.
         /// </summary>
-        public static Task<GetFileFormatsResult> InvokeAsync(GetFileFormatsArgs args, InvokeOptions? options = null)
+        public static Task<GetFileFormatsResult> InvokeAsync(GetFileFormatsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsArgs(), options.WithDefaults());
 
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetFileFormats.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `FileFormats`.
         /// </summary>
-        public static Output<GetFileFormatsResult> Invoke(GetFileFormatsInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetFileFormatsResult> Invoke(GetFileFormatsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var current = Snowflake.GetFileFormats.Invoke(new()
-        ///     {
-        ///         Database = "MYDB",
-        ///         Schema = "MYSCHEMA",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+        /// Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `FileFormats`.
         /// </summary>
         public static Output<GetFileFormatsResult> Invoke(GetFileFormatsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileFormatsResult>("snowflake:index/getFileFormats:getFileFormats", args ?? new GetFileFormatsInvokeArgs(), options.WithDefaults());
@@ -97,16 +40,22 @@ namespace Pulumi.Snowflake
     public sealed class GetFileFormatsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database", required: true)]
-        public string Database { get; set; } = null!;
+        [Input("in")]
+        public Inputs.GetFileFormatsInArgs? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the file formats from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public string Schema { get; set; } = null!;
+        [Input("like")]
+        public string? Like { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public bool? WithDescribe { get; set; }
 
         public GetFileFormatsArgs()
         {
@@ -117,16 +66,22 @@ namespace Pulumi.Snowflake
     public sealed class GetFileFormatsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database from which to return the schemas from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        [Input("database", required: true)]
-        public Input<string> Database { get; set; } = null!;
+        [Input("in")]
+        public Input<Inputs.GetFileFormatsInInputArgs>? In { get; set; }
 
         /// <summary>
-        /// The schema from which to return the file formats from.
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         /// </summary>
-        [Input("schema", required: true)]
-        public Input<string> Schema { get; set; } = null!;
+        [Input("like")]
+        public Input<string>? Like { get; set; }
+
+        /// <summary>
+        /// (Default: `True`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        [Input("withDescribe")]
+        public Input<bool>? WithDescribe { get; set; }
 
         public GetFileFormatsInvokeArgs()
         {
@@ -139,11 +94,7 @@ namespace Pulumi.Snowflake
     public sealed class GetFileFormatsResult
     {
         /// <summary>
-        /// The database from which to return the schemas from.
-        /// </summary>
-        public readonly string Database;
-        /// <summary>
-        /// The file formats in the schema
+        /// Holds the aggregated output of all file formats details queries.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFileFormatsFileFormatResult> FileFormats;
         /// <summary>
@@ -151,24 +102,35 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The schema from which to return the file formats from.
+        /// IN clause to filter the list of objects
         /// </summary>
-        public readonly string Schema;
+        public readonly Outputs.GetFileFormatsInResult? In;
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
+        public readonly string? Like;
+        /// <summary>
+        /// (Default: `True`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the DescribeOutput field. By default this value is set to true.
+        /// </summary>
+        public readonly bool? WithDescribe;
 
         [OutputConstructor]
         private GetFileFormatsResult(
-            string database,
-
             ImmutableArray<Outputs.GetFileFormatsFileFormatResult> fileFormats,
 
             string id,
 
-            string schema)
+            Outputs.GetFileFormatsInResult? @in,
+
+            string? like,
+
+            bool? withDescribe)
         {
-            Database = database;
             FileFormats = fileFormats;
             Id = id;
-            Schema = schema;
+            In = @in;
+            Like = like;
+            WithDescribe = withDescribe;
         }
     }
 }

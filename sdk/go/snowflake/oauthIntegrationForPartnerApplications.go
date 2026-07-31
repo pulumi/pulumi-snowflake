@@ -29,6 +29,8 @@ import (
 type OauthIntegrationForPartnerApplications struct {
 	pulumi.CustomResourceState
 
+	// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+	AllowedRolesLists pulumi.StringArrayOutput `pulumi:"allowedRolesLists"`
 	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayOutput `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
@@ -97,6 +99,8 @@ func GetOauthIntegrationForPartnerApplications(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OauthIntegrationForPartnerApplications resources.
 type oauthIntegrationForPartnerApplicationsState struct {
+	// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+	AllowedRolesLists []string `pulumi:"allowedRolesLists"`
 	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
@@ -126,6 +130,8 @@ type oauthIntegrationForPartnerApplicationsState struct {
 }
 
 type OauthIntegrationForPartnerApplicationsState struct {
+	// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+	AllowedRolesLists pulumi.StringArrayInput
 	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayInput
 	// Specifies a comment for the OAuth integration.
@@ -159,6 +165,8 @@ func (OauthIntegrationForPartnerApplicationsState) ElementType() reflect.Type {
 }
 
 type oauthIntegrationForPartnerApplicationsArgs struct {
+	// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+	AllowedRolesLists []string `pulumi:"allowedRolesLists"`
 	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
@@ -181,6 +189,8 @@ type oauthIntegrationForPartnerApplicationsArgs struct {
 
 // The set of arguments for constructing a OauthIntegrationForPartnerApplications resource.
 type OauthIntegrationForPartnerApplicationsArgs struct {
+	// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+	AllowedRolesLists pulumi.StringArrayInput
 	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayInput
 	// Specifies a comment for the OAuth integration.
@@ -286,6 +296,11 @@ func (o OauthIntegrationForPartnerApplicationsOutput) ToOauthIntegrationForPartn
 
 func (o OauthIntegrationForPartnerApplicationsOutput) ToOauthIntegrationForPartnerApplicationsOutputWithContext(ctx context.Context) OauthIntegrationForPartnerApplicationsOutput {
 	return o
+}
+
+// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
+func (o OauthIntegrationForPartnerApplicationsOutput) AllowedRolesLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringArrayOutput { return v.AllowedRolesLists }).(pulumi.StringArrayOutput)
 }
 
 // A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.

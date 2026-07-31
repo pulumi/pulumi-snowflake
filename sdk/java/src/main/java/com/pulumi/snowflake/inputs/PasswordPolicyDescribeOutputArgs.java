@@ -23,6 +23,13 @@ public final class PasswordPolicyDescribeOutputArgs extends com.pulumi.resources
         return Optional.ofNullable(this.comment);
     }
 
+    @Import(name="databaseName")
+    private @Nullable Output<String> databaseName;
+
+    public Optional<Output<String>> databaseName() {
+        return Optional.ofNullable(this.databaseName);
+    }
+
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -114,10 +121,18 @@ public final class PasswordPolicyDescribeOutputArgs extends com.pulumi.resources
         return Optional.ofNullable(this.passwordMinUpperCaseChars);
     }
 
+    @Import(name="schemaName")
+    private @Nullable Output<String> schemaName;
+
+    public Optional<Output<String>> schemaName() {
+        return Optional.ofNullable(this.schemaName);
+    }
+
     private PasswordPolicyDescribeOutputArgs() {}
 
     private PasswordPolicyDescribeOutputArgs(PasswordPolicyDescribeOutputArgs $) {
         this.comment = $.comment;
+        this.databaseName = $.databaseName;
         this.name = $.name;
         this.owner = $.owner;
         this.passwordHistory = $.passwordHistory;
@@ -131,6 +146,7 @@ public final class PasswordPolicyDescribeOutputArgs extends com.pulumi.resources
         this.passwordMinNumericChars = $.passwordMinNumericChars;
         this.passwordMinSpecialChars = $.passwordMinSpecialChars;
         this.passwordMinUpperCaseChars = $.passwordMinUpperCaseChars;
+        this.schemaName = $.schemaName;
     }
 
     public static Builder builder() {
@@ -158,6 +174,15 @@ public final class PasswordPolicyDescribeOutputArgs extends com.pulumi.resources
 
         public Builder comment(String comment) {
             return comment(Output.of(comment));
+        }
+
+        public Builder databaseName(@Nullable Output<String> databaseName) {
+            $.databaseName = databaseName;
+            return this;
+        }
+
+        public Builder databaseName(String databaseName) {
+            return databaseName(Output.of(databaseName));
         }
 
         public Builder name(@Nullable Output<String> name) {
@@ -275,6 +300,15 @@ public final class PasswordPolicyDescribeOutputArgs extends com.pulumi.resources
 
         public Builder passwordMinUpperCaseChars(Integer passwordMinUpperCaseChars) {
             return passwordMinUpperCaseChars(Output.of(passwordMinUpperCaseChars));
+        }
+
+        public Builder schemaName(@Nullable Output<String> schemaName) {
+            $.schemaName = schemaName;
+            return this;
+        }
+
+        public Builder schemaName(String schemaName) {
+            return schemaName(Output.of(schemaName));
         }
 
         public PasswordPolicyDescribeOutputArgs build() {

@@ -2724,12 +2724,21 @@ class LegacyServiceUser(pulumi.CustomResource):
             use_cached_result=False,
             week_of_year_policy=1,
             week_start=1)
-        # with AWS workload identity
+        # with AWS workload identity (GetCallerIdentity attestation)
         with_aws_wif = snowflake.LegacyServiceUser("with_aws_wif",
             name="legacy_service_user_aws",
             default_workload_identity={
                 "aws": {
                     "arn": "arn:aws:iam::123456789012:role/snowflake-service-role",
+                },
+            })
+        # with AWS workload identity (JWT-based / GetWebIdentityToken attestation)
+        with_aws_jwt_wif = snowflake.LegacyServiceUser("with_aws_jwt_wif",
+            name="legacy_service_user_aws_jwt",
+            default_workload_identity={
+                "aws": {
+                    "arn": "arn:aws:iam::123456789012:role/snowflake-service-role",
+                    "issuer": "https://sts.amazonaws.com",
                 },
             })
         # with GCP workload identity
@@ -2968,12 +2977,21 @@ class LegacyServiceUser(pulumi.CustomResource):
             use_cached_result=False,
             week_of_year_policy=1,
             week_start=1)
-        # with AWS workload identity
+        # with AWS workload identity (GetCallerIdentity attestation)
         with_aws_wif = snowflake.LegacyServiceUser("with_aws_wif",
             name="legacy_service_user_aws",
             default_workload_identity={
                 "aws": {
                     "arn": "arn:aws:iam::123456789012:role/snowflake-service-role",
+                },
+            })
+        # with AWS workload identity (JWT-based / GetWebIdentityToken attestation)
+        with_aws_jwt_wif = snowflake.LegacyServiceUser("with_aws_jwt_wif",
+            name="legacy_service_user_aws_jwt",
+            default_workload_identity={
+                "aws": {
+                    "arn": "arn:aws:iam::123456789012:role/snowflake-service-role",
+                    "issuer": "https://sts.amazonaws.com",
                 },
             })
         # with GCP workload identity

@@ -7,7 +7,7 @@ import * as utilities from "./utilities";
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * > **Required warehouse** For this resource, the provider now uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+ * > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to users. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
  *
  * Specifies the authentication policy to use for a certain user.
  *
@@ -33,6 +33,12 @@ import * as utilities from "./utilities";
  * <!-- TODO(SNOW-1634854): include an example showing both methods-->
  *
  * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ *
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment example '"<user_name>"|"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+ * ```
  */
 export class UserAuthenticationPolicyAttachment extends pulumi.CustomResource {
     /**
@@ -63,11 +69,11 @@ export class UserAuthenticationPolicyAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Fully qualified name of the authentication policy
+     * Fully qualified name of the authentication policy.
      */
     declare public readonly authenticationPolicyName: pulumi.Output<string>;
     /**
-     * User name of the user you want to attach the authentication policy to
+     * User name of the user you want to attach the authentication policy to.
      */
     declare public readonly userName: pulumi.Output<string>;
 
@@ -107,11 +113,11 @@ export class UserAuthenticationPolicyAttachment extends pulumi.CustomResource {
  */
 export interface UserAuthenticationPolicyAttachmentState {
     /**
-     * Fully qualified name of the authentication policy
+     * Fully qualified name of the authentication policy.
      */
     authenticationPolicyName?: pulumi.Input<string | undefined>;
     /**
-     * User name of the user you want to attach the authentication policy to
+     * User name of the user you want to attach the authentication policy to.
      */
     userName?: pulumi.Input<string | undefined>;
 }
@@ -121,11 +127,11 @@ export interface UserAuthenticationPolicyAttachmentState {
  */
 export interface UserAuthenticationPolicyAttachmentArgs {
     /**
-     * Fully qualified name of the authentication policy
+     * Fully qualified name of the authentication policy.
      */
     authenticationPolicyName: pulumi.Input<string>;
     /**
-     * User name of the user you want to attach the authentication policy to
+     * User name of the user you want to attach the authentication policy to.
      */
     userName: pulumi.Input<string>;
 }

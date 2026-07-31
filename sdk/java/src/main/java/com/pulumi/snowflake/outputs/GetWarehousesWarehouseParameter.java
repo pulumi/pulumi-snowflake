@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GetWarehousesWarehouseParameterFallbackWarehouse;
 import com.pulumi.snowflake.outputs.GetWarehousesWarehouseParameterMaxConcurrencyLevel;
 import com.pulumi.snowflake.outputs.GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecond;
 import com.pulumi.snowflake.outputs.GetWarehousesWarehouseParameterStatementTimeoutInSecond;
@@ -13,11 +14,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetWarehousesWarehouseParameter {
+    private List<GetWarehousesWarehouseParameterFallbackWarehouse> fallbackWarehouses;
     private List<GetWarehousesWarehouseParameterMaxConcurrencyLevel> maxConcurrencyLevels;
     private List<GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds;
     private List<GetWarehousesWarehouseParameterStatementTimeoutInSecond> statementTimeoutInSeconds;
 
     private GetWarehousesWarehouseParameter() {}
+    public List<GetWarehousesWarehouseParameterFallbackWarehouse> fallbackWarehouses() {
+        return this.fallbackWarehouses;
+    }
     public List<GetWarehousesWarehouseParameterMaxConcurrencyLevel> maxConcurrencyLevels() {
         return this.maxConcurrencyLevels;
     }
@@ -37,17 +42,30 @@ public final class GetWarehousesWarehouseParameter {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetWarehousesWarehouseParameterFallbackWarehouse> fallbackWarehouses;
         private List<GetWarehousesWarehouseParameterMaxConcurrencyLevel> maxConcurrencyLevels;
         private List<GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecond> statementQueuedTimeoutInSeconds;
         private List<GetWarehousesWarehouseParameterStatementTimeoutInSecond> statementTimeoutInSeconds;
         public Builder() {}
         public Builder(GetWarehousesWarehouseParameter defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.fallbackWarehouses = defaults.fallbackWarehouses;
     	      this.maxConcurrencyLevels = defaults.maxConcurrencyLevels;
     	      this.statementQueuedTimeoutInSeconds = defaults.statementQueuedTimeoutInSeconds;
     	      this.statementTimeoutInSeconds = defaults.statementTimeoutInSeconds;
         }
 
+        @CustomType.Setter
+        public Builder fallbackWarehouses(List<GetWarehousesWarehouseParameterFallbackWarehouse> fallbackWarehouses) {
+            if (fallbackWarehouses == null) {
+              throw new MissingRequiredPropertyException("GetWarehousesWarehouseParameter", "fallbackWarehouses");
+            }
+            this.fallbackWarehouses = fallbackWarehouses;
+            return this;
+        }
+        public Builder fallbackWarehouses(GetWarehousesWarehouseParameterFallbackWarehouse... fallbackWarehouses) {
+            return fallbackWarehouses(List.of(fallbackWarehouses));
+        }
         @CustomType.Setter
         public Builder maxConcurrencyLevels(List<GetWarehousesWarehouseParameterMaxConcurrencyLevel> maxConcurrencyLevels) {
             if (maxConcurrencyLevels == null) {
@@ -83,6 +101,7 @@ public final class GetWarehousesWarehouseParameter {
         }
         public GetWarehousesWarehouseParameter build() {
             final var _resultValue = new GetWarehousesWarehouseParameter();
+            _resultValue.fallbackWarehouses = fallbackWarehouses;
             _resultValue.maxConcurrencyLevels = maxConcurrencyLevels;
             _resultValue.statementQueuedTimeoutInSeconds = statementQueuedTimeoutInSeconds;
             _resultValue.statementTimeoutInSeconds = statementTimeoutInSeconds;

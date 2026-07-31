@@ -12,6 +12,8 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
     /// 
+    /// &gt; **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
+    /// 
     /// &gt; **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
     /// 
     /// Specifies the authentication policy to use for the current account. To set the authentication policy of a different account, use a provider alias.
@@ -44,12 +46,18 @@ namespace Pulumi.Snowflake
     /// &lt;!-- TODO(SNOW-1634854): include an example showing both methods--&gt;
     /// 
     /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+    /// 
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;authentication_policy_name&gt;"'
+    /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment")]
     public partial class AccountAuthenticationPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Qualified name (`"db"."schema"."PolicyName"`) of the authentication policy to apply to the current account.
+        /// Fully qualified name of the authentication policy to apply to the current account.
         /// </summary>
         [Output("authenticationPolicy")]
         public Output<string> AuthenticationPolicy { get; private set; } = null!;
@@ -101,7 +109,7 @@ namespace Pulumi.Snowflake
     public sealed class AccountAuthenticationPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Qualified name (`"db"."schema"."PolicyName"`) of the authentication policy to apply to the current account.
+        /// Fully qualified name of the authentication policy to apply to the current account.
         /// </summary>
         [Input("authenticationPolicy", required: true)]
         public Input<string> AuthenticationPolicy { get; set; } = null!;
@@ -115,7 +123,7 @@ namespace Pulumi.Snowflake
     public sealed class AccountAuthenticationPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Qualified name (`"db"."schema"."PolicyName"`) of the authentication policy to apply to the current account.
+        /// Fully qualified name of the authentication policy to apply to the current account.
         /// </summary>
         [Input("authenticationPolicy")]
         public Input<string>? AuthenticationPolicy { get; set; }

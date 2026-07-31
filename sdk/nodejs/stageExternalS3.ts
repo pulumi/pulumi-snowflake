@@ -53,6 +53,7 @@ import * as utilities from "./utilities";
  *         enable: true,
  *         refreshOnCreate: "true",
  *         autoRefresh: "false",
+ *         awsSnsTopic: "arn:aws:sns:us-west-2:123456789012:s3-stage-directory-topic",
  *     },
  *     comment: "Fully configured S3 external stage",
  * });

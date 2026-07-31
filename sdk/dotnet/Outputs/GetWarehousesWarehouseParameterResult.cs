@@ -13,18 +13,22 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetWarehousesWarehouseParameterResult
     {
+        public readonly ImmutableArray<Outputs.GetWarehousesWarehouseParameterFallbackWarehouseResult> FallbackWarehouses;
         public readonly ImmutableArray<Outputs.GetWarehousesWarehouseParameterMaxConcurrencyLevelResult> MaxConcurrencyLevels;
         public readonly ImmutableArray<Outputs.GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecondResult> StatementQueuedTimeoutInSeconds;
         public readonly ImmutableArray<Outputs.GetWarehousesWarehouseParameterStatementTimeoutInSecondResult> StatementTimeoutInSeconds;
 
         [OutputConstructor]
         private GetWarehousesWarehouseParameterResult(
+            ImmutableArray<Outputs.GetWarehousesWarehouseParameterFallbackWarehouseResult> fallbackWarehouses,
+
             ImmutableArray<Outputs.GetWarehousesWarehouseParameterMaxConcurrencyLevelResult> maxConcurrencyLevels,
 
             ImmutableArray<Outputs.GetWarehousesWarehouseParameterStatementQueuedTimeoutInSecondResult> statementQueuedTimeoutInSeconds,
 
             ImmutableArray<Outputs.GetWarehousesWarehouseParameterStatementTimeoutInSecondResult> statementTimeoutInSeconds)
         {
+            FallbackWarehouses = fallbackWarehouses;
             MaxConcurrencyLevels = maxConcurrencyLevels;
             StatementQueuedTimeoutInSeconds = statementQueuedTimeoutInSeconds;
             StatementTimeoutInSeconds = statementTimeoutInSeconds;

@@ -117,12 +117,22 @@ import * as utilities from "./utilities";
  *     weekOfYearPolicy: 1,
  *     weekStart: 1,
  * });
- * // with AWS workload identity
+ * // with AWS workload identity (GetCallerIdentity attestation)
  * const withAwsWif = new snowflake.LegacyServiceUser("with_aws_wif", {
  *     name: "legacy_service_user_aws",
  *     defaultWorkloadIdentity: {
  *         aws: {
  *             arn: "arn:aws:iam::123456789012:role/snowflake-service-role",
+ *         },
+ *     },
+ * });
+ * // with AWS workload identity (JWT-based / GetWebIdentityToken attestation)
+ * const withAwsJwtWif = new snowflake.LegacyServiceUser("with_aws_jwt_wif", {
+ *     name: "legacy_service_user_aws_jwt",
+ *     defaultWorkloadIdentity: {
+ *         aws: {
+ *             arn: "arn:aws:iam::123456789012:role/snowflake-service-role",
+ *             issuer: "https://sts.amazonaws.com",
  *         },
  *     },
  * });

@@ -330,6 +330,10 @@ export class CurrentOrganizationAccount extends pulumi.CustomResource {
      */
     declare public readonly defaultNullOrdering: pulumi.Output<string>;
     /**
+     * Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+     */
+    declare public readonly defaultStreamlitComputePool: pulumi.Output<string>;
+    /**
      * Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
      */
     declare public readonly defaultStreamlitNotebookWarehouse: pulumi.Output<string>;
@@ -746,6 +750,7 @@ export class CurrentOrganizationAccount extends pulumi.CustomResource {
             resourceInputs["defaultNotebookComputePoolCpu"] = state?.defaultNotebookComputePoolCpu;
             resourceInputs["defaultNotebookComputePoolGpu"] = state?.defaultNotebookComputePoolGpu;
             resourceInputs["defaultNullOrdering"] = state?.defaultNullOrdering;
+            resourceInputs["defaultStreamlitComputePool"] = state?.defaultStreamlitComputePool;
             resourceInputs["defaultStreamlitNotebookWarehouse"] = state?.defaultStreamlitNotebookWarehouse;
             resourceInputs["disableUiDownloadButton"] = state?.disableUiDownloadButton;
             resourceInputs["disableUserPrivilegeGrants"] = state?.disableUserPrivilegeGrants;
@@ -875,6 +880,7 @@ export class CurrentOrganizationAccount extends pulumi.CustomResource {
             resourceInputs["defaultNotebookComputePoolCpu"] = args?.defaultNotebookComputePoolCpu;
             resourceInputs["defaultNotebookComputePoolGpu"] = args?.defaultNotebookComputePoolGpu;
             resourceInputs["defaultNullOrdering"] = args?.defaultNullOrdering;
+            resourceInputs["defaultStreamlitComputePool"] = args?.defaultStreamlitComputePool;
             resourceInputs["defaultStreamlitNotebookWarehouse"] = args?.defaultStreamlitNotebookWarehouse;
             resourceInputs["disableUiDownloadButton"] = args?.disableUiDownloadButton;
             resourceInputs["disableUserPrivilegeGrants"] = args?.disableUserPrivilegeGrants;
@@ -1117,6 +1123,10 @@ export interface CurrentOrganizationAccountState {
      * Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
      */
     defaultNullOrdering?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+     */
+    defaultStreamlitComputePool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
      */
@@ -1631,6 +1641,10 @@ export interface CurrentOrganizationAccountArgs {
      * Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
      */
     defaultNullOrdering?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+     */
+    defaultStreamlitComputePool?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
      */

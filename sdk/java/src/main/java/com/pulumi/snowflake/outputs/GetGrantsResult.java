@@ -11,6 +11,7 @@ import com.pulumi.snowflake.outputs.GetGrantsGrant;
 import com.pulumi.snowflake.outputs.GetGrantsGrantsOf;
 import com.pulumi.snowflake.outputs.GetGrantsGrantsOn;
 import com.pulumi.snowflake.outputs.GetGrantsGrantsTo;
+import com.pulumi.snowflake.outputs.GetGrantsInheritedGrantsIn;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -54,6 +55,11 @@ public final class GetGrantsResult {
      * 
      */
     private String id;
+    /**
+     * @return Lists all inherited grants defined in a container.
+     * 
+     */
+    private @Nullable GetGrantsInheritedGrantsIn inheritedGrantsIn;
 
     private GetGrantsResult() {}
     /**
@@ -105,6 +111,13 @@ public final class GetGrantsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Lists all inherited grants defined in a container.
+     * 
+     */
+    public Optional<GetGrantsInheritedGrantsIn> inheritedGrantsIn() {
+        return Optional.ofNullable(this.inheritedGrantsIn);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -122,6 +135,7 @@ public final class GetGrantsResult {
         private @Nullable GetGrantsGrantsOn grantsOn;
         private @Nullable GetGrantsGrantsTo grantsTo;
         private String id;
+        private @Nullable GetGrantsInheritedGrantsIn inheritedGrantsIn;
         public Builder() {}
         public Builder(GetGrantsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -132,6 +146,7 @@ public final class GetGrantsResult {
     	      this.grantsOn = defaults.grantsOn;
     	      this.grantsTo = defaults.grantsTo;
     	      this.id = defaults.id;
+    	      this.inheritedGrantsIn = defaults.inheritedGrantsIn;
         }
 
         @CustomType.Setter
@@ -183,6 +198,12 @@ public final class GetGrantsResult {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
+        public Builder inheritedGrantsIn(@Nullable GetGrantsInheritedGrantsIn inheritedGrantsIn) {
+
+            this.inheritedGrantsIn = inheritedGrantsIn;
+            return this;
+        }
         public GetGrantsResult build() {
             final var _resultValue = new GetGrantsResult();
             _resultValue.futureGrantsIn = futureGrantsIn;
@@ -192,6 +213,7 @@ public final class GetGrantsResult {
             _resultValue.grantsOn = grantsOn;
             _resultValue.grantsTo = grantsTo;
             _resultValue.id = id;
+            _resultValue.inheritedGrantsIn = inheritedGrantsIn;
             return _resultValue;
         }
     }

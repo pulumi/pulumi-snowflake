@@ -31,7 +31,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? NameMapping;
         public readonly string? Owner;
         public readonly string? OwnerRoleType;
-        public readonly string? PartitionSpecs;
+        public readonly ImmutableArray<Outputs.IcebergTableFromFilesShowOutputPartitionSpec> PartitionSpecs;
         public readonly string? SchemaName;
 
         [OutputConstructor]
@@ -72,7 +72,7 @@ namespace Pulumi.Snowflake.Outputs
 
             string? ownerRoleType,
 
-            string? partitionSpecs,
+            ImmutableArray<Outputs.IcebergTableFromFilesShowOutputPartitionSpec> partitionSpecs,
 
             string? schemaName)
         {

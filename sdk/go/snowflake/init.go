@@ -103,6 +103,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FailoverGroup{}
 	case "snowflake:index/fileFormat:FileFormat":
 		r = &FileFormat{}
+	case "snowflake:index/fileFormatAvro:FileFormatAvro":
+		r = &FileFormatAvro{}
+	case "snowflake:index/fileFormatCsv:FileFormatCsv":
+		r = &FileFormatCsv{}
+	case "snowflake:index/fileFormatJson:FileFormatJson":
+		r = &FileFormatJson{}
+	case "snowflake:index/fileFormatOrc:FileFormatOrc":
+		r = &FileFormatOrc{}
+	case "snowflake:index/fileFormatParquet:FileFormatParquet":
+		r = &FileFormatParquet{}
+	case "snowflake:index/fileFormatXml:FileFormatXml":
+		r = &FileFormatXml{}
 	case "snowflake:index/functionJava:FunctionJava":
 		r = &FunctionJava{}
 	case "snowflake:index/functionJavascript:FunctionJavascript":
@@ -129,10 +141,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GrantPrivilegesToDatabaseRole{}
 	case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
 		r = &GrantPrivilegesToShare{}
+	case "snowflake:index/icebergTable:IcebergTable":
+		r = &IcebergTable{}
+	case "snowflake:index/icebergTableFromAwsGlue:IcebergTableFromAwsGlue":
+		r = &IcebergTableFromAwsGlue{}
 	case "snowflake:index/icebergTableFromDeltaFiles:IcebergTableFromDeltaFiles":
 		r = &IcebergTableFromDeltaFiles{}
 	case "snowflake:index/icebergTableFromFiles:IcebergTableFromFiles":
 		r = &IcebergTableFromFiles{}
+	case "snowflake:index/icebergTableFromRest:IcebergTableFromRest":
+		r = &IcebergTableFromRest{}
 	case "snowflake:index/imageRepository:ImageRepository":
 		r = &ImageRepository{}
 	case "snowflake:index/jobService:JobService":
@@ -147,6 +165,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MaskingPolicy{}
 	case "snowflake:index/materializedView:MaterializedView":
 		r = &MaterializedView{}
+	case "snowflake:index/mcpServer:McpServer":
+		r = &McpServer{}
 	case "snowflake:index/networkPolicy:NetworkPolicy":
 		r = &NetworkPolicy{}
 	case "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment":
@@ -281,6 +301,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Warehouse{}
 	case "snowflake:index/warehouseAdaptive:WarehouseAdaptive":
 		r = &WarehouseAdaptive{}
+	case "snowflake:index/warehouseInteractive:WarehouseInteractive":
+		r = &WarehouseInteractive{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -519,6 +541,36 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/fileFormatAvro",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/fileFormatCsv",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/fileFormatJson",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/fileFormatOrc",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/fileFormatParquet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/fileFormatXml",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/functionJava",
 		&module{version},
 	)
@@ -584,12 +636,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/icebergTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/icebergTableFromAwsGlue",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/icebergTableFromDeltaFiles",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/icebergTableFromFiles",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/icebergTableFromRest",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -625,6 +692,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/materializedView",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/mcpServer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -960,6 +1032,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/warehouseAdaptive",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/warehouseInteractive",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

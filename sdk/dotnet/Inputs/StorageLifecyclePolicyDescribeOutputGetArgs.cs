@@ -21,11 +21,17 @@ namespace Pulumi.Snowflake.Inputs
         [Input("body")]
         public Input<string>? Body { get; set; }
 
+        [Input("databaseName")]
+        public Input<string>? DatabaseName { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("returnType")]
         public Input<string>? ReturnType { get; set; }
+
+        [Input("schemaName")]
+        public Input<string>? SchemaName { get; set; }
 
         [Input("signatures")]
         private InputList<Inputs.StorageLifecyclePolicyDescribeOutputSignatureGetArgs>? _signatures;

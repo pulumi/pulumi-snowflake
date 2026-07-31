@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.IcebergTableFromFilesShowOutputAutoRefreshStatusArgs;
+import com.pulumi.snowflake.inputs.IcebergTableFromFilesShowOutputPartitionSpecArgs;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -146,9 +147,9 @@ public final class IcebergTableFromFilesShowOutputArgs extends com.pulumi.resour
     }
 
     @Import(name="partitionSpecs")
-    private @Nullable Output<String> partitionSpecs;
+    private @Nullable Output<List<IcebergTableFromFilesShowOutputPartitionSpecArgs>> partitionSpecs;
 
-    public Optional<Output<String>> partitionSpecs() {
+    public Optional<Output<List<IcebergTableFromFilesShowOutputPartitionSpecArgs>>> partitionSpecs() {
         return Optional.ofNullable(this.partitionSpecs);
     }
 
@@ -368,13 +369,17 @@ public final class IcebergTableFromFilesShowOutputArgs extends com.pulumi.resour
             return ownerRoleType(Output.of(ownerRoleType));
         }
 
-        public Builder partitionSpecs(@Nullable Output<String> partitionSpecs) {
+        public Builder partitionSpecs(@Nullable Output<List<IcebergTableFromFilesShowOutputPartitionSpecArgs>> partitionSpecs) {
             $.partitionSpecs = partitionSpecs;
             return this;
         }
 
-        public Builder partitionSpecs(String partitionSpecs) {
+        public Builder partitionSpecs(List<IcebergTableFromFilesShowOutputPartitionSpecArgs> partitionSpecs) {
             return partitionSpecs(Output.of(partitionSpecs));
+        }
+
+        public Builder partitionSpecs(IcebergTableFromFilesShowOutputPartitionSpecArgs... partitionSpecs) {
+            return partitionSpecs(List.of(partitionSpecs));
         }
 
         public Builder schemaName(@Nullable Output<String> schemaName) {

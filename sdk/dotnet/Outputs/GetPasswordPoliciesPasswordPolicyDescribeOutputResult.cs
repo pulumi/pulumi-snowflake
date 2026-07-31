@@ -14,6 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetPasswordPoliciesPasswordPolicyDescribeOutputResult
     {
         public readonly string Comment;
+        public readonly string DatabaseName;
         public readonly string Name;
         public readonly string Owner;
         public readonly int PasswordHistory;
@@ -27,10 +28,13 @@ namespace Pulumi.Snowflake.Outputs
         public readonly int PasswordMinNumericChars;
         public readonly int PasswordMinSpecialChars;
         public readonly int PasswordMinUpperCaseChars;
+        public readonly string SchemaName;
 
         [OutputConstructor]
         private GetPasswordPoliciesPasswordPolicyDescribeOutputResult(
             string comment,
+
+            string databaseName,
 
             string name,
 
@@ -56,9 +60,12 @@ namespace Pulumi.Snowflake.Outputs
 
             int passwordMinSpecialChars,
 
-            int passwordMinUpperCaseChars)
+            int passwordMinUpperCaseChars,
+
+            string schemaName)
         {
             Comment = comment;
+            DatabaseName = databaseName;
             Name = name;
             Owner = owner;
             PasswordHistory = passwordHistory;
@@ -72,6 +79,7 @@ namespace Pulumi.Snowflake.Outputs
             PasswordMinNumericChars = passwordMinNumericChars;
             PasswordMinSpecialChars = passwordMinSpecialChars;
             PasswordMinUpperCaseChars = passwordMinUpperCaseChars;
+            SchemaName = schemaName;
         }
     }
 }

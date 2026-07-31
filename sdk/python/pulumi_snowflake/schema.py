@@ -26,6 +26,8 @@ class SchemaArgs:
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_volume: pulumi.Input[Optional[_builtins.str]] = None,
                  is_transient: pulumi.Input[Optional[_builtins.str]] = None,
@@ -52,6 +54,8 @@ class SchemaArgs:
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the schema.
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[_builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
         :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[_builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[_builtins.str] is_transient: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -80,6 +84,10 @@ class SchemaArgs:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if default_ddl_collation is not None:
             pulumi.set(__self__, "default_ddl_collation", default_ddl_collation)
+        if default_notebook_compute_pool_cpu is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_cpu", default_notebook_compute_pool_cpu)
+        if default_notebook_compute_pool_gpu is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_gpu", default_notebook_compute_pool_gpu)
         if enable_console_output is not None:
             pulumi.set(__self__, "enable_console_output", enable_console_output)
         if external_volume is not None:
@@ -176,6 +184,30 @@ class SchemaArgs:
     @default_ddl_collation.setter
     def default_ddl_collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_ddl_collation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpu")
+    def default_notebook_compute_pool_cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_cpu")
+
+    @default_notebook_compute_pool_cpu.setter
+    def default_notebook_compute_pool_cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_notebook_compute_pool_cpu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpu")
+    def default_notebook_compute_pool_gpu(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_gpu")
+
+    @default_notebook_compute_pool_gpu.setter
+    def default_notebook_compute_pool_gpu(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_notebook_compute_pool_gpu", value)
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutput")
@@ -402,6 +434,8 @@ class _SchemaState:
                  data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaDescribeOutputArgs']]]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_volume: pulumi.Input[Optional[_builtins.str]] = None,
@@ -432,6 +466,8 @@ class _SchemaState:
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[_builtins.str] database: The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
         :param pulumi.Input[Sequence[pulumi.Input['SchemaDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant_ownership on all objects in the schema.
         :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[_builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
@@ -465,6 +501,10 @@ class _SchemaState:
             pulumi.set(__self__, "database", database)
         if default_ddl_collation is not None:
             pulumi.set(__self__, "default_ddl_collation", default_ddl_collation)
+        if default_notebook_compute_pool_cpu is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_cpu", default_notebook_compute_pool_cpu)
+        if default_notebook_compute_pool_gpu is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_gpu", default_notebook_compute_pool_gpu)
         if describe_outputs is not None:
             pulumi.set(__self__, "describe_outputs", describe_outputs)
         if enable_console_output is not None:
@@ -569,6 +609,30 @@ class _SchemaState:
     @default_ddl_collation.setter
     def default_ddl_collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_ddl_collation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpu")
+    def default_notebook_compute_pool_cpu(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_cpu")
+
+    @default_notebook_compute_pool_cpu.setter
+    def default_notebook_compute_pool_cpu(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_notebook_compute_pool_cpu", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpu")
+    def default_notebook_compute_pool_gpu(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_gpu")
+
+    @default_notebook_compute_pool_gpu.setter
+    def default_notebook_compute_pool_gpu(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_notebook_compute_pool_gpu", value)
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")
@@ -846,6 +910,8 @@ class Schema(pulumi.CustomResource):
                  data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_volume: pulumi.Input[Optional[_builtins.str]] = None,
                  is_transient: pulumi.Input[Optional[_builtins.str]] = None,
@@ -893,6 +959,8 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[_builtins.str] database: The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
         :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[_builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[_builtins.str] is_transient: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -959,6 +1027,8 @@ class Schema(pulumi.CustomResource):
                  data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
                  external_volume: pulumi.Input[Optional[_builtins.str]] = None,
                  is_transient: pulumi.Input[Optional[_builtins.str]] = None,
@@ -993,6 +1063,8 @@ class Schema(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
             __props__.__dict__["default_ddl_collation"] = default_ddl_collation
+            __props__.__dict__["default_notebook_compute_pool_cpu"] = default_notebook_compute_pool_cpu
+            __props__.__dict__["default_notebook_compute_pool_gpu"] = default_notebook_compute_pool_gpu
             __props__.__dict__["enable_console_output"] = enable_console_output
             __props__.__dict__["external_volume"] = external_volume
             __props__.__dict__["is_transient"] = is_transient
@@ -1030,6 +1102,8 @@ class Schema(pulumi.CustomResource):
             data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
             default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+            default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+            default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
             describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaDescribeOutputArgs', 'SchemaDescribeOutputArgsDict']]]]] = None,
             enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
             external_volume: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1064,6 +1138,8 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         :param pulumi.Input[_builtins.str] database: The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaDescribeOutputArgs', 'SchemaDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant_ownership on all objects in the schema.
         :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[_builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
@@ -1096,6 +1172,8 @@ class Schema(pulumi.CustomResource):
         __props__.__dict__["data_retention_time_in_days"] = data_retention_time_in_days
         __props__.__dict__["database"] = database
         __props__.__dict__["default_ddl_collation"] = default_ddl_collation
+        __props__.__dict__["default_notebook_compute_pool_cpu"] = default_notebook_compute_pool_cpu
+        __props__.__dict__["default_notebook_compute_pool_gpu"] = default_notebook_compute_pool_gpu
         __props__.__dict__["describe_outputs"] = describe_outputs
         __props__.__dict__["enable_console_output"] = enable_console_output
         __props__.__dict__["external_volume"] = external_volume
@@ -1159,6 +1237,22 @@ class Schema(pulumi.CustomResource):
         Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         """
         return pulumi.get(self, "default_ddl_collation")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpu")
+    def default_notebook_compute_pool_cpu(self) -> pulumi.Output[_builtins.str]:
+        """
+        Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_cpu")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpu")
+    def default_notebook_compute_pool_gpu(self) -> pulumi.Output[_builtins.str]:
+        """
+        Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        """
+        return pulumi.get(self, "default_notebook_compute_pool_gpu")
 
     @_builtins.property
     @pulumi.getter(name="describeOutputs")

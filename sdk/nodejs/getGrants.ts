@@ -129,6 +129,24 @@ import * as utilities from "./utilities";
  *         databaseRole: "\"some_database\".\"some_database_role\"",
  *     },
  * });
+ * // account
+ * const exampleInheritedInAccount = snowflake.getGrants({
+ *     inheritedGrantsIn: {
+ *         account: true,
+ *     },
+ * });
+ * // database
+ * const exampleInheritedInDatabase = snowflake.getGrants({
+ *     inheritedGrantsIn: {
+ *         database: "some_database",
+ *     },
+ * });
+ * // schema
+ * const exampleInheritedInSchema = snowflake.getGrants({
+ *     inheritedGrantsIn: {
+ *         schema: "\"some_database\".\"some_schema\"",
+ *     },
+ * });
  * ```
  *
  * > **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -142,6 +160,7 @@ export function getGrants(args?: GetGrantsArgs, opts?: pulumi.InvokeOptions): Pr
         "grantsOf": args.grantsOf,
         "grantsOn": args.grantsOn,
         "grantsTo": args.grantsTo,
+        "inheritedGrantsIn": args.inheritedGrantsIn,
     }, opts);
 }
 
@@ -169,6 +188,10 @@ export interface GetGrantsArgs {
      * Lists all privileges granted to the object.
      */
     grantsTo?: inputs.GetGrantsGrantsTo;
+    /**
+     * Lists all inherited grants defined in a container.
+     */
+    inheritedGrantsIn?: inputs.GetGrantsInheritedGrantsIn;
 }
 
 /**
@@ -203,6 +226,10 @@ export interface GetGrantsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Lists all inherited grants defined in a container.
+     */
+    readonly inheritedGrantsIn?: outputs.GetGrantsInheritedGrantsIn;
 }
 /**
  * ## Example Usage
@@ -327,6 +354,24 @@ export interface GetGrantsResult {
  *         databaseRole: "\"some_database\".\"some_database_role\"",
  *     },
  * });
+ * // account
+ * const exampleInheritedInAccount = snowflake.getGrants({
+ *     inheritedGrantsIn: {
+ *         account: true,
+ *     },
+ * });
+ * // database
+ * const exampleInheritedInDatabase = snowflake.getGrants({
+ *     inheritedGrantsIn: {
+ *         database: "some_database",
+ *     },
+ * });
+ * // schema
+ * const exampleInheritedInSchema = snowflake.getGrants({
+ *     inheritedGrantsIn: {
+ *         schema: "\"some_database\".\"some_schema\"",
+ *     },
+ * });
  * ```
  *
  * > **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -340,6 +385,7 @@ export function getGrantsOutput(args?: GetGrantsOutputArgs, opts?: pulumi.Invoke
         "grantsOf": args.grantsOf,
         "grantsOn": args.grantsOn,
         "grantsTo": args.grantsTo,
+        "inheritedGrantsIn": args.inheritedGrantsIn,
     }, opts);
 }
 
@@ -367,4 +413,8 @@ export interface GetGrantsOutputArgs {
      * Lists all privileges granted to the object.
      */
     grantsTo?: pulumi.Input<inputs.GetGrantsGrantsToArgs | undefined>;
+    /**
+     * Lists all inherited grants defined in a container.
+     */
+    inheritedGrantsIn?: pulumi.Input<inputs.GetGrantsInheritedGrantsInArgs | undefined>;
 }

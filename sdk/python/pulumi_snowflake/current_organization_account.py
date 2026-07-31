@@ -56,6 +56,7 @@ class CurrentOrganizationAccountArgs:
                  default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
                  default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  default_null_ordering: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_streamlit_compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
                  default_streamlit_notebook_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_ui_download_button: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_user_privilege_grants: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -185,6 +186,7 @@ class CurrentOrganizationAccountArgs:
         :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for [Notebooks on CPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
         :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for [Notebooks on GPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
         :param pulumi.Input[_builtins.str] default_null_ordering: Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
+        :param pulumi.Input[_builtins.str] default_streamlit_compute_pool: Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
         :param pulumi.Input[_builtins.str] default_streamlit_notebook_warehouse: Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
         :param pulumi.Input[_builtins.bool] disable_ui_download_button: Controls whether users in an account see a button to download data in Snowsight or the Classic Console, such as a table returned from running a query in a worksheet. If the button to download is hidden in Snowsight or the Classic Console, users can still download or export data using [third-party software](https://docs.snowflake.com/en/user-guide/ecosystem). For more information, check [DISABLE*UI*DOWNLOAD_BUTTON docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-ui-download-button).
         :param pulumi.Input[_builtins.bool] disable_user_privilege_grants: Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \\n\\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
@@ -347,6 +349,8 @@ class CurrentOrganizationAccountArgs:
             pulumi.set(__self__, "default_notebook_compute_pool_gpu", default_notebook_compute_pool_gpu)
         if default_null_ordering is not None:
             pulumi.set(__self__, "default_null_ordering", default_null_ordering)
+        if default_streamlit_compute_pool is not None:
+            pulumi.set(__self__, "default_streamlit_compute_pool", default_streamlit_compute_pool)
         if default_streamlit_notebook_warehouse is not None:
             pulumi.set(__self__, "default_streamlit_notebook_warehouse", default_streamlit_notebook_warehouse)
         if disable_ui_download_button is not None:
@@ -949,6 +953,18 @@ class CurrentOrganizationAccountArgs:
     @default_null_ordering.setter
     def default_null_ordering(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_null_ordering", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultStreamlitComputePool")
+    def default_streamlit_compute_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+        """
+        return pulumi.get(self, "default_streamlit_compute_pool")
+
+    @default_streamlit_compute_pool.setter
+    def default_streamlit_compute_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_streamlit_compute_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultStreamlitNotebookWarehouse")
@@ -2081,6 +2097,7 @@ class _CurrentOrganizationAccountState:
                  default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
                  default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  default_null_ordering: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_streamlit_compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
                  default_streamlit_notebook_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_ui_download_button: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_user_privilege_grants: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2211,6 +2228,7 @@ class _CurrentOrganizationAccountState:
         :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for [Notebooks on CPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
         :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for [Notebooks on GPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
         :param pulumi.Input[_builtins.str] default_null_ordering: Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
+        :param pulumi.Input[_builtins.str] default_streamlit_compute_pool: Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
         :param pulumi.Input[_builtins.str] default_streamlit_notebook_warehouse: Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
         :param pulumi.Input[_builtins.bool] disable_ui_download_button: Controls whether users in an account see a button to download data in Snowsight or the Classic Console, such as a table returned from running a query in a worksheet. If the button to download is hidden in Snowsight or the Classic Console, users can still download or export data using [third-party software](https://docs.snowflake.com/en/user-guide/ecosystem). For more information, check [DISABLE*UI*DOWNLOAD_BUTTON docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-ui-download-button).
         :param pulumi.Input[_builtins.bool] disable_user_privilege_grants: Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \\n\\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
@@ -2374,6 +2392,8 @@ class _CurrentOrganizationAccountState:
             pulumi.set(__self__, "default_notebook_compute_pool_gpu", default_notebook_compute_pool_gpu)
         if default_null_ordering is not None:
             pulumi.set(__self__, "default_null_ordering", default_null_ordering)
+        if default_streamlit_compute_pool is not None:
+            pulumi.set(__self__, "default_streamlit_compute_pool", default_streamlit_compute_pool)
         if default_streamlit_notebook_warehouse is not None:
             pulumi.set(__self__, "default_streamlit_notebook_warehouse", default_streamlit_notebook_warehouse)
         if disable_ui_download_button is not None:
@@ -2978,6 +2998,18 @@ class _CurrentOrganizationAccountState:
     @default_null_ordering.setter
     def default_null_ordering(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "default_null_ordering", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultStreamlitComputePool")
+    def default_streamlit_compute_pool(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+        """
+        return pulumi.get(self, "default_streamlit_compute_pool")
+
+    @default_streamlit_compute_pool.setter
+    def default_streamlit_compute_pool(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_streamlit_compute_pool", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultStreamlitNotebookWarehouse")
@@ -4125,6 +4157,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
                  default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  default_null_ordering: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_streamlit_compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
                  default_streamlit_notebook_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_ui_download_button: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_user_privilege_grants: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -4409,6 +4442,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for [Notebooks on CPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
         :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for [Notebooks on GPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
         :param pulumi.Input[_builtins.str] default_null_ordering: Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
+        :param pulumi.Input[_builtins.str] default_streamlit_compute_pool: Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
         :param pulumi.Input[_builtins.str] default_streamlit_notebook_warehouse: Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
         :param pulumi.Input[_builtins.bool] disable_ui_download_button: Controls whether users in an account see a button to download data in Snowsight or the Classic Console, such as a table returned from running a query in a worksheet. If the button to download is hidden in Snowsight or the Classic Console, users can still download or export data using [third-party software](https://docs.snowflake.com/en/user-guide/ecosystem). For more information, check [DISABLE*UI*DOWNLOAD_BUTTON docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-ui-download-button).
         :param pulumi.Input[_builtins.bool] disable_user_privilege_grants: Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \\n\\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
@@ -4712,6 +4746,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
                  default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
                  default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
                  default_null_ordering: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_streamlit_compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
                  default_streamlit_notebook_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_ui_download_button: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_user_privilege_grants: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -4847,6 +4882,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
             __props__.__dict__["default_notebook_compute_pool_cpu"] = default_notebook_compute_pool_cpu
             __props__.__dict__["default_notebook_compute_pool_gpu"] = default_notebook_compute_pool_gpu
             __props__.__dict__["default_null_ordering"] = default_null_ordering
+            __props__.__dict__["default_streamlit_compute_pool"] = default_streamlit_compute_pool
             __props__.__dict__["default_streamlit_notebook_warehouse"] = default_streamlit_notebook_warehouse
             __props__.__dict__["disable_ui_download_button"] = disable_ui_download_button
             __props__.__dict__["disable_user_privilege_grants"] = disable_user_privilege_grants
@@ -4984,6 +5020,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
             default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
             default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
             default_null_ordering: pulumi.Input[Optional[_builtins.str]] = None,
+            default_streamlit_compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
             default_streamlit_notebook_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
             disable_ui_download_button: pulumi.Input[Optional[_builtins.bool]] = None,
             disable_user_privilege_grants: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -5118,6 +5155,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for [Notebooks on CPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
         :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for [Notebooks on GPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
         :param pulumi.Input[_builtins.str] default_null_ordering: Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
+        :param pulumi.Input[_builtins.str] default_streamlit_compute_pool: Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
         :param pulumi.Input[_builtins.str] default_streamlit_notebook_warehouse: Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
         :param pulumi.Input[_builtins.bool] disable_ui_download_button: Controls whether users in an account see a button to download data in Snowsight or the Classic Console, such as a table returned from running a query in a worksheet. If the button to download is hidden in Snowsight or the Classic Console, users can still download or export data using [third-party software](https://docs.snowflake.com/en/user-guide/ecosystem). For more information, check [DISABLE*UI*DOWNLOAD_BUTTON docs](https://docs.snowflake.com/en/sql-reference/parameters#disable-ui-download-button).
         :param pulumi.Input[_builtins.bool] disable_user_privilege_grants: Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \\n\\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
@@ -5250,6 +5288,7 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         __props__.__dict__["default_notebook_compute_pool_cpu"] = default_notebook_compute_pool_cpu
         __props__.__dict__["default_notebook_compute_pool_gpu"] = default_notebook_compute_pool_gpu
         __props__.__dict__["default_null_ordering"] = default_null_ordering
+        __props__.__dict__["default_streamlit_compute_pool"] = default_streamlit_compute_pool
         __props__.__dict__["default_streamlit_notebook_warehouse"] = default_streamlit_notebook_warehouse
         __props__.__dict__["disable_ui_download_button"] = disable_ui_download_button
         __props__.__dict__["disable_user_privilege_grants"] = disable_user_privilege_grants
@@ -5623,6 +5662,14 @@ class CurrentOrganizationAccount(pulumi.CustomResource):
         Specifies the default ordering of NULL values in a result set ([more details](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering)). Valid values are (case-insensitive): `FIRST` | `LAST`. For more information, check [DEFAULT*NULL*ORDERING docs](https://docs.snowflake.com/en/sql-reference/parameters#default-null-ordering).
         """
         return pulumi.get(self, "default_null_ordering")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultStreamlitComputePool")
+    def default_streamlit_compute_pool(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+        """
+        return pulumi.get(self, "default_streamlit_compute_pool")
 
     @_builtins.property
     @pulumi.getter(name="defaultStreamlitNotebookWarehouse")

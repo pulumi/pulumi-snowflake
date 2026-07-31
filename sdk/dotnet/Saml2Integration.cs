@@ -15,7 +15,7 @@ namespace Pulumi.Snowflake
     /// &gt; **Note** To use `AllowedUserDomains` and `AllowedEmailPatterns` fields, first enable [identifier-first logins](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-security-integration-multiple#enable-identifier-first-login). This can be managed with account_parameter.
     /// 
     /// &gt; **Missing fields** The `Saml2SnowflakeX509Cert` and `Saml2X509Cert` fields are not present in the `DescribeOutput` on purpose due to Terraform SDK limitations (more on that in the migration guide).
-    /// This may have impact on detecting external changes for the `Saml2X509Cert` field.
+    /// This may have impact on detecting external changes for the `Saml2X509Cert` field. The `Saml2SnowflakeX509Cert` field is also not present for user configuration and will be added in the future. Please use the execute resource as a workaround.
     /// 
     /// Resource used to manage SAML2 security integration objects. For more information, check [security integrations documentation](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration-saml2).
     /// 
@@ -67,10 +67,6 @@ namespace Pulumi.Snowflake
     ///         Saml2SignRequest = "true",
     ///         Saml2SnowflakeAcsUrl = "example.snowflakecomputing.com/fed/login",
     ///         Saml2SnowflakeIssuerUrl = "example.snowflakecomputing.com/fed/login",
-    ///         Saml2SnowflakeX509Cert = Std.File.Invoke(new()
-    ///         {
-    ///             Input = "snowflake_cert.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Saml2SpInitiatedLoginPageLabel = "foo",
     ///         Saml2SsoUrl = "https://example.com",
     ///         Saml2X509Cert = Std.File.Invoke(new()

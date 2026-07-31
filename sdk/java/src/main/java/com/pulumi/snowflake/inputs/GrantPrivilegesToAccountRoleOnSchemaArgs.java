@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.GrantPrivilegesToAccountRoleOnSchemaInheritedArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,6 +47,21 @@ public final class GrantPrivilegesToAccountRoleOnSchemaArgs extends com.pulumi.r
     }
 
     /**
+     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    @Import(name="inherited")
+    private @Nullable Output<GrantPrivilegesToAccountRoleOnSchemaInheritedArgs> inherited;
+
+    /**
+     * @return Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * 
+     */
+    public Optional<Output<GrantPrivilegesToAccountRoleOnSchemaInheritedArgs>> inherited() {
+        return Optional.ofNullable(this.inherited);
+    }
+
+    /**
      * The fully qualified name of the schema.
      * 
      */
@@ -65,6 +81,7 @@ public final class GrantPrivilegesToAccountRoleOnSchemaArgs extends com.pulumi.r
     private GrantPrivilegesToAccountRoleOnSchemaArgs(GrantPrivilegesToAccountRoleOnSchemaArgs $) {
         this.allSchemasInDatabase = $.allSchemasInDatabase;
         this.futureSchemasInDatabase = $.futureSchemasInDatabase;
+        this.inherited = $.inherited;
         this.schemaName = $.schemaName;
     }
 
@@ -126,6 +143,27 @@ public final class GrantPrivilegesToAccountRoleOnSchemaArgs extends com.pulumi.r
          */
         public Builder futureSchemasInDatabase(String futureSchemasInDatabase) {
             return futureSchemasInDatabase(Output.of(futureSchemasInDatabase));
+        }
+
+        /**
+         * @param inherited Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inherited(@Nullable Output<GrantPrivilegesToAccountRoleOnSchemaInheritedArgs> inherited) {
+            $.inherited = inherited;
+            return this;
+        }
+
+        /**
+         * @param inherited Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inherited(GrantPrivilegesToAccountRoleOnSchemaInheritedArgs inherited) {
+            return inherited(Output.of(inherited));
         }
 
         /**

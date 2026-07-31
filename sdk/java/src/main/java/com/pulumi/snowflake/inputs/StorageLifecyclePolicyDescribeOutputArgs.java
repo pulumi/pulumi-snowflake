@@ -39,6 +39,13 @@ public final class StorageLifecyclePolicyDescribeOutputArgs extends com.pulumi.r
         return Optional.ofNullable(this.body);
     }
 
+    @Import(name="databaseName")
+    private @Nullable Output<String> databaseName;
+
+    public Optional<Output<String>> databaseName() {
+        return Optional.ofNullable(this.databaseName);
+    }
+
     @Import(name="name")
     private @Nullable Output<String> name;
 
@@ -51,6 +58,13 @@ public final class StorageLifecyclePolicyDescribeOutputArgs extends com.pulumi.r
 
     public Optional<Output<String>> returnType() {
         return Optional.ofNullable(this.returnType);
+    }
+
+    @Import(name="schemaName")
+    private @Nullable Output<String> schemaName;
+
+    public Optional<Output<String>> schemaName() {
+        return Optional.ofNullable(this.schemaName);
     }
 
     @Import(name="signatures")
@@ -66,8 +80,10 @@ public final class StorageLifecyclePolicyDescribeOutputArgs extends com.pulumi.r
         this.archiveForDays = $.archiveForDays;
         this.archiveTier = $.archiveTier;
         this.body = $.body;
+        this.databaseName = $.databaseName;
         this.name = $.name;
         this.returnType = $.returnType;
+        this.schemaName = $.schemaName;
         this.signatures = $.signatures;
     }
 
@@ -116,6 +132,15 @@ public final class StorageLifecyclePolicyDescribeOutputArgs extends com.pulumi.r
             return body(Output.of(body));
         }
 
+        public Builder databaseName(@Nullable Output<String> databaseName) {
+            $.databaseName = databaseName;
+            return this;
+        }
+
+        public Builder databaseName(String databaseName) {
+            return databaseName(Output.of(databaseName));
+        }
+
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
@@ -132,6 +157,15 @@ public final class StorageLifecyclePolicyDescribeOutputArgs extends com.pulumi.r
 
         public Builder returnType(String returnType) {
             return returnType(Output.of(returnType));
+        }
+
+        public Builder schemaName(@Nullable Output<String> schemaName) {
+            $.schemaName = schemaName;
+            return this;
+        }
+
+        public Builder schemaName(String schemaName) {
+            return schemaName(Output.of(schemaName));
         }
 
         public Builder signatures(@Nullable Output<List<StorageLifecyclePolicyDescribeOutputSignatureArgs>> signatures) {

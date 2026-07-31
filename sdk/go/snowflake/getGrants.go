@@ -195,6 +195,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// account
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				InheritedGrantsIn: snowflake.GetGrantsInheritedGrantsIn{
+//					Account: pulumi.BoolRef(true),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// database
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				InheritedGrantsIn: snowflake.GetGrantsInheritedGrantsIn{
+//					Database: pulumi.StringRef("some_database"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// schema
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				InheritedGrantsIn: snowflake.GetGrantsInheritedGrantsIn{
+//					Schema: pulumi.StringRef("\"some_database\".\"some_schema\""),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -224,6 +251,8 @@ type GetGrantsArgs struct {
 	GrantsOn *GetGrantsGrantsOn `pulumi:"grantsOn"`
 	// Lists all privileges granted to the object.
 	GrantsTo *GetGrantsGrantsTo `pulumi:"grantsTo"`
+	// Lists all inherited grants defined in a container.
+	InheritedGrantsIn *GetGrantsInheritedGrantsIn `pulumi:"inheritedGrantsIn"`
 }
 
 // A collection of values returned by getGrants.
@@ -242,6 +271,8 @@ type GetGrantsResult struct {
 	GrantsTo *GetGrantsGrantsTo `pulumi:"grantsTo"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Lists all inherited grants defined in a container.
+	InheritedGrantsIn *GetGrantsInheritedGrantsIn `pulumi:"inheritedGrantsIn"`
 }
 
 func GetGrantsOutput(ctx *pulumi.Context, args GetGrantsOutputArgs, opts ...pulumi.InvokeOption) GetGrantsResultOutput {
@@ -265,6 +296,8 @@ type GetGrantsOutputArgs struct {
 	GrantsOn GetGrantsGrantsOnPtrInput `pulumi:"grantsOn"`
 	// Lists all privileges granted to the object.
 	GrantsTo GetGrantsGrantsToPtrInput `pulumi:"grantsTo"`
+	// Lists all inherited grants defined in a container.
+	InheritedGrantsIn GetGrantsInheritedGrantsInPtrInput `pulumi:"inheritedGrantsIn"`
 }
 
 func (GetGrantsOutputArgs) ElementType() reflect.Type {
@@ -319,6 +352,11 @@ func (o GetGrantsResultOutput) GrantsTo() GetGrantsGrantsToPtrOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetGrantsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGrantsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Lists all inherited grants defined in a container.
+func (o GetGrantsResultOutput) InheritedGrantsIn() GetGrantsInheritedGrantsInPtrOutput {
+	return o.ApplyT(func(v GetGrantsResult) *GetGrantsInheritedGrantsIn { return v.InheritedGrantsIn }).(GetGrantsInheritedGrantsInPtrOutput)
 }
 
 func init() {

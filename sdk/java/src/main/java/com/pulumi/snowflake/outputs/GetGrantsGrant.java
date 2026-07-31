@@ -11,101 +11,53 @@ import java.util.Objects;
 
 @CustomType
 public final class GetGrantsGrant {
-    /**
-     * @return The date and time the grant was created.
-     * 
-     */
     private String createdOn;
-    /**
-     * @return Whether the grantee can grant the privilege to others.
-     * 
-     */
     private Boolean grantOption;
-    /**
-     * @return The role that granted the privilege.
-     * 
-     */
     private String grantedBy;
-    /**
-     * @return The object on which the privilege was granted.
-     * 
-     */
     private String grantedOn;
-    /**
-     * @return The role to which the privilege was granted.
-     * 
-     */
     private String grantedTo;
-    /**
-     * @return The name of the role to which the privilege was granted.
-     * 
-     */
     private String granteeName;
-    /**
-     * @return The name of the object on which the privilege was granted.
-     * 
-     */
+    private String inheritedFrom;
+    private String inheritedFromDatabase;
+    private String inheritedFromSchema;
+    private Boolean isInherited;
     private String name;
-    /**
-     * @return The privilege granted.
-     * 
-     */
     private String privilege;
 
     private GetGrantsGrant() {}
-    /**
-     * @return The date and time the grant was created.
-     * 
-     */
     public String createdOn() {
         return this.createdOn;
     }
-    /**
-     * @return Whether the grantee can grant the privilege to others.
-     * 
-     */
     public Boolean grantOption() {
         return this.grantOption;
     }
-    /**
-     * @return The role that granted the privilege.
-     * 
-     */
     public String grantedBy() {
         return this.grantedBy;
     }
-    /**
-     * @return The object on which the privilege was granted.
-     * 
-     */
     public String grantedOn() {
         return this.grantedOn;
     }
-    /**
-     * @return The role to which the privilege was granted.
-     * 
-     */
     public String grantedTo() {
         return this.grantedTo;
     }
-    /**
-     * @return The name of the role to which the privilege was granted.
-     * 
-     */
     public String granteeName() {
         return this.granteeName;
     }
-    /**
-     * @return The name of the object on which the privilege was granted.
-     * 
-     */
+    public String inheritedFrom() {
+        return this.inheritedFrom;
+    }
+    public String inheritedFromDatabase() {
+        return this.inheritedFromDatabase;
+    }
+    public String inheritedFromSchema() {
+        return this.inheritedFromSchema;
+    }
+    public Boolean isInherited() {
+        return this.isInherited;
+    }
     public String name() {
         return this.name;
     }
-    /**
-     * @return The privilege granted.
-     * 
-     */
     public String privilege() {
         return this.privilege;
     }
@@ -125,6 +77,10 @@ public final class GetGrantsGrant {
         private String grantedOn;
         private String grantedTo;
         private String granteeName;
+        private String inheritedFrom;
+        private String inheritedFromDatabase;
+        private String inheritedFromSchema;
+        private Boolean isInherited;
         private String name;
         private String privilege;
         public Builder() {}
@@ -136,6 +92,10 @@ public final class GetGrantsGrant {
     	      this.grantedOn = defaults.grantedOn;
     	      this.grantedTo = defaults.grantedTo;
     	      this.granteeName = defaults.granteeName;
+    	      this.inheritedFrom = defaults.inheritedFrom;
+    	      this.inheritedFromDatabase = defaults.inheritedFromDatabase;
+    	      this.inheritedFromSchema = defaults.inheritedFromSchema;
+    	      this.isInherited = defaults.isInherited;
     	      this.name = defaults.name;
     	      this.privilege = defaults.privilege;
         }
@@ -189,6 +149,38 @@ public final class GetGrantsGrant {
             return this;
         }
         @CustomType.Setter
+        public Builder inheritedFrom(String inheritedFrom) {
+            if (inheritedFrom == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "inheritedFrom");
+            }
+            this.inheritedFrom = inheritedFrom;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inheritedFromDatabase(String inheritedFromDatabase) {
+            if (inheritedFromDatabase == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "inheritedFromDatabase");
+            }
+            this.inheritedFromDatabase = inheritedFromDatabase;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inheritedFromSchema(String inheritedFromSchema) {
+            if (inheritedFromSchema == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "inheritedFromSchema");
+            }
+            this.inheritedFromSchema = inheritedFromSchema;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder isInherited(Boolean isInherited) {
+            if (isInherited == null) {
+              throw new MissingRequiredPropertyException("GetGrantsGrant", "isInherited");
+            }
+            this.isInherited = isInherited;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetGrantsGrant", "name");
@@ -212,6 +204,10 @@ public final class GetGrantsGrant {
             _resultValue.grantedOn = grantedOn;
             _resultValue.grantedTo = grantedTo;
             _resultValue.granteeName = granteeName;
+            _resultValue.inheritedFrom = inheritedFrom;
+            _resultValue.inheritedFromDatabase = inheritedFromDatabase;
+            _resultValue.inheritedFromSchema = inheritedFromSchema;
+            _resultValue.isInherited = isInherited;
             _resultValue.name = name;
             _resultValue.privilege = privilege;
             return _resultValue;

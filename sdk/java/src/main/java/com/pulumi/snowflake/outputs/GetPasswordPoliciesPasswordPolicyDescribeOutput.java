@@ -12,6 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPasswordPoliciesPasswordPolicyDescribeOutput {
     private String comment;
+    private String databaseName;
     private String name;
     private String owner;
     private Integer passwordHistory;
@@ -25,10 +26,14 @@ public final class GetPasswordPoliciesPasswordPolicyDescribeOutput {
     private Integer passwordMinNumericChars;
     private Integer passwordMinSpecialChars;
     private Integer passwordMinUpperCaseChars;
+    private String schemaName;
 
     private GetPasswordPoliciesPasswordPolicyDescribeOutput() {}
     public String comment() {
         return this.comment;
+    }
+    public String databaseName() {
+        return this.databaseName;
     }
     public String name() {
         return this.name;
@@ -69,6 +74,9 @@ public final class GetPasswordPoliciesPasswordPolicyDescribeOutput {
     public Integer passwordMinUpperCaseChars() {
         return this.passwordMinUpperCaseChars;
     }
+    public String schemaName() {
+        return this.schemaName;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -80,6 +88,7 @@ public final class GetPasswordPoliciesPasswordPolicyDescribeOutput {
     @CustomType.Builder
     public static final class Builder {
         private String comment;
+        private String databaseName;
         private String name;
         private String owner;
         private Integer passwordHistory;
@@ -93,10 +102,12 @@ public final class GetPasswordPoliciesPasswordPolicyDescribeOutput {
         private Integer passwordMinNumericChars;
         private Integer passwordMinSpecialChars;
         private Integer passwordMinUpperCaseChars;
+        private String schemaName;
         public Builder() {}
         public Builder(GetPasswordPoliciesPasswordPolicyDescribeOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.comment = defaults.comment;
+    	      this.databaseName = defaults.databaseName;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
     	      this.passwordHistory = defaults.passwordHistory;
@@ -110,6 +121,7 @@ public final class GetPasswordPoliciesPasswordPolicyDescribeOutput {
     	      this.passwordMinNumericChars = defaults.passwordMinNumericChars;
     	      this.passwordMinSpecialChars = defaults.passwordMinSpecialChars;
     	      this.passwordMinUpperCaseChars = defaults.passwordMinUpperCaseChars;
+    	      this.schemaName = defaults.schemaName;
         }
 
         @CustomType.Setter
@@ -118,6 +130,14 @@ public final class GetPasswordPoliciesPasswordPolicyDescribeOutput {
               throw new MissingRequiredPropertyException("GetPasswordPoliciesPasswordPolicyDescribeOutput", "comment");
             }
             this.comment = comment;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder databaseName(String databaseName) {
+            if (databaseName == null) {
+              throw new MissingRequiredPropertyException("GetPasswordPoliciesPasswordPolicyDescribeOutput", "databaseName");
+            }
+            this.databaseName = databaseName;
             return this;
         }
         @CustomType.Setter
@@ -224,9 +244,18 @@ public final class GetPasswordPoliciesPasswordPolicyDescribeOutput {
             this.passwordMinUpperCaseChars = passwordMinUpperCaseChars;
             return this;
         }
+        @CustomType.Setter
+        public Builder schemaName(String schemaName) {
+            if (schemaName == null) {
+              throw new MissingRequiredPropertyException("GetPasswordPoliciesPasswordPolicyDescribeOutput", "schemaName");
+            }
+            this.schemaName = schemaName;
+            return this;
+        }
         public GetPasswordPoliciesPasswordPolicyDescribeOutput build() {
             final var _resultValue = new GetPasswordPoliciesPasswordPolicyDescribeOutput();
             _resultValue.comment = comment;
+            _resultValue.databaseName = databaseName;
             _resultValue.name = name;
             _resultValue.owner = owner;
             _resultValue.passwordHistory = passwordHistory;
@@ -240,6 +269,7 @@ public final class GetPasswordPoliciesPasswordPolicyDescribeOutput {
             _resultValue.passwordMinNumericChars = passwordMinNumericChars;
             _resultValue.passwordMinSpecialChars = passwordMinSpecialChars;
             _resultValue.passwordMinUpperCaseChars = passwordMinUpperCaseChars;
+            _resultValue.schemaName = schemaName;
             return _resultValue;
         }
     }

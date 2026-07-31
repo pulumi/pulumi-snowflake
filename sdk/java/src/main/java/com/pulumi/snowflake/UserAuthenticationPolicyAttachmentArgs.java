@@ -15,14 +15,14 @@ public final class UserAuthenticationPolicyAttachmentArgs extends com.pulumi.res
     public static final UserAuthenticationPolicyAttachmentArgs Empty = new UserAuthenticationPolicyAttachmentArgs();
 
     /**
-     * Fully qualified name of the authentication policy
+     * Fully qualified name of the authentication policy.
      * 
      */
     @Import(name="authenticationPolicyName", required=true)
     private Output<String> authenticationPolicyName;
 
     /**
-     * @return Fully qualified name of the authentication policy
+     * @return Fully qualified name of the authentication policy.
      * 
      */
     public Output<String> authenticationPolicyName() {
@@ -30,14 +30,14 @@ public final class UserAuthenticationPolicyAttachmentArgs extends com.pulumi.res
     }
 
     /**
-     * User name of the user you want to attach the authentication policy to
+     * User name of the user you want to attach the authentication policy to.
      * 
      */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
     /**
-     * @return User name of the user you want to attach the authentication policy to
+     * @return User name of the user you want to attach the authentication policy to.
      * 
      */
     public Output<String> userName() {
@@ -70,7 +70,7 @@ public final class UserAuthenticationPolicyAttachmentArgs extends com.pulumi.res
         }
 
         /**
-         * @param authenticationPolicyName Fully qualified name of the authentication policy
+         * @param authenticationPolicyName Fully qualified name of the authentication policy.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class UserAuthenticationPolicyAttachmentArgs extends com.pulumi.res
         }
 
         /**
-         * @param authenticationPolicyName Fully qualified name of the authentication policy
+         * @param authenticationPolicyName Fully qualified name of the authentication policy.
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class UserAuthenticationPolicyAttachmentArgs extends com.pulumi.res
         }
 
         /**
-         * @param userName User name of the user you want to attach the authentication policy to
+         * @param userName User name of the user you want to attach the authentication policy to.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class UserAuthenticationPolicyAttachmentArgs extends com.pulumi.res
         }
 
         /**
-         * @param userName User name of the user you want to attach the authentication policy to
+         * @param userName User name of the user you want to attach the authentication policy to.
          * 
          * @return builder
          * 

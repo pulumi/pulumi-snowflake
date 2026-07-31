@@ -545,6 +545,21 @@ public final class CurrentOrganizationAccountState extends com.pulumi.resources.
     }
 
     /**
+     * Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+     * 
+     */
+    @Import(name="defaultStreamlitComputePool")
+    private @Nullable Output<String> defaultStreamlitComputePool;
+
+    /**
+     * @return Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+     * 
+     */
+    public Optional<Output<String>> defaultStreamlitComputePool() {
+        return Optional.ofNullable(this.defaultStreamlitComputePool);
+    }
+
+    /**
      * Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
      * 
      */
@@ -1962,6 +1977,7 @@ public final class CurrentOrganizationAccountState extends com.pulumi.resources.
         this.defaultNotebookComputePoolCpu = $.defaultNotebookComputePoolCpu;
         this.defaultNotebookComputePoolGpu = $.defaultNotebookComputePoolGpu;
         this.defaultNullOrdering = $.defaultNullOrdering;
+        this.defaultStreamlitComputePool = $.defaultStreamlitComputePool;
         this.defaultStreamlitNotebookWarehouse = $.defaultStreamlitNotebookWarehouse;
         this.disableUiDownloadButton = $.disableUiDownloadButton;
         this.disableUserPrivilegeGrants = $.disableUserPrivilegeGrants;
@@ -2807,6 +2823,27 @@ public final class CurrentOrganizationAccountState extends com.pulumi.resources.
          */
         public Builder defaultNullOrdering(String defaultNullOrdering) {
             return defaultNullOrdering(Output.of(defaultNullOrdering));
+        }
+
+        /**
+         * @param defaultStreamlitComputePool Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultStreamlitComputePool(@Nullable Output<String> defaultStreamlitComputePool) {
+            $.defaultStreamlitComputePool = defaultStreamlitComputePool;
+            return this;
+        }
+
+        /**
+         * @param defaultStreamlitComputePool Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultStreamlitComputePool(String defaultStreamlitComputePool) {
+            return defaultStreamlitComputePool(Output.of(defaultStreamlitComputePool));
         }
 
         /**

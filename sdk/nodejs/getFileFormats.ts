@@ -9,25 +9,15 @@ import * as utilities from "./utilities";
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getFileFormats({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
  */
-export function getFileFormats(args: GetFileFormatsArgs, opts?: pulumi.InvokeOptions): Promise<GetFileFormatsResult> {
+export function getFileFormats(args?: GetFileFormatsArgs, opts?: pulumi.InvokeOptions): Promise<GetFileFormatsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getFileFormats:getFileFormats", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "withDescribe": args.withDescribe,
     }, opts);
 }
 
@@ -36,13 +26,17 @@ export function getFileFormats(args: GetFileFormatsArgs, opts?: pulumi.InvokeOpt
  */
 export interface GetFileFormatsArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      */
-    database: string;
+    in?: inputs.GetFileFormatsIn;
     /**
-     * The schema from which to return the file formats from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: string;
+    like?: string;
+    /**
+     * (Default: `true`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     */
+    withDescribe?: boolean;
 }
 
 /**
@@ -50,11 +44,7 @@ export interface GetFileFormatsArgs {
  */
 export interface GetFileFormatsResult {
     /**
-     * The database from which to return the schemas from.
-     */
-    readonly database: string;
-    /**
-     * The file formats in the schema
+     * Holds the aggregated output of all file formats details queries.
      */
     readonly fileFormats: outputs.GetFileFormatsFileFormat[];
     /**
@@ -62,32 +52,30 @@ export interface GetFileFormatsResult {
      */
     readonly id: string;
     /**
-     * The schema from which to return the file formats from.
+     * IN clause to filter the list of objects
      */
-    readonly schema: string;
+    readonly in?: outputs.GetFileFormatsIn;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    readonly like?: string;
+    /**
+     * (Default: `true`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     */
+    readonly withDescribe?: boolean;
 }
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getFileFormats({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
  */
-export function getFileFormatsOutput(args: GetFileFormatsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileFormatsResult> {
+export function getFileFormatsOutput(args?: GetFileFormatsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFileFormatsResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getFileFormats:getFileFormats", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "withDescribe": args.withDescribe,
     }, opts);
 }
 
@@ -96,11 +84,15 @@ export function getFileFormatsOutput(args: GetFileFormatsOutputArgs, opts?: pulu
  */
 export interface GetFileFormatsOutputArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      */
-    database: pulumi.Input<string>;
+    in?: pulumi.Input<inputs.GetFileFormatsInArgs | undefined>;
     /**
-     * The schema from which to return the file formats from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: pulumi.Input<string>;
+    like?: pulumi.Input<string | undefined>;
+    /**
+     * (Default: `true`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the describeOutput field. By default this value is set to true.
+     */
+    withDescribe?: pulumi.Input<boolean | undefined>;
 }
