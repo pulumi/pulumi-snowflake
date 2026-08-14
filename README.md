@@ -44,38 +44,28 @@ To use from .NET, install using `dotnet add package`:
 
 ## Configuration
 
-The following configuration points are available:
+> **Note:** For the complete and latest provider configuration options and descriptions, see the [Snowflake provider configuration reference](https://www.pulumi.com/registry/packages/snowflake/#configuration-reference).
 
-* `snowflake:account` - (required) The name of the Snowflake account. Can also come from the
-  `SNOWFLAKE_ACCOUNT` environment variable.
-* `snowflake:username` - (required) Username for username+password authentication. Can come from the
-  `SNOWFLAKE_USER` environment variable.
-* `snowflake:region` - (required) [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) 
-  to use. Can be sourced from the `SNOWFLAKE_REGION` environment variable.
-* `snowflake:password` - (optional) Password for username+password auth. Cannot be used with `browser_auth` or
-  `snowflake:privateKeyPath`. Can be sourced from `SNOWFLAKE_PASSWORD` environment variable.
-* `snowflake:oauthAccessToken` - (optional) Token for use with OAuth. Generating the token is left to other
-  tools. Cannot be used with `snowflake:browserAuth`, `snowflake:privateKeyPath`, `snowflake:oauthRefreshToken`
-  or `snowflake:password`.
-  Can be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment variable.
-* `snowflake:oauthRefreshToken` - (optional) Token for use with OAuth. Setup and generation of the token is
-  left to other tools. Should be used in conjunction with `snowflake:oauthClientId`, `snowflake:oauthClientSecret`,
-  `snowflake:oauthEndpoint`, `snowflake:oauthRedirectUrl`. Cannot be used with `snowflake:browserAuth`, 
-  `snowflake:privateKeyPath`, `snowflake:oauthAccessToken` or `snowflake:password`. Can be sourced from 
-  `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment variable.
-* `snowflake:oauthClientId` - (optional) Required when `snowflake:oauthRefreshToken` is used. Can be sourced from
-  `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
-* `snowflake:oauthClientSecret` - (optional) Required when `snowflake:oauthRefreshToken` is used. Can be sourced from
-  `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
-* `snowflake:oauthEndpoint` - (optional) Required when `snowflake:oauthRefreshToken` is used. Can be sourced from
-  `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
-* `snowflake:oauthRedirectUrl` - (optional) Required when `snowflake:oauthRefreshToken` is used. Can be sourced from
-  `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
-* `snowflake:privateKeyPath` - (optional) Path to a private key for using keypair authentication.. Cannot be
-  used with `snowflake:browserAuth`, `snowflake:oauthAccessToken` or `snowflake:password`. Can be source from
-  `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
-* `snowflake:role` - (optional) Snowflake role to use for operations. If left unset, default role for user
-  will be used. Can come from the `SNOWFLAKE_ROLE` environment variable.
+The following commonly used configuration points are available:
+
+* `snowflake:account` - (String) Specifies the Snowflake account identifier. Can be provided in the `org-name` format (e.g. `"myorg-myaccount"`) or as an account locator (e.g. `"xy12345"`). Use as a fallback when `accountName` and `organizationName` are not set. If both `accountName` and `organizationName` are set, they take precedence. Requires the `PROVIDER_CONFIGURATION_ACCOUNT_FALLBACK` experiment to be enabled. Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
+* `snowflake:accountName` - (String) Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
+* `snowflake:authenticator` - (String) Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA` | `PROGRAMMATIC_ACCESS_TOKEN` | `OAUTH_CLIENT_CREDENTIALS` | `OAUTH_AUTHORIZATION_CODE` | `WORKLOAD_IDENTITY`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+* `snowflake:oauthAuthorizationUrl` - (String, Sensitive) Authorization URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_AUTHORIZATION_URL` environment variable.
+* `snowflake:oauthClientId` - (String, Sensitive) Client id for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
+* `snowflake:oauthClientSecret` - (String, Sensitive) Client secret for OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment variable.
+* `snowflake:oauthRedirectUri` - (String, Sensitive) Redirect URI registered in IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_REDIRECT_URI` environment variable.
+* `snowflake:oauthScope` - (String) Comma separated list of scopes. If empty it is derived from role. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_SCOPE` environment variable.
+* `snowflake:oauthTokenRequestUrl` - (String, Sensitive) Token request URL of OAuth2 external IdP. See [Snowflake OAuth documentation](https://docs.snowflake.com/en/user-guide/oauth). Can also be sourced from the `SNOWFLAKE_OAUTH_TOKEN_REQUEST_URL` environment variable.
+* `snowflake:organizationName` - (String) Specifies your Snowflake organization name assigned by Snowflake. For information about account identifiers, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#organization-name). Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_ORGANIZATION_NAME` environment variable.
+* `snowflake:password` - (String, Sensitive) Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
+* `snowflake:privateKey` - (String, Sensitive) Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+* `snowflake:privateKeyPassphrase` - (String, Sensitive) Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
+* `snowflake:profile` - (String) Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
+* `snowflake:role` - (String) Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the `SNOWFLAKE_ROLE` environment variable.
+* `snowflake:token` - (String, Sensitive) Token to use for OAuth and other forms of token based auth. When this field is set here, or in the TOML file, the provider sets the `authenticator` to `OAUTH`. Optionally, set the `authenticator` field to the authenticator you want to use. Can also be sourced from the `SNOWFLAKE_TOKEN` environment variable.
+* `snowflake:user` - (String) Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
+* `snowflake:warehouse` - (String) Specifies the virtual warehouse to use by default for queries, loading, etc. in the client session. Can also be sourced from the `SNOWFLAKE_WAREHOUSE` environment variable.
 
 ## Reference
 
