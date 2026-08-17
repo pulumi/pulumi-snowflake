@@ -19,11 +19,14 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"slices"
+	"strings"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 
 	snowflake "github.com/Snowflake-Labs/terraform-provider-snowflake/pkg/provider"
+	"github.com/Snowflake-Labs/terraform-provider-snowflake/pkg/provider/previewfeatures"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
@@ -45,7 +48,17 @@ const (
 // Provider returns additional overlaid schema and metadata associated with the provider..
 func Provider() info.Provider {
 	// Instantiate the Terraform provider
-	p := shimv2.NewProvider(snowflake.Provider())
+	tfProvider := snowflake.Provider()
+	description := tfProvider.Schema["preview_features_enabled"].Description
+	for _, feature := range previewfeatures.ValidPreviewFeatures {
+		description = strings.ReplaceAll(
+			description,
+			"`"+feature+"`",
+			"<code>"+feature+"</code>",
+		)
+	}
+	tfProvider.Schema["preview_features_enabled"].Description = description
+	p := shimv2.NewProvider(tfProvider)
 
 	// Create a Pulumi provider mapping
 	prov := info.Provider{
@@ -136,6 +149,18 @@ func docEditRules(defaults []info.DocsEdit) []info.DocsEdit {
 		migration = `~> **Note** Please check the [migration guide](https://github.com/snowflakedb/terraform-provider-snowflake/blob/main/MIGRATION_GUIDE.md) when changing the version of the provider.
 `
 	)
+	fixInvalidEdits := []info.DocsEdit{}
+	for _, feature := range previewfeatures.ValidPreviewFeatures {
+		invalidConverted := strings.ReplaceAll(feature, "datasource", "function")
+		valid := "<code>" + feature + "</code>"
+		fixInvalidEdits = append(fixInvalidEdits, info.DocsEdit{
+			Path:  indexPath,
+			Phase: info.PostCodeTranslation,
+			Edit: func(_ string, content []byte) ([]byte, error) {
+				return bytes.ReplaceAll(content, []byte("`"+invalidConverted+"`"), []byte(valid)), nil
+			},
+		})
+	}
 	edits := []info.DocsEdit{
 		removeLiteralFromIndex(roadmap),
 		removeLiteralFromIndex(migration),
@@ -144,10 +169,7 @@ func docEditRules(defaults []info.DocsEdit) []info.DocsEdit {
 		fixExample,
 		removeMainTf,
 	}
-	return append(
-		edits,
-		defaults...,
-	)
+	return slices.Concat(edits, defaults, fixInvalidEdits)
 }
 
 func removeLiteralFromIndex(s string) info.DocsEdit {
