@@ -672,11 +672,28 @@
                 "current": "snowflake:index/computePool:ComputePool",
                 "majorVersion": 2,
                 "fields": {
-                    "describe_output": {
+                    "backup_instance_families": {
                         "maxItemsOne": false
                     },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "backup_instance_families": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "show_output": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "backup_instance_families": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -792,6 +809,54 @@
                 "majorVersion": 2,
                 "fields": {
                     "query_results": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_external_access_integration": {
+                "current": "snowflake:index/externalAccessIntegration:ExternalAccessIntegration",
+                "majorVersion": 2,
+                "fields": {
+                    "allowed_api_authentication_integrations": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "integrations": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "allowed_authentication_secrets": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "secrets": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "allowed_network_rules": {
+                        "maxItemsOne": false
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_api_authentication_integrations": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_authentication_secrets": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_network_rules": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
                         "maxItemsOne": false
                     }
                 }
@@ -1446,6 +1511,87 @@
                 "fields": {
                     "privileges": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_hybrid_table": {
+                "current": "snowflake:index/hybridTable:HybridTable",
+                "majorVersion": 2,
+                "fields": {
+                    "column": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "default": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "foreign_key_constraint": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "columns": {
+                                    "maxItemsOne": false
+                                },
+                                "ref_columns": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "index": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "columns": {
+                                    "maxItemsOne": false
+                                },
+                                "include_columns": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "primary_key_constraint": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "columns": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_keys_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "columns": {
+                                    "maxItemsOne": false
+                                },
+                                "referenced_columns": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    },
+                    "unique_constraint": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "columns": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -5398,10 +5544,24 @@
                         "elem": {
                             "fields": {
                                 "describe_output": {
-                                    "maxItemsOne": false
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "backup_instance_families": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 },
                                 "show_output": {
-                                    "maxItemsOne": false
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "backup_instance_families": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -5618,6 +5778,38 @@
                     },
                     "records": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_external_access_integrations": {
+                "current": "snowflake:index/getExternalAccessIntegrations:getExternalAccessIntegrations",
+                "majorVersion": 2,
+                "fields": {
+                    "external_access_integrations": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_api_authentication_integrations": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allowed_authentication_secrets": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allowed_network_rules": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
