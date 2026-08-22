@@ -69,11 +69,11 @@ export class UserAuthenticationPolicyAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Fully qualified name of the authentication policy.
+     * Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     declare public readonly authenticationPolicyName: pulumi.Output<string>;
     /**
-     * User name of the user you want to attach the authentication policy to.
+     * User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     declare public readonly userName: pulumi.Output<string>;
 
@@ -113,11 +113,11 @@ export class UserAuthenticationPolicyAttachment extends pulumi.CustomResource {
  */
 export interface UserAuthenticationPolicyAttachmentState {
     /**
-     * Fully qualified name of the authentication policy.
+     * Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     authenticationPolicyName?: pulumi.Input<string | undefined>;
     /**
-     * User name of the user you want to attach the authentication policy to.
+     * User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     userName?: pulumi.Input<string | undefined>;
 }
@@ -127,11 +127,11 @@ export interface UserAuthenticationPolicyAttachmentState {
  */
 export interface UserAuthenticationPolicyAttachmentArgs {
     /**
-     * Fully qualified name of the authentication policy.
+     * Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     authenticationPolicyName: pulumi.Input<string>;
     /**
-     * User name of the user you want to attach the authentication policy to.
+     * User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     userName: pulumi.Input<string>;
 }

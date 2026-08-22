@@ -40,6 +40,8 @@ import com.pulumi.snowflake.inputs.GetDatabasesArgs;
 import com.pulumi.snowflake.inputs.GetDatabasesPlainArgs;
 import com.pulumi.snowflake.inputs.GetDynamicTablesArgs;
 import com.pulumi.snowflake.inputs.GetDynamicTablesPlainArgs;
+import com.pulumi.snowflake.inputs.GetExternalAccessIntegrationsArgs;
+import com.pulumi.snowflake.inputs.GetExternalAccessIntegrationsPlainArgs;
 import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
 import com.pulumi.snowflake.inputs.GetExternalFunctionsPlainArgs;
 import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
@@ -147,6 +149,7 @@ import com.pulumi.snowflake.outputs.GetDatabaseRoleResult;
 import com.pulumi.snowflake.outputs.GetDatabaseRolesResult;
 import com.pulumi.snowflake.outputs.GetDatabasesResult;
 import com.pulumi.snowflake.outputs.GetDynamicTablesResult;
+import com.pulumi.snowflake.outputs.GetExternalAccessIntegrationsResult;
 import com.pulumi.snowflake.outputs.GetExternalFunctionsResult;
 import com.pulumi.snowflake.outputs.GetExternalTablesResult;
 import com.pulumi.snowflake.outputs.GetExternalVolumesResult;
@@ -2728,6 +2731,69 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetDynamicTablesResult> getDynamicTablesPlain(GetDynamicTablesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external access integrations. Filtering is aligned with the current possibilities for [SHOW EXTERNAL ACCESS INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `externalAccessIntegrations`.
+     * 
+     */
+    public static Output<GetExternalAccessIntegrationsResult> getExternalAccessIntegrations() {
+        return getExternalAccessIntegrations(GetExternalAccessIntegrationsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external access integrations. Filtering is aligned with the current possibilities for [SHOW EXTERNAL ACCESS INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `externalAccessIntegrations`.
+     * 
+     */
+    public static CompletableFuture<GetExternalAccessIntegrationsResult> getExternalAccessIntegrationsPlain() {
+        return getExternalAccessIntegrationsPlain(GetExternalAccessIntegrationsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external access integrations. Filtering is aligned with the current possibilities for [SHOW EXTERNAL ACCESS INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `externalAccessIntegrations`.
+     * 
+     */
+    public static Output<GetExternalAccessIntegrationsResult> getExternalAccessIntegrations(GetExternalAccessIntegrationsArgs args) {
+        return getExternalAccessIntegrations(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external access integrations. Filtering is aligned with the current possibilities for [SHOW EXTERNAL ACCESS INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `externalAccessIntegrations`.
+     * 
+     */
+    public static CompletableFuture<GetExternalAccessIntegrationsResult> getExternalAccessIntegrationsPlain(GetExternalAccessIntegrationsPlainArgs args) {
+        return getExternalAccessIntegrationsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external access integrations. Filtering is aligned with the current possibilities for [SHOW EXTERNAL ACCESS INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `externalAccessIntegrations`.
+     * 
+     */
+    public static Output<GetExternalAccessIntegrationsResult> getExternalAccessIntegrations(GetExternalAccessIntegrationsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getExternalAccessIntegrations:getExternalAccessIntegrations", TypeShape.of(GetExternalAccessIntegrationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external access integrations. Filtering is aligned with the current possibilities for [SHOW EXTERNAL ACCESS INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `externalAccessIntegrations`.
+     * 
+     */
+    public static Output<GetExternalAccessIntegrationsResult> getExternalAccessIntegrations(GetExternalAccessIntegrationsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getExternalAccessIntegrations:getExternalAccessIntegrations", TypeShape.of(GetExternalAccessIntegrationsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered external access integrations. Filtering is aligned with the current possibilities for [SHOW EXTERNAL ACCESS INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `externalAccessIntegrations`.
+     * 
+     */
+    public static CompletableFuture<GetExternalAccessIntegrationsResult> getExternalAccessIntegrationsPlain(GetExternalAccessIntegrationsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getExternalAccessIntegrations:getExternalAccessIntegrations", TypeShape.of(GetExternalAccessIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.

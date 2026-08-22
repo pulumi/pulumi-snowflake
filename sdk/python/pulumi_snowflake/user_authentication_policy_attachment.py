@@ -24,8 +24,8 @@ class UserAuthenticationPolicyAttachmentArgs:
         """
         The set of arguments for constructing a UserAuthenticationPolicyAttachment resource.
 
-        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy.
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to.
+        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         pulumi.set(__self__, "authentication_policy_name", authentication_policy_name)
         pulumi.set(__self__, "user_name", user_name)
@@ -34,7 +34,7 @@ class UserAuthenticationPolicyAttachmentArgs:
     @pulumi.getter(name="authenticationPolicyName")
     def authentication_policy_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Fully qualified name of the authentication policy.
+        Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "authentication_policy_name")
 
@@ -46,7 +46,7 @@ class UserAuthenticationPolicyAttachmentArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
         """
-        User name of the user you want to attach the authentication policy to.
+        User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "user_name")
 
@@ -63,8 +63,8 @@ class _UserAuthenticationPolicyAttachmentState:
         """
         Input properties used for looking up and filtering UserAuthenticationPolicyAttachment resources.
 
-        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy.
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to.
+        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         if authentication_policy_name is not None:
             pulumi.set(__self__, "authentication_policy_name", authentication_policy_name)
@@ -75,7 +75,7 @@ class _UserAuthenticationPolicyAttachmentState:
     @pulumi.getter(name="authenticationPolicyName")
     def authentication_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Fully qualified name of the authentication policy.
+        Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "authentication_policy_name")
 
@@ -87,7 +87,7 @@ class _UserAuthenticationPolicyAttachmentState:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        User name of the user you want to attach the authentication policy to.
+        User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "user_name")
 
@@ -142,8 +142,8 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy.
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to.
+        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         ...
     @overload
@@ -237,8 +237,8 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy.
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to.
+        :param pulumi.Input[_builtins.str] authentication_policy_name: Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -252,7 +252,7 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
     @pulumi.getter(name="authenticationPolicyName")
     def authentication_policy_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Fully qualified name of the authentication policy.
+        Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "authentication_policy_name")
 
@@ -260,7 +260,7 @@ class UserAuthenticationPolicyAttachment(pulumi.CustomResource):
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
         """
-        User name of the user you want to attach the authentication policy to.
+        User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "user_name")
 

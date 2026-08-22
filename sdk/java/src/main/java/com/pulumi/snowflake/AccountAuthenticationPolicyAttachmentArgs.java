@@ -6,8 +6,11 @@ package com.pulumi.snowflake;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AccountAuthenticationPolicyAttachmentArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,24 +18,56 @@ public final class AccountAuthenticationPolicyAttachmentArgs extends com.pulumi.
     public static final AccountAuthenticationPolicyAttachmentArgs Empty = new AccountAuthenticationPolicyAttachmentArgs();
 
     /**
-     * Fully qualified name of the authentication policy to apply to the current account.
+     * Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Import(name="authenticationPolicy", required=true)
     private Output<String> authenticationPolicy;
 
     /**
-     * @return Fully qualified name of the authentication policy to apply to the current account.
+     * @return Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Output<String> authenticationPolicy() {
         return this.authenticationPolicy;
     }
 
+    /**
+     * If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    @Import(name="forAllPersonUsers")
+    private @Nullable Output<Boolean> forAllPersonUsers;
+
+    /**
+     * @return If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    public Optional<Output<Boolean>> forAllPersonUsers() {
+        return Optional.ofNullable(this.forAllPersonUsers);
+    }
+
+    /**
+     * If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    @Import(name="forAllServiceUsers")
+    private @Nullable Output<Boolean> forAllServiceUsers;
+
+    /**
+     * @return If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    public Optional<Output<Boolean>> forAllServiceUsers() {
+        return Optional.ofNullable(this.forAllServiceUsers);
+    }
+
     private AccountAuthenticationPolicyAttachmentArgs() {}
 
     private AccountAuthenticationPolicyAttachmentArgs(AccountAuthenticationPolicyAttachmentArgs $) {
         this.authenticationPolicy = $.authenticationPolicy;
+        this.forAllPersonUsers = $.forAllPersonUsers;
+        this.forAllServiceUsers = $.forAllServiceUsers;
     }
 
     public static Builder builder() {
@@ -54,7 +89,7 @@ public final class AccountAuthenticationPolicyAttachmentArgs extends com.pulumi.
         }
 
         /**
-         * @param authenticationPolicy Fully qualified name of the authentication policy to apply to the current account.
+         * @param authenticationPolicy Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
@@ -65,13 +100,55 @@ public final class AccountAuthenticationPolicyAttachmentArgs extends com.pulumi.
         }
 
         /**
-         * @param authenticationPolicy Fully qualified name of the authentication policy to apply to the current account.
+         * @param authenticationPolicy Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
          */
         public Builder authenticationPolicy(String authenticationPolicy) {
             return authenticationPolicy(Output.of(authenticationPolicy));
+        }
+
+        /**
+         * @param forAllPersonUsers If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllPersonUsers(@Nullable Output<Boolean> forAllPersonUsers) {
+            $.forAllPersonUsers = forAllPersonUsers;
+            return this;
+        }
+
+        /**
+         * @param forAllPersonUsers If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllPersonUsers(Boolean forAllPersonUsers) {
+            return forAllPersonUsers(Output.of(forAllPersonUsers));
+        }
+
+        /**
+         * @param forAllServiceUsers If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllServiceUsers(@Nullable Output<Boolean> forAllServiceUsers) {
+            $.forAllServiceUsers = forAllServiceUsers;
+            return this;
+        }
+
+        /**
+         * @param forAllServiceUsers If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllServiceUsers(Boolean forAllServiceUsers) {
+            return forAllServiceUsers(Output.of(forAllServiceUsers));
         }
 
         public AccountAuthenticationPolicyAttachmentArgs build() {

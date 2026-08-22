@@ -14,7 +14,7 @@ namespace Pulumi.Snowflake
     /// 
     /// &gt; **Note** Currently, API integrations for `GitHttpsApi` API provider are not supported. It will be added in the future.
     /// 
-    /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `snowflake.ApiIntegrationAmazonApiGateway` | `snowflake.ApiIntegrationAzureApiManagement` | `snowflake.ApiIntegrationGoogleCloudApiGateway` | `snowflake.ApiIntegrationGitRepositoryGithubApp` | `snowflake.ApiIntegrationGitRepositoryOauth2` | `snowflake.ApiIntegrationGitRepositoryToken` | `snowflake.ApiIntegrationGitRepositoryPrivateLink` | `snowflake.ApiIntegrationExternalMcpOauth2` | `snowflake.ApiIntegrationExternalMcpDynamicClient`. &lt;deprecation&gt;
+    /// &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: snowflake.ApiIntegrationAmazonApiGateway | snowflake.ApiIntegrationAzureApiManagement | snowflake.ApiIntegrationGoogleCloudApiGateway | snowflake.ApiIntegrationGitRepositoryGithubApp | snowflake.ApiIntegrationGitRepositoryOauth2 | snowflake.ApiIntegrationGitRepositoryToken | snowflake.ApiIntegrationGitRepositoryPrivateLink | snowflake.ApiIntegrationExternalMcpOauth2 | snowflake_api_integration_external_mcp_dynamic_client. &lt;deprecation&gt;
     /// 
     /// ## Example Usage
     /// 

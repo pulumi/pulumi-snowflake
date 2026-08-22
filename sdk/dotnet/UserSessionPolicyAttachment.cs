@@ -60,13 +60,13 @@ namespace Pulumi.Snowflake
     public partial class UserSessionPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Fully qualified name of the session policy.
+        /// Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Output("sessionPolicyName")]
         public Output<string> SessionPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// User name of the user you want to attach the session policy to.
+        /// User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -118,13 +118,13 @@ namespace Pulumi.Snowflake
     public sealed class UserSessionPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully qualified name of the session policy.
+        /// Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Input("sessionPolicyName", required: true)]
         public Input<string> SessionPolicyName { get; set; } = null!;
 
         /// <summary>
-        /// User name of the user you want to attach the session policy to.
+        /// User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -138,13 +138,13 @@ namespace Pulumi.Snowflake
     public sealed class UserSessionPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully qualified name of the session policy.
+        /// Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Input("sessionPolicyName")]
         public Input<string>? SessionPolicyName { get; set; }
 
         /// <summary>
-        /// User name of the user you want to attach the session policy to.
+        /// User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

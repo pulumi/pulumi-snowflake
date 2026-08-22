@@ -10,12 +10,12 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.AccountSessionPolicyAttachmentArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.AccountSessionPolicyAttachmentState;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
- * 
  * &gt; **Warning** This resource shouldn&#39;t be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
  * 
  * Specifies the session policy to use for the current account. To set the session policy of a different account, use a provider alias.
@@ -52,8 +52,23 @@ import javax.annotation.Nullable;
  *             .name("default_session_policy")
  *             .build());
  * 
+ *         // Attach the session policy account-wide (default behavior).
  *         var attachment = new AccountSessionPolicyAttachment("attachment", AccountSessionPolicyAttachmentArgs.builder()
  *             .sessionPolicyName(sp.fullyQualifiedName())
+ *             .build());
+ * 
+ *         var serviceUsers = new SessionPolicy("serviceUsers", SessionPolicyArgs.builder()
+ *             .database("prod")
+ *             .schema("security")
+ *             .name("service_users_session_policy")
+ *             .build());
+ * 
+ *         // Attach the session policy to all service users only.
+ *         // Use for_all_person_users = true to target all person users instead.
+ *         // The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+ *         var attachmentServiceUsers = new AccountSessionPolicyAttachment("attachmentServiceUsers", AccountSessionPolicyAttachmentArgs.builder()
+ *             .sessionPolicyName(serviceUsers.fullyQualifiedName())
+ *             .forAllServiceUsers(true)
  *             .build());
  * 
  *     }
@@ -67,22 +82,64 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * Account-wide attachment:
+ * 
  * ```sh
- * $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;session_policy_name&gt;&#34;&#39;
+ * $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;session_policy_name&gt;&#34;|ACCOUNT&#39;
+ * ```
+ * 
+ * For all person users:
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;session_policy_name&gt;&#34;|PERSON_USERS&#39;
+ * ```
+ * 
+ * For all service users:
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;session_policy_name&gt;&#34;|SERVICE_USERS&#39;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment")
 public class AccountSessionPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * Fully qualified name of the session policy to apply to the current account.
+     * If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    @Export(name="forAllPersonUsers", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> forAllPersonUsers;
+
+    /**
+     * @return If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    public Output<Optional<Boolean>> forAllPersonUsers() {
+        return Codegen.optional(this.forAllPersonUsers);
+    }
+    /**
+     * If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    @Export(name="forAllServiceUsers", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> forAllServiceUsers;
+
+    /**
+     * @return If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    public Output<Optional<Boolean>> forAllServiceUsers() {
+        return Codegen.optional(this.forAllServiceUsers);
+    }
+    /**
+     * Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Export(name="sessionPolicyName", refs={String.class}, tree="[0]")
     private Output<String> sessionPolicyName;
 
     /**
-     * @return Fully qualified name of the session policy to apply to the current account.
+     * @return Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Output<String> sessionPolicyName() {

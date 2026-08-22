@@ -12,8 +12,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
-//
 // > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
 //
 // Specifies the session policy to use for the current account. To set the session policy of a different account, use a provider alias.
@@ -40,8 +38,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Attach the session policy account-wide (default behavior).
 //			_, err = snowflake.NewAccountSessionPolicyAttachment(ctx, "attachment", &snowflake.AccountSessionPolicyAttachmentArgs{
 //				SessionPolicyName: sp.FullyQualifiedName,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			serviceUsers, err := snowflake.NewSessionPolicy(ctx, "service_users", &snowflake.SessionPolicyArgs{
+//				Database: pulumi.String("prod"),
+//				Schema:   pulumi.String("security"),
+//				Name:     pulumi.String("service_users_session_policy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Attach the session policy to all service users only.
+//			// Use for_all_person_users = true to target all person users instead.
+//			// The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+//			_, err = snowflake.NewAccountSessionPolicyAttachment(ctx, "attachment_service_users", &snowflake.AccountSessionPolicyAttachmentArgs{
+//				SessionPolicyName:  serviceUsers.FullyQualifiedName,
+//				ForAllServiceUsers: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -58,13 +75,31 @@ import (
 //
 // ## Import
 //
+// Account-wide attachment:
+//
 // ```sh
-// $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"'
+// $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|ACCOUNT'
+// ```
+//
+// For all person users:
+//
+// ```sh
+// $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|PERSON_USERS'
+// ```
+//
+// For all service users:
+//
+// ```sh
+// $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|SERVICE_USERS'
 // ```
 type AccountSessionPolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// Fully qualified name of the session policy to apply to the current account.
+	// If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllPersonUsers pulumi.BoolPtrOutput `pulumi:"forAllPersonUsers"`
+	// If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllServiceUsers pulumi.BoolPtrOutput `pulumi:"forAllServiceUsers"`
+	// Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName pulumi.StringOutput `pulumi:"sessionPolicyName"`
 }
 
@@ -101,12 +136,20 @@ func GetAccountSessionPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSessionPolicyAttachment resources.
 type accountSessionPolicyAttachmentState struct {
-	// Fully qualified name of the session policy to apply to the current account.
+	// If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllPersonUsers *bool `pulumi:"forAllPersonUsers"`
+	// If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllServiceUsers *bool `pulumi:"forAllServiceUsers"`
+	// Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName *string `pulumi:"sessionPolicyName"`
 }
 
 type AccountSessionPolicyAttachmentState struct {
-	// Fully qualified name of the session policy to apply to the current account.
+	// If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllPersonUsers pulumi.BoolPtrInput
+	// If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllServiceUsers pulumi.BoolPtrInput
+	// Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName pulumi.StringPtrInput
 }
 
@@ -115,13 +158,21 @@ func (AccountSessionPolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type accountSessionPolicyAttachmentArgs struct {
-	// Fully qualified name of the session policy to apply to the current account.
+	// If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllPersonUsers *bool `pulumi:"forAllPersonUsers"`
+	// If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllServiceUsers *bool `pulumi:"forAllServiceUsers"`
+	// Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName string `pulumi:"sessionPolicyName"`
 }
 
 // The set of arguments for constructing a AccountSessionPolicyAttachment resource.
 type AccountSessionPolicyAttachmentArgs struct {
-	// Fully qualified name of the session policy to apply to the current account.
+	// If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllPersonUsers pulumi.BoolPtrInput
+	// If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllServiceUsers pulumi.BoolPtrInput
+	// Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName pulumi.StringInput
 }
 
@@ -212,7 +263,17 @@ func (o AccountSessionPolicyAttachmentOutput) ToAccountSessionPolicyAttachmentOu
 	return o
 }
 
-// Fully qualified name of the session policy to apply to the current account.
+// If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+func (o AccountSessionPolicyAttachmentOutput) ForAllPersonUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountSessionPolicyAttachment) pulumi.BoolPtrOutput { return v.ForAllPersonUsers }).(pulumi.BoolPtrOutput)
+}
+
+// If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+func (o AccountSessionPolicyAttachmentOutput) ForAllServiceUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountSessionPolicyAttachment) pulumi.BoolPtrOutput { return v.ForAllServiceUsers }).(pulumi.BoolPtrOutput)
+}
+
+// Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 func (o AccountSessionPolicyAttachmentOutput) SessionPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSessionPolicyAttachment) pulumi.StringOutput { return v.SessionPolicyName }).(pulumi.StringOutput)
 }

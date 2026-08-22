@@ -67,11 +67,11 @@ export class UserSessionPolicyAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Fully qualified name of the session policy.
+     * Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     declare public readonly sessionPolicyName: pulumi.Output<string>;
     /**
-     * User name of the user you want to attach the session policy to.
+     * User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     declare public readonly userName: pulumi.Output<string>;
 
@@ -111,11 +111,11 @@ export class UserSessionPolicyAttachment extends pulumi.CustomResource {
  */
 export interface UserSessionPolicyAttachmentState {
     /**
-     * Fully qualified name of the session policy.
+     * Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     sessionPolicyName?: pulumi.Input<string | undefined>;
     /**
-     * User name of the user you want to attach the session policy to.
+     * User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     userName?: pulumi.Input<string | undefined>;
 }
@@ -125,11 +125,11 @@ export interface UserSessionPolicyAttachmentState {
  */
 export interface UserSessionPolicyAttachmentArgs {
     /**
-     * Fully qualified name of the session policy.
+     * Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     sessionPolicyName: pulumi.Input<string>;
     /**
-     * User name of the user you want to attach the session policy to.
+     * User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     userName: pulumi.Input<string>;
 }

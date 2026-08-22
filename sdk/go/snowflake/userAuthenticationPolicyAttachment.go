@@ -72,9 +72,9 @@ import (
 type UserAuthenticationPolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// Fully qualified name of the authentication policy.
+	// Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	AuthenticationPolicyName pulumi.StringOutput `pulumi:"authenticationPolicyName"`
-	// User name of the user you want to attach the authentication policy to.
+	// User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -114,16 +114,16 @@ func GetUserAuthenticationPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserAuthenticationPolicyAttachment resources.
 type userAuthenticationPolicyAttachmentState struct {
-	// Fully qualified name of the authentication policy.
+	// Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	AuthenticationPolicyName *string `pulumi:"authenticationPolicyName"`
-	// User name of the user you want to attach the authentication policy to.
+	// User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 	UserName *string `pulumi:"userName"`
 }
 
 type UserAuthenticationPolicyAttachmentState struct {
-	// Fully qualified name of the authentication policy.
+	// Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	AuthenticationPolicyName pulumi.StringPtrInput
-	// User name of the user you want to attach the authentication policy to.
+	// User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 	UserName pulumi.StringPtrInput
 }
 
@@ -132,17 +132,17 @@ func (UserAuthenticationPolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type userAuthenticationPolicyAttachmentArgs struct {
-	// Fully qualified name of the authentication policy.
+	// Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	AuthenticationPolicyName string `pulumi:"authenticationPolicyName"`
-	// User name of the user you want to attach the authentication policy to.
+	// User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 	UserName string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a UserAuthenticationPolicyAttachment resource.
 type UserAuthenticationPolicyAttachmentArgs struct {
-	// Fully qualified name of the authentication policy.
+	// Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	AuthenticationPolicyName pulumi.StringInput
-	// User name of the user you want to attach the authentication policy to.
+	// User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 	UserName pulumi.StringInput
 }
 
@@ -233,12 +233,12 @@ func (o UserAuthenticationPolicyAttachmentOutput) ToUserAuthenticationPolicyAtta
 	return o
 }
 
-// Fully qualified name of the authentication policy.
+// Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 func (o UserAuthenticationPolicyAttachmentOutput) AuthenticationPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserAuthenticationPolicyAttachment) pulumi.StringOutput { return v.AuthenticationPolicyName }).(pulumi.StringOutput)
 }
 
-// User name of the user you want to attach the authentication policy to.
+// User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 func (o UserAuthenticationPolicyAttachmentOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserAuthenticationPolicyAttachment) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }

@@ -6,8 +6,11 @@ package com.pulumi.snowflake;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AccountSessionPolicyAttachmentArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,14 +18,44 @@ public final class AccountSessionPolicyAttachmentArgs extends com.pulumi.resourc
     public static final AccountSessionPolicyAttachmentArgs Empty = new AccountSessionPolicyAttachmentArgs();
 
     /**
-     * Fully qualified name of the session policy to apply to the current account.
+     * If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    @Import(name="forAllPersonUsers")
+    private @Nullable Output<Boolean> forAllPersonUsers;
+
+    /**
+     * @return If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    public Optional<Output<Boolean>> forAllPersonUsers() {
+        return Optional.ofNullable(this.forAllPersonUsers);
+    }
+
+    /**
+     * If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    @Import(name="forAllServiceUsers")
+    private @Nullable Output<Boolean> forAllServiceUsers;
+
+    /**
+     * @return If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    public Optional<Output<Boolean>> forAllServiceUsers() {
+        return Optional.ofNullable(this.forAllServiceUsers);
+    }
+
+    /**
+     * Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Import(name="sessionPolicyName", required=true)
     private Output<String> sessionPolicyName;
 
     /**
-     * @return Fully qualified name of the session policy to apply to the current account.
+     * @return Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Output<String> sessionPolicyName() {
@@ -32,6 +65,8 @@ public final class AccountSessionPolicyAttachmentArgs extends com.pulumi.resourc
     private AccountSessionPolicyAttachmentArgs() {}
 
     private AccountSessionPolicyAttachmentArgs(AccountSessionPolicyAttachmentArgs $) {
+        this.forAllPersonUsers = $.forAllPersonUsers;
+        this.forAllServiceUsers = $.forAllServiceUsers;
         this.sessionPolicyName = $.sessionPolicyName;
     }
 
@@ -54,7 +89,49 @@ public final class AccountSessionPolicyAttachmentArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sessionPolicyName Fully qualified name of the session policy to apply to the current account.
+         * @param forAllPersonUsers If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllPersonUsers(@Nullable Output<Boolean> forAllPersonUsers) {
+            $.forAllPersonUsers = forAllPersonUsers;
+            return this;
+        }
+
+        /**
+         * @param forAllPersonUsers If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllPersonUsers(Boolean forAllPersonUsers) {
+            return forAllPersonUsers(Output.of(forAllPersonUsers));
+        }
+
+        /**
+         * @param forAllServiceUsers If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllServiceUsers(@Nullable Output<Boolean> forAllServiceUsers) {
+            $.forAllServiceUsers = forAllServiceUsers;
+            return this;
+        }
+
+        /**
+         * @param forAllServiceUsers If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllServiceUsers(Boolean forAllServiceUsers) {
+            return forAllServiceUsers(Output.of(forAllServiceUsers));
+        }
+
+        /**
+         * @param sessionPolicyName Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
@@ -65,7 +142,7 @@ public final class AccountSessionPolicyAttachmentArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param sessionPolicyName Fully qualified name of the session policy to apply to the current account.
+         * @param sessionPolicyName Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 

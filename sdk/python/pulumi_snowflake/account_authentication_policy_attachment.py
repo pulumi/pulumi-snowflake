@@ -19,19 +19,27 @@ __all__ = ['AccountAuthenticationPolicyAttachmentArgs', 'AccountAuthenticationPo
 @pulumi.input_type
 class AccountAuthenticationPolicyAttachmentArgs:
     def __init__(__self__, *,
-                 authentication_policy: pulumi.Input[_builtins.str]):
+                 authentication_policy: pulumi.Input[_builtins.str],
+                 for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AccountAuthenticationPolicyAttachment resource.
 
-        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account.
+        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.bool] for_all_person_users: If true, attaches the authentication policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.bool] for_all_service_users: If true, attaches the authentication policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
         """
         pulumi.set(__self__, "authentication_policy", authentication_policy)
+        if for_all_person_users is not None:
+            pulumi.set(__self__, "for_all_person_users", for_all_person_users)
+        if for_all_service_users is not None:
+            pulumi.set(__self__, "for_all_service_users", for_all_service_users)
 
     @_builtins.property
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> pulumi.Input[_builtins.str]:
         """
-        Fully qualified name of the authentication policy to apply to the current account.
+        Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "authentication_policy")
 
@@ -39,30 +47,86 @@ class AccountAuthenticationPolicyAttachmentArgs:
     def authentication_policy(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "authentication_policy", value)
 
+    @_builtins.property
+    @pulumi.getter(name="forAllPersonUsers")
+    def for_all_person_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, attaches the authentication policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_person_users")
+
+    @for_all_person_users.setter
+    def for_all_person_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "for_all_person_users", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forAllServiceUsers")
+    def for_all_service_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, attaches the authentication policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_service_users")
+
+    @for_all_service_users.setter
+    def for_all_service_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "for_all_service_users", value)
+
 
 @pulumi.input_type
 class _AccountAuthenticationPolicyAttachmentState:
     def __init__(__self__, *,
-                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None):
+                 authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering AccountAuthenticationPolicyAttachment resources.
 
-        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account.
+        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.bool] for_all_person_users: If true, attaches the authentication policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.bool] for_all_service_users: If true, attaches the authentication policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
         """
         if authentication_policy is not None:
             pulumi.set(__self__, "authentication_policy", authentication_policy)
+        if for_all_person_users is not None:
+            pulumi.set(__self__, "for_all_person_users", for_all_person_users)
+        if for_all_service_users is not None:
+            pulumi.set(__self__, "for_all_service_users", for_all_service_users)
 
     @_builtins.property
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Fully qualified name of the authentication policy to apply to the current account.
+        Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "authentication_policy")
 
     @authentication_policy.setter
     def authentication_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forAllPersonUsers")
+    def for_all_person_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, attaches the authentication policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_person_users")
+
+    @for_all_person_users.setter
+    def for_all_person_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "for_all_person_users", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forAllServiceUsers")
+    def for_all_service_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, attaches the authentication policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_service_users")
+
+    @for_all_service_users.setter
+    def for_all_service_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "for_all_service_users", value)
 
 
 @pulumi.type_token("snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment")
@@ -72,11 +136,11 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-        > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
 
         > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
 
@@ -92,7 +156,18 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
             database="prod",
             schema="security",
             name="default_policy")
+        # Attach the authentication policy account-wide (default behavior).
         attachment = snowflake.AccountAuthenticationPolicyAttachment("attachment", authentication_policy=default.fully_qualified_name)
+        service_users = snowflake.AuthenticationPolicy("service_users",
+            database="prod",
+            schema="security",
+            name="service_users_policy")
+        # Attach the authentication policy to all service users only.
+        # Use for_all_person_users = true to target all person users instead.
+        # The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+        attachment_service_users = snowflake.AccountAuthenticationPolicyAttachment("attachment_service_users",
+            authentication_policy=service_users.fully_qualified_name,
+            for_all_service_users=True)
         ```
         > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
@@ -101,14 +176,30 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
+        Account-wide attachment:
+
         ```sh
-        $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+        $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|ACCOUNT'
+        ```
+
+        For all person users:
+
+        ```sh
+        $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|PERSON_USERS'
+        ```
+
+        For all service users:
+
+        ```sh
+        $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|SERVICE_USERS'
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account.
+        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.bool] for_all_person_users: If true, attaches the authentication policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.bool] for_all_service_users: If true, attaches the authentication policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
         """
         ...
     @overload
@@ -119,8 +210,6 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-        > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
-
         > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
 
         Specifies the authentication policy to use for the current account. To set the authentication policy of a different account, use a provider alias.
@@ -135,7 +224,18 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
             database="prod",
             schema="security",
             name="default_policy")
+        # Attach the authentication policy account-wide (default behavior).
         attachment = snowflake.AccountAuthenticationPolicyAttachment("attachment", authentication_policy=default.fully_qualified_name)
+        service_users = snowflake.AuthenticationPolicy("service_users",
+            database="prod",
+            schema="security",
+            name="service_users_policy")
+        # Attach the authentication policy to all service users only.
+        # Use for_all_person_users = true to target all person users instead.
+        # The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+        attachment_service_users = snowflake.AccountAuthenticationPolicyAttachment("attachment_service_users",
+            authentication_policy=service_users.fully_qualified_name,
+            for_all_service_users=True)
         ```
         > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
@@ -144,8 +244,22 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
+        Account-wide attachment:
+
         ```sh
-        $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+        $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|ACCOUNT'
+        ```
+
+        For all person users:
+
+        ```sh
+        $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|PERSON_USERS'
+        ```
+
+        For all service users:
+
+        ```sh
+        $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|SERVICE_USERS'
         ```
 
 
@@ -165,6 +279,8 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -177,6 +293,8 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
             if authentication_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_policy'")
             __props__.__dict__["authentication_policy"] = authentication_policy
+            __props__.__dict__["for_all_person_users"] = for_all_person_users
+            __props__.__dict__["for_all_service_users"] = for_all_service_users
         super(AccountAuthenticationPolicyAttachment, __self__).__init__(
             'snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment',
             resource_name,
@@ -187,7 +305,9 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            authentication_policy: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccountAuthenticationPolicyAttachment':
+            authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None) -> 'AccountAuthenticationPolicyAttachment':
         """
         Get an existing AccountAuthenticationPolicyAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -195,20 +315,40 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account.
+        :param pulumi.Input[_builtins.str] authentication_policy: Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.bool] for_all_person_users: If true, attaches the authentication policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.bool] for_all_service_users: If true, attaches the authentication policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _AccountAuthenticationPolicyAttachmentState.__new__(_AccountAuthenticationPolicyAttachmentState)
 
         __props__.__dict__["authentication_policy"] = authentication_policy
+        __props__.__dict__["for_all_person_users"] = for_all_person_users
+        __props__.__dict__["for_all_service_users"] = for_all_service_users
         return AccountAuthenticationPolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> pulumi.Output[_builtins.str]:
         """
-        Fully qualified name of the authentication policy to apply to the current account.
+        Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "authentication_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="forAllPersonUsers")
+    def for_all_person_users(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, attaches the authentication policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_person_users")
+
+    @_builtins.property
+    @pulumi.getter(name="forAllServiceUsers")
+    def for_all_service_users(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, attaches the authentication policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_service_users")
 

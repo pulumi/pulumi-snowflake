@@ -520,7 +520,7 @@ class ApiIntegration(pulumi.CustomResource):
 
         > **Note** Currently, API integrations for `git_https_api` API provider are not supported. It will be added in the future.
 
-        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `ApiIntegrationAmazonApiGateway` | `ApiIntegrationAzureApiManagement` | `ApiIntegrationGoogleCloudApiGateway` | `ApiIntegrationGitRepositoryGithubApp` | `ApiIntegrationGitRepositoryOauth2` | `ApiIntegrationGitRepositoryToken` | `ApiIntegrationGitRepositoryPrivateLink` | `ApiIntegrationExternalMcpOauth2` | `ApiIntegrationExternalMcpDynamicClient`. <deprecation>
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: ApiIntegrationAmazonApiGateway | ApiIntegrationAzureApiManagement | ApiIntegrationGoogleCloudApiGateway | ApiIntegrationGitRepositoryGithubApp | ApiIntegrationGitRepositoryOauth2 | ApiIntegrationGitRepositoryToken | ApiIntegrationGitRepositoryPrivateLink | ApiIntegrationExternalMcpOauth2 | snowflake_api_integration_external_mcp_dynamic_client. <deprecation>
 
         ## Example Usage
 
@@ -586,7 +586,7 @@ class ApiIntegration(pulumi.CustomResource):
 
         > **Note** Currently, API integrations for `git_https_api` API provider are not supported. It will be added in the future.
 
-        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `ApiIntegrationAmazonApiGateway` | `ApiIntegrationAzureApiManagement` | `ApiIntegrationGoogleCloudApiGateway` | `ApiIntegrationGitRepositoryGithubApp` | `ApiIntegrationGitRepositoryOauth2` | `ApiIntegrationGitRepositoryToken` | `ApiIntegrationGitRepositoryPrivateLink` | `ApiIntegrationExternalMcpOauth2` | `ApiIntegrationExternalMcpDynamicClient`. <deprecation>
+        > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: ApiIntegrationAmazonApiGateway | ApiIntegrationAzureApiManagement | ApiIntegrationGoogleCloudApiGateway | ApiIntegrationGitRepositoryGithubApp | ApiIntegrationGitRepositoryOauth2 | ApiIntegrationGitRepositoryToken | ApiIntegrationGitRepositoryPrivateLink | ApiIntegrationExternalMcpOauth2 | snowflake_api_integration_external_mcp_dynamic_client. <deprecation>
 
         ## Example Usage
 

@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** Starting from the [Bundle 202505](https://docs.snowflake.com/en/release-notes/bcr-bundles/2025_05/bcr-1989), a file format cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
  * 
- * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `snowflake.FileFormatCsv` | `snowflake.FileFormatJson` | `snowflake.FileFormatAvro` | `snowflake.FileFormatOrc` | `snowflake.FileFormatParquet` | `snowflake.FileFormatXml`. &lt;deprecation&gt;
+ * &gt; **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: snowflake.FileFormatCsv | snowflake.FileFormatJson | snowflake.FileFormatAvro | snowflake.FileFormatOrc | snowflake.FileFormatParquet | snowflake_file_format_xml. &lt;deprecation&gt;
  * 
  * ## Example Usage
  * 

@@ -15,14 +15,14 @@ public final class UserSessionPolicyAttachmentArgs extends com.pulumi.resources.
     public static final UserSessionPolicyAttachmentArgs Empty = new UserSessionPolicyAttachmentArgs();
 
     /**
-     * Fully qualified name of the session policy.
+     * Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Import(name="sessionPolicyName", required=true)
     private Output<String> sessionPolicyName;
 
     /**
-     * @return Fully qualified name of the session policy.
+     * @return Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Output<String> sessionPolicyName() {
@@ -30,14 +30,14 @@ public final class UserSessionPolicyAttachmentArgs extends com.pulumi.resources.
     }
 
     /**
-     * User name of the user you want to attach the session policy to.
+     * User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Import(name="userName", required=true)
     private Output<String> userName;
 
     /**
-     * @return User name of the user you want to attach the session policy to.
+     * @return User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Output<String> userName() {
@@ -70,7 +70,7 @@ public final class UserSessionPolicyAttachmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sessionPolicyName Fully qualified name of the session policy.
+         * @param sessionPolicyName Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class UserSessionPolicyAttachmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param sessionPolicyName Fully qualified name of the session policy.
+         * @param sessionPolicyName Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
@@ -91,7 +91,7 @@ public final class UserSessionPolicyAttachmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param userName User name of the user you want to attach the session policy to.
+         * @param userName User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class UserSessionPolicyAttachmentArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param userName User name of the user you want to attach the session policy to.
+         * @param userName User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 

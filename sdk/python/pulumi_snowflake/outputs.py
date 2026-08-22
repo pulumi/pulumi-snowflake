@@ -116,6 +116,10 @@ __all__ = [
     'DatabaseReplicationEnableToAccount',
     'DatabaseRoleShowOutput',
     'DynamicTableTargetLag',
+    'ExternalAccessIntegrationAllowedApiAuthenticationIntegrations',
+    'ExternalAccessIntegrationAllowedAuthenticationSecrets',
+    'ExternalAccessIntegrationDescribeOutput',
+    'ExternalAccessIntegrationShowOutput',
     'ExternalFunctionArg',
     'ExternalFunctionHeader',
     'ExternalOauthIntegrationDescribeOutput',
@@ -226,6 +230,15 @@ __all__ = [
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectAll',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited',
+    'HybridTableColumn',
+    'HybridTableColumnDefault',
+    'HybridTableDescribeOutput',
+    'HybridTableForeignKeyConstraint',
+    'HybridTableIndex',
+    'HybridTablePrimaryKeyConstraint',
+    'HybridTableShowKeysOutput',
+    'HybridTableShowOutput',
+    'HybridTableUniqueConstraint',
     'IcebergTableAggregationPolicy',
     'IcebergTableCheckConstraint',
     'IcebergTableColumn',
@@ -1008,6 +1021,9 @@ __all__ = [
     'GetDynamicTablesLikeResult',
     'GetDynamicTablesLimitResult',
     'GetDynamicTablesRecordResult',
+    'GetExternalAccessIntegrationsExternalAccessIntegrationResult',
+    'GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputResult',
+    'GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputResult',
     'GetExternalFunctionsExternalFunctionResult',
     'GetExternalTablesExternalTableResult',
     'GetExternalVolumesExternalVolumeResult',
@@ -7210,6 +7226,8 @@ class ComputePoolDescribeOutput(dict):
             suggest = "auto_resume"
         elif key == "autoSuspendSecs":
             suggest = "auto_suspend_secs"
+        elif key == "backupInstanceFamilies":
+            suggest = "backup_instance_families"
         elif key == "createdOn":
             suggest = "created_on"
         elif key == "errorCode":
@@ -7253,6 +7271,7 @@ class ComputePoolDescribeOutput(dict):
                  application: Optional[_builtins.str] = None,
                  auto_resume: Optional[_builtins.bool] = None,
                  auto_suspend_secs: Optional[_builtins.int] = None,
+                 backup_instance_families: Optional[Sequence[_builtins.str]] = None,
                  comment: Optional[_builtins.str] = None,
                  created_on: Optional[_builtins.str] = None,
                  error_code: Optional[_builtins.str] = None,
@@ -7278,6 +7297,8 @@ class ComputePoolDescribeOutput(dict):
             pulumi.set(__self__, "auto_resume", auto_resume)
         if auto_suspend_secs is not None:
             pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if backup_instance_families is not None:
+            pulumi.set(__self__, "backup_instance_families", backup_instance_families)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
@@ -7332,6 +7353,11 @@ class ComputePoolDescribeOutput(dict):
     @pulumi.getter(name="autoSuspendSecs")
     def auto_suspend_secs(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "auto_suspend_secs")
+
+    @_builtins.property
+    @pulumi.getter(name="backupInstanceFamilies")
+    def backup_instance_families(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "backup_instance_families")
 
     @_builtins.property
     @pulumi.getter
@@ -7430,6 +7456,8 @@ class ComputePoolShowOutput(dict):
             suggest = "auto_resume"
         elif key == "autoSuspendSecs":
             suggest = "auto_suspend_secs"
+        elif key == "backupInstanceFamilies":
+            suggest = "backup_instance_families"
         elif key == "createdOn":
             suggest = "created_on"
         elif key == "idleNodes":
@@ -7469,6 +7497,7 @@ class ComputePoolShowOutput(dict):
                  application: Optional[_builtins.str] = None,
                  auto_resume: Optional[_builtins.bool] = None,
                  auto_suspend_secs: Optional[_builtins.int] = None,
+                 backup_instance_families: Optional[Sequence[_builtins.str]] = None,
                  comment: Optional[_builtins.str] = None,
                  created_on: Optional[_builtins.str] = None,
                  idle_nodes: Optional[_builtins.int] = None,
@@ -7492,6 +7521,8 @@ class ComputePoolShowOutput(dict):
             pulumi.set(__self__, "auto_resume", auto_resume)
         if auto_suspend_secs is not None:
             pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if backup_instance_families is not None:
+            pulumi.set(__self__, "backup_instance_families", backup_instance_families)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
@@ -7542,6 +7573,11 @@ class ComputePoolShowOutput(dict):
     @pulumi.getter(name="autoSuspendSecs")
     def auto_suspend_secs(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "auto_suspend_secs")
+
+    @_builtins.property
+    @pulumi.getter(name="backupInstanceFamilies")
+    def backup_instance_families(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "backup_instance_families")
 
     @_builtins.property
     @pulumi.getter
@@ -8665,6 +8701,224 @@ class DynamicTableTargetLag(dict):
         Specifies the maximum target lag time for the dynamic table.
         """
         return pulumi.get(self, "maximum_duration")
+
+
+@pulumi.output_type
+class ExternalAccessIntegrationAllowedApiAuthenticationIntegrations(dict):
+    def __init__(__self__, *,
+                 integrations: Optional[Sequence[_builtins.str]] = None,
+                 none: Optional[_builtins.bool] = None):
+        """
+        :param Sequence[_builtins.str] integrations: Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+        :param _builtins.bool none: When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+        """
+        if integrations is not None:
+            pulumi.set(__self__, "integrations", integrations)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+
+    @_builtins.property
+    @pulumi.getter
+    def integrations(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+        """
+        return pulumi.get(self, "integrations")
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> Optional[_builtins.bool]:
+        """
+        When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+        """
+        return pulumi.get(self, "none")
+
+
+@pulumi.output_type
+class ExternalAccessIntegrationAllowedAuthenticationSecrets(dict):
+    def __init__(__self__, *,
+                 all: Optional[_builtins.bool] = None,
+                 none: Optional[_builtins.bool] = None,
+                 secrets: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.bool all: When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+        :param _builtins.bool none: When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+        :param Sequence[_builtins.str] secrets: Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @_builtins.property
+    @pulumi.getter
+    def all(self) -> Optional[_builtins.bool]:
+        """
+        When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+        """
+        return pulumi.get(self, "all")
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> Optional[_builtins.bool]:
+        """
+        When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+        """
+        return pulumi.get(self, "none")
+
+    @_builtins.property
+    @pulumi.getter
+    def secrets(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+        """
+        return pulumi.get(self, "secrets")
+
+
+@pulumi.output_type
+class ExternalAccessIntegrationDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedApiAuthenticationIntegrations":
+            suggest = "allowed_api_authentication_integrations"
+        elif key == "allowedAuthenticationSecrets":
+            suggest = "allowed_authentication_secrets"
+        elif key == "allowedNetworkRules":
+            suggest = "allowed_network_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExternalAccessIntegrationDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExternalAccessIntegrationDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExternalAccessIntegrationDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_api_authentication_integrations: Optional[Sequence[_builtins.str]] = None,
+                 allowed_authentication_secrets: Optional[Sequence[_builtins.str]] = None,
+                 allowed_network_rules: Optional[Sequence[_builtins.str]] = None,
+                 comment: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 id: Optional[_builtins.str] = None):
+        if allowed_api_authentication_integrations is not None:
+            pulumi.set(__self__, "allowed_api_authentication_integrations", allowed_api_authentication_integrations)
+        if allowed_authentication_secrets is not None:
+            pulumi.set(__self__, "allowed_authentication_secrets", allowed_authentication_secrets)
+        if allowed_network_rules is not None:
+            pulumi.set(__self__, "allowed_network_rules", allowed_network_rules)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedApiAuthenticationIntegrations")
+    def allowed_api_authentication_integrations(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_api_authentication_integrations")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAuthenticationSecrets")
+    def allowed_authentication_secrets(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_authentication_secrets")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedNetworkRules")
+    def allowed_network_rules(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "allowed_network_rules")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ExternalAccessIntegrationShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExternalAccessIntegrationShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExternalAccessIntegrationShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExternalAccessIntegrationShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 category: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 enabled: Optional[_builtins.bool] = None,
+                 name: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -16316,6 +16570,660 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited(dict):
         The fully qualified name of the schema.
         """
         return pulumi.get(self, "in_schema")
+
+
+@pulumi.output_type
+class HybridTableColumn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notNull":
+            suggest = "not_null"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridTableColumn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridTableColumn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridTableColumn.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 type: _builtins.str,
+                 collate: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 default: Optional['outputs.HybridTableColumnDefault'] = None,
+                 not_null: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str name: Column name.
+        :param _builtins.str type: Column type. See [Snowflake data types](https://docs.snowflake.com/en/sql-reference-data-types) for supported values. Example: VARCHAR(256), NUMBER(38,0).
+        :param _builtins.str collate: Column collation specification, e.g. en-ci. Case-insensitive (en-ci and EN-CI are treated as equal).
+        :param _builtins.str comment: Column-level comment.
+        :param 'HybridTableColumnDefaultArgs' default: Defines the column default value. Only one of constant, expression, or sequence may be set.
+        :param _builtins.bool not_null: Whether to restrict the column to NOT NULL values. Changing this on an existing column forces recreation. Primary key columns must set this to true because NOT NULL is implied by the primary key.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if collate is not None:
+            pulumi.set(__self__, "collate", collate)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if not_null is not None:
+            pulumi.set(__self__, "not_null", not_null)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Column name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Column type. See [Snowflake data types](https://docs.snowflake.com/en/sql-reference-data-types) for supported values. Example: VARCHAR(256), NUMBER(38,0).
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def collate(self) -> Optional[_builtins.str]:
+        """
+        Column collation specification, e.g. en-ci. Case-insensitive (en-ci and EN-CI are treated as equal).
+        """
+        return pulumi.get(self, "collate")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        """
+        Column-level comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional['outputs.HybridTableColumnDefault']:
+        """
+        Defines the column default value. Only one of constant, expression, or sequence may be set.
+        """
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter(name="notNull")
+    def not_null(self) -> Optional[_builtins.bool]:
+        """
+        Whether to restrict the column to NOT NULL values. Changing this on an existing column forces recreation. Primary key columns must set this to true because NOT NULL is implied by the primary key.
+        """
+        return pulumi.get(self, "not_null")
+
+
+@pulumi.output_type
+class HybridTableColumnDefault(dict):
+    def __init__(__self__, *,
+                 constant: Optional[_builtins.str] = None,
+                 expression: Optional[_builtins.str] = None,
+                 sequence: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str constant: A constant default value for the column.
+        :param _builtins.str expression: A SQL expression default value for the column.
+        :param _builtins.str sequence: The default sequence for the column (uses NEXTVAL).
+        """
+        if constant is not None:
+            pulumi.set(__self__, "constant", constant)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if sequence is not None:
+            pulumi.set(__self__, "sequence", sequence)
+
+    @_builtins.property
+    @pulumi.getter
+    def constant(self) -> Optional[_builtins.str]:
+        """
+        A constant default value for the column.
+        """
+        return pulumi.get(self, "constant")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        """
+        A SQL expression default value for the column.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter
+    def sequence(self) -> Optional[_builtins.str]:
+        """
+        The default sequence for the column (uses NEXTVAL).
+        """
+        return pulumi.get(self, "sequence")
+
+
+@pulumi.output_type
+class HybridTableDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isNullable":
+            suggest = "is_nullable"
+        elif key == "policyName":
+            suggest = "policy_name"
+        elif key == "primaryKey":
+            suggest = "primary_key"
+        elif key == "privacyDomain":
+            suggest = "privacy_domain"
+        elif key == "schemaEvolutionRecord":
+            suggest = "schema_evolution_record"
+        elif key == "uniqueKey":
+            suggest = "unique_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridTableDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridTableDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridTableDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 check: Optional[_builtins.str] = None,
+                 collation: Optional[_builtins.str] = None,
+                 comment: Optional[_builtins.str] = None,
+                 default: Optional[_builtins.str] = None,
+                 expression: Optional[_builtins.str] = None,
+                 is_nullable: Optional[_builtins.bool] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 policy_name: Optional[_builtins.str] = None,
+                 primary_key: Optional[_builtins.bool] = None,
+                 privacy_domain: Optional[_builtins.str] = None,
+                 schema_evolution_record: Optional[_builtins.str] = None,
+                 type: Optional[_builtins.str] = None,
+                 unique_key: Optional[_builtins.bool] = None):
+        if check is not None:
+            pulumi.set(__self__, "check", check)
+        if collation is not None:
+            pulumi.set(__self__, "collation", collation)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if is_nullable is not None:
+            pulumi.set(__self__, "is_nullable", is_nullable)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if privacy_domain is not None:
+            pulumi.set(__self__, "privacy_domain", privacy_domain)
+        if schema_evolution_record is not None:
+            pulumi.set(__self__, "schema_evolution_record", schema_evolution_record)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def check(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "check")
+
+    @_builtins.property
+    @pulumi.getter
+    def collation(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "collation")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "is_nullable")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "policy_name")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "primary_key")
+
+    @_builtins.property
+    @pulumi.getter(name="privacyDomain")
+    def privacy_domain(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "privacy_domain")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaEvolutionRecord")
+    def schema_evolution_record(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_evolution_record")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "unique_key")
+
+
+@pulumi.output_type
+class HybridTableForeignKeyConstraint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "refColumns":
+            suggest = "ref_columns"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridTableForeignKeyConstraint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridTableForeignKeyConstraint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridTableForeignKeyConstraint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns: Sequence[_builtins.str],
+                 ref_columns: Sequence[_builtins.str],
+                 table_name: _builtins.str,
+                 name: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] columns: The local column(s) the foreign key is defined on.
+        :param Sequence[_builtins.str] ref_columns: The column(s) in the referenced table that the foreign key references.
+        :param _builtins.str table_name: The table that the foreign key references.
+        :param _builtins.str name: Name of the constraint.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "ref_columns", ref_columns)
+        pulumi.set(__self__, "table_name", table_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Sequence[_builtins.str]:
+        """
+        The local column(s) the foreign key is defined on.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter(name="refColumns")
+    def ref_columns(self) -> Sequence[_builtins.str]:
+        """
+        The column(s) in the referenced table that the foreign key references.
+        """
+        return pulumi.get(self, "ref_columns")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> _builtins.str:
+        """
+        The table that the foreign key references.
+        """
+        return pulumi.get(self, "table_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the constraint.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class HybridTableIndex(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeColumns":
+            suggest = "include_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridTableIndex. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridTableIndex.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridTableIndex.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns: Sequence[_builtins.str],
+                 name: _builtins.str,
+                 include_columns: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] columns: Index key columns, in order. Order is semantically meaningful.
+        :param _builtins.str name: Name of the secondary index.
+        :param Sequence[_builtins.str] include_columns: Columns included in the index payload via INCLUDE (...). Order carries no meaning.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "name", name)
+        if include_columns is not None:
+            pulumi.set(__self__, "include_columns", include_columns)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Sequence[_builtins.str]:
+        """
+        Index key columns, in order. Order is semantically meaningful.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the secondary index.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="includeColumns")
+    def include_columns(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Columns included in the index payload via INCLUDE (...). Order carries no meaning.
+        """
+        return pulumi.get(self, "include_columns")
+
+
+@pulumi.output_type
+class HybridTablePrimaryKeyConstraint(dict):
+    def __init__(__self__, *,
+                 columns: Sequence[_builtins.str],
+                 name: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] columns: The column(s) the constraint applies to.
+        :param _builtins.str name: Name of the constraint.
+        """
+        pulumi.set(__self__, "columns", columns)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Sequence[_builtins.str]:
+        """
+        The column(s) the constraint applies to.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the constraint.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class HybridTableShowKeysOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteRule":
+            suggest = "delete_rule"
+        elif key == "referencedColumns":
+            suggest = "referenced_columns"
+        elif key == "referencedTable":
+            suggest = "referenced_table"
+        elif key == "updateRule":
+            suggest = "update_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridTableShowKeysOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridTableShowKeysOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridTableShowKeysOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 columns: Optional[Sequence[_builtins.str]] = None,
+                 delete_rule: Optional[_builtins.str] = None,
+                 kind: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 referenced_columns: Optional[Sequence[_builtins.str]] = None,
+                 referenced_table: Optional[_builtins.str] = None,
+                 update_rule: Optional[_builtins.str] = None):
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if delete_rule is not None:
+            pulumi.set(__self__, "delete_rule", delete_rule)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if referenced_columns is not None:
+            pulumi.set(__self__, "referenced_columns", referenced_columns)
+        if referenced_table is not None:
+            pulumi.set(__self__, "referenced_table", referenced_table)
+        if update_rule is not None:
+            pulumi.set(__self__, "update_rule", update_rule)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteRule")
+    def delete_rule(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "delete_rule")
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="referencedColumns")
+    def referenced_columns(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "referenced_columns")
+
+    @_builtins.property
+    @pulumi.getter(name="referencedTable")
+    def referenced_table(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "referenced_table")
+
+    @_builtins.property
+    @pulumi.getter(name="updateRule")
+    def update_rule(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "update_rule")
+
+
+@pulumi.output_type
+class HybridTableShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridTableShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridTableShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridTableShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bytes: Optional[_builtins.int] = None,
+                 comment: Optional[_builtins.str] = None,
+                 created_on: Optional[_builtins.str] = None,
+                 database_name: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 owner: Optional[_builtins.str] = None,
+                 owner_role_type: Optional[_builtins.str] = None,
+                 rows: Optional[_builtins.int] = None,
+                 schema_name: Optional[_builtins.str] = None):
+        if bytes is not None:
+            pulumi.set(__self__, "bytes", bytes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if rows is not None:
+            pulumi.set(__self__, "rows", rows)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def bytes(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "bytes")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "rows")
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class HybridTableUniqueConstraint(dict):
+    def __init__(__self__, *,
+                 columns: Sequence[_builtins.str],
+                 name: Optional[_builtins.str] = None):
+        """
+        :param Sequence[_builtins.str] columns: The column(s) the constraint applies to.
+        :param _builtins.str name: Name of the constraint.
+        """
+        pulumi.set(__self__, "columns", columns)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> Sequence[_builtins.str]:
+        """
+        The column(s) the constraint applies to.
+        """
+        return pulumi.get(self, "columns")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the constraint.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -69192,6 +70100,7 @@ class GetComputePoolsComputePoolDescribeOutputResult(dict):
                  application: _builtins.str,
                  auto_resume: _builtins.bool,
                  auto_suspend_secs: _builtins.int,
+                 backup_instance_families: Sequence[_builtins.str],
                  comment: _builtins.str,
                  created_on: _builtins.str,
                  error_code: _builtins.str,
@@ -69213,6 +70122,7 @@ class GetComputePoolsComputePoolDescribeOutputResult(dict):
         pulumi.set(__self__, "application", application)
         pulumi.set(__self__, "auto_resume", auto_resume)
         pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        pulumi.set(__self__, "backup_instance_families", backup_instance_families)
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "created_on", created_on)
         pulumi.set(__self__, "error_code", error_code)
@@ -69250,6 +70160,11 @@ class GetComputePoolsComputePoolDescribeOutputResult(dict):
     @pulumi.getter(name="autoSuspendSecs")
     def auto_suspend_secs(self) -> _builtins.int:
         return pulumi.get(self, "auto_suspend_secs")
+
+    @_builtins.property
+    @pulumi.getter(name="backupInstanceFamilies")
+    def backup_instance_families(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "backup_instance_families")
 
     @_builtins.property
     @pulumi.getter
@@ -69344,6 +70259,7 @@ class GetComputePoolsComputePoolShowOutputResult(dict):
                  application: _builtins.str,
                  auto_resume: _builtins.bool,
                  auto_suspend_secs: _builtins.int,
+                 backup_instance_families: Sequence[_builtins.str],
                  comment: _builtins.str,
                  created_on: _builtins.str,
                  idle_nodes: _builtins.int,
@@ -69363,6 +70279,7 @@ class GetComputePoolsComputePoolShowOutputResult(dict):
         pulumi.set(__self__, "application", application)
         pulumi.set(__self__, "auto_resume", auto_resume)
         pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        pulumi.set(__self__, "backup_instance_families", backup_instance_families)
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "created_on", created_on)
         pulumi.set(__self__, "idle_nodes", idle_nodes)
@@ -69398,6 +70315,11 @@ class GetComputePoolsComputePoolShowOutputResult(dict):
     @pulumi.getter(name="autoSuspendSecs")
     def auto_suspend_secs(self) -> _builtins.int:
         return pulumi.get(self, "auto_suspend_secs")
+
+    @_builtins.property
+    @pulumi.getter(name="backupInstanceFamilies")
+    def backup_instance_families(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "backup_instance_families")
 
     @_builtins.property
     @pulumi.getter
@@ -71518,6 +72440,129 @@ class GetDynamicTablesRecordResult(dict):
         Warehouse that provides the required resources to perform the incremental refreshes.
         """
         return pulumi.get(self, "warehouse")
+
+
+@pulumi.output_type
+class GetExternalAccessIntegrationsExternalAccessIntegrationResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputResult']):
+        """
+        :param Sequence['GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE EXTERNAL ACCESS INTEGRATION.
+        :param Sequence['GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArgs'] show_outputs: Holds the output of SHOW EXTERNAL ACCESS INTEGRATIONS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE EXTERNAL ACCESS INTEGRATION.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputResult']:
+        """
+        Holds the output of SHOW EXTERNAL ACCESS INTEGRATIONS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 allowed_api_authentication_integrations: Sequence[_builtins.str],
+                 allowed_authentication_secrets: Sequence[_builtins.str],
+                 allowed_network_rules: Sequence[_builtins.str],
+                 comment: _builtins.str,
+                 enabled: _builtins.bool,
+                 id: _builtins.str):
+        pulumi.set(__self__, "allowed_api_authentication_integrations", allowed_api_authentication_integrations)
+        pulumi.set(__self__, "allowed_authentication_secrets", allowed_authentication_secrets)
+        pulumi.set(__self__, "allowed_network_rules", allowed_network_rules)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedApiAuthenticationIntegrations")
+    def allowed_api_authentication_integrations(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_api_authentication_integrations")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAuthenticationSecrets")
+    def allowed_authentication_secrets(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_authentication_secrets")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedNetworkRules")
+    def allowed_network_rules(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "allowed_network_rules")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputResult(dict):
+    def __init__(__self__, *,
+                 category: _builtins.str,
+                 comment: _builtins.str,
+                 created_on: _builtins.str,
+                 enabled: _builtins.bool,
+                 name: _builtins.str,
+                 type: _builtins.str):
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> _builtins.str:
+        return pulumi.get(self, "category")
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> _builtins.str:
+        return pulumi.get(self, "comment")
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> _builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

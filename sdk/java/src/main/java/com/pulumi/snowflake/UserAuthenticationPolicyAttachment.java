@@ -83,28 +83,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment")
 public class UserAuthenticationPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * Fully qualified name of the authentication policy.
+     * Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Export(name="authenticationPolicyName", refs={String.class}, tree="[0]")
     private Output<String> authenticationPolicyName;
 
     /**
-     * @return Fully qualified name of the authentication policy.
+     * @return Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Output<String> authenticationPolicyName() {
         return this.authenticationPolicyName;
     }
     /**
-     * User name of the user you want to attach the authentication policy to.
+     * User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
-     * @return User name of the user you want to attach the authentication policy to.
+     * @return User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Output<String> userName() {

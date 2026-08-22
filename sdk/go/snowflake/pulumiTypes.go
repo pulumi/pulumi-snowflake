@@ -11735,27 +11735,28 @@ func (o CatalogIntegrationOpenCatalogShowOutputArrayOutput) Index(i pulumi.IntIn
 }
 
 type ComputePoolDescribeOutput struct {
-	ActiveNodes     *int    `pulumi:"activeNodes"`
-	Application     *string `pulumi:"application"`
-	AutoResume      *bool   `pulumi:"autoResume"`
-	AutoSuspendSecs *int    `pulumi:"autoSuspendSecs"`
-	Comment         *string `pulumi:"comment"`
-	CreatedOn       *string `pulumi:"createdOn"`
-	ErrorCode       *string `pulumi:"errorCode"`
-	IdleNodes       *int    `pulumi:"idleNodes"`
-	InstanceFamily  *string `pulumi:"instanceFamily"`
-	IsExclusive     *bool   `pulumi:"isExclusive"`
-	MaxNodes        *int    `pulumi:"maxNodes"`
-	MinNodes        *int    `pulumi:"minNodes"`
-	Name            *string `pulumi:"name"`
-	NumJobs         *int    `pulumi:"numJobs"`
-	NumServices     *int    `pulumi:"numServices"`
-	Owner           *string `pulumi:"owner"`
-	ResumedOn       *string `pulumi:"resumedOn"`
-	State           *string `pulumi:"state"`
-	StatusMessage   *string `pulumi:"statusMessage"`
-	TargetNodes     *int    `pulumi:"targetNodes"`
-	UpdatedOn       *string `pulumi:"updatedOn"`
+	ActiveNodes            *int     `pulumi:"activeNodes"`
+	Application            *string  `pulumi:"application"`
+	AutoResume             *bool    `pulumi:"autoResume"`
+	AutoSuspendSecs        *int     `pulumi:"autoSuspendSecs"`
+	BackupInstanceFamilies []string `pulumi:"backupInstanceFamilies"`
+	Comment                *string  `pulumi:"comment"`
+	CreatedOn              *string  `pulumi:"createdOn"`
+	ErrorCode              *string  `pulumi:"errorCode"`
+	IdleNodes              *int     `pulumi:"idleNodes"`
+	InstanceFamily         *string  `pulumi:"instanceFamily"`
+	IsExclusive            *bool    `pulumi:"isExclusive"`
+	MaxNodes               *int     `pulumi:"maxNodes"`
+	MinNodes               *int     `pulumi:"minNodes"`
+	Name                   *string  `pulumi:"name"`
+	NumJobs                *int     `pulumi:"numJobs"`
+	NumServices            *int     `pulumi:"numServices"`
+	Owner                  *string  `pulumi:"owner"`
+	ResumedOn              *string  `pulumi:"resumedOn"`
+	State                  *string  `pulumi:"state"`
+	StatusMessage          *string  `pulumi:"statusMessage"`
+	TargetNodes            *int     `pulumi:"targetNodes"`
+	UpdatedOn              *string  `pulumi:"updatedOn"`
 }
 
 // ComputePoolDescribeOutputInput is an input type that accepts ComputePoolDescribeOutputArgs and ComputePoolDescribeOutputOutput values.
@@ -11770,27 +11771,28 @@ type ComputePoolDescribeOutputInput interface {
 }
 
 type ComputePoolDescribeOutputArgs struct {
-	ActiveNodes     pulumi.IntPtrInput    `pulumi:"activeNodes"`
-	Application     pulumi.StringPtrInput `pulumi:"application"`
-	AutoResume      pulumi.BoolPtrInput   `pulumi:"autoResume"`
-	AutoSuspendSecs pulumi.IntPtrInput    `pulumi:"autoSuspendSecs"`
-	Comment         pulumi.StringPtrInput `pulumi:"comment"`
-	CreatedOn       pulumi.StringPtrInput `pulumi:"createdOn"`
-	ErrorCode       pulumi.StringPtrInput `pulumi:"errorCode"`
-	IdleNodes       pulumi.IntPtrInput    `pulumi:"idleNodes"`
-	InstanceFamily  pulumi.StringPtrInput `pulumi:"instanceFamily"`
-	IsExclusive     pulumi.BoolPtrInput   `pulumi:"isExclusive"`
-	MaxNodes        pulumi.IntPtrInput    `pulumi:"maxNodes"`
-	MinNodes        pulumi.IntPtrInput    `pulumi:"minNodes"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
-	NumJobs         pulumi.IntPtrInput    `pulumi:"numJobs"`
-	NumServices     pulumi.IntPtrInput    `pulumi:"numServices"`
-	Owner           pulumi.StringPtrInput `pulumi:"owner"`
-	ResumedOn       pulumi.StringPtrInput `pulumi:"resumedOn"`
-	State           pulumi.StringPtrInput `pulumi:"state"`
-	StatusMessage   pulumi.StringPtrInput `pulumi:"statusMessage"`
-	TargetNodes     pulumi.IntPtrInput    `pulumi:"targetNodes"`
-	UpdatedOn       pulumi.StringPtrInput `pulumi:"updatedOn"`
+	ActiveNodes            pulumi.IntPtrInput      `pulumi:"activeNodes"`
+	Application            pulumi.StringPtrInput   `pulumi:"application"`
+	AutoResume             pulumi.BoolPtrInput     `pulumi:"autoResume"`
+	AutoSuspendSecs        pulumi.IntPtrInput      `pulumi:"autoSuspendSecs"`
+	BackupInstanceFamilies pulumi.StringArrayInput `pulumi:"backupInstanceFamilies"`
+	Comment                pulumi.StringPtrInput   `pulumi:"comment"`
+	CreatedOn              pulumi.StringPtrInput   `pulumi:"createdOn"`
+	ErrorCode              pulumi.StringPtrInput   `pulumi:"errorCode"`
+	IdleNodes              pulumi.IntPtrInput      `pulumi:"idleNodes"`
+	InstanceFamily         pulumi.StringPtrInput   `pulumi:"instanceFamily"`
+	IsExclusive            pulumi.BoolPtrInput     `pulumi:"isExclusive"`
+	MaxNodes               pulumi.IntPtrInput      `pulumi:"maxNodes"`
+	MinNodes               pulumi.IntPtrInput      `pulumi:"minNodes"`
+	Name                   pulumi.StringPtrInput   `pulumi:"name"`
+	NumJobs                pulumi.IntPtrInput      `pulumi:"numJobs"`
+	NumServices            pulumi.IntPtrInput      `pulumi:"numServices"`
+	Owner                  pulumi.StringPtrInput   `pulumi:"owner"`
+	ResumedOn              pulumi.StringPtrInput   `pulumi:"resumedOn"`
+	State                  pulumi.StringPtrInput   `pulumi:"state"`
+	StatusMessage          pulumi.StringPtrInput   `pulumi:"statusMessage"`
+	TargetNodes            pulumi.IntPtrInput      `pulumi:"targetNodes"`
+	UpdatedOn              pulumi.StringPtrInput   `pulumi:"updatedOn"`
 }
 
 func (ComputePoolDescribeOutputArgs) ElementType() reflect.Type {
@@ -11858,6 +11860,10 @@ func (o ComputePoolDescribeOutputOutput) AutoResume() pulumi.BoolPtrOutput {
 
 func (o ComputePoolDescribeOutputOutput) AutoSuspendSecs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputePoolDescribeOutput) *int { return v.AutoSuspendSecs }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) BackupInstanceFamilies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) []string { return v.BackupInstanceFamilies }).(pulumi.StringArrayOutput)
 }
 
 func (o ComputePoolDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
@@ -11949,25 +11955,26 @@ func (o ComputePoolDescribeOutputArrayOutput) Index(i pulumi.IntInput) ComputePo
 }
 
 type ComputePoolShowOutput struct {
-	ActiveNodes     *int    `pulumi:"activeNodes"`
-	Application     *string `pulumi:"application"`
-	AutoResume      *bool   `pulumi:"autoResume"`
-	AutoSuspendSecs *int    `pulumi:"autoSuspendSecs"`
-	Comment         *string `pulumi:"comment"`
-	CreatedOn       *string `pulumi:"createdOn"`
-	IdleNodes       *int    `pulumi:"idleNodes"`
-	InstanceFamily  *string `pulumi:"instanceFamily"`
-	IsExclusive     *bool   `pulumi:"isExclusive"`
-	MaxNodes        *int    `pulumi:"maxNodes"`
-	MinNodes        *int    `pulumi:"minNodes"`
-	Name            *string `pulumi:"name"`
-	NumJobs         *int    `pulumi:"numJobs"`
-	NumServices     *int    `pulumi:"numServices"`
-	Owner           *string `pulumi:"owner"`
-	ResumedOn       *string `pulumi:"resumedOn"`
-	State           *string `pulumi:"state"`
-	TargetNodes     *int    `pulumi:"targetNodes"`
-	UpdatedOn       *string `pulumi:"updatedOn"`
+	ActiveNodes            *int     `pulumi:"activeNodes"`
+	Application            *string  `pulumi:"application"`
+	AutoResume             *bool    `pulumi:"autoResume"`
+	AutoSuspendSecs        *int     `pulumi:"autoSuspendSecs"`
+	BackupInstanceFamilies []string `pulumi:"backupInstanceFamilies"`
+	Comment                *string  `pulumi:"comment"`
+	CreatedOn              *string  `pulumi:"createdOn"`
+	IdleNodes              *int     `pulumi:"idleNodes"`
+	InstanceFamily         *string  `pulumi:"instanceFamily"`
+	IsExclusive            *bool    `pulumi:"isExclusive"`
+	MaxNodes               *int     `pulumi:"maxNodes"`
+	MinNodes               *int     `pulumi:"minNodes"`
+	Name                   *string  `pulumi:"name"`
+	NumJobs                *int     `pulumi:"numJobs"`
+	NumServices            *int     `pulumi:"numServices"`
+	Owner                  *string  `pulumi:"owner"`
+	ResumedOn              *string  `pulumi:"resumedOn"`
+	State                  *string  `pulumi:"state"`
+	TargetNodes            *int     `pulumi:"targetNodes"`
+	UpdatedOn              *string  `pulumi:"updatedOn"`
 }
 
 // ComputePoolShowOutputInput is an input type that accepts ComputePoolShowOutputArgs and ComputePoolShowOutputOutput values.
@@ -11982,25 +11989,26 @@ type ComputePoolShowOutputInput interface {
 }
 
 type ComputePoolShowOutputArgs struct {
-	ActiveNodes     pulumi.IntPtrInput    `pulumi:"activeNodes"`
-	Application     pulumi.StringPtrInput `pulumi:"application"`
-	AutoResume      pulumi.BoolPtrInput   `pulumi:"autoResume"`
-	AutoSuspendSecs pulumi.IntPtrInput    `pulumi:"autoSuspendSecs"`
-	Comment         pulumi.StringPtrInput `pulumi:"comment"`
-	CreatedOn       pulumi.StringPtrInput `pulumi:"createdOn"`
-	IdleNodes       pulumi.IntPtrInput    `pulumi:"idleNodes"`
-	InstanceFamily  pulumi.StringPtrInput `pulumi:"instanceFamily"`
-	IsExclusive     pulumi.BoolPtrInput   `pulumi:"isExclusive"`
-	MaxNodes        pulumi.IntPtrInput    `pulumi:"maxNodes"`
-	MinNodes        pulumi.IntPtrInput    `pulumi:"minNodes"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
-	NumJobs         pulumi.IntPtrInput    `pulumi:"numJobs"`
-	NumServices     pulumi.IntPtrInput    `pulumi:"numServices"`
-	Owner           pulumi.StringPtrInput `pulumi:"owner"`
-	ResumedOn       pulumi.StringPtrInput `pulumi:"resumedOn"`
-	State           pulumi.StringPtrInput `pulumi:"state"`
-	TargetNodes     pulumi.IntPtrInput    `pulumi:"targetNodes"`
-	UpdatedOn       pulumi.StringPtrInput `pulumi:"updatedOn"`
+	ActiveNodes            pulumi.IntPtrInput      `pulumi:"activeNodes"`
+	Application            pulumi.StringPtrInput   `pulumi:"application"`
+	AutoResume             pulumi.BoolPtrInput     `pulumi:"autoResume"`
+	AutoSuspendSecs        pulumi.IntPtrInput      `pulumi:"autoSuspendSecs"`
+	BackupInstanceFamilies pulumi.StringArrayInput `pulumi:"backupInstanceFamilies"`
+	Comment                pulumi.StringPtrInput   `pulumi:"comment"`
+	CreatedOn              pulumi.StringPtrInput   `pulumi:"createdOn"`
+	IdleNodes              pulumi.IntPtrInput      `pulumi:"idleNodes"`
+	InstanceFamily         pulumi.StringPtrInput   `pulumi:"instanceFamily"`
+	IsExclusive            pulumi.BoolPtrInput     `pulumi:"isExclusive"`
+	MaxNodes               pulumi.IntPtrInput      `pulumi:"maxNodes"`
+	MinNodes               pulumi.IntPtrInput      `pulumi:"minNodes"`
+	Name                   pulumi.StringPtrInput   `pulumi:"name"`
+	NumJobs                pulumi.IntPtrInput      `pulumi:"numJobs"`
+	NumServices            pulumi.IntPtrInput      `pulumi:"numServices"`
+	Owner                  pulumi.StringPtrInput   `pulumi:"owner"`
+	ResumedOn              pulumi.StringPtrInput   `pulumi:"resumedOn"`
+	State                  pulumi.StringPtrInput   `pulumi:"state"`
+	TargetNodes            pulumi.IntPtrInput      `pulumi:"targetNodes"`
+	UpdatedOn              pulumi.StringPtrInput   `pulumi:"updatedOn"`
 }
 
 func (ComputePoolShowOutputArgs) ElementType() reflect.Type {
@@ -12068,6 +12076,10 @@ func (o ComputePoolShowOutputOutput) AutoResume() pulumi.BoolPtrOutput {
 
 func (o ComputePoolShowOutputOutput) AutoSuspendSecs() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ComputePoolShowOutput) *int { return v.AutoSuspendSecs }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) BackupInstanceFamilies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) []string { return v.BackupInstanceFamilies }).(pulumi.StringArrayOutput)
 }
 
 func (o ComputePoolShowOutputOutput) Comment() pulumi.StringPtrOutput {
@@ -13807,6 +13819,587 @@ func (o DynamicTableTargetLagPtrOutput) MaximumDuration() pulumi.StringPtrOutput
 		}
 		return v.MaximumDuration
 	}).(pulumi.StringPtrOutput)
+}
+
+type ExternalAccessIntegrationAllowedApiAuthenticationIntegrations struct {
+	// Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+	Integrations []string `pulumi:"integrations"`
+	// When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+	None *bool `pulumi:"none"`
+}
+
+// ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsInput is an input type that accepts ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs and ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput values.
+// You can construct a concrete instance of `ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsInput` via:
+//
+//	ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs{...}
+type ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsInput interface {
+	pulumi.Input
+
+	ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput() ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput
+	ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutputWithContext(context.Context) ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput
+}
+
+type ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs struct {
+	// Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+	Integrations pulumi.StringArrayInput `pulumi:"integrations"`
+	// When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+	None pulumi.BoolPtrInput `pulumi:"none"`
+}
+
+func (ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalAccessIntegrationAllowedApiAuthenticationIntegrations)(nil)).Elem()
+}
+
+func (i ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput() ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput {
+	return i.ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutputWithContext(context.Background())
+}
+
+func (i ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput)
+}
+
+func (i ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput() ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput {
+	return i.ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutputWithContext(context.Background())
+}
+
+func (i ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput).ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutputWithContext(ctx)
+}
+
+// ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrInput is an input type that accepts ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs, ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtr and ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput values.
+// You can construct a concrete instance of `ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrInput` via:
+//
+//	        ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrInput interface {
+	pulumi.Input
+
+	ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput() ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput
+	ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutputWithContext(context.Context) ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput
+}
+
+type externalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrType ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs
+
+func ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtr(v *ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs) ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrInput {
+	return (*externalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrType)(v)
+}
+
+func (*externalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExternalAccessIntegrationAllowedApiAuthenticationIntegrations)(nil)).Elem()
+}
+
+func (i *externalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrType) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput() ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput {
+	return i.ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutputWithContext(context.Background())
+}
+
+func (i *externalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrType) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput)
+}
+
+type ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput struct{ *pulumi.OutputState }
+
+func (ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalAccessIntegrationAllowedApiAuthenticationIntegrations)(nil)).Elem()
+}
+
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput() ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput() ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput {
+	return o.ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutputWithContext(context.Background())
+}
+
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExternalAccessIntegrationAllowedApiAuthenticationIntegrations) *ExternalAccessIntegrationAllowedApiAuthenticationIntegrations {
+		return &v
+	}).(ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput)
+}
+
+// Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput) Integrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationAllowedApiAuthenticationIntegrations) []string { return v.Integrations }).(pulumi.StringArrayOutput)
+}
+
+// When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput) None() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationAllowedApiAuthenticationIntegrations) *bool { return v.None }).(pulumi.BoolPtrOutput)
+}
+
+type ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExternalAccessIntegrationAllowedApiAuthenticationIntegrations)(nil)).Elem()
+}
+
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput() ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput) ToExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput) Elem() ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput {
+	return o.ApplyT(func(v *ExternalAccessIntegrationAllowedApiAuthenticationIntegrations) ExternalAccessIntegrationAllowedApiAuthenticationIntegrations {
+		if v != nil {
+			return *v
+		}
+		var ret ExternalAccessIntegrationAllowedApiAuthenticationIntegrations
+		return ret
+	}).(ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput)
+}
+
+// Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput) Integrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExternalAccessIntegrationAllowedApiAuthenticationIntegrations) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Integrations
+	}).(pulumi.StringArrayOutput)
+}
+
+// When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+func (o ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput) None() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalAccessIntegrationAllowedApiAuthenticationIntegrations) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.None
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ExternalAccessIntegrationAllowedAuthenticationSecrets struct {
+	// When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+	All *bool `pulumi:"all"`
+	// When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+	None *bool `pulumi:"none"`
+	// Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+	Secrets []string `pulumi:"secrets"`
+}
+
+// ExternalAccessIntegrationAllowedAuthenticationSecretsInput is an input type that accepts ExternalAccessIntegrationAllowedAuthenticationSecretsArgs and ExternalAccessIntegrationAllowedAuthenticationSecretsOutput values.
+// You can construct a concrete instance of `ExternalAccessIntegrationAllowedAuthenticationSecretsInput` via:
+//
+//	ExternalAccessIntegrationAllowedAuthenticationSecretsArgs{...}
+type ExternalAccessIntegrationAllowedAuthenticationSecretsInput interface {
+	pulumi.Input
+
+	ToExternalAccessIntegrationAllowedAuthenticationSecretsOutput() ExternalAccessIntegrationAllowedAuthenticationSecretsOutput
+	ToExternalAccessIntegrationAllowedAuthenticationSecretsOutputWithContext(context.Context) ExternalAccessIntegrationAllowedAuthenticationSecretsOutput
+}
+
+type ExternalAccessIntegrationAllowedAuthenticationSecretsArgs struct {
+	// When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+	All pulumi.BoolPtrInput `pulumi:"all"`
+	// When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+	None pulumi.BoolPtrInput `pulumi:"none"`
+	// Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+	Secrets pulumi.StringArrayInput `pulumi:"secrets"`
+}
+
+func (ExternalAccessIntegrationAllowedAuthenticationSecretsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalAccessIntegrationAllowedAuthenticationSecrets)(nil)).Elem()
+}
+
+func (i ExternalAccessIntegrationAllowedAuthenticationSecretsArgs) ToExternalAccessIntegrationAllowedAuthenticationSecretsOutput() ExternalAccessIntegrationAllowedAuthenticationSecretsOutput {
+	return i.ToExternalAccessIntegrationAllowedAuthenticationSecretsOutputWithContext(context.Background())
+}
+
+func (i ExternalAccessIntegrationAllowedAuthenticationSecretsArgs) ToExternalAccessIntegrationAllowedAuthenticationSecretsOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedAuthenticationSecretsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalAccessIntegrationAllowedAuthenticationSecretsOutput)
+}
+
+func (i ExternalAccessIntegrationAllowedAuthenticationSecretsArgs) ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput() ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput {
+	return i.ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutputWithContext(context.Background())
+}
+
+func (i ExternalAccessIntegrationAllowedAuthenticationSecretsArgs) ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalAccessIntegrationAllowedAuthenticationSecretsOutput).ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutputWithContext(ctx)
+}
+
+// ExternalAccessIntegrationAllowedAuthenticationSecretsPtrInput is an input type that accepts ExternalAccessIntegrationAllowedAuthenticationSecretsArgs, ExternalAccessIntegrationAllowedAuthenticationSecretsPtr and ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput values.
+// You can construct a concrete instance of `ExternalAccessIntegrationAllowedAuthenticationSecretsPtrInput` via:
+//
+//	        ExternalAccessIntegrationAllowedAuthenticationSecretsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExternalAccessIntegrationAllowedAuthenticationSecretsPtrInput interface {
+	pulumi.Input
+
+	ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput() ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput
+	ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutputWithContext(context.Context) ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput
+}
+
+type externalAccessIntegrationAllowedAuthenticationSecretsPtrType ExternalAccessIntegrationAllowedAuthenticationSecretsArgs
+
+func ExternalAccessIntegrationAllowedAuthenticationSecretsPtr(v *ExternalAccessIntegrationAllowedAuthenticationSecretsArgs) ExternalAccessIntegrationAllowedAuthenticationSecretsPtrInput {
+	return (*externalAccessIntegrationAllowedAuthenticationSecretsPtrType)(v)
+}
+
+func (*externalAccessIntegrationAllowedAuthenticationSecretsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExternalAccessIntegrationAllowedAuthenticationSecrets)(nil)).Elem()
+}
+
+func (i *externalAccessIntegrationAllowedAuthenticationSecretsPtrType) ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput() ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput {
+	return i.ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutputWithContext(context.Background())
+}
+
+func (i *externalAccessIntegrationAllowedAuthenticationSecretsPtrType) ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput)
+}
+
+type ExternalAccessIntegrationAllowedAuthenticationSecretsOutput struct{ *pulumi.OutputState }
+
+func (ExternalAccessIntegrationAllowedAuthenticationSecretsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalAccessIntegrationAllowedAuthenticationSecrets)(nil)).Elem()
+}
+
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsOutput) ToExternalAccessIntegrationAllowedAuthenticationSecretsOutput() ExternalAccessIntegrationAllowedAuthenticationSecretsOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsOutput) ToExternalAccessIntegrationAllowedAuthenticationSecretsOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedAuthenticationSecretsOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsOutput) ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput() ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput {
+	return o.ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutputWithContext(context.Background())
+}
+
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsOutput) ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExternalAccessIntegrationAllowedAuthenticationSecrets) *ExternalAccessIntegrationAllowedAuthenticationSecrets {
+		return &v
+	}).(ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput)
+}
+
+// When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsOutput) All() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationAllowedAuthenticationSecrets) *bool { return v.All }).(pulumi.BoolPtrOutput)
+}
+
+// When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsOutput) None() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationAllowedAuthenticationSecrets) *bool { return v.None }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsOutput) Secrets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationAllowedAuthenticationSecrets) []string { return v.Secrets }).(pulumi.StringArrayOutput)
+}
+
+type ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput struct{ *pulumi.OutputState }
+
+func (ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExternalAccessIntegrationAllowedAuthenticationSecrets)(nil)).Elem()
+}
+
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput) ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput() ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput) ToExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutputWithContext(ctx context.Context) ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput) Elem() ExternalAccessIntegrationAllowedAuthenticationSecretsOutput {
+	return o.ApplyT(func(v *ExternalAccessIntegrationAllowedAuthenticationSecrets) ExternalAccessIntegrationAllowedAuthenticationSecrets {
+		if v != nil {
+			return *v
+		}
+		var ret ExternalAccessIntegrationAllowedAuthenticationSecrets
+		return ret
+	}).(ExternalAccessIntegrationAllowedAuthenticationSecretsOutput)
+}
+
+// When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput) All() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalAccessIntegrationAllowedAuthenticationSecrets) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.All
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput) None() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExternalAccessIntegrationAllowedAuthenticationSecrets) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.None
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+func (o ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput) Secrets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExternalAccessIntegrationAllowedAuthenticationSecrets) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Secrets
+	}).(pulumi.StringArrayOutput)
+}
+
+type ExternalAccessIntegrationDescribeOutput struct {
+	AllowedApiAuthenticationIntegrations []string `pulumi:"allowedApiAuthenticationIntegrations"`
+	AllowedAuthenticationSecrets         []string `pulumi:"allowedAuthenticationSecrets"`
+	AllowedNetworkRules                  []string `pulumi:"allowedNetworkRules"`
+	Comment                              *string  `pulumi:"comment"`
+	Enabled                              *bool    `pulumi:"enabled"`
+	Id                                   *string  `pulumi:"id"`
+}
+
+// ExternalAccessIntegrationDescribeOutputInput is an input type that accepts ExternalAccessIntegrationDescribeOutputArgs and ExternalAccessIntegrationDescribeOutputOutput values.
+// You can construct a concrete instance of `ExternalAccessIntegrationDescribeOutputInput` via:
+//
+//	ExternalAccessIntegrationDescribeOutputArgs{...}
+type ExternalAccessIntegrationDescribeOutputInput interface {
+	pulumi.Input
+
+	ToExternalAccessIntegrationDescribeOutputOutput() ExternalAccessIntegrationDescribeOutputOutput
+	ToExternalAccessIntegrationDescribeOutputOutputWithContext(context.Context) ExternalAccessIntegrationDescribeOutputOutput
+}
+
+type ExternalAccessIntegrationDescribeOutputArgs struct {
+	AllowedApiAuthenticationIntegrations pulumi.StringArrayInput `pulumi:"allowedApiAuthenticationIntegrations"`
+	AllowedAuthenticationSecrets         pulumi.StringArrayInput `pulumi:"allowedAuthenticationSecrets"`
+	AllowedNetworkRules                  pulumi.StringArrayInput `pulumi:"allowedNetworkRules"`
+	Comment                              pulumi.StringPtrInput   `pulumi:"comment"`
+	Enabled                              pulumi.BoolPtrInput     `pulumi:"enabled"`
+	Id                                   pulumi.StringPtrInput   `pulumi:"id"`
+}
+
+func (ExternalAccessIntegrationDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalAccessIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (i ExternalAccessIntegrationDescribeOutputArgs) ToExternalAccessIntegrationDescribeOutputOutput() ExternalAccessIntegrationDescribeOutputOutput {
+	return i.ToExternalAccessIntegrationDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i ExternalAccessIntegrationDescribeOutputArgs) ToExternalAccessIntegrationDescribeOutputOutputWithContext(ctx context.Context) ExternalAccessIntegrationDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalAccessIntegrationDescribeOutputOutput)
+}
+
+// ExternalAccessIntegrationDescribeOutputArrayInput is an input type that accepts ExternalAccessIntegrationDescribeOutputArray and ExternalAccessIntegrationDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `ExternalAccessIntegrationDescribeOutputArrayInput` via:
+//
+//	ExternalAccessIntegrationDescribeOutputArray{ ExternalAccessIntegrationDescribeOutputArgs{...} }
+type ExternalAccessIntegrationDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToExternalAccessIntegrationDescribeOutputArrayOutput() ExternalAccessIntegrationDescribeOutputArrayOutput
+	ToExternalAccessIntegrationDescribeOutputArrayOutputWithContext(context.Context) ExternalAccessIntegrationDescribeOutputArrayOutput
+}
+
+type ExternalAccessIntegrationDescribeOutputArray []ExternalAccessIntegrationDescribeOutputInput
+
+func (ExternalAccessIntegrationDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalAccessIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (i ExternalAccessIntegrationDescribeOutputArray) ToExternalAccessIntegrationDescribeOutputArrayOutput() ExternalAccessIntegrationDescribeOutputArrayOutput {
+	return i.ToExternalAccessIntegrationDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i ExternalAccessIntegrationDescribeOutputArray) ToExternalAccessIntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) ExternalAccessIntegrationDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalAccessIntegrationDescribeOutputArrayOutput)
+}
+
+type ExternalAccessIntegrationDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (ExternalAccessIntegrationDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalAccessIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (o ExternalAccessIntegrationDescribeOutputOutput) ToExternalAccessIntegrationDescribeOutputOutput() ExternalAccessIntegrationDescribeOutputOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationDescribeOutputOutput) ToExternalAccessIntegrationDescribeOutputOutputWithContext(ctx context.Context) ExternalAccessIntegrationDescribeOutputOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationDescribeOutputOutput) AllowedApiAuthenticationIntegrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationDescribeOutput) []string {
+		return v.AllowedApiAuthenticationIntegrations
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ExternalAccessIntegrationDescribeOutputOutput) AllowedAuthenticationSecrets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationDescribeOutput) []string { return v.AllowedAuthenticationSecrets }).(pulumi.StringArrayOutput)
+}
+
+func (o ExternalAccessIntegrationDescribeOutputOutput) AllowedNetworkRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationDescribeOutput) []string { return v.AllowedNetworkRules }).(pulumi.StringArrayOutput)
+}
+
+func (o ExternalAccessIntegrationDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalAccessIntegrationDescribeOutputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationDescribeOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ExternalAccessIntegrationDescribeOutputOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationDescribeOutput) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type ExternalAccessIntegrationDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (ExternalAccessIntegrationDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalAccessIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (o ExternalAccessIntegrationDescribeOutputArrayOutput) ToExternalAccessIntegrationDescribeOutputArrayOutput() ExternalAccessIntegrationDescribeOutputArrayOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationDescribeOutputArrayOutput) ToExternalAccessIntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) ExternalAccessIntegrationDescribeOutputArrayOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationDescribeOutputArrayOutput) Index(i pulumi.IntInput) ExternalAccessIntegrationDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalAccessIntegrationDescribeOutput {
+		return vs[0].([]ExternalAccessIntegrationDescribeOutput)[vs[1].(int)]
+	}).(ExternalAccessIntegrationDescribeOutputOutput)
+}
+
+type ExternalAccessIntegrationShowOutput struct {
+	Category  *string `pulumi:"category"`
+	Comment   *string `pulumi:"comment"`
+	CreatedOn *string `pulumi:"createdOn"`
+	Enabled   *bool   `pulumi:"enabled"`
+	Name      *string `pulumi:"name"`
+	Type      *string `pulumi:"type"`
+}
+
+// ExternalAccessIntegrationShowOutputInput is an input type that accepts ExternalAccessIntegrationShowOutputArgs and ExternalAccessIntegrationShowOutputOutput values.
+// You can construct a concrete instance of `ExternalAccessIntegrationShowOutputInput` via:
+//
+//	ExternalAccessIntegrationShowOutputArgs{...}
+type ExternalAccessIntegrationShowOutputInput interface {
+	pulumi.Input
+
+	ToExternalAccessIntegrationShowOutputOutput() ExternalAccessIntegrationShowOutputOutput
+	ToExternalAccessIntegrationShowOutputOutputWithContext(context.Context) ExternalAccessIntegrationShowOutputOutput
+}
+
+type ExternalAccessIntegrationShowOutputArgs struct {
+	Category  pulumi.StringPtrInput `pulumi:"category"`
+	Comment   pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn pulumi.StringPtrInput `pulumi:"createdOn"`
+	Enabled   pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Name      pulumi.StringPtrInput `pulumi:"name"`
+	Type      pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ExternalAccessIntegrationShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalAccessIntegrationShowOutput)(nil)).Elem()
+}
+
+func (i ExternalAccessIntegrationShowOutputArgs) ToExternalAccessIntegrationShowOutputOutput() ExternalAccessIntegrationShowOutputOutput {
+	return i.ToExternalAccessIntegrationShowOutputOutputWithContext(context.Background())
+}
+
+func (i ExternalAccessIntegrationShowOutputArgs) ToExternalAccessIntegrationShowOutputOutputWithContext(ctx context.Context) ExternalAccessIntegrationShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalAccessIntegrationShowOutputOutput)
+}
+
+// ExternalAccessIntegrationShowOutputArrayInput is an input type that accepts ExternalAccessIntegrationShowOutputArray and ExternalAccessIntegrationShowOutputArrayOutput values.
+// You can construct a concrete instance of `ExternalAccessIntegrationShowOutputArrayInput` via:
+//
+//	ExternalAccessIntegrationShowOutputArray{ ExternalAccessIntegrationShowOutputArgs{...} }
+type ExternalAccessIntegrationShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToExternalAccessIntegrationShowOutputArrayOutput() ExternalAccessIntegrationShowOutputArrayOutput
+	ToExternalAccessIntegrationShowOutputArrayOutputWithContext(context.Context) ExternalAccessIntegrationShowOutputArrayOutput
+}
+
+type ExternalAccessIntegrationShowOutputArray []ExternalAccessIntegrationShowOutputInput
+
+func (ExternalAccessIntegrationShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalAccessIntegrationShowOutput)(nil)).Elem()
+}
+
+func (i ExternalAccessIntegrationShowOutputArray) ToExternalAccessIntegrationShowOutputArrayOutput() ExternalAccessIntegrationShowOutputArrayOutput {
+	return i.ToExternalAccessIntegrationShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i ExternalAccessIntegrationShowOutputArray) ToExternalAccessIntegrationShowOutputArrayOutputWithContext(ctx context.Context) ExternalAccessIntegrationShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExternalAccessIntegrationShowOutputArrayOutput)
+}
+
+type ExternalAccessIntegrationShowOutputOutput struct{ *pulumi.OutputState }
+
+func (ExternalAccessIntegrationShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExternalAccessIntegrationShowOutput)(nil)).Elem()
+}
+
+func (o ExternalAccessIntegrationShowOutputOutput) ToExternalAccessIntegrationShowOutputOutput() ExternalAccessIntegrationShowOutputOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationShowOutputOutput) ToExternalAccessIntegrationShowOutputOutputWithContext(ctx context.Context) ExternalAccessIntegrationShowOutputOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationShowOutputOutput) Category() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationShowOutput) *string { return v.Category }).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalAccessIntegrationShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalAccessIntegrationShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalAccessIntegrationShowOutputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationShowOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ExternalAccessIntegrationShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ExternalAccessIntegrationShowOutputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExternalAccessIntegrationShowOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ExternalAccessIntegrationShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (ExternalAccessIntegrationShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExternalAccessIntegrationShowOutput)(nil)).Elem()
+}
+
+func (o ExternalAccessIntegrationShowOutputArrayOutput) ToExternalAccessIntegrationShowOutputArrayOutput() ExternalAccessIntegrationShowOutputArrayOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationShowOutputArrayOutput) ToExternalAccessIntegrationShowOutputArrayOutputWithContext(ctx context.Context) ExternalAccessIntegrationShowOutputArrayOutput {
+	return o
+}
+
+func (o ExternalAccessIntegrationShowOutputArrayOutput) Index(i pulumi.IntInput) ExternalAccessIntegrationShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExternalAccessIntegrationShowOutput {
+		return vs[0].([]ExternalAccessIntegrationShowOutput)[vs[1].(int)]
+	}).(ExternalAccessIntegrationShowOutputOutput)
 }
 
 type ExternalFunctionArg struct {
@@ -28930,6 +29523,1268 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrOutput) ObjectTyp
 		}
 		return &v.ObjectTypePlural
 	}).(pulumi.StringPtrOutput)
+}
+
+type HybridTableColumn struct {
+	// Column collation specification, e.g. en-ci. Case-insensitive (en-ci and EN-CI are treated as equal).
+	Collate *string `pulumi:"collate"`
+	// Column-level comment.
+	Comment *string `pulumi:"comment"`
+	// Defines the column default value. Only one of constant, expression, or sequence may be set.
+	Default *HybridTableColumnDefault `pulumi:"default"`
+	// Column name.
+	Name string `pulumi:"name"`
+	// Whether to restrict the column to NOT NULL values. Changing this on an existing column forces recreation. Primary key columns must set this to true because NOT NULL is implied by the primary key.
+	NotNull *bool `pulumi:"notNull"`
+	// Column type. See [Snowflake data types](https://docs.snowflake.com/en/sql-reference-data-types) for supported values. Example: VARCHAR(256), NUMBER(38,0).
+	Type string `pulumi:"type"`
+}
+
+// HybridTableColumnInput is an input type that accepts HybridTableColumnArgs and HybridTableColumnOutput values.
+// You can construct a concrete instance of `HybridTableColumnInput` via:
+//
+//	HybridTableColumnArgs{...}
+type HybridTableColumnInput interface {
+	pulumi.Input
+
+	ToHybridTableColumnOutput() HybridTableColumnOutput
+	ToHybridTableColumnOutputWithContext(context.Context) HybridTableColumnOutput
+}
+
+type HybridTableColumnArgs struct {
+	// Column collation specification, e.g. en-ci. Case-insensitive (en-ci and EN-CI are treated as equal).
+	Collate pulumi.StringPtrInput `pulumi:"collate"`
+	// Column-level comment.
+	Comment pulumi.StringPtrInput `pulumi:"comment"`
+	// Defines the column default value. Only one of constant, expression, or sequence may be set.
+	Default HybridTableColumnDefaultPtrInput `pulumi:"default"`
+	// Column name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Whether to restrict the column to NOT NULL values. Changing this on an existing column forces recreation. Primary key columns must set this to true because NOT NULL is implied by the primary key.
+	NotNull pulumi.BoolPtrInput `pulumi:"notNull"`
+	// Column type. See [Snowflake data types](https://docs.snowflake.com/en/sql-reference-data-types) for supported values. Example: VARCHAR(256), NUMBER(38,0).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (HybridTableColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableColumn)(nil)).Elem()
+}
+
+func (i HybridTableColumnArgs) ToHybridTableColumnOutput() HybridTableColumnOutput {
+	return i.ToHybridTableColumnOutputWithContext(context.Background())
+}
+
+func (i HybridTableColumnArgs) ToHybridTableColumnOutputWithContext(ctx context.Context) HybridTableColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableColumnOutput)
+}
+
+// HybridTableColumnArrayInput is an input type that accepts HybridTableColumnArray and HybridTableColumnArrayOutput values.
+// You can construct a concrete instance of `HybridTableColumnArrayInput` via:
+//
+//	HybridTableColumnArray{ HybridTableColumnArgs{...} }
+type HybridTableColumnArrayInput interface {
+	pulumi.Input
+
+	ToHybridTableColumnArrayOutput() HybridTableColumnArrayOutput
+	ToHybridTableColumnArrayOutputWithContext(context.Context) HybridTableColumnArrayOutput
+}
+
+type HybridTableColumnArray []HybridTableColumnInput
+
+func (HybridTableColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableColumn)(nil)).Elem()
+}
+
+func (i HybridTableColumnArray) ToHybridTableColumnArrayOutput() HybridTableColumnArrayOutput {
+	return i.ToHybridTableColumnArrayOutputWithContext(context.Background())
+}
+
+func (i HybridTableColumnArray) ToHybridTableColumnArrayOutputWithContext(ctx context.Context) HybridTableColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableColumnArrayOutput)
+}
+
+type HybridTableColumnOutput struct{ *pulumi.OutputState }
+
+func (HybridTableColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableColumn)(nil)).Elem()
+}
+
+func (o HybridTableColumnOutput) ToHybridTableColumnOutput() HybridTableColumnOutput {
+	return o
+}
+
+func (o HybridTableColumnOutput) ToHybridTableColumnOutputWithContext(ctx context.Context) HybridTableColumnOutput {
+	return o
+}
+
+// Column collation specification, e.g. en-ci. Case-insensitive (en-ci and EN-CI are treated as equal).
+func (o HybridTableColumnOutput) Collate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableColumn) *string { return v.Collate }).(pulumi.StringPtrOutput)
+}
+
+// Column-level comment.
+func (o HybridTableColumnOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Defines the column default value. Only one of constant, expression, or sequence may be set.
+func (o HybridTableColumnOutput) Default() HybridTableColumnDefaultPtrOutput {
+	return o.ApplyT(func(v HybridTableColumn) *HybridTableColumnDefault { return v.Default }).(HybridTableColumnDefaultPtrOutput)
+}
+
+// Column name.
+func (o HybridTableColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridTableColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Whether to restrict the column to NOT NULL values. Changing this on an existing column forces recreation. Primary key columns must set this to true because NOT NULL is implied by the primary key.
+func (o HybridTableColumnOutput) NotNull() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HybridTableColumn) *bool { return v.NotNull }).(pulumi.BoolPtrOutput)
+}
+
+// Column type. See [Snowflake data types](https://docs.snowflake.com/en/sql-reference-data-types) for supported values. Example: VARCHAR(256), NUMBER(38,0).
+func (o HybridTableColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridTableColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type HybridTableColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (HybridTableColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableColumn)(nil)).Elem()
+}
+
+func (o HybridTableColumnArrayOutput) ToHybridTableColumnArrayOutput() HybridTableColumnArrayOutput {
+	return o
+}
+
+func (o HybridTableColumnArrayOutput) ToHybridTableColumnArrayOutputWithContext(ctx context.Context) HybridTableColumnArrayOutput {
+	return o
+}
+
+func (o HybridTableColumnArrayOutput) Index(i pulumi.IntInput) HybridTableColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HybridTableColumn {
+		return vs[0].([]HybridTableColumn)[vs[1].(int)]
+	}).(HybridTableColumnOutput)
+}
+
+type HybridTableColumnDefault struct {
+	// A constant default value for the column.
+	Constant *string `pulumi:"constant"`
+	// A SQL expression default value for the column.
+	Expression *string `pulumi:"expression"`
+	// The default sequence for the column (uses NEXTVAL).
+	Sequence *string `pulumi:"sequence"`
+}
+
+// HybridTableColumnDefaultInput is an input type that accepts HybridTableColumnDefaultArgs and HybridTableColumnDefaultOutput values.
+// You can construct a concrete instance of `HybridTableColumnDefaultInput` via:
+//
+//	HybridTableColumnDefaultArgs{...}
+type HybridTableColumnDefaultInput interface {
+	pulumi.Input
+
+	ToHybridTableColumnDefaultOutput() HybridTableColumnDefaultOutput
+	ToHybridTableColumnDefaultOutputWithContext(context.Context) HybridTableColumnDefaultOutput
+}
+
+type HybridTableColumnDefaultArgs struct {
+	// A constant default value for the column.
+	Constant pulumi.StringPtrInput `pulumi:"constant"`
+	// A SQL expression default value for the column.
+	Expression pulumi.StringPtrInput `pulumi:"expression"`
+	// The default sequence for the column (uses NEXTVAL).
+	Sequence pulumi.StringPtrInput `pulumi:"sequence"`
+}
+
+func (HybridTableColumnDefaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableColumnDefault)(nil)).Elem()
+}
+
+func (i HybridTableColumnDefaultArgs) ToHybridTableColumnDefaultOutput() HybridTableColumnDefaultOutput {
+	return i.ToHybridTableColumnDefaultOutputWithContext(context.Background())
+}
+
+func (i HybridTableColumnDefaultArgs) ToHybridTableColumnDefaultOutputWithContext(ctx context.Context) HybridTableColumnDefaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableColumnDefaultOutput)
+}
+
+func (i HybridTableColumnDefaultArgs) ToHybridTableColumnDefaultPtrOutput() HybridTableColumnDefaultPtrOutput {
+	return i.ToHybridTableColumnDefaultPtrOutputWithContext(context.Background())
+}
+
+func (i HybridTableColumnDefaultArgs) ToHybridTableColumnDefaultPtrOutputWithContext(ctx context.Context) HybridTableColumnDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableColumnDefaultOutput).ToHybridTableColumnDefaultPtrOutputWithContext(ctx)
+}
+
+// HybridTableColumnDefaultPtrInput is an input type that accepts HybridTableColumnDefaultArgs, HybridTableColumnDefaultPtr and HybridTableColumnDefaultPtrOutput values.
+// You can construct a concrete instance of `HybridTableColumnDefaultPtrInput` via:
+//
+//	        HybridTableColumnDefaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type HybridTableColumnDefaultPtrInput interface {
+	pulumi.Input
+
+	ToHybridTableColumnDefaultPtrOutput() HybridTableColumnDefaultPtrOutput
+	ToHybridTableColumnDefaultPtrOutputWithContext(context.Context) HybridTableColumnDefaultPtrOutput
+}
+
+type hybridTableColumnDefaultPtrType HybridTableColumnDefaultArgs
+
+func HybridTableColumnDefaultPtr(v *HybridTableColumnDefaultArgs) HybridTableColumnDefaultPtrInput {
+	return (*hybridTableColumnDefaultPtrType)(v)
+}
+
+func (*hybridTableColumnDefaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HybridTableColumnDefault)(nil)).Elem()
+}
+
+func (i *hybridTableColumnDefaultPtrType) ToHybridTableColumnDefaultPtrOutput() HybridTableColumnDefaultPtrOutput {
+	return i.ToHybridTableColumnDefaultPtrOutputWithContext(context.Background())
+}
+
+func (i *hybridTableColumnDefaultPtrType) ToHybridTableColumnDefaultPtrOutputWithContext(ctx context.Context) HybridTableColumnDefaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableColumnDefaultPtrOutput)
+}
+
+type HybridTableColumnDefaultOutput struct{ *pulumi.OutputState }
+
+func (HybridTableColumnDefaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableColumnDefault)(nil)).Elem()
+}
+
+func (o HybridTableColumnDefaultOutput) ToHybridTableColumnDefaultOutput() HybridTableColumnDefaultOutput {
+	return o
+}
+
+func (o HybridTableColumnDefaultOutput) ToHybridTableColumnDefaultOutputWithContext(ctx context.Context) HybridTableColumnDefaultOutput {
+	return o
+}
+
+func (o HybridTableColumnDefaultOutput) ToHybridTableColumnDefaultPtrOutput() HybridTableColumnDefaultPtrOutput {
+	return o.ToHybridTableColumnDefaultPtrOutputWithContext(context.Background())
+}
+
+func (o HybridTableColumnDefaultOutput) ToHybridTableColumnDefaultPtrOutputWithContext(ctx context.Context) HybridTableColumnDefaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HybridTableColumnDefault) *HybridTableColumnDefault {
+		return &v
+	}).(HybridTableColumnDefaultPtrOutput)
+}
+
+// A constant default value for the column.
+func (o HybridTableColumnDefaultOutput) Constant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableColumnDefault) *string { return v.Constant }).(pulumi.StringPtrOutput)
+}
+
+// A SQL expression default value for the column.
+func (o HybridTableColumnDefaultOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableColumnDefault) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+// The default sequence for the column (uses NEXTVAL).
+func (o HybridTableColumnDefaultOutput) Sequence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableColumnDefault) *string { return v.Sequence }).(pulumi.StringPtrOutput)
+}
+
+type HybridTableColumnDefaultPtrOutput struct{ *pulumi.OutputState }
+
+func (HybridTableColumnDefaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HybridTableColumnDefault)(nil)).Elem()
+}
+
+func (o HybridTableColumnDefaultPtrOutput) ToHybridTableColumnDefaultPtrOutput() HybridTableColumnDefaultPtrOutput {
+	return o
+}
+
+func (o HybridTableColumnDefaultPtrOutput) ToHybridTableColumnDefaultPtrOutputWithContext(ctx context.Context) HybridTableColumnDefaultPtrOutput {
+	return o
+}
+
+func (o HybridTableColumnDefaultPtrOutput) Elem() HybridTableColumnDefaultOutput {
+	return o.ApplyT(func(v *HybridTableColumnDefault) HybridTableColumnDefault {
+		if v != nil {
+			return *v
+		}
+		var ret HybridTableColumnDefault
+		return ret
+	}).(HybridTableColumnDefaultOutput)
+}
+
+// A constant default value for the column.
+func (o HybridTableColumnDefaultPtrOutput) Constant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridTableColumnDefault) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Constant
+	}).(pulumi.StringPtrOutput)
+}
+
+// A SQL expression default value for the column.
+func (o HybridTableColumnDefaultPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridTableColumnDefault) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// The default sequence for the column (uses NEXTVAL).
+func (o HybridTableColumnDefaultPtrOutput) Sequence() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridTableColumnDefault) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sequence
+	}).(pulumi.StringPtrOutput)
+}
+
+type HybridTableDescribeOutput struct {
+	Check                 *string `pulumi:"check"`
+	Collation             *string `pulumi:"collation"`
+	Comment               *string `pulumi:"comment"`
+	Default               *string `pulumi:"default"`
+	Expression            *string `pulumi:"expression"`
+	IsNullable            *bool   `pulumi:"isNullable"`
+	Kind                  *string `pulumi:"kind"`
+	Name                  *string `pulumi:"name"`
+	PolicyName            *string `pulumi:"policyName"`
+	PrimaryKey            *bool   `pulumi:"primaryKey"`
+	PrivacyDomain         *string `pulumi:"privacyDomain"`
+	SchemaEvolutionRecord *string `pulumi:"schemaEvolutionRecord"`
+	Type                  *string `pulumi:"type"`
+	UniqueKey             *bool   `pulumi:"uniqueKey"`
+}
+
+// HybridTableDescribeOutputInput is an input type that accepts HybridTableDescribeOutputArgs and HybridTableDescribeOutputOutput values.
+// You can construct a concrete instance of `HybridTableDescribeOutputInput` via:
+//
+//	HybridTableDescribeOutputArgs{...}
+type HybridTableDescribeOutputInput interface {
+	pulumi.Input
+
+	ToHybridTableDescribeOutputOutput() HybridTableDescribeOutputOutput
+	ToHybridTableDescribeOutputOutputWithContext(context.Context) HybridTableDescribeOutputOutput
+}
+
+type HybridTableDescribeOutputArgs struct {
+	Check                 pulumi.StringPtrInput `pulumi:"check"`
+	Collation             pulumi.StringPtrInput `pulumi:"collation"`
+	Comment               pulumi.StringPtrInput `pulumi:"comment"`
+	Default               pulumi.StringPtrInput `pulumi:"default"`
+	Expression            pulumi.StringPtrInput `pulumi:"expression"`
+	IsNullable            pulumi.BoolPtrInput   `pulumi:"isNullable"`
+	Kind                  pulumi.StringPtrInput `pulumi:"kind"`
+	Name                  pulumi.StringPtrInput `pulumi:"name"`
+	PolicyName            pulumi.StringPtrInput `pulumi:"policyName"`
+	PrimaryKey            pulumi.BoolPtrInput   `pulumi:"primaryKey"`
+	PrivacyDomain         pulumi.StringPtrInput `pulumi:"privacyDomain"`
+	SchemaEvolutionRecord pulumi.StringPtrInput `pulumi:"schemaEvolutionRecord"`
+	Type                  pulumi.StringPtrInput `pulumi:"type"`
+	UniqueKey             pulumi.BoolPtrInput   `pulumi:"uniqueKey"`
+}
+
+func (HybridTableDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableDescribeOutput)(nil)).Elem()
+}
+
+func (i HybridTableDescribeOutputArgs) ToHybridTableDescribeOutputOutput() HybridTableDescribeOutputOutput {
+	return i.ToHybridTableDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i HybridTableDescribeOutputArgs) ToHybridTableDescribeOutputOutputWithContext(ctx context.Context) HybridTableDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableDescribeOutputOutput)
+}
+
+// HybridTableDescribeOutputArrayInput is an input type that accepts HybridTableDescribeOutputArray and HybridTableDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `HybridTableDescribeOutputArrayInput` via:
+//
+//	HybridTableDescribeOutputArray{ HybridTableDescribeOutputArgs{...} }
+type HybridTableDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToHybridTableDescribeOutputArrayOutput() HybridTableDescribeOutputArrayOutput
+	ToHybridTableDescribeOutputArrayOutputWithContext(context.Context) HybridTableDescribeOutputArrayOutput
+}
+
+type HybridTableDescribeOutputArray []HybridTableDescribeOutputInput
+
+func (HybridTableDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableDescribeOutput)(nil)).Elem()
+}
+
+func (i HybridTableDescribeOutputArray) ToHybridTableDescribeOutputArrayOutput() HybridTableDescribeOutputArrayOutput {
+	return i.ToHybridTableDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i HybridTableDescribeOutputArray) ToHybridTableDescribeOutputArrayOutputWithContext(ctx context.Context) HybridTableDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableDescribeOutputArrayOutput)
+}
+
+type HybridTableDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (HybridTableDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableDescribeOutput)(nil)).Elem()
+}
+
+func (o HybridTableDescribeOutputOutput) ToHybridTableDescribeOutputOutput() HybridTableDescribeOutputOutput {
+	return o
+}
+
+func (o HybridTableDescribeOutputOutput) ToHybridTableDescribeOutputOutputWithContext(ctx context.Context) HybridTableDescribeOutputOutput {
+	return o
+}
+
+func (o HybridTableDescribeOutputOutput) Check() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.Check }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) Collation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.Collation }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.Expression }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) IsNullable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *bool { return v.IsNullable }).(pulumi.BoolPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) PolicyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.PolicyName }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) PrimaryKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *bool { return v.PrimaryKey }).(pulumi.BoolPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) PrivacyDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.PrivacyDomain }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) SchemaEvolutionRecord() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.SchemaEvolutionRecord }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableDescribeOutputOutput) UniqueKey() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v HybridTableDescribeOutput) *bool { return v.UniqueKey }).(pulumi.BoolPtrOutput)
+}
+
+type HybridTableDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (HybridTableDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableDescribeOutput)(nil)).Elem()
+}
+
+func (o HybridTableDescribeOutputArrayOutput) ToHybridTableDescribeOutputArrayOutput() HybridTableDescribeOutputArrayOutput {
+	return o
+}
+
+func (o HybridTableDescribeOutputArrayOutput) ToHybridTableDescribeOutputArrayOutputWithContext(ctx context.Context) HybridTableDescribeOutputArrayOutput {
+	return o
+}
+
+func (o HybridTableDescribeOutputArrayOutput) Index(i pulumi.IntInput) HybridTableDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HybridTableDescribeOutput {
+		return vs[0].([]HybridTableDescribeOutput)[vs[1].(int)]
+	}).(HybridTableDescribeOutputOutput)
+}
+
+type HybridTableForeignKeyConstraint struct {
+	// The local column(s) the foreign key is defined on.
+	Columns []string `pulumi:"columns"`
+	// Name of the constraint.
+	Name *string `pulumi:"name"`
+	// The column(s) in the referenced table that the foreign key references.
+	RefColumns []string `pulumi:"refColumns"`
+	// The table that the foreign key references.
+	TableName string `pulumi:"tableName"`
+}
+
+// HybridTableForeignKeyConstraintInput is an input type that accepts HybridTableForeignKeyConstraintArgs and HybridTableForeignKeyConstraintOutput values.
+// You can construct a concrete instance of `HybridTableForeignKeyConstraintInput` via:
+//
+//	HybridTableForeignKeyConstraintArgs{...}
+type HybridTableForeignKeyConstraintInput interface {
+	pulumi.Input
+
+	ToHybridTableForeignKeyConstraintOutput() HybridTableForeignKeyConstraintOutput
+	ToHybridTableForeignKeyConstraintOutputWithContext(context.Context) HybridTableForeignKeyConstraintOutput
+}
+
+type HybridTableForeignKeyConstraintArgs struct {
+	// The local column(s) the foreign key is defined on.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// Name of the constraint.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The column(s) in the referenced table that the foreign key references.
+	RefColumns pulumi.StringArrayInput `pulumi:"refColumns"`
+	// The table that the foreign key references.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (HybridTableForeignKeyConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableForeignKeyConstraint)(nil)).Elem()
+}
+
+func (i HybridTableForeignKeyConstraintArgs) ToHybridTableForeignKeyConstraintOutput() HybridTableForeignKeyConstraintOutput {
+	return i.ToHybridTableForeignKeyConstraintOutputWithContext(context.Background())
+}
+
+func (i HybridTableForeignKeyConstraintArgs) ToHybridTableForeignKeyConstraintOutputWithContext(ctx context.Context) HybridTableForeignKeyConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableForeignKeyConstraintOutput)
+}
+
+// HybridTableForeignKeyConstraintArrayInput is an input type that accepts HybridTableForeignKeyConstraintArray and HybridTableForeignKeyConstraintArrayOutput values.
+// You can construct a concrete instance of `HybridTableForeignKeyConstraintArrayInput` via:
+//
+//	HybridTableForeignKeyConstraintArray{ HybridTableForeignKeyConstraintArgs{...} }
+type HybridTableForeignKeyConstraintArrayInput interface {
+	pulumi.Input
+
+	ToHybridTableForeignKeyConstraintArrayOutput() HybridTableForeignKeyConstraintArrayOutput
+	ToHybridTableForeignKeyConstraintArrayOutputWithContext(context.Context) HybridTableForeignKeyConstraintArrayOutput
+}
+
+type HybridTableForeignKeyConstraintArray []HybridTableForeignKeyConstraintInput
+
+func (HybridTableForeignKeyConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableForeignKeyConstraint)(nil)).Elem()
+}
+
+func (i HybridTableForeignKeyConstraintArray) ToHybridTableForeignKeyConstraintArrayOutput() HybridTableForeignKeyConstraintArrayOutput {
+	return i.ToHybridTableForeignKeyConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i HybridTableForeignKeyConstraintArray) ToHybridTableForeignKeyConstraintArrayOutputWithContext(ctx context.Context) HybridTableForeignKeyConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableForeignKeyConstraintArrayOutput)
+}
+
+type HybridTableForeignKeyConstraintOutput struct{ *pulumi.OutputState }
+
+func (HybridTableForeignKeyConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableForeignKeyConstraint)(nil)).Elem()
+}
+
+func (o HybridTableForeignKeyConstraintOutput) ToHybridTableForeignKeyConstraintOutput() HybridTableForeignKeyConstraintOutput {
+	return o
+}
+
+func (o HybridTableForeignKeyConstraintOutput) ToHybridTableForeignKeyConstraintOutputWithContext(ctx context.Context) HybridTableForeignKeyConstraintOutput {
+	return o
+}
+
+// The local column(s) the foreign key is defined on.
+func (o HybridTableForeignKeyConstraintOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HybridTableForeignKeyConstraint) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// Name of the constraint.
+func (o HybridTableForeignKeyConstraintOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableForeignKeyConstraint) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The column(s) in the referenced table that the foreign key references.
+func (o HybridTableForeignKeyConstraintOutput) RefColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HybridTableForeignKeyConstraint) []string { return v.RefColumns }).(pulumi.StringArrayOutput)
+}
+
+// The table that the foreign key references.
+func (o HybridTableForeignKeyConstraintOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridTableForeignKeyConstraint) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type HybridTableForeignKeyConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (HybridTableForeignKeyConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableForeignKeyConstraint)(nil)).Elem()
+}
+
+func (o HybridTableForeignKeyConstraintArrayOutput) ToHybridTableForeignKeyConstraintArrayOutput() HybridTableForeignKeyConstraintArrayOutput {
+	return o
+}
+
+func (o HybridTableForeignKeyConstraintArrayOutput) ToHybridTableForeignKeyConstraintArrayOutputWithContext(ctx context.Context) HybridTableForeignKeyConstraintArrayOutput {
+	return o
+}
+
+func (o HybridTableForeignKeyConstraintArrayOutput) Index(i pulumi.IntInput) HybridTableForeignKeyConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HybridTableForeignKeyConstraint {
+		return vs[0].([]HybridTableForeignKeyConstraint)[vs[1].(int)]
+	}).(HybridTableForeignKeyConstraintOutput)
+}
+
+type HybridTableIndex struct {
+	// Index key columns, in order. Order is semantically meaningful.
+	Columns []string `pulumi:"columns"`
+	// Columns included in the index payload via INCLUDE (...). Order carries no meaning.
+	IncludeColumns []string `pulumi:"includeColumns"`
+	// Name of the secondary index.
+	Name string `pulumi:"name"`
+}
+
+// HybridTableIndexInput is an input type that accepts HybridTableIndexArgs and HybridTableIndexOutput values.
+// You can construct a concrete instance of `HybridTableIndexInput` via:
+//
+//	HybridTableIndexArgs{...}
+type HybridTableIndexInput interface {
+	pulumi.Input
+
+	ToHybridTableIndexOutput() HybridTableIndexOutput
+	ToHybridTableIndexOutputWithContext(context.Context) HybridTableIndexOutput
+}
+
+type HybridTableIndexArgs struct {
+	// Index key columns, in order. Order is semantically meaningful.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// Columns included in the index payload via INCLUDE (...). Order carries no meaning.
+	IncludeColumns pulumi.StringArrayInput `pulumi:"includeColumns"`
+	// Name of the secondary index.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (HybridTableIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableIndex)(nil)).Elem()
+}
+
+func (i HybridTableIndexArgs) ToHybridTableIndexOutput() HybridTableIndexOutput {
+	return i.ToHybridTableIndexOutputWithContext(context.Background())
+}
+
+func (i HybridTableIndexArgs) ToHybridTableIndexOutputWithContext(ctx context.Context) HybridTableIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableIndexOutput)
+}
+
+// HybridTableIndexArrayInput is an input type that accepts HybridTableIndexArray and HybridTableIndexArrayOutput values.
+// You can construct a concrete instance of `HybridTableIndexArrayInput` via:
+//
+//	HybridTableIndexArray{ HybridTableIndexArgs{...} }
+type HybridTableIndexArrayInput interface {
+	pulumi.Input
+
+	ToHybridTableIndexArrayOutput() HybridTableIndexArrayOutput
+	ToHybridTableIndexArrayOutputWithContext(context.Context) HybridTableIndexArrayOutput
+}
+
+type HybridTableIndexArray []HybridTableIndexInput
+
+func (HybridTableIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableIndex)(nil)).Elem()
+}
+
+func (i HybridTableIndexArray) ToHybridTableIndexArrayOutput() HybridTableIndexArrayOutput {
+	return i.ToHybridTableIndexArrayOutputWithContext(context.Background())
+}
+
+func (i HybridTableIndexArray) ToHybridTableIndexArrayOutputWithContext(ctx context.Context) HybridTableIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableIndexArrayOutput)
+}
+
+type HybridTableIndexOutput struct{ *pulumi.OutputState }
+
+func (HybridTableIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableIndex)(nil)).Elem()
+}
+
+func (o HybridTableIndexOutput) ToHybridTableIndexOutput() HybridTableIndexOutput {
+	return o
+}
+
+func (o HybridTableIndexOutput) ToHybridTableIndexOutputWithContext(ctx context.Context) HybridTableIndexOutput {
+	return o
+}
+
+// Index key columns, in order. Order is semantically meaningful.
+func (o HybridTableIndexOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HybridTableIndex) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// Columns included in the index payload via INCLUDE (...). Order carries no meaning.
+func (o HybridTableIndexOutput) IncludeColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HybridTableIndex) []string { return v.IncludeColumns }).(pulumi.StringArrayOutput)
+}
+
+// Name of the secondary index.
+func (o HybridTableIndexOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v HybridTableIndex) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type HybridTableIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (HybridTableIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableIndex)(nil)).Elem()
+}
+
+func (o HybridTableIndexArrayOutput) ToHybridTableIndexArrayOutput() HybridTableIndexArrayOutput {
+	return o
+}
+
+func (o HybridTableIndexArrayOutput) ToHybridTableIndexArrayOutputWithContext(ctx context.Context) HybridTableIndexArrayOutput {
+	return o
+}
+
+func (o HybridTableIndexArrayOutput) Index(i pulumi.IntInput) HybridTableIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HybridTableIndex {
+		return vs[0].([]HybridTableIndex)[vs[1].(int)]
+	}).(HybridTableIndexOutput)
+}
+
+type HybridTablePrimaryKeyConstraint struct {
+	// The column(s) the constraint applies to.
+	Columns []string `pulumi:"columns"`
+	// Name of the constraint.
+	Name *string `pulumi:"name"`
+}
+
+// HybridTablePrimaryKeyConstraintInput is an input type that accepts HybridTablePrimaryKeyConstraintArgs and HybridTablePrimaryKeyConstraintOutput values.
+// You can construct a concrete instance of `HybridTablePrimaryKeyConstraintInput` via:
+//
+//	HybridTablePrimaryKeyConstraintArgs{...}
+type HybridTablePrimaryKeyConstraintInput interface {
+	pulumi.Input
+
+	ToHybridTablePrimaryKeyConstraintOutput() HybridTablePrimaryKeyConstraintOutput
+	ToHybridTablePrimaryKeyConstraintOutputWithContext(context.Context) HybridTablePrimaryKeyConstraintOutput
+}
+
+type HybridTablePrimaryKeyConstraintArgs struct {
+	// The column(s) the constraint applies to.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// Name of the constraint.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (HybridTablePrimaryKeyConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTablePrimaryKeyConstraint)(nil)).Elem()
+}
+
+func (i HybridTablePrimaryKeyConstraintArgs) ToHybridTablePrimaryKeyConstraintOutput() HybridTablePrimaryKeyConstraintOutput {
+	return i.ToHybridTablePrimaryKeyConstraintOutputWithContext(context.Background())
+}
+
+func (i HybridTablePrimaryKeyConstraintArgs) ToHybridTablePrimaryKeyConstraintOutputWithContext(ctx context.Context) HybridTablePrimaryKeyConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTablePrimaryKeyConstraintOutput)
+}
+
+func (i HybridTablePrimaryKeyConstraintArgs) ToHybridTablePrimaryKeyConstraintPtrOutput() HybridTablePrimaryKeyConstraintPtrOutput {
+	return i.ToHybridTablePrimaryKeyConstraintPtrOutputWithContext(context.Background())
+}
+
+func (i HybridTablePrimaryKeyConstraintArgs) ToHybridTablePrimaryKeyConstraintPtrOutputWithContext(ctx context.Context) HybridTablePrimaryKeyConstraintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTablePrimaryKeyConstraintOutput).ToHybridTablePrimaryKeyConstraintPtrOutputWithContext(ctx)
+}
+
+// HybridTablePrimaryKeyConstraintPtrInput is an input type that accepts HybridTablePrimaryKeyConstraintArgs, HybridTablePrimaryKeyConstraintPtr and HybridTablePrimaryKeyConstraintPtrOutput values.
+// You can construct a concrete instance of `HybridTablePrimaryKeyConstraintPtrInput` via:
+//
+//	        HybridTablePrimaryKeyConstraintArgs{...}
+//
+//	or:
+//
+//	        nil
+type HybridTablePrimaryKeyConstraintPtrInput interface {
+	pulumi.Input
+
+	ToHybridTablePrimaryKeyConstraintPtrOutput() HybridTablePrimaryKeyConstraintPtrOutput
+	ToHybridTablePrimaryKeyConstraintPtrOutputWithContext(context.Context) HybridTablePrimaryKeyConstraintPtrOutput
+}
+
+type hybridTablePrimaryKeyConstraintPtrType HybridTablePrimaryKeyConstraintArgs
+
+func HybridTablePrimaryKeyConstraintPtr(v *HybridTablePrimaryKeyConstraintArgs) HybridTablePrimaryKeyConstraintPtrInput {
+	return (*hybridTablePrimaryKeyConstraintPtrType)(v)
+}
+
+func (*hybridTablePrimaryKeyConstraintPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HybridTablePrimaryKeyConstraint)(nil)).Elem()
+}
+
+func (i *hybridTablePrimaryKeyConstraintPtrType) ToHybridTablePrimaryKeyConstraintPtrOutput() HybridTablePrimaryKeyConstraintPtrOutput {
+	return i.ToHybridTablePrimaryKeyConstraintPtrOutputWithContext(context.Background())
+}
+
+func (i *hybridTablePrimaryKeyConstraintPtrType) ToHybridTablePrimaryKeyConstraintPtrOutputWithContext(ctx context.Context) HybridTablePrimaryKeyConstraintPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTablePrimaryKeyConstraintPtrOutput)
+}
+
+type HybridTablePrimaryKeyConstraintOutput struct{ *pulumi.OutputState }
+
+func (HybridTablePrimaryKeyConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTablePrimaryKeyConstraint)(nil)).Elem()
+}
+
+func (o HybridTablePrimaryKeyConstraintOutput) ToHybridTablePrimaryKeyConstraintOutput() HybridTablePrimaryKeyConstraintOutput {
+	return o
+}
+
+func (o HybridTablePrimaryKeyConstraintOutput) ToHybridTablePrimaryKeyConstraintOutputWithContext(ctx context.Context) HybridTablePrimaryKeyConstraintOutput {
+	return o
+}
+
+func (o HybridTablePrimaryKeyConstraintOutput) ToHybridTablePrimaryKeyConstraintPtrOutput() HybridTablePrimaryKeyConstraintPtrOutput {
+	return o.ToHybridTablePrimaryKeyConstraintPtrOutputWithContext(context.Background())
+}
+
+func (o HybridTablePrimaryKeyConstraintOutput) ToHybridTablePrimaryKeyConstraintPtrOutputWithContext(ctx context.Context) HybridTablePrimaryKeyConstraintPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HybridTablePrimaryKeyConstraint) *HybridTablePrimaryKeyConstraint {
+		return &v
+	}).(HybridTablePrimaryKeyConstraintPtrOutput)
+}
+
+// The column(s) the constraint applies to.
+func (o HybridTablePrimaryKeyConstraintOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HybridTablePrimaryKeyConstraint) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// Name of the constraint.
+func (o HybridTablePrimaryKeyConstraintOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTablePrimaryKeyConstraint) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type HybridTablePrimaryKeyConstraintPtrOutput struct{ *pulumi.OutputState }
+
+func (HybridTablePrimaryKeyConstraintPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HybridTablePrimaryKeyConstraint)(nil)).Elem()
+}
+
+func (o HybridTablePrimaryKeyConstraintPtrOutput) ToHybridTablePrimaryKeyConstraintPtrOutput() HybridTablePrimaryKeyConstraintPtrOutput {
+	return o
+}
+
+func (o HybridTablePrimaryKeyConstraintPtrOutput) ToHybridTablePrimaryKeyConstraintPtrOutputWithContext(ctx context.Context) HybridTablePrimaryKeyConstraintPtrOutput {
+	return o
+}
+
+func (o HybridTablePrimaryKeyConstraintPtrOutput) Elem() HybridTablePrimaryKeyConstraintOutput {
+	return o.ApplyT(func(v *HybridTablePrimaryKeyConstraint) HybridTablePrimaryKeyConstraint {
+		if v != nil {
+			return *v
+		}
+		var ret HybridTablePrimaryKeyConstraint
+		return ret
+	}).(HybridTablePrimaryKeyConstraintOutput)
+}
+
+// The column(s) the constraint applies to.
+func (o HybridTablePrimaryKeyConstraintPtrOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *HybridTablePrimaryKeyConstraint) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the constraint.
+func (o HybridTablePrimaryKeyConstraintPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HybridTablePrimaryKeyConstraint) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type HybridTableShowKeysOutput struct {
+	Columns           []string `pulumi:"columns"`
+	DeleteRule        *string  `pulumi:"deleteRule"`
+	Kind              *string  `pulumi:"kind"`
+	Name              *string  `pulumi:"name"`
+	ReferencedColumns []string `pulumi:"referencedColumns"`
+	ReferencedTable   *string  `pulumi:"referencedTable"`
+	UpdateRule        *string  `pulumi:"updateRule"`
+}
+
+// HybridTableShowKeysOutputInput is an input type that accepts HybridTableShowKeysOutputArgs and HybridTableShowKeysOutputOutput values.
+// You can construct a concrete instance of `HybridTableShowKeysOutputInput` via:
+//
+//	HybridTableShowKeysOutputArgs{...}
+type HybridTableShowKeysOutputInput interface {
+	pulumi.Input
+
+	ToHybridTableShowKeysOutputOutput() HybridTableShowKeysOutputOutput
+	ToHybridTableShowKeysOutputOutputWithContext(context.Context) HybridTableShowKeysOutputOutput
+}
+
+type HybridTableShowKeysOutputArgs struct {
+	Columns           pulumi.StringArrayInput `pulumi:"columns"`
+	DeleteRule        pulumi.StringPtrInput   `pulumi:"deleteRule"`
+	Kind              pulumi.StringPtrInput   `pulumi:"kind"`
+	Name              pulumi.StringPtrInput   `pulumi:"name"`
+	ReferencedColumns pulumi.StringArrayInput `pulumi:"referencedColumns"`
+	ReferencedTable   pulumi.StringPtrInput   `pulumi:"referencedTable"`
+	UpdateRule        pulumi.StringPtrInput   `pulumi:"updateRule"`
+}
+
+func (HybridTableShowKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableShowKeysOutput)(nil)).Elem()
+}
+
+func (i HybridTableShowKeysOutputArgs) ToHybridTableShowKeysOutputOutput() HybridTableShowKeysOutputOutput {
+	return i.ToHybridTableShowKeysOutputOutputWithContext(context.Background())
+}
+
+func (i HybridTableShowKeysOutputArgs) ToHybridTableShowKeysOutputOutputWithContext(ctx context.Context) HybridTableShowKeysOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableShowKeysOutputOutput)
+}
+
+// HybridTableShowKeysOutputArrayInput is an input type that accepts HybridTableShowKeysOutputArray and HybridTableShowKeysOutputArrayOutput values.
+// You can construct a concrete instance of `HybridTableShowKeysOutputArrayInput` via:
+//
+//	HybridTableShowKeysOutputArray{ HybridTableShowKeysOutputArgs{...} }
+type HybridTableShowKeysOutputArrayInput interface {
+	pulumi.Input
+
+	ToHybridTableShowKeysOutputArrayOutput() HybridTableShowKeysOutputArrayOutput
+	ToHybridTableShowKeysOutputArrayOutputWithContext(context.Context) HybridTableShowKeysOutputArrayOutput
+}
+
+type HybridTableShowKeysOutputArray []HybridTableShowKeysOutputInput
+
+func (HybridTableShowKeysOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableShowKeysOutput)(nil)).Elem()
+}
+
+func (i HybridTableShowKeysOutputArray) ToHybridTableShowKeysOutputArrayOutput() HybridTableShowKeysOutputArrayOutput {
+	return i.ToHybridTableShowKeysOutputArrayOutputWithContext(context.Background())
+}
+
+func (i HybridTableShowKeysOutputArray) ToHybridTableShowKeysOutputArrayOutputWithContext(ctx context.Context) HybridTableShowKeysOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableShowKeysOutputArrayOutput)
+}
+
+type HybridTableShowKeysOutputOutput struct{ *pulumi.OutputState }
+
+func (HybridTableShowKeysOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableShowKeysOutput)(nil)).Elem()
+}
+
+func (o HybridTableShowKeysOutputOutput) ToHybridTableShowKeysOutputOutput() HybridTableShowKeysOutputOutput {
+	return o
+}
+
+func (o HybridTableShowKeysOutputOutput) ToHybridTableShowKeysOutputOutputWithContext(ctx context.Context) HybridTableShowKeysOutputOutput {
+	return o
+}
+
+func (o HybridTableShowKeysOutputOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HybridTableShowKeysOutput) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+func (o HybridTableShowKeysOutputOutput) DeleteRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowKeysOutput) *string { return v.DeleteRule }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableShowKeysOutputOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowKeysOutput) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableShowKeysOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowKeysOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableShowKeysOutputOutput) ReferencedColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HybridTableShowKeysOutput) []string { return v.ReferencedColumns }).(pulumi.StringArrayOutput)
+}
+
+func (o HybridTableShowKeysOutputOutput) ReferencedTable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowKeysOutput) *string { return v.ReferencedTable }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableShowKeysOutputOutput) UpdateRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowKeysOutput) *string { return v.UpdateRule }).(pulumi.StringPtrOutput)
+}
+
+type HybridTableShowKeysOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (HybridTableShowKeysOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableShowKeysOutput)(nil)).Elem()
+}
+
+func (o HybridTableShowKeysOutputArrayOutput) ToHybridTableShowKeysOutputArrayOutput() HybridTableShowKeysOutputArrayOutput {
+	return o
+}
+
+func (o HybridTableShowKeysOutputArrayOutput) ToHybridTableShowKeysOutputArrayOutputWithContext(ctx context.Context) HybridTableShowKeysOutputArrayOutput {
+	return o
+}
+
+func (o HybridTableShowKeysOutputArrayOutput) Index(i pulumi.IntInput) HybridTableShowKeysOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HybridTableShowKeysOutput {
+		return vs[0].([]HybridTableShowKeysOutput)[vs[1].(int)]
+	}).(HybridTableShowKeysOutputOutput)
+}
+
+type HybridTableShowOutput struct {
+	Bytes         *int    `pulumi:"bytes"`
+	Comment       *string `pulumi:"comment"`
+	CreatedOn     *string `pulumi:"createdOn"`
+	DatabaseName  *string `pulumi:"databaseName"`
+	Name          *string `pulumi:"name"`
+	Owner         *string `pulumi:"owner"`
+	OwnerRoleType *string `pulumi:"ownerRoleType"`
+	Rows          *int    `pulumi:"rows"`
+	SchemaName    *string `pulumi:"schemaName"`
+}
+
+// HybridTableShowOutputInput is an input type that accepts HybridTableShowOutputArgs and HybridTableShowOutputOutput values.
+// You can construct a concrete instance of `HybridTableShowOutputInput` via:
+//
+//	HybridTableShowOutputArgs{...}
+type HybridTableShowOutputInput interface {
+	pulumi.Input
+
+	ToHybridTableShowOutputOutput() HybridTableShowOutputOutput
+	ToHybridTableShowOutputOutputWithContext(context.Context) HybridTableShowOutputOutput
+}
+
+type HybridTableShowOutputArgs struct {
+	Bytes         pulumi.IntPtrInput    `pulumi:"bytes"`
+	Comment       pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn     pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName  pulumi.StringPtrInput `pulumi:"databaseName"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	Owner         pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	Rows          pulumi.IntPtrInput    `pulumi:"rows"`
+	SchemaName    pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (HybridTableShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableShowOutput)(nil)).Elem()
+}
+
+func (i HybridTableShowOutputArgs) ToHybridTableShowOutputOutput() HybridTableShowOutputOutput {
+	return i.ToHybridTableShowOutputOutputWithContext(context.Background())
+}
+
+func (i HybridTableShowOutputArgs) ToHybridTableShowOutputOutputWithContext(ctx context.Context) HybridTableShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableShowOutputOutput)
+}
+
+// HybridTableShowOutputArrayInput is an input type that accepts HybridTableShowOutputArray and HybridTableShowOutputArrayOutput values.
+// You can construct a concrete instance of `HybridTableShowOutputArrayInput` via:
+//
+//	HybridTableShowOutputArray{ HybridTableShowOutputArgs{...} }
+type HybridTableShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToHybridTableShowOutputArrayOutput() HybridTableShowOutputArrayOutput
+	ToHybridTableShowOutputArrayOutputWithContext(context.Context) HybridTableShowOutputArrayOutput
+}
+
+type HybridTableShowOutputArray []HybridTableShowOutputInput
+
+func (HybridTableShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableShowOutput)(nil)).Elem()
+}
+
+func (i HybridTableShowOutputArray) ToHybridTableShowOutputArrayOutput() HybridTableShowOutputArrayOutput {
+	return i.ToHybridTableShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i HybridTableShowOutputArray) ToHybridTableShowOutputArrayOutputWithContext(ctx context.Context) HybridTableShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableShowOutputArrayOutput)
+}
+
+type HybridTableShowOutputOutput struct{ *pulumi.OutputState }
+
+func (HybridTableShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableShowOutput)(nil)).Elem()
+}
+
+func (o HybridTableShowOutputOutput) ToHybridTableShowOutputOutput() HybridTableShowOutputOutput {
+	return o
+}
+
+func (o HybridTableShowOutputOutput) ToHybridTableShowOutputOutputWithContext(ctx context.Context) HybridTableShowOutputOutput {
+	return o
+}
+
+func (o HybridTableShowOutputOutput) Bytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HybridTableShowOutput) *int { return v.Bytes }).(pulumi.IntPtrOutput)
+}
+
+func (o HybridTableShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o HybridTableShowOutputOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v HybridTableShowOutput) *int { return v.Rows }).(pulumi.IntPtrOutput)
+}
+
+func (o HybridTableShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type HybridTableShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (HybridTableShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableShowOutput)(nil)).Elem()
+}
+
+func (o HybridTableShowOutputArrayOutput) ToHybridTableShowOutputArrayOutput() HybridTableShowOutputArrayOutput {
+	return o
+}
+
+func (o HybridTableShowOutputArrayOutput) ToHybridTableShowOutputArrayOutputWithContext(ctx context.Context) HybridTableShowOutputArrayOutput {
+	return o
+}
+
+func (o HybridTableShowOutputArrayOutput) Index(i pulumi.IntInput) HybridTableShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HybridTableShowOutput {
+		return vs[0].([]HybridTableShowOutput)[vs[1].(int)]
+	}).(HybridTableShowOutputOutput)
+}
+
+type HybridTableUniqueConstraint struct {
+	// The column(s) the constraint applies to.
+	Columns []string `pulumi:"columns"`
+	// Name of the constraint.
+	Name *string `pulumi:"name"`
+}
+
+// HybridTableUniqueConstraintInput is an input type that accepts HybridTableUniqueConstraintArgs and HybridTableUniqueConstraintOutput values.
+// You can construct a concrete instance of `HybridTableUniqueConstraintInput` via:
+//
+//	HybridTableUniqueConstraintArgs{...}
+type HybridTableUniqueConstraintInput interface {
+	pulumi.Input
+
+	ToHybridTableUniqueConstraintOutput() HybridTableUniqueConstraintOutput
+	ToHybridTableUniqueConstraintOutputWithContext(context.Context) HybridTableUniqueConstraintOutput
+}
+
+type HybridTableUniqueConstraintArgs struct {
+	// The column(s) the constraint applies to.
+	Columns pulumi.StringArrayInput `pulumi:"columns"`
+	// Name of the constraint.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (HybridTableUniqueConstraintArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableUniqueConstraint)(nil)).Elem()
+}
+
+func (i HybridTableUniqueConstraintArgs) ToHybridTableUniqueConstraintOutput() HybridTableUniqueConstraintOutput {
+	return i.ToHybridTableUniqueConstraintOutputWithContext(context.Background())
+}
+
+func (i HybridTableUniqueConstraintArgs) ToHybridTableUniqueConstraintOutputWithContext(ctx context.Context) HybridTableUniqueConstraintOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableUniqueConstraintOutput)
+}
+
+// HybridTableUniqueConstraintArrayInput is an input type that accepts HybridTableUniqueConstraintArray and HybridTableUniqueConstraintArrayOutput values.
+// You can construct a concrete instance of `HybridTableUniqueConstraintArrayInput` via:
+//
+//	HybridTableUniqueConstraintArray{ HybridTableUniqueConstraintArgs{...} }
+type HybridTableUniqueConstraintArrayInput interface {
+	pulumi.Input
+
+	ToHybridTableUniqueConstraintArrayOutput() HybridTableUniqueConstraintArrayOutput
+	ToHybridTableUniqueConstraintArrayOutputWithContext(context.Context) HybridTableUniqueConstraintArrayOutput
+}
+
+type HybridTableUniqueConstraintArray []HybridTableUniqueConstraintInput
+
+func (HybridTableUniqueConstraintArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableUniqueConstraint)(nil)).Elem()
+}
+
+func (i HybridTableUniqueConstraintArray) ToHybridTableUniqueConstraintArrayOutput() HybridTableUniqueConstraintArrayOutput {
+	return i.ToHybridTableUniqueConstraintArrayOutputWithContext(context.Background())
+}
+
+func (i HybridTableUniqueConstraintArray) ToHybridTableUniqueConstraintArrayOutputWithContext(ctx context.Context) HybridTableUniqueConstraintArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HybridTableUniqueConstraintArrayOutput)
+}
+
+type HybridTableUniqueConstraintOutput struct{ *pulumi.OutputState }
+
+func (HybridTableUniqueConstraintOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridTableUniqueConstraint)(nil)).Elem()
+}
+
+func (o HybridTableUniqueConstraintOutput) ToHybridTableUniqueConstraintOutput() HybridTableUniqueConstraintOutput {
+	return o
+}
+
+func (o HybridTableUniqueConstraintOutput) ToHybridTableUniqueConstraintOutputWithContext(ctx context.Context) HybridTableUniqueConstraintOutput {
+	return o
+}
+
+// The column(s) the constraint applies to.
+func (o HybridTableUniqueConstraintOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v HybridTableUniqueConstraint) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+// Name of the constraint.
+func (o HybridTableUniqueConstraintOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridTableUniqueConstraint) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type HybridTableUniqueConstraintArrayOutput struct{ *pulumi.OutputState }
+
+func (HybridTableUniqueConstraintArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridTableUniqueConstraint)(nil)).Elem()
+}
+
+func (o HybridTableUniqueConstraintArrayOutput) ToHybridTableUniqueConstraintArrayOutput() HybridTableUniqueConstraintArrayOutput {
+	return o
+}
+
+func (o HybridTableUniqueConstraintArrayOutput) ToHybridTableUniqueConstraintArrayOutputWithContext(ctx context.Context) HybridTableUniqueConstraintArrayOutput {
+	return o
+}
+
+func (o HybridTableUniqueConstraintArrayOutput) Index(i pulumi.IntInput) HybridTableUniqueConstraintOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HybridTableUniqueConstraint {
+		return vs[0].([]HybridTableUniqueConstraint)[vs[1].(int)]
+	}).(HybridTableUniqueConstraintOutput)
 }
 
 type IcebergTableAggregationPolicy struct {
@@ -65573,1612 +67428,6 @@ func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput) Index(i
 	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput)
 }
 
-type Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs and Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs{...}
-type Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput() Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput
-	ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs) ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput() Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs) ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArray and Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArray{ Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput() Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArray []Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelInput
-
-func (Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArray) ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput() Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArray) ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput) ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput() Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput) ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput() Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SsoUrl struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2SsoUrlInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SsoUrlArgs and Saml2IntegrationDescribeOutputSaml2SsoUrlOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SsoUrlInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SsoUrlArgs{...}
-type Saml2IntegrationDescribeOutputSaml2SsoUrlInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SsoUrlOutput() Saml2IntegrationDescribeOutputSaml2SsoUrlOutput
-	ToSaml2IntegrationDescribeOutputSaml2SsoUrlOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SsoUrlOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SsoUrlArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2SsoUrlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SsoUrl)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SsoUrlArgs) ToSaml2IntegrationDescribeOutputSaml2SsoUrlOutput() Saml2IntegrationDescribeOutputSaml2SsoUrlOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SsoUrlOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SsoUrlArgs) ToSaml2IntegrationDescribeOutputSaml2SsoUrlOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SsoUrlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SsoUrlOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2SsoUrlArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SsoUrlArray and Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SsoUrlArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SsoUrlArray{ Saml2IntegrationDescribeOutputSaml2SsoUrlArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2SsoUrlArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2SsoUrlArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SsoUrlArray []Saml2IntegrationDescribeOutputSaml2SsoUrlInput
-
-func (Saml2IntegrationDescribeOutputSaml2SsoUrlArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SsoUrl)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SsoUrlArray) ToSaml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SsoUrlArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SsoUrlArray) ToSaml2IntegrationDescribeOutputSaml2SsoUrlArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SsoUrlOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SsoUrlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SsoUrl)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SsoUrlOutput) ToSaml2IntegrationDescribeOutputSaml2SsoUrlOutput() Saml2IntegrationDescribeOutputSaml2SsoUrlOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SsoUrlOutput) ToSaml2IntegrationDescribeOutputSaml2SsoUrlOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SsoUrlOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SsoUrlOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SsoUrl) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SsoUrlOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SsoUrl) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SsoUrlOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SsoUrl) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SsoUrlOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SsoUrl) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SsoUrl)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SsoUrlArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2SsoUrlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2SsoUrl {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2SsoUrl)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2SsoUrlOutput)
-}
-
-type Saml2IntegrationShowOutput struct {
-	Category        *string `pulumi:"category"`
-	Comment         *string `pulumi:"comment"`
-	CreatedOn       *string `pulumi:"createdOn"`
-	Enabled         *bool   `pulumi:"enabled"`
-	IntegrationType *string `pulumi:"integrationType"`
-	Name            *string `pulumi:"name"`
-}
-
-// Saml2IntegrationShowOutputInput is an input type that accepts Saml2IntegrationShowOutputArgs and Saml2IntegrationShowOutputOutput values.
-// You can construct a concrete instance of `Saml2IntegrationShowOutputInput` via:
-//
-//	Saml2IntegrationShowOutputArgs{...}
-type Saml2IntegrationShowOutputInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationShowOutputOutput() Saml2IntegrationShowOutputOutput
-	ToSaml2IntegrationShowOutputOutputWithContext(context.Context) Saml2IntegrationShowOutputOutput
-}
-
-type Saml2IntegrationShowOutputArgs struct {
-	Category        pulumi.StringPtrInput `pulumi:"category"`
-	Comment         pulumi.StringPtrInput `pulumi:"comment"`
-	CreatedOn       pulumi.StringPtrInput `pulumi:"createdOn"`
-	Enabled         pulumi.BoolPtrInput   `pulumi:"enabled"`
-	IntegrationType pulumi.StringPtrInput `pulumi:"integrationType"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (Saml2IntegrationShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationShowOutput)(nil)).Elem()
-}
-
-func (i Saml2IntegrationShowOutputArgs) ToSaml2IntegrationShowOutputOutput() Saml2IntegrationShowOutputOutput {
-	return i.ToSaml2IntegrationShowOutputOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationShowOutputArgs) ToSaml2IntegrationShowOutputOutputWithContext(ctx context.Context) Saml2IntegrationShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationShowOutputOutput)
-}
-
-// Saml2IntegrationShowOutputArrayInput is an input type that accepts Saml2IntegrationShowOutputArray and Saml2IntegrationShowOutputArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationShowOutputArrayInput` via:
-//
-//	Saml2IntegrationShowOutputArray{ Saml2IntegrationShowOutputArgs{...} }
-type Saml2IntegrationShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationShowOutputArrayOutput() Saml2IntegrationShowOutputArrayOutput
-	ToSaml2IntegrationShowOutputArrayOutputWithContext(context.Context) Saml2IntegrationShowOutputArrayOutput
-}
-
-type Saml2IntegrationShowOutputArray []Saml2IntegrationShowOutputInput
-
-func (Saml2IntegrationShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationShowOutput)(nil)).Elem()
-}
-
-func (i Saml2IntegrationShowOutputArray) ToSaml2IntegrationShowOutputArrayOutput() Saml2IntegrationShowOutputArrayOutput {
-	return i.ToSaml2IntegrationShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationShowOutputArray) ToSaml2IntegrationShowOutputArrayOutputWithContext(ctx context.Context) Saml2IntegrationShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationShowOutputArrayOutput)
-}
-
-type Saml2IntegrationShowOutputOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationShowOutput)(nil)).Elem()
-}
-
-func (o Saml2IntegrationShowOutputOutput) ToSaml2IntegrationShowOutputOutput() Saml2IntegrationShowOutputOutput {
-	return o
-}
-
-func (o Saml2IntegrationShowOutputOutput) ToSaml2IntegrationShowOutputOutputWithContext(ctx context.Context) Saml2IntegrationShowOutputOutput {
-	return o
-}
-
-func (o Saml2IntegrationShowOutputOutput) Category() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationShowOutput) *string { return v.Category }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationShowOutputOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationShowOutputOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationShowOutput) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-func (o Saml2IntegrationShowOutputOutput) IntegrationType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationShowOutput) *string { return v.IntegrationType }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationShowOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationShowOutput)(nil)).Elem()
-}
-
-func (o Saml2IntegrationShowOutputArrayOutput) ToSaml2IntegrationShowOutputArrayOutput() Saml2IntegrationShowOutputArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationShowOutputArrayOutput) ToSaml2IntegrationShowOutputArrayOutputWithContext(ctx context.Context) Saml2IntegrationShowOutputArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationShowOutputArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationShowOutput {
-		return vs[0].([]Saml2IntegrationShowOutput)[vs[1].(int)]
-	}).(Saml2IntegrationShowOutputOutput)
-}
-
-type SchemaDescribeOutput struct {
-	CreatedOn *string `pulumi:"createdOn"`
-	Kind      *string `pulumi:"kind"`
-	Name      *string `pulumi:"name"`
-}
-
-// SchemaDescribeOutputInput is an input type that accepts SchemaDescribeOutputArgs and SchemaDescribeOutputOutput values.
-// You can construct a concrete instance of `SchemaDescribeOutputInput` via:
-//
-//	SchemaDescribeOutputArgs{...}
-type SchemaDescribeOutputInput interface {
-	pulumi.Input
-
-	ToSchemaDescribeOutputOutput() SchemaDescribeOutputOutput
-	ToSchemaDescribeOutputOutputWithContext(context.Context) SchemaDescribeOutputOutput
-}
-
-type SchemaDescribeOutputArgs struct {
-	CreatedOn pulumi.StringPtrInput `pulumi:"createdOn"`
-	Kind      pulumi.StringPtrInput `pulumi:"kind"`
-	Name      pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (SchemaDescribeOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaDescribeOutput)(nil)).Elem()
-}
-
-func (i SchemaDescribeOutputArgs) ToSchemaDescribeOutputOutput() SchemaDescribeOutputOutput {
-	return i.ToSchemaDescribeOutputOutputWithContext(context.Background())
-}
-
-func (i SchemaDescribeOutputArgs) ToSchemaDescribeOutputOutputWithContext(ctx context.Context) SchemaDescribeOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaDescribeOutputOutput)
-}
-
-// SchemaDescribeOutputArrayInput is an input type that accepts SchemaDescribeOutputArray and SchemaDescribeOutputArrayOutput values.
-// You can construct a concrete instance of `SchemaDescribeOutputArrayInput` via:
-//
-//	SchemaDescribeOutputArray{ SchemaDescribeOutputArgs{...} }
-type SchemaDescribeOutputArrayInput interface {
-	pulumi.Input
-
-	ToSchemaDescribeOutputArrayOutput() SchemaDescribeOutputArrayOutput
-	ToSchemaDescribeOutputArrayOutputWithContext(context.Context) SchemaDescribeOutputArrayOutput
-}
-
-type SchemaDescribeOutputArray []SchemaDescribeOutputInput
-
-func (SchemaDescribeOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaDescribeOutput)(nil)).Elem()
-}
-
-func (i SchemaDescribeOutputArray) ToSchemaDescribeOutputArrayOutput() SchemaDescribeOutputArrayOutput {
-	return i.ToSchemaDescribeOutputArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaDescribeOutputArray) ToSchemaDescribeOutputArrayOutputWithContext(ctx context.Context) SchemaDescribeOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaDescribeOutputArrayOutput)
-}
-
-type SchemaDescribeOutputOutput struct{ *pulumi.OutputState }
-
-func (SchemaDescribeOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaDescribeOutput)(nil)).Elem()
-}
-
-func (o SchemaDescribeOutputOutput) ToSchemaDescribeOutputOutput() SchemaDescribeOutputOutput {
-	return o
-}
-
-func (o SchemaDescribeOutputOutput) ToSchemaDescribeOutputOutputWithContext(ctx context.Context) SchemaDescribeOutputOutput {
-	return o
-}
-
-func (o SchemaDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaDescribeOutputOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaDescribeOutput) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaDescribeOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type SchemaDescribeOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaDescribeOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaDescribeOutput)(nil)).Elem()
-}
-
-func (o SchemaDescribeOutputArrayOutput) ToSchemaDescribeOutputArrayOutput() SchemaDescribeOutputArrayOutput {
-	return o
-}
-
-func (o SchemaDescribeOutputArrayOutput) ToSchemaDescribeOutputArrayOutputWithContext(ctx context.Context) SchemaDescribeOutputArrayOutput {
-	return o
-}
-
-func (o SchemaDescribeOutputArrayOutput) Index(i pulumi.IntInput) SchemaDescribeOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaDescribeOutput {
-		return vs[0].([]SchemaDescribeOutput)[vs[1].(int)]
-	}).(SchemaDescribeOutputOutput)
-}
-
-type SchemaParameter struct {
-	Catalogs                                []SchemaParameterCatalog                                `pulumi:"catalogs"`
-	DataRetentionTimeInDays                 []SchemaParameterDataRetentionTimeInDay                 `pulumi:"dataRetentionTimeInDays"`
-	DefaultDdlCollations                    []SchemaParameterDefaultDdlCollation                    `pulumi:"defaultDdlCollations"`
-	EnableConsoleOutputs                    []SchemaParameterEnableConsoleOutput                    `pulumi:"enableConsoleOutputs"`
-	ExternalVolumes                         []SchemaParameterExternalVolume                         `pulumi:"externalVolumes"`
-	LogEventLevels                          []SchemaParameterLogEventLevel                          `pulumi:"logEventLevels"`
-	LogLevels                               []SchemaParameterLogLevel                               `pulumi:"logLevels"`
-	MaxDataExtensionTimeInDays              []SchemaParameterMaxDataExtensionTimeInDay              `pulumi:"maxDataExtensionTimeInDays"`
-	PipeExecutionPauseds                    []SchemaParameterPipeExecutionPaused                    `pulumi:"pipeExecutionPauseds"`
-	QuotedIdentifiersIgnoreCases            []SchemaParameterQuotedIdentifiersIgnoreCase            `pulumi:"quotedIdentifiersIgnoreCases"`
-	ReplaceInvalidCharacters                []SchemaParameterReplaceInvalidCharacter                `pulumi:"replaceInvalidCharacters"`
-	StorageSerializationPolicies            []SchemaParameterStorageSerializationPolicy             `pulumi:"storageSerializationPolicies"`
-	SuspendTaskAfterNumFailures             []SchemaParameterSuspendTaskAfterNumFailure             `pulumi:"suspendTaskAfterNumFailures"`
-	TaskAutoRetryAttempts                   []SchemaParameterTaskAutoRetryAttempt                   `pulumi:"taskAutoRetryAttempts"`
-	TraceLevels                             []SchemaParameterTraceLevel                             `pulumi:"traceLevels"`
-	UserTaskManagedInitialWarehouseSizes    []SchemaParameterUserTaskManagedInitialWarehouseSize    `pulumi:"userTaskManagedInitialWarehouseSizes"`
-	UserTaskMinimumTriggerIntervalInSeconds []SchemaParameterUserTaskMinimumTriggerIntervalInSecond `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
-	UserTaskTimeoutMs                       []SchemaParameterUserTaskTimeoutM                       `pulumi:"userTaskTimeoutMs"`
-}
-
-// SchemaParameterInput is an input type that accepts SchemaParameterArgs and SchemaParameterOutput values.
-// You can construct a concrete instance of `SchemaParameterInput` via:
-//
-//	SchemaParameterArgs{...}
-type SchemaParameterInput interface {
-	pulumi.Input
-
-	ToSchemaParameterOutput() SchemaParameterOutput
-	ToSchemaParameterOutputWithContext(context.Context) SchemaParameterOutput
-}
-
-type SchemaParameterArgs struct {
-	Catalogs                                SchemaParameterCatalogArrayInput                                `pulumi:"catalogs"`
-	DataRetentionTimeInDays                 SchemaParameterDataRetentionTimeInDayArrayInput                 `pulumi:"dataRetentionTimeInDays"`
-	DefaultDdlCollations                    SchemaParameterDefaultDdlCollationArrayInput                    `pulumi:"defaultDdlCollations"`
-	EnableConsoleOutputs                    SchemaParameterEnableConsoleOutputArrayInput                    `pulumi:"enableConsoleOutputs"`
-	ExternalVolumes                         SchemaParameterExternalVolumeArrayInput                         `pulumi:"externalVolumes"`
-	LogEventLevels                          SchemaParameterLogEventLevelArrayInput                          `pulumi:"logEventLevels"`
-	LogLevels                               SchemaParameterLogLevelArrayInput                               `pulumi:"logLevels"`
-	MaxDataExtensionTimeInDays              SchemaParameterMaxDataExtensionTimeInDayArrayInput              `pulumi:"maxDataExtensionTimeInDays"`
-	PipeExecutionPauseds                    SchemaParameterPipeExecutionPausedArrayInput                    `pulumi:"pipeExecutionPauseds"`
-	QuotedIdentifiersIgnoreCases            SchemaParameterQuotedIdentifiersIgnoreCaseArrayInput            `pulumi:"quotedIdentifiersIgnoreCases"`
-	ReplaceInvalidCharacters                SchemaParameterReplaceInvalidCharacterArrayInput                `pulumi:"replaceInvalidCharacters"`
-	StorageSerializationPolicies            SchemaParameterStorageSerializationPolicyArrayInput             `pulumi:"storageSerializationPolicies"`
-	SuspendTaskAfterNumFailures             SchemaParameterSuspendTaskAfterNumFailureArrayInput             `pulumi:"suspendTaskAfterNumFailures"`
-	TaskAutoRetryAttempts                   SchemaParameterTaskAutoRetryAttemptArrayInput                   `pulumi:"taskAutoRetryAttempts"`
-	TraceLevels                             SchemaParameterTraceLevelArrayInput                             `pulumi:"traceLevels"`
-	UserTaskManagedInitialWarehouseSizes    SchemaParameterUserTaskManagedInitialWarehouseSizeArrayInput    `pulumi:"userTaskManagedInitialWarehouseSizes"`
-	UserTaskMinimumTriggerIntervalInSeconds SchemaParameterUserTaskMinimumTriggerIntervalInSecondArrayInput `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
-	UserTaskTimeoutMs                       SchemaParameterUserTaskTimeoutMArrayInput                       `pulumi:"userTaskTimeoutMs"`
-}
-
-func (SchemaParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameter)(nil)).Elem()
-}
-
-func (i SchemaParameterArgs) ToSchemaParameterOutput() SchemaParameterOutput {
-	return i.ToSchemaParameterOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterArgs) ToSchemaParameterOutputWithContext(ctx context.Context) SchemaParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterOutput)
-}
-
-// SchemaParameterArrayInput is an input type that accepts SchemaParameterArray and SchemaParameterArrayOutput values.
-// You can construct a concrete instance of `SchemaParameterArrayInput` via:
-//
-//	SchemaParameterArray{ SchemaParameterArgs{...} }
-type SchemaParameterArrayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterArrayOutput() SchemaParameterArrayOutput
-	ToSchemaParameterArrayOutputWithContext(context.Context) SchemaParameterArrayOutput
-}
-
-type SchemaParameterArray []SchemaParameterInput
-
-func (SchemaParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameter)(nil)).Elem()
-}
-
-func (i SchemaParameterArray) ToSchemaParameterArrayOutput() SchemaParameterArrayOutput {
-	return i.ToSchemaParameterArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterArray) ToSchemaParameterArrayOutputWithContext(ctx context.Context) SchemaParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterArrayOutput)
-}
-
-type SchemaParameterOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameter)(nil)).Elem()
-}
-
-func (o SchemaParameterOutput) ToSchemaParameterOutput() SchemaParameterOutput {
-	return o
-}
-
-func (o SchemaParameterOutput) ToSchemaParameterOutputWithContext(ctx context.Context) SchemaParameterOutput {
-	return o
-}
-
-func (o SchemaParameterOutput) Catalogs() SchemaParameterCatalogArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterCatalog { return v.Catalogs }).(SchemaParameterCatalogArrayOutput)
-}
-
-func (o SchemaParameterOutput) DataRetentionTimeInDays() SchemaParameterDataRetentionTimeInDayArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterDataRetentionTimeInDay { return v.DataRetentionTimeInDays }).(SchemaParameterDataRetentionTimeInDayArrayOutput)
-}
-
-func (o SchemaParameterOutput) DefaultDdlCollations() SchemaParameterDefaultDdlCollationArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterDefaultDdlCollation { return v.DefaultDdlCollations }).(SchemaParameterDefaultDdlCollationArrayOutput)
-}
-
-func (o SchemaParameterOutput) EnableConsoleOutputs() SchemaParameterEnableConsoleOutputArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterEnableConsoleOutput { return v.EnableConsoleOutputs }).(SchemaParameterEnableConsoleOutputArrayOutput)
-}
-
-func (o SchemaParameterOutput) ExternalVolumes() SchemaParameterExternalVolumeArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterExternalVolume { return v.ExternalVolumes }).(SchemaParameterExternalVolumeArrayOutput)
-}
-
-func (o SchemaParameterOutput) LogEventLevels() SchemaParameterLogEventLevelArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterLogEventLevel { return v.LogEventLevels }).(SchemaParameterLogEventLevelArrayOutput)
-}
-
-func (o SchemaParameterOutput) LogLevels() SchemaParameterLogLevelArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterLogLevel { return v.LogLevels }).(SchemaParameterLogLevelArrayOutput)
-}
-
-func (o SchemaParameterOutput) MaxDataExtensionTimeInDays() SchemaParameterMaxDataExtensionTimeInDayArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterMaxDataExtensionTimeInDay {
-		return v.MaxDataExtensionTimeInDays
-	}).(SchemaParameterMaxDataExtensionTimeInDayArrayOutput)
-}
-
-func (o SchemaParameterOutput) PipeExecutionPauseds() SchemaParameterPipeExecutionPausedArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterPipeExecutionPaused { return v.PipeExecutionPauseds }).(SchemaParameterPipeExecutionPausedArrayOutput)
-}
-
-func (o SchemaParameterOutput) QuotedIdentifiersIgnoreCases() SchemaParameterQuotedIdentifiersIgnoreCaseArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterQuotedIdentifiersIgnoreCase {
-		return v.QuotedIdentifiersIgnoreCases
-	}).(SchemaParameterQuotedIdentifiersIgnoreCaseArrayOutput)
-}
-
-func (o SchemaParameterOutput) ReplaceInvalidCharacters() SchemaParameterReplaceInvalidCharacterArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterReplaceInvalidCharacter { return v.ReplaceInvalidCharacters }).(SchemaParameterReplaceInvalidCharacterArrayOutput)
-}
-
-func (o SchemaParameterOutput) StorageSerializationPolicies() SchemaParameterStorageSerializationPolicyArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterStorageSerializationPolicy {
-		return v.StorageSerializationPolicies
-	}).(SchemaParameterStorageSerializationPolicyArrayOutput)
-}
-
-func (o SchemaParameterOutput) SuspendTaskAfterNumFailures() SchemaParameterSuspendTaskAfterNumFailureArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterSuspendTaskAfterNumFailure {
-		return v.SuspendTaskAfterNumFailures
-	}).(SchemaParameterSuspendTaskAfterNumFailureArrayOutput)
-}
-
-func (o SchemaParameterOutput) TaskAutoRetryAttempts() SchemaParameterTaskAutoRetryAttemptArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterTaskAutoRetryAttempt { return v.TaskAutoRetryAttempts }).(SchemaParameterTaskAutoRetryAttemptArrayOutput)
-}
-
-func (o SchemaParameterOutput) TraceLevels() SchemaParameterTraceLevelArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterTraceLevel { return v.TraceLevels }).(SchemaParameterTraceLevelArrayOutput)
-}
-
-func (o SchemaParameterOutput) UserTaskManagedInitialWarehouseSizes() SchemaParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterUserTaskManagedInitialWarehouseSize {
-		return v.UserTaskManagedInitialWarehouseSizes
-	}).(SchemaParameterUserTaskManagedInitialWarehouseSizeArrayOutput)
-}
-
-func (o SchemaParameterOutput) UserTaskMinimumTriggerIntervalInSeconds() SchemaParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterUserTaskMinimumTriggerIntervalInSecond {
-		return v.UserTaskMinimumTriggerIntervalInSeconds
-	}).(SchemaParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput)
-}
-
-func (o SchemaParameterOutput) UserTaskTimeoutMs() SchemaParameterUserTaskTimeoutMArrayOutput {
-	return o.ApplyT(func(v SchemaParameter) []SchemaParameterUserTaskTimeoutM { return v.UserTaskTimeoutMs }).(SchemaParameterUserTaskTimeoutMArrayOutput)
-}
-
-type SchemaParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameter)(nil)).Elem()
-}
-
-func (o SchemaParameterArrayOutput) ToSchemaParameterArrayOutput() SchemaParameterArrayOutput {
-	return o
-}
-
-func (o SchemaParameterArrayOutput) ToSchemaParameterArrayOutputWithContext(ctx context.Context) SchemaParameterArrayOutput {
-	return o
-}
-
-func (o SchemaParameterArrayOutput) Index(i pulumi.IntInput) SchemaParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameter {
-		return vs[0].([]SchemaParameter)[vs[1].(int)]
-	}).(SchemaParameterOutput)
-}
-
-type SchemaParameterCatalog struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// SchemaParameterCatalogInput is an input type that accepts SchemaParameterCatalogArgs and SchemaParameterCatalogOutput values.
-// You can construct a concrete instance of `SchemaParameterCatalogInput` via:
-//
-//	SchemaParameterCatalogArgs{...}
-type SchemaParameterCatalogInput interface {
-	pulumi.Input
-
-	ToSchemaParameterCatalogOutput() SchemaParameterCatalogOutput
-	ToSchemaParameterCatalogOutputWithContext(context.Context) SchemaParameterCatalogOutput
-}
-
-type SchemaParameterCatalogArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (SchemaParameterCatalogArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterCatalog)(nil)).Elem()
-}
-
-func (i SchemaParameterCatalogArgs) ToSchemaParameterCatalogOutput() SchemaParameterCatalogOutput {
-	return i.ToSchemaParameterCatalogOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterCatalogArgs) ToSchemaParameterCatalogOutputWithContext(ctx context.Context) SchemaParameterCatalogOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterCatalogOutput)
-}
-
-// SchemaParameterCatalogArrayInput is an input type that accepts SchemaParameterCatalogArray and SchemaParameterCatalogArrayOutput values.
-// You can construct a concrete instance of `SchemaParameterCatalogArrayInput` via:
-//
-//	SchemaParameterCatalogArray{ SchemaParameterCatalogArgs{...} }
-type SchemaParameterCatalogArrayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterCatalogArrayOutput() SchemaParameterCatalogArrayOutput
-	ToSchemaParameterCatalogArrayOutputWithContext(context.Context) SchemaParameterCatalogArrayOutput
-}
-
-type SchemaParameterCatalogArray []SchemaParameterCatalogInput
-
-func (SchemaParameterCatalogArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterCatalog)(nil)).Elem()
-}
-
-func (i SchemaParameterCatalogArray) ToSchemaParameterCatalogArrayOutput() SchemaParameterCatalogArrayOutput {
-	return i.ToSchemaParameterCatalogArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterCatalogArray) ToSchemaParameterCatalogArrayOutputWithContext(ctx context.Context) SchemaParameterCatalogArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterCatalogArrayOutput)
-}
-
-type SchemaParameterCatalogOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterCatalogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterCatalog)(nil)).Elem()
-}
-
-func (o SchemaParameterCatalogOutput) ToSchemaParameterCatalogOutput() SchemaParameterCatalogOutput {
-	return o
-}
-
-func (o SchemaParameterCatalogOutput) ToSchemaParameterCatalogOutputWithContext(ctx context.Context) SchemaParameterCatalogOutput {
-	return o
-}
-
-func (o SchemaParameterCatalogOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterCatalog) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterCatalogOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterCatalog) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterCatalogOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterCatalog) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterCatalogOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterCatalog) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterCatalogOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterCatalog) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type SchemaParameterCatalogArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterCatalogArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterCatalog)(nil)).Elem()
-}
-
-func (o SchemaParameterCatalogArrayOutput) ToSchemaParameterCatalogArrayOutput() SchemaParameterCatalogArrayOutput {
-	return o
-}
-
-func (o SchemaParameterCatalogArrayOutput) ToSchemaParameterCatalogArrayOutputWithContext(ctx context.Context) SchemaParameterCatalogArrayOutput {
-	return o
-}
-
-func (o SchemaParameterCatalogArrayOutput) Index(i pulumi.IntInput) SchemaParameterCatalogOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterCatalog {
-		return vs[0].([]SchemaParameterCatalog)[vs[1].(int)]
-	}).(SchemaParameterCatalogOutput)
-}
-
-type SchemaParameterDataRetentionTimeInDay struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// SchemaParameterDataRetentionTimeInDayInput is an input type that accepts SchemaParameterDataRetentionTimeInDayArgs and SchemaParameterDataRetentionTimeInDayOutput values.
-// You can construct a concrete instance of `SchemaParameterDataRetentionTimeInDayInput` via:
-//
-//	SchemaParameterDataRetentionTimeInDayArgs{...}
-type SchemaParameterDataRetentionTimeInDayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterDataRetentionTimeInDayOutput() SchemaParameterDataRetentionTimeInDayOutput
-	ToSchemaParameterDataRetentionTimeInDayOutputWithContext(context.Context) SchemaParameterDataRetentionTimeInDayOutput
-}
-
-type SchemaParameterDataRetentionTimeInDayArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (SchemaParameterDataRetentionTimeInDayArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterDataRetentionTimeInDay)(nil)).Elem()
-}
-
-func (i SchemaParameterDataRetentionTimeInDayArgs) ToSchemaParameterDataRetentionTimeInDayOutput() SchemaParameterDataRetentionTimeInDayOutput {
-	return i.ToSchemaParameterDataRetentionTimeInDayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterDataRetentionTimeInDayArgs) ToSchemaParameterDataRetentionTimeInDayOutputWithContext(ctx context.Context) SchemaParameterDataRetentionTimeInDayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterDataRetentionTimeInDayOutput)
-}
-
-// SchemaParameterDataRetentionTimeInDayArrayInput is an input type that accepts SchemaParameterDataRetentionTimeInDayArray and SchemaParameterDataRetentionTimeInDayArrayOutput values.
-// You can construct a concrete instance of `SchemaParameterDataRetentionTimeInDayArrayInput` via:
-//
-//	SchemaParameterDataRetentionTimeInDayArray{ SchemaParameterDataRetentionTimeInDayArgs{...} }
-type SchemaParameterDataRetentionTimeInDayArrayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterDataRetentionTimeInDayArrayOutput() SchemaParameterDataRetentionTimeInDayArrayOutput
-	ToSchemaParameterDataRetentionTimeInDayArrayOutputWithContext(context.Context) SchemaParameterDataRetentionTimeInDayArrayOutput
-}
-
-type SchemaParameterDataRetentionTimeInDayArray []SchemaParameterDataRetentionTimeInDayInput
-
-func (SchemaParameterDataRetentionTimeInDayArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterDataRetentionTimeInDay)(nil)).Elem()
-}
-
-func (i SchemaParameterDataRetentionTimeInDayArray) ToSchemaParameterDataRetentionTimeInDayArrayOutput() SchemaParameterDataRetentionTimeInDayArrayOutput {
-	return i.ToSchemaParameterDataRetentionTimeInDayArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterDataRetentionTimeInDayArray) ToSchemaParameterDataRetentionTimeInDayArrayOutputWithContext(ctx context.Context) SchemaParameterDataRetentionTimeInDayArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterDataRetentionTimeInDayArrayOutput)
-}
-
-type SchemaParameterDataRetentionTimeInDayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterDataRetentionTimeInDayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterDataRetentionTimeInDay)(nil)).Elem()
-}
-
-func (o SchemaParameterDataRetentionTimeInDayOutput) ToSchemaParameterDataRetentionTimeInDayOutput() SchemaParameterDataRetentionTimeInDayOutput {
-	return o
-}
-
-func (o SchemaParameterDataRetentionTimeInDayOutput) ToSchemaParameterDataRetentionTimeInDayOutputWithContext(ctx context.Context) SchemaParameterDataRetentionTimeInDayOutput {
-	return o
-}
-
-func (o SchemaParameterDataRetentionTimeInDayOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterDataRetentionTimeInDay) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterDataRetentionTimeInDayOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterDataRetentionTimeInDay) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterDataRetentionTimeInDayOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterDataRetentionTimeInDay) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterDataRetentionTimeInDayOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterDataRetentionTimeInDay) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterDataRetentionTimeInDayOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterDataRetentionTimeInDay) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type SchemaParameterDataRetentionTimeInDayArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterDataRetentionTimeInDayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterDataRetentionTimeInDay)(nil)).Elem()
-}
-
-func (o SchemaParameterDataRetentionTimeInDayArrayOutput) ToSchemaParameterDataRetentionTimeInDayArrayOutput() SchemaParameterDataRetentionTimeInDayArrayOutput {
-	return o
-}
-
-func (o SchemaParameterDataRetentionTimeInDayArrayOutput) ToSchemaParameterDataRetentionTimeInDayArrayOutputWithContext(ctx context.Context) SchemaParameterDataRetentionTimeInDayArrayOutput {
-	return o
-}
-
-func (o SchemaParameterDataRetentionTimeInDayArrayOutput) Index(i pulumi.IntInput) SchemaParameterDataRetentionTimeInDayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterDataRetentionTimeInDay {
-		return vs[0].([]SchemaParameterDataRetentionTimeInDay)[vs[1].(int)]
-	}).(SchemaParameterDataRetentionTimeInDayOutput)
-}
-
-type SchemaParameterDefaultDdlCollation struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// SchemaParameterDefaultDdlCollationInput is an input type that accepts SchemaParameterDefaultDdlCollationArgs and SchemaParameterDefaultDdlCollationOutput values.
-// You can construct a concrete instance of `SchemaParameterDefaultDdlCollationInput` via:
-//
-//	SchemaParameterDefaultDdlCollationArgs{...}
-type SchemaParameterDefaultDdlCollationInput interface {
-	pulumi.Input
-
-	ToSchemaParameterDefaultDdlCollationOutput() SchemaParameterDefaultDdlCollationOutput
-	ToSchemaParameterDefaultDdlCollationOutputWithContext(context.Context) SchemaParameterDefaultDdlCollationOutput
-}
-
-type SchemaParameterDefaultDdlCollationArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (SchemaParameterDefaultDdlCollationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterDefaultDdlCollation)(nil)).Elem()
-}
-
-func (i SchemaParameterDefaultDdlCollationArgs) ToSchemaParameterDefaultDdlCollationOutput() SchemaParameterDefaultDdlCollationOutput {
-	return i.ToSchemaParameterDefaultDdlCollationOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterDefaultDdlCollationArgs) ToSchemaParameterDefaultDdlCollationOutputWithContext(ctx context.Context) SchemaParameterDefaultDdlCollationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterDefaultDdlCollationOutput)
-}
-
-// SchemaParameterDefaultDdlCollationArrayInput is an input type that accepts SchemaParameterDefaultDdlCollationArray and SchemaParameterDefaultDdlCollationArrayOutput values.
-// You can construct a concrete instance of `SchemaParameterDefaultDdlCollationArrayInput` via:
-//
-//	SchemaParameterDefaultDdlCollationArray{ SchemaParameterDefaultDdlCollationArgs{...} }
-type SchemaParameterDefaultDdlCollationArrayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterDefaultDdlCollationArrayOutput() SchemaParameterDefaultDdlCollationArrayOutput
-	ToSchemaParameterDefaultDdlCollationArrayOutputWithContext(context.Context) SchemaParameterDefaultDdlCollationArrayOutput
-}
-
-type SchemaParameterDefaultDdlCollationArray []SchemaParameterDefaultDdlCollationInput
-
-func (SchemaParameterDefaultDdlCollationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterDefaultDdlCollation)(nil)).Elem()
-}
-
-func (i SchemaParameterDefaultDdlCollationArray) ToSchemaParameterDefaultDdlCollationArrayOutput() SchemaParameterDefaultDdlCollationArrayOutput {
-	return i.ToSchemaParameterDefaultDdlCollationArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterDefaultDdlCollationArray) ToSchemaParameterDefaultDdlCollationArrayOutputWithContext(ctx context.Context) SchemaParameterDefaultDdlCollationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterDefaultDdlCollationArrayOutput)
-}
-
-type SchemaParameterDefaultDdlCollationOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterDefaultDdlCollationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterDefaultDdlCollation)(nil)).Elem()
-}
-
-func (o SchemaParameterDefaultDdlCollationOutput) ToSchemaParameterDefaultDdlCollationOutput() SchemaParameterDefaultDdlCollationOutput {
-	return o
-}
-
-func (o SchemaParameterDefaultDdlCollationOutput) ToSchemaParameterDefaultDdlCollationOutputWithContext(ctx context.Context) SchemaParameterDefaultDdlCollationOutput {
-	return o
-}
-
-func (o SchemaParameterDefaultDdlCollationOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterDefaultDdlCollation) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterDefaultDdlCollationOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterDefaultDdlCollation) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterDefaultDdlCollationOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterDefaultDdlCollation) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterDefaultDdlCollationOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterDefaultDdlCollation) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterDefaultDdlCollationOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterDefaultDdlCollation) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type SchemaParameterDefaultDdlCollationArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterDefaultDdlCollationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterDefaultDdlCollation)(nil)).Elem()
-}
-
-func (o SchemaParameterDefaultDdlCollationArrayOutput) ToSchemaParameterDefaultDdlCollationArrayOutput() SchemaParameterDefaultDdlCollationArrayOutput {
-	return o
-}
-
-func (o SchemaParameterDefaultDdlCollationArrayOutput) ToSchemaParameterDefaultDdlCollationArrayOutputWithContext(ctx context.Context) SchemaParameterDefaultDdlCollationArrayOutput {
-	return o
-}
-
-func (o SchemaParameterDefaultDdlCollationArrayOutput) Index(i pulumi.IntInput) SchemaParameterDefaultDdlCollationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterDefaultDdlCollation {
-		return vs[0].([]SchemaParameterDefaultDdlCollation)[vs[1].(int)]
-	}).(SchemaParameterDefaultDdlCollationOutput)
-}
-
-type SchemaParameterEnableConsoleOutput struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// SchemaParameterEnableConsoleOutputInput is an input type that accepts SchemaParameterEnableConsoleOutputArgs and SchemaParameterEnableConsoleOutputOutput values.
-// You can construct a concrete instance of `SchemaParameterEnableConsoleOutputInput` via:
-//
-//	SchemaParameterEnableConsoleOutputArgs{...}
-type SchemaParameterEnableConsoleOutputInput interface {
-	pulumi.Input
-
-	ToSchemaParameterEnableConsoleOutputOutput() SchemaParameterEnableConsoleOutputOutput
-	ToSchemaParameterEnableConsoleOutputOutputWithContext(context.Context) SchemaParameterEnableConsoleOutputOutput
-}
-
-type SchemaParameterEnableConsoleOutputArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (SchemaParameterEnableConsoleOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (i SchemaParameterEnableConsoleOutputArgs) ToSchemaParameterEnableConsoleOutputOutput() SchemaParameterEnableConsoleOutputOutput {
-	return i.ToSchemaParameterEnableConsoleOutputOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterEnableConsoleOutputArgs) ToSchemaParameterEnableConsoleOutputOutputWithContext(ctx context.Context) SchemaParameterEnableConsoleOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterEnableConsoleOutputOutput)
-}
-
-// SchemaParameterEnableConsoleOutputArrayInput is an input type that accepts SchemaParameterEnableConsoleOutputArray and SchemaParameterEnableConsoleOutputArrayOutput values.
-// You can construct a concrete instance of `SchemaParameterEnableConsoleOutputArrayInput` via:
-//
-//	SchemaParameterEnableConsoleOutputArray{ SchemaParameterEnableConsoleOutputArgs{...} }
-type SchemaParameterEnableConsoleOutputArrayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterEnableConsoleOutputArrayOutput() SchemaParameterEnableConsoleOutputArrayOutput
-	ToSchemaParameterEnableConsoleOutputArrayOutputWithContext(context.Context) SchemaParameterEnableConsoleOutputArrayOutput
-}
-
-type SchemaParameterEnableConsoleOutputArray []SchemaParameterEnableConsoleOutputInput
-
-func (SchemaParameterEnableConsoleOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (i SchemaParameterEnableConsoleOutputArray) ToSchemaParameterEnableConsoleOutputArrayOutput() SchemaParameterEnableConsoleOutputArrayOutput {
-	return i.ToSchemaParameterEnableConsoleOutputArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterEnableConsoleOutputArray) ToSchemaParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) SchemaParameterEnableConsoleOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterEnableConsoleOutputArrayOutput)
-}
-
-type SchemaParameterEnableConsoleOutputOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterEnableConsoleOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (o SchemaParameterEnableConsoleOutputOutput) ToSchemaParameterEnableConsoleOutputOutput() SchemaParameterEnableConsoleOutputOutput {
-	return o
-}
-
-func (o SchemaParameterEnableConsoleOutputOutput) ToSchemaParameterEnableConsoleOutputOutputWithContext(ctx context.Context) SchemaParameterEnableConsoleOutputOutput {
-	return o
-}
-
-func (o SchemaParameterEnableConsoleOutputOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterEnableConsoleOutput) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterEnableConsoleOutputOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterEnableConsoleOutput) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterEnableConsoleOutputOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterEnableConsoleOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterEnableConsoleOutputOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterEnableConsoleOutput) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterEnableConsoleOutputOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterEnableConsoleOutput) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type SchemaParameterEnableConsoleOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterEnableConsoleOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterEnableConsoleOutput)(nil)).Elem()
-}
-
-func (o SchemaParameterEnableConsoleOutputArrayOutput) ToSchemaParameterEnableConsoleOutputArrayOutput() SchemaParameterEnableConsoleOutputArrayOutput {
-	return o
-}
-
-func (o SchemaParameterEnableConsoleOutputArrayOutput) ToSchemaParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) SchemaParameterEnableConsoleOutputArrayOutput {
-	return o
-}
-
-func (o SchemaParameterEnableConsoleOutputArrayOutput) Index(i pulumi.IntInput) SchemaParameterEnableConsoleOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterEnableConsoleOutput {
-		return vs[0].([]SchemaParameterEnableConsoleOutput)[vs[1].(int)]
-	}).(SchemaParameterEnableConsoleOutputOutput)
-}
-
-type SchemaParameterExternalVolume struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// SchemaParameterExternalVolumeInput is an input type that accepts SchemaParameterExternalVolumeArgs and SchemaParameterExternalVolumeOutput values.
-// You can construct a concrete instance of `SchemaParameterExternalVolumeInput` via:
-//
-//	SchemaParameterExternalVolumeArgs{...}
-type SchemaParameterExternalVolumeInput interface {
-	pulumi.Input
-
-	ToSchemaParameterExternalVolumeOutput() SchemaParameterExternalVolumeOutput
-	ToSchemaParameterExternalVolumeOutputWithContext(context.Context) SchemaParameterExternalVolumeOutput
-}
-
-type SchemaParameterExternalVolumeArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (SchemaParameterExternalVolumeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterExternalVolume)(nil)).Elem()
-}
-
-func (i SchemaParameterExternalVolumeArgs) ToSchemaParameterExternalVolumeOutput() SchemaParameterExternalVolumeOutput {
-	return i.ToSchemaParameterExternalVolumeOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterExternalVolumeArgs) ToSchemaParameterExternalVolumeOutputWithContext(ctx context.Context) SchemaParameterExternalVolumeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterExternalVolumeOutput)
-}
-
-// SchemaParameterExternalVolumeArrayInput is an input type that accepts SchemaParameterExternalVolumeArray and SchemaParameterExternalVolumeArrayOutput values.
-// You can construct a concrete instance of `SchemaParameterExternalVolumeArrayInput` via:
-//
-//	SchemaParameterExternalVolumeArray{ SchemaParameterExternalVolumeArgs{...} }
-type SchemaParameterExternalVolumeArrayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterExternalVolumeArrayOutput() SchemaParameterExternalVolumeArrayOutput
-	ToSchemaParameterExternalVolumeArrayOutputWithContext(context.Context) SchemaParameterExternalVolumeArrayOutput
-}
-
-type SchemaParameterExternalVolumeArray []SchemaParameterExternalVolumeInput
-
-func (SchemaParameterExternalVolumeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterExternalVolume)(nil)).Elem()
-}
-
-func (i SchemaParameterExternalVolumeArray) ToSchemaParameterExternalVolumeArrayOutput() SchemaParameterExternalVolumeArrayOutput {
-	return i.ToSchemaParameterExternalVolumeArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterExternalVolumeArray) ToSchemaParameterExternalVolumeArrayOutputWithContext(ctx context.Context) SchemaParameterExternalVolumeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterExternalVolumeArrayOutput)
-}
-
-type SchemaParameterExternalVolumeOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterExternalVolumeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterExternalVolume)(nil)).Elem()
-}
-
-func (o SchemaParameterExternalVolumeOutput) ToSchemaParameterExternalVolumeOutput() SchemaParameterExternalVolumeOutput {
-	return o
-}
-
-func (o SchemaParameterExternalVolumeOutput) ToSchemaParameterExternalVolumeOutputWithContext(ctx context.Context) SchemaParameterExternalVolumeOutput {
-	return o
-}
-
-func (o SchemaParameterExternalVolumeOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterExternalVolume) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterExternalVolumeOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterExternalVolume) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterExternalVolumeOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterExternalVolume) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterExternalVolumeOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterExternalVolume) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterExternalVolumeOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterExternalVolume) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type SchemaParameterExternalVolumeArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterExternalVolumeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterExternalVolume)(nil)).Elem()
-}
-
-func (o SchemaParameterExternalVolumeArrayOutput) ToSchemaParameterExternalVolumeArrayOutput() SchemaParameterExternalVolumeArrayOutput {
-	return o
-}
-
-func (o SchemaParameterExternalVolumeArrayOutput) ToSchemaParameterExternalVolumeArrayOutputWithContext(ctx context.Context) SchemaParameterExternalVolumeArrayOutput {
-	return o
-}
-
-func (o SchemaParameterExternalVolumeArrayOutput) Index(i pulumi.IntInput) SchemaParameterExternalVolumeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterExternalVolume {
-		return vs[0].([]SchemaParameterExternalVolume)[vs[1].(int)]
-	}).(SchemaParameterExternalVolumeOutput)
-}
-
-type SchemaParameterLogEventLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// SchemaParameterLogEventLevelInput is an input type that accepts SchemaParameterLogEventLevelArgs and SchemaParameterLogEventLevelOutput values.
-// You can construct a concrete instance of `SchemaParameterLogEventLevelInput` via:
-//
-//	SchemaParameterLogEventLevelArgs{...}
-type SchemaParameterLogEventLevelInput interface {
-	pulumi.Input
-
-	ToSchemaParameterLogEventLevelOutput() SchemaParameterLogEventLevelOutput
-	ToSchemaParameterLogEventLevelOutputWithContext(context.Context) SchemaParameterLogEventLevelOutput
-}
-
-type SchemaParameterLogEventLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (SchemaParameterLogEventLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterLogEventLevel)(nil)).Elem()
-}
-
-func (i SchemaParameterLogEventLevelArgs) ToSchemaParameterLogEventLevelOutput() SchemaParameterLogEventLevelOutput {
-	return i.ToSchemaParameterLogEventLevelOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterLogEventLevelArgs) ToSchemaParameterLogEventLevelOutputWithContext(ctx context.Context) SchemaParameterLogEventLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterLogEventLevelOutput)
-}
-
-// SchemaParameterLogEventLevelArrayInput is an input type that accepts SchemaParameterLogEventLevelArray and SchemaParameterLogEventLevelArrayOutput values.
-// You can construct a concrete instance of `SchemaParameterLogEventLevelArrayInput` via:
-//
-//	SchemaParameterLogEventLevelArray{ SchemaParameterLogEventLevelArgs{...} }
-type SchemaParameterLogEventLevelArrayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterLogEventLevelArrayOutput() SchemaParameterLogEventLevelArrayOutput
-	ToSchemaParameterLogEventLevelArrayOutputWithContext(context.Context) SchemaParameterLogEventLevelArrayOutput
-}
-
-type SchemaParameterLogEventLevelArray []SchemaParameterLogEventLevelInput
-
-func (SchemaParameterLogEventLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterLogEventLevel)(nil)).Elem()
-}
-
-func (i SchemaParameterLogEventLevelArray) ToSchemaParameterLogEventLevelArrayOutput() SchemaParameterLogEventLevelArrayOutput {
-	return i.ToSchemaParameterLogEventLevelArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterLogEventLevelArray) ToSchemaParameterLogEventLevelArrayOutputWithContext(ctx context.Context) SchemaParameterLogEventLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterLogEventLevelArrayOutput)
-}
-
-type SchemaParameterLogEventLevelOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterLogEventLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterLogEventLevel)(nil)).Elem()
-}
-
-func (o SchemaParameterLogEventLevelOutput) ToSchemaParameterLogEventLevelOutput() SchemaParameterLogEventLevelOutput {
-	return o
-}
-
-func (o SchemaParameterLogEventLevelOutput) ToSchemaParameterLogEventLevelOutputWithContext(ctx context.Context) SchemaParameterLogEventLevelOutput {
-	return o
-}
-
-func (o SchemaParameterLogEventLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterLogEventLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterLogEventLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterLogEventLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterLogEventLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterLogEventLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterLogEventLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterLogEventLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterLogEventLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterLogEventLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type SchemaParameterLogEventLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterLogEventLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterLogEventLevel)(nil)).Elem()
-}
-
-func (o SchemaParameterLogEventLevelArrayOutput) ToSchemaParameterLogEventLevelArrayOutput() SchemaParameterLogEventLevelArrayOutput {
-	return o
-}
-
-func (o SchemaParameterLogEventLevelArrayOutput) ToSchemaParameterLogEventLevelArrayOutputWithContext(ctx context.Context) SchemaParameterLogEventLevelArrayOutput {
-	return o
-}
-
-func (o SchemaParameterLogEventLevelArrayOutput) Index(i pulumi.IntInput) SchemaParameterLogEventLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterLogEventLevel {
-		return vs[0].([]SchemaParameterLogEventLevel)[vs[1].(int)]
-	}).(SchemaParameterLogEventLevelOutput)
-}
-
-type SchemaParameterLogLevel struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// SchemaParameterLogLevelInput is an input type that accepts SchemaParameterLogLevelArgs and SchemaParameterLogLevelOutput values.
-// You can construct a concrete instance of `SchemaParameterLogLevelInput` via:
-//
-//	SchemaParameterLogLevelArgs{...}
-type SchemaParameterLogLevelInput interface {
-	pulumi.Input
-
-	ToSchemaParameterLogLevelOutput() SchemaParameterLogLevelOutput
-	ToSchemaParameterLogLevelOutputWithContext(context.Context) SchemaParameterLogLevelOutput
-}
-
-type SchemaParameterLogLevelArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (SchemaParameterLogLevelArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterLogLevel)(nil)).Elem()
-}
-
-func (i SchemaParameterLogLevelArgs) ToSchemaParameterLogLevelOutput() SchemaParameterLogLevelOutput {
-	return i.ToSchemaParameterLogLevelOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterLogLevelArgs) ToSchemaParameterLogLevelOutputWithContext(ctx context.Context) SchemaParameterLogLevelOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterLogLevelOutput)
-}
-
-// SchemaParameterLogLevelArrayInput is an input type that accepts SchemaParameterLogLevelArray and SchemaParameterLogLevelArrayOutput values.
-// You can construct a concrete instance of `SchemaParameterLogLevelArrayInput` via:
-//
-//	SchemaParameterLogLevelArray{ SchemaParameterLogLevelArgs{...} }
-type SchemaParameterLogLevelArrayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterLogLevelArrayOutput() SchemaParameterLogLevelArrayOutput
-	ToSchemaParameterLogLevelArrayOutputWithContext(context.Context) SchemaParameterLogLevelArrayOutput
-}
-
-type SchemaParameterLogLevelArray []SchemaParameterLogLevelInput
-
-func (SchemaParameterLogLevelArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterLogLevel)(nil)).Elem()
-}
-
-func (i SchemaParameterLogLevelArray) ToSchemaParameterLogLevelArrayOutput() SchemaParameterLogLevelArrayOutput {
-	return i.ToSchemaParameterLogLevelArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterLogLevelArray) ToSchemaParameterLogLevelArrayOutputWithContext(ctx context.Context) SchemaParameterLogLevelArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterLogLevelArrayOutput)
-}
-
-type SchemaParameterLogLevelOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterLogLevelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterLogLevel)(nil)).Elem()
-}
-
-func (o SchemaParameterLogLevelOutput) ToSchemaParameterLogLevelOutput() SchemaParameterLogLevelOutput {
-	return o
-}
-
-func (o SchemaParameterLogLevelOutput) ToSchemaParameterLogLevelOutputWithContext(ctx context.Context) SchemaParameterLogLevelOutput {
-	return o
-}
-
-func (o SchemaParameterLogLevelOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterLogLevel) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterLogLevelOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterLogLevel) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterLogLevelOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterLogLevel) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterLogLevelOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterLogLevel) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterLogLevelOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterLogLevel) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type SchemaParameterLogLevelArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterLogLevelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterLogLevel)(nil)).Elem()
-}
-
-func (o SchemaParameterLogLevelArrayOutput) ToSchemaParameterLogLevelArrayOutput() SchemaParameterLogLevelArrayOutput {
-	return o
-}
-
-func (o SchemaParameterLogLevelArrayOutput) ToSchemaParameterLogLevelArrayOutputWithContext(ctx context.Context) SchemaParameterLogLevelArrayOutput {
-	return o
-}
-
-func (o SchemaParameterLogLevelArrayOutput) Index(i pulumi.IntInput) SchemaParameterLogLevelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterLogLevel {
-		return vs[0].([]SchemaParameterLogLevel)[vs[1].(int)]
-	}).(SchemaParameterLogLevelOutput)
-}
-
-type SchemaParameterMaxDataExtensionTimeInDay struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// SchemaParameterMaxDataExtensionTimeInDayInput is an input type that accepts SchemaParameterMaxDataExtensionTimeInDayArgs and SchemaParameterMaxDataExtensionTimeInDayOutput values.
-// You can construct a concrete instance of `SchemaParameterMaxDataExtensionTimeInDayInput` via:
-//
-//	SchemaParameterMaxDataExtensionTimeInDayArgs{...}
-type SchemaParameterMaxDataExtensionTimeInDayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterMaxDataExtensionTimeInDayOutput() SchemaParameterMaxDataExtensionTimeInDayOutput
-	ToSchemaParameterMaxDataExtensionTimeInDayOutputWithContext(context.Context) SchemaParameterMaxDataExtensionTimeInDayOutput
-}
-
-type SchemaParameterMaxDataExtensionTimeInDayArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (SchemaParameterMaxDataExtensionTimeInDayArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterMaxDataExtensionTimeInDay)(nil)).Elem()
-}
-
-func (i SchemaParameterMaxDataExtensionTimeInDayArgs) ToSchemaParameterMaxDataExtensionTimeInDayOutput() SchemaParameterMaxDataExtensionTimeInDayOutput {
-	return i.ToSchemaParameterMaxDataExtensionTimeInDayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterMaxDataExtensionTimeInDayArgs) ToSchemaParameterMaxDataExtensionTimeInDayOutputWithContext(ctx context.Context) SchemaParameterMaxDataExtensionTimeInDayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterMaxDataExtensionTimeInDayOutput)
-}
-
-// SchemaParameterMaxDataExtensionTimeInDayArrayInput is an input type that accepts SchemaParameterMaxDataExtensionTimeInDayArray and SchemaParameterMaxDataExtensionTimeInDayArrayOutput values.
-// You can construct a concrete instance of `SchemaParameterMaxDataExtensionTimeInDayArrayInput` via:
-//
-//	SchemaParameterMaxDataExtensionTimeInDayArray{ SchemaParameterMaxDataExtensionTimeInDayArgs{...} }
-type SchemaParameterMaxDataExtensionTimeInDayArrayInput interface {
-	pulumi.Input
-
-	ToSchemaParameterMaxDataExtensionTimeInDayArrayOutput() SchemaParameterMaxDataExtensionTimeInDayArrayOutput
-	ToSchemaParameterMaxDataExtensionTimeInDayArrayOutputWithContext(context.Context) SchemaParameterMaxDataExtensionTimeInDayArrayOutput
-}
-
-type SchemaParameterMaxDataExtensionTimeInDayArray []SchemaParameterMaxDataExtensionTimeInDayInput
-
-func (SchemaParameterMaxDataExtensionTimeInDayArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterMaxDataExtensionTimeInDay)(nil)).Elem()
-}
-
-func (i SchemaParameterMaxDataExtensionTimeInDayArray) ToSchemaParameterMaxDataExtensionTimeInDayArrayOutput() SchemaParameterMaxDataExtensionTimeInDayArrayOutput {
-	return i.ToSchemaParameterMaxDataExtensionTimeInDayArrayOutputWithContext(context.Background())
-}
-
-func (i SchemaParameterMaxDataExtensionTimeInDayArray) ToSchemaParameterMaxDataExtensionTimeInDayArrayOutputWithContext(ctx context.Context) SchemaParameterMaxDataExtensionTimeInDayArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterMaxDataExtensionTimeInDayArrayOutput)
-}
-
-type SchemaParameterMaxDataExtensionTimeInDayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterMaxDataExtensionTimeInDayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SchemaParameterMaxDataExtensionTimeInDay)(nil)).Elem()
-}
-
-func (o SchemaParameterMaxDataExtensionTimeInDayOutput) ToSchemaParameterMaxDataExtensionTimeInDayOutput() SchemaParameterMaxDataExtensionTimeInDayOutput {
-	return o
-}
-
-func (o SchemaParameterMaxDataExtensionTimeInDayOutput) ToSchemaParameterMaxDataExtensionTimeInDayOutputWithContext(ctx context.Context) SchemaParameterMaxDataExtensionTimeInDayOutput {
-	return o
-}
-
-func (o SchemaParameterMaxDataExtensionTimeInDayOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterMaxDataExtensionTimeInDay) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterMaxDataExtensionTimeInDayOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterMaxDataExtensionTimeInDay) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterMaxDataExtensionTimeInDayOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterMaxDataExtensionTimeInDay) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterMaxDataExtensionTimeInDayOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterMaxDataExtensionTimeInDay) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o SchemaParameterMaxDataExtensionTimeInDayOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SchemaParameterMaxDataExtensionTimeInDay) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type SchemaParameterMaxDataExtensionTimeInDayArrayOutput struct{ *pulumi.OutputState }
-
-func (SchemaParameterMaxDataExtensionTimeInDayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SchemaParameterMaxDataExtensionTimeInDay)(nil)).Elem()
-}
-
-func (o SchemaParameterMaxDataExtensionTimeInDayArrayOutput) ToSchemaParameterMaxDataExtensionTimeInDayArrayOutput() SchemaParameterMaxDataExtensionTimeInDayArrayOutput {
-	return o
-}
-
-func (o SchemaParameterMaxDataExtensionTimeInDayArrayOutput) ToSchemaParameterMaxDataExtensionTimeInDayArrayOutputWithContext(ctx context.Context) SchemaParameterMaxDataExtensionTimeInDayArrayOutput {
-	return o
-}
-
-func (o SchemaParameterMaxDataExtensionTimeInDayArrayOutput) Index(i pulumi.IntInput) SchemaParameterMaxDataExtensionTimeInDayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterMaxDataExtensionTimeInDay {
-		return vs[0].([]SchemaParameterMaxDataExtensionTimeInDay)[vs[1].(int)]
-	}).(SchemaParameterMaxDataExtensionTimeInDayOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -67380,6 +67629,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseRoleShowOutputArrayInput)(nil)).Elem(), DatabaseRoleShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DynamicTableTargetLagInput)(nil)).Elem(), DynamicTableTargetLagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DynamicTableTargetLagPtrInput)(nil)).Elem(), DynamicTableTargetLagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsInput)(nil)).Elem(), ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrInput)(nil)).Elem(), ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalAccessIntegrationAllowedAuthenticationSecretsInput)(nil)).Elem(), ExternalAccessIntegrationAllowedAuthenticationSecretsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalAccessIntegrationAllowedAuthenticationSecretsPtrInput)(nil)).Elem(), ExternalAccessIntegrationAllowedAuthenticationSecretsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalAccessIntegrationDescribeOutputInput)(nil)).Elem(), ExternalAccessIntegrationDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalAccessIntegrationDescribeOutputArrayInput)(nil)).Elem(), ExternalAccessIntegrationDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalAccessIntegrationShowOutputInput)(nil)).Elem(), ExternalAccessIntegrationShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalAccessIntegrationShowOutputArrayInput)(nil)).Elem(), ExternalAccessIntegrationShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionArgInput)(nil)).Elem(), ExternalFunctionArgArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionArgArrayInput)(nil)).Elem(), ExternalFunctionArgArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExternalFunctionHeaderInput)(nil)).Elem(), ExternalFunctionHeaderArgs{})
@@ -67600,6 +67857,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrInput)(nil)).Elem(), GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedInput)(nil)).Elem(), GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrInput)(nil)).Elem(), GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableColumnInput)(nil)).Elem(), HybridTableColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableColumnArrayInput)(nil)).Elem(), HybridTableColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableColumnDefaultInput)(nil)).Elem(), HybridTableColumnDefaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableColumnDefaultPtrInput)(nil)).Elem(), HybridTableColumnDefaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableDescribeOutputInput)(nil)).Elem(), HybridTableDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableDescribeOutputArrayInput)(nil)).Elem(), HybridTableDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableForeignKeyConstraintInput)(nil)).Elem(), HybridTableForeignKeyConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableForeignKeyConstraintArrayInput)(nil)).Elem(), HybridTableForeignKeyConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableIndexInput)(nil)).Elem(), HybridTableIndexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableIndexArrayInput)(nil)).Elem(), HybridTableIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTablePrimaryKeyConstraintInput)(nil)).Elem(), HybridTablePrimaryKeyConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTablePrimaryKeyConstraintPtrInput)(nil)).Elem(), HybridTablePrimaryKeyConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableShowKeysOutputInput)(nil)).Elem(), HybridTableShowKeysOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableShowKeysOutputArrayInput)(nil)).Elem(), HybridTableShowKeysOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableShowOutputInput)(nil)).Elem(), HybridTableShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableShowOutputArrayInput)(nil)).Elem(), HybridTableShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableUniqueConstraintInput)(nil)).Elem(), HybridTableUniqueConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HybridTableUniqueConstraintArrayInput)(nil)).Elem(), HybridTableUniqueConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IcebergTableAggregationPolicyInput)(nil)).Elem(), IcebergTableAggregationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IcebergTableAggregationPolicyPtrInput)(nil)).Elem(), IcebergTableAggregationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IcebergTableCheckConstraintInput)(nil)).Elem(), IcebergTableCheckConstraintArgs{})
@@ -68154,32 +68429,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SsoUrlInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SsoUrlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SsoUrlArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SsoUrlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationShowOutputInput)(nil)).Elem(), Saml2IntegrationShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationShowOutputArrayInput)(nil)).Elem(), Saml2IntegrationShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDescribeOutputInput)(nil)).Elem(), SchemaDescribeOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDescribeOutputArrayInput)(nil)).Elem(), SchemaDescribeOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterInput)(nil)).Elem(), SchemaParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterArrayInput)(nil)).Elem(), SchemaParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterCatalogInput)(nil)).Elem(), SchemaParameterCatalogArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterCatalogArrayInput)(nil)).Elem(), SchemaParameterCatalogArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDataRetentionTimeInDayInput)(nil)).Elem(), SchemaParameterDataRetentionTimeInDayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDataRetentionTimeInDayArrayInput)(nil)).Elem(), SchemaParameterDataRetentionTimeInDayArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDefaultDdlCollationInput)(nil)).Elem(), SchemaParameterDefaultDdlCollationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDefaultDdlCollationArrayInput)(nil)).Elem(), SchemaParameterDefaultDdlCollationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterEnableConsoleOutputInput)(nil)).Elem(), SchemaParameterEnableConsoleOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterEnableConsoleOutputArrayInput)(nil)).Elem(), SchemaParameterEnableConsoleOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterExternalVolumeInput)(nil)).Elem(), SchemaParameterExternalVolumeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterExternalVolumeArrayInput)(nil)).Elem(), SchemaParameterExternalVolumeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterLogEventLevelInput)(nil)).Elem(), SchemaParameterLogEventLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterLogEventLevelArrayInput)(nil)).Elem(), SchemaParameterLogEventLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterLogLevelInput)(nil)).Elem(), SchemaParameterLogLevelArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterLogLevelArrayInput)(nil)).Elem(), SchemaParameterLogLevelArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterMaxDataExtensionTimeInDayInput)(nil)).Elem(), SchemaParameterMaxDataExtensionTimeInDayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterMaxDataExtensionTimeInDayArrayInput)(nil)).Elem(), SchemaParameterMaxDataExtensionTimeInDayArray{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -68380,6 +68629,14 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(DynamicTableTargetLagOutput{})
 	pulumi.RegisterOutputType(DynamicTableTargetLagPtrOutput{})
+	pulumi.RegisterOutputType(ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsOutput{})
+	pulumi.RegisterOutputType(ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsPtrOutput{})
+	pulumi.RegisterOutputType(ExternalAccessIntegrationAllowedAuthenticationSecretsOutput{})
+	pulumi.RegisterOutputType(ExternalAccessIntegrationAllowedAuthenticationSecretsPtrOutput{})
+	pulumi.RegisterOutputType(ExternalAccessIntegrationDescribeOutputOutput{})
+	pulumi.RegisterOutputType(ExternalAccessIntegrationDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(ExternalAccessIntegrationShowOutputOutput{})
+	pulumi.RegisterOutputType(ExternalAccessIntegrationShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArgOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionArgArrayOutput{})
 	pulumi.RegisterOutputType(ExternalFunctionHeaderOutput{})
@@ -68600,6 +68857,24 @@ func init() {
 	pulumi.RegisterOutputType(GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput{})
 	pulumi.RegisterOutputType(GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedOutput{})
 	pulumi.RegisterOutputType(GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrOutput{})
+	pulumi.RegisterOutputType(HybridTableColumnOutput{})
+	pulumi.RegisterOutputType(HybridTableColumnArrayOutput{})
+	pulumi.RegisterOutputType(HybridTableColumnDefaultOutput{})
+	pulumi.RegisterOutputType(HybridTableColumnDefaultPtrOutput{})
+	pulumi.RegisterOutputType(HybridTableDescribeOutputOutput{})
+	pulumi.RegisterOutputType(HybridTableDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(HybridTableForeignKeyConstraintOutput{})
+	pulumi.RegisterOutputType(HybridTableForeignKeyConstraintArrayOutput{})
+	pulumi.RegisterOutputType(HybridTableIndexOutput{})
+	pulumi.RegisterOutputType(HybridTableIndexArrayOutput{})
+	pulumi.RegisterOutputType(HybridTablePrimaryKeyConstraintOutput{})
+	pulumi.RegisterOutputType(HybridTablePrimaryKeyConstraintPtrOutput{})
+	pulumi.RegisterOutputType(HybridTableShowKeysOutputOutput{})
+	pulumi.RegisterOutputType(HybridTableShowKeysOutputArrayOutput{})
+	pulumi.RegisterOutputType(HybridTableShowOutputOutput{})
+	pulumi.RegisterOutputType(HybridTableShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(HybridTableUniqueConstraintOutput{})
+	pulumi.RegisterOutputType(HybridTableUniqueConstraintArrayOutput{})
 	pulumi.RegisterOutputType(IcebergTableAggregationPolicyOutput{})
 	pulumi.RegisterOutputType(IcebergTableAggregationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(IcebergTableCheckConstraintOutput{})
@@ -69154,30 +69429,4 @@ func init() {
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SsoUrlOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationShowOutputOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(SchemaDescribeOutputOutput{})
-	pulumi.RegisterOutputType(SchemaDescribeOutputArrayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterOutput{})
-	pulumi.RegisterOutputType(SchemaParameterArrayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterCatalogOutput{})
-	pulumi.RegisterOutputType(SchemaParameterCatalogArrayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterDataRetentionTimeInDayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterDataRetentionTimeInDayArrayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterDefaultDdlCollationOutput{})
-	pulumi.RegisterOutputType(SchemaParameterDefaultDdlCollationArrayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterEnableConsoleOutputOutput{})
-	pulumi.RegisterOutputType(SchemaParameterEnableConsoleOutputArrayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterExternalVolumeOutput{})
-	pulumi.RegisterOutputType(SchemaParameterExternalVolumeArrayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterLogEventLevelOutput{})
-	pulumi.RegisterOutputType(SchemaParameterLogEventLevelArrayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterLogLevelOutput{})
-	pulumi.RegisterOutputType(SchemaParameterLogLevelArrayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterMaxDataExtensionTimeInDayOutput{})
-	pulumi.RegisterOutputType(SchemaParameterMaxDataExtensionTimeInDayArrayOutput{})
 }

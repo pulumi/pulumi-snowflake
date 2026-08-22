@@ -17,6 +17,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string Application;
         public readonly bool AutoResume;
         public readonly int AutoSuspendSecs;
+        public readonly ImmutableArray<string> BackupInstanceFamilies;
         public readonly string Comment;
         public readonly string CreatedOn;
         public readonly string ErrorCode;
@@ -44,6 +45,8 @@ namespace Pulumi.Snowflake.Outputs
             bool autoResume,
 
             int autoSuspendSecs,
+
+            ImmutableArray<string> backupInstanceFamilies,
 
             string comment,
 
@@ -83,6 +86,7 @@ namespace Pulumi.Snowflake.Outputs
             Application = application;
             AutoResume = autoResume;
             AutoSuspendSecs = autoSuspendSecs;
+            BackupInstanceFamilies = backupInstanceFamilies;
             Comment = comment;
             CreatedOn = createdOn;
             ErrorCode = errorCode;

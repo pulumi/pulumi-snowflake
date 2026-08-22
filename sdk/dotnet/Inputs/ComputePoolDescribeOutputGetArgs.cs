@@ -24,6 +24,14 @@ namespace Pulumi.Snowflake.Inputs
         [Input("autoSuspendSecs")]
         public Input<int>? AutoSuspendSecs { get; set; }
 
+        [Input("backupInstanceFamilies")]
+        private InputList<string>? _backupInstanceFamilies;
+        public InputList<string> BackupInstanceFamilies
+        {
+            get => _backupInstanceFamilies ?? (_backupInstanceFamilies = new InputList<string>());
+            set => _backupInstanceFamilies = value;
+        }
+
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 

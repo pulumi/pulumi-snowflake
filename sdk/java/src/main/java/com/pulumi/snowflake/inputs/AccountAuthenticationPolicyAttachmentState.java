@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,24 +17,56 @@ public final class AccountAuthenticationPolicyAttachmentState extends com.pulumi
     public static final AccountAuthenticationPolicyAttachmentState Empty = new AccountAuthenticationPolicyAttachmentState();
 
     /**
-     * Fully qualified name of the authentication policy to apply to the current account.
+     * Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Import(name="authenticationPolicy")
     private @Nullable Output<String> authenticationPolicy;
 
     /**
-     * @return Fully qualified name of the authentication policy to apply to the current account.
+     * @return Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Optional<Output<String>> authenticationPolicy() {
         return Optional.ofNullable(this.authenticationPolicy);
     }
 
+    /**
+     * If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    @Import(name="forAllPersonUsers")
+    private @Nullable Output<Boolean> forAllPersonUsers;
+
+    /**
+     * @return If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    public Optional<Output<Boolean>> forAllPersonUsers() {
+        return Optional.ofNullable(this.forAllPersonUsers);
+    }
+
+    /**
+     * If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    @Import(name="forAllServiceUsers")
+    private @Nullable Output<Boolean> forAllServiceUsers;
+
+    /**
+     * @return If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    public Optional<Output<Boolean>> forAllServiceUsers() {
+        return Optional.ofNullable(this.forAllServiceUsers);
+    }
+
     private AccountAuthenticationPolicyAttachmentState() {}
 
     private AccountAuthenticationPolicyAttachmentState(AccountAuthenticationPolicyAttachmentState $) {
         this.authenticationPolicy = $.authenticationPolicy;
+        this.forAllPersonUsers = $.forAllPersonUsers;
+        this.forAllServiceUsers = $.forAllServiceUsers;
     }
 
     public static Builder builder() {
@@ -55,7 +88,7 @@ public final class AccountAuthenticationPolicyAttachmentState extends com.pulumi
         }
 
         /**
-         * @param authenticationPolicy Fully qualified name of the authentication policy to apply to the current account.
+         * @param authenticationPolicy Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
@@ -66,13 +99,55 @@ public final class AccountAuthenticationPolicyAttachmentState extends com.pulumi
         }
 
         /**
-         * @param authenticationPolicy Fully qualified name of the authentication policy to apply to the current account.
+         * @param authenticationPolicy Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
          */
         public Builder authenticationPolicy(String authenticationPolicy) {
             return authenticationPolicy(Output.of(authenticationPolicy));
+        }
+
+        /**
+         * @param forAllPersonUsers If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllPersonUsers(@Nullable Output<Boolean> forAllPersonUsers) {
+            $.forAllPersonUsers = forAllPersonUsers;
+            return this;
+        }
+
+        /**
+         * @param forAllPersonUsers If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllPersonUsers(Boolean forAllPersonUsers) {
+            return forAllPersonUsers(Output.of(forAllPersonUsers));
+        }
+
+        /**
+         * @param forAllServiceUsers If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllServiceUsers(@Nullable Output<Boolean> forAllServiceUsers) {
+            $.forAllServiceUsers = forAllServiceUsers;
+            return this;
+        }
+
+        /**
+         * @param forAllServiceUsers If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forAllServiceUsers(Boolean forAllServiceUsers) {
+            return forAllServiceUsers(Output.of(forAllServiceUsers));
         }
 
         public AccountAuthenticationPolicyAttachmentState build() {

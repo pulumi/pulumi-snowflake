@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** Managing compute pool state is limited. It is handled by `initiallySuspended`, `autoSuspendSecs`, and `autoResume` fields. The provider does not support managing the state of compute pools in Snowflake with `ALTER ... SUSPEND` and `ALTER ... RESUME`. See [Compute pool lifecycle documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-compute-pool#compute-pool-lifecycle) for more details.
  * 
+ * &gt; **Note** `backupInstanceFamilies` maps to a Snowflake [preview feature](https://docs.snowflake.com/en/release-notes/preview-features). It is available to all accounts, but its behavior may change before it reaches general availability.
+ * 
  * Resource used to manage compute pools. For more information, check [compute pools documentation](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool). A compute pool is a collection of one or more virtual machine (VM) nodes on which Snowflake runs your Snowpark Container Services services (including job services). See [Working with compute pools](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-compute-pool) developer guide for more details.
  * 
  * ## Example Usage
@@ -67,6 +69,9 @@ import javax.annotation.Nullable;
  *             .minNodes(1)
  *             .maxNodes(2)
  *             .instanceFamily("CPU_X64_S")
+ *             .backupInstanceFamilies(            
+ *                 "CPU_X64_M",
+ *                 "CPU_X64_L")
  *             .autoResume("true")
  *             .initiallySuspended("true")
  *             .autoSuspendSecs(1200)
@@ -116,6 +121,20 @@ public class ComputePool extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> autoSuspendSecs() {
         return Codegen.optional(this.autoSuspendSecs);
+    }
+    /**
+     * Specifies an ordered list of instance families to fall back on when the primary `instanceFamily` is unavailable. The order determines the fallback priority. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G` | `GEN_ARM_G1_2` | `GEN_ARM_G1_4` | `GEN_ARM_G1_8` | `GEN_ARM_G1_16` | `GEN_ARM_G1_32` | `GEN_X64_G2_2` | `GEN_X64_G2_4` | `GEN_X64_G2_8` | `GEN_X64_G2_16` | `GEN_X64_G2_32` | `MEM_X64_G2_8` | `MEM_X64_G2_32` | `MEM_X64_G2_64` | `MEM_X64_G2_96` | `MEM_X64_G2_192` | `GPU_L40S_G1_8` | `GPU_L40S_G1_16` | `GPU_L40S_G1_48` | `GPU_L40S_G1_192` | `GPU_R6K_G1_8` | `GPU_R6K_G1_16` | `GPU_R6K_G1_32` | `GPU_R6K_G1_48` | `GPU_R6K_G1_96` | `GPU_R6K_G1_192` | `GPU_A100_G1_12` | `GPU_A100_G1_48`.
+     * 
+     */
+    @Export(name="backupInstanceFamilies", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> backupInstanceFamilies;
+
+    /**
+     * @return Specifies an ordered list of instance families to fall back on when the primary `instanceFamily` is unavailable. The order determines the fallback priority. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G` | `GEN_ARM_G1_2` | `GEN_ARM_G1_4` | `GEN_ARM_G1_8` | `GEN_ARM_G1_16` | `GEN_ARM_G1_32` | `GEN_X64_G2_2` | `GEN_X64_G2_4` | `GEN_X64_G2_8` | `GEN_X64_G2_16` | `GEN_X64_G2_32` | `MEM_X64_G2_8` | `MEM_X64_G2_32` | `MEM_X64_G2_64` | `MEM_X64_G2_96` | `MEM_X64_G2_192` | `GPU_L40S_G1_8` | `GPU_L40S_G1_16` | `GPU_L40S_G1_48` | `GPU_L40S_G1_192` | `GPU_R6K_G1_8` | `GPU_R6K_G1_16` | `GPU_R6K_G1_32` | `GPU_R6K_G1_48` | `GPU_R6K_G1_96` | `GPU_R6K_G1_192` | `GPU_A100_G1_12` | `GPU_A100_G1_48`.
+     * 
+     */
+    public Output<Optional<List<String>>> backupInstanceFamilies() {
+        return Codegen.optional(this.backupInstanceFamilies);
     }
     /**
      * Specifies a comment for the compute pool.

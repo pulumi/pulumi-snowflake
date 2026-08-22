@@ -41,6 +41,7 @@ from .database_role import *
 from .dynamic_table import *
 from .email_notification_integration import *
 from .execute import *
+from .external_access_integration import *
 from .external_function import *
 from .external_oauth_integration import *
 from .external_table import *
@@ -75,6 +76,7 @@ from .get_database_role import *
 from .get_database_roles import *
 from .get_databases import *
 from .get_dynamic_tables import *
+from .get_external_access_integrations import *
 from .get_external_functions import *
 from .get_external_tables import *
 from .get_external_volumes import *
@@ -130,6 +132,7 @@ from .grant_ownership import *
 from .grant_privileges_to_account_role import *
 from .grant_privileges_to_database_role import *
 from .grant_privileges_to_share import *
+from .hybrid_table import *
 from .iceberg_table import *
 from .iceberg_table_from_aws_glue import *
 from .iceberg_table_from_delta_files import *
@@ -507,6 +510,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/externalAccessIntegration",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/externalAccessIntegration:ExternalAccessIntegration": "ExternalAccessIntegration"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/externalFunction",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -703,6 +714,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare": "GrantPrivilegesToShare"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/hybridTable",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/hybridTable:HybridTable": "HybridTable"
   }
  },
  {

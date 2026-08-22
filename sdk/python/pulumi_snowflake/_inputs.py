@@ -215,6 +215,14 @@ __all__ = [
     'DatabaseRoleShowOutputArgsDict',
     'DynamicTableTargetLagArgs',
     'DynamicTableTargetLagArgsDict',
+    'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs',
+    'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict',
+    'ExternalAccessIntegrationAllowedAuthenticationSecretsArgs',
+    'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict',
+    'ExternalAccessIntegrationDescribeOutputArgs',
+    'ExternalAccessIntegrationDescribeOutputArgsDict',
+    'ExternalAccessIntegrationShowOutputArgs',
+    'ExternalAccessIntegrationShowOutputArgsDict',
     'ExternalFunctionArgArgs',
     'ExternalFunctionArgArgsDict',
     'ExternalFunctionHeaderArgs',
@@ -435,6 +443,24 @@ __all__ = [
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgsDict',
+    'HybridTableColumnArgs',
+    'HybridTableColumnArgsDict',
+    'HybridTableColumnDefaultArgs',
+    'HybridTableColumnDefaultArgsDict',
+    'HybridTableDescribeOutputArgs',
+    'HybridTableDescribeOutputArgsDict',
+    'HybridTableForeignKeyConstraintArgs',
+    'HybridTableForeignKeyConstraintArgsDict',
+    'HybridTableIndexArgs',
+    'HybridTableIndexArgsDict',
+    'HybridTablePrimaryKeyConstraintArgs',
+    'HybridTablePrimaryKeyConstraintArgsDict',
+    'HybridTableShowKeysOutputArgs',
+    'HybridTableShowKeysOutputArgsDict',
+    'HybridTableShowOutputArgs',
+    'HybridTableShowOutputArgsDict',
+    'HybridTableUniqueConstraintArgs',
+    'HybridTableUniqueConstraintArgsDict',
     'IcebergTableAggregationPolicyArgs',
     'IcebergTableAggregationPolicyArgsDict',
     'IcebergTableCheckConstraintArgs',
@@ -9301,6 +9327,7 @@ class ComputePoolDescribeOutputArgsDict(TypedDict):
     application: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     auto_resume: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     auto_suspend_secs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    backup_instance_families: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     error_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -9326,6 +9353,7 @@ class ComputePoolDescribeOutputArgs:
                  application: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_resume: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_instance_families: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  created_on: pulumi.Input[Optional[_builtins.str]] = None,
                  error_code: pulumi.Input[Optional[_builtins.str]] = None,
@@ -9351,6 +9379,8 @@ class ComputePoolDescribeOutputArgs:
             pulumi.set(__self__, "auto_resume", auto_resume)
         if auto_suspend_secs is not None:
             pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if backup_instance_families is not None:
+            pulumi.set(__self__, "backup_instance_families", backup_instance_families)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
@@ -9421,6 +9451,15 @@ class ComputePoolDescribeOutputArgs:
     @auto_suspend_secs.setter
     def auto_suspend_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_suspend_secs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backupInstanceFamilies")
+    def backup_instance_families(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "backup_instance_families")
+
+    @backup_instance_families.setter
+    def backup_instance_families(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "backup_instance_families", value)
 
     @_builtins.property
     @pulumi.getter
@@ -9581,6 +9620,7 @@ class ComputePoolShowOutputArgsDict(TypedDict):
     application: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     auto_resume: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     auto_suspend_secs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    backup_instance_families: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     idle_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
@@ -9604,6 +9644,7 @@ class ComputePoolShowOutputArgs:
                  application: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_resume: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+                 backup_instance_families: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  created_on: pulumi.Input[Optional[_builtins.str]] = None,
                  idle_nodes: pulumi.Input[Optional[_builtins.int]] = None,
@@ -9627,6 +9668,8 @@ class ComputePoolShowOutputArgs:
             pulumi.set(__self__, "auto_resume", auto_resume)
         if auto_suspend_secs is not None:
             pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if backup_instance_families is not None:
+            pulumi.set(__self__, "backup_instance_families", backup_instance_families)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
@@ -9693,6 +9736,15 @@ class ComputePoolShowOutputArgs:
     @auto_suspend_secs.setter
     def auto_suspend_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "auto_suspend_secs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backupInstanceFamilies")
+    def backup_instance_families(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "backup_instance_families")
+
+    @backup_instance_families.setter
+    def backup_instance_families(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "backup_instance_families", value)
 
     @_builtins.property
     @pulumi.getter
@@ -11066,6 +11118,294 @@ class DynamicTableTargetLagArgs:
     @maximum_duration.setter
     def maximum_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "maximum_duration", value)
+
+
+class ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict(TypedDict):
+    integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+    """
+    none: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+    """
+
+@pulumi.input_type
+class ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs:
+    def __init__(__self__, *,
+                 integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 none: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] integrations: Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+        :param pulumi.Input[_builtins.bool] none: When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+        """
+        if integrations is not None:
+            pulumi.set(__self__, "integrations", integrations)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+
+    @_builtins.property
+    @pulumi.getter
+    def integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+        """
+        return pulumi.get(self, "integrations")
+
+    @integrations.setter
+    def integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "integrations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+        """
+        return pulumi.get(self, "none")
+
+    @none.setter
+    def none(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "none", value)
+
+
+class ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict(TypedDict):
+    all: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+    """
+    none: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+    """
+    secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+    """
+
+@pulumi.input_type
+class ExternalAccessIntegrationAllowedAuthenticationSecretsArgs:
+    def __init__(__self__, *,
+                 all: pulumi.Input[Optional[_builtins.bool]] = None,
+                 none: pulumi.Input[Optional[_builtins.bool]] = None,
+                 secrets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] all: When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+        :param pulumi.Input[_builtins.bool] none: When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secrets: Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+        """
+        if all is not None:
+            pulumi.set(__self__, "all", all)
+        if none is not None:
+            pulumi.set(__self__, "none", none)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+
+    @_builtins.property
+    @pulumi.getter
+    def all(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+        """
+        return pulumi.get(self, "all")
+
+    @all.setter
+    def all(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "all", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def none(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+        """
+        return pulumi.get(self, "none")
+
+    @none.setter
+    def none(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "none", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+        """
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "secrets", value)
+
+
+class ExternalAccessIntegrationDescribeOutputArgsDict(TypedDict):
+    allowed_api_authentication_integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_authentication_secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    allowed_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ExternalAccessIntegrationDescribeOutputArgs:
+    def __init__(__self__, *,
+                 allowed_api_authentication_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_authentication_secrets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 allowed_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        if allowed_api_authentication_integrations is not None:
+            pulumi.set(__self__, "allowed_api_authentication_integrations", allowed_api_authentication_integrations)
+        if allowed_authentication_secrets is not None:
+            pulumi.set(__self__, "allowed_authentication_secrets", allowed_authentication_secrets)
+        if allowed_network_rules is not None:
+            pulumi.set(__self__, "allowed_network_rules", allowed_network_rules)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedApiAuthenticationIntegrations")
+    def allowed_api_authentication_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_api_authentication_integrations")
+
+    @allowed_api_authentication_integrations.setter
+    def allowed_api_authentication_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_api_authentication_integrations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAuthenticationSecrets")
+    def allowed_authentication_secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_authentication_secrets")
+
+    @allowed_authentication_secrets.setter
+    def allowed_authentication_secrets(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_authentication_secrets", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedNetworkRules")
+    def allowed_network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "allowed_network_rules")
+
+    @allowed_network_rules.setter
+    def allowed_network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_network_rules", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+class ExternalAccessIntegrationShowOutputArgsDict(TypedDict):
+    category: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ExternalAccessIntegrationShowOutputArgs:
+    def __init__(__self__, *,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def category(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "category", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
 
 
 class ExternalFunctionArgArgsDict(TypedDict):
@@ -20708,6 +21048,862 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs:
     @in_schema.setter
     def in_schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "in_schema", value)
+
+
+class HybridTableColumnArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Column name.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Column type. See [Snowflake data types](https://docs.snowflake.com/en/sql-reference-data-types) for supported values. Example: VARCHAR(256), NUMBER(38,0).
+    """
+    collate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Column collation specification, e.g. en-ci. Case-insensitive (en-ci and EN-CI are treated as equal).
+    """
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Column-level comment.
+    """
+    default: NotRequired[pulumi.Input[Optional['HybridTableColumnDefaultArgsDict']]]
+    """
+    Defines the column default value. Only one of constant, expression, or sequence may be set.
+    """
+    not_null: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to restrict the column to NOT NULL values. Changing this on an existing column forces recreation. Primary key columns must set this to true because NOT NULL is implied by the primary key.
+    """
+
+@pulumi.input_type
+class HybridTableColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 collate: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 default: pulumi.Input[Optional['HybridTableColumnDefaultArgs']] = None,
+                 not_null: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Column name.
+        :param pulumi.Input[_builtins.str] type: Column type. See [Snowflake data types](https://docs.snowflake.com/en/sql-reference-data-types) for supported values. Example: VARCHAR(256), NUMBER(38,0).
+        :param pulumi.Input[_builtins.str] collate: Column collation specification, e.g. en-ci. Case-insensitive (en-ci and EN-CI are treated as equal).
+        :param pulumi.Input[_builtins.str] comment: Column-level comment.
+        :param pulumi.Input['HybridTableColumnDefaultArgs'] default: Defines the column default value. Only one of constant, expression, or sequence may be set.
+        :param pulumi.Input[_builtins.bool] not_null: Whether to restrict the column to NOT NULL values. Changing this on an existing column forces recreation. Primary key columns must set this to true because NOT NULL is implied by the primary key.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if collate is not None:
+            pulumi.set(__self__, "collate", collate)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if not_null is not None:
+            pulumi.set(__self__, "not_null", not_null)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Column name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Column type. See [Snowflake data types](https://docs.snowflake.com/en/sql-reference-data-types) for supported values. Example: VARCHAR(256), NUMBER(38,0).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def collate(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Column collation specification, e.g. en-ci. Case-insensitive (en-ci and EN-CI are treated as equal).
+        """
+        return pulumi.get(self, "collate")
+
+    @collate.setter
+    def collate(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "collate", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Column-level comment.
+        """
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional['HybridTableColumnDefaultArgs']]:
+        """
+        Defines the column default value. Only one of constant, expression, or sequence may be set.
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional['HybridTableColumnDefaultArgs']]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notNull")
+    def not_null(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to restrict the column to NOT NULL values. Changing this on an existing column forces recreation. Primary key columns must set this to true because NOT NULL is implied by the primary key.
+        """
+        return pulumi.get(self, "not_null")
+
+    @not_null.setter
+    def not_null(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "not_null", value)
+
+
+class HybridTableColumnDefaultArgsDict(TypedDict):
+    constant: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A constant default value for the column.
+    """
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A SQL expression default value for the column.
+    """
+    sequence: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The default sequence for the column (uses NEXTVAL).
+    """
+
+@pulumi.input_type
+class HybridTableColumnDefaultArgs:
+    def __init__(__self__, *,
+                 constant: pulumi.Input[Optional[_builtins.str]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 sequence: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] constant: A constant default value for the column.
+        :param pulumi.Input[_builtins.str] expression: A SQL expression default value for the column.
+        :param pulumi.Input[_builtins.str] sequence: The default sequence for the column (uses NEXTVAL).
+        """
+        if constant is not None:
+            pulumi.set(__self__, "constant", constant)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if sequence is not None:
+            pulumi.set(__self__, "sequence", sequence)
+
+    @_builtins.property
+    @pulumi.getter
+    def constant(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A constant default value for the column.
+        """
+        return pulumi.get(self, "constant")
+
+    @constant.setter
+    def constant(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "constant", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A SQL expression default value for the column.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sequence(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The default sequence for the column (uses NEXTVAL).
+        """
+        return pulumi.get(self, "sequence")
+
+    @sequence.setter
+    def sequence(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sequence", value)
+
+
+class HybridTableDescribeOutputArgsDict(TypedDict):
+    check: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    collation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    expression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    is_nullable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    policy_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    primary_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    privacy_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_evolution_record: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    unique_key: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+
+@pulumi.input_type
+class HybridTableDescribeOutputArgs:
+    def __init__(__self__, *,
+                 check: pulumi.Input[Optional[_builtins.str]] = None,
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 expression: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_nullable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key: pulumi.Input[Optional[_builtins.bool]] = None,
+                 privacy_domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_evolution_record: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 unique_key: pulumi.Input[Optional[_builtins.bool]] = None):
+        if check is not None:
+            pulumi.set(__self__, "check", check)
+        if collation is not None:
+            pulumi.set(__self__, "collation", collation)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if expression is not None:
+            pulumi.set(__self__, "expression", expression)
+        if is_nullable is not None:
+            pulumi.set(__self__, "is_nullable", is_nullable)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if primary_key is not None:
+            pulumi.set(__self__, "primary_key", primary_key)
+        if privacy_domain is not None:
+            pulumi.set(__self__, "privacy_domain", privacy_domain)
+        if schema_evolution_record is not None:
+            pulumi.set(__self__, "schema_evolution_record", schema_evolution_record)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if unique_key is not None:
+            pulumi.set(__self__, "unique_key", unique_key)
+
+    @_builtins.property
+    @pulumi.getter
+    def check(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "check")
+
+    @check.setter
+    def check(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "check", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "collation")
+
+    @collation.setter
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "collation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "expression", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "is_nullable")
+
+    @is_nullable.setter
+    def is_nullable(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_nullable", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "policy_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKey")
+    def primary_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "primary_key")
+
+    @primary_key.setter
+    def primary_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "primary_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privacyDomain")
+    def privacy_domain(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "privacy_domain")
+
+    @privacy_domain.setter
+    def privacy_domain(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "privacy_domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaEvolutionRecord")
+    def schema_evolution_record(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_evolution_record")
+
+    @schema_evolution_record.setter
+    def schema_evolution_record(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_evolution_record", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="uniqueKey")
+    def unique_key(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "unique_key")
+
+    @unique_key.setter
+    def unique_key(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "unique_key", value)
+
+
+class HybridTableForeignKeyConstraintArgsDict(TypedDict):
+    columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The local column(s) the foreign key is defined on.
+    """
+    ref_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The column(s) in the referenced table that the foreign key references.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The table that the foreign key references.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the constraint.
+    """
+
+@pulumi.input_type
+class HybridTableForeignKeyConstraintArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 ref_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 table_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: The local column(s) the foreign key is defined on.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ref_columns: The column(s) in the referenced table that the foreign key references.
+        :param pulumi.Input[_builtins.str] table_name: The table that the foreign key references.
+        :param pulumi.Input[_builtins.str] name: Name of the constraint.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "ref_columns", ref_columns)
+        pulumi.set(__self__, "table_name", table_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The local column(s) the foreign key is defined on.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refColumns")
+    def ref_columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The column(s) in the referenced table that the foreign key references.
+        """
+        return pulumi.get(self, "ref_columns")
+
+    @ref_columns.setter
+    def ref_columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "ref_columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The table that the foreign key references.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "table_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the constraint.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+class HybridTableIndexArgsDict(TypedDict):
+    columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Index key columns, in order. Order is semantically meaningful.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the secondary index.
+    """
+    include_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Columns included in the index payload via INCLUDE (...). Order carries no meaning.
+    """
+
+@pulumi.input_type
+class HybridTableIndexArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 name: pulumi.Input[_builtins.str],
+                 include_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: Index key columns, in order. Order is semantically meaningful.
+        :param pulumi.Input[_builtins.str] name: Name of the secondary index.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] include_columns: Columns included in the index payload via INCLUDE (...). Order carries no meaning.
+        """
+        pulumi.set(__self__, "columns", columns)
+        pulumi.set(__self__, "name", name)
+        if include_columns is not None:
+            pulumi.set(__self__, "include_columns", include_columns)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Index key columns, in order. Order is semantically meaningful.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "columns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the secondary index.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="includeColumns")
+    def include_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Columns included in the index payload via INCLUDE (...). Order carries no meaning.
+        """
+        return pulumi.get(self, "include_columns")
+
+    @include_columns.setter
+    def include_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "include_columns", value)
+
+
+class HybridTablePrimaryKeyConstraintArgsDict(TypedDict):
+    columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The column(s) the constraint applies to.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the constraint.
+    """
+
+@pulumi.input_type
+class HybridTablePrimaryKeyConstraintArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: The column(s) the constraint applies to.
+        :param pulumi.Input[_builtins.str] name: Name of the constraint.
+        """
+        pulumi.set(__self__, "columns", columns)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The column(s) the constraint applies to.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "columns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the constraint.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+class HybridTableShowKeysOutputArgsDict(TypedDict):
+    columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    delete_rule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    kind: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    referenced_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    referenced_table: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    update_rule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class HybridTableShowKeysOutputArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 delete_rule: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 referenced_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 referenced_table: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_rule: pulumi.Input[Optional[_builtins.str]] = None):
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if delete_rule is not None:
+            pulumi.set(__self__, "delete_rule", delete_rule)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if referenced_columns is not None:
+            pulumi.set(__self__, "referenced_columns", referenced_columns)
+        if referenced_table is not None:
+            pulumi.set(__self__, "referenced_table", referenced_table)
+        if update_rule is not None:
+            pulumi.set(__self__, "update_rule", update_rule)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteRule")
+    def delete_rule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "delete_rule")
+
+    @delete_rule.setter
+    def delete_rule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "delete_rule", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="referencedColumns")
+    def referenced_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "referenced_columns")
+
+    @referenced_columns.setter
+    def referenced_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "referenced_columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="referencedTable")
+    def referenced_table(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "referenced_table")
+
+    @referenced_table.setter
+    def referenced_table(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "referenced_table", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateRule")
+    def update_rule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "update_rule")
+
+    @update_rule.setter
+    def update_rule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update_rule", value)
+
+
+class HybridTableShowOutputArgsDict(TypedDict):
+    bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    rows: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class HybridTableShowOutputArgs:
+    def __init__(__self__, *,
+                 bytes: pulumi.Input[Optional[_builtins.int]] = None,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner_role_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 rows: pulumi.Input[Optional[_builtins.int]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+        if bytes is not None:
+            pulumi.set(__self__, "bytes", bytes)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if rows is not None:
+            pulumi.set(__self__, "rows", rows)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "bytes")
+
+    @bytes.setter
+    def bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "bytes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+class HybridTableUniqueConstraintArgsDict(TypedDict):
+    columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The column(s) the constraint applies to.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the constraint.
+    """
+
+@pulumi.input_type
+class HybridTableUniqueConstraintArgs:
+    def __init__(__self__, *,
+                 columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] columns: The column(s) the constraint applies to.
+        :param pulumi.Input[_builtins.str] name: Name of the constraint.
+        """
+        pulumi.set(__self__, "columns", columns)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The column(s) the constraint applies to.
+        """
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "columns", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the constraint.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 class IcebergTableAggregationPolicyArgsDict(TypedDict):

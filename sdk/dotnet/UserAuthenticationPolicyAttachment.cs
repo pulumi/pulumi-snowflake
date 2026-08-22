@@ -62,13 +62,13 @@ namespace Pulumi.Snowflake
     public partial class UserAuthenticationPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Fully qualified name of the authentication policy.
+        /// Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Output("authenticationPolicyName")]
         public Output<string> AuthenticationPolicyName { get; private set; } = null!;
 
         /// <summary>
-        /// User name of the user you want to attach the authentication policy to.
+        /// User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Output("userName")]
         public Output<string> UserName { get; private set; } = null!;
@@ -120,13 +120,13 @@ namespace Pulumi.Snowflake
     public sealed class UserAuthenticationPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully qualified name of the authentication policy.
+        /// Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Input("authenticationPolicyName", required: true)]
         public Input<string> AuthenticationPolicyName { get; set; } = null!;
 
         /// <summary>
-        /// User name of the user you want to attach the authentication policy to.
+        /// User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
@@ -140,13 +140,13 @@ namespace Pulumi.Snowflake
     public sealed class UserAuthenticationPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully qualified name of the authentication policy.
+        /// Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Input("authenticationPolicyName")]
         public Input<string>? AuthenticationPolicyName { get; set; }
 
         /// <summary>
-        /// User name of the user you want to attach the authentication policy to.
+        /// User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

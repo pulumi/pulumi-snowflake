@@ -876,6 +876,7 @@ export interface ComputePoolDescribeOutput {
     application?: pulumi.Input<string | undefined>;
     autoResume?: pulumi.Input<boolean | undefined>;
     autoSuspendSecs?: pulumi.Input<number | undefined>;
+    backupInstanceFamilies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     comment?: pulumi.Input<string | undefined>;
     createdOn?: pulumi.Input<string | undefined>;
     errorCode?: pulumi.Input<string | undefined>;
@@ -900,6 +901,7 @@ export interface ComputePoolShowOutput {
     application?: pulumi.Input<string | undefined>;
     autoResume?: pulumi.Input<boolean | undefined>;
     autoSuspendSecs?: pulumi.Input<number | undefined>;
+    backupInstanceFamilies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     comment?: pulumi.Input<string | undefined>;
     createdOn?: pulumi.Input<string | undefined>;
     idleNodes?: pulumi.Input<number | undefined>;
@@ -1059,6 +1061,50 @@ export interface DynamicTableTargetLag {
      * Specifies the maximum target lag time for the dynamic table.
      */
     maximumDuration?: pulumi.Input<string | undefined>;
+}
+
+export interface ExternalAccessIntegrationAllowedApiAuthenticationIntegrations {
+    /**
+     * Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+     */
+    integrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+     */
+    none?: pulumi.Input<boolean | undefined>;
+}
+
+export interface ExternalAccessIntegrationAllowedAuthenticationSecrets {
+    /**
+     * When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+     */
+    all?: pulumi.Input<boolean | undefined>;
+    /**
+     * When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+     */
+    none?: pulumi.Input<boolean | undefined>;
+    /**
+     * Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+     */
+    secrets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface ExternalAccessIntegrationDescribeOutput {
+    allowedApiAuthenticationIntegrations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    allowedAuthenticationSecrets?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    allowedNetworkRules?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    id?: pulumi.Input<string | undefined>;
+}
+
+export interface ExternalAccessIntegrationShowOutput {
+    category?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
 }
 
 export interface ExternalFunctionArg {
@@ -4171,6 +4217,143 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
      * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
      */
     objectTypePlural: pulumi.Input<string>;
+}
+
+export interface HybridTableColumn {
+    /**
+     * Column collation specification, e.g. en-ci. Case-insensitive (en-ci and EN-CI are treated as equal).
+     */
+    collate?: pulumi.Input<string | undefined>;
+    /**
+     * Column-level comment.
+     */
+    comment?: pulumi.Input<string | undefined>;
+    /**
+     * Defines the column default value. Only one of constant, expression, or sequence may be set.
+     */
+    default?: pulumi.Input<inputs.HybridTableColumnDefault | undefined>;
+    /**
+     * Column name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Whether to restrict the column to NOT NULL values. Changing this on an existing column forces recreation. Primary key columns must set this to true because NOT NULL is implied by the primary key.
+     */
+    notNull?: pulumi.Input<boolean | undefined>;
+    /**
+     * Column type. See [Snowflake data types](https://docs.snowflake.com/en/sql-reference-data-types) for supported values. Example: VARCHAR(256), NUMBER(38,0).
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface HybridTableColumnDefault {
+    /**
+     * A constant default value for the column.
+     */
+    constant?: pulumi.Input<string | undefined>;
+    /**
+     * A SQL expression default value for the column.
+     */
+    expression?: pulumi.Input<string | undefined>;
+    /**
+     * The default sequence for the column (uses NEXTVAL).
+     */
+    sequence?: pulumi.Input<string | undefined>;
+}
+
+export interface HybridTableDescribeOutput {
+    check?: pulumi.Input<string | undefined>;
+    collation?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    default?: pulumi.Input<string | undefined>;
+    expression?: pulumi.Input<string | undefined>;
+    isNullable?: pulumi.Input<boolean | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string | undefined>;
+    primaryKey?: pulumi.Input<boolean | undefined>;
+    privacyDomain?: pulumi.Input<string | undefined>;
+    schemaEvolutionRecord?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string | undefined>;
+    uniqueKey?: pulumi.Input<boolean | undefined>;
+}
+
+export interface HybridTableForeignKeyConstraint {
+    /**
+     * The local column(s) the foreign key is defined on.
+     */
+    columns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the constraint.
+     */
+    name?: pulumi.Input<string | undefined>;
+    /**
+     * The column(s) in the referenced table that the foreign key references.
+     */
+    refColumns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The table that the foreign key references.
+     */
+    tableName: pulumi.Input<string>;
+}
+
+export interface HybridTableIndex {
+    /**
+     * Index key columns, in order. Order is semantically meaningful.
+     */
+    columns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Columns included in the index payload via INCLUDE (...). Order carries no meaning.
+     */
+    includeColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Name of the secondary index.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface HybridTablePrimaryKeyConstraint {
+    /**
+     * The column(s) the constraint applies to.
+     */
+    columns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the constraint.
+     */
+    name?: pulumi.Input<string | undefined>;
+}
+
+export interface HybridTableShowKeysOutput {
+    columns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    deleteRule?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    referencedColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    referencedTable?: pulumi.Input<string | undefined>;
+    updateRule?: pulumi.Input<string | undefined>;
+}
+
+export interface HybridTableShowOutput {
+    bytes?: pulumi.Input<number | undefined>;
+    comment?: pulumi.Input<string | undefined>;
+    createdOn?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string | undefined>;
+    ownerRoleType?: pulumi.Input<string | undefined>;
+    rows?: pulumi.Input<number | undefined>;
+    schemaName?: pulumi.Input<string | undefined>;
+}
+
+export interface HybridTableUniqueConstraint {
+    /**
+     * The column(s) the constraint applies to.
+     */
+    columns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the constraint.
+     */
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface IcebergTableAggregationPolicy {

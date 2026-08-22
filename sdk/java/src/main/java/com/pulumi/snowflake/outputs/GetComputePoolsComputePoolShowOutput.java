@@ -8,6 +8,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -16,6 +17,7 @@ public final class GetComputePoolsComputePoolShowOutput {
     private String application;
     private Boolean autoResume;
     private Integer autoSuspendSecs;
+    private List<String> backupInstanceFamilies;
     private String comment;
     private String createdOn;
     private Integer idleNodes;
@@ -44,6 +46,9 @@ public final class GetComputePoolsComputePoolShowOutput {
     }
     public Integer autoSuspendSecs() {
         return this.autoSuspendSecs;
+    }
+    public List<String> backupInstanceFamilies() {
+        return this.backupInstanceFamilies;
     }
     public String comment() {
         return this.comment;
@@ -104,6 +109,7 @@ public final class GetComputePoolsComputePoolShowOutput {
         private String application;
         private Boolean autoResume;
         private Integer autoSuspendSecs;
+        private List<String> backupInstanceFamilies;
         private String comment;
         private String createdOn;
         private Integer idleNodes;
@@ -126,6 +132,7 @@ public final class GetComputePoolsComputePoolShowOutput {
     	      this.application = defaults.application;
     	      this.autoResume = defaults.autoResume;
     	      this.autoSuspendSecs = defaults.autoSuspendSecs;
+    	      this.backupInstanceFamilies = defaults.backupInstanceFamilies;
     	      this.comment = defaults.comment;
     	      this.createdOn = defaults.createdOn;
     	      this.idleNodes = defaults.idleNodes;
@@ -174,6 +181,17 @@ public final class GetComputePoolsComputePoolShowOutput {
             }
             this.autoSuspendSecs = autoSuspendSecs;
             return this;
+        }
+        @CustomType.Setter
+        public Builder backupInstanceFamilies(List<String> backupInstanceFamilies) {
+            if (backupInstanceFamilies == null) {
+              throw new MissingRequiredPropertyException("GetComputePoolsComputePoolShowOutput", "backupInstanceFamilies");
+            }
+            this.backupInstanceFamilies = backupInstanceFamilies;
+            return this;
+        }
+        public Builder backupInstanceFamilies(String... backupInstanceFamilies) {
+            return backupInstanceFamilies(List.of(backupInstanceFamilies));
         }
         @CustomType.Setter
         public Builder comment(String comment) {
@@ -301,6 +319,7 @@ public final class GetComputePoolsComputePoolShowOutput {
             _resultValue.application = application;
             _resultValue.autoResume = autoResume;
             _resultValue.autoSuspendSecs = autoSuspendSecs;
+            _resultValue.backupInstanceFamilies = backupInstanceFamilies;
             _resultValue.comment = comment;
             _resultValue.createdOn = createdOn;
             _resultValue.idleNodes = idleNodes;

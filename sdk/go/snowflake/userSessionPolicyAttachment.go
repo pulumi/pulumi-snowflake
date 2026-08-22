@@ -70,9 +70,9 @@ import (
 type UserSessionPolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// Fully qualified name of the session policy.
+	// Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName pulumi.StringOutput `pulumi:"sessionPolicyName"`
-	// User name of the user you want to attach the session policy to.
+	// User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 	UserName pulumi.StringOutput `pulumi:"userName"`
 }
 
@@ -112,16 +112,16 @@ func GetUserSessionPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserSessionPolicyAttachment resources.
 type userSessionPolicyAttachmentState struct {
-	// Fully qualified name of the session policy.
+	// Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName *string `pulumi:"sessionPolicyName"`
-	// User name of the user you want to attach the session policy to.
+	// User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 	UserName *string `pulumi:"userName"`
 }
 
 type UserSessionPolicyAttachmentState struct {
-	// Fully qualified name of the session policy.
+	// Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName pulumi.StringPtrInput
-	// User name of the user you want to attach the session policy to.
+	// User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 	UserName pulumi.StringPtrInput
 }
 
@@ -130,17 +130,17 @@ func (UserSessionPolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type userSessionPolicyAttachmentArgs struct {
-	// Fully qualified name of the session policy.
+	// Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName string `pulumi:"sessionPolicyName"`
-	// User name of the user you want to attach the session policy to.
+	// User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 	UserName string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a UserSessionPolicyAttachment resource.
 type UserSessionPolicyAttachmentArgs struct {
-	// Fully qualified name of the session policy.
+	// Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName pulumi.StringInput
-	// User name of the user you want to attach the session policy to.
+	// User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 	UserName pulumi.StringInput
 }
 
@@ -231,12 +231,12 @@ func (o UserSessionPolicyAttachmentOutput) ToUserSessionPolicyAttachmentOutputWi
 	return o
 }
 
-// Fully qualified name of the session policy.
+// Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 func (o UserSessionPolicyAttachmentOutput) SessionPolicyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSessionPolicyAttachment) pulumi.StringOutput { return v.SessionPolicyName }).(pulumi.StringOutput)
 }
 
-// User name of the user you want to attach the session policy to.
+// User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
 func (o UserSessionPolicyAttachmentOutput) UserName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserSessionPolicyAttachment) pulumi.StringOutput { return v.UserName }).(pulumi.StringOutput)
 }
