@@ -10,13 +10,13 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.AccountAuthenticationPolicyAttachmentArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.AccountAuthenticationPolicyAttachmentState;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
  * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- * 
- * &gt; **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
  * 
  * &gt; **Warning** This resource shouldn&#39;t be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
  * 
@@ -54,8 +54,23 @@ import javax.annotation.Nullable;
  *             .name("default_policy")
  *             .build());
  * 
+ *         // Attach the authentication policy account-wide (default behavior).
  *         var attachment = new AccountAuthenticationPolicyAttachment("attachment", AccountAuthenticationPolicyAttachmentArgs.builder()
  *             .authenticationPolicy(default_.fullyQualifiedName())
+ *             .build());
+ * 
+ *         var serviceUsers = new AuthenticationPolicy("serviceUsers", AuthenticationPolicyArgs.builder()
+ *             .database("prod")
+ *             .schema("security")
+ *             .name("service_users_policy")
+ *             .build());
+ * 
+ *         // Attach the authentication policy to all service users only.
+ *         // Use for_all_person_users = true to target all person users instead.
+ *         // The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+ *         var attachmentServiceUsers = new AccountAuthenticationPolicyAttachment("attachmentServiceUsers", AccountAuthenticationPolicyAttachmentArgs.builder()
+ *             .authenticationPolicy(serviceUsers.fullyQualifiedName())
+ *             .forAllServiceUsers(true)
  *             .build());
  * 
  *     }
@@ -69,26 +84,68 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * Account-wide attachment:
+ * 
  * ```sh
- * $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;authentication_policy_name&gt;&#34;&#39;
+ * $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;authentication_policy_name&gt;&#34;|ACCOUNT&#39;
+ * ```
+ * 
+ * For all person users:
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;authentication_policy_name&gt;&#34;|PERSON_USERS&#39;
+ * ```
+ * 
+ * For all service users:
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;authentication_policy_name&gt;&#34;|SERVICE_USERS&#39;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment")
 public class AccountAuthenticationPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * Fully qualified name of the authentication policy to apply to the current account.
+     * Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Export(name="authenticationPolicy", refs={String.class}, tree="[0]")
     private Output<String> authenticationPolicy;
 
     /**
-     * @return Fully qualified name of the authentication policy to apply to the current account.
+     * @return Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Output<String> authenticationPolicy() {
         return this.authenticationPolicy;
+    }
+    /**
+     * If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    @Export(name="forAllPersonUsers", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> forAllPersonUsers;
+
+    /**
+     * @return If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    public Output<Optional<Boolean>> forAllPersonUsers() {
+        return Codegen.optional(this.forAllPersonUsers);
+    }
+    /**
+     * If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    @Export(name="forAllServiceUsers", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> forAllServiceUsers;
+
+    /**
+     * @return If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     * 
+     */
+    public Output<Optional<Boolean>> forAllServiceUsers() {
+        return Codegen.optional(this.forAllServiceUsers);
     }
 
     /**

@@ -14,8 +14,6 @@ import (
 
 // > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
-// > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
-//
 // > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
 //
 // Specifies the authentication policy to use for the current account. To set the authentication policy of a different account, use a provider alias.
@@ -42,8 +40,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Attach the authentication policy account-wide (default behavior).
 //			_, err = snowflake.NewAccountAuthenticationPolicyAttachment(ctx, "attachment", &snowflake.AccountAuthenticationPolicyAttachmentArgs{
 //				AuthenticationPolicy: _default.FullyQualifiedName,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			serviceUsers, err := snowflake.NewAuthenticationPolicy(ctx, "service_users", &snowflake.AuthenticationPolicyArgs{
+//				Database: pulumi.String("prod"),
+//				Schema:   pulumi.String("security"),
+//				Name:     pulumi.String("service_users_policy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Attach the authentication policy to all service users only.
+//			// Use for_all_person_users = true to target all person users instead.
+//			// The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+//			_, err = snowflake.NewAccountAuthenticationPolicyAttachment(ctx, "attachment_service_users", &snowflake.AccountAuthenticationPolicyAttachmentArgs{
+//				AuthenticationPolicy: serviceUsers.FullyQualifiedName,
+//				ForAllServiceUsers:   pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -60,14 +77,32 @@ import (
 //
 // ## Import
 //
+// Account-wide attachment:
+//
 // ```sh
-// $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+// $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|ACCOUNT'
+// ```
+//
+// For all person users:
+//
+// ```sh
+// $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|PERSON_USERS'
+// ```
+//
+// For all service users:
+//
+// ```sh
+// $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|SERVICE_USERS'
 // ```
 type AccountAuthenticationPolicyAttachment struct {
 	pulumi.CustomResourceState
 
-	// Fully qualified name of the authentication policy to apply to the current account.
+	// Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 	AuthenticationPolicy pulumi.StringOutput `pulumi:"authenticationPolicy"`
+	// If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllPersonUsers pulumi.BoolPtrOutput `pulumi:"forAllPersonUsers"`
+	// If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllServiceUsers pulumi.BoolPtrOutput `pulumi:"forAllServiceUsers"`
 }
 
 // NewAccountAuthenticationPolicyAttachment registers a new resource with the given unique name, arguments, and options.
@@ -103,13 +138,21 @@ func GetAccountAuthenticationPolicyAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountAuthenticationPolicyAttachment resources.
 type accountAuthenticationPolicyAttachmentState struct {
-	// Fully qualified name of the authentication policy to apply to the current account.
+	// Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 	AuthenticationPolicy *string `pulumi:"authenticationPolicy"`
+	// If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllPersonUsers *bool `pulumi:"forAllPersonUsers"`
+	// If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllServiceUsers *bool `pulumi:"forAllServiceUsers"`
 }
 
 type AccountAuthenticationPolicyAttachmentState struct {
-	// Fully qualified name of the authentication policy to apply to the current account.
+	// Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 	AuthenticationPolicy pulumi.StringPtrInput
+	// If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllPersonUsers pulumi.BoolPtrInput
+	// If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllServiceUsers pulumi.BoolPtrInput
 }
 
 func (AccountAuthenticationPolicyAttachmentState) ElementType() reflect.Type {
@@ -117,14 +160,22 @@ func (AccountAuthenticationPolicyAttachmentState) ElementType() reflect.Type {
 }
 
 type accountAuthenticationPolicyAttachmentArgs struct {
-	// Fully qualified name of the authentication policy to apply to the current account.
+	// Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 	AuthenticationPolicy string `pulumi:"authenticationPolicy"`
+	// If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllPersonUsers *bool `pulumi:"forAllPersonUsers"`
+	// If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllServiceUsers *bool `pulumi:"forAllServiceUsers"`
 }
 
 // The set of arguments for constructing a AccountAuthenticationPolicyAttachment resource.
 type AccountAuthenticationPolicyAttachmentArgs struct {
-	// Fully qualified name of the authentication policy to apply to the current account.
+	// Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 	AuthenticationPolicy pulumi.StringInput
+	// If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllPersonUsers pulumi.BoolPtrInput
+	// If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+	ForAllServiceUsers pulumi.BoolPtrInput
 }
 
 func (AccountAuthenticationPolicyAttachmentArgs) ElementType() reflect.Type {
@@ -214,9 +265,19 @@ func (o AccountAuthenticationPolicyAttachmentOutput) ToAccountAuthenticationPoli
 	return o
 }
 
-// Fully qualified name of the authentication policy to apply to the current account.
+// Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
 func (o AccountAuthenticationPolicyAttachmentOutput) AuthenticationPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountAuthenticationPolicyAttachment) pulumi.StringOutput { return v.AuthenticationPolicy }).(pulumi.StringOutput)
+}
+
+// If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+func (o AccountAuthenticationPolicyAttachmentOutput) ForAllPersonUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountAuthenticationPolicyAttachment) pulumi.BoolPtrOutput { return v.ForAllPersonUsers }).(pulumi.BoolPtrOutput)
+}
+
+// If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+func (o AccountAuthenticationPolicyAttachmentOutput) ForAllServiceUsers() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AccountAuthenticationPolicyAttachment) pulumi.BoolPtrOutput { return v.ForAllServiceUsers }).(pulumi.BoolPtrOutput)
 }
 
 type AccountAuthenticationPolicyAttachmentArrayOutput struct{ *pulumi.OutputState }

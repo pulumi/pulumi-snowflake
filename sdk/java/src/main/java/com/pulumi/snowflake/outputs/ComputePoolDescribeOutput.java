@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -17,6 +18,7 @@ public final class ComputePoolDescribeOutput {
     private @Nullable String application;
     private @Nullable Boolean autoResume;
     private @Nullable Integer autoSuspendSecs;
+    private @Nullable List<String> backupInstanceFamilies;
     private @Nullable String comment;
     private @Nullable String createdOn;
     private @Nullable String errorCode;
@@ -47,6 +49,9 @@ public final class ComputePoolDescribeOutput {
     }
     public Optional<Integer> autoSuspendSecs() {
         return Optional.ofNullable(this.autoSuspendSecs);
+    }
+    public List<String> backupInstanceFamilies() {
+        return this.backupInstanceFamilies == null ? List.of() : this.backupInstanceFamilies;
     }
     public Optional<String> comment() {
         return Optional.ofNullable(this.comment);
@@ -113,6 +118,7 @@ public final class ComputePoolDescribeOutput {
         private @Nullable String application;
         private @Nullable Boolean autoResume;
         private @Nullable Integer autoSuspendSecs;
+        private @Nullable List<String> backupInstanceFamilies;
         private @Nullable String comment;
         private @Nullable String createdOn;
         private @Nullable String errorCode;
@@ -137,6 +143,7 @@ public final class ComputePoolDescribeOutput {
     	      this.application = defaults.application;
     	      this.autoResume = defaults.autoResume;
     	      this.autoSuspendSecs = defaults.autoSuspendSecs;
+    	      this.backupInstanceFamilies = defaults.backupInstanceFamilies;
     	      this.comment = defaults.comment;
     	      this.createdOn = defaults.createdOn;
     	      this.errorCode = defaults.errorCode;
@@ -179,6 +186,15 @@ public final class ComputePoolDescribeOutput {
 
             this.autoSuspendSecs = autoSuspendSecs;
             return this;
+        }
+        @CustomType.Setter
+        public Builder backupInstanceFamilies(@Nullable List<String> backupInstanceFamilies) {
+
+            this.backupInstanceFamilies = backupInstanceFamilies;
+            return this;
+        }
+        public Builder backupInstanceFamilies(String... backupInstanceFamilies) {
+            return backupInstanceFamilies(List.of(backupInstanceFamilies));
         }
         @CustomType.Setter
         public Builder comment(@Nullable String comment) {
@@ -288,6 +304,7 @@ public final class ComputePoolDescribeOutput {
             _resultValue.application = application;
             _resultValue.autoResume = autoResume;
             _resultValue.autoSuspendSecs = autoSuspendSecs;
+            _resultValue.backupInstanceFamilies = backupInstanceFamilies;
             _resultValue.comment = comment;
             _resultValue.createdOn = createdOn;
             _resultValue.errorCode = errorCode;

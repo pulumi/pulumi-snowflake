@@ -81,28 +81,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/userSessionPolicyAttachment:UserSessionPolicyAttachment")
 public class UserSessionPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * Fully qualified name of the session policy.
+     * Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Export(name="sessionPolicyName", refs={String.class}, tree="[0]")
     private Output<String> sessionPolicyName;
 
     /**
-     * @return Fully qualified name of the session policy.
+     * @return Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Output<String> sessionPolicyName() {
         return this.sessionPolicyName;
     }
     /**
-     * User name of the user you want to attach the session policy to.
+     * User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Export(name="userName", refs={String.class}, tree="[0]")
     private Output<String> userName;
 
     /**
-     * @return User name of the user you want to attach the session policy to.
+     * @return User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Output<String> userName() {

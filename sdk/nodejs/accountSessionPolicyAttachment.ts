@@ -5,8 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
- *
  * > **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
  *
  * Specifies the session policy to use for the current account. To set the session policy of a different account, use a provider alias.
@@ -22,7 +20,20 @@ import * as utilities from "./utilities";
  *     schema: "security",
  *     name: "default_session_policy",
  * });
+ * // Attach the session policy account-wide (default behavior).
  * const attachment = new snowflake.AccountSessionPolicyAttachment("attachment", {sessionPolicyName: sp.fullyQualifiedName});
+ * const serviceUsers = new snowflake.SessionPolicy("service_users", {
+ *     database: "prod",
+ *     schema: "security",
+ *     name: "service_users_session_policy",
+ * });
+ * // Attach the session policy to all service users only.
+ * // Use for_all_person_users = true to target all person users instead.
+ * // The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+ * const attachmentServiceUsers = new snowflake.AccountSessionPolicyAttachment("attachment_service_users", {
+ *     sessionPolicyName: serviceUsers.fullyQualifiedName,
+ *     forAllServiceUsers: true,
+ * });
  * ```
  * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
  * <!-- TODO(SNOW-1634854): include an example showing both methods-->
@@ -31,8 +42,22 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * Account-wide attachment:
+ *
  * ```sh
- * $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"'
+ * $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|ACCOUNT'
+ * ```
+ *
+ * For all person users:
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|PERSON_USERS'
+ * ```
+ *
+ * For all service users:
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|SERVICE_USERS'
  * ```
  */
 export class AccountSessionPolicyAttachment extends pulumi.CustomResource {
@@ -64,7 +89,15 @@ export class AccountSessionPolicyAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Fully qualified name of the session policy to apply to the current account.
+     * If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    declare public readonly forAllPersonUsers: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    declare public readonly forAllServiceUsers: pulumi.Output<boolean | undefined>;
+    /**
+     * Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     declare public readonly sessionPolicyName: pulumi.Output<string>;
 
@@ -81,12 +114,16 @@ export class AccountSessionPolicyAttachment extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountSessionPolicyAttachmentState | undefined;
+            resourceInputs["forAllPersonUsers"] = state?.forAllPersonUsers;
+            resourceInputs["forAllServiceUsers"] = state?.forAllServiceUsers;
             resourceInputs["sessionPolicyName"] = state?.sessionPolicyName;
         } else {
             const args = argsOrState as AccountSessionPolicyAttachmentArgs | undefined;
             if (args?.sessionPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sessionPolicyName'");
             }
+            resourceInputs["forAllPersonUsers"] = args?.forAllPersonUsers;
+            resourceInputs["forAllServiceUsers"] = args?.forAllServiceUsers;
             resourceInputs["sessionPolicyName"] = args?.sessionPolicyName;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -99,7 +136,15 @@ export class AccountSessionPolicyAttachment extends pulumi.CustomResource {
  */
 export interface AccountSessionPolicyAttachmentState {
     /**
-     * Fully qualified name of the session policy to apply to the current account.
+     * If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    forAllPersonUsers?: pulumi.Input<boolean | undefined>;
+    /**
+     * If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    forAllServiceUsers?: pulumi.Input<boolean | undefined>;
+    /**
+     * Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     sessionPolicyName?: pulumi.Input<string | undefined>;
 }
@@ -109,7 +154,15 @@ export interface AccountSessionPolicyAttachmentState {
  */
 export interface AccountSessionPolicyAttachmentArgs {
     /**
-     * Fully qualified name of the session policy to apply to the current account.
+     * If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    forAllPersonUsers?: pulumi.Input<boolean | undefined>;
+    /**
+     * If true, attaches the session policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    forAllServiceUsers?: pulumi.Input<boolean | undefined>;
+    /**
+     * Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     sessionPolicyName: pulumi.Input<string>;
 }

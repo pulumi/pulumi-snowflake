@@ -11,6 +11,8 @@ import * as utilities from "./utilities";
  *
  * > **Note** Managing compute pool state is limited. It is handled by `initiallySuspended`, `autoSuspendSecs`, and `autoResume` fields. The provider does not support managing the state of compute pools in Snowflake with `ALTER ... SUSPEND` and `ALTER ... RESUME`. See [Compute pool lifecycle documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-compute-pool#compute-pool-lifecycle) for more details.
  *
+ * > **Note** `backupInstanceFamilies` maps to a Snowflake [preview feature](https://docs.snowflake.com/en/release-notes/preview-features). It is available to all accounts, but its behavior may change before it reaches general availability.
+ *
  * Resource used to manage compute pools. For more information, check [compute pools documentation](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool). A compute pool is a collection of one or more virtual machine (VM) nodes on which Snowflake runs your Snowpark Container Services services (including job services). See [Working with compute pools](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-compute-pool) developer guide for more details.
  *
  * ## Example Usage
@@ -36,6 +38,10 @@ import * as utilities from "./utilities";
  *     minNodes: 1,
  *     maxNodes: 2,
  *     instanceFamily: "CPU_X64_S",
+ *     backupInstanceFamilies: [
+ *         "CPU_X64_M",
+ *         "CPU_X64_L",
+ *     ],
  *     autoResume: "true",
  *     initiallySuspended: "true",
  *     autoSuspendSecs: 1200,
@@ -87,6 +93,10 @@ export class ComputePool extends pulumi.CustomResource {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of seconds of inactivity after which you want Snowflake to automatically suspend the compute pool.
      */
     declare public readonly autoSuspendSecs: pulumi.Output<number | undefined>;
+    /**
+     * Specifies an ordered list of instance families to fall back on when the primary `instanceFamily` is unavailable. The order determines the fallback priority. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G` | `GEN_ARM_G1_2` | `GEN_ARM_G1_4` | `GEN_ARM_G1_8` | `GEN_ARM_G1_16` | `GEN_ARM_G1_32` | `GEN_X64_G2_2` | `GEN_X64_G2_4` | `GEN_X64_G2_8` | `GEN_X64_G2_16` | `GEN_X64_G2_32` | `MEM_X64_G2_8` | `MEM_X64_G2_32` | `MEM_X64_G2_64` | `MEM_X64_G2_96` | `MEM_X64_G2_192` | `GPU_L40S_G1_8` | `GPU_L40S_G1_16` | `GPU_L40S_G1_48` | `GPU_L40S_G1_192` | `GPU_R6K_G1_8` | `GPU_R6K_G1_16` | `GPU_R6K_G1_32` | `GPU_R6K_G1_48` | `GPU_R6K_G1_96` | `GPU_R6K_G1_192` | `GPU_A100_G1_12` | `GPU_A100_G1_48`.
+     */
+    declare public readonly backupInstanceFamilies: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a comment for the compute pool.
      */
@@ -143,6 +153,7 @@ export class ComputePool extends pulumi.CustomResource {
             const state = argsOrState as ComputePoolState | undefined;
             resourceInputs["autoResume"] = state?.autoResume;
             resourceInputs["autoSuspendSecs"] = state?.autoSuspendSecs;
+            resourceInputs["backupInstanceFamilies"] = state?.backupInstanceFamilies;
             resourceInputs["comment"] = state?.comment;
             resourceInputs["describeOutputs"] = state?.describeOutputs;
             resourceInputs["forApplication"] = state?.forApplication;
@@ -166,6 +177,7 @@ export class ComputePool extends pulumi.CustomResource {
             }
             resourceInputs["autoResume"] = args?.autoResume;
             resourceInputs["autoSuspendSecs"] = args?.autoSuspendSecs;
+            resourceInputs["backupInstanceFamilies"] = args?.backupInstanceFamilies;
             resourceInputs["comment"] = args?.comment;
             resourceInputs["forApplication"] = args?.forApplication;
             resourceInputs["initiallySuspended"] = args?.initiallySuspended;
@@ -194,6 +206,10 @@ export interface ComputePoolState {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of seconds of inactivity after which you want Snowflake to automatically suspend the compute pool.
      */
     autoSuspendSecs?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies an ordered list of instance families to fall back on when the primary `instanceFamily` is unavailable. The order determines the fallback priority. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G` | `GEN_ARM_G1_2` | `GEN_ARM_G1_4` | `GEN_ARM_G1_8` | `GEN_ARM_G1_16` | `GEN_ARM_G1_32` | `GEN_X64_G2_2` | `GEN_X64_G2_4` | `GEN_X64_G2_8` | `GEN_X64_G2_16` | `GEN_X64_G2_32` | `MEM_X64_G2_8` | `MEM_X64_G2_32` | `MEM_X64_G2_64` | `MEM_X64_G2_96` | `MEM_X64_G2_192` | `GPU_L40S_G1_8` | `GPU_L40S_G1_16` | `GPU_L40S_G1_48` | `GPU_L40S_G1_192` | `GPU_R6K_G1_8` | `GPU_R6K_G1_16` | `GPU_R6K_G1_32` | `GPU_R6K_G1_48` | `GPU_R6K_G1_96` | `GPU_R6K_G1_192` | `GPU_A100_G1_12` | `GPU_A100_G1_48`.
+     */
+    backupInstanceFamilies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the compute pool.
      */
@@ -248,6 +264,10 @@ export interface ComputePoolArgs {
      * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of seconds of inactivity after which you want Snowflake to automatically suspend the compute pool.
      */
     autoSuspendSecs?: pulumi.Input<number | undefined>;
+    /**
+     * Specifies an ordered list of instance families to fall back on when the primary `instanceFamily` is unavailable. The order determines the fallback priority. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G` | `GEN_ARM_G1_2` | `GEN_ARM_G1_4` | `GEN_ARM_G1_8` | `GEN_ARM_G1_16` | `GEN_ARM_G1_32` | `GEN_X64_G2_2` | `GEN_X64_G2_4` | `GEN_X64_G2_8` | `GEN_X64_G2_16` | `GEN_X64_G2_32` | `MEM_X64_G2_8` | `MEM_X64_G2_32` | `MEM_X64_G2_64` | `MEM_X64_G2_96` | `MEM_X64_G2_192` | `GPU_L40S_G1_8` | `GPU_L40S_G1_16` | `GPU_L40S_G1_48` | `GPU_L40S_G1_192` | `GPU_R6K_G1_8` | `GPU_R6K_G1_16` | `GPU_R6K_G1_32` | `GPU_R6K_G1_48` | `GPU_R6K_G1_96` | `GPU_R6K_G1_192` | `GPU_A100_G1_12` | `GPU_A100_G1_48`.
+     */
+    backupInstanceFamilies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies a comment for the compute pool.
      */

@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
  *
  * > **Note** Currently, API integrations for `gitHttpsApi` API provider are not supported. It will be added in the future.
  *
- * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: `snowflake.ApiIntegrationAmazonApiGateway` | `snowflake.ApiIntegrationAzureApiManagement` | `snowflake.ApiIntegrationGoogleCloudApiGateway` | `snowflake.ApiIntegrationGitRepositoryGithubApp` | `snowflake.ApiIntegrationGitRepositoryOauth2` | `snowflake.ApiIntegrationGitRepositoryToken` | `snowflake.ApiIntegrationGitRepositoryPrivateLink` | `snowflake.ApiIntegrationExternalMcpOauth2` | `snowflake.ApiIntegrationExternalMcpDynamicClient`. <deprecation>
+ * > **Deprecation** This resource is deprecated and will be removed in a future major version release. Please use one of the new resources instead: snowflake.ApiIntegrationAmazonApiGateway | snowflake.ApiIntegrationAzureApiManagement | snowflake.ApiIntegrationGoogleCloudApiGateway | snowflake.ApiIntegrationGitRepositoryGithubApp | snowflake.ApiIntegrationGitRepositoryOauth2 | snowflake.ApiIntegrationGitRepositoryToken | snowflake.ApiIntegrationGitRepositoryPrivateLink | snowflake.ApiIntegrationExternalMcpOauth2 | snowflake_api_integration_external_mcp_dynamic_client. <deprecation>
  *
  * ## Example Usage
  *

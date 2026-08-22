@@ -13,6 +13,2264 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetDatabasesDatabaseShowOutput struct {
+	Comment       string `pulumi:"comment"`
+	CreatedOn     string `pulumi:"createdOn"`
+	DroppedOn     string `pulumi:"droppedOn"`
+	IsCurrent     bool   `pulumi:"isCurrent"`
+	IsDefault     bool   `pulumi:"isDefault"`
+	Kind          string `pulumi:"kind"`
+	Name          string `pulumi:"name"`
+	Options       string `pulumi:"options"`
+	Origin        string `pulumi:"origin"`
+	Owner         string `pulumi:"owner"`
+	OwnerRoleType string `pulumi:"ownerRoleType"`
+	ResourceGroup string `pulumi:"resourceGroup"`
+	RetentionTime int    `pulumi:"retentionTime"`
+	Transient     bool   `pulumi:"transient"`
+}
+
+// GetDatabasesDatabaseShowOutputInput is an input type that accepts GetDatabasesDatabaseShowOutputArgs and GetDatabasesDatabaseShowOutputOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseShowOutputInput` via:
+//
+//	GetDatabasesDatabaseShowOutputArgs{...}
+type GetDatabasesDatabaseShowOutputInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseShowOutputOutput() GetDatabasesDatabaseShowOutputOutput
+	ToGetDatabasesDatabaseShowOutputOutputWithContext(context.Context) GetDatabasesDatabaseShowOutputOutput
+}
+
+type GetDatabasesDatabaseShowOutputArgs struct {
+	Comment       pulumi.StringInput `pulumi:"comment"`
+	CreatedOn     pulumi.StringInput `pulumi:"createdOn"`
+	DroppedOn     pulumi.StringInput `pulumi:"droppedOn"`
+	IsCurrent     pulumi.BoolInput   `pulumi:"isCurrent"`
+	IsDefault     pulumi.BoolInput   `pulumi:"isDefault"`
+	Kind          pulumi.StringInput `pulumi:"kind"`
+	Name          pulumi.StringInput `pulumi:"name"`
+	Options       pulumi.StringInput `pulumi:"options"`
+	Origin        pulumi.StringInput `pulumi:"origin"`
+	Owner         pulumi.StringInput `pulumi:"owner"`
+	OwnerRoleType pulumi.StringInput `pulumi:"ownerRoleType"`
+	ResourceGroup pulumi.StringInput `pulumi:"resourceGroup"`
+	RetentionTime pulumi.IntInput    `pulumi:"retentionTime"`
+	Transient     pulumi.BoolInput   `pulumi:"transient"`
+}
+
+func (GetDatabasesDatabaseShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseShowOutput)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseShowOutputArgs) ToGetDatabasesDatabaseShowOutputOutput() GetDatabasesDatabaseShowOutputOutput {
+	return i.ToGetDatabasesDatabaseShowOutputOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseShowOutputArgs) ToGetDatabasesDatabaseShowOutputOutputWithContext(ctx context.Context) GetDatabasesDatabaseShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseShowOutputOutput)
+}
+
+// GetDatabasesDatabaseShowOutputArrayInput is an input type that accepts GetDatabasesDatabaseShowOutputArray and GetDatabasesDatabaseShowOutputArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseShowOutputArrayInput` via:
+//
+//	GetDatabasesDatabaseShowOutputArray{ GetDatabasesDatabaseShowOutputArgs{...} }
+type GetDatabasesDatabaseShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseShowOutputArrayOutput() GetDatabasesDatabaseShowOutputArrayOutput
+	ToGetDatabasesDatabaseShowOutputArrayOutputWithContext(context.Context) GetDatabasesDatabaseShowOutputArrayOutput
+}
+
+type GetDatabasesDatabaseShowOutputArray []GetDatabasesDatabaseShowOutputInput
+
+func (GetDatabasesDatabaseShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseShowOutput)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseShowOutputArray) ToGetDatabasesDatabaseShowOutputArrayOutput() GetDatabasesDatabaseShowOutputArrayOutput {
+	return i.ToGetDatabasesDatabaseShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseShowOutputArray) ToGetDatabasesDatabaseShowOutputArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseShowOutputArrayOutput)
+}
+
+type GetDatabasesDatabaseShowOutputOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseShowOutput)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) ToGetDatabasesDatabaseShowOutputOutput() GetDatabasesDatabaseShowOutputOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) ToGetDatabasesDatabaseShowOutputOutputWithContext(ctx context.Context) GetDatabasesDatabaseShowOutputOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) DroppedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) string { return v.DroppedOn }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) IsCurrent() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) bool { return v.IsCurrent }).(pulumi.BoolOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) IsDefault() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) bool { return v.IsDefault }).(pulumi.BoolOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) Options() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) string { return v.Options }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) string { return v.Origin }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) OwnerRoleType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) string { return v.OwnerRoleType }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) ResourceGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) string { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) RetentionTime() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) int { return v.RetentionTime }).(pulumi.IntOutput)
+}
+
+func (o GetDatabasesDatabaseShowOutputOutput) Transient() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseShowOutput) bool { return v.Transient }).(pulumi.BoolOutput)
+}
+
+type GetDatabasesDatabaseShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseShowOutput)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseShowOutputArrayOutput) ToGetDatabasesDatabaseShowOutputArrayOutput() GetDatabasesDatabaseShowOutputArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseShowOutputArrayOutput) ToGetDatabasesDatabaseShowOutputArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseShowOutputArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseShowOutputArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseShowOutput {
+		return vs[0].([]GetDatabasesDatabaseShowOutput)[vs[1].(int)]
+	}).(GetDatabasesDatabaseShowOutputOutput)
+}
+
+type GetDatabasesLimit struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From *string `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows int `pulumi:"rows"`
+}
+
+// GetDatabasesLimitInput is an input type that accepts GetDatabasesLimitArgs and GetDatabasesLimitOutput values.
+// You can construct a concrete instance of `GetDatabasesLimitInput` via:
+//
+//	GetDatabasesLimitArgs{...}
+type GetDatabasesLimitInput interface {
+	pulumi.Input
+
+	ToGetDatabasesLimitOutput() GetDatabasesLimitOutput
+	ToGetDatabasesLimitOutputWithContext(context.Context) GetDatabasesLimitOutput
+}
+
+type GetDatabasesLimitArgs struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows pulumi.IntInput `pulumi:"rows"`
+}
+
+func (GetDatabasesLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesLimit)(nil)).Elem()
+}
+
+func (i GetDatabasesLimitArgs) ToGetDatabasesLimitOutput() GetDatabasesLimitOutput {
+	return i.ToGetDatabasesLimitOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesLimitArgs) ToGetDatabasesLimitOutputWithContext(ctx context.Context) GetDatabasesLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesLimitOutput)
+}
+
+func (i GetDatabasesLimitArgs) ToGetDatabasesLimitPtrOutput() GetDatabasesLimitPtrOutput {
+	return i.ToGetDatabasesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesLimitArgs) ToGetDatabasesLimitPtrOutputWithContext(ctx context.Context) GetDatabasesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesLimitOutput).ToGetDatabasesLimitPtrOutputWithContext(ctx)
+}
+
+// GetDatabasesLimitPtrInput is an input type that accepts GetDatabasesLimitArgs, GetDatabasesLimitPtr and GetDatabasesLimitPtrOutput values.
+// You can construct a concrete instance of `GetDatabasesLimitPtrInput` via:
+//
+//	        GetDatabasesLimitArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDatabasesLimitPtrInput interface {
+	pulumi.Input
+
+	ToGetDatabasesLimitPtrOutput() GetDatabasesLimitPtrOutput
+	ToGetDatabasesLimitPtrOutputWithContext(context.Context) GetDatabasesLimitPtrOutput
+}
+
+type getDatabasesLimitPtrType GetDatabasesLimitArgs
+
+func GetDatabasesLimitPtr(v *GetDatabasesLimitArgs) GetDatabasesLimitPtrInput {
+	return (*getDatabasesLimitPtrType)(v)
+}
+
+func (*getDatabasesLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDatabasesLimit)(nil)).Elem()
+}
+
+func (i *getDatabasesLimitPtrType) ToGetDatabasesLimitPtrOutput() GetDatabasesLimitPtrOutput {
+	return i.ToGetDatabasesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *getDatabasesLimitPtrType) ToGetDatabasesLimitPtrOutputWithContext(ctx context.Context) GetDatabasesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesLimitPtrOutput)
+}
+
+type GetDatabasesLimitOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesLimit)(nil)).Elem()
+}
+
+func (o GetDatabasesLimitOutput) ToGetDatabasesLimitOutput() GetDatabasesLimitOutput {
+	return o
+}
+
+func (o GetDatabasesLimitOutput) ToGetDatabasesLimitOutputWithContext(ctx context.Context) GetDatabasesLimitOutput {
+	return o
+}
+
+func (o GetDatabasesLimitOutput) ToGetDatabasesLimitPtrOutput() GetDatabasesLimitPtrOutput {
+	return o.ToGetDatabasesLimitPtrOutputWithContext(context.Background())
+}
+
+func (o GetDatabasesLimitOutput) ToGetDatabasesLimitPtrOutputWithContext(ctx context.Context) GetDatabasesLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDatabasesLimit) *GetDatabasesLimit {
+		return &v
+	}).(GetDatabasesLimitPtrOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetDatabasesLimitOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDatabasesLimit) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetDatabasesLimitOutput) Rows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDatabasesLimit) int { return v.Rows }).(pulumi.IntOutput)
+}
+
+type GetDatabasesLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDatabasesLimit)(nil)).Elem()
+}
+
+func (o GetDatabasesLimitPtrOutput) ToGetDatabasesLimitPtrOutput() GetDatabasesLimitPtrOutput {
+	return o
+}
+
+func (o GetDatabasesLimitPtrOutput) ToGetDatabasesLimitPtrOutputWithContext(ctx context.Context) GetDatabasesLimitPtrOutput {
+	return o
+}
+
+func (o GetDatabasesLimitPtrOutput) Elem() GetDatabasesLimitOutput {
+	return o.ApplyT(func(v *GetDatabasesLimit) GetDatabasesLimit {
+		if v != nil {
+			return *v
+		}
+		var ret GetDatabasesLimit
+		return ret
+	}).(GetDatabasesLimitOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetDatabasesLimitPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDatabasesLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetDatabasesLimitPtrOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetDatabasesLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Rows
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetDynamicTablesIn struct {
+	// Returns records for the entire account.
+	Account *bool `pulumi:"account"`
+	// Returns records for the current database in use or for a specified database (db_name).
+	Database *string `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema (schema_name).
+	Schema *string `pulumi:"schema"`
+}
+
+// GetDynamicTablesInInput is an input type that accepts GetDynamicTablesInArgs and GetDynamicTablesInOutput values.
+// You can construct a concrete instance of `GetDynamicTablesInInput` via:
+//
+//	GetDynamicTablesInArgs{...}
+type GetDynamicTablesInInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesInOutput() GetDynamicTablesInOutput
+	ToGetDynamicTablesInOutputWithContext(context.Context) GetDynamicTablesInOutput
+}
+
+type GetDynamicTablesInArgs struct {
+	// Returns records for the entire account.
+	Account pulumi.BoolPtrInput `pulumi:"account"`
+	// Returns records for the current database in use or for a specified database (db_name).
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema (schema_name).
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+}
+
+func (GetDynamicTablesInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesIn)(nil)).Elem()
+}
+
+func (i GetDynamicTablesInArgs) ToGetDynamicTablesInOutput() GetDynamicTablesInOutput {
+	return i.ToGetDynamicTablesInOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesInArgs) ToGetDynamicTablesInOutputWithContext(ctx context.Context) GetDynamicTablesInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesInOutput)
+}
+
+func (i GetDynamicTablesInArgs) ToGetDynamicTablesInPtrOutput() GetDynamicTablesInPtrOutput {
+	return i.ToGetDynamicTablesInPtrOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesInArgs) ToGetDynamicTablesInPtrOutputWithContext(ctx context.Context) GetDynamicTablesInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesInOutput).ToGetDynamicTablesInPtrOutputWithContext(ctx)
+}
+
+// GetDynamicTablesInPtrInput is an input type that accepts GetDynamicTablesInArgs, GetDynamicTablesInPtr and GetDynamicTablesInPtrOutput values.
+// You can construct a concrete instance of `GetDynamicTablesInPtrInput` via:
+//
+//	        GetDynamicTablesInArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDynamicTablesInPtrInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesInPtrOutput() GetDynamicTablesInPtrOutput
+	ToGetDynamicTablesInPtrOutputWithContext(context.Context) GetDynamicTablesInPtrOutput
+}
+
+type getDynamicTablesInPtrType GetDynamicTablesInArgs
+
+func GetDynamicTablesInPtr(v *GetDynamicTablesInArgs) GetDynamicTablesInPtrInput {
+	return (*getDynamicTablesInPtrType)(v)
+}
+
+func (*getDynamicTablesInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesIn)(nil)).Elem()
+}
+
+func (i *getDynamicTablesInPtrType) ToGetDynamicTablesInPtrOutput() GetDynamicTablesInPtrOutput {
+	return i.ToGetDynamicTablesInPtrOutputWithContext(context.Background())
+}
+
+func (i *getDynamicTablesInPtrType) ToGetDynamicTablesInPtrOutputWithContext(ctx context.Context) GetDynamicTablesInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesInPtrOutput)
+}
+
+type GetDynamicTablesInOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesIn)(nil)).Elem()
+}
+
+func (o GetDynamicTablesInOutput) ToGetDynamicTablesInOutput() GetDynamicTablesInOutput {
+	return o
+}
+
+func (o GetDynamicTablesInOutput) ToGetDynamicTablesInOutputWithContext(ctx context.Context) GetDynamicTablesInOutput {
+	return o
+}
+
+func (o GetDynamicTablesInOutput) ToGetDynamicTablesInPtrOutput() GetDynamicTablesInPtrOutput {
+	return o.ToGetDynamicTablesInPtrOutputWithContext(context.Background())
+}
+
+func (o GetDynamicTablesInOutput) ToGetDynamicTablesInPtrOutputWithContext(ctx context.Context) GetDynamicTablesInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDynamicTablesIn) *GetDynamicTablesIn {
+		return &v
+	}).(GetDynamicTablesInPtrOutput)
+}
+
+// Returns records for the entire account.
+func (o GetDynamicTablesInOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetDynamicTablesIn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database (db_name).
+func (o GetDynamicTablesInOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDynamicTablesIn) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema (schema_name).
+func (o GetDynamicTablesInOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDynamicTablesIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+type GetDynamicTablesInPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesIn)(nil)).Elem()
+}
+
+func (o GetDynamicTablesInPtrOutput) ToGetDynamicTablesInPtrOutput() GetDynamicTablesInPtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesInPtrOutput) ToGetDynamicTablesInPtrOutputWithContext(ctx context.Context) GetDynamicTablesInPtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesInPtrOutput) Elem() GetDynamicTablesInOutput {
+	return o.ApplyT(func(v *GetDynamicTablesIn) GetDynamicTablesIn {
+		if v != nil {
+			return *v
+		}
+		var ret GetDynamicTablesIn
+		return ret
+	}).(GetDynamicTablesInOutput)
+}
+
+// Returns records for the entire account.
+func (o GetDynamicTablesInPtrOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesIn) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Account
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database (db_name).
+func (o GetDynamicTablesInPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema (schema_name).
+func (o GetDynamicTablesInPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetDynamicTablesLike struct {
+	// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+	Pattern string `pulumi:"pattern"`
+}
+
+// GetDynamicTablesLikeInput is an input type that accepts GetDynamicTablesLikeArgs and GetDynamicTablesLikeOutput values.
+// You can construct a concrete instance of `GetDynamicTablesLikeInput` via:
+//
+//	GetDynamicTablesLikeArgs{...}
+type GetDynamicTablesLikeInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesLikeOutput() GetDynamicTablesLikeOutput
+	ToGetDynamicTablesLikeOutputWithContext(context.Context) GetDynamicTablesLikeOutput
+}
+
+type GetDynamicTablesLikeArgs struct {
+	// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (GetDynamicTablesLikeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesLike)(nil)).Elem()
+}
+
+func (i GetDynamicTablesLikeArgs) ToGetDynamicTablesLikeOutput() GetDynamicTablesLikeOutput {
+	return i.ToGetDynamicTablesLikeOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesLikeArgs) ToGetDynamicTablesLikeOutputWithContext(ctx context.Context) GetDynamicTablesLikeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLikeOutput)
+}
+
+func (i GetDynamicTablesLikeArgs) ToGetDynamicTablesLikePtrOutput() GetDynamicTablesLikePtrOutput {
+	return i.ToGetDynamicTablesLikePtrOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesLikeArgs) ToGetDynamicTablesLikePtrOutputWithContext(ctx context.Context) GetDynamicTablesLikePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLikeOutput).ToGetDynamicTablesLikePtrOutputWithContext(ctx)
+}
+
+// GetDynamicTablesLikePtrInput is an input type that accepts GetDynamicTablesLikeArgs, GetDynamicTablesLikePtr and GetDynamicTablesLikePtrOutput values.
+// You can construct a concrete instance of `GetDynamicTablesLikePtrInput` via:
+//
+//	        GetDynamicTablesLikeArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDynamicTablesLikePtrInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesLikePtrOutput() GetDynamicTablesLikePtrOutput
+	ToGetDynamicTablesLikePtrOutputWithContext(context.Context) GetDynamicTablesLikePtrOutput
+}
+
+type getDynamicTablesLikePtrType GetDynamicTablesLikeArgs
+
+func GetDynamicTablesLikePtr(v *GetDynamicTablesLikeArgs) GetDynamicTablesLikePtrInput {
+	return (*getDynamicTablesLikePtrType)(v)
+}
+
+func (*getDynamicTablesLikePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesLike)(nil)).Elem()
+}
+
+func (i *getDynamicTablesLikePtrType) ToGetDynamicTablesLikePtrOutput() GetDynamicTablesLikePtrOutput {
+	return i.ToGetDynamicTablesLikePtrOutputWithContext(context.Background())
+}
+
+func (i *getDynamicTablesLikePtrType) ToGetDynamicTablesLikePtrOutputWithContext(ctx context.Context) GetDynamicTablesLikePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLikePtrOutput)
+}
+
+type GetDynamicTablesLikeOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesLikeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesLike)(nil)).Elem()
+}
+
+func (o GetDynamicTablesLikeOutput) ToGetDynamicTablesLikeOutput() GetDynamicTablesLikeOutput {
+	return o
+}
+
+func (o GetDynamicTablesLikeOutput) ToGetDynamicTablesLikeOutputWithContext(ctx context.Context) GetDynamicTablesLikeOutput {
+	return o
+}
+
+func (o GetDynamicTablesLikeOutput) ToGetDynamicTablesLikePtrOutput() GetDynamicTablesLikePtrOutput {
+	return o.ToGetDynamicTablesLikePtrOutputWithContext(context.Background())
+}
+
+func (o GetDynamicTablesLikeOutput) ToGetDynamicTablesLikePtrOutputWithContext(ctx context.Context) GetDynamicTablesLikePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDynamicTablesLike) *GetDynamicTablesLike {
+		return &v
+	}).(GetDynamicTablesLikePtrOutput)
+}
+
+// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+func (o GetDynamicTablesLikeOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesLike) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type GetDynamicTablesLikePtrOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesLikePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesLike)(nil)).Elem()
+}
+
+func (o GetDynamicTablesLikePtrOutput) ToGetDynamicTablesLikePtrOutput() GetDynamicTablesLikePtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesLikePtrOutput) ToGetDynamicTablesLikePtrOutputWithContext(ctx context.Context) GetDynamicTablesLikePtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesLikePtrOutput) Elem() GetDynamicTablesLikeOutput {
+	return o.ApplyT(func(v *GetDynamicTablesLike) GetDynamicTablesLike {
+		if v != nil {
+			return *v
+		}
+		var ret GetDynamicTablesLike
+		return ret
+	}).(GetDynamicTablesLikeOutput)
+}
+
+// Filters the command output by object name. The filter uses case-insensitive pattern matching with support for SQL wildcard characters (% and _).
+func (o GetDynamicTablesLikePtrOutput) Pattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesLike) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Pattern
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetDynamicTablesLimit struct {
+	// The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+	From *string `pulumi:"from"`
+	// Specifies the maximum number of rows to return.
+	Rows *int `pulumi:"rows"`
+}
+
+// GetDynamicTablesLimitInput is an input type that accepts GetDynamicTablesLimitArgs and GetDynamicTablesLimitOutput values.
+// You can construct a concrete instance of `GetDynamicTablesLimitInput` via:
+//
+//	GetDynamicTablesLimitArgs{...}
+type GetDynamicTablesLimitInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesLimitOutput() GetDynamicTablesLimitOutput
+	ToGetDynamicTablesLimitOutputWithContext(context.Context) GetDynamicTablesLimitOutput
+}
+
+type GetDynamicTablesLimitArgs struct {
+	// The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// Specifies the maximum number of rows to return.
+	Rows pulumi.IntPtrInput `pulumi:"rows"`
+}
+
+func (GetDynamicTablesLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesLimit)(nil)).Elem()
+}
+
+func (i GetDynamicTablesLimitArgs) ToGetDynamicTablesLimitOutput() GetDynamicTablesLimitOutput {
+	return i.ToGetDynamicTablesLimitOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesLimitArgs) ToGetDynamicTablesLimitOutputWithContext(ctx context.Context) GetDynamicTablesLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLimitOutput)
+}
+
+func (i GetDynamicTablesLimitArgs) ToGetDynamicTablesLimitPtrOutput() GetDynamicTablesLimitPtrOutput {
+	return i.ToGetDynamicTablesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesLimitArgs) ToGetDynamicTablesLimitPtrOutputWithContext(ctx context.Context) GetDynamicTablesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLimitOutput).ToGetDynamicTablesLimitPtrOutputWithContext(ctx)
+}
+
+// GetDynamicTablesLimitPtrInput is an input type that accepts GetDynamicTablesLimitArgs, GetDynamicTablesLimitPtr and GetDynamicTablesLimitPtrOutput values.
+// You can construct a concrete instance of `GetDynamicTablesLimitPtrInput` via:
+//
+//	        GetDynamicTablesLimitArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetDynamicTablesLimitPtrInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesLimitPtrOutput() GetDynamicTablesLimitPtrOutput
+	ToGetDynamicTablesLimitPtrOutputWithContext(context.Context) GetDynamicTablesLimitPtrOutput
+}
+
+type getDynamicTablesLimitPtrType GetDynamicTablesLimitArgs
+
+func GetDynamicTablesLimitPtr(v *GetDynamicTablesLimitArgs) GetDynamicTablesLimitPtrInput {
+	return (*getDynamicTablesLimitPtrType)(v)
+}
+
+func (*getDynamicTablesLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesLimit)(nil)).Elem()
+}
+
+func (i *getDynamicTablesLimitPtrType) ToGetDynamicTablesLimitPtrOutput() GetDynamicTablesLimitPtrOutput {
+	return i.ToGetDynamicTablesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *getDynamicTablesLimitPtrType) ToGetDynamicTablesLimitPtrOutputWithContext(ctx context.Context) GetDynamicTablesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesLimitPtrOutput)
+}
+
+type GetDynamicTablesLimitOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesLimit)(nil)).Elem()
+}
+
+func (o GetDynamicTablesLimitOutput) ToGetDynamicTablesLimitOutput() GetDynamicTablesLimitOutput {
+	return o
+}
+
+func (o GetDynamicTablesLimitOutput) ToGetDynamicTablesLimitOutputWithContext(ctx context.Context) GetDynamicTablesLimitOutput {
+	return o
+}
+
+func (o GetDynamicTablesLimitOutput) ToGetDynamicTablesLimitPtrOutput() GetDynamicTablesLimitPtrOutput {
+	return o.ToGetDynamicTablesLimitPtrOutputWithContext(context.Background())
+}
+
+func (o GetDynamicTablesLimitOutput) ToGetDynamicTablesLimitPtrOutputWithContext(ctx context.Context) GetDynamicTablesLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDynamicTablesLimit) *GetDynamicTablesLimit {
+		return &v
+	}).(GetDynamicTablesLimitPtrOutput)
+}
+
+// The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+func (o GetDynamicTablesLimitOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDynamicTablesLimit) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum number of rows to return.
+func (o GetDynamicTablesLimitOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetDynamicTablesLimit) *int { return v.Rows }).(pulumi.IntPtrOutput)
+}
+
+type GetDynamicTablesLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetDynamicTablesLimit)(nil)).Elem()
+}
+
+func (o GetDynamicTablesLimitPtrOutput) ToGetDynamicTablesLimitPtrOutput() GetDynamicTablesLimitPtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesLimitPtrOutput) ToGetDynamicTablesLimitPtrOutputWithContext(ctx context.Context) GetDynamicTablesLimitPtrOutput {
+	return o
+}
+
+func (o GetDynamicTablesLimitPtrOutput) Elem() GetDynamicTablesLimitOutput {
+	return o.ApplyT(func(v *GetDynamicTablesLimit) GetDynamicTablesLimit {
+		if v != nil {
+			return *v
+		}
+		var ret GetDynamicTablesLimit
+		return ret
+	}).(GetDynamicTablesLimitOutput)
+}
+
+// The optional FROM 'name_string' subclause effectively serves as a “cursor” for the results. This enables fetching the specified number of rows following the first row whose object name matches the specified string
+func (o GetDynamicTablesLimitPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum number of rows to return.
+func (o GetDynamicTablesLimitPtrOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetDynamicTablesLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Rows
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetDynamicTablesRecord struct {
+	// Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+	AutomaticClustering bool `pulumi:"automaticClustering"`
+	// Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+	Bytes int `pulumi:"bytes"`
+	// The clustering key for the dynamic table.
+	ClusterBy string `pulumi:"clusterBy"`
+	// Comment for the dynamic table.
+	Comment string `pulumi:"comment"`
+	// Date and time when the dynamic table was created.
+	CreatedOn string `pulumi:"createdOn"`
+	// Timestamp of the data in the base object(s) that is included in the dynamic table.
+	DataTimestamp string `pulumi:"dataTimestamp"`
+	// Database in which the dynamic table is stored.
+	DatabaseName string `pulumi:"databaseName"`
+	// TRUE if the dynamic table has been cloned, else FALSE.
+	IsClone bool `pulumi:"isClone"`
+	// TRUE if the dynamic table is a replica. else FALSE.
+	IsReplica bool `pulumi:"isReplica"`
+	// Timestamp of last suspension.
+	LastSuspendedOn string `pulumi:"lastSuspendedOn"`
+	// Name of the dynamic table.
+	Name string `pulumi:"name"`
+	// Role that owns the dynamic table.
+	Owner string `pulumi:"owner"`
+	// INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+	RefreshMode string `pulumi:"refreshMode"`
+	// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+	RefreshModeReason string `pulumi:"refreshModeReason"`
+	// Number of rows in the table.
+	Rows int `pulumi:"rows"`
+	// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+	SchedulingState string `pulumi:"schedulingState"`
+	// Schema in which the dynamic table is stored.
+	SchemaName string `pulumi:"schemaName"`
+	// The maximum duration that the dynamic table’s content should lag behind real time.
+	TargetLag string `pulumi:"targetLag"`
+	// The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+	Text string `pulumi:"text"`
+	// Warehouse that provides the required resources to perform the incremental refreshes.
+	Warehouse string `pulumi:"warehouse"`
+}
+
+// GetDynamicTablesRecordInput is an input type that accepts GetDynamicTablesRecordArgs and GetDynamicTablesRecordOutput values.
+// You can construct a concrete instance of `GetDynamicTablesRecordInput` via:
+//
+//	GetDynamicTablesRecordArgs{...}
+type GetDynamicTablesRecordInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesRecordOutput() GetDynamicTablesRecordOutput
+	ToGetDynamicTablesRecordOutputWithContext(context.Context) GetDynamicTablesRecordOutput
+}
+
+type GetDynamicTablesRecordArgs struct {
+	// Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+	AutomaticClustering pulumi.BoolInput `pulumi:"automaticClustering"`
+	// Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+	Bytes pulumi.IntInput `pulumi:"bytes"`
+	// The clustering key for the dynamic table.
+	ClusterBy pulumi.StringInput `pulumi:"clusterBy"`
+	// Comment for the dynamic table.
+	Comment pulumi.StringInput `pulumi:"comment"`
+	// Date and time when the dynamic table was created.
+	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
+	// Timestamp of the data in the base object(s) that is included in the dynamic table.
+	DataTimestamp pulumi.StringInput `pulumi:"dataTimestamp"`
+	// Database in which the dynamic table is stored.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// TRUE if the dynamic table has been cloned, else FALSE.
+	IsClone pulumi.BoolInput `pulumi:"isClone"`
+	// TRUE if the dynamic table is a replica. else FALSE.
+	IsReplica pulumi.BoolInput `pulumi:"isReplica"`
+	// Timestamp of last suspension.
+	LastSuspendedOn pulumi.StringInput `pulumi:"lastSuspendedOn"`
+	// Name of the dynamic table.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Role that owns the dynamic table.
+	Owner pulumi.StringInput `pulumi:"owner"`
+	// INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+	RefreshMode pulumi.StringInput `pulumi:"refreshMode"`
+	// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+	RefreshModeReason pulumi.StringInput `pulumi:"refreshModeReason"`
+	// Number of rows in the table.
+	Rows pulumi.IntInput `pulumi:"rows"`
+	// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+	SchedulingState pulumi.StringInput `pulumi:"schedulingState"`
+	// Schema in which the dynamic table is stored.
+	SchemaName pulumi.StringInput `pulumi:"schemaName"`
+	// The maximum duration that the dynamic table’s content should lag behind real time.
+	TargetLag pulumi.StringInput `pulumi:"targetLag"`
+	// The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+	Text pulumi.StringInput `pulumi:"text"`
+	// Warehouse that provides the required resources to perform the incremental refreshes.
+	Warehouse pulumi.StringInput `pulumi:"warehouse"`
+}
+
+func (GetDynamicTablesRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesRecord)(nil)).Elem()
+}
+
+func (i GetDynamicTablesRecordArgs) ToGetDynamicTablesRecordOutput() GetDynamicTablesRecordOutput {
+	return i.ToGetDynamicTablesRecordOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesRecordArgs) ToGetDynamicTablesRecordOutputWithContext(ctx context.Context) GetDynamicTablesRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesRecordOutput)
+}
+
+// GetDynamicTablesRecordArrayInput is an input type that accepts GetDynamicTablesRecordArray and GetDynamicTablesRecordArrayOutput values.
+// You can construct a concrete instance of `GetDynamicTablesRecordArrayInput` via:
+//
+//	GetDynamicTablesRecordArray{ GetDynamicTablesRecordArgs{...} }
+type GetDynamicTablesRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetDynamicTablesRecordArrayOutput() GetDynamicTablesRecordArrayOutput
+	ToGetDynamicTablesRecordArrayOutputWithContext(context.Context) GetDynamicTablesRecordArrayOutput
+}
+
+type GetDynamicTablesRecordArray []GetDynamicTablesRecordInput
+
+func (GetDynamicTablesRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDynamicTablesRecord)(nil)).Elem()
+}
+
+func (i GetDynamicTablesRecordArray) ToGetDynamicTablesRecordArrayOutput() GetDynamicTablesRecordArrayOutput {
+	return i.ToGetDynamicTablesRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetDynamicTablesRecordArray) ToGetDynamicTablesRecordArrayOutputWithContext(ctx context.Context) GetDynamicTablesRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDynamicTablesRecordArrayOutput)
+}
+
+type GetDynamicTablesRecordOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDynamicTablesRecord)(nil)).Elem()
+}
+
+func (o GetDynamicTablesRecordOutput) ToGetDynamicTablesRecordOutput() GetDynamicTablesRecordOutput {
+	return o
+}
+
+func (o GetDynamicTablesRecordOutput) ToGetDynamicTablesRecordOutputWithContext(ctx context.Context) GetDynamicTablesRecordOutput {
+	return o
+}
+
+// Whether auto-clustering is enabled on the dynamic table. Not currently supported for dynamic tables.
+func (o GetDynamicTablesRecordOutput) AutomaticClustering() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) bool { return v.AutomaticClustering }).(pulumi.BoolOutput)
+}
+
+// Number of bytes that will be scanned if the entire dynamic table is scanned in a query.
+func (o GetDynamicTablesRecordOutput) Bytes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) int { return v.Bytes }).(pulumi.IntOutput)
+}
+
+// The clustering key for the dynamic table.
+func (o GetDynamicTablesRecordOutput) ClusterBy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.ClusterBy }).(pulumi.StringOutput)
+}
+
+// Comment for the dynamic table.
+func (o GetDynamicTablesRecordOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+// Date and time when the dynamic table was created.
+func (o GetDynamicTablesRecordOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+// Timestamp of the data in the base object(s) that is included in the dynamic table.
+func (o GetDynamicTablesRecordOutput) DataTimestamp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.DataTimestamp }).(pulumi.StringOutput)
+}
+
+// Database in which the dynamic table is stored.
+func (o GetDynamicTablesRecordOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// TRUE if the dynamic table has been cloned, else FALSE.
+func (o GetDynamicTablesRecordOutput) IsClone() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) bool { return v.IsClone }).(pulumi.BoolOutput)
+}
+
+// TRUE if the dynamic table is a replica. else FALSE.
+func (o GetDynamicTablesRecordOutput) IsReplica() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) bool { return v.IsReplica }).(pulumi.BoolOutput)
+}
+
+// Timestamp of last suspension.
+func (o GetDynamicTablesRecordOutput) LastSuspendedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.LastSuspendedOn }).(pulumi.StringOutput)
+}
+
+// Name of the dynamic table.
+func (o GetDynamicTablesRecordOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Role that owns the dynamic table.
+func (o GetDynamicTablesRecordOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+// INCREMENTAL if the dynamic table will use incremental refreshes, or FULL if it will recompute the whole table on every refresh.
+func (o GetDynamicTablesRecordOutput) RefreshMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.RefreshMode }).(pulumi.StringOutput)
+}
+
+// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
+func (o GetDynamicTablesRecordOutput) RefreshModeReason() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.RefreshModeReason }).(pulumi.StringOutput)
+}
+
+// Number of rows in the table.
+func (o GetDynamicTablesRecordOutput) Rows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) int { return v.Rows }).(pulumi.IntOutput)
+}
+
+// Displays RUNNING for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
+func (o GetDynamicTablesRecordOutput) SchedulingState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.SchedulingState }).(pulumi.StringOutput)
+}
+
+// Schema in which the dynamic table is stored.
+func (o GetDynamicTablesRecordOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+// The maximum duration that the dynamic table’s content should lag behind real time.
+func (o GetDynamicTablesRecordOutput) TargetLag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.TargetLag }).(pulumi.StringOutput)
+}
+
+// The text of the command that created this dynamic table (e.g. CREATE DYNAMIC TABLE ...).
+func (o GetDynamicTablesRecordOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Text }).(pulumi.StringOutput)
+}
+
+// Warehouse that provides the required resources to perform the incremental refreshes.
+func (o GetDynamicTablesRecordOutput) Warehouse() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDynamicTablesRecord) string { return v.Warehouse }).(pulumi.StringOutput)
+}
+
+type GetDynamicTablesRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDynamicTablesRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDynamicTablesRecord)(nil)).Elem()
+}
+
+func (o GetDynamicTablesRecordArrayOutput) ToGetDynamicTablesRecordArrayOutput() GetDynamicTablesRecordArrayOutput {
+	return o
+}
+
+func (o GetDynamicTablesRecordArrayOutput) ToGetDynamicTablesRecordArrayOutputWithContext(ctx context.Context) GetDynamicTablesRecordArrayOutput {
+	return o
+}
+
+func (o GetDynamicTablesRecordArrayOutput) Index(i pulumi.IntInput) GetDynamicTablesRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDynamicTablesRecord {
+		return vs[0].([]GetDynamicTablesRecord)[vs[1].(int)]
+	}).(GetDynamicTablesRecordOutput)
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegration struct {
+	// Holds the output of DESCRIBE EXTERNAL ACCESS INTEGRATION.
+	DescribeOutputs []GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW EXTERNAL ACCESS INTEGRATIONS.
+	ShowOutputs []GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput `pulumi:"showOutputs"`
+}
+
+// GetExternalAccessIntegrationsExternalAccessIntegrationInput is an input type that accepts GetExternalAccessIntegrationsExternalAccessIntegrationArgs and GetExternalAccessIntegrationsExternalAccessIntegrationOutput values.
+// You can construct a concrete instance of `GetExternalAccessIntegrationsExternalAccessIntegrationInput` via:
+//
+//	GetExternalAccessIntegrationsExternalAccessIntegrationArgs{...}
+type GetExternalAccessIntegrationsExternalAccessIntegrationInput interface {
+	pulumi.Input
+
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationOutput() GetExternalAccessIntegrationsExternalAccessIntegrationOutput
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationOutputWithContext(context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationOutput
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationArgs struct {
+	// Holds the output of DESCRIBE EXTERNAL ACCESS INTEGRATION.
+	DescribeOutputs GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayInput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW EXTERNAL ACCESS INTEGRATIONS.
+	ShowOutputs GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayInput `pulumi:"showOutputs"`
+}
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegration)(nil)).Elem()
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationArgs) ToGetExternalAccessIntegrationsExternalAccessIntegrationOutput() GetExternalAccessIntegrationsExternalAccessIntegrationOutput {
+	return i.ToGetExternalAccessIntegrationsExternalAccessIntegrationOutputWithContext(context.Background())
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationArgs) ToGetExternalAccessIntegrationsExternalAccessIntegrationOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalAccessIntegrationsExternalAccessIntegrationOutput)
+}
+
+// GetExternalAccessIntegrationsExternalAccessIntegrationArrayInput is an input type that accepts GetExternalAccessIntegrationsExternalAccessIntegrationArray and GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput values.
+// You can construct a concrete instance of `GetExternalAccessIntegrationsExternalAccessIntegrationArrayInput` via:
+//
+//	GetExternalAccessIntegrationsExternalAccessIntegrationArray{ GetExternalAccessIntegrationsExternalAccessIntegrationArgs{...} }
+type GetExternalAccessIntegrationsExternalAccessIntegrationArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput() GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationArrayOutputWithContext(context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationArray []GetExternalAccessIntegrationsExternalAccessIntegrationInput
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalAccessIntegrationsExternalAccessIntegration)(nil)).Elem()
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationArray) ToGetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput() GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput {
+	return i.ToGetExternalAccessIntegrationsExternalAccessIntegrationArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationArray) ToGetExternalAccessIntegrationsExternalAccessIntegrationArrayOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput)
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationOutput struct{ *pulumi.OutputState }
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegration)(nil)).Elem()
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationOutput() GetExternalAccessIntegrationsExternalAccessIntegrationOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationOutput {
+	return o
+}
+
+// Holds the output of DESCRIBE EXTERNAL ACCESS INTEGRATION.
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationOutput) DescribeOutputs() GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegration) []GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput {
+		return v.DescribeOutputs
+	}).(GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput)
+}
+
+// Holds the output of SHOW EXTERNAL ACCESS INTEGRATIONS.
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationOutput) ShowOutputs() GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegration) []GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput {
+		return v.ShowOutputs
+	}).(GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput)
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalAccessIntegrationsExternalAccessIntegration)(nil)).Elem()
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput() GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationArrayOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput) Index(i pulumi.IntInput) GetExternalAccessIntegrationsExternalAccessIntegrationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalAccessIntegrationsExternalAccessIntegration {
+		return vs[0].([]GetExternalAccessIntegrationsExternalAccessIntegration)[vs[1].(int)]
+	}).(GetExternalAccessIntegrationsExternalAccessIntegrationOutput)
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput struct {
+	AllowedApiAuthenticationIntegrations []string `pulumi:"allowedApiAuthenticationIntegrations"`
+	AllowedAuthenticationSecrets         []string `pulumi:"allowedAuthenticationSecrets"`
+	AllowedNetworkRules                  []string `pulumi:"allowedNetworkRules"`
+	Comment                              string   `pulumi:"comment"`
+	Enabled                              bool     `pulumi:"enabled"`
+	Id                                   string   `pulumi:"id"`
+}
+
+// GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputInput is an input type that accepts GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArgs and GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput values.
+// You can construct a concrete instance of `GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputInput` via:
+//
+//	GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArgs{...}
+type GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputInput interface {
+	pulumi.Input
+
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput() GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutputWithContext(context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArgs struct {
+	AllowedApiAuthenticationIntegrations pulumi.StringArrayInput `pulumi:"allowedApiAuthenticationIntegrations"`
+	AllowedAuthenticationSecrets         pulumi.StringArrayInput `pulumi:"allowedAuthenticationSecrets"`
+	AllowedNetworkRules                  pulumi.StringArrayInput `pulumi:"allowedNetworkRules"`
+	Comment                              pulumi.StringInput      `pulumi:"comment"`
+	Enabled                              pulumi.BoolInput        `pulumi:"enabled"`
+	Id                                   pulumi.StringInput      `pulumi:"id"`
+}
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArgs) ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput() GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput {
+	return i.ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArgs) ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput)
+}
+
+// GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayInput is an input type that accepts GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArray and GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayInput` via:
+//
+//	GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArray{ GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArgs{...} }
+type GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput() GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutputWithContext(context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArray []GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputInput
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArray) ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput() GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput {
+	return i.ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArray) ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput)
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput() GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput) AllowedApiAuthenticationIntegrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput) []string {
+		return v.AllowedApiAuthenticationIntegrations
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput) AllowedAuthenticationSecrets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput) []string {
+		return v.AllowedAuthenticationSecrets
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput) AllowedNetworkRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput) []string {
+		return v.AllowedNetworkRules
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput)(nil)).Elem()
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput() GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput {
+		return vs[0].([]GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput)[vs[1].(int)]
+	}).(GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput)
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput struct {
+	Category  string `pulumi:"category"`
+	Comment   string `pulumi:"comment"`
+	CreatedOn string `pulumi:"createdOn"`
+	Enabled   bool   `pulumi:"enabled"`
+	Name      string `pulumi:"name"`
+	Type      string `pulumi:"type"`
+}
+
+// GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputInput is an input type that accepts GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArgs and GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput values.
+// You can construct a concrete instance of `GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputInput` via:
+//
+//	GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArgs{...}
+type GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputInput interface {
+	pulumi.Input
+
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput() GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutputWithContext(context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArgs struct {
+	Category  pulumi.StringInput `pulumi:"category"`
+	Comment   pulumi.StringInput `pulumi:"comment"`
+	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
+	Enabled   pulumi.BoolInput   `pulumi:"enabled"`
+	Name      pulumi.StringInput `pulumi:"name"`
+	Type      pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput)(nil)).Elem()
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArgs) ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput() GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput {
+	return i.ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutputWithContext(context.Background())
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArgs) ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput)
+}
+
+// GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayInput is an input type that accepts GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArray and GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput values.
+// You can construct a concrete instance of `GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayInput` via:
+//
+//	GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArray{ GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArgs{...} }
+type GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput() GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput
+	ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutputWithContext(context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArray []GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputInput
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput)(nil)).Elem()
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArray) ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput() GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput {
+	return i.ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArray) ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput)
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput struct{ *pulumi.OutputState }
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput)(nil)).Elem()
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput() GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput) Category() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput) string { return v.Category }).(pulumi.StringOutput)
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput)(nil)).Elem()
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput() GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput) ToGetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutputWithContext(ctx context.Context) GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput {
+	return o
+}
+
+func (o GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput) Index(i pulumi.IntInput) GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput {
+		return vs[0].([]GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput)[vs[1].(int)]
+	}).(GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput)
+}
+
+type GetExternalFunctionsExternalFunction struct {
+	Comment  string `pulumi:"comment"`
+	Database string `pulumi:"database"`
+	Language string `pulumi:"language"`
+	Name     string `pulumi:"name"`
+	Schema   string `pulumi:"schema"`
+}
+
+// GetExternalFunctionsExternalFunctionInput is an input type that accepts GetExternalFunctionsExternalFunctionArgs and GetExternalFunctionsExternalFunctionOutput values.
+// You can construct a concrete instance of `GetExternalFunctionsExternalFunctionInput` via:
+//
+//	GetExternalFunctionsExternalFunctionArgs{...}
+type GetExternalFunctionsExternalFunctionInput interface {
+	pulumi.Input
+
+	ToGetExternalFunctionsExternalFunctionOutput() GetExternalFunctionsExternalFunctionOutput
+	ToGetExternalFunctionsExternalFunctionOutputWithContext(context.Context) GetExternalFunctionsExternalFunctionOutput
+}
+
+type GetExternalFunctionsExternalFunctionArgs struct {
+	Comment  pulumi.StringInput `pulumi:"comment"`
+	Database pulumi.StringInput `pulumi:"database"`
+	Language pulumi.StringInput `pulumi:"language"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetExternalFunctionsExternalFunctionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalFunctionsExternalFunction)(nil)).Elem()
+}
+
+func (i GetExternalFunctionsExternalFunctionArgs) ToGetExternalFunctionsExternalFunctionOutput() GetExternalFunctionsExternalFunctionOutput {
+	return i.ToGetExternalFunctionsExternalFunctionOutputWithContext(context.Background())
+}
+
+func (i GetExternalFunctionsExternalFunctionArgs) ToGetExternalFunctionsExternalFunctionOutputWithContext(ctx context.Context) GetExternalFunctionsExternalFunctionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalFunctionsExternalFunctionOutput)
+}
+
+// GetExternalFunctionsExternalFunctionArrayInput is an input type that accepts GetExternalFunctionsExternalFunctionArray and GetExternalFunctionsExternalFunctionArrayOutput values.
+// You can construct a concrete instance of `GetExternalFunctionsExternalFunctionArrayInput` via:
+//
+//	GetExternalFunctionsExternalFunctionArray{ GetExternalFunctionsExternalFunctionArgs{...} }
+type GetExternalFunctionsExternalFunctionArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalFunctionsExternalFunctionArrayOutput() GetExternalFunctionsExternalFunctionArrayOutput
+	ToGetExternalFunctionsExternalFunctionArrayOutputWithContext(context.Context) GetExternalFunctionsExternalFunctionArrayOutput
+}
+
+type GetExternalFunctionsExternalFunctionArray []GetExternalFunctionsExternalFunctionInput
+
+func (GetExternalFunctionsExternalFunctionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalFunctionsExternalFunction)(nil)).Elem()
+}
+
+func (i GetExternalFunctionsExternalFunctionArray) ToGetExternalFunctionsExternalFunctionArrayOutput() GetExternalFunctionsExternalFunctionArrayOutput {
+	return i.ToGetExternalFunctionsExternalFunctionArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalFunctionsExternalFunctionArray) ToGetExternalFunctionsExternalFunctionArrayOutputWithContext(ctx context.Context) GetExternalFunctionsExternalFunctionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalFunctionsExternalFunctionArrayOutput)
+}
+
+type GetExternalFunctionsExternalFunctionOutput struct{ *pulumi.OutputState }
+
+func (GetExternalFunctionsExternalFunctionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalFunctionsExternalFunction)(nil)).Elem()
+}
+
+func (o GetExternalFunctionsExternalFunctionOutput) ToGetExternalFunctionsExternalFunctionOutput() GetExternalFunctionsExternalFunctionOutput {
+	return o
+}
+
+func (o GetExternalFunctionsExternalFunctionOutput) ToGetExternalFunctionsExternalFunctionOutputWithContext(ctx context.Context) GetExternalFunctionsExternalFunctionOutput {
+	return o
+}
+
+func (o GetExternalFunctionsExternalFunctionOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetExternalFunctionsExternalFunctionOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Database }).(pulumi.StringOutput)
+}
+
+func (o GetExternalFunctionsExternalFunctionOutput) Language() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Language }).(pulumi.StringOutput)
+}
+
+func (o GetExternalFunctionsExternalFunctionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetExternalFunctionsExternalFunctionOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalFunctionsExternalFunction) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+type GetExternalFunctionsExternalFunctionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalFunctionsExternalFunctionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalFunctionsExternalFunction)(nil)).Elem()
+}
+
+func (o GetExternalFunctionsExternalFunctionArrayOutput) ToGetExternalFunctionsExternalFunctionArrayOutput() GetExternalFunctionsExternalFunctionArrayOutput {
+	return o
+}
+
+func (o GetExternalFunctionsExternalFunctionArrayOutput) ToGetExternalFunctionsExternalFunctionArrayOutputWithContext(ctx context.Context) GetExternalFunctionsExternalFunctionArrayOutput {
+	return o
+}
+
+func (o GetExternalFunctionsExternalFunctionArrayOutput) Index(i pulumi.IntInput) GetExternalFunctionsExternalFunctionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalFunctionsExternalFunction {
+		return vs[0].([]GetExternalFunctionsExternalFunction)[vs[1].(int)]
+	}).(GetExternalFunctionsExternalFunctionOutput)
+}
+
+type GetExternalTablesExternalTable struct {
+	Comment  string `pulumi:"comment"`
+	Database string `pulumi:"database"`
+	Name     string `pulumi:"name"`
+	Schema   string `pulumi:"schema"`
+}
+
+// GetExternalTablesExternalTableInput is an input type that accepts GetExternalTablesExternalTableArgs and GetExternalTablesExternalTableOutput values.
+// You can construct a concrete instance of `GetExternalTablesExternalTableInput` via:
+//
+//	GetExternalTablesExternalTableArgs{...}
+type GetExternalTablesExternalTableInput interface {
+	pulumi.Input
+
+	ToGetExternalTablesExternalTableOutput() GetExternalTablesExternalTableOutput
+	ToGetExternalTablesExternalTableOutputWithContext(context.Context) GetExternalTablesExternalTableOutput
+}
+
+type GetExternalTablesExternalTableArgs struct {
+	Comment  pulumi.StringInput `pulumi:"comment"`
+	Database pulumi.StringInput `pulumi:"database"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
+}
+
+func (GetExternalTablesExternalTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalTablesExternalTable)(nil)).Elem()
+}
+
+func (i GetExternalTablesExternalTableArgs) ToGetExternalTablesExternalTableOutput() GetExternalTablesExternalTableOutput {
+	return i.ToGetExternalTablesExternalTableOutputWithContext(context.Background())
+}
+
+func (i GetExternalTablesExternalTableArgs) ToGetExternalTablesExternalTableOutputWithContext(ctx context.Context) GetExternalTablesExternalTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalTablesExternalTableOutput)
+}
+
+// GetExternalTablesExternalTableArrayInput is an input type that accepts GetExternalTablesExternalTableArray and GetExternalTablesExternalTableArrayOutput values.
+// You can construct a concrete instance of `GetExternalTablesExternalTableArrayInput` via:
+//
+//	GetExternalTablesExternalTableArray{ GetExternalTablesExternalTableArgs{...} }
+type GetExternalTablesExternalTableArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalTablesExternalTableArrayOutput() GetExternalTablesExternalTableArrayOutput
+	ToGetExternalTablesExternalTableArrayOutputWithContext(context.Context) GetExternalTablesExternalTableArrayOutput
+}
+
+type GetExternalTablesExternalTableArray []GetExternalTablesExternalTableInput
+
+func (GetExternalTablesExternalTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalTablesExternalTable)(nil)).Elem()
+}
+
+func (i GetExternalTablesExternalTableArray) ToGetExternalTablesExternalTableArrayOutput() GetExternalTablesExternalTableArrayOutput {
+	return i.ToGetExternalTablesExternalTableArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalTablesExternalTableArray) ToGetExternalTablesExternalTableArrayOutputWithContext(ctx context.Context) GetExternalTablesExternalTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalTablesExternalTableArrayOutput)
+}
+
+type GetExternalTablesExternalTableOutput struct{ *pulumi.OutputState }
+
+func (GetExternalTablesExternalTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalTablesExternalTable)(nil)).Elem()
+}
+
+func (o GetExternalTablesExternalTableOutput) ToGetExternalTablesExternalTableOutput() GetExternalTablesExternalTableOutput {
+	return o
+}
+
+func (o GetExternalTablesExternalTableOutput) ToGetExternalTablesExternalTableOutputWithContext(ctx context.Context) GetExternalTablesExternalTableOutput {
+	return o
+}
+
+func (o GetExternalTablesExternalTableOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetExternalTablesExternalTableOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Database }).(pulumi.StringOutput)
+}
+
+func (o GetExternalTablesExternalTableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetExternalTablesExternalTableOutput) Schema() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalTablesExternalTable) string { return v.Schema }).(pulumi.StringOutput)
+}
+
+type GetExternalTablesExternalTableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalTablesExternalTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalTablesExternalTable)(nil)).Elem()
+}
+
+func (o GetExternalTablesExternalTableArrayOutput) ToGetExternalTablesExternalTableArrayOutput() GetExternalTablesExternalTableArrayOutput {
+	return o
+}
+
+func (o GetExternalTablesExternalTableArrayOutput) ToGetExternalTablesExternalTableArrayOutputWithContext(ctx context.Context) GetExternalTablesExternalTableArrayOutput {
+	return o
+}
+
+func (o GetExternalTablesExternalTableArrayOutput) Index(i pulumi.IntInput) GetExternalTablesExternalTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalTablesExternalTable {
+		return vs[0].([]GetExternalTablesExternalTable)[vs[1].(int)]
+	}).(GetExternalTablesExternalTableOutput)
+}
+
+type GetExternalVolumesExternalVolume struct {
+	// Holds the output of DESCRIBE EXTERNAL VOLUME.
+	DescribeOutputs []GetExternalVolumesExternalVolumeDescribeOutput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW EXTERNAL VOLUMES.
+	ShowOutputs []GetExternalVolumesExternalVolumeShowOutput `pulumi:"showOutputs"`
+}
+
+// GetExternalVolumesExternalVolumeInput is an input type that accepts GetExternalVolumesExternalVolumeArgs and GetExternalVolumesExternalVolumeOutput values.
+// You can construct a concrete instance of `GetExternalVolumesExternalVolumeInput` via:
+//
+//	GetExternalVolumesExternalVolumeArgs{...}
+type GetExternalVolumesExternalVolumeInput interface {
+	pulumi.Input
+
+	ToGetExternalVolumesExternalVolumeOutput() GetExternalVolumesExternalVolumeOutput
+	ToGetExternalVolumesExternalVolumeOutputWithContext(context.Context) GetExternalVolumesExternalVolumeOutput
+}
+
+type GetExternalVolumesExternalVolumeArgs struct {
+	// Holds the output of DESCRIBE EXTERNAL VOLUME.
+	DescribeOutputs GetExternalVolumesExternalVolumeDescribeOutputArrayInput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW EXTERNAL VOLUMES.
+	ShowOutputs GetExternalVolumesExternalVolumeShowOutputArrayInput `pulumi:"showOutputs"`
+}
+
+func (GetExternalVolumesExternalVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalVolumesExternalVolume)(nil)).Elem()
+}
+
+func (i GetExternalVolumesExternalVolumeArgs) ToGetExternalVolumesExternalVolumeOutput() GetExternalVolumesExternalVolumeOutput {
+	return i.ToGetExternalVolumesExternalVolumeOutputWithContext(context.Background())
+}
+
+func (i GetExternalVolumesExternalVolumeArgs) ToGetExternalVolumesExternalVolumeOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalVolumesExternalVolumeOutput)
+}
+
+// GetExternalVolumesExternalVolumeArrayInput is an input type that accepts GetExternalVolumesExternalVolumeArray and GetExternalVolumesExternalVolumeArrayOutput values.
+// You can construct a concrete instance of `GetExternalVolumesExternalVolumeArrayInput` via:
+//
+//	GetExternalVolumesExternalVolumeArray{ GetExternalVolumesExternalVolumeArgs{...} }
+type GetExternalVolumesExternalVolumeArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalVolumesExternalVolumeArrayOutput() GetExternalVolumesExternalVolumeArrayOutput
+	ToGetExternalVolumesExternalVolumeArrayOutputWithContext(context.Context) GetExternalVolumesExternalVolumeArrayOutput
+}
+
+type GetExternalVolumesExternalVolumeArray []GetExternalVolumesExternalVolumeInput
+
+func (GetExternalVolumesExternalVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalVolumesExternalVolume)(nil)).Elem()
+}
+
+func (i GetExternalVolumesExternalVolumeArray) ToGetExternalVolumesExternalVolumeArrayOutput() GetExternalVolumesExternalVolumeArrayOutput {
+	return i.ToGetExternalVolumesExternalVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalVolumesExternalVolumeArray) ToGetExternalVolumesExternalVolumeArrayOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalVolumesExternalVolumeArrayOutput)
+}
+
+type GetExternalVolumesExternalVolumeOutput struct{ *pulumi.OutputState }
+
+func (GetExternalVolumesExternalVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalVolumesExternalVolume)(nil)).Elem()
+}
+
+func (o GetExternalVolumesExternalVolumeOutput) ToGetExternalVolumesExternalVolumeOutput() GetExternalVolumesExternalVolumeOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeOutput) ToGetExternalVolumesExternalVolumeOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeOutput {
+	return o
+}
+
+// Holds the output of DESCRIBE EXTERNAL VOLUME.
+func (o GetExternalVolumesExternalVolumeOutput) DescribeOutputs() GetExternalVolumesExternalVolumeDescribeOutputArrayOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolume) []GetExternalVolumesExternalVolumeDescribeOutput {
+		return v.DescribeOutputs
+	}).(GetExternalVolumesExternalVolumeDescribeOutputArrayOutput)
+}
+
+// Holds the output of SHOW EXTERNAL VOLUMES.
+func (o GetExternalVolumesExternalVolumeOutput) ShowOutputs() GetExternalVolumesExternalVolumeShowOutputArrayOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolume) []GetExternalVolumesExternalVolumeShowOutput {
+		return v.ShowOutputs
+	}).(GetExternalVolumesExternalVolumeShowOutputArrayOutput)
+}
+
+type GetExternalVolumesExternalVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalVolumesExternalVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalVolumesExternalVolume)(nil)).Elem()
+}
+
+func (o GetExternalVolumesExternalVolumeArrayOutput) ToGetExternalVolumesExternalVolumeArrayOutput() GetExternalVolumesExternalVolumeArrayOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeArrayOutput) ToGetExternalVolumesExternalVolumeArrayOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeArrayOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeArrayOutput) Index(i pulumi.IntInput) GetExternalVolumesExternalVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalVolumesExternalVolume {
+		return vs[0].([]GetExternalVolumesExternalVolume)[vs[1].(int)]
+	}).(GetExternalVolumesExternalVolumeOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutput struct {
+	Active           string                                                          `pulumi:"active"`
+	AllowWrites      string                                                          `pulumi:"allowWrites"`
+	Comment          string                                                          `pulumi:"comment"`
+	StorageLocations []GetExternalVolumesExternalVolumeDescribeOutputStorageLocation `pulumi:"storageLocations"`
+}
+
+// GetExternalVolumesExternalVolumeDescribeOutputInput is an input type that accepts GetExternalVolumesExternalVolumeDescribeOutputArgs and GetExternalVolumesExternalVolumeDescribeOutputOutput values.
+// You can construct a concrete instance of `GetExternalVolumesExternalVolumeDescribeOutputInput` via:
+//
+//	GetExternalVolumesExternalVolumeDescribeOutputArgs{...}
+type GetExternalVolumesExternalVolumeDescribeOutputInput interface {
+	pulumi.Input
+
+	ToGetExternalVolumesExternalVolumeDescribeOutputOutput() GetExternalVolumesExternalVolumeDescribeOutputOutput
+	ToGetExternalVolumesExternalVolumeDescribeOutputOutputWithContext(context.Context) GetExternalVolumesExternalVolumeDescribeOutputOutput
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputArgs struct {
+	Active           pulumi.StringInput                                                      `pulumi:"active"`
+	AllowWrites      pulumi.StringInput                                                      `pulumi:"allowWrites"`
+	Comment          pulumi.StringInput                                                      `pulumi:"comment"`
+	StorageLocations GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayInput `pulumi:"storageLocations"`
+}
+
+func (GetExternalVolumesExternalVolumeDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutput)(nil)).Elem()
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputArgs) ToGetExternalVolumesExternalVolumeDescribeOutputOutput() GetExternalVolumesExternalVolumeDescribeOutputOutput {
+	return i.ToGetExternalVolumesExternalVolumeDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputArgs) ToGetExternalVolumesExternalVolumeDescribeOutputOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalVolumesExternalVolumeDescribeOutputOutput)
+}
+
+// GetExternalVolumesExternalVolumeDescribeOutputArrayInput is an input type that accepts GetExternalVolumesExternalVolumeDescribeOutputArray and GetExternalVolumesExternalVolumeDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `GetExternalVolumesExternalVolumeDescribeOutputArrayInput` via:
+//
+//	GetExternalVolumesExternalVolumeDescribeOutputArray{ GetExternalVolumesExternalVolumeDescribeOutputArgs{...} }
+type GetExternalVolumesExternalVolumeDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalVolumesExternalVolumeDescribeOutputArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputArrayOutput
+	ToGetExternalVolumesExternalVolumeDescribeOutputArrayOutputWithContext(context.Context) GetExternalVolumesExternalVolumeDescribeOutputArrayOutput
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputArray []GetExternalVolumesExternalVolumeDescribeOutputInput
+
+func (GetExternalVolumesExternalVolumeDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalVolumesExternalVolumeDescribeOutput)(nil)).Elem()
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputArray) ToGetExternalVolumesExternalVolumeDescribeOutputArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputArrayOutput {
+	return i.ToGetExternalVolumesExternalVolumeDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputArray) ToGetExternalVolumesExternalVolumeDescribeOutputArrayOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalVolumesExternalVolumeDescribeOutputArrayOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (GetExternalVolumesExternalVolumeDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutput)(nil)).Elem()
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputOutput) ToGetExternalVolumesExternalVolumeDescribeOutputOutput() GetExternalVolumesExternalVolumeDescribeOutputOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputOutput) ToGetExternalVolumesExternalVolumeDescribeOutputOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputOutput) Active() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutput) string { return v.Active }).(pulumi.StringOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputOutput) AllowWrites() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutput) string { return v.AllowWrites }).(pulumi.StringOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputOutput) StorageLocations() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutput) []GetExternalVolumesExternalVolumeDescribeOutputStorageLocation {
+		return v.StorageLocations
+	}).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalVolumesExternalVolumeDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalVolumesExternalVolumeDescribeOutput)(nil)).Elem()
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputArrayOutput) ToGetExternalVolumesExternalVolumeDescribeOutputArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputArrayOutput) ToGetExternalVolumesExternalVolumeDescribeOutputArrayOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetExternalVolumesExternalVolumeDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalVolumesExternalVolumeDescribeOutput {
+		return vs[0].([]GetExternalVolumesExternalVolumeDescribeOutput)[vs[1].(int)]
+	}).(GetExternalVolumesExternalVolumeDescribeOutputOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocation struct {
+	AzureStorageLocations    []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation    `pulumi:"azureStorageLocations"`
+	EncryptionType           string                                                                                 `pulumi:"encryptionType"`
+	GcsStorageLocations      []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation      `pulumi:"gcsStorageLocations"`
+	Name                     string                                                                                 `pulumi:"name"`
+	S3CompatStorageLocations []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation `pulumi:"s3CompatStorageLocations"`
+	S3StorageLocations       []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3StorageLocation       `pulumi:"s3StorageLocations"`
+	StorageAllowedLocations  []string                                                                               `pulumi:"storageAllowedLocations"`
+	StorageBaseUrl           string                                                                                 `pulumi:"storageBaseUrl"`
+	StorageProvider          string                                                                                 `pulumi:"storageProvider"`
+}
+
+// GetExternalVolumesExternalVolumeDescribeOutputStorageLocationInput is an input type that accepts GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArgs and GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput values.
+// You can construct a concrete instance of `GetExternalVolumesExternalVolumeDescribeOutputStorageLocationInput` via:
+//
+//	GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArgs{...}
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationInput interface {
+	pulumi.Input
+
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutputWithContext(context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArgs struct {
+	AzureStorageLocations    GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayInput    `pulumi:"azureStorageLocations"`
+	EncryptionType           pulumi.StringInput                                                                             `pulumi:"encryptionType"`
+	GcsStorageLocations      GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayInput      `pulumi:"gcsStorageLocations"`
+	Name                     pulumi.StringInput                                                                             `pulumi:"name"`
+	S3CompatStorageLocations GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayInput `pulumi:"s3CompatStorageLocations"`
+	S3StorageLocations       GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayInput       `pulumi:"s3StorageLocations"`
+	StorageAllowedLocations  pulumi.StringArrayInput                                                                        `pulumi:"storageAllowedLocations"`
+	StorageBaseUrl           pulumi.StringInput                                                                             `pulumi:"storageBaseUrl"`
+	StorageProvider          pulumi.StringInput                                                                             `pulumi:"storageProvider"`
+}
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocation)(nil)).Elem()
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArgs) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput {
+	return i.ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutputWithContext(context.Background())
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArgs) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput)
+}
+
+// GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayInput is an input type that accepts GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArray and GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput values.
+// You can construct a concrete instance of `GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayInput` via:
+//
+//	GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArray{ GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArgs{...} }
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutputWithContext(context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArray []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationInput
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalVolumesExternalVolumeDescribeOutputStorageLocation)(nil)).Elem()
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArray) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput {
+	return i.ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArray) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocation)(nil)).Elem()
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) AzureStorageLocations() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocation) []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation {
+		return v.AzureStorageLocations
+	}).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) EncryptionType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocation) string { return v.EncryptionType }).(pulumi.StringOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) GcsStorageLocations() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocation) []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
+		return v.GcsStorageLocations
+	}).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) S3CompatStorageLocations() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocation) []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation {
+		return v.S3CompatStorageLocations
+	}).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) S3StorageLocations() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocation) []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3StorageLocation {
+		return v.S3StorageLocations
+	}).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3StorageLocationArrayOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) StorageAllowedLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocation) []string {
+		return v.StorageAllowedLocations
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) StorageBaseUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocation) string { return v.StorageBaseUrl }).(pulumi.StringOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput) StorageProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocation) string { return v.StorageProvider }).(pulumi.StringOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalVolumesExternalVolumeDescribeOutputStorageLocation)(nil)).Elem()
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput) Index(i pulumi.IntInput) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalVolumesExternalVolumeDescribeOutputStorageLocation {
+		return vs[0].([]GetExternalVolumesExternalVolumeDescribeOutputStorageLocation)[vs[1].(int)]
+	}).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation struct {
+	AzureConsentUrl         string `pulumi:"azureConsentUrl"`
+	AzureMultiTenantAppName string `pulumi:"azureMultiTenantAppName"`
+	AzureTenantId           string `pulumi:"azureTenantId"`
+	UsePrivatelinkEndpoint  string `pulumi:"usePrivatelinkEndpoint"`
+}
+
+// GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput is an input type that accepts GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs and GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput values.
+// You can construct a concrete instance of `GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput` via:
+//
+//	GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs{...}
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput interface {
+	pulumi.Input
+
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutputWithContext(context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs struct {
+	AzureConsentUrl         pulumi.StringInput `pulumi:"azureConsentUrl"`
+	AzureMultiTenantAppName pulumi.StringInput `pulumi:"azureMultiTenantAppName"`
+	AzureTenantId           pulumi.StringInput `pulumi:"azureTenantId"`
+	UsePrivatelinkEndpoint  pulumi.StringInput `pulumi:"usePrivatelinkEndpoint"`
+}
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation)(nil)).Elem()
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput {
+	return i.ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutputWithContext(context.Background())
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput)
+}
+
+// GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayInput is an input type that accepts GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray and GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput values.
+// You can construct a concrete instance of `GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayInput` via:
+//
+//	GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray{ GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs{...} }
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutputWithContext(context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation)(nil)).Elem()
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput {
+	return i.ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation)(nil)).Elem()
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) AzureConsentUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation) string {
+		return v.AzureConsentUrl
+	}).(pulumi.StringOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) AzureMultiTenantAppName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation) string {
+		return v.AzureMultiTenantAppName
+	}).(pulumi.StringOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) AzureTenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation) string {
+		return v.AzureTenantId
+	}).(pulumi.StringOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput) UsePrivatelinkEndpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation) string {
+		return v.UsePrivatelinkEndpoint
+	}).(pulumi.StringOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation)(nil)).Elem()
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput) Index(i pulumi.IntInput) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation {
+		return vs[0].([]GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocation)[vs[1].(int)]
+	}).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation struct {
+	EncryptionKmsKeyId       string `pulumi:"encryptionKmsKeyId"`
+	StorageGcpServiceAccount string `pulumi:"storageGcpServiceAccount"`
+}
+
+// GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationInput is an input type that accepts GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs and GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput values.
+// You can construct a concrete instance of `GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationInput` via:
+//
+//	GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs{...}
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationInput interface {
+	pulumi.Input
+
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutputWithContext(context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs struct {
+	EncryptionKmsKeyId       pulumi.StringInput `pulumi:"encryptionKmsKeyId"`
+	StorageGcpServiceAccount pulumi.StringInput `pulumi:"storageGcpServiceAccount"`
+}
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation)(nil)).Elem()
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput {
+	return i.ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutputWithContext(context.Background())
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput)
+}
+
+// GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayInput is an input type that accepts GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray and GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput values.
+// You can construct a concrete instance of `GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayInput` via:
+//
+//	GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray{ GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs{...} }
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput
+	ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutputWithContext(context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray []GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationInput
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation)(nil)).Elem()
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput {
+	return i.ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation)(nil)).Elem()
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput) EncryptionKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation) string {
+		return v.EncryptionKmsKeyId
+	}).(pulumi.StringOutput)
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput) StorageGcpServiceAccount() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation) string {
+		return v.StorageGcpServiceAccount
+	}).(pulumi.StringOutput)
+}
+
+type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation)(nil)).Elem()
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput() GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput) ToGetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutputWithContext(ctx context.Context) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput {
+	return o
+}
+
+func (o GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput) Index(i pulumi.IntInput) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation {
+		return vs[0].([]GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocation)[vs[1].(int)]
+	}).(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput)
+}
+
 type GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocation struct {
 	AwsAccessKeyId     string `pulumi:"awsAccessKeyId"`
 	EncryptionKmsKeyId string `pulumi:"encryptionKmsKeyId"`
@@ -51657,6 +53915,38 @@ func (o GetWarehousesWarehouseShowOutputArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseShowOutputInput)(nil)).Elem(), GetDatabasesDatabaseShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseShowOutputArrayInput)(nil)).Elem(), GetDatabasesDatabaseShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesLimitInput)(nil)).Elem(), GetDatabasesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesLimitPtrInput)(nil)).Elem(), GetDatabasesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesInInput)(nil)).Elem(), GetDynamicTablesInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesInPtrInput)(nil)).Elem(), GetDynamicTablesInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesLikeInput)(nil)).Elem(), GetDynamicTablesLikeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesLikePtrInput)(nil)).Elem(), GetDynamicTablesLikeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesLimitInput)(nil)).Elem(), GetDynamicTablesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesLimitPtrInput)(nil)).Elem(), GetDynamicTablesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesRecordInput)(nil)).Elem(), GetDynamicTablesRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDynamicTablesRecordArrayInput)(nil)).Elem(), GetDynamicTablesRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegrationInput)(nil)).Elem(), GetExternalAccessIntegrationsExternalAccessIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegrationArrayInput)(nil)).Elem(), GetExternalAccessIntegrationsExternalAccessIntegrationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputInput)(nil)).Elem(), GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayInput)(nil)).Elem(), GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputInput)(nil)).Elem(), GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayInput)(nil)).Elem(), GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalFunctionsExternalFunctionInput)(nil)).Elem(), GetExternalFunctionsExternalFunctionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalFunctionsExternalFunctionArrayInput)(nil)).Elem(), GetExternalFunctionsExternalFunctionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalTablesExternalTableInput)(nil)).Elem(), GetExternalTablesExternalTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalTablesExternalTableArrayInput)(nil)).Elem(), GetExternalTablesExternalTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeInput)(nil)).Elem(), GetExternalVolumesExternalVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeArrayInput)(nil)).Elem(), GetExternalVolumesExternalVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputArrayInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3StorageLocationInput)(nil)).Elem(), GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3StorageLocationArgs{})
@@ -52411,6 +54701,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseParameterStatementTimeoutInSecondArrayInput)(nil)).Elem(), GetWarehousesWarehouseParameterStatementTimeoutInSecondArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseShowOutputInput)(nil)).Elem(), GetWarehousesWarehouseShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseShowOutputArrayInput)(nil)).Elem(), GetWarehousesWarehouseShowOutputArray{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseShowOutputOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesLimitOutput{})
+	pulumi.RegisterOutputType(GetDatabasesLimitPtrOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesInOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesInPtrOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesLikeOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesLikePtrOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesLimitOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesLimitPtrOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesRecordOutput{})
+	pulumi.RegisterOutputType(GetDynamicTablesRecordArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalAccessIntegrationsExternalAccessIntegrationOutput{})
+	pulumi.RegisterOutputType(GetExternalAccessIntegrationsExternalAccessIntegrationArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputOutput{})
+	pulumi.RegisterOutputType(GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputOutput{})
+	pulumi.RegisterOutputType(GetExternalAccessIntegrationsExternalAccessIntegrationShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalFunctionsExternalFunctionOutput{})
+	pulumi.RegisterOutputType(GetExternalFunctionsExternalFunctionArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalTablesExternalTableOutput{})
+	pulumi.RegisterOutputType(GetExternalTablesExternalTableArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeOutput{})
+	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputOutput{})
+	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationOutput{})
+	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationOutput{})
+	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationAzureStorageLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationOutput{})
+	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationGcsStorageLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationOutput{})
 	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3CompatStorageLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetExternalVolumesExternalVolumeDescribeOutputStorageLocationS3StorageLocationOutput{})

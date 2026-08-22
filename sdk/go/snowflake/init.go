@@ -91,6 +91,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EmailNotificationIntegration{}
 	case "snowflake:index/execute:Execute":
 		r = &Execute{}
+	case "snowflake:index/externalAccessIntegration:ExternalAccessIntegration":
+		r = &ExternalAccessIntegration{}
 	case "snowflake:index/externalFunction:ExternalFunction":
 		r = &ExternalFunction{}
 	case "snowflake:index/externalOauthIntegration:ExternalOauthIntegration":
@@ -141,6 +143,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GrantPrivilegesToDatabaseRole{}
 	case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
 		r = &GrantPrivilegesToShare{}
+	case "snowflake:index/hybridTable:HybridTable":
+		r = &HybridTable{}
 	case "snowflake:index/icebergTable:IcebergTable":
 		r = &IcebergTable{}
 	case "snowflake:index/icebergTableFromAwsGlue:IcebergTableFromAwsGlue":
@@ -511,6 +515,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/externalAccessIntegration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/externalFunction",
 		&module{version},
 	)
@@ -632,6 +641,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/grantPrivilegesToShare",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/hybridTable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

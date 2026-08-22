@@ -16,14 +16,14 @@ public final class UserAuthenticationPolicyAttachmentState extends com.pulumi.re
     public static final UserAuthenticationPolicyAttachmentState Empty = new UserAuthenticationPolicyAttachmentState();
 
     /**
-     * Fully qualified name of the authentication policy.
+     * Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Import(name="authenticationPolicyName")
     private @Nullable Output<String> authenticationPolicyName;
 
     /**
-     * @return Fully qualified name of the authentication policy.
+     * @return Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Optional<Output<String>> authenticationPolicyName() {
@@ -31,14 +31,14 @@ public final class UserAuthenticationPolicyAttachmentState extends com.pulumi.re
     }
 
     /**
-     * User name of the user you want to attach the authentication policy to.
+     * User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return User name of the user you want to attach the authentication policy to.
+     * @return User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
      * 
      */
     public Optional<Output<String>> userName() {
@@ -71,7 +71,7 @@ public final class UserAuthenticationPolicyAttachmentState extends com.pulumi.re
         }
 
         /**
-         * @param authenticationPolicyName Fully qualified name of the authentication policy.
+         * @param authenticationPolicyName Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class UserAuthenticationPolicyAttachmentState extends com.pulumi.re
         }
 
         /**
-         * @param authenticationPolicyName Fully qualified name of the authentication policy.
+         * @param authenticationPolicyName Fully qualified name of the authentication policy. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class UserAuthenticationPolicyAttachmentState extends com.pulumi.re
         }
 
         /**
-         * @param userName User name of the user you want to attach the authentication policy to.
+         * @param userName User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class UserAuthenticationPolicyAttachmentState extends com.pulumi.re
         }
 
         /**
-         * @param userName User name of the user you want to attach the authentication policy to.
+         * @param userName User name of the user you want to attach the authentication policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
          * 
          * @return builder
          * 

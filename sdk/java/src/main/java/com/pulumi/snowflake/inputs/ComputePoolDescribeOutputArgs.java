@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -43,6 +44,13 @@ public final class ComputePoolDescribeOutputArgs extends com.pulumi.resources.Re
 
     public Optional<Output<Integer>> autoSuspendSecs() {
         return Optional.ofNullable(this.autoSuspendSecs);
+    }
+
+    @Import(name="backupInstanceFamilies")
+    private @Nullable Output<List<String>> backupInstanceFamilies;
+
+    public Optional<Output<List<String>>> backupInstanceFamilies() {
+        return Optional.ofNullable(this.backupInstanceFamilies);
     }
 
     @Import(name="comment")
@@ -171,6 +179,7 @@ public final class ComputePoolDescribeOutputArgs extends com.pulumi.resources.Re
         this.application = $.application;
         this.autoResume = $.autoResume;
         this.autoSuspendSecs = $.autoSuspendSecs;
+        this.backupInstanceFamilies = $.backupInstanceFamilies;
         this.comment = $.comment;
         this.createdOn = $.createdOn;
         this.errorCode = $.errorCode;
@@ -242,6 +251,19 @@ public final class ComputePoolDescribeOutputArgs extends com.pulumi.resources.Re
 
         public Builder autoSuspendSecs(Integer autoSuspendSecs) {
             return autoSuspendSecs(Output.of(autoSuspendSecs));
+        }
+
+        public Builder backupInstanceFamilies(@Nullable Output<List<String>> backupInstanceFamilies) {
+            $.backupInstanceFamilies = backupInstanceFamilies;
+            return this;
+        }
+
+        public Builder backupInstanceFamilies(List<String> backupInstanceFamilies) {
+            return backupInstanceFamilies(Output.of(backupInstanceFamilies));
+        }
+
+        public Builder backupInstanceFamilies(String... backupInstanceFamilies) {
+            return backupInstanceFamilies(List.of(backupInstanceFamilies));
         }
 
         public Builder comment(@Nullable Output<String> comment) {

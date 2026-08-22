@@ -24,8 +24,8 @@ class UserSessionPolicyAttachmentArgs:
         """
         The set of arguments for constructing a UserSessionPolicyAttachment resource.
 
-        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy.
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the session policy to.
+        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         pulumi.set(__self__, "session_policy_name", session_policy_name)
         pulumi.set(__self__, "user_name", user_name)
@@ -34,7 +34,7 @@ class UserSessionPolicyAttachmentArgs:
     @pulumi.getter(name="sessionPolicyName")
     def session_policy_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Fully qualified name of the session policy.
+        Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "session_policy_name")
 
@@ -46,7 +46,7 @@ class UserSessionPolicyAttachmentArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[_builtins.str]:
         """
-        User name of the user you want to attach the session policy to.
+        User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "user_name")
 
@@ -63,8 +63,8 @@ class _UserSessionPolicyAttachmentState:
         """
         Input properties used for looking up and filtering UserSessionPolicyAttachment resources.
 
-        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy.
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the session policy to.
+        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         if session_policy_name is not None:
             pulumi.set(__self__, "session_policy_name", session_policy_name)
@@ -75,7 +75,7 @@ class _UserSessionPolicyAttachmentState:
     @pulumi.getter(name="sessionPolicyName")
     def session_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Fully qualified name of the session policy.
+        Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "session_policy_name")
 
@@ -87,7 +87,7 @@ class _UserSessionPolicyAttachmentState:
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        User name of the user you want to attach the session policy to.
+        User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "user_name")
 
@@ -140,8 +140,8 @@ class UserSessionPolicyAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy.
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the session policy to.
+        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         ...
     @overload
@@ -233,8 +233,8 @@ class UserSessionPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy.
-        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the session policy to.
+        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.str] user_name: User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -248,7 +248,7 @@ class UserSessionPolicyAttachment(pulumi.CustomResource):
     @pulumi.getter(name="sessionPolicyName")
     def session_policy_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Fully qualified name of the session policy.
+        Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "session_policy_name")
 
@@ -256,7 +256,7 @@ class UserSessionPolicyAttachment(pulumi.CustomResource):
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[_builtins.str]:
         """
-        User name of the user you want to attach the session policy to.
+        User name of the user you want to attach the session policy to. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "user_name")
 

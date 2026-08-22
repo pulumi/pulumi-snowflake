@@ -876,6 +876,7 @@ export interface ComputePoolDescribeOutput {
     application: string;
     autoResume: boolean;
     autoSuspendSecs: number;
+    backupInstanceFamilies: string[];
     comment: string;
     createdOn: string;
     errorCode: string;
@@ -900,6 +901,7 @@ export interface ComputePoolShowOutput {
     application: string;
     autoResume: boolean;
     autoSuspendSecs: number;
+    backupInstanceFamilies: string[];
     comment: string;
     createdOn: string;
     idleNodes: number;
@@ -1059,6 +1061,50 @@ export interface DynamicTableTargetLag {
      * Specifies the maximum target lag time for the dynamic table.
      */
     maximumDuration?: string;
+}
+
+export interface ExternalAccessIntegrationAllowedApiAuthenticationIntegrations {
+    /**
+     * Specifies the API authentication integrations allowed for authenticating to external locations. Conflicts with `none`.
+     */
+    integrations?: string[];
+    /**
+     * When true, no API authentication integrations are allowed. Conflicts with `integrations`.
+     */
+    none?: boolean;
+}
+
+export interface ExternalAccessIntegrationAllowedAuthenticationSecrets {
+    /**
+     * When true, all secrets in the account are allowed for authentication. Conflicts with `none` and `secrets`.
+     */
+    all?: boolean;
+    /**
+     * When true, no secrets are allowed for authentication. Conflicts with `all` and `secrets`.
+     */
+    none?: boolean;
+    /**
+     * Specifies the fully qualified identifiers of secrets allowed for authentication. Conflicts with `none` and `all`.
+     */
+    secrets?: string[];
+}
+
+export interface ExternalAccessIntegrationDescribeOutput {
+    allowedApiAuthenticationIntegrations: string[];
+    allowedAuthenticationSecrets: string[];
+    allowedNetworkRules: string[];
+    comment: string;
+    enabled: boolean;
+    id: string;
+}
+
+export interface ExternalAccessIntegrationShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+    type: string;
 }
 
 export interface ExternalFunctionArg {
@@ -2371,6 +2417,7 @@ export interface GetComputePoolsComputePoolDescribeOutput {
     application: string;
     autoResume: boolean;
     autoSuspendSecs: number;
+    backupInstanceFamilies: string[];
     comment: string;
     createdOn: string;
     errorCode: string;
@@ -2395,6 +2442,7 @@ export interface GetComputePoolsComputePoolShowOutput {
     application: string;
     autoResume: boolean;
     autoSuspendSecs: number;
+    backupInstanceFamilies: string[];
     comment: string;
     createdOn: string;
     idleNodes: number;
@@ -2927,6 +2975,35 @@ export interface GetDynamicTablesRecord {
      * Warehouse that provides the required resources to perform the incremental refreshes.
      */
     warehouse: string;
+}
+
+export interface GetExternalAccessIntegrationsExternalAccessIntegration {
+    /**
+     * Holds the output of DESCRIBE EXTERNAL ACCESS INTEGRATION.
+     */
+    describeOutputs: outputs.GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput[];
+    /**
+     * Holds the output of SHOW EXTERNAL ACCESS INTEGRATIONS.
+     */
+    showOutputs: outputs.GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput[];
+}
+
+export interface GetExternalAccessIntegrationsExternalAccessIntegrationDescribeOutput {
+    allowedApiAuthenticationIntegrations: string[];
+    allowedAuthenticationSecrets: string[];
+    allowedNetworkRules: string[];
+    comment: string;
+    enabled: boolean;
+    id: string;
+}
+
+export interface GetExternalAccessIntegrationsExternalAccessIntegrationShowOutput {
+    category: string;
+    comment: string;
+    createdOn: string;
+    enabled: boolean;
+    name: string;
+    type: string;
 }
 
 export interface GetExternalFunctionsExternalFunction {
@@ -7447,6 +7524,143 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
      * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
      */
     objectTypePlural: string;
+}
+
+export interface HybridTableColumn {
+    /**
+     * Column collation specification, e.g. en-ci. Case-insensitive (en-ci and EN-CI are treated as equal).
+     */
+    collate?: string;
+    /**
+     * Column-level comment.
+     */
+    comment?: string;
+    /**
+     * Defines the column default value. Only one of constant, expression, or sequence may be set.
+     */
+    default?: outputs.HybridTableColumnDefault;
+    /**
+     * Column name.
+     */
+    name: string;
+    /**
+     * Whether to restrict the column to NOT NULL values. Changing this on an existing column forces recreation. Primary key columns must set this to true because NOT NULL is implied by the primary key.
+     */
+    notNull?: boolean;
+    /**
+     * Column type. See [Snowflake data types](https://docs.snowflake.com/en/sql-reference-data-types) for supported values. Example: VARCHAR(256), NUMBER(38,0).
+     */
+    type: string;
+}
+
+export interface HybridTableColumnDefault {
+    /**
+     * A constant default value for the column.
+     */
+    constant?: string;
+    /**
+     * A SQL expression default value for the column.
+     */
+    expression?: string;
+    /**
+     * The default sequence for the column (uses NEXTVAL).
+     */
+    sequence?: string;
+}
+
+export interface HybridTableDescribeOutput {
+    check: string;
+    collation: string;
+    comment: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    kind: string;
+    name: string;
+    policyName: string;
+    primaryKey: boolean;
+    privacyDomain: string;
+    schemaEvolutionRecord: string;
+    type: string;
+    uniqueKey: boolean;
+}
+
+export interface HybridTableForeignKeyConstraint {
+    /**
+     * The local column(s) the foreign key is defined on.
+     */
+    columns: string[];
+    /**
+     * Name of the constraint.
+     */
+    name?: string;
+    /**
+     * The column(s) in the referenced table that the foreign key references.
+     */
+    refColumns: string[];
+    /**
+     * The table that the foreign key references.
+     */
+    tableName: string;
+}
+
+export interface HybridTableIndex {
+    /**
+     * Index key columns, in order. Order is semantically meaningful.
+     */
+    columns: string[];
+    /**
+     * Columns included in the index payload via INCLUDE (...). Order carries no meaning.
+     */
+    includeColumns?: string[];
+    /**
+     * Name of the secondary index.
+     */
+    name: string;
+}
+
+export interface HybridTablePrimaryKeyConstraint {
+    /**
+     * The column(s) the constraint applies to.
+     */
+    columns: string[];
+    /**
+     * Name of the constraint.
+     */
+    name?: string;
+}
+
+export interface HybridTableShowKeysOutput {
+    columns: string[];
+    deleteRule: string;
+    kind: string;
+    name: string;
+    referencedColumns: string[];
+    referencedTable: string;
+    updateRule: string;
+}
+
+export interface HybridTableShowOutput {
+    bytes: number;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    rows: number;
+    schemaName: string;
+}
+
+export interface HybridTableUniqueConstraint {
+    /**
+     * The column(s) the constraint applies to.
+     */
+    columns: string[];
+    /**
+     * Name of the constraint.
+     */
+    name?: string;
 }
 
 export interface IcebergTableAggregationPolicy {

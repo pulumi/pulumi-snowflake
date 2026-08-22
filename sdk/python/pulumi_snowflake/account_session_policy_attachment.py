@@ -19,19 +19,27 @@ __all__ = ['AccountSessionPolicyAttachmentArgs', 'AccountSessionPolicyAttachment
 @pulumi.input_type
 class AccountSessionPolicyAttachmentArgs:
     def __init__(__self__, *,
-                 session_policy_name: pulumi.Input[_builtins.str]):
+                 session_policy_name: pulumi.Input[_builtins.str],
+                 for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a AccountSessionPolicyAttachment resource.
 
-        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy to apply to the current account.
+        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
+        :param pulumi.Input[_builtins.bool] for_all_person_users: If true, attaches the session policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.bool] for_all_service_users: If true, attaches the session policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
         """
         pulumi.set(__self__, "session_policy_name", session_policy_name)
+        if for_all_person_users is not None:
+            pulumi.set(__self__, "for_all_person_users", for_all_person_users)
+        if for_all_service_users is not None:
+            pulumi.set(__self__, "for_all_service_users", for_all_service_users)
 
     @_builtins.property
     @pulumi.getter(name="sessionPolicyName")
     def session_policy_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Fully qualified name of the session policy to apply to the current account.
+        Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "session_policy_name")
 
@@ -39,24 +47,80 @@ class AccountSessionPolicyAttachmentArgs:
     def session_policy_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "session_policy_name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="forAllPersonUsers")
+    def for_all_person_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, attaches the session policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_person_users")
+
+    @for_all_person_users.setter
+    def for_all_person_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "for_all_person_users", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forAllServiceUsers")
+    def for_all_service_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, attaches the session policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_service_users")
+
+    @for_all_service_users.setter
+    def for_all_service_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "for_all_service_users", value)
+
 
 @pulumi.input_type
 class _AccountSessionPolicyAttachmentState:
     def __init__(__self__, *,
+                 for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  session_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering AccountSessionPolicyAttachment resources.
 
-        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy to apply to the current account.
+        :param pulumi.Input[_builtins.bool] for_all_person_users: If true, attaches the session policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.bool] for_all_service_users: If true, attaches the session policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
+        if for_all_person_users is not None:
+            pulumi.set(__self__, "for_all_person_users", for_all_person_users)
+        if for_all_service_users is not None:
+            pulumi.set(__self__, "for_all_service_users", for_all_service_users)
         if session_policy_name is not None:
             pulumi.set(__self__, "session_policy_name", session_policy_name)
+
+    @_builtins.property
+    @pulumi.getter(name="forAllPersonUsers")
+    def for_all_person_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, attaches the session policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_person_users")
+
+    @for_all_person_users.setter
+    def for_all_person_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "for_all_person_users", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forAllServiceUsers")
+    def for_all_service_users(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If true, attaches the session policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_service_users")
+
+    @for_all_service_users.setter
+    def for_all_service_users(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "for_all_service_users", value)
 
     @_builtins.property
     @pulumi.getter(name="sessionPolicyName")
     def session_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Fully qualified name of the session policy to apply to the current account.
+        Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "session_policy_name")
 
@@ -71,11 +135,11 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  session_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
-
         > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
 
         Specifies the session policy to use for the current account. To set the session policy of a different account, use a provider alias.
@@ -90,7 +154,18 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
             database="prod",
             schema="security",
             name="default_session_policy")
+        # Attach the session policy account-wide (default behavior).
         attachment = snowflake.AccountSessionPolicyAttachment("attachment", session_policy_name=sp.fully_qualified_name)
+        service_users = snowflake.SessionPolicy("service_users",
+            database="prod",
+            schema="security",
+            name="service_users_session_policy")
+        # Attach the session policy to all service users only.
+        # Use for_all_person_users = true to target all person users instead.
+        # The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+        attachment_service_users = snowflake.AccountSessionPolicyAttachment("attachment_service_users",
+            session_policy_name=service_users.fully_qualified_name,
+            for_all_service_users=True)
         ```
         > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
@@ -99,14 +174,30 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
+        Account-wide attachment:
+
         ```sh
-        $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"'
+        $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|ACCOUNT'
+        ```
+
+        For all person users:
+
+        ```sh
+        $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|PERSON_USERS'
+        ```
+
+        For all service users:
+
+        ```sh
+        $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|SERVICE_USERS'
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy to apply to the current account.
+        :param pulumi.Input[_builtins.bool] for_all_person_users: If true, attaches the session policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.bool] for_all_service_users: If true, attaches the session policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         ...
     @overload
@@ -115,8 +206,6 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
                  args: AccountSessionPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
-
         > **Warning** This resource shouldn't be used with `CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
 
         Specifies the session policy to use for the current account. To set the session policy of a different account, use a provider alias.
@@ -131,7 +220,18 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
             database="prod",
             schema="security",
             name="default_session_policy")
+        # Attach the session policy account-wide (default behavior).
         attachment = snowflake.AccountSessionPolicyAttachment("attachment", session_policy_name=sp.fully_qualified_name)
+        service_users = snowflake.SessionPolicy("service_users",
+            database="prod",
+            schema="security",
+            name="service_users_session_policy")
+        # Attach the session policy to all service users only.
+        # Use for_all_person_users = true to target all person users instead.
+        # The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+        attachment_service_users = snowflake.AccountSessionPolicyAttachment("attachment_service_users",
+            session_policy_name=service_users.fully_qualified_name,
+            for_all_service_users=True)
         ```
         > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
         <!-- TODO(SNOW-1634854): include an example showing both methods-->
@@ -140,8 +240,22 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
+        Account-wide attachment:
+
         ```sh
-        $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"'
+        $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|ACCOUNT'
+        ```
+
+        For all person users:
+
+        ```sh
+        $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|PERSON_USERS'
+        ```
+
+        For all service users:
+
+        ```sh
+        $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"<database_name>"."<schema_name>"."<session_policy_name>"|SERVICE_USERS'
         ```
 
 
@@ -160,6 +274,8 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+                 for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None,
                  session_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -170,6 +286,8 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountSessionPolicyAttachmentArgs.__new__(AccountSessionPolicyAttachmentArgs)
 
+            __props__.__dict__["for_all_person_users"] = for_all_person_users
+            __props__.__dict__["for_all_service_users"] = for_all_service_users
             if session_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'session_policy_name'")
             __props__.__dict__["session_policy_name"] = session_policy_name
@@ -183,6 +301,8 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None,
             session_policy_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'AccountSessionPolicyAttachment':
         """
         Get an existing AccountSessionPolicyAttachment resource's state with the given name, id, and optional extra
@@ -191,20 +311,40 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy to apply to the current account.
+        :param pulumi.Input[_builtins.bool] for_all_person_users: If true, attaches the session policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.bool] for_all_service_users: If true, attaches the session policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
+        :param pulumi.Input[_builtins.str] session_policy_name: Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _AccountSessionPolicyAttachmentState.__new__(_AccountSessionPolicyAttachmentState)
 
+        __props__.__dict__["for_all_person_users"] = for_all_person_users
+        __props__.__dict__["for_all_service_users"] = for_all_service_users
         __props__.__dict__["session_policy_name"] = session_policy_name
         return AccountSessionPolicyAttachment(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="forAllPersonUsers")
+    def for_all_person_users(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, attaches the session policy to all person users in the current account. Conflicts with `for_all_service_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_person_users")
+
+    @_builtins.property
+    @pulumi.getter(name="forAllServiceUsers")
+    def for_all_service_users(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        If true, attaches the session policy to all service users in the current account. Conflicts with `for_all_person_users`. When neither field is set, the policy is attached account-wide.
+        """
+        return pulumi.get(self, "for_all_service_users")
 
     @_builtins.property
     @pulumi.getter(name="sessionPolicyName")
     def session_policy_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Fully qualified name of the session policy to apply to the current account.
+        Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         """
         return pulumi.get(self, "session_policy_name")
 

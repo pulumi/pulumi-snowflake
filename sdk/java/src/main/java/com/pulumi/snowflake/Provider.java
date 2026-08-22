@@ -24,14 +24,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="pulumi:providers:snowflake")
 public class Provider extends com.pulumi.resources.ProviderResource {
     /**
-     * Specifies the Snowflake account identifier. Can be provided in the `org-name` format (e.g. `&#34;myorg-myaccount&#34;`) or as an account locator (e.g. `&#34;xy12345&#34;`). Use as a fallback when `accountName` and `organizationName` are not set. If both `accountName` and `organizationName` are set, they take precedence. Requires the `PROVIDER_CONFIGURATION_ACCOUNT_FALLBACK` experiment to be enabled. Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
+     * Specifies the Snowflake account identifier. Can be provided in the `org-name` format (e.g. `&#34;myorg-myaccount&#34;`) or as an account locator (e.g. `&#34;xy12345&#34;`). Use as a fallback when `accountName` and `organizationName` are not set. If both `accountName` and `organizationName` are set, they take precedence. Requires the `PROVIDER_CONFIGURATION_ACCOUNT_FALLBACK` experiment to be enabled. Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable; without the experiment, the variable&#39;s value is ignored with a warning instead of resulting in an error.
      * 
      */
     @Export(name="account", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> account;
 
     /**
-     * @return Specifies the Snowflake account identifier. Can be provided in the `org-name` format (e.g. `&#34;myorg-myaccount&#34;`) or as an account locator (e.g. `&#34;xy12345&#34;`). Use as a fallback when `accountName` and `organizationName` are not set. If both `accountName` and `organizationName` are set, they take precedence. Requires the `PROVIDER_CONFIGURATION_ACCOUNT_FALLBACK` experiment to be enabled. Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
+     * @return Specifies the Snowflake account identifier. Can be provided in the `org-name` format (e.g. `&#34;myorg-myaccount&#34;`) or as an account locator (e.g. `&#34;xy12345&#34;`). Use as a fallback when `accountName` and `organizationName` are not set. If both `accountName` and `organizationName` are set, they take precedence. Requires the `PROVIDER_CONFIGURATION_ACCOUNT_FALLBACK` experiment to be enabled. Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable; without the experiment, the variable&#39;s value is ignored with a warning instead of resulting in an error.
      * 
      */
     public Output<Optional<String>> account() {
@@ -378,14 +378,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.password);
     }
     /**
-     * Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+     * Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `\n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
     /**
-     * @return Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+     * @return Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `\n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
     public Output<Optional<String>> privateKey() {
@@ -502,6 +502,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      */
     public Output<Optional<String>> role() {
         return Codegen.optional(this.role);
+    }
+    /**
+     * Tag suffix used to read the Terraform Cloud/Enterprise workload identity token from the `TFC_WORKLOAD_IDENTITY_TOKEN_&lt;TAG&gt;` environment variable (the tag is upper-cased). Requires `authenticator` to be `WORKLOAD_IDENTITY` and `workloadIdentityProvider` to be `OIDC`. Takes precedence over `token` and every other token source. Can also be sourced from the `SNOWFLAKE_TFC_WORKLOAD_IDENTITY_TOKEN_TAG` environment variable.
+     * 
+     */
+    @Export(name="tfcWorkloadIdentityTokenTag", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> tfcWorkloadIdentityTokenTag;
+
+    /**
+     * @return Tag suffix used to read the Terraform Cloud/Enterprise workload identity token from the `TFC_WORKLOAD_IDENTITY_TOKEN_&lt;TAG&gt;` environment variable (the tag is upper-cased). Requires `authenticator` to be `WORKLOAD_IDENTITY` and `workloadIdentityProvider` to be `OIDC`. Takes precedence over `token` and every other token source. Can also be sourced from the `SNOWFLAKE_TFC_WORKLOAD_IDENTITY_TOKEN_TAG` environment variable.
+     * 
+     */
+    public Output<Optional<String>> tfcWorkloadIdentityTokenTag() {
+        return Codegen.optional(this.tfcWorkloadIdentityTokenTag);
     }
     /**
      * Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.

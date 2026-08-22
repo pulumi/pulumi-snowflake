@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// &gt; **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
-    /// 
     /// &gt; **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
     /// 
     /// Specifies the session policy to use for the current account. To set the session policy of a different account, use a provider alias.
@@ -33,9 +31,26 @@ namespace Pulumi.Snowflake
     ///         Name = "default_session_policy",
     ///     });
     /// 
+    ///     // Attach the session policy account-wide (default behavior).
     ///     var attachment = new Snowflake.AccountSessionPolicyAttachment("attachment", new()
     ///     {
     ///         SessionPolicyName = sp.FullyQualifiedName,
+    ///     });
+    /// 
+    ///     var serviceUsers = new Snowflake.SessionPolicy("service_users", new()
+    ///     {
+    ///         Database = "prod",
+    ///         Schema = "security",
+    ///         Name = "service_users_session_policy",
+    ///     });
+    /// 
+    ///     // Attach the session policy to all service users only.
+    ///     // Use for_all_person_users = true to target all person users instead.
+    ///     // The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+    ///     var attachmentServiceUsers = new Snowflake.AccountSessionPolicyAttachment("attachment_service_users", new()
+    ///     {
+    ///         SessionPolicyName = serviceUsers.FullyQualifiedName,
+    ///         ForAllServiceUsers = true,
     ///     });
     /// 
     /// });
@@ -47,15 +62,41 @@ namespace Pulumi.Snowflake
     /// 
     /// ## Import
     /// 
+    /// Account-wide attachment:
+    /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;session_policy_name&gt;"'
+    /// $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;session_policy_name&gt;"|ACCOUNT'
+    /// ```
+    /// 
+    /// For all person users:
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;session_policy_name&gt;"|PERSON_USERS'
+    /// ```
+    /// 
+    /// For all service users:
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;session_policy_name&gt;"|SERVICE_USERS'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment")]
     public partial class AccountSessionPolicyAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Fully qualified name of the session policy to apply to the current account.
+        /// If true, attaches the session policy to all person users in the current account. Conflicts with `ForAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+        /// </summary>
+        [Output("forAllPersonUsers")]
+        public Output<bool?> ForAllPersonUsers { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, attaches the session policy to all service users in the current account. Conflicts with `ForAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+        /// </summary>
+        [Output("forAllServiceUsers")]
+        public Output<bool?> ForAllServiceUsers { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Output("sessionPolicyName")]
         public Output<string> SessionPolicyName { get; private set; } = null!;
@@ -107,7 +148,19 @@ namespace Pulumi.Snowflake
     public sealed class AccountSessionPolicyAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully qualified name of the session policy to apply to the current account.
+        /// If true, attaches the session policy to all person users in the current account. Conflicts with `ForAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+        /// </summary>
+        [Input("forAllPersonUsers")]
+        public Input<bool>? ForAllPersonUsers { get; set; }
+
+        /// <summary>
+        /// If true, attaches the session policy to all service users in the current account. Conflicts with `ForAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+        /// </summary>
+        [Input("forAllServiceUsers")]
+        public Input<bool>? ForAllServiceUsers { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Input("sessionPolicyName", required: true)]
         public Input<string> SessionPolicyName { get; set; } = null!;
@@ -121,7 +174,19 @@ namespace Pulumi.Snowflake
     public sealed class AccountSessionPolicyAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Fully qualified name of the session policy to apply to the current account.
+        /// If true, attaches the session policy to all person users in the current account. Conflicts with `ForAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+        /// </summary>
+        [Input("forAllPersonUsers")]
+        public Input<bool>? ForAllPersonUsers { get; set; }
+
+        /// <summary>
+        /// If true, attaches the session policy to all service users in the current account. Conflicts with `ForAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+        /// </summary>
+        [Input("forAllServiceUsers")]
+        public Input<bool>? ForAllServiceUsers { get; set; }
+
+        /// <summary>
+        /// Fully qualified name of the session policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
         /// </summary>
         [Input("sessionPolicyName")]
         public Input<string>? SessionPolicyName { get; set; }

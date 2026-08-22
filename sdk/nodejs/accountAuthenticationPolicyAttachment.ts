@@ -7,8 +7,6 @@ import * as utilities from "./utilities";
 /**
  * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * > **Required warehouse** For this resource, the provider uses [policy references](https://docs.snowflake.com/en/sql-reference/functions/policy_references) to get information about policies attached to the current account. This function requires a warehouse in the connection. Please, make sure you have either set a `DEFAULT_WAREHOUSE` for the user, or specified a warehouse in the provider configuration.
- *
  * > **Warning** This resource shouldn't be used with `snowflake.CurrentAccount` resource in the same configuration, as it may lead to unexpected behavior.
  *
  * Specifies the authentication policy to use for the current account. To set the authentication policy of a different account, use a provider alias.
@@ -24,7 +22,20 @@ import * as utilities from "./utilities";
  *     schema: "security",
  *     name: "default_policy",
  * });
+ * // Attach the authentication policy account-wide (default behavior).
  * const attachment = new snowflake.AccountAuthenticationPolicyAttachment("attachment", {authenticationPolicy: _default.fullyQualifiedName});
+ * const serviceUsers = new snowflake.AuthenticationPolicy("service_users", {
+ *     database: "prod",
+ *     schema: "security",
+ *     name: "service_users_policy",
+ * });
+ * // Attach the authentication policy to all service users only.
+ * // Use for_all_person_users = true to target all person users instead.
+ * // The two fields are mutually exclusive; when neither is set, the policy is attached account-wide.
+ * const attachmentServiceUsers = new snowflake.AccountAuthenticationPolicyAttachment("attachment_service_users", {
+ *     authenticationPolicy: serviceUsers.fullyQualifiedName,
+ *     forAllServiceUsers: true,
+ * });
  * ```
  * > **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.
  * <!-- TODO(SNOW-1634854): include an example showing both methods-->
@@ -33,8 +44,22 @@ import * as utilities from "./utilities";
  *
  * ## Import
  *
+ * Account-wide attachment:
+ *
  * ```sh
- * $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+ * $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|ACCOUNT'
+ * ```
+ *
+ * For all person users:
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|PERSON_USERS'
+ * ```
+ *
+ * For all service users:
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment example '"<database_name>"."<schema_name>"."<authentication_policy_name>"|SERVICE_USERS'
  * ```
  */
 export class AccountAuthenticationPolicyAttachment extends pulumi.CustomResource {
@@ -66,9 +91,17 @@ export class AccountAuthenticationPolicyAttachment extends pulumi.CustomResource
     }
 
     /**
-     * Fully qualified name of the authentication policy to apply to the current account.
+     * Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     declare public readonly authenticationPolicy: pulumi.Output<string>;
+    /**
+     * If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    declare public readonly forAllPersonUsers: pulumi.Output<boolean | undefined>;
+    /**
+     * If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    declare public readonly forAllServiceUsers: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AccountAuthenticationPolicyAttachment resource with the given unique name, arguments, and options.
@@ -84,12 +117,16 @@ export class AccountAuthenticationPolicyAttachment extends pulumi.CustomResource
         if (opts.id) {
             const state = argsOrState as AccountAuthenticationPolicyAttachmentState | undefined;
             resourceInputs["authenticationPolicy"] = state?.authenticationPolicy;
+            resourceInputs["forAllPersonUsers"] = state?.forAllPersonUsers;
+            resourceInputs["forAllServiceUsers"] = state?.forAllServiceUsers;
         } else {
             const args = argsOrState as AccountAuthenticationPolicyAttachmentArgs | undefined;
             if (args?.authenticationPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationPolicy'");
             }
             resourceInputs["authenticationPolicy"] = args?.authenticationPolicy;
+            resourceInputs["forAllPersonUsers"] = args?.forAllPersonUsers;
+            resourceInputs["forAllServiceUsers"] = args?.forAllServiceUsers;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AccountAuthenticationPolicyAttachment.__pulumiType, name, resourceInputs, opts);
@@ -101,9 +138,17 @@ export class AccountAuthenticationPolicyAttachment extends pulumi.CustomResource
  */
 export interface AccountAuthenticationPolicyAttachmentState {
     /**
-     * Fully qualified name of the authentication policy to apply to the current account.
+     * Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     authenticationPolicy?: pulumi.Input<string | undefined>;
+    /**
+     * If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    forAllPersonUsers?: pulumi.Input<boolean | undefined>;
+    /**
+     * If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    forAllServiceUsers?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -111,7 +156,15 @@ export interface AccountAuthenticationPolicyAttachmentState {
  */
 export interface AccountAuthenticationPolicyAttachmentArgs {
     /**
-     * Fully qualified name of the authentication policy to apply to the current account.
+     * Fully qualified name of the authentication policy to apply to the current account. Due to technical limitations (read more here), avoid using pipes (`|`).
      */
     authenticationPolicy: pulumi.Input<string>;
+    /**
+     * If true, attaches the authentication policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    forAllPersonUsers?: pulumi.Input<boolean | undefined>;
+    /**
+     * If true, attaches the authentication policy to all service users in the current account. Conflicts with `forAllPersonUsers`. When neither field is set, the policy is attached account-wide.
+     */
+    forAllServiceUsers?: pulumi.Input<boolean | undefined>;
 }

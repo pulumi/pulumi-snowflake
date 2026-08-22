@@ -180,6 +180,11 @@ export type Execute = import("./execute").Execute;
 export const Execute: typeof import("./execute").Execute = null as any;
 utilities.lazyLoad(exports, ["Execute"], () => require("./execute"));
 
+export { ExternalAccessIntegrationArgs, ExternalAccessIntegrationState } from "./externalAccessIntegration";
+export type ExternalAccessIntegration = import("./externalAccessIntegration").ExternalAccessIntegration;
+export const ExternalAccessIntegration: typeof import("./externalAccessIntegration").ExternalAccessIntegration = null as any;
+utilities.lazyLoad(exports, ["ExternalAccessIntegration"], () => require("./externalAccessIntegration"));
+
 export { ExternalFunctionArgs, ExternalFunctionState } from "./externalFunction";
 export type ExternalFunction = import("./externalFunction").ExternalFunction;
 export const ExternalFunction: typeof import("./externalFunction").ExternalFunction = null as any;
@@ -349,6 +354,11 @@ export { GetDynamicTablesArgs, GetDynamicTablesResult, GetDynamicTablesOutputArg
 export const getDynamicTables: typeof import("./getDynamicTables").getDynamicTables = null as any;
 export const getDynamicTablesOutput: typeof import("./getDynamicTables").getDynamicTablesOutput = null as any;
 utilities.lazyLoad(exports, ["getDynamicTables","getDynamicTablesOutput"], () => require("./getDynamicTables"));
+
+export { GetExternalAccessIntegrationsArgs, GetExternalAccessIntegrationsResult, GetExternalAccessIntegrationsOutputArgs } from "./getExternalAccessIntegrations";
+export const getExternalAccessIntegrations: typeof import("./getExternalAccessIntegrations").getExternalAccessIntegrations = null as any;
+export const getExternalAccessIntegrationsOutput: typeof import("./getExternalAccessIntegrations").getExternalAccessIntegrationsOutput = null as any;
+utilities.lazyLoad(exports, ["getExternalAccessIntegrations","getExternalAccessIntegrationsOutput"], () => require("./getExternalAccessIntegrations"));
 
 export { GetExternalFunctionsArgs, GetExternalFunctionsResult, GetExternalFunctionsOutputArgs } from "./getExternalFunctions";
 export const getExternalFunctions: typeof import("./getExternalFunctions").getExternalFunctions = null as any;
@@ -624,6 +634,11 @@ export { GrantPrivilegesToShareArgs, GrantPrivilegesToShareState } from "./grant
 export type GrantPrivilegesToShare = import("./grantPrivilegesToShare").GrantPrivilegesToShare;
 export const GrantPrivilegesToShare: typeof import("./grantPrivilegesToShare").GrantPrivilegesToShare = null as any;
 utilities.lazyLoad(exports, ["GrantPrivilegesToShare"], () => require("./grantPrivilegesToShare"));
+
+export { HybridTableArgs, HybridTableState } from "./hybridTable";
+export type HybridTable = import("./hybridTable").HybridTable;
+export const HybridTable: typeof import("./hybridTable").HybridTable = null as any;
+utilities.lazyLoad(exports, ["HybridTable"], () => require("./hybridTable"));
 
 export { IcebergTableArgs, IcebergTableState } from "./icebergTable";
 export type IcebergTable = import("./icebergTable").IcebergTable;
@@ -1117,6 +1132,8 @@ const _module = {
                 return new EmailNotificationIntegration(name, <any>undefined, { urn })
             case "snowflake:index/execute:Execute":
                 return new Execute(name, <any>undefined, { urn })
+            case "snowflake:index/externalAccessIntegration:ExternalAccessIntegration":
+                return new ExternalAccessIntegration(name, <any>undefined, { urn })
             case "snowflake:index/externalFunction:ExternalFunction":
                 return new ExternalFunction(name, <any>undefined, { urn })
             case "snowflake:index/externalOauthIntegration:ExternalOauthIntegration":
@@ -1167,6 +1184,8 @@ const _module = {
                 return new GrantPrivilegesToDatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
                 return new GrantPrivilegesToShare(name, <any>undefined, { urn })
+            case "snowflake:index/hybridTable:HybridTable":
+                return new HybridTable(name, <any>undefined, { urn })
             case "snowflake:index/icebergTable:IcebergTable":
                 return new IcebergTable(name, <any>undefined, { urn })
             case "snowflake:index/icebergTableFromAwsGlue:IcebergTableFromAwsGlue":
@@ -1369,6 +1388,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/databaseRole", _module
 pulumi.runtime.registerResourceModule("snowflake", "index/dynamicTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/emailNotificationIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/execute", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/externalAccessIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalFunction", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalOauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTable", _module)
@@ -1394,6 +1414,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/grantOwnership", _modu
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToDatabaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToShare", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/hybridTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/icebergTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromAwsGlue", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromDeltaFiles", _module)
