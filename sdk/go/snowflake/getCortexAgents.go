@@ -57,12 +57,8 @@ type GetCortexAgentsResult struct {
 }
 
 func GetCortexAgentsOutput(ctx *pulumi.Context, args GetCortexAgentsOutputArgs, opts ...pulumi.InvokeOption) GetCortexAgentsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCortexAgentsResultOutput, error) {
-			args := v.(GetCortexAgentsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getCortexAgents:getCortexAgents", args, GetCortexAgentsResultOutput{}, options).(GetCortexAgentsResultOutput), nil
-		}).(GetCortexAgentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getCortexAgents:getCortexAgents", args, GetCortexAgentsResultOutput{}, options).(GetCortexAgentsResultOutput)
 }
 
 // A collection of arguments for invoking getCortexAgents.

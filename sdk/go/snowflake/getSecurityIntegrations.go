@@ -47,12 +47,8 @@ type GetSecurityIntegrationsResult struct {
 }
 
 func GetSecurityIntegrationsOutput(ctx *pulumi.Context, args GetSecurityIntegrationsOutputArgs, opts ...pulumi.InvokeOption) GetSecurityIntegrationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSecurityIntegrationsResultOutput, error) {
-			args := v.(GetSecurityIntegrationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", args, GetSecurityIntegrationsResultOutput{}, options).(GetSecurityIntegrationsResultOutput), nil
-		}).(GetSecurityIntegrationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", args, GetSecurityIntegrationsResultOutput{}, options).(GetSecurityIntegrationsResultOutput)
 }
 
 // A collection of arguments for invoking getSecurityIntegrations.

@@ -39,12 +39,8 @@ type GetResourceMonitorsResult struct {
 }
 
 func GetResourceMonitorsOutput(ctx *pulumi.Context, args GetResourceMonitorsOutputArgs, opts ...pulumi.InvokeOption) GetResourceMonitorsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetResourceMonitorsResultOutput, error) {
-			args := v.(GetResourceMonitorsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getResourceMonitors:getResourceMonitors", args, GetResourceMonitorsResultOutput{}, options).(GetResourceMonitorsResultOutput), nil
-		}).(GetResourceMonitorsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getResourceMonitors:getResourceMonitors", args, GetResourceMonitorsResultOutput{}, options).(GetResourceMonitorsResultOutput)
 }
 
 // A collection of arguments for invoking getResourceMonitors.

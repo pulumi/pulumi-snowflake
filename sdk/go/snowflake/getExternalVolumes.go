@@ -43,12 +43,8 @@ type GetExternalVolumesResult struct {
 }
 
 func GetExternalVolumesOutput(ctx *pulumi.Context, args GetExternalVolumesOutputArgs, opts ...pulumi.InvokeOption) GetExternalVolumesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetExternalVolumesResultOutput, error) {
-			args := v.(GetExternalVolumesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getExternalVolumes:getExternalVolumes", args, GetExternalVolumesResultOutput{}, options).(GetExternalVolumesResultOutput), nil
-		}).(GetExternalVolumesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getExternalVolumes:getExternalVolumes", args, GetExternalVolumesResultOutput{}, options).(GetExternalVolumesResultOutput)
 }
 
 // A collection of arguments for invoking getExternalVolumes.

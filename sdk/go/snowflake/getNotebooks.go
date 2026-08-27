@@ -53,12 +53,8 @@ type GetNotebooksResult struct {
 }
 
 func GetNotebooksOutput(ctx *pulumi.Context, args GetNotebooksOutputArgs, opts ...pulumi.InvokeOption) GetNotebooksResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetNotebooksResultOutput, error) {
-			args := v.(GetNotebooksArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getNotebooks:getNotebooks", args, GetNotebooksResultOutput{}, options).(GetNotebooksResultOutput), nil
-		}).(GetNotebooksResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getNotebooks:getNotebooks", args, GetNotebooksResultOutput{}, options).(GetNotebooksResultOutput)
 }
 
 // A collection of arguments for invoking getNotebooks.

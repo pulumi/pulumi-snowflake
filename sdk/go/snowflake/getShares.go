@@ -71,12 +71,8 @@ type GetSharesResult struct {
 }
 
 func GetSharesOutput(ctx *pulumi.Context, args GetSharesOutputArgs, opts ...pulumi.InvokeOption) GetSharesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSharesResultOutput, error) {
-			args := v.(GetSharesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getShares:getShares", args, GetSharesResultOutput{}, options).(GetSharesResultOutput), nil
-		}).(GetSharesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getShares:getShares", args, GetSharesResultOutput{}, options).(GetSharesResultOutput)
 }
 
 // A collection of arguments for invoking getShares.

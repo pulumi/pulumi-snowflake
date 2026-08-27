@@ -49,12 +49,8 @@ type GetStorageLifecyclePoliciesResult struct {
 }
 
 func GetStorageLifecyclePoliciesOutput(ctx *pulumi.Context, args GetStorageLifecyclePoliciesOutputArgs, opts ...pulumi.InvokeOption) GetStorageLifecyclePoliciesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetStorageLifecyclePoliciesResultOutput, error) {
-			args := v.(GetStorageLifecyclePoliciesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getStorageLifecyclePolicies:getStorageLifecyclePolicies", args, GetStorageLifecyclePoliciesResultOutput{}, options).(GetStorageLifecyclePoliciesResultOutput), nil
-		}).(GetStorageLifecyclePoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getStorageLifecyclePolicies:getStorageLifecyclePolicies", args, GetStorageLifecyclePoliciesResultOutput{}, options).(GetStorageLifecyclePoliciesResultOutput)
 }
 
 // A collection of arguments for invoking getStorageLifecyclePolicies.

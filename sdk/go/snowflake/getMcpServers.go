@@ -49,12 +49,8 @@ type GetMcpServersResult struct {
 }
 
 func GetMcpServersOutput(ctx *pulumi.Context, args GetMcpServersOutputArgs, opts ...pulumi.InvokeOption) GetMcpServersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetMcpServersResultOutput, error) {
-			args := v.(GetMcpServersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getMcpServers:getMcpServers", args, GetMcpServersResultOutput{}, options).(GetMcpServersResultOutput), nil
-		}).(GetMcpServersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getMcpServers:getMcpServers", args, GetMcpServersResultOutput{}, options).(GetMcpServersResultOutput)
 }
 
 // A collection of arguments for invoking getMcpServers.

@@ -74,12 +74,8 @@ type LookupDatabaseRoleResult struct {
 }
 
 func LookupDatabaseRoleOutput(ctx *pulumi.Context, args LookupDatabaseRoleOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseRoleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDatabaseRoleResultOutput, error) {
-			args := v.(LookupDatabaseRoleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getDatabaseRole:getDatabaseRole", args, LookupDatabaseRoleResultOutput{}, options).(LookupDatabaseRoleResultOutput), nil
-		}).(LookupDatabaseRoleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getDatabaseRole:getDatabaseRole", args, LookupDatabaseRoleResultOutput{}, options).(LookupDatabaseRoleResultOutput)
 }
 
 // A collection of arguments for invoking getDatabaseRole.

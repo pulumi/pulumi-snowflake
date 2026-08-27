@@ -55,12 +55,8 @@ type GetStreamsResult struct {
 }
 
 func GetStreamsOutput(ctx *pulumi.Context, args GetStreamsOutputArgs, opts ...pulumi.InvokeOption) GetStreamsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetStreamsResultOutput, error) {
-			args := v.(GetStreamsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getStreams:getStreams", args, GetStreamsResultOutput{}, options).(GetStreamsResultOutput), nil
-		}).(GetStreamsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getStreams:getStreams", args, GetStreamsResultOutput{}, options).(GetStreamsResultOutput)
 }
 
 // A collection of arguments for invoking getStreams.

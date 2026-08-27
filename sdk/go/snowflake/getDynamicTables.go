@@ -53,12 +53,8 @@ type GetDynamicTablesResult struct {
 }
 
 func GetDynamicTablesOutput(ctx *pulumi.Context, args GetDynamicTablesOutputArgs, opts ...pulumi.InvokeOption) GetDynamicTablesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDynamicTablesResultOutput, error) {
-			args := v.(GetDynamicTablesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getDynamicTables:getDynamicTables", args, GetDynamicTablesResultOutput{}, options).(GetDynamicTablesResultOutput), nil
-		}).(GetDynamicTablesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getDynamicTables:getDynamicTables", args, GetDynamicTablesResultOutput{}, options).(GetDynamicTablesResultOutput)
 }
 
 // A collection of arguments for invoking getDynamicTables.

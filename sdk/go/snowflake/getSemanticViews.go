@@ -55,12 +55,8 @@ type GetSemanticViewsResult struct {
 }
 
 func GetSemanticViewsOutput(ctx *pulumi.Context, args GetSemanticViewsOutputArgs, opts ...pulumi.InvokeOption) GetSemanticViewsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSemanticViewsResultOutput, error) {
-			args := v.(GetSemanticViewsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getSemanticViews:getSemanticViews", args, GetSemanticViewsResultOutput{}, options).(GetSemanticViewsResultOutput), nil
-		}).(GetSemanticViewsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getSemanticViews:getSemanticViews", args, GetSemanticViewsResultOutput{}, options).(GetSemanticViewsResultOutput)
 }
 
 // A collection of arguments for invoking getSemanticViews.

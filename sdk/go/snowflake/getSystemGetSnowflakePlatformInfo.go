@@ -35,10 +35,8 @@ type GetSystemGetSnowflakePlatformInfoResult struct {
 }
 
 func GetSystemGetSnowflakePlatformInfoOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSystemGetSnowflakePlatformInfoResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetSystemGetSnowflakePlatformInfoResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", nil, GetSystemGetSnowflakePlatformInfoResultOutput{}, options).(GetSystemGetSnowflakePlatformInfoResultOutput), nil
-	}).(GetSystemGetSnowflakePlatformInfoResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", nil, GetSystemGetSnowflakePlatformInfoResultOutput{}, options).(GetSystemGetSnowflakePlatformInfoResultOutput)
 }
 
 // A collection of values returned by getSystemGetSnowflakePlatformInfo.

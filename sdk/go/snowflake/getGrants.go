@@ -276,12 +276,8 @@ type GetGrantsResult struct {
 }
 
 func GetGrantsOutput(ctx *pulumi.Context, args GetGrantsOutputArgs, opts ...pulumi.InvokeOption) GetGrantsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetGrantsResultOutput, error) {
-			args := v.(GetGrantsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getGrants:getGrants", args, GetGrantsResultOutput{}, options).(GetGrantsResultOutput), nil
-		}).(GetGrantsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getGrants:getGrants", args, GetGrantsResultOutput{}, options).(GetGrantsResultOutput)
 }
 
 // A collection of arguments for invoking getGrants.

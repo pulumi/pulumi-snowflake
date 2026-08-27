@@ -39,12 +39,8 @@ type GetUserProgrammaticAccessTokensResult struct {
 }
 
 func GetUserProgrammaticAccessTokensOutput(ctx *pulumi.Context, args GetUserProgrammaticAccessTokensOutputArgs, opts ...pulumi.InvokeOption) GetUserProgrammaticAccessTokensResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserProgrammaticAccessTokensResultOutput, error) {
-			args := v.(GetUserProgrammaticAccessTokensArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getUserProgrammaticAccessTokens:getUserProgrammaticAccessTokens", args, GetUserProgrammaticAccessTokensResultOutput{}, options).(GetUserProgrammaticAccessTokensResultOutput), nil
-		}).(GetUserProgrammaticAccessTokensResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getUserProgrammaticAccessTokens:getUserProgrammaticAccessTokens", args, GetUserProgrammaticAccessTokensResultOutput{}, options).(GetUserProgrammaticAccessTokensResultOutput)
 }
 
 // A collection of arguments for invoking getUserProgrammaticAccessTokens.

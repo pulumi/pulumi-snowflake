@@ -1624,7 +1624,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as snowflake from "@pulumi/snowflake";
 import * as std from "@pulumi/std";
 
-function notImplemented(message: string) {
+function notImplemented(message: string): any {
     throw new Error(message);
 }
 
@@ -1718,39 +1718,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-func notImplemented(message string) pulumi.AnyOutput {
-	panic(message)
+func notImplemented(message string) any {
+  panic(message)
 }
 
 func main() {
-	pulumi.Run(func(ctx *pulumi.Context) error {
-		example, err := snowflake.NewUser(ctx, "example", &snowflake.UserArgs{
-			Name: pulumi.String("my_user"),
-		})
-		if err != nil {
-			return err
-		}
-		exampleRole, err := snowflake.NewRole(ctx, "example", &snowflake.RoleArgs{
-			Name: "my_role",
-		})
-		if err != nil {
-			return err
-		}
-		var exampleGrantAccountRole []*snowflake.GrantAccountRole
-		for key0, val0 := range []interface{}(std.Toset(ctx, &std.TosetArgs{
-			Input: "TODO: For expression",
-		}, nil).Result) {
-			__res, err := snowflake.NewGrantAccountRole(ctx, fmt.Sprintf("example-%v", key0), &snowflake.GrantAccountRoleArgs{
-				RoleName: exampleRole.Name,
-				UserName: pulumi.Any(val0),
-			})
-			if err != nil {
-				return err
-			}
-			exampleGrantAccountRole = append(exampleGrantAccountRole, __res)
-		}
-		return nil
-	})
+pulumi.Run(func(ctx *pulumi.Context) error {
+example, err := snowflake.NewUser(ctx, "example", &snowflake.UserArgs{
+Name: pulumi.String("my_user"),
+})
+if err != nil {
+return err
+}
+exampleRole, err := snowflake.NewRole(ctx, "example", &snowflake.RoleArgs{
+Name: "my_role",
+})
+if err != nil {
+return err
+}
+var forResult0 []interface{}
+for range pulumi.StringArray{
+example.Name,
+} {
+forResult0 = append(forResult0, notImplemented("nonsensitive(u)"))
+}
+var exampleGrantAccountRole []*snowflake.GrantAccountRole
+for key0, val0 := range []interface{}(std.Toset(ctx, &std.TosetArgs{
+Input: forResult0,
+}, nil).Result) {
+__res, err := snowflake.NewGrantAccountRole(ctx, fmt.Sprintf("example-%v", key0), &snowflake.GrantAccountRoleArgs{
+RoleName: exampleRole.Name,
+UserName: pulumi.Any(val0),
+})
+if err != nil {
+return err
+}
+exampleGrantAccountRole = append(exampleGrantAccountRole, __res)
+}
+return nil
+})
 }
 ```
 

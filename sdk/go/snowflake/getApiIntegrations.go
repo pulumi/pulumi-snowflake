@@ -97,12 +97,8 @@ type GetApiIntegrationsResult struct {
 }
 
 func GetApiIntegrationsOutput(ctx *pulumi.Context, args GetApiIntegrationsOutputArgs, opts ...pulumi.InvokeOption) GetApiIntegrationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetApiIntegrationsResultOutput, error) {
-			args := v.(GetApiIntegrationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getApiIntegrations:getApiIntegrations", args, GetApiIntegrationsResultOutput{}, options).(GetApiIntegrationsResultOutput), nil
-		}).(GetApiIntegrationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getApiIntegrations:getApiIntegrations", args, GetApiIntegrationsResultOutput{}, options).(GetApiIntegrationsResultOutput)
 }
 
 // A collection of arguments for invoking getApiIntegrations.

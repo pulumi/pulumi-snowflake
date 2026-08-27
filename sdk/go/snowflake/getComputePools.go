@@ -51,12 +51,8 @@ type GetComputePoolsResult struct {
 }
 
 func GetComputePoolsOutput(ctx *pulumi.Context, args GetComputePoolsOutputArgs, opts ...pulumi.InvokeOption) GetComputePoolsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetComputePoolsResultOutput, error) {
-			args := v.(GetComputePoolsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getComputePools:getComputePools", args, GetComputePoolsResultOutput{}, options).(GetComputePoolsResultOutput), nil
-		}).(GetComputePoolsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getComputePools:getComputePools", args, GetComputePoolsResultOutput{}, options).(GetComputePoolsResultOutput)
 }
 
 // A collection of arguments for invoking getComputePools.

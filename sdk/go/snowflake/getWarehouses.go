@@ -49,12 +49,8 @@ type GetWarehousesResult struct {
 }
 
 func GetWarehousesOutput(ctx *pulumi.Context, args GetWarehousesOutputArgs, opts ...pulumi.InvokeOption) GetWarehousesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetWarehousesResultOutput, error) {
-			args := v.(GetWarehousesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getWarehouses:getWarehouses", args, GetWarehousesResultOutput{}, options).(GetWarehousesResultOutput), nil
-		}).(GetWarehousesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getWarehouses:getWarehouses", args, GetWarehousesResultOutput{}, options).(GetWarehousesResultOutput)
 }
 
 // A collection of arguments for invoking getWarehouses.

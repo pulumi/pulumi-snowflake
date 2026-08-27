@@ -55,12 +55,8 @@ type GetListingsResult struct {
 }
 
 func GetListingsOutput(ctx *pulumi.Context, args GetListingsOutputArgs, opts ...pulumi.InvokeOption) GetListingsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetListingsResultOutput, error) {
-			args := v.(GetListingsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getListings:getListings", args, GetListingsResultOutput{}, options).(GetListingsResultOutput), nil
-		}).(GetListingsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getListings:getListings", args, GetListingsResultOutput{}, options).(GetListingsResultOutput)
 }
 
 // A collection of arguments for invoking getListings.

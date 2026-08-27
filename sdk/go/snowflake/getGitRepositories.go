@@ -51,12 +51,8 @@ type GetGitRepositoriesResult struct {
 }
 
 func GetGitRepositoriesOutput(ctx *pulumi.Context, args GetGitRepositoriesOutputArgs, opts ...pulumi.InvokeOption) GetGitRepositoriesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetGitRepositoriesResultOutput, error) {
-			args := v.(GetGitRepositoriesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getGitRepositories:getGitRepositories", args, GetGitRepositoriesResultOutput{}, options).(GetGitRepositoriesResultOutput), nil
-		}).(GetGitRepositoriesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getGitRepositories:getGitRepositories", args, GetGitRepositoriesResultOutput{}, options).(GetGitRepositoriesResultOutput)
 }
 
 // A collection of arguments for invoking getGitRepositories.

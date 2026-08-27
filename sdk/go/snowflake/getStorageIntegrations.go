@@ -43,12 +43,8 @@ type GetStorageIntegrationsResult struct {
 }
 
 func GetStorageIntegrationsOutput(ctx *pulumi.Context, args GetStorageIntegrationsOutputArgs, opts ...pulumi.InvokeOption) GetStorageIntegrationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetStorageIntegrationsResultOutput, error) {
-			args := v.(GetStorageIntegrationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getStorageIntegrations:getStorageIntegrations", args, GetStorageIntegrationsResultOutput{}, options).(GetStorageIntegrationsResultOutput), nil
-		}).(GetStorageIntegrationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getStorageIntegrations:getStorageIntegrations", args, GetStorageIntegrationsResultOutput{}, options).(GetStorageIntegrationsResultOutput)
 }
 
 // A collection of arguments for invoking getStorageIntegrations.

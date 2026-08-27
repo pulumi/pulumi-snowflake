@@ -43,12 +43,8 @@ type GetImageRepositoriesResult struct {
 }
 
 func GetImageRepositoriesOutput(ctx *pulumi.Context, args GetImageRepositoriesOutputArgs, opts ...pulumi.InvokeOption) GetImageRepositoriesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetImageRepositoriesResultOutput, error) {
-			args := v.(GetImageRepositoriesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getImageRepositories:getImageRepositories", args, GetImageRepositoriesResultOutput{}, options).(GetImageRepositoriesResultOutput), nil
-		}).(GetImageRepositoriesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getImageRepositories:getImageRepositories", args, GetImageRepositoriesResultOutput{}, options).(GetImageRepositoriesResultOutput)
 }
 
 // A collection of arguments for invoking getImageRepositories.
