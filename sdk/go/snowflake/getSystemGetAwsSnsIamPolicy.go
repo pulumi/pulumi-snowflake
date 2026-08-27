@@ -71,12 +71,8 @@ type GetSystemGetAwsSnsIamPolicyResult struct {
 }
 
 func GetSystemGetAwsSnsIamPolicyOutput(ctx *pulumi.Context, args GetSystemGetAwsSnsIamPolicyOutputArgs, opts ...pulumi.InvokeOption) GetSystemGetAwsSnsIamPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSystemGetAwsSnsIamPolicyResultOutput, error) {
-			args := v.(GetSystemGetAwsSnsIamPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args, GetSystemGetAwsSnsIamPolicyResultOutput{}, options).(GetSystemGetAwsSnsIamPolicyResultOutput), nil
-		}).(GetSystemGetAwsSnsIamPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args, GetSystemGetAwsSnsIamPolicyResultOutput{}, options).(GetSystemGetAwsSnsIamPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getSystemGetAwsSnsIamPolicy.

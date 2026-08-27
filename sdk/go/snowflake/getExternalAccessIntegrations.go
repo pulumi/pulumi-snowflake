@@ -45,12 +45,8 @@ type GetExternalAccessIntegrationsResult struct {
 }
 
 func GetExternalAccessIntegrationsOutput(ctx *pulumi.Context, args GetExternalAccessIntegrationsOutputArgs, opts ...pulumi.InvokeOption) GetExternalAccessIntegrationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetExternalAccessIntegrationsResultOutput, error) {
-			args := v.(GetExternalAccessIntegrationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getExternalAccessIntegrations:getExternalAccessIntegrations", args, GetExternalAccessIntegrationsResultOutput{}, options).(GetExternalAccessIntegrationsResultOutput), nil
-		}).(GetExternalAccessIntegrationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getExternalAccessIntegrations:getExternalAccessIntegrations", args, GetExternalAccessIntegrationsResultOutput{}, options).(GetExternalAccessIntegrationsResultOutput)
 }
 
 // A collection of arguments for invoking getExternalAccessIntegrations.

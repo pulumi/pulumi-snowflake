@@ -106,12 +106,8 @@ type GetCortexSearchServicesResult struct {
 }
 
 func GetCortexSearchServicesOutput(ctx *pulumi.Context, args GetCortexSearchServicesOutputArgs, opts ...pulumi.InvokeOption) GetCortexSearchServicesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCortexSearchServicesResultOutput, error) {
-			args := v.(GetCortexSearchServicesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getCortexSearchServices:getCortexSearchServices", args, GetCortexSearchServicesResultOutput{}, options).(GetCortexSearchServicesResultOutput), nil
-		}).(GetCortexSearchServicesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getCortexSearchServices:getCortexSearchServices", args, GetCortexSearchServicesResultOutput{}, options).(GetCortexSearchServicesResultOutput)
 }
 
 // A collection of arguments for invoking getCortexSearchServices.

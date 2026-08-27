@@ -72,12 +72,8 @@ type GetExternalFunctionsResult struct {
 }
 
 func GetExternalFunctionsOutput(ctx *pulumi.Context, args GetExternalFunctionsOutputArgs, opts ...pulumi.InvokeOption) GetExternalFunctionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetExternalFunctionsResultOutput, error) {
-			args := v.(GetExternalFunctionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getExternalFunctions:getExternalFunctions", args, GetExternalFunctionsResultOutput{}, options).(GetExternalFunctionsResultOutput), nil
-		}).(GetExternalFunctionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getExternalFunctions:getExternalFunctions", args, GetExternalFunctionsResultOutput{}, options).(GetExternalFunctionsResultOutput)
 }
 
 // A collection of arguments for invoking getExternalFunctions.

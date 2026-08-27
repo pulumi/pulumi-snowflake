@@ -61,12 +61,8 @@ type GetPasswordPoliciesResult struct {
 }
 
 func GetPasswordPoliciesOutput(ctx *pulumi.Context, args GetPasswordPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetPasswordPoliciesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPasswordPoliciesResultOutput, error) {
-			args := v.(GetPasswordPoliciesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getPasswordPolicies:getPasswordPolicies", args, GetPasswordPoliciesResultOutput{}, options).(GetPasswordPoliciesResultOutput), nil
-		}).(GetPasswordPoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getPasswordPolicies:getPasswordPolicies", args, GetPasswordPoliciesResultOutput{}, options).(GetPasswordPoliciesResultOutput)
 }
 
 // A collection of arguments for invoking getPasswordPolicies.

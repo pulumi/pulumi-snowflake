@@ -43,12 +43,8 @@ type GetAccountRolesResult struct {
 }
 
 func GetAccountRolesOutput(ctx *pulumi.Context, args GetAccountRolesOutputArgs, opts ...pulumi.InvokeOption) GetAccountRolesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAccountRolesResultOutput, error) {
-			args := v.(GetAccountRolesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getAccountRoles:getAccountRoles", args, GetAccountRolesResultOutput{}, options).(GetAccountRolesResultOutput), nil
-		}).(GetAccountRolesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getAccountRoles:getAccountRoles", args, GetAccountRolesResultOutput{}, options).(GetAccountRolesResultOutput)
 }
 
 // A collection of arguments for invoking getAccountRoles.

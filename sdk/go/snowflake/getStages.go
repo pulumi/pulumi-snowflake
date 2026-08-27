@@ -49,12 +49,8 @@ type GetStagesResult struct {
 }
 
 func GetStagesOutput(ctx *pulumi.Context, args GetStagesOutputArgs, opts ...pulumi.InvokeOption) GetStagesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetStagesResultOutput, error) {
-			args := v.(GetStagesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getStages:getStages", args, GetStagesResultOutput{}, options).(GetStagesResultOutput), nil
-		}).(GetStagesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getStages:getStages", args, GetStagesResultOutput{}, options).(GetStagesResultOutput)
 }
 
 // A collection of arguments for invoking getStages.

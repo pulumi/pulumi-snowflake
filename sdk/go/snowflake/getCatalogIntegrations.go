@@ -43,12 +43,8 @@ type GetCatalogIntegrationsResult struct {
 }
 
 func GetCatalogIntegrationsOutput(ctx *pulumi.Context, args GetCatalogIntegrationsOutputArgs, opts ...pulumi.InvokeOption) GetCatalogIntegrationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCatalogIntegrationsResultOutput, error) {
-			args := v.(GetCatalogIntegrationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getCatalogIntegrations:getCatalogIntegrations", args, GetCatalogIntegrationsResultOutput{}, options).(GetCatalogIntegrationsResultOutput), nil
-		}).(GetCatalogIntegrationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getCatalogIntegrations:getCatalogIntegrations", args, GetCatalogIntegrationsResultOutput{}, options).(GetCatalogIntegrationsResultOutput)
 }
 
 // A collection of arguments for invoking getCatalogIntegrations.

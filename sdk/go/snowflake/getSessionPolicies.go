@@ -59,12 +59,8 @@ type GetSessionPoliciesResult struct {
 }
 
 func GetSessionPoliciesOutput(ctx *pulumi.Context, args GetSessionPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetSessionPoliciesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSessionPoliciesResultOutput, error) {
-			args := v.(GetSessionPoliciesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getSessionPolicies:getSessionPolicies", args, GetSessionPoliciesResultOutput{}, options).(GetSessionPoliciesResultOutput), nil
-		}).(GetSessionPoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getSessionPolicies:getSessionPolicies", args, GetSessionPoliciesResultOutput{}, options).(GetSessionPoliciesResultOutput)
 }
 
 // A collection of arguments for invoking getSessionPolicies.

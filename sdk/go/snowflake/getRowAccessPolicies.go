@@ -53,12 +53,8 @@ type GetRowAccessPoliciesResult struct {
 }
 
 func GetRowAccessPoliciesOutput(ctx *pulumi.Context, args GetRowAccessPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetRowAccessPoliciesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRowAccessPoliciesResultOutput, error) {
-			args := v.(GetRowAccessPoliciesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args, GetRowAccessPoliciesResultOutput{}, options).(GetRowAccessPoliciesResultOutput), nil
-		}).(GetRowAccessPoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args, GetRowAccessPoliciesResultOutput{}, options).(GetRowAccessPoliciesResultOutput)
 }
 
 // A collection of arguments for invoking getRowAccessPolicies.

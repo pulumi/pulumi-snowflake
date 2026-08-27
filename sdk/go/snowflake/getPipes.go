@@ -72,12 +72,8 @@ type GetPipesResult struct {
 }
 
 func GetPipesOutput(ctx *pulumi.Context, args GetPipesOutputArgs, opts ...pulumi.InvokeOption) GetPipesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPipesResultOutput, error) {
-			args := v.(GetPipesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getPipes:getPipes", args, GetPipesResultOutput{}, options).(GetPipesResultOutput), nil
-		}).(GetPipesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getPipes:getPipes", args, GetPipesResultOutput{}, options).(GetPipesResultOutput)
 }
 
 // A collection of arguments for invoking getPipes.

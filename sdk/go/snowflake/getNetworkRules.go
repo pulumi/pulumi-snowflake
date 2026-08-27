@@ -55,12 +55,8 @@ type GetNetworkRulesResult struct {
 }
 
 func GetNetworkRulesOutput(ctx *pulumi.Context, args GetNetworkRulesOutputArgs, opts ...pulumi.InvokeOption) GetNetworkRulesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetNetworkRulesResultOutput, error) {
-			args := v.(GetNetworkRulesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getNetworkRules:getNetworkRules", args, GetNetworkRulesResultOutput{}, options).(GetNetworkRulesResultOutput), nil
-		}).(GetNetworkRulesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getNetworkRules:getNetworkRules", args, GetNetworkRulesResultOutput{}, options).(GetNetworkRulesResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkRules.

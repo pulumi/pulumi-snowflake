@@ -61,12 +61,8 @@ type GetAuthenticationPoliciesResult struct {
 }
 
 func GetAuthenticationPoliciesOutput(ctx *pulumi.Context, args GetAuthenticationPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetAuthenticationPoliciesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAuthenticationPoliciesResultOutput, error) {
-			args := v.(GetAuthenticationPoliciesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getAuthenticationPolicies:getAuthenticationPolicies", args, GetAuthenticationPoliciesResultOutput{}, options).(GetAuthenticationPoliciesResultOutput), nil
-		}).(GetAuthenticationPoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getAuthenticationPolicies:getAuthenticationPolicies", args, GetAuthenticationPoliciesResultOutput{}, options).(GetAuthenticationPoliciesResultOutput)
 }
 
 // A collection of arguments for invoking getAuthenticationPolicies.

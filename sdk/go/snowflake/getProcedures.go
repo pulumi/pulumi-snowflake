@@ -72,12 +72,8 @@ type GetProceduresResult struct {
 }
 
 func GetProceduresOutput(ctx *pulumi.Context, args GetProceduresOutputArgs, opts ...pulumi.InvokeOption) GetProceduresResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetProceduresResultOutput, error) {
-			args := v.(GetProceduresArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getProcedures:getProcedures", args, GetProceduresResultOutput{}, options).(GetProceduresResultOutput), nil
-		}).(GetProceduresResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getProcedures:getProcedures", args, GetProceduresResultOutput{}, options).(GetProceduresResultOutput)
 }
 
 // A collection of arguments for invoking getProcedures.

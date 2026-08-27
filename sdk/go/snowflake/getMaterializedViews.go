@@ -72,12 +72,8 @@ type GetMaterializedViewsResult struct {
 }
 
 func GetMaterializedViewsOutput(ctx *pulumi.Context, args GetMaterializedViewsOutputArgs, opts ...pulumi.InvokeOption) GetMaterializedViewsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetMaterializedViewsResultOutput, error) {
-			args := v.(GetMaterializedViewsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getMaterializedViews:getMaterializedViews", args, GetMaterializedViewsResultOutput{}, options).(GetMaterializedViewsResultOutput), nil
-		}).(GetMaterializedViewsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getMaterializedViews:getMaterializedViews", args, GetMaterializedViewsResultOutput{}, options).(GetMaterializedViewsResultOutput)
 }
 
 // A collection of arguments for invoking getMaterializedViews.

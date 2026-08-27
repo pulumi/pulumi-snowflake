@@ -61,12 +61,8 @@ type GetIcebergTablesResult struct {
 }
 
 func GetIcebergTablesOutput(ctx *pulumi.Context, args GetIcebergTablesOutputArgs, opts ...pulumi.InvokeOption) GetIcebergTablesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIcebergTablesResultOutput, error) {
-			args := v.(GetIcebergTablesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getIcebergTables:getIcebergTables", args, GetIcebergTablesResultOutput{}, options).(GetIcebergTablesResultOutput), nil
-		}).(GetIcebergTablesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getIcebergTables:getIcebergTables", args, GetIcebergTablesResultOutput{}, options).(GetIcebergTablesResultOutput)
 }
 
 // A collection of arguments for invoking getIcebergTables.

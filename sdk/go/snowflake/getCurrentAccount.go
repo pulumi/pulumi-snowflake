@@ -70,10 +70,8 @@ type LookupCurrentAccountResult struct {
 }
 
 func LookupCurrentAccountOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupCurrentAccountResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupCurrentAccountResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("snowflake:index/getCurrentAccount:getCurrentAccount", nil, LookupCurrentAccountResultOutput{}, options).(LookupCurrentAccountResultOutput), nil
-	}).(LookupCurrentAccountResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getCurrentAccount:getCurrentAccount", nil, LookupCurrentAccountResultOutput{}, options).(LookupCurrentAccountResultOutput)
 }
 
 // A collection of values returned by getCurrentAccount.

@@ -41,12 +41,8 @@ type GetFailoverGroupsResult struct {
 }
 
 func GetFailoverGroupsOutput(ctx *pulumi.Context, args GetFailoverGroupsOutputArgs, opts ...pulumi.InvokeOption) GetFailoverGroupsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetFailoverGroupsResultOutput, error) {
-			args := v.(GetFailoverGroupsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getFailoverGroups:getFailoverGroups", args, GetFailoverGroupsResultOutput{}, options).(GetFailoverGroupsResultOutput), nil
-		}).(GetFailoverGroupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getFailoverGroups:getFailoverGroups", args, GetFailoverGroupsResultOutput{}, options).(GetFailoverGroupsResultOutput)
 }
 
 // A collection of arguments for invoking getFailoverGroups.

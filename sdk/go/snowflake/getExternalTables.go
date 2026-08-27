@@ -72,12 +72,8 @@ type GetExternalTablesResult struct {
 }
 
 func GetExternalTablesOutput(ctx *pulumi.Context, args GetExternalTablesOutputArgs, opts ...pulumi.InvokeOption) GetExternalTablesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetExternalTablesResultOutput, error) {
-			args := v.(GetExternalTablesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("snowflake:index/getExternalTables:getExternalTables", args, GetExternalTablesResultOutput{}, options).(GetExternalTablesResultOutput), nil
-		}).(GetExternalTablesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("snowflake:index/getExternalTables:getExternalTables", args, GetExternalTablesResultOutput{}, options).(GetExternalTablesResultOutput)
 }
 
 // A collection of arguments for invoking getExternalTables.
