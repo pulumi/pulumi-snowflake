@@ -7,8 +7,6 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
  * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
  */
 export function getMcpServers(args?: GetMcpServersArgs, opts?: pulumi.InvokeOptions): Promise<GetMcpServersResult> {
@@ -65,8 +63,6 @@ export interface GetMcpServersResult {
     readonly withDescribe?: boolean;
 }
 /**
- * > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
  * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
  */
 export function getMcpServersOutput(args?: GetMcpServersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMcpServersResult> {

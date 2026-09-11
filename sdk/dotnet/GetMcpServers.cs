@@ -12,24 +12,18 @@ namespace Pulumi.Snowflake
     public static class GetMcpServers
     {
         /// <summary>
-        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`Like`, `In`). The results of SHOW and DESCRIBE are encapsulated in one output collection `McpServers`.
         /// </summary>
         public static Task<GetMcpServersResult> InvokeAsync(GetMcpServersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMcpServersResult>("snowflake:index/getMcpServers:getMcpServers", args ?? new GetMcpServersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`Like`, `In`). The results of SHOW and DESCRIBE are encapsulated in one output collection `McpServers`.
         /// </summary>
         public static Output<GetMcpServersResult> Invoke(GetMcpServersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMcpServersResult>("snowflake:index/getMcpServers:getMcpServers", args ?? new GetMcpServersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`Like`, `In`). The results of SHOW and DESCRIBE are encapsulated in one output collection `McpServers`.
         /// </summary>
         public static Output<GetMcpServersResult> Invoke(GetMcpServersInvokeArgs args, InvokeOutputOptions options)

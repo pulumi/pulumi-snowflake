@@ -370,8 +370,6 @@ class FileFormatAvro(pulumi.CustomResource):
                  trim_space: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
         > **Note** A file format cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
 
         > **Note** Snowflake returns the same `DESCRIBE FILE FORMAT` output for `null_if` set to an empty list and for `null_if` set to a list with a single empty string. Because of that, the provider cannot detect an external change between these two values, and `describe_output.null_if` is empty in both cases.
@@ -434,8 +432,6 @@ class FileFormatAvro(pulumi.CustomResource):
                  args: FileFormatAvroArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
         > **Note** A file format cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
 
         > **Note** Snowflake returns the same `DESCRIBE FILE FORMAT` output for `null_if` set to an empty list and for `null_if` set to a list with a single empty string. Because of that, the provider cannot detect an external change between these two values, and `describe_output.null_if` is empty in both cases.

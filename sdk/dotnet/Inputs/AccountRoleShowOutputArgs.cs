@@ -33,6 +33,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("isDefault")]
         public Input<bool>? IsDefault { get; set; }
 
+        [Input("isFromOrganizationUserGroup")]
+        public Input<bool>? IsFromOrganizationUserGroup { get; set; }
+
         [Input("isInherited")]
         public Input<bool>? IsInherited { get; set; }
 

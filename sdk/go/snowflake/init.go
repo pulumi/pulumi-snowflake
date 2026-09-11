@@ -187,6 +187,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &OauthIntegrationForPartnerApplications{}
 	case "snowflake:index/objectParameter:ObjectParameter":
 		r = &ObjectParameter{}
+	case "snowflake:index/openflowConnector:OpenflowConnector":
+		r = &OpenflowConnector{}
+	case "snowflake:index/openflowDeploymentByoc:OpenflowDeploymentByoc":
+		r = &OpenflowDeploymentByoc{}
+	case "snowflake:index/openflowDeploymentSnowflakeManaged:OpenflowDeploymentSnowflakeManaged":
+		r = &OpenflowDeploymentSnowflakeManaged{}
+	case "snowflake:index/openflowRuntime:OpenflowRuntime":
+		r = &OpenflowRuntime{}
 	case "snowflake:index/passwordPolicy:PasswordPolicy":
 		r = &PasswordPolicy{}
 	case "snowflake:index/pipe:Pipe":
@@ -751,6 +759,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/objectParameter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/openflowConnector",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/openflowDeploymentByoc",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/openflowDeploymentSnowflakeManaged",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/openflowRuntime",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

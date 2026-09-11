@@ -12,24 +12,18 @@ namespace Pulumi.Snowflake
     public static class GetCortexAgents
     {
         /// <summary>
-        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `CortexAgents`.
         /// </summary>
         public static Task<GetCortexAgentsResult> InvokeAsync(GetCortexAgentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCortexAgentsResult>("snowflake:index/getCortexAgents:getCortexAgents", args ?? new GetCortexAgentsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `CortexAgents`.
         /// </summary>
         public static Output<GetCortexAgentsResult> Invoke(GetCortexAgentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCortexAgentsResult>("snowflake:index/getCortexAgents:getCortexAgents", args ?? new GetCortexAgentsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
         /// Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `CortexAgents`.
         /// </summary>
         public static Output<GetCortexAgentsResult> Invoke(GetCortexAgentsInvokeArgs args, InvokeOutputOptions options)

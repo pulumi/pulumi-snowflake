@@ -58,6 +58,8 @@ import com.pulumi.snowflake.inputs.GetGitRepositoriesArgs;
 import com.pulumi.snowflake.inputs.GetGitRepositoriesPlainArgs;
 import com.pulumi.snowflake.inputs.GetGrantsArgs;
 import com.pulumi.snowflake.inputs.GetGrantsPlainArgs;
+import com.pulumi.snowflake.inputs.GetHybridTablesArgs;
+import com.pulumi.snowflake.inputs.GetHybridTablesPlainArgs;
 import com.pulumi.snowflake.inputs.GetIcebergTablesArgs;
 import com.pulumi.snowflake.inputs.GetIcebergTablesPlainArgs;
 import com.pulumi.snowflake.inputs.GetImageRepositoriesArgs;
@@ -76,6 +78,14 @@ import com.pulumi.snowflake.inputs.GetNetworkRulesArgs;
 import com.pulumi.snowflake.inputs.GetNetworkRulesPlainArgs;
 import com.pulumi.snowflake.inputs.GetNotebooksArgs;
 import com.pulumi.snowflake.inputs.GetNotebooksPlainArgs;
+import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsArgs;
+import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsPlainArgs;
+import com.pulumi.snowflake.inputs.GetOpenflowConnectorsArgs;
+import com.pulumi.snowflake.inputs.GetOpenflowConnectorsPlainArgs;
+import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsArgs;
+import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsPlainArgs;
+import com.pulumi.snowflake.inputs.GetOpenflowRuntimesArgs;
+import com.pulumi.snowflake.inputs.GetOpenflowRuntimesPlainArgs;
 import com.pulumi.snowflake.inputs.GetParametersArgs;
 import com.pulumi.snowflake.inputs.GetParametersPlainArgs;
 import com.pulumi.snowflake.inputs.GetPasswordPoliciesArgs;
@@ -158,6 +168,7 @@ import com.pulumi.snowflake.outputs.GetFileFormatsResult;
 import com.pulumi.snowflake.outputs.GetFunctionsResult;
 import com.pulumi.snowflake.outputs.GetGitRepositoriesResult;
 import com.pulumi.snowflake.outputs.GetGrantsResult;
+import com.pulumi.snowflake.outputs.GetHybridTablesResult;
 import com.pulumi.snowflake.outputs.GetIcebergTablesResult;
 import com.pulumi.snowflake.outputs.GetImageRepositoriesResult;
 import com.pulumi.snowflake.outputs.GetListingsResult;
@@ -167,6 +178,10 @@ import com.pulumi.snowflake.outputs.GetMcpServersResult;
 import com.pulumi.snowflake.outputs.GetNetworkPoliciesResult;
 import com.pulumi.snowflake.outputs.GetNetworkRulesResult;
 import com.pulumi.snowflake.outputs.GetNotebooksResult;
+import com.pulumi.snowflake.outputs.GetOpenflowConnectorDefinitionsResult;
+import com.pulumi.snowflake.outputs.GetOpenflowConnectorsResult;
+import com.pulumi.snowflake.outputs.GetOpenflowDeploymentsResult;
+import com.pulumi.snowflake.outputs.GetOpenflowRuntimesResult;
 import com.pulumi.snowflake.outputs.GetParametersResult;
 import com.pulumi.snowflake.outputs.GetPasswordPoliciesResult;
 import com.pulumi.snowflake.outputs.GetPipesResult;
@@ -600,8 +615,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered API integrations. Filtering is aligned with the current possibilities for [SHOW API INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `apiIntegrations`.
      * 
      * ## Example Usage
@@ -663,8 +676,6 @@ public final class SnowflakeFunctions {
         return getApiIntegrations(GetApiIntegrationsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered API integrations. Filtering is aligned with the current possibilities for [SHOW API INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `apiIntegrations`.
      * 
      * ## Example Usage
@@ -726,8 +737,6 @@ public final class SnowflakeFunctions {
         return getApiIntegrationsPlain(GetApiIntegrationsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered API integrations. Filtering is aligned with the current possibilities for [SHOW API INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `apiIntegrations`.
      * 
      * ## Example Usage
@@ -789,8 +798,6 @@ public final class SnowflakeFunctions {
         return getApiIntegrations(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered API integrations. Filtering is aligned with the current possibilities for [SHOW API INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `apiIntegrations`.
      * 
      * ## Example Usage
@@ -852,8 +859,6 @@ public final class SnowflakeFunctions {
         return getApiIntegrationsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered API integrations. Filtering is aligned with the current possibilities for [SHOW API INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `apiIntegrations`.
      * 
      * ## Example Usage
@@ -915,8 +920,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getApiIntegrations:getApiIntegrations", TypeShape.of(GetApiIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered API integrations. Filtering is aligned with the current possibilities for [SHOW API INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `apiIntegrations`.
      * 
      * ## Example Usage
@@ -978,8 +981,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getApiIntegrations:getApiIntegrations", TypeShape.of(GetApiIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered API integrations. Filtering is aligned with the current possibilities for [SHOW API INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `apiIntegrations`.
      * 
      * ## Example Usage
@@ -1251,8 +1252,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `cortexAgents`.
      * 
      */
@@ -1260,8 +1259,6 @@ public final class SnowflakeFunctions {
         return getCortexAgents(GetCortexAgentsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `cortexAgents`.
      * 
      */
@@ -1269,8 +1266,6 @@ public final class SnowflakeFunctions {
         return getCortexAgentsPlain(GetCortexAgentsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `cortexAgents`.
      * 
      */
@@ -1278,8 +1273,6 @@ public final class SnowflakeFunctions {
         return getCortexAgents(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `cortexAgents`.
      * 
      */
@@ -1287,8 +1280,6 @@ public final class SnowflakeFunctions {
         return getCortexAgentsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `cortexAgents`.
      * 
      */
@@ -1296,8 +1287,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getCortexAgents:getCortexAgents", TypeShape.of(GetCortexAgentsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `cortexAgents`.
      * 
      */
@@ -1305,8 +1294,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getCortexAgents:getCortexAgents", TypeShape.of(GetCortexAgentsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `cortexAgents`.
      * 
      */
@@ -3424,8 +3411,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
@@ -3433,8 +3418,6 @@ public final class SnowflakeFunctions {
         return getFileFormats(GetFileFormatsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
@@ -3442,8 +3425,6 @@ public final class SnowflakeFunctions {
         return getFileFormatsPlain(GetFileFormatsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
@@ -3451,8 +3432,6 @@ public final class SnowflakeFunctions {
         return getFileFormats(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
@@ -3460,8 +3439,6 @@ public final class SnowflakeFunctions {
         return getFileFormatsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
@@ -3469,8 +3446,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getFileFormats:getFileFormats", TypeShape.of(GetFileFormatsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
@@ -3478,8 +3453,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getFileFormats:getFileFormats", TypeShape.of(GetFileFormatsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `fileFormats`.
      * 
      */
@@ -5139,6 +5112,69 @@ public final class SnowflakeFunctions {
     /**
      * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
+     * Data source used to get details of filtered hybrid tables. Filtering is aligned with the current possibilities for [SHOW HYBRID TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-hybrid-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, SHOW PARAMETERS, SHOW PRIMARY KEYS, SHOW UNIQUE KEYS, SHOW IMPORTED KEYS, and SHOW INDEXES are encapsulated in one output collection `hybridTables`.
+     * 
+     */
+    public static Output<GetHybridTablesResult> getHybridTables() {
+        return getHybridTables(GetHybridTablesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered hybrid tables. Filtering is aligned with the current possibilities for [SHOW HYBRID TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-hybrid-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, SHOW PARAMETERS, SHOW PRIMARY KEYS, SHOW UNIQUE KEYS, SHOW IMPORTED KEYS, and SHOW INDEXES are encapsulated in one output collection `hybridTables`.
+     * 
+     */
+    public static CompletableFuture<GetHybridTablesResult> getHybridTablesPlain() {
+        return getHybridTablesPlain(GetHybridTablesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered hybrid tables. Filtering is aligned with the current possibilities for [SHOW HYBRID TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-hybrid-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, SHOW PARAMETERS, SHOW PRIMARY KEYS, SHOW UNIQUE KEYS, SHOW IMPORTED KEYS, and SHOW INDEXES are encapsulated in one output collection `hybridTables`.
+     * 
+     */
+    public static Output<GetHybridTablesResult> getHybridTables(GetHybridTablesArgs args) {
+        return getHybridTables(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered hybrid tables. Filtering is aligned with the current possibilities for [SHOW HYBRID TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-hybrid-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, SHOW PARAMETERS, SHOW PRIMARY KEYS, SHOW UNIQUE KEYS, SHOW IMPORTED KEYS, and SHOW INDEXES are encapsulated in one output collection `hybridTables`.
+     * 
+     */
+    public static CompletableFuture<GetHybridTablesResult> getHybridTablesPlain(GetHybridTablesPlainArgs args) {
+        return getHybridTablesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered hybrid tables. Filtering is aligned with the current possibilities for [SHOW HYBRID TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-hybrid-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, SHOW PARAMETERS, SHOW PRIMARY KEYS, SHOW UNIQUE KEYS, SHOW IMPORTED KEYS, and SHOW INDEXES are encapsulated in one output collection `hybridTables`.
+     * 
+     */
+    public static Output<GetHybridTablesResult> getHybridTables(GetHybridTablesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getHybridTables:getHybridTables", TypeShape.of(GetHybridTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered hybrid tables. Filtering is aligned with the current possibilities for [SHOW HYBRID TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-hybrid-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, SHOW PARAMETERS, SHOW PRIMARY KEYS, SHOW UNIQUE KEYS, SHOW IMPORTED KEYS, and SHOW INDEXES are encapsulated in one output collection `hybridTables`.
+     * 
+     */
+    public static Output<GetHybridTablesResult> getHybridTables(GetHybridTablesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getHybridTables:getHybridTables", TypeShape.of(GetHybridTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered hybrid tables. Filtering is aligned with the current possibilities for [SHOW HYBRID TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-hybrid-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, SHOW PARAMETERS, SHOW PRIMARY KEYS, SHOW UNIQUE KEYS, SHOW IMPORTED KEYS, and SHOW INDEXES are encapsulated in one output collection `hybridTables`.
+     * 
+     */
+    public static CompletableFuture<GetHybridTablesResult> getHybridTablesPlain(GetHybridTablesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getHybridTables:getHybridTables", TypeShape.of(GetHybridTablesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
      * Data source used to get details of filtered iceberg tables. Filtering is aligned with the current possibilities for [SHOW ICEBERG TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-iceberg-tables) query (`like`, `in`, `startsWith`, `limit`). The results of SHOW, DESCRIBE, and SHOW PARAMETERS are encapsulated in one output collection `icebergTables`.
      * 
      */
@@ -5249,8 +5285,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getImageRepositories:getImageRepositories", TypeShape.of(GetImageRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
-     * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
      * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
@@ -5260,8 +5294,6 @@ public final class SnowflakeFunctions {
         return getListings(GetListingsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
-     * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
      * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
@@ -5271,8 +5303,6 @@ public final class SnowflakeFunctions {
         return getListingsPlain(GetListingsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
-     * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
      * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
@@ -5282,8 +5312,6 @@ public final class SnowflakeFunctions {
         return getListings(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
-     * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
      * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
@@ -5293,8 +5321,6 @@ public final class SnowflakeFunctions {
         return getListingsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
-     * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
      * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
@@ -5304,8 +5330,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getListings:getListings", TypeShape.of(GetListingsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
-     * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
      * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
@@ -5315,8 +5339,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getListings:getListings", TypeShape.of(GetListingsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Preview Feature** This data source is a preview feature and is subject to breaking changes, even without bumping the major version. To use this feature, add `snowflakeListingsDatasource` to `previewFeaturesEnabled` field in the provider configuration. Read more about preview features in our documentation.
-     * 
      * &gt; **Note** This data source focuses on base query commands (SHOW LISTINGS and DESCRIBE LISTING). Other query commands like SHOW AVAILABLE LISTINGS, DESCRIBE AVAILABLE LISTING, SHOW LISTING OFFERS, SHOW OFFERS, SHOW PRICING PLANS, and SHOW VERSIONS IN LISTING are not included and will be added depending on demand.
      * 
      * Data source used to get details of filtered listings. Filtering is aligned with the current possibilities for SHOW LISTINGS query (`like`, `startsWith`, and `limit` are supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
@@ -5604,8 +5626,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getMaterializedViews:getMaterializedViews", TypeShape.of(GetMaterializedViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
      * 
      */
@@ -5613,8 +5633,6 @@ public final class SnowflakeFunctions {
         return getMcpServers(GetMcpServersArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
      * 
      */
@@ -5622,8 +5640,6 @@ public final class SnowflakeFunctions {
         return getMcpServersPlain(GetMcpServersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
      * 
      */
@@ -5631,8 +5647,6 @@ public final class SnowflakeFunctions {
         return getMcpServers(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
      * 
      */
@@ -5640,8 +5654,6 @@ public final class SnowflakeFunctions {
         return getMcpServersPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
      * 
      */
@@ -5649,8 +5661,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getMcpServers:getMcpServers", TypeShape.of(GetMcpServersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
      * 
      */
@@ -5658,8 +5668,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getMcpServers:getMcpServers", TypeShape.of(GetMcpServersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered MCP servers. Filtering is aligned with the current possibilities for [SHOW MCP SERVERS](https://docs.snowflake.com/en/sql-reference/sql/show-mcp-servers) query (`like`, `in`). The results of SHOW and DESCRIBE are encapsulated in one output collection `mcpServers`.
      * 
      */
@@ -5826,6 +5834,1959 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetNotebooksResult> getNotebooksPlain(GetNotebooksPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getNotebooks:getNotebooks", TypeShape.of(GetNotebooksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connector definitions, the Snowflake-managed templates a connector can be created from. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTOR DEFINITIONS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connector-definitions). Definitions are read-only, so there is no describe output and no matching resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .like("OPENFLOW_POSTGRES_CDC")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .limit(GetOpenflowConnectorDefinitionsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("OPENFLOW_")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowConnectorDefinitionsResult> getOpenflowConnectorDefinitions() {
+        return getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connector definitions, the Snowflake-managed templates a connector can be created from. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTOR DEFINITIONS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connector-definitions). Definitions are read-only, so there is no describe output and no matching resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .like("OPENFLOW_POSTGRES_CDC")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .limit(GetOpenflowConnectorDefinitionsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("OPENFLOW_")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowConnectorDefinitionsResult> getOpenflowConnectorDefinitionsPlain() {
+        return getOpenflowConnectorDefinitionsPlain(GetOpenflowConnectorDefinitionsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connector definitions, the Snowflake-managed templates a connector can be created from. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTOR DEFINITIONS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connector-definitions). Definitions are read-only, so there is no describe output and no matching resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .like("OPENFLOW_POSTGRES_CDC")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .limit(GetOpenflowConnectorDefinitionsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("OPENFLOW_")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowConnectorDefinitionsResult> getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs args) {
+        return getOpenflowConnectorDefinitions(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connector definitions, the Snowflake-managed templates a connector can be created from. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTOR DEFINITIONS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connector-definitions). Definitions are read-only, so there is no describe output and no matching resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .like("OPENFLOW_POSTGRES_CDC")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .limit(GetOpenflowConnectorDefinitionsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("OPENFLOW_")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowConnectorDefinitionsResult> getOpenflowConnectorDefinitionsPlain(GetOpenflowConnectorDefinitionsPlainArgs args) {
+        return getOpenflowConnectorDefinitionsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connector definitions, the Snowflake-managed templates a connector can be created from. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTOR DEFINITIONS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connector-definitions). Definitions are read-only, so there is no describe output and no matching resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .like("OPENFLOW_POSTGRES_CDC")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .limit(GetOpenflowConnectorDefinitionsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("OPENFLOW_")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowConnectorDefinitionsResult> getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getOpenflowConnectorDefinitions:getOpenflowConnectorDefinitions", TypeShape.of(GetOpenflowConnectorDefinitionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connector definitions, the Snowflake-managed templates a connector can be created from. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTOR DEFINITIONS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connector-definitions). Definitions are read-only, so there is no describe output and no matching resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .like("OPENFLOW_POSTGRES_CDC")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .limit(GetOpenflowConnectorDefinitionsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("OPENFLOW_")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowConnectorDefinitionsResult> getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getOpenflowConnectorDefinitions:getOpenflowConnectorDefinitions", TypeShape.of(GetOpenflowConnectorDefinitionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connector definitions, the Snowflake-managed templates a connector can be created from. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTOR DEFINITIONS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connector-definitions). Definitions are read-only, so there is no describe output and no matching resource.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorDefinitionsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .like("OPENFLOW_POSTGRES_CDC")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectorDefinitions(GetOpenflowConnectorDefinitionsArgs.builder()
+     *             .limit(GetOpenflowConnectorDefinitionsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("OPENFLOW_")
+     *                 .build())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowConnectorDefinitionsResult> getOpenflowConnectorDefinitionsPlain(GetOpenflowConnectorDefinitionsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getOpenflowConnectorDefinitions:getOpenflowConnectorDefinitions", TypeShape.of(GetOpenflowConnectorDefinitionsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connectors. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTORS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connectors). The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowConnectors`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .like("connector-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .in(GetOpenflowConnectorsInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .startsWith("connector-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .limit(GetOpenflowConnectorsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("connector-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowConnectorsResult> getOpenflowConnectors() {
+        return getOpenflowConnectors(GetOpenflowConnectorsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connectors. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTORS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connectors). The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowConnectors`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .like("connector-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .in(GetOpenflowConnectorsInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .startsWith("connector-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .limit(GetOpenflowConnectorsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("connector-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowConnectorsResult> getOpenflowConnectorsPlain() {
+        return getOpenflowConnectorsPlain(GetOpenflowConnectorsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connectors. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTORS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connectors). The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowConnectors`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .like("connector-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .in(GetOpenflowConnectorsInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .startsWith("connector-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .limit(GetOpenflowConnectorsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("connector-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowConnectorsResult> getOpenflowConnectors(GetOpenflowConnectorsArgs args) {
+        return getOpenflowConnectors(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connectors. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTORS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connectors). The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowConnectors`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .like("connector-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .in(GetOpenflowConnectorsInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .startsWith("connector-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .limit(GetOpenflowConnectorsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("connector-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowConnectorsResult> getOpenflowConnectorsPlain(GetOpenflowConnectorsPlainArgs args) {
+        return getOpenflowConnectorsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connectors. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTORS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connectors). The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowConnectors`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .like("connector-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .in(GetOpenflowConnectorsInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .startsWith("connector-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .limit(GetOpenflowConnectorsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("connector-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowConnectorsResult> getOpenflowConnectors(GetOpenflowConnectorsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getOpenflowConnectors:getOpenflowConnectors", TypeShape.of(GetOpenflowConnectorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connectors. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTORS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connectors). The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowConnectors`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .like("connector-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .in(GetOpenflowConnectorsInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .startsWith("connector-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .limit(GetOpenflowConnectorsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("connector-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowConnectorsResult> getOpenflowConnectors(GetOpenflowConnectorsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getOpenflowConnectors:getOpenflowConnectors", TypeShape.of(GetOpenflowConnectorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow connectors. Filtering is aligned with the current possibilities for [SHOW OPENFLOW CONNECTORS](https://docs.snowflake.com/en/sql-reference/sql/show-openflow-connectors). The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowConnectors`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowConnectorsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .like("connector-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .in(GetOpenflowConnectorsInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .startsWith("connector-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .limit(GetOpenflowConnectorsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("connector-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowConnectors(GetOpenflowConnectorsArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowConnectorsResult> getOpenflowConnectorsPlain(GetOpenflowConnectorsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getOpenflowConnectors:getOpenflowConnectors", TypeShape.of(GetOpenflowConnectorsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow deployments. Both Snowflake-managed and BYOC deployments are returned; the `type` field in `showOutput` distinguishes them. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowDeployments`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .like("deployment-name")
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .startsWith("deployment-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .limit(GetOpenflowDeploymentsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("deployment-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .withDescribe(false)
+     *             .withParameters(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowDeploymentsResult> getOpenflowDeployments() {
+        return getOpenflowDeployments(GetOpenflowDeploymentsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow deployments. Both Snowflake-managed and BYOC deployments are returned; the `type` field in `showOutput` distinguishes them. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowDeployments`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .like("deployment-name")
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .startsWith("deployment-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .limit(GetOpenflowDeploymentsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("deployment-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .withDescribe(false)
+     *             .withParameters(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowDeploymentsResult> getOpenflowDeploymentsPlain() {
+        return getOpenflowDeploymentsPlain(GetOpenflowDeploymentsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow deployments. Both Snowflake-managed and BYOC deployments are returned; the `type` field in `showOutput` distinguishes them. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowDeployments`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .like("deployment-name")
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .startsWith("deployment-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .limit(GetOpenflowDeploymentsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("deployment-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .withDescribe(false)
+     *             .withParameters(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowDeploymentsResult> getOpenflowDeployments(GetOpenflowDeploymentsArgs args) {
+        return getOpenflowDeployments(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow deployments. Both Snowflake-managed and BYOC deployments are returned; the `type` field in `showOutput` distinguishes them. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowDeployments`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .like("deployment-name")
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .startsWith("deployment-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .limit(GetOpenflowDeploymentsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("deployment-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .withDescribe(false)
+     *             .withParameters(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowDeploymentsResult> getOpenflowDeploymentsPlain(GetOpenflowDeploymentsPlainArgs args) {
+        return getOpenflowDeploymentsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow deployments. Both Snowflake-managed and BYOC deployments are returned; the `type` field in `showOutput` distinguishes them. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowDeployments`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .like("deployment-name")
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .startsWith("deployment-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .limit(GetOpenflowDeploymentsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("deployment-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .withDescribe(false)
+     *             .withParameters(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowDeploymentsResult> getOpenflowDeployments(GetOpenflowDeploymentsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getOpenflowDeployments:getOpenflowDeployments", TypeShape.of(GetOpenflowDeploymentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow deployments. Both Snowflake-managed and BYOC deployments are returned; the `type` field in `showOutput` distinguishes them. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowDeployments`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .like("deployment-name")
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .startsWith("deployment-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .limit(GetOpenflowDeploymentsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("deployment-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .withDescribe(false)
+     *             .withParameters(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowDeploymentsResult> getOpenflowDeployments(GetOpenflowDeploymentsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getOpenflowDeployments:getOpenflowDeployments", TypeShape.of(GetOpenflowDeploymentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow deployments. Both Snowflake-managed and BYOC deployments are returned; the `type` field in `showOutput` distinguishes them. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowDeployments`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowDeploymentsLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .like("deployment-name")
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .startsWith("deployment-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .limit(GetOpenflowDeploymentsLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("deployment-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowDeployments(GetOpenflowDeploymentsArgs.builder()
+     *             .withDescribe(false)
+     *             .withParameters(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowDeploymentsResult> getOpenflowDeploymentsPlain(GetOpenflowDeploymentsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getOpenflowDeployments:getOpenflowDeployments", TypeShape.of(GetOpenflowDeploymentsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow runtimes. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowRuntimes`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .like("runtime-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .in(GetOpenflowRuntimesInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .startsWith("runtime-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .limit(GetOpenflowRuntimesLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("runtime-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowRuntimesResult> getOpenflowRuntimes() {
+        return getOpenflowRuntimes(GetOpenflowRuntimesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow runtimes. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowRuntimes`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .like("runtime-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .in(GetOpenflowRuntimesInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .startsWith("runtime-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .limit(GetOpenflowRuntimesLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("runtime-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowRuntimesResult> getOpenflowRuntimesPlain() {
+        return getOpenflowRuntimesPlain(GetOpenflowRuntimesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow runtimes. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowRuntimes`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .like("runtime-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .in(GetOpenflowRuntimesInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .startsWith("runtime-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .limit(GetOpenflowRuntimesLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("runtime-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowRuntimesResult> getOpenflowRuntimes(GetOpenflowRuntimesArgs args) {
+        return getOpenflowRuntimes(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow runtimes. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowRuntimes`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .like("runtime-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .in(GetOpenflowRuntimesInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .startsWith("runtime-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .limit(GetOpenflowRuntimesLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("runtime-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowRuntimesResult> getOpenflowRuntimesPlain(GetOpenflowRuntimesPlainArgs args) {
+        return getOpenflowRuntimesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow runtimes. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowRuntimes`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .like("runtime-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .in(GetOpenflowRuntimesInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .startsWith("runtime-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .limit(GetOpenflowRuntimesLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("runtime-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowRuntimesResult> getOpenflowRuntimes(GetOpenflowRuntimesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getOpenflowRuntimes:getOpenflowRuntimes", TypeShape.of(GetOpenflowRuntimesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow runtimes. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowRuntimes`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .like("runtime-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .in(GetOpenflowRuntimesInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .startsWith("runtime-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .limit(GetOpenflowRuntimesLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("runtime-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static Output<GetOpenflowRuntimesResult> getOpenflowRuntimes(GetOpenflowRuntimesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getOpenflowRuntimes:getOpenflowRuntimes", TypeShape.of(GetOpenflowRuntimesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered Openflow runtimes. The results of SHOW and DESCRIBE are encapsulated in one output collection `openflowRuntimes`.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.snowflake.SnowflakeFunctions;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesInArgs;
+     * import com.pulumi.snowflake.inputs.GetOpenflowRuntimesLimitArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         // simple usage
+     *         final var simple = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .build());
+     * 
+     *         // filtering (like)
+     *         final var like = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .like("runtime-name")
+     *             .build());
+     * 
+     *         // filtering (in)
+     *         final var in = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .in(GetOpenflowRuntimesInArgs.builder()
+     *                 .schema("<database_name>.<schema_name>")
+     *                 .build())
+     *             .build());
+     * 
+     *         // filtering (starts_with)
+     *         final var startsWith = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .startsWith("runtime-")
+     *             .build());
+     * 
+     *         // filtering (limit)
+     *         final var limit = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .limit(GetOpenflowRuntimesLimitArgs.builder()
+     *                 .rows(10)
+     *                 .from("runtime-name")
+     *                 .build())
+     *             .build());
+     * 
+     *         // without additional data (to limit the number of calls make sure to set all of these to false)
+     *         final var onlyShow = SnowflakeFunctions.getOpenflowRuntimes(GetOpenflowRuntimesArgs.builder()
+     *             .withDescribe(false)
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetOpenflowRuntimesResult> getOpenflowRuntimesPlain(GetOpenflowRuntimesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getOpenflowRuntimes:getOpenflowRuntimes", TypeShape.of(GetOpenflowRuntimesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -8335,8 +10296,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getStorageIntegrations:getStorageIntegrations", TypeShape.of(GetStorageIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered storage lifecycle policies. Filtering is aligned with the current possibilities for [SHOW STORAGE LIFECYCLE POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-storage-lifecycle-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `storageLifecyclePolicies`.
      * 
      */
@@ -8344,8 +10303,6 @@ public final class SnowflakeFunctions {
         return getStorageLifecyclePolicies(GetStorageLifecyclePoliciesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered storage lifecycle policies. Filtering is aligned with the current possibilities for [SHOW STORAGE LIFECYCLE POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-storage-lifecycle-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `storageLifecyclePolicies`.
      * 
      */
@@ -8353,8 +10310,6 @@ public final class SnowflakeFunctions {
         return getStorageLifecyclePoliciesPlain(GetStorageLifecyclePoliciesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered storage lifecycle policies. Filtering is aligned with the current possibilities for [SHOW STORAGE LIFECYCLE POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-storage-lifecycle-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `storageLifecyclePolicies`.
      * 
      */
@@ -8362,8 +10317,6 @@ public final class SnowflakeFunctions {
         return getStorageLifecyclePolicies(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered storage lifecycle policies. Filtering is aligned with the current possibilities for [SHOW STORAGE LIFECYCLE POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-storage-lifecycle-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `storageLifecyclePolicies`.
      * 
      */
@@ -8371,8 +10324,6 @@ public final class SnowflakeFunctions {
         return getStorageLifecyclePoliciesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered storage lifecycle policies. Filtering is aligned with the current possibilities for [SHOW STORAGE LIFECYCLE POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-storage-lifecycle-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `storageLifecyclePolicies`.
      * 
      */
@@ -8380,8 +10331,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getStorageLifecyclePolicies:getStorageLifecyclePolicies", TypeShape.of(GetStorageLifecyclePoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered storage lifecycle policies. Filtering is aligned with the current possibilities for [SHOW STORAGE LIFECYCLE POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-storage-lifecycle-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `storageLifecyclePolicies`.
      * 
      */
@@ -8389,8 +10338,6 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getStorageLifecyclePolicies:getStorageLifecyclePolicies", TypeShape.of(GetStorageLifecyclePoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
      * Data source used to get details of filtered storage lifecycle policies. Filtering is aligned with the current possibilities for [SHOW STORAGE LIFECYCLE POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-storage-lifecycle-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `storageLifecyclePolicies`.
      * 
      */

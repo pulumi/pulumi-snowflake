@@ -400,6 +400,11 @@ export const getGrants: typeof import("./getGrants").getGrants = null as any;
 export const getGrantsOutput: typeof import("./getGrants").getGrantsOutput = null as any;
 utilities.lazyLoad(exports, ["getGrants","getGrantsOutput"], () => require("./getGrants"));
 
+export { GetHybridTablesArgs, GetHybridTablesResult, GetHybridTablesOutputArgs } from "./getHybridTables";
+export const getHybridTables: typeof import("./getHybridTables").getHybridTables = null as any;
+export const getHybridTablesOutput: typeof import("./getHybridTables").getHybridTablesOutput = null as any;
+utilities.lazyLoad(exports, ["getHybridTables","getHybridTablesOutput"], () => require("./getHybridTables"));
+
 export { GetIcebergTablesArgs, GetIcebergTablesResult, GetIcebergTablesOutputArgs } from "./getIcebergTables";
 export const getIcebergTables: typeof import("./getIcebergTables").getIcebergTables = null as any;
 export const getIcebergTablesOutput: typeof import("./getIcebergTables").getIcebergTablesOutput = null as any;
@@ -444,6 +449,26 @@ export { GetNotebooksArgs, GetNotebooksResult, GetNotebooksOutputArgs } from "./
 export const getNotebooks: typeof import("./getNotebooks").getNotebooks = null as any;
 export const getNotebooksOutput: typeof import("./getNotebooks").getNotebooksOutput = null as any;
 utilities.lazyLoad(exports, ["getNotebooks","getNotebooksOutput"], () => require("./getNotebooks"));
+
+export { GetOpenflowConnectorDefinitionsArgs, GetOpenflowConnectorDefinitionsResult, GetOpenflowConnectorDefinitionsOutputArgs } from "./getOpenflowConnectorDefinitions";
+export const getOpenflowConnectorDefinitions: typeof import("./getOpenflowConnectorDefinitions").getOpenflowConnectorDefinitions = null as any;
+export const getOpenflowConnectorDefinitionsOutput: typeof import("./getOpenflowConnectorDefinitions").getOpenflowConnectorDefinitionsOutput = null as any;
+utilities.lazyLoad(exports, ["getOpenflowConnectorDefinitions","getOpenflowConnectorDefinitionsOutput"], () => require("./getOpenflowConnectorDefinitions"));
+
+export { GetOpenflowConnectorsArgs, GetOpenflowConnectorsResult, GetOpenflowConnectorsOutputArgs } from "./getOpenflowConnectors";
+export const getOpenflowConnectors: typeof import("./getOpenflowConnectors").getOpenflowConnectors = null as any;
+export const getOpenflowConnectorsOutput: typeof import("./getOpenflowConnectors").getOpenflowConnectorsOutput = null as any;
+utilities.lazyLoad(exports, ["getOpenflowConnectors","getOpenflowConnectorsOutput"], () => require("./getOpenflowConnectors"));
+
+export { GetOpenflowDeploymentsArgs, GetOpenflowDeploymentsResult, GetOpenflowDeploymentsOutputArgs } from "./getOpenflowDeployments";
+export const getOpenflowDeployments: typeof import("./getOpenflowDeployments").getOpenflowDeployments = null as any;
+export const getOpenflowDeploymentsOutput: typeof import("./getOpenflowDeployments").getOpenflowDeploymentsOutput = null as any;
+utilities.lazyLoad(exports, ["getOpenflowDeployments","getOpenflowDeploymentsOutput"], () => require("./getOpenflowDeployments"));
+
+export { GetOpenflowRuntimesArgs, GetOpenflowRuntimesResult, GetOpenflowRuntimesOutputArgs } from "./getOpenflowRuntimes";
+export const getOpenflowRuntimes: typeof import("./getOpenflowRuntimes").getOpenflowRuntimes = null as any;
+export const getOpenflowRuntimesOutput: typeof import("./getOpenflowRuntimes").getOpenflowRuntimesOutput = null as any;
+utilities.lazyLoad(exports, ["getOpenflowRuntimes","getOpenflowRuntimesOutput"], () => require("./getOpenflowRuntimes"));
 
 export { GetParametersArgs, GetParametersResult, GetParametersOutputArgs } from "./getParameters";
 export const getParameters: typeof import("./getParameters").getParameters = null as any;
@@ -744,6 +769,26 @@ export { ObjectParameterArgs, ObjectParameterState } from "./objectParameter";
 export type ObjectParameter = import("./objectParameter").ObjectParameter;
 export const ObjectParameter: typeof import("./objectParameter").ObjectParameter = null as any;
 utilities.lazyLoad(exports, ["ObjectParameter"], () => require("./objectParameter"));
+
+export { OpenflowConnectorArgs, OpenflowConnectorState } from "./openflowConnector";
+export type OpenflowConnector = import("./openflowConnector").OpenflowConnector;
+export const OpenflowConnector: typeof import("./openflowConnector").OpenflowConnector = null as any;
+utilities.lazyLoad(exports, ["OpenflowConnector"], () => require("./openflowConnector"));
+
+export { OpenflowDeploymentByocArgs, OpenflowDeploymentByocState } from "./openflowDeploymentByoc";
+export type OpenflowDeploymentByoc = import("./openflowDeploymentByoc").OpenflowDeploymentByoc;
+export const OpenflowDeploymentByoc: typeof import("./openflowDeploymentByoc").OpenflowDeploymentByoc = null as any;
+utilities.lazyLoad(exports, ["OpenflowDeploymentByoc"], () => require("./openflowDeploymentByoc"));
+
+export { OpenflowDeploymentSnowflakeManagedArgs, OpenflowDeploymentSnowflakeManagedState } from "./openflowDeploymentSnowflakeManaged";
+export type OpenflowDeploymentSnowflakeManaged = import("./openflowDeploymentSnowflakeManaged").OpenflowDeploymentSnowflakeManaged;
+export const OpenflowDeploymentSnowflakeManaged: typeof import("./openflowDeploymentSnowflakeManaged").OpenflowDeploymentSnowflakeManaged = null as any;
+utilities.lazyLoad(exports, ["OpenflowDeploymentSnowflakeManaged"], () => require("./openflowDeploymentSnowflakeManaged"));
+
+export { OpenflowRuntimeArgs, OpenflowRuntimeState } from "./openflowRuntime";
+export type OpenflowRuntime = import("./openflowRuntime").OpenflowRuntime;
+export const OpenflowRuntime: typeof import("./openflowRuntime").OpenflowRuntime = null as any;
+utilities.lazyLoad(exports, ["OpenflowRuntime"], () => require("./openflowRuntime"));
 
 export { PasswordPolicyArgs, PasswordPolicyState } from "./passwordPolicy";
 export type PasswordPolicy = import("./passwordPolicy").PasswordPolicy;
@@ -1228,6 +1273,14 @@ const _module = {
                 return new OauthIntegrationForPartnerApplications(name, <any>undefined, { urn })
             case "snowflake:index/objectParameter:ObjectParameter":
                 return new ObjectParameter(name, <any>undefined, { urn })
+            case "snowflake:index/openflowConnector:OpenflowConnector":
+                return new OpenflowConnector(name, <any>undefined, { urn })
+            case "snowflake:index/openflowDeploymentByoc:OpenflowDeploymentByoc":
+                return new OpenflowDeploymentByoc(name, <any>undefined, { urn })
+            case "snowflake:index/openflowDeploymentSnowflakeManaged:OpenflowDeploymentSnowflakeManaged":
+                return new OpenflowDeploymentSnowflakeManaged(name, <any>undefined, { urn })
+            case "snowflake:index/openflowRuntime:OpenflowRuntime":
+                return new OpenflowRuntime(name, <any>undefined, { urn })
             case "snowflake:index/passwordPolicy:PasswordPolicy":
                 return new PasswordPolicy(name, <any>undefined, { urn })
             case "snowflake:index/pipe:Pipe":
@@ -1436,6 +1489,10 @@ pulumi.runtime.registerResourceModule("snowflake", "index/notificationIntegratio
 pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegrationForCustomClients", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegrationForPartnerApplications", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/objectParameter", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/openflowConnector", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/openflowDeploymentByoc", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/openflowDeploymentSnowflakeManaged", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/openflowRuntime", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/passwordPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipe", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/postgresInstance", _module)

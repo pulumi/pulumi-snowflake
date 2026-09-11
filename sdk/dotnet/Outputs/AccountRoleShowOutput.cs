@@ -20,6 +20,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly int? GrantedToRoles;
         public readonly bool? IsCurrent;
         public readonly bool? IsDefault;
+        public readonly bool? IsFromOrganizationUserGroup;
         public readonly bool? IsInherited;
         public readonly string? Name;
         public readonly string? Owner;
@@ -40,6 +41,8 @@ namespace Pulumi.Snowflake.Outputs
 
             bool? isDefault,
 
+            bool? isFromOrganizationUserGroup,
+
             bool? isInherited,
 
             string? name,
@@ -53,6 +56,7 @@ namespace Pulumi.Snowflake.Outputs
             GrantedToRoles = grantedToRoles;
             IsCurrent = isCurrent;
             IsDefault = isDefault;
+            IsFromOrganizationUserGroup = isFromOrganizationUserGroup;
             IsInherited = isInherited;
             Name = name;
             Owner = owner;

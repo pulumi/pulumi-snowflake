@@ -14,6 +14,8 @@ namespace Pulumi.Snowflake
     /// 
     /// &gt; **Note** To use this resource you have to use an account with a privilege to use the ORGADMIN role.
     /// 
+    /// &gt; **Note** After `CREATE ACCOUNT` succeeds, the provider polls `SHOW ACCOUNTS` until the new account becomes visible. This process can take longer than a few seconds, particularly for cross-region accounts. The polling operation uses the resource create timeout. If you encounter timeout errors, use a `Timeouts` block to set a higher `Create` limit. If the account was successfully created but the timeout was reached, you may need to import the account instead.
+    /// 
     /// &gt; **Note** Changes for the following fields won't be detected: `AdminName`, `AdminPassword`, `AdminRsaPublicKey`, `AdminUserType`, `FirstName`, `LastName`, `Email`, `MustChangePassword`. This is because these fields only supply initial values for creating the admin user. Once the account is created, the admin user becomes an independent entity. Modifying users from the account resource is challenging since it requires logging into that account. This would require the account resource logging into the account it created to read or alter admin user properties, which is impractical, because any external change to the admin user would disrupt the change detection anyway.
     /// 
     /// &gt; **Note** During the import, when Terraform detects changes on a field with `ForceNew`, it will try to recreate the resource. Due to Terraform limitations, `GracePeriodInDays` is not set at that moment. This means that Terraform will try to drop the account with the empty grace period which is required, and fail.
