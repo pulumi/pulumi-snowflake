@@ -1,3 +1,0 @@
-name: configure-provider
-runtime: go
-description: Test explicit provider configuration
