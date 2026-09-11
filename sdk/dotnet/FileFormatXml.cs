@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-    /// 
     /// &gt; **Note** A file format cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
     /// 
     /// Resource used to manage XML file formats. For more information, check [file format documentation](https://docs.snowflake.com/en/sql-reference/sql/create-file-format).

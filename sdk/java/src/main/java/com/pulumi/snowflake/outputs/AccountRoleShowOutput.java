@@ -20,6 +20,7 @@ public final class AccountRoleShowOutput {
     private @Nullable Integer grantedToRoles;
     private @Nullable Boolean isCurrent;
     private @Nullable Boolean isDefault;
+    private @Nullable Boolean isFromOrganizationUserGroup;
     private @Nullable Boolean isInherited;
     private @Nullable String name;
     private @Nullable String owner;
@@ -45,6 +46,9 @@ public final class AccountRoleShowOutput {
     }
     public Optional<Boolean> isDefault() {
         return Optional.ofNullable(this.isDefault);
+    }
+    public Optional<Boolean> isFromOrganizationUserGroup() {
+        return Optional.ofNullable(this.isFromOrganizationUserGroup);
     }
     public Optional<Boolean> isInherited() {
         return Optional.ofNullable(this.isInherited);
@@ -72,6 +76,7 @@ public final class AccountRoleShowOutput {
         private @Nullable Integer grantedToRoles;
         private @Nullable Boolean isCurrent;
         private @Nullable Boolean isDefault;
+        private @Nullable Boolean isFromOrganizationUserGroup;
         private @Nullable Boolean isInherited;
         private @Nullable String name;
         private @Nullable String owner;
@@ -85,6 +90,7 @@ public final class AccountRoleShowOutput {
     	      this.grantedToRoles = defaults.grantedToRoles;
     	      this.isCurrent = defaults.isCurrent;
     	      this.isDefault = defaults.isDefault;
+    	      this.isFromOrganizationUserGroup = defaults.isFromOrganizationUserGroup;
     	      this.isInherited = defaults.isInherited;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
@@ -133,6 +139,12 @@ public final class AccountRoleShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder isFromOrganizationUserGroup(@Nullable Boolean isFromOrganizationUserGroup) {
+
+            this.isFromOrganizationUserGroup = isFromOrganizationUserGroup;
+            return this;
+        }
+        @CustomType.Setter
         public Builder isInherited(@Nullable Boolean isInherited) {
 
             this.isInherited = isInherited;
@@ -159,6 +171,7 @@ public final class AccountRoleShowOutput {
             _resultValue.grantedToRoles = grantedToRoles;
             _resultValue.isCurrent = isCurrent;
             _resultValue.isDefault = isDefault;
+            _resultValue.isFromOrganizationUserGroup = isFromOrganizationUserGroup;
             _resultValue.isInherited = isInherited;
             _resultValue.name = name;
             _resultValue.owner = owner;

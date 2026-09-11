@@ -865,6 +865,32 @@ __all__ = [
     'OauthIntegrationForPartnerApplicationsShowOutputArgsDict',
     'ObjectParameterObjectIdentifierArgs',
     'ObjectParameterObjectIdentifierArgsDict',
+    'OpenflowConnectorDescribeOutputArgs',
+    'OpenflowConnectorDescribeOutputArgsDict',
+    'OpenflowConnectorFromArgs',
+    'OpenflowConnectorFromArgsDict',
+    'OpenflowConnectorShowOutputArgs',
+    'OpenflowConnectorShowOutputArgsDict',
+    'OpenflowDeploymentByocDescribeOutputArgs',
+    'OpenflowDeploymentByocDescribeOutputArgsDict',
+    'OpenflowDeploymentByocParameterArgs',
+    'OpenflowDeploymentByocParameterArgsDict',
+    'OpenflowDeploymentByocParameterEventTableArgs',
+    'OpenflowDeploymentByocParameterEventTableArgsDict',
+    'OpenflowDeploymentByocShowOutputArgs',
+    'OpenflowDeploymentByocShowOutputArgsDict',
+    'OpenflowDeploymentSnowflakeManagedDescribeOutputArgs',
+    'OpenflowDeploymentSnowflakeManagedDescribeOutputArgsDict',
+    'OpenflowDeploymentSnowflakeManagedParameterArgs',
+    'OpenflowDeploymentSnowflakeManagedParameterArgsDict',
+    'OpenflowDeploymentSnowflakeManagedParameterEventTableArgs',
+    'OpenflowDeploymentSnowflakeManagedParameterEventTableArgsDict',
+    'OpenflowDeploymentSnowflakeManagedShowOutputArgs',
+    'OpenflowDeploymentSnowflakeManagedShowOutputArgsDict',
+    'OpenflowRuntimeDescribeOutputArgs',
+    'OpenflowRuntimeDescribeOutputArgsDict',
+    'OpenflowRuntimeShowOutputArgs',
+    'OpenflowRuntimeShowOutputArgsDict',
     'PasswordPolicyDescribeOutputArgs',
     'PasswordPolicyDescribeOutputArgsDict',
     'PasswordPolicyShowOutputArgs',
@@ -1941,6 +1967,10 @@ __all__ = [
     'GetGrantsGrantsToShareArgsDict',
     'GetGrantsInheritedGrantsInArgs',
     'GetGrantsInheritedGrantsInArgsDict',
+    'GetHybridTablesInArgs',
+    'GetHybridTablesInArgsDict',
+    'GetHybridTablesLimitArgs',
+    'GetHybridTablesLimitArgsDict',
     'GetIcebergTablesInArgs',
     'GetIcebergTablesInArgsDict',
     'GetIcebergTablesLimitArgs',
@@ -1961,6 +1991,18 @@ __all__ = [
     'GetNetworkRulesLimitArgsDict',
     'GetNotebooksLimitArgs',
     'GetNotebooksLimitArgsDict',
+    'GetOpenflowConnectorDefinitionsLimitArgs',
+    'GetOpenflowConnectorDefinitionsLimitArgsDict',
+    'GetOpenflowConnectorsInArgs',
+    'GetOpenflowConnectorsInArgsDict',
+    'GetOpenflowConnectorsLimitArgs',
+    'GetOpenflowConnectorsLimitArgsDict',
+    'GetOpenflowDeploymentsLimitArgs',
+    'GetOpenflowDeploymentsLimitArgsDict',
+    'GetOpenflowRuntimesInArgs',
+    'GetOpenflowRuntimesInArgsDict',
+    'GetOpenflowRuntimesLimitArgs',
+    'GetOpenflowRuntimesLimitArgsDict',
     'GetPasswordPoliciesInArgs',
     'GetPasswordPoliciesInArgsDict',
     'GetPasswordPoliciesLimitArgs',
@@ -2029,6 +2071,7 @@ class AccountRoleShowOutputArgsDict(TypedDict):
     granted_to_roles: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     is_current: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     is_default: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    is_from_organization_user_group: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     is_inherited: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -2043,6 +2086,7 @@ class AccountRoleShowOutputArgs:
                  granted_to_roles: pulumi.Input[Optional[_builtins.int]] = None,
                  is_current: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_from_organization_user_group: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_inherited: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None):
@@ -2060,6 +2104,8 @@ class AccountRoleShowOutputArgs:
             pulumi.set(__self__, "is_current", is_current)
         if is_default is not None:
             pulumi.set(__self__, "is_default", is_default)
+        if is_from_organization_user_group is not None:
+            pulumi.set(__self__, "is_from_organization_user_group", is_from_organization_user_group)
         if is_inherited is not None:
             pulumi.set(__self__, "is_inherited", is_inherited)
         if name is not None:
@@ -2129,6 +2175,15 @@ class AccountRoleShowOutputArgs:
     @is_default.setter
     def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isFromOrganizationUserGroup")
+    def is_from_organization_user_group(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "is_from_organization_user_group")
+
+    @is_from_organization_user_group.setter
+    def is_from_organization_user_group(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_from_organization_user_group", value)
 
     @_builtins.property
     @pulumi.getter(name="isInherited")
@@ -19898,7 +19953,7 @@ class GrantOwnershipOnArgsDict(TypedDict):
     """
     object_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+    Specifies the type of object on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `COMPUTE POOL` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATABASE` | `DATABASE ROLE` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXTERNAL TABLE` | `EXTERNAL VOLUME` | `FAILOVER GROUP` | `FILE FORMAT` | `FUNCTION` | `GIT REPOSITORY` | `HYBRID TABLE` | `ICEBERG TABLE` | `IMAGE REPOSITORY` | `INTEGRATION` | `INTERACTIVE TABLE` | `MATERIALIZED VIEW` | `NETWORK POLICY` | `NETWORK RULE` | `PACKAGES POLICY` | `PIPE` | `PROCEDURE` | `MASKING POLICY` | `PASSWORD POLICY` | `PROJECTION POLICY` | `REPLICATION GROUP` | `RESOURCE MONITOR` | `ROLE` | `ROW ACCESS POLICY` | `SCHEMA` | `SESSION POLICY` | `SECRET` | `SEMANTIC VIEW` | `SEQUENCE` | `SNOWFLAKE INTELLIGENCE` | `STAGE` | `STREAM` | `TABLE` | `TAG` | `TASK` | `USER` | `VIEW` | `WAREHOUSE`. Snowflake validates the type at apply time.
     """
 
 @pulumi.input_type
@@ -19912,7 +19967,7 @@ class GrantOwnershipOnArgs:
         :param pulumi.Input['GrantOwnershipOnAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantOwnershipOnFutureArgs'] future: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input[_builtins.str] object_name: Specifies the identifier for the object on which you are transferring ownership.
-        :param pulumi.Input[_builtins.str] object_type: Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        :param pulumi.Input[_builtins.str] object_type: Specifies the type of object on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `COMPUTE POOL` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATABASE` | `DATABASE ROLE` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXTERNAL TABLE` | `EXTERNAL VOLUME` | `FAILOVER GROUP` | `FILE FORMAT` | `FUNCTION` | `GIT REPOSITORY` | `HYBRID TABLE` | `ICEBERG TABLE` | `IMAGE REPOSITORY` | `INTEGRATION` | `INTERACTIVE TABLE` | `MATERIALIZED VIEW` | `NETWORK POLICY` | `NETWORK RULE` | `PACKAGES POLICY` | `PIPE` | `PROCEDURE` | `MASKING POLICY` | `PASSWORD POLICY` | `PROJECTION POLICY` | `REPLICATION GROUP` | `RESOURCE MONITOR` | `ROLE` | `ROW ACCESS POLICY` | `SCHEMA` | `SESSION POLICY` | `SECRET` | `SEMANTIC VIEW` | `SEQUENCE` | `SNOWFLAKE INTELLIGENCE` | `STAGE` | `STREAM` | `TABLE` | `TAG` | `TASK` | `USER` | `VIEW` | `WAREHOUSE`. Snowflake validates the type at apply time.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -19963,7 +20018,7 @@ class GrantOwnershipOnArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+        Specifies the type of object on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `COMPUTE POOL` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATABASE` | `DATABASE ROLE` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXTERNAL TABLE` | `EXTERNAL VOLUME` | `FAILOVER GROUP` | `FILE FORMAT` | `FUNCTION` | `GIT REPOSITORY` | `HYBRID TABLE` | `ICEBERG TABLE` | `IMAGE REPOSITORY` | `INTEGRATION` | `INTERACTIVE TABLE` | `MATERIALIZED VIEW` | `NETWORK POLICY` | `NETWORK RULE` | `PACKAGES POLICY` | `PIPE` | `PROCEDURE` | `MASKING POLICY` | `PASSWORD POLICY` | `PROJECTION POLICY` | `REPLICATION GROUP` | `RESOURCE MONITOR` | `ROLE` | `ROW ACCESS POLICY` | `SCHEMA` | `SESSION POLICY` | `SECRET` | `SEMANTIC VIEW` | `SEQUENCE` | `SNOWFLAKE INTELLIGENCE` | `STAGE` | `STREAM` | `TABLE` | `TAG` | `TASK` | `USER` | `VIEW` | `WAREHOUSE`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type")
 
@@ -19975,7 +20030,7 @@ class GrantOwnershipOnArgs:
 class GrantOwnershipOnAllArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+    Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -19993,7 +20048,7 @@ class GrantOwnershipOnAllArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -20007,7 +20062,7 @@ class GrantOwnershipOnAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20043,7 +20098,7 @@ class GrantOwnershipOnAllArgs:
 class GrantOwnershipOnFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+    Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20061,7 +20116,7 @@ class GrantOwnershipOnFutureArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -20075,7 +20130,7 @@ class GrantOwnershipOnFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+        Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20119,7 +20174,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgsDict(TypedDict):
     """
     object_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
+    The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
     """
 
 @pulumi.input_type
@@ -20131,7 +20186,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
         """
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[_builtins.str] object_type: The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
+        :param pulumi.Input[_builtins.str] object_type: The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
         """
         if inherited is not None:
             pulumi.set(__self__, "inherited", inherited)
@@ -20168,7 +20223,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
+        The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type")
 
@@ -20180,7 +20235,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
 class GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+    The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
     """
 
 @pulumi.input_type
@@ -20188,7 +20243,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs:
     def __init__(__self__, *,
                  object_type_plural: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
 
@@ -20196,7 +20251,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+        The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20362,7 +20417,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict(TypedDict):
     """
     object_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+    The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
     """
 
 @pulumi.input_type
@@ -20378,7 +20433,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -20443,7 +20498,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+        The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type")
 
@@ -20455,7 +20510,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
 class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     in_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -20467,7 +20522,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -20479,7 +20534,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20509,7 +20564,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
 class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     in_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -20521,7 +20576,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -20533,7 +20588,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20563,7 +20618,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
 class GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
+    The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
     """
     in_account: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -20586,7 +20641,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         :param pulumi.Input[_builtins.bool] in_account: If true, the inherited privilege will be granted on all objects of the given type in the account.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database in which the inherited privilege will be granted on all objects of the given type.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
@@ -20603,7 +20658,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
+        The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20756,7 +20811,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict(TypedDict):
     """
     object_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+    The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
     """
 
 @pulumi.input_type
@@ -20772,7 +20827,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
-        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+        :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -20837,7 +20892,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
     @pulumi.getter(name="objectType")
     def object_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+        The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type")
 
@@ -20849,7 +20904,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20867,7 +20922,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -20881,7 +20936,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20917,7 +20972,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20935,7 +20990,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -20949,7 +21004,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20985,7 +21040,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -21003,7 +21058,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -21017,7 +21072,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -40400,6 +40455,1849 @@ class ObjectParameterObjectIdentifierArgs:
     @schema.setter
     def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
+
+
+class OpenflowConnectorDescribeOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    connector_definition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    connector_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_git_commit_hash: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_source_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_version_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_version_git_commit_hash: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_version_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_version_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    last_version_source_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    live_version_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    runtime: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class OpenflowConnectorDescribeOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_git_commit_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_source_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_version_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_version_git_commit_hash: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_version_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 last_version_source_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 live_version_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if connector_definition is not None:
+            pulumi.set(__self__, "connector_definition", connector_definition)
+        if connector_url is not None:
+            pulumi.set(__self__, "connector_url", connector_url)
+        if default_version is not None:
+            pulumi.set(__self__, "default_version", default_version)
+        if default_version_alias is not None:
+            pulumi.set(__self__, "default_version_alias", default_version_alias)
+        if default_version_git_commit_hash is not None:
+            pulumi.set(__self__, "default_version_git_commit_hash", default_version_git_commit_hash)
+        if default_version_location_uri is not None:
+            pulumi.set(__self__, "default_version_location_uri", default_version_location_uri)
+        if default_version_name is not None:
+            pulumi.set(__self__, "default_version_name", default_version_name)
+        if default_version_source_location_uri is not None:
+            pulumi.set(__self__, "default_version_source_location_uri", default_version_source_location_uri)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if last_version_alias is not None:
+            pulumi.set(__self__, "last_version_alias", last_version_alias)
+        if last_version_git_commit_hash is not None:
+            pulumi.set(__self__, "last_version_git_commit_hash", last_version_git_commit_hash)
+        if last_version_location_uri is not None:
+            pulumi.set(__self__, "last_version_location_uri", last_version_location_uri)
+        if last_version_name is not None:
+            pulumi.set(__self__, "last_version_name", last_version_name)
+        if last_version_source_location_uri is not None:
+            pulumi.set(__self__, "last_version_source_location_uri", last_version_source_location_uri)
+        if live_version_location_uri is not None:
+            pulumi.set(__self__, "live_version_location_uri", live_version_location_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorDefinition")
+    def connector_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "connector_definition")
+
+    @connector_definition.setter
+    def connector_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connector_definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorUrl")
+    def connector_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "connector_url")
+
+    @connector_url.setter
+    def connector_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connector_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version")
+
+    @default_version.setter
+    def default_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionAlias")
+    def default_version_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_alias")
+
+    @default_version_alias.setter
+    def default_version_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionGitCommitHash")
+    def default_version_git_commit_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_git_commit_hash")
+
+    @default_version_git_commit_hash.setter
+    def default_version_git_commit_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_git_commit_hash", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionLocationUri")
+    def default_version_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_location_uri")
+
+    @default_version_location_uri.setter
+    def default_version_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionName")
+    def default_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_name")
+
+    @default_version_name.setter
+    def default_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionSourceLocationUri")
+    def default_version_source_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_source_location_uri")
+
+    @default_version_source_location_uri.setter
+    def default_version_source_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_source_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionAlias")
+    def last_version_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_version_alias")
+
+    @last_version_alias.setter
+    def last_version_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_version_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionGitCommitHash")
+    def last_version_git_commit_hash(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_version_git_commit_hash")
+
+    @last_version_git_commit_hash.setter
+    def last_version_git_commit_hash(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_version_git_commit_hash", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionLocationUri")
+    def last_version_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_version_location_uri")
+
+    @last_version_location_uri.setter
+    def last_version_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionName")
+    def last_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_version_name")
+
+    @last_version_name.setter
+    def last_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_version_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lastVersionSourceLocationUri")
+    def last_version_source_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "last_version_source_location_uri")
+
+    @last_version_source_location_uri.setter
+    def last_version_source_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "last_version_source_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="liveVersionLocationUri")
+    def live_version_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "live_version_location_uri")
+
+    @live_version_location_uri.setter
+    def live_version_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "live_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "runtime", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+
+class OpenflowConnectorFromArgsDict(TypedDict):
+    definition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Catalog definition ID for the connector type, for example `OPENFLOW_POSTGRES_CDC`. List the available IDs with the `get_openflow_connector_definitions` data source. A connector created this way is a draft: it settles on STOPPED and stays there until a configuration version is committed, which this resource does not do.
+    """
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Path to the bundle within the stage. The bundle's root is used when omitted.
+    """
+    stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of a stage holding a complete configuration bundle, which is how a connector arrives already configured and able to start without a commit. A git repository stage works here too.
+    """
+
+@pulumi.input_type
+class OpenflowConnectorFromArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] definition: Catalog definition ID for the connector type, for example `OPENFLOW_POSTGRES_CDC`. List the available IDs with the `get_openflow_connector_definitions` data source. A connector created this way is a draft: it settles on STOPPED and stays there until a configuration version is committed, which this resource does not do.
+        :param pulumi.Input[_builtins.str] path: Path to the bundle within the stage. The bundle's root is used when omitted.
+        :param pulumi.Input[_builtins.str] stage: Identifier of a stage holding a complete configuration bundle, which is how a connector arrives already configured and able to start without a commit. A git repository stage works here too.
+        """
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Catalog definition ID for the connector type, for example `OPENFLOW_POSTGRES_CDC`. List the available IDs with the `get_openflow_connector_definitions` data source. A connector created this way is a draft: it settles on STOPPED and stays there until a configuration version is committed, which this resource does not do.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "definition", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Path to the bundle within the stage. The bundle's root is used when omitted.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of a stage holding a complete configuration bundle, which is how a connector arrives already configured and able to start without a commit. A git repository stage works here too.
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "stage", value)
+
+
+class OpenflowConnectorShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    connector_definition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    connector_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_alias: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    default_version_source_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    live_version_location_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    runtime: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class OpenflowConnectorShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_definition: pulumi.Input[Optional[_builtins.str]] = None,
+                 connector_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 default_version_source_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 live_version_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_on: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if connector_definition is not None:
+            pulumi.set(__self__, "connector_definition", connector_definition)
+        if connector_url is not None:
+            pulumi.set(__self__, "connector_url", connector_url)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if default_version is not None:
+            pulumi.set(__self__, "default_version", default_version)
+        if default_version_alias is not None:
+            pulumi.set(__self__, "default_version_alias", default_version_alias)
+        if default_version_location_uri is not None:
+            pulumi.set(__self__, "default_version_location_uri", default_version_location_uri)
+        if default_version_name is not None:
+            pulumi.set(__self__, "default_version_name", default_version_name)
+        if default_version_source_location_uri is not None:
+            pulumi.set(__self__, "default_version_source_location_uri", default_version_source_location_uri)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if live_version_location_uri is not None:
+            pulumi.set(__self__, "live_version_location_uri", live_version_location_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if runtime is not None:
+            pulumi.set(__self__, "runtime", runtime)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorDefinition")
+    def connector_definition(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "connector_definition")
+
+    @connector_definition.setter
+    def connector_definition(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connector_definition", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorUrl")
+    def connector_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "connector_url")
+
+    @connector_url.setter
+    def connector_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connector_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersion")
+    def default_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version")
+
+    @default_version.setter
+    def default_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionAlias")
+    def default_version_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_alias")
+
+    @default_version_alias.setter
+    def default_version_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_alias", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionLocationUri")
+    def default_version_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_location_uri")
+
+    @default_version_location_uri.setter
+    def default_version_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionName")
+    def default_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_name")
+
+    @default_version_name.setter
+    def default_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultVersionSourceLocationUri")
+    def default_version_source_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default_version_source_location_uri")
+
+    @default_version_source_location_uri.setter
+    def default_version_source_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_version_source_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="liveVersionLocationUri")
+    def live_version_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "live_version_location_uri")
+
+    @live_version_location_uri.setter
+    def live_version_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "live_version_location_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "runtime")
+
+    @runtime.setter
+    def runtime(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "runtime", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "updated_on", value)
+
+
+class OpenflowDeploymentByocDescribeOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    custom_ingress_hostname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    use_private_link: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    use_user_auth_over_private_link: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    vpc_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class OpenflowDeploymentByocDescribeOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_ingress_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_private_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_user_auth_over_private_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_type: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if custom_ingress_hostname is not None:
+            pulumi.set(__self__, "custom_ingress_hostname", custom_ingress_hostname)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_private_link is not None:
+            pulumi.set(__self__, "use_private_link", use_private_link)
+        if use_user_auth_over_private_link is not None:
+            pulumi.set(__self__, "use_user_auth_over_private_link", use_user_auth_over_private_link)
+        if vpc_type is not None:
+            pulumi.set(__self__, "vpc_type", vpc_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customIngressHostname")
+    def custom_ingress_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "custom_ingress_hostname")
+
+    @custom_ingress_hostname.setter
+    def custom_ingress_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_ingress_hostname", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivateLink")
+    def use_private_link(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "use_private_link")
+
+    @use_private_link.setter
+    def use_private_link(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_private_link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useUserAuthOverPrivateLink")
+    def use_user_auth_over_private_link(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "use_user_auth_over_private_link")
+
+    @use_user_auth_over_private_link.setter
+    def use_user_auth_over_private_link(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_user_auth_over_private_link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcType")
+    def vpc_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "vpc_type")
+
+    @vpc_type.setter
+    def vpc_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vpc_type", value)
+
+
+class OpenflowDeploymentByocParameterArgsDict(TypedDict):
+    event_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowDeploymentByocParameterEventTableArgsDict']]]]]
+
+@pulumi.input_type
+class OpenflowDeploymentByocParameterArgs:
+    def __init__(__self__, *,
+                 event_tables: pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowDeploymentByocParameterEventTableArgs']]]] = None):
+        if event_tables is not None:
+            pulumi.set(__self__, "event_tables", event_tables)
+
+    @_builtins.property
+    @pulumi.getter(name="eventTables")
+    def event_tables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowDeploymentByocParameterEventTableArgs']]]]:
+        return pulumi.get(self, "event_tables")
+
+    @event_tables.setter
+    def event_tables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowDeploymentByocParameterEventTableArgs']]]]):
+        pulumi.set(self, "event_tables", value)
+
+
+class OpenflowDeploymentByocParameterEventTableArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class OpenflowDeploymentByocParameterEventTableArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class OpenflowDeploymentByocShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    custom_ingress_hostname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    use_private_link: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    use_user_auth_over_private_link: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    vpc_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class OpenflowDeploymentByocShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_ingress_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_private_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_user_auth_over_private_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_type: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if custom_ingress_hostname is not None:
+            pulumi.set(__self__, "custom_ingress_hostname", custom_ingress_hostname)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+        if use_private_link is not None:
+            pulumi.set(__self__, "use_private_link", use_private_link)
+        if use_user_auth_over_private_link is not None:
+            pulumi.set(__self__, "use_user_auth_over_private_link", use_user_auth_over_private_link)
+        if vpc_type is not None:
+            pulumi.set(__self__, "vpc_type", vpc_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customIngressHostname")
+    def custom_ingress_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "custom_ingress_hostname")
+
+    @custom_ingress_hostname.setter
+    def custom_ingress_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_ingress_hostname", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "updated_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivateLink")
+    def use_private_link(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "use_private_link")
+
+    @use_private_link.setter
+    def use_private_link(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_private_link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useUserAuthOverPrivateLink")
+    def use_user_auth_over_private_link(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "use_user_auth_over_private_link")
+
+    @use_user_auth_over_private_link.setter
+    def use_user_auth_over_private_link(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_user_auth_over_private_link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcType")
+    def vpc_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "vpc_type")
+
+    @vpc_type.setter
+    def vpc_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vpc_type", value)
+
+
+class OpenflowDeploymentSnowflakeManagedDescribeOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    custom_ingress_hostname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    use_private_link: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    use_user_auth_over_private_link: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    vpc_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class OpenflowDeploymentSnowflakeManagedDescribeOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_ingress_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_private_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_user_auth_over_private_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_type: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if custom_ingress_hostname is not None:
+            pulumi.set(__self__, "custom_ingress_hostname", custom_ingress_hostname)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if use_private_link is not None:
+            pulumi.set(__self__, "use_private_link", use_private_link)
+        if use_user_auth_over_private_link is not None:
+            pulumi.set(__self__, "use_user_auth_over_private_link", use_user_auth_over_private_link)
+        if vpc_type is not None:
+            pulumi.set(__self__, "vpc_type", vpc_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customIngressHostname")
+    def custom_ingress_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "custom_ingress_hostname")
+
+    @custom_ingress_hostname.setter
+    def custom_ingress_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_ingress_hostname", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivateLink")
+    def use_private_link(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "use_private_link")
+
+    @use_private_link.setter
+    def use_private_link(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_private_link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useUserAuthOverPrivateLink")
+    def use_user_auth_over_private_link(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "use_user_auth_over_private_link")
+
+    @use_user_auth_over_private_link.setter
+    def use_user_auth_over_private_link(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_user_auth_over_private_link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcType")
+    def vpc_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "vpc_type")
+
+    @vpc_type.setter
+    def vpc_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vpc_type", value)
+
+
+class OpenflowDeploymentSnowflakeManagedParameterArgsDict(TypedDict):
+    event_tables: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowDeploymentSnowflakeManagedParameterEventTableArgsDict']]]]]
+
+@pulumi.input_type
+class OpenflowDeploymentSnowflakeManagedParameterArgs:
+    def __init__(__self__, *,
+                 event_tables: pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowDeploymentSnowflakeManagedParameterEventTableArgs']]]] = None):
+        if event_tables is not None:
+            pulumi.set(__self__, "event_tables", event_tables)
+
+    @_builtins.property
+    @pulumi.getter(name="eventTables")
+    def event_tables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowDeploymentSnowflakeManagedParameterEventTableArgs']]]]:
+        return pulumi.get(self, "event_tables")
+
+    @event_tables.setter
+    def event_tables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OpenflowDeploymentSnowflakeManagedParameterEventTableArgs']]]]):
+        pulumi.set(self, "event_tables", value)
+
+
+class OpenflowDeploymentSnowflakeManagedParameterEventTableArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class OpenflowDeploymentSnowflakeManagedParameterEventTableArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class OpenflowDeploymentSnowflakeManagedShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    custom_ingress_hostname: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    use_private_link: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    use_user_auth_over_private_link: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    vpc_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class OpenflowDeploymentSnowflakeManagedShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_ingress_hostname: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_private_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 use_user_auth_over_private_link: pulumi.Input[Optional[_builtins.bool]] = None,
+                 vpc_type: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if custom_ingress_hostname is not None:
+            pulumi.set(__self__, "custom_ingress_hostname", custom_ingress_hostname)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+        if use_private_link is not None:
+            pulumi.set(__self__, "use_private_link", use_private_link)
+        if use_user_auth_over_private_link is not None:
+            pulumi.set(__self__, "use_user_auth_over_private_link", use_user_auth_over_private_link)
+        if vpc_type is not None:
+            pulumi.set(__self__, "vpc_type", vpc_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customIngressHostname")
+    def custom_ingress_hostname(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "custom_ingress_hostname")
+
+    @custom_ingress_hostname.setter
+    def custom_ingress_hostname(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "custom_ingress_hostname", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "updated_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePrivateLink")
+    def use_private_link(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "use_private_link")
+
+    @use_private_link.setter
+    def use_private_link(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_private_link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="useUserAuthOverPrivateLink")
+    def use_user_auth_over_private_link(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "use_user_auth_over_private_link")
+
+    @use_user_auth_over_private_link.setter
+    def use_user_auth_over_private_link(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_user_auth_over_private_link", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcType")
+    def vpc_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "vpc_type")
+
+    @vpc_type.setter
+    def vpc_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vpc_type", value)
+
+
+class OpenflowRuntimeDescribeOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    deployment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    execute_as_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_access_integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    initially_suspended: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    max_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    min_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    node_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    node_type_tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    server_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class OpenflowRuntimeDescribeOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 execute_as_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 initially_suspended: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_type_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if deployment is not None:
+            pulumi.set(__self__, "deployment", deployment)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if execute_as_role is not None:
+            pulumi.set(__self__, "execute_as_role", execute_as_role)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if initially_suspended is not None:
+            pulumi.set(__self__, "initially_suspended", initially_suspended)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if max_nodes is not None:
+            pulumi.set(__self__, "max_nodes", max_nodes)
+        if min_nodes is not None:
+            pulumi.set(__self__, "min_nodes", min_nodes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+        if node_type_tier is not None:
+            pulumi.set(__self__, "node_type_tier", node_type_tier)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if server_url is not None:
+            pulumi.set(__self__, "server_url", server_url)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def deployment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "deployment")
+
+    @deployment.setter
+    def deployment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "deployment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="executeAsRole")
+    def execute_as_role(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "execute_as_role")
+
+    @execute_as_role.setter
+    def execute_as_role(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "execute_as_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @external_access_integrations.setter
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "external_access_integrations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="initiallySuspended")
+    def initially_suspended(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "initially_suspended")
+
+    @initially_suspended.setter
+    def initially_suspended(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "initially_suspended", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxNodes")
+    def max_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "max_nodes")
+
+    @max_nodes.setter
+    def max_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_nodes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minNodes")
+    def min_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "min_nodes")
+
+    @min_nodes.setter
+    def min_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "min_nodes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "node_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeTypeTier")
+    def node_type_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "node_type_tier")
+
+    @node_type_tier.setter
+    def node_type_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "node_type_tier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverUrl")
+    def server_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "server_url")
+
+    @server_url.setter
+    def server_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+
+class OpenflowRuntimeShowOutputArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    created_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    deployment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    execute_as_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    external_access_integrations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    initially_suspended: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    max_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    min_nodes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    node_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    updated_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class OpenflowRuntimeShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: pulumi.Input[Optional[_builtins.str]] = None,
+                 created_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 execute_as_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 initially_suspended: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_nodes: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_on: pulumi.Input[Optional[_builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if deployment is not None:
+            pulumi.set(__self__, "deployment", deployment)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if execute_as_role is not None:
+            pulumi.set(__self__, "execute_as_role", execute_as_role)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if initially_suspended is not None:
+            pulumi.set(__self__, "initially_suspended", initially_suspended)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if max_nodes is not None:
+            pulumi.set(__self__, "max_nodes", max_nodes)
+        if min_nodes is not None:
+            pulumi.set(__self__, "min_nodes", min_nodes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @_builtins.property
+    @pulumi.getter
+    def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def deployment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "deployment")
+
+    @deployment.setter
+    def deployment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "deployment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="executeAsRole")
+    def execute_as_role(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "execute_as_role")
+
+    @execute_as_role.setter
+    def execute_as_role(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "execute_as_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @external_access_integrations.setter
+    def external_access_integrations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "external_access_integrations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="initiallySuspended")
+    def initially_suspended(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "initially_suspended")
+
+    @initially_suspended.setter
+    def initially_suspended(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "initially_suspended", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxNodes")
+    def max_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "max_nodes")
+
+    @max_nodes.setter
+    def max_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_nodes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minNodes")
+    def min_nodes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "min_nodes")
+
+    @min_nodes.setter
+    def min_nodes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "min_nodes", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "node_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "updated_on", value)
 
 
 class PasswordPolicyDescribeOutputArgsDict(TypedDict):
@@ -60274,7 +62172,7 @@ class StageExternalAzureFileFormatCsvArgsDict(TypedDict):
     """
     encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+    Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
     """
     error_on_column_count_mismatch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -60375,7 +62273,7 @@ class StageExternalAzureFileFormatCsvArgs:
         :param pulumi.Input[_builtins.str] compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
         :param pulumi.Input[_builtins.str] date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
         :param pulumi.Input[_builtins.str] empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         :param pulumi.Input[_builtins.str] error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] escape: Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
         :param pulumi.Input[_builtins.str] escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
@@ -60491,7 +62389,7 @@ class StageExternalAzureFileFormatCsvArgs:
     @pulumi.getter
     def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         """
         return pulumi.get(self, "encoding")
 
@@ -63124,7 +65022,7 @@ class StageExternalGcsFileFormatCsvArgsDict(TypedDict):
     """
     encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+    Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
     """
     error_on_column_count_mismatch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -63225,7 +65123,7 @@ class StageExternalGcsFileFormatCsvArgs:
         :param pulumi.Input[_builtins.str] compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
         :param pulumi.Input[_builtins.str] date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
         :param pulumi.Input[_builtins.str] empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         :param pulumi.Input[_builtins.str] error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] escape: Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
         :param pulumi.Input[_builtins.str] escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
@@ -63341,7 +65239,7 @@ class StageExternalGcsFileFormatCsvArgs:
     @pulumi.getter
     def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         """
         return pulumi.get(self, "encoding")
 
@@ -65947,7 +67845,7 @@ class StageExternalS3CompatibleFileFormatCsvArgsDict(TypedDict):
     """
     encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+    Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
     """
     error_on_column_count_mismatch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -66048,7 +67946,7 @@ class StageExternalS3CompatibleFileFormatCsvArgs:
         :param pulumi.Input[_builtins.str] compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
         :param pulumi.Input[_builtins.str] date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
         :param pulumi.Input[_builtins.str] empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         :param pulumi.Input[_builtins.str] error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] escape: Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
         :param pulumi.Input[_builtins.str] escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
@@ -66164,7 +68062,7 @@ class StageExternalS3CompatibleFileFormatCsvArgs:
     @pulumi.getter
     def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         """
         return pulumi.get(self, "encoding")
 
@@ -69042,7 +70940,7 @@ class StageExternalS3FileFormatCsvArgsDict(TypedDict):
     """
     encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+    Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
     """
     error_on_column_count_mismatch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -69143,7 +71041,7 @@ class StageExternalS3FileFormatCsvArgs:
         :param pulumi.Input[_builtins.str] compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
         :param pulumi.Input[_builtins.str] date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
         :param pulumi.Input[_builtins.str] empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         :param pulumi.Input[_builtins.str] error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] escape: Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
         :param pulumi.Input[_builtins.str] escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
@@ -69259,7 +71157,7 @@ class StageExternalS3FileFormatCsvArgs:
     @pulumi.getter
     def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         """
         return pulumi.get(self, "encoding")
 
@@ -71832,7 +73730,7 @@ class StageInternalFileFormatCsvArgsDict(TypedDict):
     """
     encoding: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+    Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
     """
     error_on_column_count_mismatch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -71933,7 +73831,7 @@ class StageInternalFileFormatCsvArgs:
         :param pulumi.Input[_builtins.str] compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
         :param pulumi.Input[_builtins.str] date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
         :param pulumi.Input[_builtins.str] empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         :param pulumi.Input[_builtins.str] error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] escape: Single character string used as the escape character for field values. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
         :param pulumi.Input[_builtins.str] escape_unenclosed_field: Single character string used as the escape character for unenclosed field values only. Use `NONE` to specify no escape character. NOTE: This value may be not imported properly from Snowflake. Snowflake returns escaped values.
@@ -72049,7 +73947,7 @@ class StageInternalFileFormatCsvArgs:
     @pulumi.getter
     def encoding(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+        Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         """
         return pulumi.get(self, "encoding")
 
@@ -93579,6 +95477,123 @@ class GetGrantsInheritedGrantsInArgs:
         pulumi.set(self, "schema", value)
 
 
+class GetHybridTablesInArgsDict(TypedDict):
+    account: NotRequired[_builtins.bool]
+    """
+    Returns records for the entire account.
+    """
+    database: NotRequired[_builtins.str]
+    """
+    Returns records for the current database in use or for a specified database.
+    """
+    schema: NotRequired[_builtins.str]
+    """
+    Returns records for the current schema in use or a specified schema. Use fully qualified name.
+    """
+
+@pulumi.input_type
+class GetHybridTablesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+class GetHybridTablesLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetHybridTablesLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
 class GetIcebergTablesInArgsDict(TypedDict):
     account: NotRequired[_builtins.bool]
     """
@@ -94168,6 +96183,336 @@ class GetNotebooksLimitArgsDict(TypedDict):
 
 @pulumi.input_type
 class GetNotebooksLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+class GetOpenflowConnectorDefinitionsLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetOpenflowConnectorDefinitionsLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+class GetOpenflowConnectorsInArgsDict(TypedDict):
+    account: NotRequired[_builtins.bool]
+    """
+    Returns records for the entire account.
+    """
+    database: NotRequired[_builtins.str]
+    """
+    Returns records for the current database in use or for a specified database.
+    """
+    schema: NotRequired[_builtins.str]
+    """
+    Returns records for the current schema in use or a specified schema. Use fully qualified name.
+    """
+
+@pulumi.input_type
+class GetOpenflowConnectorsInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+class GetOpenflowConnectorsLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetOpenflowConnectorsLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+class GetOpenflowDeploymentsLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetOpenflowDeploymentsLimitArgs:
+    def __init__(__self__, *,
+                 rows: _builtins.int,
+                 from_: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int rows: The maximum number of rows to return.
+        :param _builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @_builtins.property
+    @pulumi.getter
+    def rows(self) -> _builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: _builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[_builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+class GetOpenflowRuntimesInArgsDict(TypedDict):
+    account: NotRequired[_builtins.bool]
+    """
+    Returns records for the entire account.
+    """
+    database: NotRequired[_builtins.str]
+    """
+    Returns records for the current database in use or for a specified database.
+    """
+    schema: NotRequired[_builtins.str]
+    """
+    Returns records for the current schema in use or a specified schema. Use fully qualified name.
+    """
+
+@pulumi.input_type
+class GetOpenflowRuntimesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[_builtins.bool] = None,
+                 database: Optional[_builtins.str] = None,
+                 schema: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool account: Returns records for the entire account.
+        :param _builtins.str database: Returns records for the current database in use or for a specified database.
+        :param _builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> Optional[_builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[_builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def database(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[_builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[_builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+class GetOpenflowRuntimesLimitArgsDict(TypedDict):
+    rows: _builtins.int
+    """
+    The maximum number of rows to return.
+    """
+    from_: NotRequired[_builtins.str]
+    """
+    Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+    """
+
+@pulumi.input_type
+class GetOpenflowRuntimesLimitArgs:
     def __init__(__self__, *,
                  rows: _builtins.int,
                  from_: Optional[_builtins.str] = None):

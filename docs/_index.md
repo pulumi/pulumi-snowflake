@@ -344,7 +344,7 @@ config:
 - `passcodeInPassword` (Boolean) False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
 - `password` (String, Sensitive) Password for user + password or [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 - `port` (Number) Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the `SNOWFLAKE_PORT` environment variable.
-- `previewFeaturesEnabled` (Set of String) A list of preview features that are handled by the provider. See preview features list. Preview features may have breaking changes in future releases, even without raising the major version. This field can not be set with environmental variables. Preview features that can be enabled are: <code>snowflake_account_authentication_policy_attachment_resource</code> | <code>snowflake_account_password_policy_attachment_resource</code> | <code>snowflake_alert_resource</code> | <code>snowflake_alerts_datasource</code> | <code>snowflake_api_integrations_datasource</code> | <code>snowflake_api_integration_resource</code> | <code>snowflake_api_integration_amazon_api_gateway_resource</code> | <code>snowflake_api_integration_azure_api_management_resource</code> | <code>snowflake_api_integration_external_mcp_dynamic_client_resource</code> | <code>snowflake_api_integration_external_mcp_oauth2_resource</code> | <code>snowflake_api_integration_git_repository_github_app_resource</code> | <code>snowflake_api_integration_git_repository_oauth2_resource</code> | <code>snowflake_api_integration_git_repository_private_link_resource</code> | <code>snowflake_api_integration_git_repository_token_resource</code> | <code>snowflake_api_integration_google_cloud_api_gateway_resource</code> | <code>snowflake_cortex_agent_resource</code> | <code>snowflake_cortex_agents_datasource</code> | <code>snowflake_cortex_search_service_resource</code> | <code>snowflake_cortex_search_services_datasource</code> | <code>snowflake_current_account_datasource</code> | <code>snowflake_database_datasource</code> | <code>snowflake_database_role_datasource</code> | <code>snowflake_dynamic_table_resource</code> | <code>snowflake_dynamic_tables_datasource</code> | <code>snowflake_external_access_integration_resource</code> | <code>snowflake_external_access_integrations_datasource</code> | <code>snowflake_external_function_resource</code> | <code>snowflake_external_functions_datasource</code> | <code>snowflake_external_table_resource</code> | <code>snowflake_external_tables_datasource</code> | <code>snowflake_failover_group_resource</code> | <code>snowflake_failover_groups_datasource</code> | <code>snowflake_file_format_resource</code> | <code>snowflake_file_format_avro_resource</code> | <code>snowflake_file_format_csv_resource</code> | <code>snowflake_file_format_json_resource</code> | <code>snowflake_file_format_orc_resource</code> | <code>snowflake_file_format_parquet_resource</code> | <code>snowflake_file_format_xml_resource</code> | <code>snowflake_file_formats_datasource</code> | <code>snowflake_function_java_resource</code> | <code>snowflake_function_javascript_resource</code> | <code>snowflake_function_python_resource</code> | <code>snowflake_function_scala_resource</code> | <code>snowflake_function_sql_resource</code> | <code>snowflake_functions_datasource</code> | <code>snowflake_hybrid_table_resource</code> | <code>snowflake_iceberg_table_resource</code> | <code>snowflake_iceberg_table_from_aws_glue_resource</code> | <code>snowflake_iceberg_table_from_delta_files_resource</code> | <code>snowflake_iceberg_table_from_files_resource</code> | <code>snowflake_iceberg_table_from_rest_resource</code> | <code>snowflake_iceberg_tables_datasource</code> | <code>snowflake_job_service_resource</code> | <code>snowflake_listings_datasource</code> | <code>snowflake_managed_account_resource</code> | <code>snowflake_materialized_view_resource</code> | <code>snowflake_materialized_views_datasource</code> | <code>snowflake_mcp_server_resource</code> | <code>snowflake_mcp_servers_datasource</code> | <code>snowflake_network_policy_attachment_resource</code> | <code>snowflake_notebook_resource</code> | <code>snowflake_notebooks_datasource</code> | <code>snowflake_email_notification_integration_resource</code> | <code>snowflake_notification_integration_resource</code> | <code>snowflake_object_parameter_resource</code> | <code>snowflake_pipe_resource</code> | <code>snowflake_pipes_datasource</code> | <code>snowflake_postgres_instance_resource</code> | <code>snowflake_current_role_datasource</code> | <code>snowflake_semantic_view_resource</code> | <code>snowflake_semantic_views_datasource</code> | <code>snowflake_sequence_resource</code> | <code>snowflake_sequences_datasource</code> | <code>snowflake_share_resource</code> | <code>snowflake_shares_datasource</code> | <code>snowflake_parameters_datasource</code> | <code>snowflake_procedure_java_resource</code> | <code>snowflake_procedure_javascript_resource</code> | <code>snowflake_procedure_python_resource</code> | <code>snowflake_procedure_scala_resource</code> | <code>snowflake_procedure_sql_resource</code> | <code>snowflake_procedures_datasource</code> | <code>snowflake_stage_resource</code> | <code>snowflake_stages_datasource</code> | <code>snowflake_storage_integration_resource</code> | <code>snowflake_storage_lifecycle_policy_resource</code> | <code>snowflake_storage_lifecycle_policies_datasource</code> | <code>snowflake_system_generate_scim_access_token_datasource</code> | <code>snowflake_system_get_aws_sns_iam_policy_datasource</code> | <code>snowflake_system_get_privatelink_config_datasource</code> | <code>snowflake_system_get_snowflake_platform_info_datasource</code> | <code>snowflake_table_column_masking_policy_application_resource</code> | <code>snowflake_table_constraint_resource</code> | <code>snowflake_table_storage_lifecycle_policy_attachment_resource</code> | <code>snowflake_table_resource</code> | <code>snowflake_tables_datasource</code> | <code>snowflake_user_authentication_policy_attachment_resource</code> | <code>snowflake_user_password_policy_attachment_resource</code> | <code>snowflake_user_public_keys_resource</code> | <code>snowflake_warehouse_adaptive_resource</code> | <code>snowflake_warehouse_interactive_resource</code>. Promoted features that are stable and are enabled by default are: <code>snowflake_account_session_policy_attachment_resource</code> | <code>snowflake_authentication_policy_resource</code> | <code>snowflake_authentication_policies_datasource</code> | <code>snowflake_catalog_integration_aws_glue_resource</code> | <code>snowflake_catalog_integration_object_storage_resource</code> | <code>snowflake_catalog_integration_open_catalog_resource</code> | <code>snowflake_catalog_integration_iceberg_rest_resource</code> | <code>snowflake_catalog_integrations_datasource</code> | <code>snowflake_compute_pool_resource</code> | <code>snowflake_compute_pools_datasource</code> | <code>snowflake_current_account_resource</code> | <code>snowflake_current_organization_account_resource</code> | <code>snowflake_stage_external_azure_resource</code> | <code>snowflake_stage_external_gcs_resource</code> | <code>snowflake_stage_external_s3_resource</code> | <code>snowflake_stage_external_s3_compatible_resource</code> | <code>snowflake_external_volume_resource</code> | <code>snowflake_external_volumes_datasource</code> | <code>snowflake_git_repository_resource</code> | <code>snowflake_git_repositories_datasource</code> | <code>snowflake_image_repository_resource</code> | <code>snowflake_image_repositories_datasource</code> | <code>snowflake_stage_internal_resource</code> | <code>snowflake_listing_resource</code> | <code>snowflake_network_rule_resource</code> | <code>snowflake_network_rules_datasource</code> | <code>snowflake_password_policies_datasource</code> | <code>snowflake_password_policy_resource</code> | <code>snowflake_service_resource</code> | <code>snowflake_services_datasource</code> | <code>snowflake_session_policies_datasource</code> | <code>snowflake_session_policy_resource</code> | <code>snowflake_storage_integration_aws_resource</code> | <code>snowflake_storage_integration_azure_resource</code> | <code>snowflake_storage_integration_gcs_resource</code> | <code>snowflake_storage_integrations_datasource</code> | <code>snowflake_user_programmatic_access_token_resource</code> | <code>snowflake_user_programmatic_access_tokens_datasource</code> | <code>snowflake_user_session_policy_attachment_resource</code>. Promoted features can be safely removed from this field. They will be removed in the next major version.
+- `previewFeaturesEnabled` (Set of String) A list of preview features that are handled by the provider. See preview features list. Preview features may have breaking changes in future releases, even without raising the major version. This field can not be set with environmental variables. Preview features that can be enabled are: <code>snowflake_account_password_policy_attachment_resource</code> | <code>snowflake_alert_resource</code> | <code>snowflake_alerts_datasource</code> | <code>snowflake_api_integration_resource</code> | <code>snowflake_cortex_search_service_resource</code> | <code>snowflake_cortex_search_services_datasource</code> | <code>snowflake_current_account_datasource</code> | <code>snowflake_database_datasource</code> | <code>snowflake_database_role_datasource</code> | <code>snowflake_dynamic_table_resource</code> | <code>snowflake_dynamic_tables_datasource</code> | <code>snowflake_external_access_integration_resource</code> | <code>snowflake_external_access_integrations_datasource</code> | <code>snowflake_external_function_resource</code> | <code>snowflake_external_functions_datasource</code> | <code>snowflake_external_table_resource</code> | <code>snowflake_external_tables_datasource</code> | <code>snowflake_failover_group_resource</code> | <code>snowflake_failover_groups_datasource</code> | <code>snowflake_file_format_resource</code> | <code>snowflake_function_java_resource</code> | <code>snowflake_function_javascript_resource</code> | <code>snowflake_function_python_resource</code> | <code>snowflake_function_scala_resource</code> | <code>snowflake_function_sql_resource</code> | <code>snowflake_functions_datasource</code> | <code>snowflake_hybrid_table_resource</code> | <code>snowflake_hybrid_tables_datasource</code> | <code>snowflake_iceberg_table_resource</code> | <code>snowflake_iceberg_table_from_aws_glue_resource</code> | <code>snowflake_iceberg_table_from_delta_files_resource</code> | <code>snowflake_iceberg_table_from_files_resource</code> | <code>snowflake_iceberg_table_from_rest_resource</code> | <code>snowflake_iceberg_tables_datasource</code> | <code>snowflake_job_service_resource</code> | <code>snowflake_managed_account_resource</code> | <code>snowflake_materialized_view_resource</code> | <code>snowflake_materialized_views_datasource</code> | <code>snowflake_network_policy_attachment_resource</code> | <code>snowflake_notebook_resource</code> | <code>snowflake_notebooks_datasource</code> | <code>snowflake_email_notification_integration_resource</code> | <code>snowflake_notification_integration_resource</code> | <code>snowflake_object_parameter_resource</code> | <code>snowflake_openflow_connector_definitions_datasource</code> | <code>snowflake_openflow_connector_resource</code> | <code>snowflake_openflow_connectors_datasource</code> | <code>snowflake_openflow_deployment_byoc_resource</code> | <code>snowflake_openflow_deployment_snowflake_managed_resource</code> | <code>snowflake_openflow_deployments_datasource</code> | <code>snowflake_openflow_runtime_resource</code> | <code>snowflake_openflow_runtimes_datasource</code> | <code>snowflake_pipe_resource</code> | <code>snowflake_pipes_datasource</code> | <code>snowflake_postgres_instance_resource</code> | <code>snowflake_current_role_datasource</code> | <code>snowflake_semantic_view_resource</code> | <code>snowflake_semantic_views_datasource</code> | <code>snowflake_sequence_resource</code> | <code>snowflake_sequences_datasource</code> | <code>snowflake_share_resource</code> | <code>snowflake_shares_datasource</code> | <code>snowflake_parameters_datasource</code> | <code>snowflake_procedure_java_resource</code> | <code>snowflake_procedure_javascript_resource</code> | <code>snowflake_procedure_python_resource</code> | <code>snowflake_procedure_scala_resource</code> | <code>snowflake_procedure_sql_resource</code> | <code>snowflake_procedures_datasource</code> | <code>snowflake_stage_resource</code> | <code>snowflake_stages_datasource</code> | <code>snowflake_storage_integration_resource</code> | <code>snowflake_system_generate_scim_access_token_datasource</code> | <code>snowflake_system_get_aws_sns_iam_policy_datasource</code> | <code>snowflake_system_get_privatelink_config_datasource</code> | <code>snowflake_system_get_snowflake_platform_info_datasource</code> | <code>snowflake_table_column_masking_policy_application_resource</code> | <code>snowflake_table_constraint_resource</code> | <code>snowflake_table_resource</code> | <code>snowflake_tables_datasource</code> | <code>snowflake_user_password_policy_attachment_resource</code> | <code>snowflake_user_public_keys_resource</code> | <code>snowflake_warehouse_interactive_resource</code>. Promoted features that are stable and are enabled by default are: <code>snowflake_account_authentication_policy_attachment_resource</code> | <code>snowflake_account_session_policy_attachment_resource</code> | <code>snowflake_api_integration_amazon_api_gateway_resource</code> | <code>snowflake_api_integration_azure_api_management_resource</code> | <code>snowflake_api_integration_external_mcp_dynamic_client_resource</code> | <code>snowflake_api_integration_external_mcp_oauth2_resource</code> | <code>snowflake_api_integration_git_repository_github_app_resource</code> | <code>snowflake_api_integration_git_repository_oauth2_resource</code> | <code>snowflake_api_integration_git_repository_private_link_resource</code> | <code>snowflake_api_integration_git_repository_token_resource</code> | <code>snowflake_api_integration_google_cloud_api_gateway_resource</code> | <code>snowflake_api_integrations_datasource</code> | <code>snowflake_authentication_policies_datasource</code> | <code>snowflake_authentication_policy_resource</code> | <code>snowflake_catalog_integration_aws_glue_resource</code> | <code>snowflake_catalog_integration_iceberg_rest_resource</code> | <code>snowflake_catalog_integration_object_storage_resource</code> | <code>snowflake_catalog_integration_open_catalog_resource</code> | <code>snowflake_catalog_integrations_datasource</code> | <code>snowflake_compute_pool_resource</code> | <code>snowflake_compute_pools_datasource</code> | <code>snowflake_cortex_agent_resource</code> | <code>snowflake_cortex_agents_datasource</code> | <code>snowflake_current_account_resource</code> | <code>snowflake_current_organization_account_resource</code> | <code>snowflake_stage_external_azure_resource</code> | <code>snowflake_stage_external_gcs_resource</code> | <code>snowflake_stage_external_s3_compatible_resource</code> | <code>snowflake_stage_external_s3_resource</code> | <code>snowflake_external_volume_resource</code> | <code>snowflake_external_volumes_datasource</code> | <code>snowflake_file_format_avro_resource</code> | <code>snowflake_file_format_csv_resource</code> | <code>snowflake_file_format_json_resource</code> | <code>snowflake_file_format_orc_resource</code> | <code>snowflake_file_format_parquet_resource</code> | <code>snowflake_file_format_xml_resource</code> | <code>snowflake_file_formats_datasource</code> | <code>snowflake_git_repositories_datasource</code> | <code>snowflake_git_repository_resource</code> | <code>snowflake_image_repositories_datasource</code> | <code>snowflake_image_repository_resource</code> | <code>snowflake_stage_internal_resource</code> | <code>snowflake_listing_resource</code> | <code>snowflake_listings_datasource</code> | <code>snowflake_mcp_server_resource</code> | <code>snowflake_mcp_servers_datasource</code> | <code>snowflake_network_rule_resource</code> | <code>snowflake_network_rules_datasource</code> | <code>snowflake_password_policies_datasource</code> | <code>snowflake_password_policy_resource</code> | <code>snowflake_service_resource</code> | <code>snowflake_services_datasource</code> | <code>snowflake_session_policies_datasource</code> | <code>snowflake_session_policy_resource</code> | <code>snowflake_storage_integration_aws_resource</code> | <code>snowflake_storage_integration_azure_resource</code> | <code>snowflake_storage_integration_gcs_resource</code> | <code>snowflake_storage_integrations_datasource</code> | <code>snowflake_storage_lifecycle_policies_datasource</code> | <code>snowflake_storage_lifecycle_policy_resource</code> | <code>snowflake_table_storage_lifecycle_policy_attachment_resource</code> | <code>snowflake_user_authentication_policy_attachment_resource</code> | <code>snowflake_user_programmatic_access_token_resource</code> | <code>snowflake_user_programmatic_access_tokens_datasource</code> | <code>snowflake_user_session_policy_attachment_resource</code> | <code>snowflake_warehouse_adaptive_resource</code>. Promoted features can be safely removed from this field. They will be removed in the next major version.
 - `privateKey` (String, Sensitive) Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `\n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
 - `privateKeyPassphrase` (String, Sensitive) Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
 - `profile` (String) Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment variable.
@@ -2043,18 +2043,29 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 ### Currently stable resources
 
 - snowflake.Account
+- snowflake.AccountAuthenticationPolicyAttachment
 - snowflake.AccountParameter
 - snowflake.AccountRole
 - snowflake.AccountSessionPolicyAttachment
 - snowflake.ApiAuthenticationIntegrationWithAuthorizationCodeGrant
 - snowflake.ApiAuthenticationIntegrationWithClientCredentials
 - snowflake.ApiAuthenticationIntegrationWithJwtBearer
+- snowflake.ApiIntegrationAmazonApiGateway
+- snowflake.ApiIntegrationAzureApiManagement
+- snowflake.ApiIntegrationExternalMcpDynamicClient
+- snowflake.ApiIntegrationExternalMcpOauth2
+- snowflake.ApiIntegrationGitRepositoryGithubApp
+- snowflake.ApiIntegrationGitRepositoryOauth2
+- snowflake.ApiIntegrationGitRepositoryPrivateLink
+- snowflake.ApiIntegrationGitRepositoryToken
+- snowflake.ApiIntegrationGoogleCloudApiGateway
 - snowflake.AuthenticationPolicy
 - snowflake.CatalogIntegrationAwsGlue
 - snowflake.CatalogIntegrationIcebergRest
 - snowflake.CatalogIntegrationObjectStorage
 - snowflake.CatalogIntegrationOpenCatalog
 - snowflake.ComputePool
+- snowflake.CortexAgent
 - snowflake.CurrentAccount
 - snowflake.CurrentOrganizationAccount
 - snowflake.Database
@@ -2062,6 +2073,12 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.Execute
 - snowflake.ExternalOauthIntegration
 - snowflake.ExternalVolume
+- snowflake.FileFormatAvro
+- snowflake.FileFormatCsv
+- snowflake.FileFormatJson
+- snowflake.FileFormatOrc
+- snowflake.FileFormatParquet
+- snowflake.FileFormatXml
 - snowflake.GitRepository
 - snowflake.GrantAccountRole
 - snowflake.GrantApplicationRole
@@ -2074,6 +2091,7 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.LegacyServiceUser
 - snowflake.Listing
 - snowflake.MaskingPolicy
+- snowflake.McpServer
 - snowflake.NetworkPolicy
 - snowflake.NetworkRule
 - snowflake.OauthIntegrationForCustomClients
@@ -2103,36 +2121,45 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.StorageIntegrationAws
 - snowflake.StorageIntegrationAzure
 - snowflake.StorageIntegrationGcs
+- snowflake.StorageLifecyclePolicy
 - snowflake.StreamOnDirectoryTable
 - snowflake.StreamOnExternalTable
 - snowflake.StreamOnTable
 - snowflake.StreamOnView
 - snowflake.Streamlit
+- snowflake.TableStorageLifecyclePolicyAttachment
 - snowflake.Tag
 - snowflake.TagAssociation
 - snowflake.Task
 - snowflake.User
+- snowflake.UserAuthenticationPolicyAttachment
 - snowflake.UserProgrammaticAccessToken
 - snowflake.UserSessionPolicyAttachment
 - snowflake.View
 - snowflake.Warehouse
+- snowflake.WarehouseAdaptive
 
 <!-- Section of stable functions -->
 ### Currently stable functions
 
 - snowflake.getAccountRoles
 - snowflake.getAccounts
+- snowflake.getApiIntegrations
 - snowflake.getAuthenticationPolicies
 - snowflake.getCatalogIntegrations
 - snowflake.getComputePools
 - snowflake.getConnections
+- snowflake.getCortexAgents
 - snowflake.getDatabaseRoles
 - snowflake.getDatabases
 - snowflake.getExternalVolumes
+- snowflake.getFileFormats
 - snowflake.getGitRepositories
 - snowflake.getGrants
 - snowflake.getImageRepositories
+- snowflake.getListings
 - snowflake.getMaskingPolicies
+- snowflake.getMcpServers
 - snowflake.getNetworkPolicies
 - snowflake.getNetworkRules
 - snowflake.getPasswordPolicies
@@ -2144,6 +2171,7 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.getServices
 - snowflake.getSessionPolicies
 - snowflake.getStorageIntegrations
+- snowflake.getStorageLifecyclePolicies
 - snowflake.getStreamlits
 - snowflake.getStreams
 - snowflake.getTags
@@ -2156,20 +2184,9 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 <!-- Section of preview resources -->
 ### Currently preview resources
 
-- snowflake.AccountAuthenticationPolicyAttachment
 - snowflake.AccountPasswordPolicyAttachment
 - snowflake.Alert
 - snowflake.ApiIntegration
-- snowflake.ApiIntegrationAmazonApiGateway
-- snowflake.ApiIntegrationAzureApiManagement
-- snowflake.ApiIntegrationExternalMcpDynamicClient
-- snowflake.ApiIntegrationExternalMcpOauth2
-- snowflake.ApiIntegrationGitRepositoryGithubApp
-- snowflake.ApiIntegrationGitRepositoryOauth2
-- snowflake.ApiIntegrationGitRepositoryPrivateLink
-- snowflake.ApiIntegrationGitRepositoryToken
-- snowflake.ApiIntegrationGoogleCloudApiGateway
-- snowflake.CortexAgent
 - snowflake.CortexSearchService
 - snowflake.DynamicTable
 - snowflake.EmailNotificationIntegration
@@ -2178,12 +2195,6 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.ExternalTable
 - snowflake.FailoverGroup
 - snowflake.FileFormat
-- snowflake.FileFormatAvro
-- snowflake.FileFormatCsv
-- snowflake.FileFormatJson
-- snowflake.FileFormatOrc
-- snowflake.FileFormatParquet
-- snowflake.FileFormatXml
 - snowflake.FunctionJava
 - snowflake.FunctionJavascript
 - snowflake.FunctionPython
@@ -2198,11 +2209,14 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.JobService
 - snowflake.ManagedAccount
 - snowflake.MaterializedView
-- snowflake.McpServer
 - snowflake.NetworkPolicyAttachment
 - snowflake.Notebook
 - snowflake.NotificationIntegration
 - snowflake.ObjectParameter
+- snowflake.OpenflowConnector
+- snowflake.OpenflowDeploymentByoc
+- snowflake.OpenflowDeploymentSnowflakeManaged
+- snowflake.OpenflowRuntime
 - snowflake.Pipe
 - snowflake.PostgresInstance
 - snowflake.ProcedureJava
@@ -2215,23 +2229,17 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.Share
 - snowflake.Stage
 - snowflake.StorageIntegration
-- snowflake.StorageLifecyclePolicy
 - snowflake.Table
 - snowflake.TableColumnMaskingPolicyApplication
 - snowflake.TableConstraint
-- snowflake.TableStorageLifecyclePolicyAttachment
-- snowflake.UserAuthenticationPolicyAttachment
 - snowflake.UserPasswordPolicyAttachment
 - snowflake.UserPublicKeys
-- snowflake.WarehouseAdaptive
 - snowflake.WarehouseInteractive
 
 <!-- Section of preview functions -->
 ### Currently preview functions
 
 - snowflake.getAlerts
-- snowflake.getApiIntegrations
-- snowflake.getCortexAgents
 - snowflake.getCortexSearchServices
 - snowflake.CurrentAccount
 - snowflake.getCurrentRole
@@ -2242,13 +2250,15 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.getExternalFunctions
 - snowflake.getExternalTables
 - snowflake.getFailoverGroups
-- snowflake.getFileFormats
 - snowflake.getFunctions
+- snowflake.getHybridTables
 - snowflake.getIcebergTables
-- snowflake.getListings
 - snowflake.getMaterializedViews
-- snowflake.getMcpServers
 - snowflake.getNotebooks
+- snowflake.getOpenflowConnectorDefinitions
+- snowflake.getOpenflowConnectors
+- snowflake.getOpenflowDeployments
+- snowflake.getOpenflowRuntimes
 - snowflake.getParameters
 - snowflake.getPipes
 - snowflake.getProcedures
@@ -2256,7 +2266,6 @@ To use them, add the relevant feature name to the `previewFeaturesEnabled` field
 - snowflake.getSequences
 - snowflake.getShares
 - snowflake.getStages
-- snowflake.getStorageLifecyclePolicies
 - snowflake.getSystemGenerateScimAccessToken
 - snowflake.getSystemGetAwsSnsIamPolicy
 - snowflake.getSystemGetPrivateLinkConfig

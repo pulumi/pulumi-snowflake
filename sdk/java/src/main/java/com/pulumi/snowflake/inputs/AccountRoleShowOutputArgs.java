@@ -66,6 +66,13 @@ public final class AccountRoleShowOutputArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.isDefault);
     }
 
+    @Import(name="isFromOrganizationUserGroup")
+    private @Nullable Output<Boolean> isFromOrganizationUserGroup;
+
+    public Optional<Output<Boolean>> isFromOrganizationUserGroup() {
+        return Optional.ofNullable(this.isFromOrganizationUserGroup);
+    }
+
     @Import(name="isInherited")
     private @Nullable Output<Boolean> isInherited;
 
@@ -97,6 +104,7 @@ public final class AccountRoleShowOutputArgs extends com.pulumi.resources.Resour
         this.grantedToRoles = $.grantedToRoles;
         this.isCurrent = $.isCurrent;
         this.isDefault = $.isDefault;
+        this.isFromOrganizationUserGroup = $.isFromOrganizationUserGroup;
         this.isInherited = $.isInherited;
         this.name = $.name;
         this.owner = $.owner;
@@ -181,6 +189,15 @@ public final class AccountRoleShowOutputArgs extends com.pulumi.resources.Resour
 
         public Builder isDefault(Boolean isDefault) {
             return isDefault(Output.of(isDefault));
+        }
+
+        public Builder isFromOrganizationUserGroup(@Nullable Output<Boolean> isFromOrganizationUserGroup) {
+            $.isFromOrganizationUserGroup = isFromOrganizationUserGroup;
+            return this;
+        }
+
+        public Builder isFromOrganizationUserGroup(Boolean isFromOrganizationUserGroup) {
+            return isFromOrganizationUserGroup(Output.of(isFromOrganizationUserGroup));
         }
 
         public Builder isInherited(@Nullable Output<Boolean> isInherited) {

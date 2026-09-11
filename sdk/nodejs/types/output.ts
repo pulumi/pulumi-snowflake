@@ -13,6 +13,7 @@ export interface AccountRoleShowOutput {
     grantedToRoles: number;
     isCurrent: boolean;
     isDefault: boolean;
+    isFromOrganizationUserGroup: boolean;
     isInherited: boolean;
     name: string;
     owner: string;
@@ -2130,6 +2131,7 @@ export interface GetAccountRolesAccountRoleShowOutput {
     grantedToRoles: number;
     isCurrent: boolean;
     isDefault: boolean;
+    isFromOrganizationUserGroup: boolean;
     isInherited: boolean;
     name: string;
     owner: string;
@@ -3426,6 +3428,128 @@ export interface GetGrantsInheritedGrantsIn {
     schema?: string;
 }
 
+export interface GetHybridTablesHybridTable {
+    /**
+     * Holds the output of DESCRIBE TABLE.
+     */
+    describeOutputs: outputs.GetHybridTablesHybridTableDescribeOutput[];
+    /**
+     * Holds the output of SHOW PARAMETERS FOR TABLE.
+     */
+    parameters: outputs.GetHybridTablesHybridTableParameter[];
+    /**
+     * Holds the output of SHOW INDEXES.
+     */
+    showIndexes: outputs.GetHybridTablesHybridTableShowIndex[];
+    /**
+     * Holds the result of `SHOW PRIMARY KEYS`, `SHOW UNIQUE KEYS`, and `SHOW IMPORTED KEYS` for the given hybrid table, merged and grouped by constraint name and ordered by kind, then by column names. The `referencedTable`, `referencedColumns`, `deleteRule`, and `updateRule` fields are populated for FOREIGN KEY constraints only.
+     */
+    showKeysOutputs: outputs.GetHybridTablesHybridTableShowKeysOutput[];
+    /**
+     * Holds the output of SHOW HYBRID TABLES.
+     */
+    showOutputs: outputs.GetHybridTablesHybridTableShowOutput[];
+}
+
+export interface GetHybridTablesHybridTableDescribeOutput {
+    check: string;
+    collation: string;
+    comment: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    kind: string;
+    name: string;
+    policyName: string;
+    primaryKey: boolean;
+    privacyDomain: string;
+    schemaEvolutionRecord: string;
+    type: string;
+    uniqueKey: boolean;
+}
+
+export interface GetHybridTablesHybridTableParameter {
+    dataRetentionTimeInDays: outputs.GetHybridTablesHybridTableParameterDataRetentionTimeInDay[];
+    maxDataExtensionTimeInDays: outputs.GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay[];
+}
+
+export interface GetHybridTablesHybridTableParameterDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetHybridTablesHybridTableShowIndex {
+    columns: string;
+    createdOn: string;
+    databaseName: string;
+    includedColumns: string;
+    isUnique: boolean;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+    tableName: string;
+}
+
+export interface GetHybridTablesHybridTableShowKeysOutput {
+    columns: string[];
+    deleteRule: string;
+    kind: string;
+    name: string;
+    referencedColumns: string[];
+    referencedTable: string;
+    updateRule: string;
+}
+
+export interface GetHybridTablesHybridTableShowOutput {
+    bytes: number;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    rows: number;
+    schemaName: string;
+}
+
+export interface GetHybridTablesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetHybridTablesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetIcebergTablesIcebergTable {
     /**
      * Holds the output of DESCRIBE ICEBERG TABLE.
@@ -4054,6 +4178,259 @@ export interface GetNotebooksNotebookShowOutput {
     queryWarehouse: string;
     schemaName: string;
     urlId: string;
+}
+
+export interface GetOpenflowConnectorDefinitionsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetOpenflowConnectorDefinitionsOpenflowConnectorDefinition {
+    /**
+     * Holds the output of SHOW OPENFLOW CONNECTOR DEFINITIONS.
+     */
+    showOutputs: outputs.GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput[];
+}
+
+export interface GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput {
+    categories: string[];
+    description: string;
+    displayName: string;
+    maxNodeCount: number;
+    minRuntimeNodeType: string;
+    name: string;
+    provider: string;
+    version: string;
+}
+
+export interface GetOpenflowConnectorsIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetOpenflowConnectorsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetOpenflowConnectorsOpenflowConnector {
+    /**
+     * Holds the output of DESCRIBE OPENFLOW CONNECTOR.
+     */
+    describeOutputs: outputs.GetOpenflowConnectorsOpenflowConnectorDescribeOutput[];
+    /**
+     * Holds the output of SHOW OPENFLOW CONNECTORS.
+     */
+    showOutputs: outputs.GetOpenflowConnectorsOpenflowConnectorShowOutput[];
+}
+
+export interface GetOpenflowConnectorsOpenflowConnectorDescribeOutput {
+    comment: string;
+    connectorDefinition: string;
+    connectorUrl: string;
+    defaultVersion: string;
+    defaultVersionAlias: string;
+    defaultVersionGitCommitHash: string;
+    defaultVersionLocationUri: string;
+    defaultVersionName: string;
+    defaultVersionSourceLocationUri: string;
+    displayName: string;
+    lastVersionAlias: string;
+    lastVersionGitCommitHash: string;
+    lastVersionLocationUri: string;
+    lastVersionName: string;
+    lastVersionSourceLocationUri: string;
+    liveVersionLocationUri: string;
+    name: string;
+    owner: string;
+    runtime: string;
+    status: string;
+}
+
+export interface GetOpenflowConnectorsOpenflowConnectorShowOutput {
+    comment: string;
+    connectorDefinition: string;
+    connectorUrl: string;
+    createdOn: string;
+    databaseName: string;
+    defaultVersion: string;
+    defaultVersionAlias: string;
+    defaultVersionLocationUri: string;
+    defaultVersionName: string;
+    defaultVersionSourceLocationUri: string;
+    displayName: string;
+    liveVersionLocationUri: string;
+    name: string;
+    owner: string;
+    runtime: string;
+    schemaName: string;
+    status: string;
+    updatedOn: string;
+}
+
+export interface GetOpenflowDeploymentsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetOpenflowDeploymentsOpenflowDeployment {
+    /**
+     * Holds the output of DESCRIBE OPENFLOW DEPLOYMENT.
+     */
+    describeOutputs: outputs.GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput[];
+    /**
+     * Holds the output of SHOW PARAMETERS IN OPENFLOW DEPLOYMENT.
+     */
+    parameters: outputs.GetOpenflowDeploymentsOpenflowDeploymentParameter[];
+    /**
+     * Holds the output of SHOW OPENFLOW DEPLOYMENTS.
+     */
+    showOutputs: outputs.GetOpenflowDeploymentsOpenflowDeploymentShowOutput[];
+}
+
+export interface GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput {
+    comment: string;
+    customIngressHostname: string;
+    displayName: string;
+    key: string;
+    name: string;
+    owner: string;
+    status: string;
+    type: string;
+    usePrivateLink: boolean;
+    useUserAuthOverPrivateLink: boolean;
+    vpcType: string;
+}
+
+export interface GetOpenflowDeploymentsOpenflowDeploymentParameter {
+    eventTables: outputs.GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable[];
+}
+
+export interface GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetOpenflowDeploymentsOpenflowDeploymentShowOutput {
+    comment: string;
+    createdOn: string;
+    customIngressHostname: string;
+    displayName: string;
+    key: string;
+    name: string;
+    owner: string;
+    status: string;
+    type: string;
+    updatedOn: string;
+    usePrivateLink: boolean;
+    useUserAuthOverPrivateLink: boolean;
+    vpcType: string;
+}
+
+export interface GetOpenflowRuntimesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetOpenflowRuntimesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetOpenflowRuntimesOpenflowRuntime {
+    /**
+     * Holds the output of DESCRIBE OPENFLOW RUNTIME.
+     */
+    describeOutputs: outputs.GetOpenflowRuntimesOpenflowRuntimeDescribeOutput[];
+    /**
+     * Holds the output of SHOW OPENFLOW RUNTIMES.
+     */
+    showOutputs: outputs.GetOpenflowRuntimesOpenflowRuntimeShowOutput[];
+}
+
+export interface GetOpenflowRuntimesOpenflowRuntimeDescribeOutput {
+    comment: string;
+    deployment: string;
+    displayName: string;
+    executeAsRole: string;
+    externalAccessIntegrations: string[];
+    initiallySuspended: boolean;
+    key: string;
+    maxNodes: number;
+    minNodes: number;
+    name: string;
+    nodeType: string;
+    nodeTypeTier: string;
+    owner: string;
+    serverUrl: string;
+    status: string;
+}
+
+export interface GetOpenflowRuntimesOpenflowRuntimeShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    deployment: string;
+    displayName: string;
+    executeAsRole: string;
+    externalAccessIntegrations: string[];
+    initiallySuspended: boolean;
+    key: string;
+    maxNodes: number;
+    minNodes: number;
+    name: string;
+    nodeType: string;
+    owner: string;
+    schemaName: string;
+    status: string;
+    updatedOn: string;
 }
 
 export interface GetParametersParameter {
@@ -7292,7 +7669,7 @@ export interface GrantOwnershipOn {
      */
     objectName?: string;
     /**
-     * Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+     * Specifies the type of object on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `COMPUTE POOL` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATABASE` | `DATABASE ROLE` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXTERNAL TABLE` | `EXTERNAL VOLUME` | `FAILOVER GROUP` | `FILE FORMAT` | `FUNCTION` | `GIT REPOSITORY` | `HYBRID TABLE` | `ICEBERG TABLE` | `IMAGE REPOSITORY` | `INTEGRATION` | `INTERACTIVE TABLE` | `MATERIALIZED VIEW` | `NETWORK POLICY` | `NETWORK RULE` | `PACKAGES POLICY` | `PIPE` | `PROCEDURE` | `MASKING POLICY` | `PASSWORD POLICY` | `PROJECTION POLICY` | `REPLICATION GROUP` | `RESOURCE MONITOR` | `ROLE` | `ROW ACCESS POLICY` | `SCHEMA` | `SESSION POLICY` | `SECRET` | `SEMANTIC VIEW` | `SEQUENCE` | `SNOWFLAKE INTELLIGENCE` | `STAGE` | `STREAM` | `TABLE` | `TAG` | `TASK` | `USER` | `VIEW` | `WAREHOUSE`. Snowflake validates the type at apply time.
      */
     objectType?: string;
 }
@@ -7307,7 +7684,7 @@ export interface GrantOwnershipOnAll {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
      */
     objectTypePlural: string;
 }
@@ -7322,7 +7699,7 @@ export interface GrantOwnershipOnFuture {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+     * Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
      */
     objectTypePlural: string;
 }
@@ -7337,14 +7714,14 @@ export interface GrantPrivilegesToAccountRoleOnAccountObject {
      */
     objectName?: string;
     /**
-     * The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
+     * The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
      */
     objectType?: string;
 }
 
 export interface GrantPrivilegesToAccountRoleOnAccountObjectInherited {
     /**
-     * The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+     * The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
      */
     objectTypePlural: string;
 }
@@ -7397,7 +7774,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
      */
     objectType?: string;
 }
@@ -7406,7 +7783,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
      */
     objectTypePlural: string;
 }
@@ -7415,7 +7792,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
      */
     objectTypePlural: string;
 }
@@ -7434,7 +7811,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectInherited {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
+     * The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
      */
     objectTypePlural: string;
 }
@@ -7476,7 +7853,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     objectName?: string;
     /**
-     * The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+     * The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
      */
     objectType?: string;
 }
@@ -7491,7 +7868,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
      */
     objectTypePlural: string;
 }
@@ -7506,7 +7883,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
      */
     objectTypePlural: string;
 }
@@ -7521,7 +7898,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
      */
     objectTypePlural: string;
 }
@@ -9828,6 +10205,187 @@ export interface ObjectParameterObjectIdentifier {
      * Name of the schema that the object was created in.
      */
     schema?: string;
+}
+
+export interface OpenflowConnectorDescribeOutput {
+    comment: string;
+    connectorDefinition: string;
+    connectorUrl: string;
+    defaultVersion: string;
+    defaultVersionAlias: string;
+    defaultVersionGitCommitHash: string;
+    defaultVersionLocationUri: string;
+    defaultVersionName: string;
+    defaultVersionSourceLocationUri: string;
+    displayName: string;
+    lastVersionAlias: string;
+    lastVersionGitCommitHash: string;
+    lastVersionLocationUri: string;
+    lastVersionName: string;
+    lastVersionSourceLocationUri: string;
+    liveVersionLocationUri: string;
+    name: string;
+    owner: string;
+    runtime: string;
+    status: string;
+}
+
+export interface OpenflowConnectorFrom {
+    /**
+     * Catalog definition ID for the connector type, for example `OPENFLOW_POSTGRES_CDC`. List the available IDs with the `snowflake.getOpenflowConnectorDefinitions` data source. A connector created this way is a draft: it settles on STOPPED and stays there until a configuration version is committed, which this resource does not do.
+     */
+    definition?: string;
+    /**
+     * Path to the bundle within the stage. The bundle's root is used when omitted.
+     */
+    path?: string;
+    /**
+     * Identifier of a stage holding a complete configuration bundle, which is how a connector arrives already configured and able to start without a commit. A git repository stage works here too.
+     */
+    stage?: string;
+}
+
+export interface OpenflowConnectorShowOutput {
+    comment: string;
+    connectorDefinition: string;
+    connectorUrl: string;
+    createdOn: string;
+    databaseName: string;
+    defaultVersion: string;
+    defaultVersionAlias: string;
+    defaultVersionLocationUri: string;
+    defaultVersionName: string;
+    defaultVersionSourceLocationUri: string;
+    displayName: string;
+    liveVersionLocationUri: string;
+    name: string;
+    owner: string;
+    runtime: string;
+    schemaName: string;
+    status: string;
+    updatedOn: string;
+}
+
+export interface OpenflowDeploymentByocDescribeOutput {
+    comment: string;
+    customIngressHostname: string;
+    displayName: string;
+    key: string;
+    name: string;
+    owner: string;
+    status: string;
+    type: string;
+    usePrivateLink: boolean;
+    useUserAuthOverPrivateLink: boolean;
+    vpcType: string;
+}
+
+export interface OpenflowDeploymentByocParameter {
+    eventTables: outputs.OpenflowDeploymentByocParameterEventTable[];
+}
+
+export interface OpenflowDeploymentByocParameterEventTable {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface OpenflowDeploymentByocShowOutput {
+    comment: string;
+    createdOn: string;
+    customIngressHostname: string;
+    displayName: string;
+    key: string;
+    name: string;
+    owner: string;
+    status: string;
+    type: string;
+    updatedOn: string;
+    usePrivateLink: boolean;
+    useUserAuthOverPrivateLink: boolean;
+    vpcType: string;
+}
+
+export interface OpenflowDeploymentSnowflakeManagedDescribeOutput {
+    comment: string;
+    customIngressHostname: string;
+    displayName: string;
+    key: string;
+    name: string;
+    owner: string;
+    status: string;
+    type: string;
+    usePrivateLink: boolean;
+    useUserAuthOverPrivateLink: boolean;
+    vpcType: string;
+}
+
+export interface OpenflowDeploymentSnowflakeManagedParameter {
+    eventTables: outputs.OpenflowDeploymentSnowflakeManagedParameterEventTable[];
+}
+
+export interface OpenflowDeploymentSnowflakeManagedParameterEventTable {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface OpenflowDeploymentSnowflakeManagedShowOutput {
+    comment: string;
+    createdOn: string;
+    customIngressHostname: string;
+    displayName: string;
+    key: string;
+    name: string;
+    owner: string;
+    status: string;
+    type: string;
+    updatedOn: string;
+    usePrivateLink: boolean;
+    useUserAuthOverPrivateLink: boolean;
+    vpcType: string;
+}
+
+export interface OpenflowRuntimeDescribeOutput {
+    comment: string;
+    deployment: string;
+    displayName: string;
+    executeAsRole: string;
+    externalAccessIntegrations: string[];
+    initiallySuspended: boolean;
+    key: string;
+    maxNodes: number;
+    minNodes: number;
+    name: string;
+    nodeType: string;
+    nodeTypeTier: string;
+    owner: string;
+    serverUrl: string;
+    status: string;
+}
+
+export interface OpenflowRuntimeShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    deployment: string;
+    displayName: string;
+    executeAsRole: string;
+    externalAccessIntegrations: string[];
+    initiallySuspended: boolean;
+    key: string;
+    maxNodes: number;
+    minNodes: number;
+    name: string;
+    nodeType: string;
+    owner: string;
+    schemaName: string;
+    status: string;
+    updatedOn: string;
 }
 
 export interface PasswordPolicyDescribeOutput {
@@ -12192,7 +12750,7 @@ export interface StageExternalAzureFileFormatCsv {
      */
     emptyFieldAsNull?: string;
     /**
-     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
      */
     encoding?: string;
     /**
@@ -12641,7 +13199,7 @@ export interface StageExternalGcsFileFormatCsv {
      */
     emptyFieldAsNull?: string;
     /**
-     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
      */
     encoding?: string;
     /**
@@ -13081,7 +13639,7 @@ export interface StageExternalS3CompatibleFileFormatCsv {
      */
     emptyFieldAsNull?: string;
     /**
-     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
      */
     encoding?: string;
     /**
@@ -13578,7 +14136,7 @@ export interface StageExternalS3FileFormatCsv {
      */
     emptyFieldAsNull?: string;
     /**
-     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
      */
     encoding?: string;
     /**
@@ -14015,7 +14573,7 @@ export interface StageInternalFileFormatCsv {
      */
     emptyFieldAsNull?: string;
     /**
-     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`.
+     * Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
      */
     encoding?: string;
     /**

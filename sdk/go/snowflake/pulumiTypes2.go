@@ -13,6 +13,1542 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetDatabasesDatabaseParameterExternalVolume struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterExternalVolumeInput is an input type that accepts GetDatabasesDatabaseParameterExternalVolumeArgs and GetDatabasesDatabaseParameterExternalVolumeOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterExternalVolumeInput` via:
+//
+//	GetDatabasesDatabaseParameterExternalVolumeArgs{...}
+type GetDatabasesDatabaseParameterExternalVolumeInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterExternalVolumeOutput() GetDatabasesDatabaseParameterExternalVolumeOutput
+	ToGetDatabasesDatabaseParameterExternalVolumeOutputWithContext(context.Context) GetDatabasesDatabaseParameterExternalVolumeOutput
+}
+
+type GetDatabasesDatabaseParameterExternalVolumeArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterExternalVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterExternalVolume)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterExternalVolumeArgs) ToGetDatabasesDatabaseParameterExternalVolumeOutput() GetDatabasesDatabaseParameterExternalVolumeOutput {
+	return i.ToGetDatabasesDatabaseParameterExternalVolumeOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterExternalVolumeArgs) ToGetDatabasesDatabaseParameterExternalVolumeOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterExternalVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterExternalVolumeOutput)
+}
+
+// GetDatabasesDatabaseParameterExternalVolumeArrayInput is an input type that accepts GetDatabasesDatabaseParameterExternalVolumeArray and GetDatabasesDatabaseParameterExternalVolumeArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterExternalVolumeArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterExternalVolumeArray{ GetDatabasesDatabaseParameterExternalVolumeArgs{...} }
+type GetDatabasesDatabaseParameterExternalVolumeArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterExternalVolumeArrayOutput() GetDatabasesDatabaseParameterExternalVolumeArrayOutput
+	ToGetDatabasesDatabaseParameterExternalVolumeArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterExternalVolumeArrayOutput
+}
+
+type GetDatabasesDatabaseParameterExternalVolumeArray []GetDatabasesDatabaseParameterExternalVolumeInput
+
+func (GetDatabasesDatabaseParameterExternalVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterExternalVolume)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterExternalVolumeArray) ToGetDatabasesDatabaseParameterExternalVolumeArrayOutput() GetDatabasesDatabaseParameterExternalVolumeArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterExternalVolumeArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterExternalVolumeArray) ToGetDatabasesDatabaseParameterExternalVolumeArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterExternalVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterExternalVolumeArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterExternalVolumeOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterExternalVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterExternalVolume)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterExternalVolumeOutput) ToGetDatabasesDatabaseParameterExternalVolumeOutput() GetDatabasesDatabaseParameterExternalVolumeOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterExternalVolumeOutput) ToGetDatabasesDatabaseParameterExternalVolumeOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterExternalVolumeOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterExternalVolumeOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterExternalVolume) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterExternalVolumeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterExternalVolume) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterExternalVolumeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterExternalVolume) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterExternalVolumeOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterExternalVolume) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterExternalVolumeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterExternalVolume) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterExternalVolumeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterExternalVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterExternalVolume)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterExternalVolumeArrayOutput) ToGetDatabasesDatabaseParameterExternalVolumeArrayOutput() GetDatabasesDatabaseParameterExternalVolumeArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterExternalVolumeArrayOutput) ToGetDatabasesDatabaseParameterExternalVolumeArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterExternalVolumeArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterExternalVolumeArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterExternalVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterExternalVolume {
+		return vs[0].([]GetDatabasesDatabaseParameterExternalVolume)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterExternalVolumeOutput)
+}
+
+type GetDatabasesDatabaseParameterLogEventLevel struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterLogEventLevelInput is an input type that accepts GetDatabasesDatabaseParameterLogEventLevelArgs and GetDatabasesDatabaseParameterLogEventLevelOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterLogEventLevelInput` via:
+//
+//	GetDatabasesDatabaseParameterLogEventLevelArgs{...}
+type GetDatabasesDatabaseParameterLogEventLevelInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterLogEventLevelOutput() GetDatabasesDatabaseParameterLogEventLevelOutput
+	ToGetDatabasesDatabaseParameterLogEventLevelOutputWithContext(context.Context) GetDatabasesDatabaseParameterLogEventLevelOutput
+}
+
+type GetDatabasesDatabaseParameterLogEventLevelArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterLogEventLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterLogEventLevel)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterLogEventLevelArgs) ToGetDatabasesDatabaseParameterLogEventLevelOutput() GetDatabasesDatabaseParameterLogEventLevelOutput {
+	return i.ToGetDatabasesDatabaseParameterLogEventLevelOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterLogEventLevelArgs) ToGetDatabasesDatabaseParameterLogEventLevelOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterLogEventLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterLogEventLevelOutput)
+}
+
+// GetDatabasesDatabaseParameterLogEventLevelArrayInput is an input type that accepts GetDatabasesDatabaseParameterLogEventLevelArray and GetDatabasesDatabaseParameterLogEventLevelArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterLogEventLevelArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterLogEventLevelArray{ GetDatabasesDatabaseParameterLogEventLevelArgs{...} }
+type GetDatabasesDatabaseParameterLogEventLevelArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterLogEventLevelArrayOutput() GetDatabasesDatabaseParameterLogEventLevelArrayOutput
+	ToGetDatabasesDatabaseParameterLogEventLevelArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterLogEventLevelArrayOutput
+}
+
+type GetDatabasesDatabaseParameterLogEventLevelArray []GetDatabasesDatabaseParameterLogEventLevelInput
+
+func (GetDatabasesDatabaseParameterLogEventLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterLogEventLevel)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterLogEventLevelArray) ToGetDatabasesDatabaseParameterLogEventLevelArrayOutput() GetDatabasesDatabaseParameterLogEventLevelArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterLogEventLevelArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterLogEventLevelArray) ToGetDatabasesDatabaseParameterLogEventLevelArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterLogEventLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterLogEventLevelArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterLogEventLevelOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterLogEventLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterLogEventLevel)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterLogEventLevelOutput) ToGetDatabasesDatabaseParameterLogEventLevelOutput() GetDatabasesDatabaseParameterLogEventLevelOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterLogEventLevelOutput) ToGetDatabasesDatabaseParameterLogEventLevelOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterLogEventLevelOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterLogEventLevelOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterLogEventLevel) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterLogEventLevelOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterLogEventLevel) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterLogEventLevelOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterLogEventLevel) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterLogEventLevelOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterLogEventLevel) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterLogEventLevelOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterLogEventLevel) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterLogEventLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterLogEventLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterLogEventLevel)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterLogEventLevelArrayOutput) ToGetDatabasesDatabaseParameterLogEventLevelArrayOutput() GetDatabasesDatabaseParameterLogEventLevelArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterLogEventLevelArrayOutput) ToGetDatabasesDatabaseParameterLogEventLevelArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterLogEventLevelArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterLogEventLevelArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterLogEventLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterLogEventLevel {
+		return vs[0].([]GetDatabasesDatabaseParameterLogEventLevel)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterLogEventLevelOutput)
+}
+
+type GetDatabasesDatabaseParameterLogLevel struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterLogLevelInput is an input type that accepts GetDatabasesDatabaseParameterLogLevelArgs and GetDatabasesDatabaseParameterLogLevelOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterLogLevelInput` via:
+//
+//	GetDatabasesDatabaseParameterLogLevelArgs{...}
+type GetDatabasesDatabaseParameterLogLevelInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterLogLevelOutput() GetDatabasesDatabaseParameterLogLevelOutput
+	ToGetDatabasesDatabaseParameterLogLevelOutputWithContext(context.Context) GetDatabasesDatabaseParameterLogLevelOutput
+}
+
+type GetDatabasesDatabaseParameterLogLevelArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterLogLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterLogLevel)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterLogLevelArgs) ToGetDatabasesDatabaseParameterLogLevelOutput() GetDatabasesDatabaseParameterLogLevelOutput {
+	return i.ToGetDatabasesDatabaseParameterLogLevelOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterLogLevelArgs) ToGetDatabasesDatabaseParameterLogLevelOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterLogLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterLogLevelOutput)
+}
+
+// GetDatabasesDatabaseParameterLogLevelArrayInput is an input type that accepts GetDatabasesDatabaseParameterLogLevelArray and GetDatabasesDatabaseParameterLogLevelArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterLogLevelArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterLogLevelArray{ GetDatabasesDatabaseParameterLogLevelArgs{...} }
+type GetDatabasesDatabaseParameterLogLevelArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterLogLevelArrayOutput() GetDatabasesDatabaseParameterLogLevelArrayOutput
+	ToGetDatabasesDatabaseParameterLogLevelArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterLogLevelArrayOutput
+}
+
+type GetDatabasesDatabaseParameterLogLevelArray []GetDatabasesDatabaseParameterLogLevelInput
+
+func (GetDatabasesDatabaseParameterLogLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterLogLevel)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterLogLevelArray) ToGetDatabasesDatabaseParameterLogLevelArrayOutput() GetDatabasesDatabaseParameterLogLevelArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterLogLevelArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterLogLevelArray) ToGetDatabasesDatabaseParameterLogLevelArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterLogLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterLogLevelArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterLogLevelOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterLogLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterLogLevel)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterLogLevelOutput) ToGetDatabasesDatabaseParameterLogLevelOutput() GetDatabasesDatabaseParameterLogLevelOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterLogLevelOutput) ToGetDatabasesDatabaseParameterLogLevelOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterLogLevelOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterLogLevelOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterLogLevel) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterLogLevelOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterLogLevel) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterLogLevelOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterLogLevel) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterLogLevelOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterLogLevel) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterLogLevelOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterLogLevel) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterLogLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterLogLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterLogLevel)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterLogLevelArrayOutput) ToGetDatabasesDatabaseParameterLogLevelArrayOutput() GetDatabasesDatabaseParameterLogLevelArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterLogLevelArrayOutput) ToGetDatabasesDatabaseParameterLogLevelArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterLogLevelArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterLogLevelArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterLogLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterLogLevel {
+		return vs[0].([]GetDatabasesDatabaseParameterLogLevel)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterLogLevelOutput)
+}
+
+type GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayInput is an input type that accepts GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArgs and GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayInput` via:
+//
+//	GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArgs{...}
+type GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput() GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput
+	ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutputWithContext(context.Context) GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput
+}
+
+type GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArgs) ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput() GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput {
+	return i.ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArgs) ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput)
+}
+
+// GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayInput is an input type that accepts GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArray and GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArray{ GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArgs{...} }
+type GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput() GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput
+	ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput
+}
+
+type GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArray []GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayInput
+
+func (GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArray) ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput() GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArray) ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput) ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput() GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput) ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput) ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput() GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput) ToGetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay {
+		return vs[0].([]GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput)
+}
+
+type GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseInput is an input type that accepts GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArgs and GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseInput` via:
+//
+//	GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArgs{...}
+type GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput() GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput
+	ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutputWithContext(context.Context) GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput
+}
+
+type GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArgs) ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput() GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput {
+	return i.ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArgs) ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput)
+}
+
+// GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayInput is an input type that accepts GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArray and GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArray{ GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArgs{...} }
+type GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput() GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput
+	ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput
+}
+
+type GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArray []GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseInput
+
+func (GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArray) ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput() GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArray) ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput) ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput() GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput) ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput) ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput() GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput) ToGetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase {
+		return vs[0].([]GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput)
+}
+
+type GetDatabasesDatabaseParameterReplaceInvalidCharacter struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterReplaceInvalidCharacterInput is an input type that accepts GetDatabasesDatabaseParameterReplaceInvalidCharacterArgs and GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterReplaceInvalidCharacterInput` via:
+//
+//	GetDatabasesDatabaseParameterReplaceInvalidCharacterArgs{...}
+type GetDatabasesDatabaseParameterReplaceInvalidCharacterInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterReplaceInvalidCharacterOutput() GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput
+	ToGetDatabasesDatabaseParameterReplaceInvalidCharacterOutputWithContext(context.Context) GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput
+}
+
+type GetDatabasesDatabaseParameterReplaceInvalidCharacterArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterReplaceInvalidCharacterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterReplaceInvalidCharacter)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterReplaceInvalidCharacterArgs) ToGetDatabasesDatabaseParameterReplaceInvalidCharacterOutput() GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput {
+	return i.ToGetDatabasesDatabaseParameterReplaceInvalidCharacterOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterReplaceInvalidCharacterArgs) ToGetDatabasesDatabaseParameterReplaceInvalidCharacterOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput)
+}
+
+// GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayInput is an input type that accepts GetDatabasesDatabaseParameterReplaceInvalidCharacterArray and GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterReplaceInvalidCharacterArray{ GetDatabasesDatabaseParameterReplaceInvalidCharacterArgs{...} }
+type GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput() GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput
+	ToGetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput
+}
+
+type GetDatabasesDatabaseParameterReplaceInvalidCharacterArray []GetDatabasesDatabaseParameterReplaceInvalidCharacterInput
+
+func (GetDatabasesDatabaseParameterReplaceInvalidCharacterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterReplaceInvalidCharacter)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterReplaceInvalidCharacterArray) ToGetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput() GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterReplaceInvalidCharacterArray) ToGetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterReplaceInvalidCharacter)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput) ToGetDatabasesDatabaseParameterReplaceInvalidCharacterOutput() GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput) ToGetDatabasesDatabaseParameterReplaceInvalidCharacterOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterReplaceInvalidCharacter) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterReplaceInvalidCharacter) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterReplaceInvalidCharacter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterReplaceInvalidCharacter) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterReplaceInvalidCharacter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterReplaceInvalidCharacter)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput) ToGetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput() GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput) ToGetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterReplaceInvalidCharacter {
+		return vs[0].([]GetDatabasesDatabaseParameterReplaceInvalidCharacter)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput)
+}
+
+type GetDatabasesDatabaseParameterStorageSerializationPolicy struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterStorageSerializationPolicyInput is an input type that accepts GetDatabasesDatabaseParameterStorageSerializationPolicyArgs and GetDatabasesDatabaseParameterStorageSerializationPolicyOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterStorageSerializationPolicyInput` via:
+//
+//	GetDatabasesDatabaseParameterStorageSerializationPolicyArgs{...}
+type GetDatabasesDatabaseParameterStorageSerializationPolicyInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterStorageSerializationPolicyOutput() GetDatabasesDatabaseParameterStorageSerializationPolicyOutput
+	ToGetDatabasesDatabaseParameterStorageSerializationPolicyOutputWithContext(context.Context) GetDatabasesDatabaseParameterStorageSerializationPolicyOutput
+}
+
+type GetDatabasesDatabaseParameterStorageSerializationPolicyArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterStorageSerializationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterStorageSerializationPolicy)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterStorageSerializationPolicyArgs) ToGetDatabasesDatabaseParameterStorageSerializationPolicyOutput() GetDatabasesDatabaseParameterStorageSerializationPolicyOutput {
+	return i.ToGetDatabasesDatabaseParameterStorageSerializationPolicyOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterStorageSerializationPolicyArgs) ToGetDatabasesDatabaseParameterStorageSerializationPolicyOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterStorageSerializationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterStorageSerializationPolicyOutput)
+}
+
+// GetDatabasesDatabaseParameterStorageSerializationPolicyArrayInput is an input type that accepts GetDatabasesDatabaseParameterStorageSerializationPolicyArray and GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterStorageSerializationPolicyArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterStorageSerializationPolicyArray{ GetDatabasesDatabaseParameterStorageSerializationPolicyArgs{...} }
+type GetDatabasesDatabaseParameterStorageSerializationPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput() GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput
+	ToGetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput
+}
+
+type GetDatabasesDatabaseParameterStorageSerializationPolicyArray []GetDatabasesDatabaseParameterStorageSerializationPolicyInput
+
+func (GetDatabasesDatabaseParameterStorageSerializationPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterStorageSerializationPolicy)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterStorageSerializationPolicyArray) ToGetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput() GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterStorageSerializationPolicyArray) ToGetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterStorageSerializationPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterStorageSerializationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterStorageSerializationPolicy)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterStorageSerializationPolicyOutput) ToGetDatabasesDatabaseParameterStorageSerializationPolicyOutput() GetDatabasesDatabaseParameterStorageSerializationPolicyOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterStorageSerializationPolicyOutput) ToGetDatabasesDatabaseParameterStorageSerializationPolicyOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterStorageSerializationPolicyOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterStorageSerializationPolicyOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterStorageSerializationPolicy) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterStorageSerializationPolicyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterStorageSerializationPolicy) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterStorageSerializationPolicyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterStorageSerializationPolicy) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterStorageSerializationPolicyOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterStorageSerializationPolicy) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterStorageSerializationPolicyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterStorageSerializationPolicy) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterStorageSerializationPolicy)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput) ToGetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput() GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput) ToGetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterStorageSerializationPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterStorageSerializationPolicy {
+		return vs[0].([]GetDatabasesDatabaseParameterStorageSerializationPolicy)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterStorageSerializationPolicyOutput)
+}
+
+type GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureInput is an input type that accepts GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArgs and GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureInput` via:
+//
+//	GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArgs{...}
+type GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput() GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput
+	ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutputWithContext(context.Context) GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput
+}
+
+type GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArgs) ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput() GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput {
+	return i.ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArgs) ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput)
+}
+
+// GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayInput is an input type that accepts GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArray and GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArray{ GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArgs{...} }
+type GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput() GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput
+	ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput
+}
+
+type GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArray []GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureInput
+
+func (GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArray) ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput() GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArray) ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput) ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput() GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput) ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput) ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput() GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput) ToGetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure {
+		return vs[0].([]GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput)
+}
+
+type GetDatabasesDatabaseParameterTaskAutoRetryAttempt struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterTaskAutoRetryAttemptInput is an input type that accepts GetDatabasesDatabaseParameterTaskAutoRetryAttemptArgs and GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterTaskAutoRetryAttemptInput` via:
+//
+//	GetDatabasesDatabaseParameterTaskAutoRetryAttemptArgs{...}
+type GetDatabasesDatabaseParameterTaskAutoRetryAttemptInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput() GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput
+	ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptOutputWithContext(context.Context) GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput
+}
+
+type GetDatabasesDatabaseParameterTaskAutoRetryAttemptArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterTaskAutoRetryAttemptArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterTaskAutoRetryAttemptArgs) ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput() GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput {
+	return i.ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterTaskAutoRetryAttemptArgs) ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput)
+}
+
+// GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayInput is an input type that accepts GetDatabasesDatabaseParameterTaskAutoRetryAttemptArray and GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterTaskAutoRetryAttemptArray{ GetDatabasesDatabaseParameterTaskAutoRetryAttemptArgs{...} }
+type GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput() GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput
+	ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput
+}
+
+type GetDatabasesDatabaseParameterTaskAutoRetryAttemptArray []GetDatabasesDatabaseParameterTaskAutoRetryAttemptInput
+
+func (GetDatabasesDatabaseParameterTaskAutoRetryAttemptArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterTaskAutoRetryAttemptArray) ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput() GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterTaskAutoRetryAttemptArray) ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput) ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput() GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput) ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterTaskAutoRetryAttempt) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterTaskAutoRetryAttempt) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterTaskAutoRetryAttempt) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterTaskAutoRetryAttempt) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterTaskAutoRetryAttempt) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterTaskAutoRetryAttempt)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput) ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput() GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput) ToGetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterTaskAutoRetryAttempt {
+		return vs[0].([]GetDatabasesDatabaseParameterTaskAutoRetryAttempt)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput)
+}
+
+type GetDatabasesDatabaseParameterTraceLevel struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterTraceLevelInput is an input type that accepts GetDatabasesDatabaseParameterTraceLevelArgs and GetDatabasesDatabaseParameterTraceLevelOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterTraceLevelInput` via:
+//
+//	GetDatabasesDatabaseParameterTraceLevelArgs{...}
+type GetDatabasesDatabaseParameterTraceLevelInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterTraceLevelOutput() GetDatabasesDatabaseParameterTraceLevelOutput
+	ToGetDatabasesDatabaseParameterTraceLevelOutputWithContext(context.Context) GetDatabasesDatabaseParameterTraceLevelOutput
+}
+
+type GetDatabasesDatabaseParameterTraceLevelArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterTraceLevelArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterTraceLevel)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterTraceLevelArgs) ToGetDatabasesDatabaseParameterTraceLevelOutput() GetDatabasesDatabaseParameterTraceLevelOutput {
+	return i.ToGetDatabasesDatabaseParameterTraceLevelOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterTraceLevelArgs) ToGetDatabasesDatabaseParameterTraceLevelOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterTraceLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterTraceLevelOutput)
+}
+
+// GetDatabasesDatabaseParameterTraceLevelArrayInput is an input type that accepts GetDatabasesDatabaseParameterTraceLevelArray and GetDatabasesDatabaseParameterTraceLevelArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterTraceLevelArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterTraceLevelArray{ GetDatabasesDatabaseParameterTraceLevelArgs{...} }
+type GetDatabasesDatabaseParameterTraceLevelArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterTraceLevelArrayOutput() GetDatabasesDatabaseParameterTraceLevelArrayOutput
+	ToGetDatabasesDatabaseParameterTraceLevelArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterTraceLevelArrayOutput
+}
+
+type GetDatabasesDatabaseParameterTraceLevelArray []GetDatabasesDatabaseParameterTraceLevelInput
+
+func (GetDatabasesDatabaseParameterTraceLevelArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterTraceLevel)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterTraceLevelArray) ToGetDatabasesDatabaseParameterTraceLevelArrayOutput() GetDatabasesDatabaseParameterTraceLevelArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterTraceLevelArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterTraceLevelArray) ToGetDatabasesDatabaseParameterTraceLevelArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterTraceLevelArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterTraceLevelArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterTraceLevelOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterTraceLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterTraceLevel)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterTraceLevelOutput) ToGetDatabasesDatabaseParameterTraceLevelOutput() GetDatabasesDatabaseParameterTraceLevelOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterTraceLevelOutput) ToGetDatabasesDatabaseParameterTraceLevelOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterTraceLevelOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterTraceLevelOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterTraceLevel) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterTraceLevelOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterTraceLevel) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterTraceLevelOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterTraceLevel) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterTraceLevelOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterTraceLevel) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterTraceLevelOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterTraceLevel) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterTraceLevelArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterTraceLevelArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterTraceLevel)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterTraceLevelArrayOutput) ToGetDatabasesDatabaseParameterTraceLevelArrayOutput() GetDatabasesDatabaseParameterTraceLevelArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterTraceLevelArrayOutput) ToGetDatabasesDatabaseParameterTraceLevelArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterTraceLevelArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterTraceLevelOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterTraceLevel {
+		return vs[0].([]GetDatabasesDatabaseParameterTraceLevel)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterTraceLevelOutput)
+}
+
+type GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeInput is an input type that accepts GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArgs and GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeInput` via:
+//
+//	GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArgs{...}
+type GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput() GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput
+	ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(context.Context) GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput
+}
+
+type GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArgs) ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput() GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput {
+	return i.ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArgs) ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput)
+}
+
+// GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayInput is an input type that accepts GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArray and GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArray{ GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArgs{...} }
+type GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput() GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput
+	ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput
+}
+
+type GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArray []GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeInput
+
+func (GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArray) ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput() GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArray) ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput() GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput) ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput() GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput) ToGetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize {
+		return vs[0].([]GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput)
+}
+
+type GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondInput is an input type that accepts GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs and GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondInput` via:
+//
+//	GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs{...}
+type GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput() GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput
+	ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(context.Context) GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput
+}
+
+type GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs) ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput() GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput {
+	return i.ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs) ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput)
+}
+
+// GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayInput is an input type that accepts GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray and GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray{ GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs{...} }
+type GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput() GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput
+	ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput
+}
+
+type GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray []GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondInput
+
+func (GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray) ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput() GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray) ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput() GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond) string {
+		return v.Description
+	}).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput() GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) ToGetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond {
+		return vs[0].([]GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput)
+}
+
+type GetDatabasesDatabaseParameterUserTaskTimeoutM struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetDatabasesDatabaseParameterUserTaskTimeoutMInput is an input type that accepts GetDatabasesDatabaseParameterUserTaskTimeoutMArgs and GetDatabasesDatabaseParameterUserTaskTimeoutMOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterUserTaskTimeoutMInput` via:
+//
+//	GetDatabasesDatabaseParameterUserTaskTimeoutMArgs{...}
+type GetDatabasesDatabaseParameterUserTaskTimeoutMInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterUserTaskTimeoutMOutput() GetDatabasesDatabaseParameterUserTaskTimeoutMOutput
+	ToGetDatabasesDatabaseParameterUserTaskTimeoutMOutputWithContext(context.Context) GetDatabasesDatabaseParameterUserTaskTimeoutMOutput
+}
+
+type GetDatabasesDatabaseParameterUserTaskTimeoutMArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetDatabasesDatabaseParameterUserTaskTimeoutMArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskTimeoutM)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskTimeoutMArgs) ToGetDatabasesDatabaseParameterUserTaskTimeoutMOutput() GetDatabasesDatabaseParameterUserTaskTimeoutMOutput {
+	return i.ToGetDatabasesDatabaseParameterUserTaskTimeoutMOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskTimeoutMArgs) ToGetDatabasesDatabaseParameterUserTaskTimeoutMOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskTimeoutMOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterUserTaskTimeoutMOutput)
+}
+
+// GetDatabasesDatabaseParameterUserTaskTimeoutMArrayInput is an input type that accepts GetDatabasesDatabaseParameterUserTaskTimeoutMArray and GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput values.
+// You can construct a concrete instance of `GetDatabasesDatabaseParameterUserTaskTimeoutMArrayInput` via:
+//
+//	GetDatabasesDatabaseParameterUserTaskTimeoutMArray{ GetDatabasesDatabaseParameterUserTaskTimeoutMArgs{...} }
+type GetDatabasesDatabaseParameterUserTaskTimeoutMArrayInput interface {
+	pulumi.Input
+
+	ToGetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput() GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput
+	ToGetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput
+}
+
+type GetDatabasesDatabaseParameterUserTaskTimeoutMArray []GetDatabasesDatabaseParameterUserTaskTimeoutMInput
+
+func (GetDatabasesDatabaseParameterUserTaskTimeoutMArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterUserTaskTimeoutM)(nil)).Elem()
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskTimeoutMArray) ToGetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput() GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput {
+	return i.ToGetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutputWithContext(context.Background())
+}
+
+func (i GetDatabasesDatabaseParameterUserTaskTimeoutMArray) ToGetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput)
+}
+
+type GetDatabasesDatabaseParameterUserTaskTimeoutMOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterUserTaskTimeoutMOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskTimeoutM)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskTimeoutMOutput) ToGetDatabasesDatabaseParameterUserTaskTimeoutMOutput() GetDatabasesDatabaseParameterUserTaskTimeoutMOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskTimeoutMOutput) ToGetDatabasesDatabaseParameterUserTaskTimeoutMOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskTimeoutMOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskTimeoutMOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskTimeoutM) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskTimeoutMOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskTimeoutM) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskTimeoutMOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskTimeoutM) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskTimeoutMOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskTimeoutM) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskTimeoutMOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDatabasesDatabaseParameterUserTaskTimeoutM) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterUserTaskTimeoutM)(nil)).Elem()
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput) ToGetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput() GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput) ToGetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput {
+	return o
+}
+
+func (o GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterUserTaskTimeoutMOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterUserTaskTimeoutM {
+		return vs[0].([]GetDatabasesDatabaseParameterUserTaskTimeoutM)[vs[1].(int)]
+	}).(GetDatabasesDatabaseParameterUserTaskTimeoutMOutput)
+}
+
 type GetDatabasesDatabaseShowOutput struct {
 	Comment       string `pulumi:"comment"`
 	CreatedOn     string `pulumi:"createdOn"`
@@ -5849,6 +7385,1406 @@ func (o GetGrantsInheritedGrantsInPtrOutput) Schema() pulumi.StringPtrOutput {
 		}
 		return v.Schema
 	}).(pulumi.StringPtrOutput)
+}
+
+type GetHybridTablesHybridTable struct {
+	// Holds the output of DESCRIBE TABLE.
+	DescribeOutputs []GetHybridTablesHybridTableDescribeOutput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW PARAMETERS FOR TABLE.
+	Parameters []GetHybridTablesHybridTableParameter `pulumi:"parameters"`
+	// Holds the output of SHOW INDEXES.
+	ShowIndexes []GetHybridTablesHybridTableShowIndex `pulumi:"showIndexes"`
+	// Holds the result of `SHOW PRIMARY KEYS`, `SHOW UNIQUE KEYS`, and `SHOW IMPORTED KEYS` for the given hybrid table, merged and grouped by constraint name and ordered by kind, then by column names. The `referencedTable`, `referencedColumns`, `deleteRule`, and `updateRule` fields are populated for FOREIGN KEY constraints only.
+	ShowKeysOutputs []GetHybridTablesHybridTableShowKeysOutput `pulumi:"showKeysOutputs"`
+	// Holds the output of SHOW HYBRID TABLES.
+	ShowOutputs []GetHybridTablesHybridTableShowOutput `pulumi:"showOutputs"`
+}
+
+// GetHybridTablesHybridTableInput is an input type that accepts GetHybridTablesHybridTableArgs and GetHybridTablesHybridTableOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableInput` via:
+//
+//	GetHybridTablesHybridTableArgs{...}
+type GetHybridTablesHybridTableInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableOutput() GetHybridTablesHybridTableOutput
+	ToGetHybridTablesHybridTableOutputWithContext(context.Context) GetHybridTablesHybridTableOutput
+}
+
+type GetHybridTablesHybridTableArgs struct {
+	// Holds the output of DESCRIBE TABLE.
+	DescribeOutputs GetHybridTablesHybridTableDescribeOutputArrayInput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW PARAMETERS FOR TABLE.
+	Parameters GetHybridTablesHybridTableParameterArrayInput `pulumi:"parameters"`
+	// Holds the output of SHOW INDEXES.
+	ShowIndexes GetHybridTablesHybridTableShowIndexArrayInput `pulumi:"showIndexes"`
+	// Holds the result of `SHOW PRIMARY KEYS`, `SHOW UNIQUE KEYS`, and `SHOW IMPORTED KEYS` for the given hybrid table, merged and grouped by constraint name and ordered by kind, then by column names. The `referencedTable`, `referencedColumns`, `deleteRule`, and `updateRule` fields are populated for FOREIGN KEY constraints only.
+	ShowKeysOutputs GetHybridTablesHybridTableShowKeysOutputArrayInput `pulumi:"showKeysOutputs"`
+	// Holds the output of SHOW HYBRID TABLES.
+	ShowOutputs GetHybridTablesHybridTableShowOutputArrayInput `pulumi:"showOutputs"`
+}
+
+func (GetHybridTablesHybridTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTable)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableArgs) ToGetHybridTablesHybridTableOutput() GetHybridTablesHybridTableOutput {
+	return i.ToGetHybridTablesHybridTableOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableArgs) ToGetHybridTablesHybridTableOutputWithContext(ctx context.Context) GetHybridTablesHybridTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableOutput)
+}
+
+// GetHybridTablesHybridTableArrayInput is an input type that accepts GetHybridTablesHybridTableArray and GetHybridTablesHybridTableArrayOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableArrayInput` via:
+//
+//	GetHybridTablesHybridTableArray{ GetHybridTablesHybridTableArgs{...} }
+type GetHybridTablesHybridTableArrayInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableArrayOutput() GetHybridTablesHybridTableArrayOutput
+	ToGetHybridTablesHybridTableArrayOutputWithContext(context.Context) GetHybridTablesHybridTableArrayOutput
+}
+
+type GetHybridTablesHybridTableArray []GetHybridTablesHybridTableInput
+
+func (GetHybridTablesHybridTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTable)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableArray) ToGetHybridTablesHybridTableArrayOutput() GetHybridTablesHybridTableArrayOutput {
+	return i.ToGetHybridTablesHybridTableArrayOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableArray) ToGetHybridTablesHybridTableArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableArrayOutput)
+}
+
+type GetHybridTablesHybridTableOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTable)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableOutput) ToGetHybridTablesHybridTableOutput() GetHybridTablesHybridTableOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableOutput) ToGetHybridTablesHybridTableOutputWithContext(ctx context.Context) GetHybridTablesHybridTableOutput {
+	return o
+}
+
+// Holds the output of DESCRIBE TABLE.
+func (o GetHybridTablesHybridTableOutput) DescribeOutputs() GetHybridTablesHybridTableDescribeOutputArrayOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTable) []GetHybridTablesHybridTableDescribeOutput {
+		return v.DescribeOutputs
+	}).(GetHybridTablesHybridTableDescribeOutputArrayOutput)
+}
+
+// Holds the output of SHOW PARAMETERS FOR TABLE.
+func (o GetHybridTablesHybridTableOutput) Parameters() GetHybridTablesHybridTableParameterArrayOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTable) []GetHybridTablesHybridTableParameter { return v.Parameters }).(GetHybridTablesHybridTableParameterArrayOutput)
+}
+
+// Holds the output of SHOW INDEXES.
+func (o GetHybridTablesHybridTableOutput) ShowIndexes() GetHybridTablesHybridTableShowIndexArrayOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTable) []GetHybridTablesHybridTableShowIndex { return v.ShowIndexes }).(GetHybridTablesHybridTableShowIndexArrayOutput)
+}
+
+// Holds the result of `SHOW PRIMARY KEYS`, `SHOW UNIQUE KEYS`, and `SHOW IMPORTED KEYS` for the given hybrid table, merged and grouped by constraint name and ordered by kind, then by column names. The `referencedTable`, `referencedColumns`, `deleteRule`, and `updateRule` fields are populated for FOREIGN KEY constraints only.
+func (o GetHybridTablesHybridTableOutput) ShowKeysOutputs() GetHybridTablesHybridTableShowKeysOutputArrayOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTable) []GetHybridTablesHybridTableShowKeysOutput {
+		return v.ShowKeysOutputs
+	}).(GetHybridTablesHybridTableShowKeysOutputArrayOutput)
+}
+
+// Holds the output of SHOW HYBRID TABLES.
+func (o GetHybridTablesHybridTableOutput) ShowOutputs() GetHybridTablesHybridTableShowOutputArrayOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTable) []GetHybridTablesHybridTableShowOutput { return v.ShowOutputs }).(GetHybridTablesHybridTableShowOutputArrayOutput)
+}
+
+type GetHybridTablesHybridTableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTable)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableArrayOutput) ToGetHybridTablesHybridTableArrayOutput() GetHybridTablesHybridTableArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableArrayOutput) ToGetHybridTablesHybridTableArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableArrayOutput) Index(i pulumi.IntInput) GetHybridTablesHybridTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHybridTablesHybridTable {
+		return vs[0].([]GetHybridTablesHybridTable)[vs[1].(int)]
+	}).(GetHybridTablesHybridTableOutput)
+}
+
+type GetHybridTablesHybridTableDescribeOutput struct {
+	Check                 string `pulumi:"check"`
+	Collation             string `pulumi:"collation"`
+	Comment               string `pulumi:"comment"`
+	Default               string `pulumi:"default"`
+	Expression            string `pulumi:"expression"`
+	IsNullable            bool   `pulumi:"isNullable"`
+	Kind                  string `pulumi:"kind"`
+	Name                  string `pulumi:"name"`
+	PolicyName            string `pulumi:"policyName"`
+	PrimaryKey            bool   `pulumi:"primaryKey"`
+	PrivacyDomain         string `pulumi:"privacyDomain"`
+	SchemaEvolutionRecord string `pulumi:"schemaEvolutionRecord"`
+	Type                  string `pulumi:"type"`
+	UniqueKey             bool   `pulumi:"uniqueKey"`
+}
+
+// GetHybridTablesHybridTableDescribeOutputInput is an input type that accepts GetHybridTablesHybridTableDescribeOutputArgs and GetHybridTablesHybridTableDescribeOutputOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableDescribeOutputInput` via:
+//
+//	GetHybridTablesHybridTableDescribeOutputArgs{...}
+type GetHybridTablesHybridTableDescribeOutputInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableDescribeOutputOutput() GetHybridTablesHybridTableDescribeOutputOutput
+	ToGetHybridTablesHybridTableDescribeOutputOutputWithContext(context.Context) GetHybridTablesHybridTableDescribeOutputOutput
+}
+
+type GetHybridTablesHybridTableDescribeOutputArgs struct {
+	Check                 pulumi.StringInput `pulumi:"check"`
+	Collation             pulumi.StringInput `pulumi:"collation"`
+	Comment               pulumi.StringInput `pulumi:"comment"`
+	Default               pulumi.StringInput `pulumi:"default"`
+	Expression            pulumi.StringInput `pulumi:"expression"`
+	IsNullable            pulumi.BoolInput   `pulumi:"isNullable"`
+	Kind                  pulumi.StringInput `pulumi:"kind"`
+	Name                  pulumi.StringInput `pulumi:"name"`
+	PolicyName            pulumi.StringInput `pulumi:"policyName"`
+	PrimaryKey            pulumi.BoolInput   `pulumi:"primaryKey"`
+	PrivacyDomain         pulumi.StringInput `pulumi:"privacyDomain"`
+	SchemaEvolutionRecord pulumi.StringInput `pulumi:"schemaEvolutionRecord"`
+	Type                  pulumi.StringInput `pulumi:"type"`
+	UniqueKey             pulumi.BoolInput   `pulumi:"uniqueKey"`
+}
+
+func (GetHybridTablesHybridTableDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableDescribeOutput)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableDescribeOutputArgs) ToGetHybridTablesHybridTableDescribeOutputOutput() GetHybridTablesHybridTableDescribeOutputOutput {
+	return i.ToGetHybridTablesHybridTableDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableDescribeOutputArgs) ToGetHybridTablesHybridTableDescribeOutputOutputWithContext(ctx context.Context) GetHybridTablesHybridTableDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableDescribeOutputOutput)
+}
+
+// GetHybridTablesHybridTableDescribeOutputArrayInput is an input type that accepts GetHybridTablesHybridTableDescribeOutputArray and GetHybridTablesHybridTableDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableDescribeOutputArrayInput` via:
+//
+//	GetHybridTablesHybridTableDescribeOutputArray{ GetHybridTablesHybridTableDescribeOutputArgs{...} }
+type GetHybridTablesHybridTableDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableDescribeOutputArrayOutput() GetHybridTablesHybridTableDescribeOutputArrayOutput
+	ToGetHybridTablesHybridTableDescribeOutputArrayOutputWithContext(context.Context) GetHybridTablesHybridTableDescribeOutputArrayOutput
+}
+
+type GetHybridTablesHybridTableDescribeOutputArray []GetHybridTablesHybridTableDescribeOutputInput
+
+func (GetHybridTablesHybridTableDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableDescribeOutput)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableDescribeOutputArray) ToGetHybridTablesHybridTableDescribeOutputArrayOutput() GetHybridTablesHybridTableDescribeOutputArrayOutput {
+	return i.ToGetHybridTablesHybridTableDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableDescribeOutputArray) ToGetHybridTablesHybridTableDescribeOutputArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableDescribeOutputArrayOutput)
+}
+
+type GetHybridTablesHybridTableDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableDescribeOutput)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) ToGetHybridTablesHybridTableDescribeOutputOutput() GetHybridTablesHybridTableDescribeOutputOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) ToGetHybridTablesHybridTableDescribeOutputOutputWithContext(ctx context.Context) GetHybridTablesHybridTableDescribeOutputOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) Check() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.Check }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) Collation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.Collation }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) IsNullable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) bool { return v.IsNullable }).(pulumi.BoolOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) PolicyName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.PolicyName }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) PrimaryKey() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) bool { return v.PrimaryKey }).(pulumi.BoolOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) PrivacyDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.PrivacyDomain }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) SchemaEvolutionRecord() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.SchemaEvolutionRecord }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputOutput) UniqueKey() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableDescribeOutput) bool { return v.UniqueKey }).(pulumi.BoolOutput)
+}
+
+type GetHybridTablesHybridTableDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableDescribeOutput)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputArrayOutput) ToGetHybridTablesHybridTableDescribeOutputArrayOutput() GetHybridTablesHybridTableDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputArrayOutput) ToGetHybridTablesHybridTableDescribeOutputArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetHybridTablesHybridTableDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHybridTablesHybridTableDescribeOutput {
+		return vs[0].([]GetHybridTablesHybridTableDescribeOutput)[vs[1].(int)]
+	}).(GetHybridTablesHybridTableDescribeOutputOutput)
+}
+
+type GetHybridTablesHybridTableParameter struct {
+	DataRetentionTimeInDays    []GetHybridTablesHybridTableParameterDataRetentionTimeInDay    `pulumi:"dataRetentionTimeInDays"`
+	MaxDataExtensionTimeInDays []GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay `pulumi:"maxDataExtensionTimeInDays"`
+}
+
+// GetHybridTablesHybridTableParameterInput is an input type that accepts GetHybridTablesHybridTableParameterArgs and GetHybridTablesHybridTableParameterOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableParameterInput` via:
+//
+//	GetHybridTablesHybridTableParameterArgs{...}
+type GetHybridTablesHybridTableParameterInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableParameterOutput() GetHybridTablesHybridTableParameterOutput
+	ToGetHybridTablesHybridTableParameterOutputWithContext(context.Context) GetHybridTablesHybridTableParameterOutput
+}
+
+type GetHybridTablesHybridTableParameterArgs struct {
+	DataRetentionTimeInDays    GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayInput    `pulumi:"dataRetentionTimeInDays"`
+	MaxDataExtensionTimeInDays GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayInput `pulumi:"maxDataExtensionTimeInDays"`
+}
+
+func (GetHybridTablesHybridTableParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableParameter)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableParameterArgs) ToGetHybridTablesHybridTableParameterOutput() GetHybridTablesHybridTableParameterOutput {
+	return i.ToGetHybridTablesHybridTableParameterOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableParameterArgs) ToGetHybridTablesHybridTableParameterOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableParameterOutput)
+}
+
+// GetHybridTablesHybridTableParameterArrayInput is an input type that accepts GetHybridTablesHybridTableParameterArray and GetHybridTablesHybridTableParameterArrayOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableParameterArrayInput` via:
+//
+//	GetHybridTablesHybridTableParameterArray{ GetHybridTablesHybridTableParameterArgs{...} }
+type GetHybridTablesHybridTableParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableParameterArrayOutput() GetHybridTablesHybridTableParameterArrayOutput
+	ToGetHybridTablesHybridTableParameterArrayOutputWithContext(context.Context) GetHybridTablesHybridTableParameterArrayOutput
+}
+
+type GetHybridTablesHybridTableParameterArray []GetHybridTablesHybridTableParameterInput
+
+func (GetHybridTablesHybridTableParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableParameter)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableParameterArray) ToGetHybridTablesHybridTableParameterArrayOutput() GetHybridTablesHybridTableParameterArrayOutput {
+	return i.ToGetHybridTablesHybridTableParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableParameterArray) ToGetHybridTablesHybridTableParameterArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableParameterArrayOutput)
+}
+
+type GetHybridTablesHybridTableParameterOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableParameter)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableParameterOutput) ToGetHybridTablesHybridTableParameterOutput() GetHybridTablesHybridTableParameterOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterOutput) ToGetHybridTablesHybridTableParameterOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterOutput) DataRetentionTimeInDays() GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameter) []GetHybridTablesHybridTableParameterDataRetentionTimeInDay {
+		return v.DataRetentionTimeInDays
+	}).(GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput)
+}
+
+func (o GetHybridTablesHybridTableParameterOutput) MaxDataExtensionTimeInDays() GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameter) []GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay {
+		return v.MaxDataExtensionTimeInDays
+	}).(GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput)
+}
+
+type GetHybridTablesHybridTableParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableParameter)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableParameterArrayOutput) ToGetHybridTablesHybridTableParameterArrayOutput() GetHybridTablesHybridTableParameterArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterArrayOutput) ToGetHybridTablesHybridTableParameterArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterArrayOutput) Index(i pulumi.IntInput) GetHybridTablesHybridTableParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHybridTablesHybridTableParameter {
+		return vs[0].([]GetHybridTablesHybridTableParameter)[vs[1].(int)]
+	}).(GetHybridTablesHybridTableParameterOutput)
+}
+
+type GetHybridTablesHybridTableParameterDataRetentionTimeInDay struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetHybridTablesHybridTableParameterDataRetentionTimeInDayInput is an input type that accepts GetHybridTablesHybridTableParameterDataRetentionTimeInDayArgs and GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableParameterDataRetentionTimeInDayInput` via:
+//
+//	GetHybridTablesHybridTableParameterDataRetentionTimeInDayArgs{...}
+type GetHybridTablesHybridTableParameterDataRetentionTimeInDayInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput() GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput
+	ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayOutputWithContext(context.Context) GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput
+}
+
+type GetHybridTablesHybridTableParameterDataRetentionTimeInDayArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetHybridTablesHybridTableParameterDataRetentionTimeInDayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableParameterDataRetentionTimeInDayArgs) ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput() GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput {
+	return i.ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableParameterDataRetentionTimeInDayArgs) ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput)
+}
+
+// GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayInput is an input type that accepts GetHybridTablesHybridTableParameterDataRetentionTimeInDayArray and GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayInput` via:
+//
+//	GetHybridTablesHybridTableParameterDataRetentionTimeInDayArray{ GetHybridTablesHybridTableParameterDataRetentionTimeInDayArgs{...} }
+type GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput() GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput
+	ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutputWithContext(context.Context) GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput
+}
+
+type GetHybridTablesHybridTableParameterDataRetentionTimeInDayArray []GetHybridTablesHybridTableParameterDataRetentionTimeInDayInput
+
+func (GetHybridTablesHybridTableParameterDataRetentionTimeInDayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableParameterDataRetentionTimeInDayArray) ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput() GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput {
+	return i.ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableParameterDataRetentionTimeInDayArray) ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput)
+}
+
+type GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput) ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput() GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput) ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameterDataRetentionTimeInDay) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameterDataRetentionTimeInDay) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameterDataRetentionTimeInDay) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameterDataRetentionTimeInDay) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameterDataRetentionTimeInDay) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput) ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput() GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput) ToGetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput) Index(i pulumi.IntInput) GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHybridTablesHybridTableParameterDataRetentionTimeInDay {
+		return vs[0].([]GetHybridTablesHybridTableParameterDataRetentionTimeInDay)[vs[1].(int)]
+	}).(GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput)
+}
+
+type GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayInput is an input type that accepts GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArgs and GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayInput` via:
+//
+//	GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArgs{...}
+type GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput() GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput
+	ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutputWithContext(context.Context) GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput
+}
+
+type GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArgs) ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput() GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput {
+	return i.ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArgs) ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput)
+}
+
+// GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayInput is an input type that accepts GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArray and GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayInput` via:
+//
+//	GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArray{ GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArgs{...} }
+type GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput() GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput
+	ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutputWithContext(context.Context) GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput
+}
+
+type GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArray []GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayInput
+
+func (GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArray) ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput() GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput {
+	return i.ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArray) ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput)
+}
+
+type GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput) ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput() GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput) ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput) ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput() GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput) ToGetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput) Index(i pulumi.IntInput) GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay {
+		return vs[0].([]GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDay)[vs[1].(int)]
+	}).(GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput)
+}
+
+type GetHybridTablesHybridTableShowIndex struct {
+	Columns         string `pulumi:"columns"`
+	CreatedOn       string `pulumi:"createdOn"`
+	DatabaseName    string `pulumi:"databaseName"`
+	IncludedColumns string `pulumi:"includedColumns"`
+	IsUnique        bool   `pulumi:"isUnique"`
+	Name            string `pulumi:"name"`
+	Owner           string `pulumi:"owner"`
+	OwnerRoleType   string `pulumi:"ownerRoleType"`
+	SchemaName      string `pulumi:"schemaName"`
+	TableName       string `pulumi:"tableName"`
+}
+
+// GetHybridTablesHybridTableShowIndexInput is an input type that accepts GetHybridTablesHybridTableShowIndexArgs and GetHybridTablesHybridTableShowIndexOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableShowIndexInput` via:
+//
+//	GetHybridTablesHybridTableShowIndexArgs{...}
+type GetHybridTablesHybridTableShowIndexInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableShowIndexOutput() GetHybridTablesHybridTableShowIndexOutput
+	ToGetHybridTablesHybridTableShowIndexOutputWithContext(context.Context) GetHybridTablesHybridTableShowIndexOutput
+}
+
+type GetHybridTablesHybridTableShowIndexArgs struct {
+	Columns         pulumi.StringInput `pulumi:"columns"`
+	CreatedOn       pulumi.StringInput `pulumi:"createdOn"`
+	DatabaseName    pulumi.StringInput `pulumi:"databaseName"`
+	IncludedColumns pulumi.StringInput `pulumi:"includedColumns"`
+	IsUnique        pulumi.BoolInput   `pulumi:"isUnique"`
+	Name            pulumi.StringInput `pulumi:"name"`
+	Owner           pulumi.StringInput `pulumi:"owner"`
+	OwnerRoleType   pulumi.StringInput `pulumi:"ownerRoleType"`
+	SchemaName      pulumi.StringInput `pulumi:"schemaName"`
+	TableName       pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (GetHybridTablesHybridTableShowIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableShowIndex)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableShowIndexArgs) ToGetHybridTablesHybridTableShowIndexOutput() GetHybridTablesHybridTableShowIndexOutput {
+	return i.ToGetHybridTablesHybridTableShowIndexOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableShowIndexArgs) ToGetHybridTablesHybridTableShowIndexOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableShowIndexOutput)
+}
+
+// GetHybridTablesHybridTableShowIndexArrayInput is an input type that accepts GetHybridTablesHybridTableShowIndexArray and GetHybridTablesHybridTableShowIndexArrayOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableShowIndexArrayInput` via:
+//
+//	GetHybridTablesHybridTableShowIndexArray{ GetHybridTablesHybridTableShowIndexArgs{...} }
+type GetHybridTablesHybridTableShowIndexArrayInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableShowIndexArrayOutput() GetHybridTablesHybridTableShowIndexArrayOutput
+	ToGetHybridTablesHybridTableShowIndexArrayOutputWithContext(context.Context) GetHybridTablesHybridTableShowIndexArrayOutput
+}
+
+type GetHybridTablesHybridTableShowIndexArray []GetHybridTablesHybridTableShowIndexInput
+
+func (GetHybridTablesHybridTableShowIndexArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableShowIndex)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableShowIndexArray) ToGetHybridTablesHybridTableShowIndexArrayOutput() GetHybridTablesHybridTableShowIndexArrayOutput {
+	return i.ToGetHybridTablesHybridTableShowIndexArrayOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableShowIndexArray) ToGetHybridTablesHybridTableShowIndexArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowIndexArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableShowIndexArrayOutput)
+}
+
+type GetHybridTablesHybridTableShowIndexOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableShowIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableShowIndex)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) ToGetHybridTablesHybridTableShowIndexOutput() GetHybridTablesHybridTableShowIndexOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) ToGetHybridTablesHybridTableShowIndexOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowIndexOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) Columns() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowIndex) string { return v.Columns }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowIndex) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowIndex) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) IncludedColumns() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowIndex) string { return v.IncludedColumns }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) IsUnique() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowIndex) bool { return v.IsUnique }).(pulumi.BoolOutput)
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowIndex) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowIndex) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) OwnerRoleType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowIndex) string { return v.OwnerRoleType }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowIndex) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowIndexOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowIndex) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type GetHybridTablesHybridTableShowIndexArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableShowIndexArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableShowIndex)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableShowIndexArrayOutput) ToGetHybridTablesHybridTableShowIndexArrayOutput() GetHybridTablesHybridTableShowIndexArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowIndexArrayOutput) ToGetHybridTablesHybridTableShowIndexArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowIndexArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowIndexArrayOutput) Index(i pulumi.IntInput) GetHybridTablesHybridTableShowIndexOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHybridTablesHybridTableShowIndex {
+		return vs[0].([]GetHybridTablesHybridTableShowIndex)[vs[1].(int)]
+	}).(GetHybridTablesHybridTableShowIndexOutput)
+}
+
+type GetHybridTablesHybridTableShowKeysOutput struct {
+	Columns           []string `pulumi:"columns"`
+	DeleteRule        string   `pulumi:"deleteRule"`
+	Kind              string   `pulumi:"kind"`
+	Name              string   `pulumi:"name"`
+	ReferencedColumns []string `pulumi:"referencedColumns"`
+	ReferencedTable   string   `pulumi:"referencedTable"`
+	UpdateRule        string   `pulumi:"updateRule"`
+}
+
+// GetHybridTablesHybridTableShowKeysOutputInput is an input type that accepts GetHybridTablesHybridTableShowKeysOutputArgs and GetHybridTablesHybridTableShowKeysOutputOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableShowKeysOutputInput` via:
+//
+//	GetHybridTablesHybridTableShowKeysOutputArgs{...}
+type GetHybridTablesHybridTableShowKeysOutputInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableShowKeysOutputOutput() GetHybridTablesHybridTableShowKeysOutputOutput
+	ToGetHybridTablesHybridTableShowKeysOutputOutputWithContext(context.Context) GetHybridTablesHybridTableShowKeysOutputOutput
+}
+
+type GetHybridTablesHybridTableShowKeysOutputArgs struct {
+	Columns           pulumi.StringArrayInput `pulumi:"columns"`
+	DeleteRule        pulumi.StringInput      `pulumi:"deleteRule"`
+	Kind              pulumi.StringInput      `pulumi:"kind"`
+	Name              pulumi.StringInput      `pulumi:"name"`
+	ReferencedColumns pulumi.StringArrayInput `pulumi:"referencedColumns"`
+	ReferencedTable   pulumi.StringInput      `pulumi:"referencedTable"`
+	UpdateRule        pulumi.StringInput      `pulumi:"updateRule"`
+}
+
+func (GetHybridTablesHybridTableShowKeysOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableShowKeysOutput)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableShowKeysOutputArgs) ToGetHybridTablesHybridTableShowKeysOutputOutput() GetHybridTablesHybridTableShowKeysOutputOutput {
+	return i.ToGetHybridTablesHybridTableShowKeysOutputOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableShowKeysOutputArgs) ToGetHybridTablesHybridTableShowKeysOutputOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowKeysOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableShowKeysOutputOutput)
+}
+
+// GetHybridTablesHybridTableShowKeysOutputArrayInput is an input type that accepts GetHybridTablesHybridTableShowKeysOutputArray and GetHybridTablesHybridTableShowKeysOutputArrayOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableShowKeysOutputArrayInput` via:
+//
+//	GetHybridTablesHybridTableShowKeysOutputArray{ GetHybridTablesHybridTableShowKeysOutputArgs{...} }
+type GetHybridTablesHybridTableShowKeysOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableShowKeysOutputArrayOutput() GetHybridTablesHybridTableShowKeysOutputArrayOutput
+	ToGetHybridTablesHybridTableShowKeysOutputArrayOutputWithContext(context.Context) GetHybridTablesHybridTableShowKeysOutputArrayOutput
+}
+
+type GetHybridTablesHybridTableShowKeysOutputArray []GetHybridTablesHybridTableShowKeysOutputInput
+
+func (GetHybridTablesHybridTableShowKeysOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableShowKeysOutput)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableShowKeysOutputArray) ToGetHybridTablesHybridTableShowKeysOutputArrayOutput() GetHybridTablesHybridTableShowKeysOutputArrayOutput {
+	return i.ToGetHybridTablesHybridTableShowKeysOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableShowKeysOutputArray) ToGetHybridTablesHybridTableShowKeysOutputArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowKeysOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableShowKeysOutputArrayOutput)
+}
+
+type GetHybridTablesHybridTableShowKeysOutputOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableShowKeysOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableShowKeysOutput)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputOutput) ToGetHybridTablesHybridTableShowKeysOutputOutput() GetHybridTablesHybridTableShowKeysOutputOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputOutput) ToGetHybridTablesHybridTableShowKeysOutputOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowKeysOutputOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowKeysOutput) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputOutput) DeleteRule() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowKeysOutput) string { return v.DeleteRule }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputOutput) Kind() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowKeysOutput) string { return v.Kind }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowKeysOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputOutput) ReferencedColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowKeysOutput) []string { return v.ReferencedColumns }).(pulumi.StringArrayOutput)
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputOutput) ReferencedTable() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowKeysOutput) string { return v.ReferencedTable }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputOutput) UpdateRule() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowKeysOutput) string { return v.UpdateRule }).(pulumi.StringOutput)
+}
+
+type GetHybridTablesHybridTableShowKeysOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableShowKeysOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableShowKeysOutput)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputArrayOutput) ToGetHybridTablesHybridTableShowKeysOutputArrayOutput() GetHybridTablesHybridTableShowKeysOutputArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputArrayOutput) ToGetHybridTablesHybridTableShowKeysOutputArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowKeysOutputArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowKeysOutputArrayOutput) Index(i pulumi.IntInput) GetHybridTablesHybridTableShowKeysOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHybridTablesHybridTableShowKeysOutput {
+		return vs[0].([]GetHybridTablesHybridTableShowKeysOutput)[vs[1].(int)]
+	}).(GetHybridTablesHybridTableShowKeysOutputOutput)
+}
+
+type GetHybridTablesHybridTableShowOutput struct {
+	Bytes         int    `pulumi:"bytes"`
+	Comment       string `pulumi:"comment"`
+	CreatedOn     string `pulumi:"createdOn"`
+	DatabaseName  string `pulumi:"databaseName"`
+	Name          string `pulumi:"name"`
+	Owner         string `pulumi:"owner"`
+	OwnerRoleType string `pulumi:"ownerRoleType"`
+	Rows          int    `pulumi:"rows"`
+	SchemaName    string `pulumi:"schemaName"`
+}
+
+// GetHybridTablesHybridTableShowOutputInput is an input type that accepts GetHybridTablesHybridTableShowOutputArgs and GetHybridTablesHybridTableShowOutputOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableShowOutputInput` via:
+//
+//	GetHybridTablesHybridTableShowOutputArgs{...}
+type GetHybridTablesHybridTableShowOutputInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableShowOutputOutput() GetHybridTablesHybridTableShowOutputOutput
+	ToGetHybridTablesHybridTableShowOutputOutputWithContext(context.Context) GetHybridTablesHybridTableShowOutputOutput
+}
+
+type GetHybridTablesHybridTableShowOutputArgs struct {
+	Bytes         pulumi.IntInput    `pulumi:"bytes"`
+	Comment       pulumi.StringInput `pulumi:"comment"`
+	CreatedOn     pulumi.StringInput `pulumi:"createdOn"`
+	DatabaseName  pulumi.StringInput `pulumi:"databaseName"`
+	Name          pulumi.StringInput `pulumi:"name"`
+	Owner         pulumi.StringInput `pulumi:"owner"`
+	OwnerRoleType pulumi.StringInput `pulumi:"ownerRoleType"`
+	Rows          pulumi.IntInput    `pulumi:"rows"`
+	SchemaName    pulumi.StringInput `pulumi:"schemaName"`
+}
+
+func (GetHybridTablesHybridTableShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableShowOutput)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableShowOutputArgs) ToGetHybridTablesHybridTableShowOutputOutput() GetHybridTablesHybridTableShowOutputOutput {
+	return i.ToGetHybridTablesHybridTableShowOutputOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableShowOutputArgs) ToGetHybridTablesHybridTableShowOutputOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableShowOutputOutput)
+}
+
+// GetHybridTablesHybridTableShowOutputArrayInput is an input type that accepts GetHybridTablesHybridTableShowOutputArray and GetHybridTablesHybridTableShowOutputArrayOutput values.
+// You can construct a concrete instance of `GetHybridTablesHybridTableShowOutputArrayInput` via:
+//
+//	GetHybridTablesHybridTableShowOutputArray{ GetHybridTablesHybridTableShowOutputArgs{...} }
+type GetHybridTablesHybridTableShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesHybridTableShowOutputArrayOutput() GetHybridTablesHybridTableShowOutputArrayOutput
+	ToGetHybridTablesHybridTableShowOutputArrayOutputWithContext(context.Context) GetHybridTablesHybridTableShowOutputArrayOutput
+}
+
+type GetHybridTablesHybridTableShowOutputArray []GetHybridTablesHybridTableShowOutputInput
+
+func (GetHybridTablesHybridTableShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableShowOutput)(nil)).Elem()
+}
+
+func (i GetHybridTablesHybridTableShowOutputArray) ToGetHybridTablesHybridTableShowOutputArrayOutput() GetHybridTablesHybridTableShowOutputArrayOutput {
+	return i.ToGetHybridTablesHybridTableShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesHybridTableShowOutputArray) ToGetHybridTablesHybridTableShowOutputArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesHybridTableShowOutputArrayOutput)
+}
+
+type GetHybridTablesHybridTableShowOutputOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesHybridTableShowOutput)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) ToGetHybridTablesHybridTableShowOutputOutput() GetHybridTablesHybridTableShowOutputOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) ToGetHybridTablesHybridTableShowOutputOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowOutputOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) Bytes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowOutput) int { return v.Bytes }).(pulumi.IntOutput)
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowOutput) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) OwnerRoleType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowOutput) string { return v.OwnerRoleType }).(pulumi.StringOutput)
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) Rows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowOutput) int { return v.Rows }).(pulumi.IntOutput)
+}
+
+func (o GetHybridTablesHybridTableShowOutputOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetHybridTablesHybridTableShowOutput) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+type GetHybridTablesHybridTableShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesHybridTableShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetHybridTablesHybridTableShowOutput)(nil)).Elem()
+}
+
+func (o GetHybridTablesHybridTableShowOutputArrayOutput) ToGetHybridTablesHybridTableShowOutputArrayOutput() GetHybridTablesHybridTableShowOutputArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowOutputArrayOutput) ToGetHybridTablesHybridTableShowOutputArrayOutputWithContext(ctx context.Context) GetHybridTablesHybridTableShowOutputArrayOutput {
+	return o
+}
+
+func (o GetHybridTablesHybridTableShowOutputArrayOutput) Index(i pulumi.IntInput) GetHybridTablesHybridTableShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetHybridTablesHybridTableShowOutput {
+		return vs[0].([]GetHybridTablesHybridTableShowOutput)[vs[1].(int)]
+	}).(GetHybridTablesHybridTableShowOutputOutput)
+}
+
+type GetHybridTablesIn struct {
+	// Returns records for the entire account.
+	Account *bool `pulumi:"account"`
+	// Returns records for the current database in use or for a specified database.
+	Database *string `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+	Schema *string `pulumi:"schema"`
+}
+
+// GetHybridTablesInInput is an input type that accepts GetHybridTablesInArgs and GetHybridTablesInOutput values.
+// You can construct a concrete instance of `GetHybridTablesInInput` via:
+//
+//	GetHybridTablesInArgs{...}
+type GetHybridTablesInInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesInOutput() GetHybridTablesInOutput
+	ToGetHybridTablesInOutputWithContext(context.Context) GetHybridTablesInOutput
+}
+
+type GetHybridTablesInArgs struct {
+	// Returns records for the entire account.
+	Account pulumi.BoolPtrInput `pulumi:"account"`
+	// Returns records for the current database in use or for a specified database.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+}
+
+func (GetHybridTablesInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesIn)(nil)).Elem()
+}
+
+func (i GetHybridTablesInArgs) ToGetHybridTablesInOutput() GetHybridTablesInOutput {
+	return i.ToGetHybridTablesInOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesInArgs) ToGetHybridTablesInOutputWithContext(ctx context.Context) GetHybridTablesInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesInOutput)
+}
+
+func (i GetHybridTablesInArgs) ToGetHybridTablesInPtrOutput() GetHybridTablesInPtrOutput {
+	return i.ToGetHybridTablesInPtrOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesInArgs) ToGetHybridTablesInPtrOutputWithContext(ctx context.Context) GetHybridTablesInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesInOutput).ToGetHybridTablesInPtrOutputWithContext(ctx)
+}
+
+// GetHybridTablesInPtrInput is an input type that accepts GetHybridTablesInArgs, GetHybridTablesInPtr and GetHybridTablesInPtrOutput values.
+// You can construct a concrete instance of `GetHybridTablesInPtrInput` via:
+//
+//	        GetHybridTablesInArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetHybridTablesInPtrInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesInPtrOutput() GetHybridTablesInPtrOutput
+	ToGetHybridTablesInPtrOutputWithContext(context.Context) GetHybridTablesInPtrOutput
+}
+
+type getHybridTablesInPtrType GetHybridTablesInArgs
+
+func GetHybridTablesInPtr(v *GetHybridTablesInArgs) GetHybridTablesInPtrInput {
+	return (*getHybridTablesInPtrType)(v)
+}
+
+func (*getHybridTablesInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHybridTablesIn)(nil)).Elem()
+}
+
+func (i *getHybridTablesInPtrType) ToGetHybridTablesInPtrOutput() GetHybridTablesInPtrOutput {
+	return i.ToGetHybridTablesInPtrOutputWithContext(context.Background())
+}
+
+func (i *getHybridTablesInPtrType) ToGetHybridTablesInPtrOutputWithContext(ctx context.Context) GetHybridTablesInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesInPtrOutput)
+}
+
+type GetHybridTablesInOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesIn)(nil)).Elem()
+}
+
+func (o GetHybridTablesInOutput) ToGetHybridTablesInOutput() GetHybridTablesInOutput {
+	return o
+}
+
+func (o GetHybridTablesInOutput) ToGetHybridTablesInOutputWithContext(ctx context.Context) GetHybridTablesInOutput {
+	return o
+}
+
+func (o GetHybridTablesInOutput) ToGetHybridTablesInPtrOutput() GetHybridTablesInPtrOutput {
+	return o.ToGetHybridTablesInPtrOutputWithContext(context.Background())
+}
+
+func (o GetHybridTablesInOutput) ToGetHybridTablesInPtrOutputWithContext(ctx context.Context) GetHybridTablesInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetHybridTablesIn) *GetHybridTablesIn {
+		return &v
+	}).(GetHybridTablesInPtrOutput)
+}
+
+// Returns records for the entire account.
+func (o GetHybridTablesInOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetHybridTablesIn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database.
+func (o GetHybridTablesInOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetHybridTablesIn) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+func (o GetHybridTablesInOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetHybridTablesIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+type GetHybridTablesInPtrOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHybridTablesIn)(nil)).Elem()
+}
+
+func (o GetHybridTablesInPtrOutput) ToGetHybridTablesInPtrOutput() GetHybridTablesInPtrOutput {
+	return o
+}
+
+func (o GetHybridTablesInPtrOutput) ToGetHybridTablesInPtrOutputWithContext(ctx context.Context) GetHybridTablesInPtrOutput {
+	return o
+}
+
+func (o GetHybridTablesInPtrOutput) Elem() GetHybridTablesInOutput {
+	return o.ApplyT(func(v *GetHybridTablesIn) GetHybridTablesIn {
+		if v != nil {
+			return *v
+		}
+		var ret GetHybridTablesIn
+		return ret
+	}).(GetHybridTablesInOutput)
+}
+
+// Returns records for the entire account.
+func (o GetHybridTablesInPtrOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetHybridTablesIn) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Account
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database.
+func (o GetHybridTablesInPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHybridTablesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+func (o GetHybridTablesInPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHybridTablesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetHybridTablesLimit struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From *string `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows int `pulumi:"rows"`
+}
+
+// GetHybridTablesLimitInput is an input type that accepts GetHybridTablesLimitArgs and GetHybridTablesLimitOutput values.
+// You can construct a concrete instance of `GetHybridTablesLimitInput` via:
+//
+//	GetHybridTablesLimitArgs{...}
+type GetHybridTablesLimitInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesLimitOutput() GetHybridTablesLimitOutput
+	ToGetHybridTablesLimitOutputWithContext(context.Context) GetHybridTablesLimitOutput
+}
+
+type GetHybridTablesLimitArgs struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows pulumi.IntInput `pulumi:"rows"`
+}
+
+func (GetHybridTablesLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesLimit)(nil)).Elem()
+}
+
+func (i GetHybridTablesLimitArgs) ToGetHybridTablesLimitOutput() GetHybridTablesLimitOutput {
+	return i.ToGetHybridTablesLimitOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesLimitArgs) ToGetHybridTablesLimitOutputWithContext(ctx context.Context) GetHybridTablesLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesLimitOutput)
+}
+
+func (i GetHybridTablesLimitArgs) ToGetHybridTablesLimitPtrOutput() GetHybridTablesLimitPtrOutput {
+	return i.ToGetHybridTablesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i GetHybridTablesLimitArgs) ToGetHybridTablesLimitPtrOutputWithContext(ctx context.Context) GetHybridTablesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesLimitOutput).ToGetHybridTablesLimitPtrOutputWithContext(ctx)
+}
+
+// GetHybridTablesLimitPtrInput is an input type that accepts GetHybridTablesLimitArgs, GetHybridTablesLimitPtr and GetHybridTablesLimitPtrOutput values.
+// You can construct a concrete instance of `GetHybridTablesLimitPtrInput` via:
+//
+//	        GetHybridTablesLimitArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetHybridTablesLimitPtrInput interface {
+	pulumi.Input
+
+	ToGetHybridTablesLimitPtrOutput() GetHybridTablesLimitPtrOutput
+	ToGetHybridTablesLimitPtrOutputWithContext(context.Context) GetHybridTablesLimitPtrOutput
+}
+
+type getHybridTablesLimitPtrType GetHybridTablesLimitArgs
+
+func GetHybridTablesLimitPtr(v *GetHybridTablesLimitArgs) GetHybridTablesLimitPtrInput {
+	return (*getHybridTablesLimitPtrType)(v)
+}
+
+func (*getHybridTablesLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHybridTablesLimit)(nil)).Elem()
+}
+
+func (i *getHybridTablesLimitPtrType) ToGetHybridTablesLimitPtrOutput() GetHybridTablesLimitPtrOutput {
+	return i.ToGetHybridTablesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *getHybridTablesLimitPtrType) ToGetHybridTablesLimitPtrOutputWithContext(ctx context.Context) GetHybridTablesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetHybridTablesLimitPtrOutput)
+}
+
+type GetHybridTablesLimitOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetHybridTablesLimit)(nil)).Elem()
+}
+
+func (o GetHybridTablesLimitOutput) ToGetHybridTablesLimitOutput() GetHybridTablesLimitOutput {
+	return o
+}
+
+func (o GetHybridTablesLimitOutput) ToGetHybridTablesLimitOutputWithContext(ctx context.Context) GetHybridTablesLimitOutput {
+	return o
+}
+
+func (o GetHybridTablesLimitOutput) ToGetHybridTablesLimitPtrOutput() GetHybridTablesLimitPtrOutput {
+	return o.ToGetHybridTablesLimitPtrOutputWithContext(context.Background())
+}
+
+func (o GetHybridTablesLimitOutput) ToGetHybridTablesLimitPtrOutputWithContext(ctx context.Context) GetHybridTablesLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetHybridTablesLimit) *GetHybridTablesLimit {
+		return &v
+	}).(GetHybridTablesLimitPtrOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetHybridTablesLimitOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetHybridTablesLimit) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetHybridTablesLimitOutput) Rows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetHybridTablesLimit) int { return v.Rows }).(pulumi.IntOutput)
+}
+
+type GetHybridTablesLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (GetHybridTablesLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetHybridTablesLimit)(nil)).Elem()
+}
+
+func (o GetHybridTablesLimitPtrOutput) ToGetHybridTablesLimitPtrOutput() GetHybridTablesLimitPtrOutput {
+	return o
+}
+
+func (o GetHybridTablesLimitPtrOutput) ToGetHybridTablesLimitPtrOutputWithContext(ctx context.Context) GetHybridTablesLimitPtrOutput {
+	return o
+}
+
+func (o GetHybridTablesLimitPtrOutput) Elem() GetHybridTablesLimitOutput {
+	return o.ApplyT(func(v *GetHybridTablesLimit) GetHybridTablesLimit {
+		if v != nil {
+			return *v
+		}
+		var ret GetHybridTablesLimit
+		return ret
+	}).(GetHybridTablesLimitOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetHybridTablesLimitPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetHybridTablesLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetHybridTablesLimitPtrOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetHybridTablesLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Rows
+	}).(pulumi.IntPtrOutput)
 }
 
 type GetIcebergTablesIcebergTable struct {
@@ -13098,6 +16034,2884 @@ func (o GetNotebooksNotebookShowOutputArrayOutput) Index(i pulumi.IntInput) GetN
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNotebooksNotebookShowOutput {
 		return vs[0].([]GetNotebooksNotebookShowOutput)[vs[1].(int)]
 	}).(GetNotebooksNotebookShowOutputOutput)
+}
+
+type GetOpenflowConnectorDefinitionsLimit struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From *string `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows int `pulumi:"rows"`
+}
+
+// GetOpenflowConnectorDefinitionsLimitInput is an input type that accepts GetOpenflowConnectorDefinitionsLimitArgs and GetOpenflowConnectorDefinitionsLimitOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorDefinitionsLimitInput` via:
+//
+//	GetOpenflowConnectorDefinitionsLimitArgs{...}
+type GetOpenflowConnectorDefinitionsLimitInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorDefinitionsLimitOutput() GetOpenflowConnectorDefinitionsLimitOutput
+	ToGetOpenflowConnectorDefinitionsLimitOutputWithContext(context.Context) GetOpenflowConnectorDefinitionsLimitOutput
+}
+
+type GetOpenflowConnectorDefinitionsLimitArgs struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows pulumi.IntInput `pulumi:"rows"`
+}
+
+func (GetOpenflowConnectorDefinitionsLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorDefinitionsLimit)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorDefinitionsLimitArgs) ToGetOpenflowConnectorDefinitionsLimitOutput() GetOpenflowConnectorDefinitionsLimitOutput {
+	return i.ToGetOpenflowConnectorDefinitionsLimitOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorDefinitionsLimitArgs) ToGetOpenflowConnectorDefinitionsLimitOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorDefinitionsLimitOutput)
+}
+
+func (i GetOpenflowConnectorDefinitionsLimitArgs) ToGetOpenflowConnectorDefinitionsLimitPtrOutput() GetOpenflowConnectorDefinitionsLimitPtrOutput {
+	return i.ToGetOpenflowConnectorDefinitionsLimitPtrOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorDefinitionsLimitArgs) ToGetOpenflowConnectorDefinitionsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorDefinitionsLimitOutput).ToGetOpenflowConnectorDefinitionsLimitPtrOutputWithContext(ctx)
+}
+
+// GetOpenflowConnectorDefinitionsLimitPtrInput is an input type that accepts GetOpenflowConnectorDefinitionsLimitArgs, GetOpenflowConnectorDefinitionsLimitPtr and GetOpenflowConnectorDefinitionsLimitPtrOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorDefinitionsLimitPtrInput` via:
+//
+//	        GetOpenflowConnectorDefinitionsLimitArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetOpenflowConnectorDefinitionsLimitPtrInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorDefinitionsLimitPtrOutput() GetOpenflowConnectorDefinitionsLimitPtrOutput
+	ToGetOpenflowConnectorDefinitionsLimitPtrOutputWithContext(context.Context) GetOpenflowConnectorDefinitionsLimitPtrOutput
+}
+
+type getOpenflowConnectorDefinitionsLimitPtrType GetOpenflowConnectorDefinitionsLimitArgs
+
+func GetOpenflowConnectorDefinitionsLimitPtr(v *GetOpenflowConnectorDefinitionsLimitArgs) GetOpenflowConnectorDefinitionsLimitPtrInput {
+	return (*getOpenflowConnectorDefinitionsLimitPtrType)(v)
+}
+
+func (*getOpenflowConnectorDefinitionsLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowConnectorDefinitionsLimit)(nil)).Elem()
+}
+
+func (i *getOpenflowConnectorDefinitionsLimitPtrType) ToGetOpenflowConnectorDefinitionsLimitPtrOutput() GetOpenflowConnectorDefinitionsLimitPtrOutput {
+	return i.ToGetOpenflowConnectorDefinitionsLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *getOpenflowConnectorDefinitionsLimitPtrType) ToGetOpenflowConnectorDefinitionsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorDefinitionsLimitPtrOutput)
+}
+
+type GetOpenflowConnectorDefinitionsLimitOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorDefinitionsLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorDefinitionsLimit)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorDefinitionsLimitOutput) ToGetOpenflowConnectorDefinitionsLimitOutput() GetOpenflowConnectorDefinitionsLimitOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsLimitOutput) ToGetOpenflowConnectorDefinitionsLimitOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsLimitOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsLimitOutput) ToGetOpenflowConnectorDefinitionsLimitPtrOutput() GetOpenflowConnectorDefinitionsLimitPtrOutput {
+	return o.ToGetOpenflowConnectorDefinitionsLimitPtrOutputWithContext(context.Background())
+}
+
+func (o GetOpenflowConnectorDefinitionsLimitOutput) ToGetOpenflowConnectorDefinitionsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOpenflowConnectorDefinitionsLimit) *GetOpenflowConnectorDefinitionsLimit {
+		return &v
+	}).(GetOpenflowConnectorDefinitionsLimitPtrOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetOpenflowConnectorDefinitionsLimitOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsLimit) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetOpenflowConnectorDefinitionsLimitOutput) Rows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsLimit) int { return v.Rows }).(pulumi.IntOutput)
+}
+
+type GetOpenflowConnectorDefinitionsLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorDefinitionsLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowConnectorDefinitionsLimit)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorDefinitionsLimitPtrOutput) ToGetOpenflowConnectorDefinitionsLimitPtrOutput() GetOpenflowConnectorDefinitionsLimitPtrOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsLimitPtrOutput) ToGetOpenflowConnectorDefinitionsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsLimitPtrOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsLimitPtrOutput) Elem() GetOpenflowConnectorDefinitionsLimitOutput {
+	return o.ApplyT(func(v *GetOpenflowConnectorDefinitionsLimit) GetOpenflowConnectorDefinitionsLimit {
+		if v != nil {
+			return *v
+		}
+		var ret GetOpenflowConnectorDefinitionsLimit
+		return ret
+	}).(GetOpenflowConnectorDefinitionsLimitOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetOpenflowConnectorDefinitionsLimitPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowConnectorDefinitionsLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetOpenflowConnectorDefinitionsLimitPtrOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowConnectorDefinitionsLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Rows
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinition struct {
+	// Holds the output of SHOW OPENFLOW CONNECTOR DEFINITIONS.
+	ShowOutputs []GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput `pulumi:"showOutputs"`
+}
+
+// GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionInput is an input type that accepts GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArgs and GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionInput` via:
+//
+//	GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArgs{...}
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput
+	ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutputWithContext(context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput
+}
+
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArgs struct {
+	// Holds the output of SHOW OPENFLOW CONNECTOR DEFINITIONS.
+	ShowOutputs GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayInput `pulumi:"showOutputs"`
+}
+
+func (GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorDefinitionsOpenflowConnectorDefinition)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArgs) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput {
+	return i.ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArgs) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput)
+}
+
+// GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayInput is an input type that accepts GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArray and GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayInput` via:
+//
+//	GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArray{ GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArgs{...} }
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput
+	ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutputWithContext(context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput
+}
+
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArray []GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionInput
+
+func (GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowConnectorDefinitionsOpenflowConnectorDefinition)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArray) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput {
+	return i.ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArray) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput)
+}
+
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorDefinitionsOpenflowConnectorDefinition)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput {
+	return o
+}
+
+// Holds the output of SHOW OPENFLOW CONNECTOR DEFINITIONS.
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput) ShowOutputs() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsOpenflowConnectorDefinition) []GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput {
+		return v.ShowOutputs
+	}).(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput)
+}
+
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowConnectorDefinitionsOpenflowConnectorDefinition)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput) Index(i pulumi.IntInput) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinition {
+		return vs[0].([]GetOpenflowConnectorDefinitionsOpenflowConnectorDefinition)[vs[1].(int)]
+	}).(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput)
+}
+
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput struct {
+	Categories         []string `pulumi:"categories"`
+	Description        string   `pulumi:"description"`
+	DisplayName        string   `pulumi:"displayName"`
+	MaxNodeCount       int      `pulumi:"maxNodeCount"`
+	MinRuntimeNodeType string   `pulumi:"minRuntimeNodeType"`
+	Name               string   `pulumi:"name"`
+	Provider           string   `pulumi:"provider"`
+	Version            string   `pulumi:"version"`
+}
+
+// GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputInput is an input type that accepts GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArgs and GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputInput` via:
+//
+//	GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArgs{...}
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput
+	ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutputWithContext(context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput
+}
+
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArgs struct {
+	Categories         pulumi.StringArrayInput `pulumi:"categories"`
+	Description        pulumi.StringInput      `pulumi:"description"`
+	DisplayName        pulumi.StringInput      `pulumi:"displayName"`
+	MaxNodeCount       pulumi.IntInput         `pulumi:"maxNodeCount"`
+	MinRuntimeNodeType pulumi.StringInput      `pulumi:"minRuntimeNodeType"`
+	Name               pulumi.StringInput      `pulumi:"name"`
+	Provider           pulumi.StringInput      `pulumi:"provider"`
+	Version            pulumi.StringInput      `pulumi:"version"`
+}
+
+func (GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArgs) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput {
+	return i.ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArgs) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput)
+}
+
+// GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayInput is an input type that accepts GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArray and GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayInput` via:
+//
+//	GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArray{ GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArgs{...} }
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput
+	ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutputWithContext(context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput
+}
+
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArray []GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputInput
+
+func (GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArray) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput {
+	return i.ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArray) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput)
+}
+
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) Categories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput) []string {
+		return v.Categories
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput) string {
+		return v.Description
+	}).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput) string {
+		return v.DisplayName
+	}).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) MaxNodeCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput) int {
+		return v.MaxNodeCount
+	}).(pulumi.IntOutput)
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) MinRuntimeNodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput) string {
+		return v.MinRuntimeNodeType
+	}).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput() GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput) ToGetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutputWithContext(ctx context.Context) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput) Index(i pulumi.IntInput) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput {
+		return vs[0].([]GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutput)[vs[1].(int)]
+	}).(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput)
+}
+
+type GetOpenflowConnectorsIn struct {
+	// Returns records for the entire account.
+	Account *bool `pulumi:"account"`
+	// Returns records for the current database in use or for a specified database.
+	Database *string `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+	Schema *string `pulumi:"schema"`
+}
+
+// GetOpenflowConnectorsInInput is an input type that accepts GetOpenflowConnectorsInArgs and GetOpenflowConnectorsInOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorsInInput` via:
+//
+//	GetOpenflowConnectorsInArgs{...}
+type GetOpenflowConnectorsInInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorsInOutput() GetOpenflowConnectorsInOutput
+	ToGetOpenflowConnectorsInOutputWithContext(context.Context) GetOpenflowConnectorsInOutput
+}
+
+type GetOpenflowConnectorsInArgs struct {
+	// Returns records for the entire account.
+	Account pulumi.BoolPtrInput `pulumi:"account"`
+	// Returns records for the current database in use or for a specified database.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+}
+
+func (GetOpenflowConnectorsInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorsIn)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorsInArgs) ToGetOpenflowConnectorsInOutput() GetOpenflowConnectorsInOutput {
+	return i.ToGetOpenflowConnectorsInOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorsInArgs) ToGetOpenflowConnectorsInOutputWithContext(ctx context.Context) GetOpenflowConnectorsInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsInOutput)
+}
+
+func (i GetOpenflowConnectorsInArgs) ToGetOpenflowConnectorsInPtrOutput() GetOpenflowConnectorsInPtrOutput {
+	return i.ToGetOpenflowConnectorsInPtrOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorsInArgs) ToGetOpenflowConnectorsInPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorsInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsInOutput).ToGetOpenflowConnectorsInPtrOutputWithContext(ctx)
+}
+
+// GetOpenflowConnectorsInPtrInput is an input type that accepts GetOpenflowConnectorsInArgs, GetOpenflowConnectorsInPtr and GetOpenflowConnectorsInPtrOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorsInPtrInput` via:
+//
+//	        GetOpenflowConnectorsInArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetOpenflowConnectorsInPtrInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorsInPtrOutput() GetOpenflowConnectorsInPtrOutput
+	ToGetOpenflowConnectorsInPtrOutputWithContext(context.Context) GetOpenflowConnectorsInPtrOutput
+}
+
+type getOpenflowConnectorsInPtrType GetOpenflowConnectorsInArgs
+
+func GetOpenflowConnectorsInPtr(v *GetOpenflowConnectorsInArgs) GetOpenflowConnectorsInPtrInput {
+	return (*getOpenflowConnectorsInPtrType)(v)
+}
+
+func (*getOpenflowConnectorsInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowConnectorsIn)(nil)).Elem()
+}
+
+func (i *getOpenflowConnectorsInPtrType) ToGetOpenflowConnectorsInPtrOutput() GetOpenflowConnectorsInPtrOutput {
+	return i.ToGetOpenflowConnectorsInPtrOutputWithContext(context.Background())
+}
+
+func (i *getOpenflowConnectorsInPtrType) ToGetOpenflowConnectorsInPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorsInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsInPtrOutput)
+}
+
+type GetOpenflowConnectorsInOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorsInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorsIn)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorsInOutput) ToGetOpenflowConnectorsInOutput() GetOpenflowConnectorsInOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsInOutput) ToGetOpenflowConnectorsInOutputWithContext(ctx context.Context) GetOpenflowConnectorsInOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsInOutput) ToGetOpenflowConnectorsInPtrOutput() GetOpenflowConnectorsInPtrOutput {
+	return o.ToGetOpenflowConnectorsInPtrOutputWithContext(context.Background())
+}
+
+func (o GetOpenflowConnectorsInOutput) ToGetOpenflowConnectorsInPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorsInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOpenflowConnectorsIn) *GetOpenflowConnectorsIn {
+		return &v
+	}).(GetOpenflowConnectorsInPtrOutput)
+}
+
+// Returns records for the entire account.
+func (o GetOpenflowConnectorsInOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsIn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database.
+func (o GetOpenflowConnectorsInOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsIn) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+func (o GetOpenflowConnectorsInOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+type GetOpenflowConnectorsInPtrOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorsInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowConnectorsIn)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorsInPtrOutput) ToGetOpenflowConnectorsInPtrOutput() GetOpenflowConnectorsInPtrOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsInPtrOutput) ToGetOpenflowConnectorsInPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorsInPtrOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsInPtrOutput) Elem() GetOpenflowConnectorsInOutput {
+	return o.ApplyT(func(v *GetOpenflowConnectorsIn) GetOpenflowConnectorsIn {
+		if v != nil {
+			return *v
+		}
+		var ret GetOpenflowConnectorsIn
+		return ret
+	}).(GetOpenflowConnectorsInOutput)
+}
+
+// Returns records for the entire account.
+func (o GetOpenflowConnectorsInPtrOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowConnectorsIn) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Account
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database.
+func (o GetOpenflowConnectorsInPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowConnectorsIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+func (o GetOpenflowConnectorsInPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowConnectorsIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetOpenflowConnectorsLimit struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From *string `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows int `pulumi:"rows"`
+}
+
+// GetOpenflowConnectorsLimitInput is an input type that accepts GetOpenflowConnectorsLimitArgs and GetOpenflowConnectorsLimitOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorsLimitInput` via:
+//
+//	GetOpenflowConnectorsLimitArgs{...}
+type GetOpenflowConnectorsLimitInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorsLimitOutput() GetOpenflowConnectorsLimitOutput
+	ToGetOpenflowConnectorsLimitOutputWithContext(context.Context) GetOpenflowConnectorsLimitOutput
+}
+
+type GetOpenflowConnectorsLimitArgs struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows pulumi.IntInput `pulumi:"rows"`
+}
+
+func (GetOpenflowConnectorsLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorsLimit)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorsLimitArgs) ToGetOpenflowConnectorsLimitOutput() GetOpenflowConnectorsLimitOutput {
+	return i.ToGetOpenflowConnectorsLimitOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorsLimitArgs) ToGetOpenflowConnectorsLimitOutputWithContext(ctx context.Context) GetOpenflowConnectorsLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsLimitOutput)
+}
+
+func (i GetOpenflowConnectorsLimitArgs) ToGetOpenflowConnectorsLimitPtrOutput() GetOpenflowConnectorsLimitPtrOutput {
+	return i.ToGetOpenflowConnectorsLimitPtrOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorsLimitArgs) ToGetOpenflowConnectorsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorsLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsLimitOutput).ToGetOpenflowConnectorsLimitPtrOutputWithContext(ctx)
+}
+
+// GetOpenflowConnectorsLimitPtrInput is an input type that accepts GetOpenflowConnectorsLimitArgs, GetOpenflowConnectorsLimitPtr and GetOpenflowConnectorsLimitPtrOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorsLimitPtrInput` via:
+//
+//	        GetOpenflowConnectorsLimitArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetOpenflowConnectorsLimitPtrInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorsLimitPtrOutput() GetOpenflowConnectorsLimitPtrOutput
+	ToGetOpenflowConnectorsLimitPtrOutputWithContext(context.Context) GetOpenflowConnectorsLimitPtrOutput
+}
+
+type getOpenflowConnectorsLimitPtrType GetOpenflowConnectorsLimitArgs
+
+func GetOpenflowConnectorsLimitPtr(v *GetOpenflowConnectorsLimitArgs) GetOpenflowConnectorsLimitPtrInput {
+	return (*getOpenflowConnectorsLimitPtrType)(v)
+}
+
+func (*getOpenflowConnectorsLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowConnectorsLimit)(nil)).Elem()
+}
+
+func (i *getOpenflowConnectorsLimitPtrType) ToGetOpenflowConnectorsLimitPtrOutput() GetOpenflowConnectorsLimitPtrOutput {
+	return i.ToGetOpenflowConnectorsLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *getOpenflowConnectorsLimitPtrType) ToGetOpenflowConnectorsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorsLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsLimitPtrOutput)
+}
+
+type GetOpenflowConnectorsLimitOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorsLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorsLimit)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorsLimitOutput) ToGetOpenflowConnectorsLimitOutput() GetOpenflowConnectorsLimitOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsLimitOutput) ToGetOpenflowConnectorsLimitOutputWithContext(ctx context.Context) GetOpenflowConnectorsLimitOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsLimitOutput) ToGetOpenflowConnectorsLimitPtrOutput() GetOpenflowConnectorsLimitPtrOutput {
+	return o.ToGetOpenflowConnectorsLimitPtrOutputWithContext(context.Background())
+}
+
+func (o GetOpenflowConnectorsLimitOutput) ToGetOpenflowConnectorsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorsLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOpenflowConnectorsLimit) *GetOpenflowConnectorsLimit {
+		return &v
+	}).(GetOpenflowConnectorsLimitPtrOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetOpenflowConnectorsLimitOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsLimit) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetOpenflowConnectorsLimitOutput) Rows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsLimit) int { return v.Rows }).(pulumi.IntOutput)
+}
+
+type GetOpenflowConnectorsLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorsLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowConnectorsLimit)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorsLimitPtrOutput) ToGetOpenflowConnectorsLimitPtrOutput() GetOpenflowConnectorsLimitPtrOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsLimitPtrOutput) ToGetOpenflowConnectorsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowConnectorsLimitPtrOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsLimitPtrOutput) Elem() GetOpenflowConnectorsLimitOutput {
+	return o.ApplyT(func(v *GetOpenflowConnectorsLimit) GetOpenflowConnectorsLimit {
+		if v != nil {
+			return *v
+		}
+		var ret GetOpenflowConnectorsLimit
+		return ret
+	}).(GetOpenflowConnectorsLimitOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetOpenflowConnectorsLimitPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowConnectorsLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetOpenflowConnectorsLimitPtrOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowConnectorsLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Rows
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetOpenflowConnectorsOpenflowConnector struct {
+	// Holds the output of DESCRIBE OPENFLOW CONNECTOR.
+	DescribeOutputs []GetOpenflowConnectorsOpenflowConnectorDescribeOutput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW OPENFLOW CONNECTORS.
+	ShowOutputs []GetOpenflowConnectorsOpenflowConnectorShowOutput `pulumi:"showOutputs"`
+}
+
+// GetOpenflowConnectorsOpenflowConnectorInput is an input type that accepts GetOpenflowConnectorsOpenflowConnectorArgs and GetOpenflowConnectorsOpenflowConnectorOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorsOpenflowConnectorInput` via:
+//
+//	GetOpenflowConnectorsOpenflowConnectorArgs{...}
+type GetOpenflowConnectorsOpenflowConnectorInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorsOpenflowConnectorOutput() GetOpenflowConnectorsOpenflowConnectorOutput
+	ToGetOpenflowConnectorsOpenflowConnectorOutputWithContext(context.Context) GetOpenflowConnectorsOpenflowConnectorOutput
+}
+
+type GetOpenflowConnectorsOpenflowConnectorArgs struct {
+	// Holds the output of DESCRIBE OPENFLOW CONNECTOR.
+	DescribeOutputs GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayInput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW OPENFLOW CONNECTORS.
+	ShowOutputs GetOpenflowConnectorsOpenflowConnectorShowOutputArrayInput `pulumi:"showOutputs"`
+}
+
+func (GetOpenflowConnectorsOpenflowConnectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnector)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorArgs) ToGetOpenflowConnectorsOpenflowConnectorOutput() GetOpenflowConnectorsOpenflowConnectorOutput {
+	return i.ToGetOpenflowConnectorsOpenflowConnectorOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorArgs) ToGetOpenflowConnectorsOpenflowConnectorOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsOpenflowConnectorOutput)
+}
+
+// GetOpenflowConnectorsOpenflowConnectorArrayInput is an input type that accepts GetOpenflowConnectorsOpenflowConnectorArray and GetOpenflowConnectorsOpenflowConnectorArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorsOpenflowConnectorArrayInput` via:
+//
+//	GetOpenflowConnectorsOpenflowConnectorArray{ GetOpenflowConnectorsOpenflowConnectorArgs{...} }
+type GetOpenflowConnectorsOpenflowConnectorArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorsOpenflowConnectorArrayOutput() GetOpenflowConnectorsOpenflowConnectorArrayOutput
+	ToGetOpenflowConnectorsOpenflowConnectorArrayOutputWithContext(context.Context) GetOpenflowConnectorsOpenflowConnectorArrayOutput
+}
+
+type GetOpenflowConnectorsOpenflowConnectorArray []GetOpenflowConnectorsOpenflowConnectorInput
+
+func (GetOpenflowConnectorsOpenflowConnectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowConnectorsOpenflowConnector)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorArray) ToGetOpenflowConnectorsOpenflowConnectorArrayOutput() GetOpenflowConnectorsOpenflowConnectorArrayOutput {
+	return i.ToGetOpenflowConnectorsOpenflowConnectorArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorArray) ToGetOpenflowConnectorsOpenflowConnectorArrayOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsOpenflowConnectorArrayOutput)
+}
+
+type GetOpenflowConnectorsOpenflowConnectorOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorsOpenflowConnectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnector)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorOutput) ToGetOpenflowConnectorsOpenflowConnectorOutput() GetOpenflowConnectorsOpenflowConnectorOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorOutput) ToGetOpenflowConnectorsOpenflowConnectorOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorOutput {
+	return o
+}
+
+// Holds the output of DESCRIBE OPENFLOW CONNECTOR.
+func (o GetOpenflowConnectorsOpenflowConnectorOutput) DescribeOutputs() GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnector) []GetOpenflowConnectorsOpenflowConnectorDescribeOutput {
+		return v.DescribeOutputs
+	}).(GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput)
+}
+
+// Holds the output of SHOW OPENFLOW CONNECTORS.
+func (o GetOpenflowConnectorsOpenflowConnectorOutput) ShowOutputs() GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnector) []GetOpenflowConnectorsOpenflowConnectorShowOutput {
+		return v.ShowOutputs
+	}).(GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput)
+}
+
+type GetOpenflowConnectorsOpenflowConnectorArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorsOpenflowConnectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowConnectorsOpenflowConnector)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorArrayOutput) ToGetOpenflowConnectorsOpenflowConnectorArrayOutput() GetOpenflowConnectorsOpenflowConnectorArrayOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorArrayOutput) ToGetOpenflowConnectorsOpenflowConnectorArrayOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorArrayOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorArrayOutput) Index(i pulumi.IntInput) GetOpenflowConnectorsOpenflowConnectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowConnectorsOpenflowConnector {
+		return vs[0].([]GetOpenflowConnectorsOpenflowConnector)[vs[1].(int)]
+	}).(GetOpenflowConnectorsOpenflowConnectorOutput)
+}
+
+type GetOpenflowConnectorsOpenflowConnectorDescribeOutput struct {
+	Comment                         string `pulumi:"comment"`
+	ConnectorDefinition             string `pulumi:"connectorDefinition"`
+	ConnectorUrl                    string `pulumi:"connectorUrl"`
+	DefaultVersion                  string `pulumi:"defaultVersion"`
+	DefaultVersionAlias             string `pulumi:"defaultVersionAlias"`
+	DefaultVersionGitCommitHash     string `pulumi:"defaultVersionGitCommitHash"`
+	DefaultVersionLocationUri       string `pulumi:"defaultVersionLocationUri"`
+	DefaultVersionName              string `pulumi:"defaultVersionName"`
+	DefaultVersionSourceLocationUri string `pulumi:"defaultVersionSourceLocationUri"`
+	DisplayName                     string `pulumi:"displayName"`
+	LastVersionAlias                string `pulumi:"lastVersionAlias"`
+	LastVersionGitCommitHash        string `pulumi:"lastVersionGitCommitHash"`
+	LastVersionLocationUri          string `pulumi:"lastVersionLocationUri"`
+	LastVersionName                 string `pulumi:"lastVersionName"`
+	LastVersionSourceLocationUri    string `pulumi:"lastVersionSourceLocationUri"`
+	LiveVersionLocationUri          string `pulumi:"liveVersionLocationUri"`
+	Name                            string `pulumi:"name"`
+	Owner                           string `pulumi:"owner"`
+	Runtime                         string `pulumi:"runtime"`
+	Status                          string `pulumi:"status"`
+}
+
+// GetOpenflowConnectorsOpenflowConnectorDescribeOutputInput is an input type that accepts GetOpenflowConnectorsOpenflowConnectorDescribeOutputArgs and GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorsOpenflowConnectorDescribeOutputInput` via:
+//
+//	GetOpenflowConnectorsOpenflowConnectorDescribeOutputArgs{...}
+type GetOpenflowConnectorsOpenflowConnectorDescribeOutputInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput() GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput
+	ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputOutputWithContext(context.Context) GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput
+}
+
+type GetOpenflowConnectorsOpenflowConnectorDescribeOutputArgs struct {
+	Comment                         pulumi.StringInput `pulumi:"comment"`
+	ConnectorDefinition             pulumi.StringInput `pulumi:"connectorDefinition"`
+	ConnectorUrl                    pulumi.StringInput `pulumi:"connectorUrl"`
+	DefaultVersion                  pulumi.StringInput `pulumi:"defaultVersion"`
+	DefaultVersionAlias             pulumi.StringInput `pulumi:"defaultVersionAlias"`
+	DefaultVersionGitCommitHash     pulumi.StringInput `pulumi:"defaultVersionGitCommitHash"`
+	DefaultVersionLocationUri       pulumi.StringInput `pulumi:"defaultVersionLocationUri"`
+	DefaultVersionName              pulumi.StringInput `pulumi:"defaultVersionName"`
+	DefaultVersionSourceLocationUri pulumi.StringInput `pulumi:"defaultVersionSourceLocationUri"`
+	DisplayName                     pulumi.StringInput `pulumi:"displayName"`
+	LastVersionAlias                pulumi.StringInput `pulumi:"lastVersionAlias"`
+	LastVersionGitCommitHash        pulumi.StringInput `pulumi:"lastVersionGitCommitHash"`
+	LastVersionLocationUri          pulumi.StringInput `pulumi:"lastVersionLocationUri"`
+	LastVersionName                 pulumi.StringInput `pulumi:"lastVersionName"`
+	LastVersionSourceLocationUri    pulumi.StringInput `pulumi:"lastVersionSourceLocationUri"`
+	LiveVersionLocationUri          pulumi.StringInput `pulumi:"liveVersionLocationUri"`
+	Name                            pulumi.StringInput `pulumi:"name"`
+	Owner                           pulumi.StringInput `pulumi:"owner"`
+	Runtime                         pulumi.StringInput `pulumi:"runtime"`
+	Status                          pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetOpenflowConnectorsOpenflowConnectorDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnectorDescribeOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorDescribeOutputArgs) ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput() GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput {
+	return i.ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorDescribeOutputArgs) ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput)
+}
+
+// GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayInput is an input type that accepts GetOpenflowConnectorsOpenflowConnectorDescribeOutputArray and GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayInput` via:
+//
+//	GetOpenflowConnectorsOpenflowConnectorDescribeOutputArray{ GetOpenflowConnectorsOpenflowConnectorDescribeOutputArgs{...} }
+type GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput() GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput
+	ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutputWithContext(context.Context) GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput
+}
+
+type GetOpenflowConnectorsOpenflowConnectorDescribeOutputArray []GetOpenflowConnectorsOpenflowConnectorDescribeOutputInput
+
+func (GetOpenflowConnectorsOpenflowConnectorDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowConnectorsOpenflowConnectorDescribeOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorDescribeOutputArray) ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput() GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput {
+	return i.ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorDescribeOutputArray) ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput)
+}
+
+type GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnectorDescribeOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput() GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) ConnectorDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.ConnectorDefinition }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) ConnectorUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.ConnectorUrl }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) DefaultVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.DefaultVersion }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) DefaultVersionAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.DefaultVersionAlias }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) DefaultVersionGitCommitHash() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string {
+		return v.DefaultVersionGitCommitHash
+	}).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) DefaultVersionLocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string {
+		return v.DefaultVersionLocationUri
+	}).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) DefaultVersionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.DefaultVersionName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) DefaultVersionSourceLocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string {
+		return v.DefaultVersionSourceLocationUri
+	}).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) LastVersionAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.LastVersionAlias }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) LastVersionGitCommitHash() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.LastVersionGitCommitHash }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) LastVersionLocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.LastVersionLocationUri }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) LastVersionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.LastVersionName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) LastVersionSourceLocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string {
+		return v.LastVersionSourceLocationUri
+	}).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) LiveVersionLocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.LiveVersionLocationUri }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) Runtime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.Runtime }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorDescribeOutput) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowConnectorsOpenflowConnectorDescribeOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput) ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput() GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput) ToGetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowConnectorsOpenflowConnectorDescribeOutput {
+		return vs[0].([]GetOpenflowConnectorsOpenflowConnectorDescribeOutput)[vs[1].(int)]
+	}).(GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput)
+}
+
+type GetOpenflowConnectorsOpenflowConnectorShowOutput struct {
+	Comment                         string `pulumi:"comment"`
+	ConnectorDefinition             string `pulumi:"connectorDefinition"`
+	ConnectorUrl                    string `pulumi:"connectorUrl"`
+	CreatedOn                       string `pulumi:"createdOn"`
+	DatabaseName                    string `pulumi:"databaseName"`
+	DefaultVersion                  string `pulumi:"defaultVersion"`
+	DefaultVersionAlias             string `pulumi:"defaultVersionAlias"`
+	DefaultVersionLocationUri       string `pulumi:"defaultVersionLocationUri"`
+	DefaultVersionName              string `pulumi:"defaultVersionName"`
+	DefaultVersionSourceLocationUri string `pulumi:"defaultVersionSourceLocationUri"`
+	DisplayName                     string `pulumi:"displayName"`
+	LiveVersionLocationUri          string `pulumi:"liveVersionLocationUri"`
+	Name                            string `pulumi:"name"`
+	Owner                           string `pulumi:"owner"`
+	Runtime                         string `pulumi:"runtime"`
+	SchemaName                      string `pulumi:"schemaName"`
+	Status                          string `pulumi:"status"`
+	UpdatedOn                       string `pulumi:"updatedOn"`
+}
+
+// GetOpenflowConnectorsOpenflowConnectorShowOutputInput is an input type that accepts GetOpenflowConnectorsOpenflowConnectorShowOutputArgs and GetOpenflowConnectorsOpenflowConnectorShowOutputOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorsOpenflowConnectorShowOutputInput` via:
+//
+//	GetOpenflowConnectorsOpenflowConnectorShowOutputArgs{...}
+type GetOpenflowConnectorsOpenflowConnectorShowOutputInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorsOpenflowConnectorShowOutputOutput() GetOpenflowConnectorsOpenflowConnectorShowOutputOutput
+	ToGetOpenflowConnectorsOpenflowConnectorShowOutputOutputWithContext(context.Context) GetOpenflowConnectorsOpenflowConnectorShowOutputOutput
+}
+
+type GetOpenflowConnectorsOpenflowConnectorShowOutputArgs struct {
+	Comment                         pulumi.StringInput `pulumi:"comment"`
+	ConnectorDefinition             pulumi.StringInput `pulumi:"connectorDefinition"`
+	ConnectorUrl                    pulumi.StringInput `pulumi:"connectorUrl"`
+	CreatedOn                       pulumi.StringInput `pulumi:"createdOn"`
+	DatabaseName                    pulumi.StringInput `pulumi:"databaseName"`
+	DefaultVersion                  pulumi.StringInput `pulumi:"defaultVersion"`
+	DefaultVersionAlias             pulumi.StringInput `pulumi:"defaultVersionAlias"`
+	DefaultVersionLocationUri       pulumi.StringInput `pulumi:"defaultVersionLocationUri"`
+	DefaultVersionName              pulumi.StringInput `pulumi:"defaultVersionName"`
+	DefaultVersionSourceLocationUri pulumi.StringInput `pulumi:"defaultVersionSourceLocationUri"`
+	DisplayName                     pulumi.StringInput `pulumi:"displayName"`
+	LiveVersionLocationUri          pulumi.StringInput `pulumi:"liveVersionLocationUri"`
+	Name                            pulumi.StringInput `pulumi:"name"`
+	Owner                           pulumi.StringInput `pulumi:"owner"`
+	Runtime                         pulumi.StringInput `pulumi:"runtime"`
+	SchemaName                      pulumi.StringInput `pulumi:"schemaName"`
+	Status                          pulumi.StringInput `pulumi:"status"`
+	UpdatedOn                       pulumi.StringInput `pulumi:"updatedOn"`
+}
+
+func (GetOpenflowConnectorsOpenflowConnectorShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnectorShowOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorShowOutputArgs) ToGetOpenflowConnectorsOpenflowConnectorShowOutputOutput() GetOpenflowConnectorsOpenflowConnectorShowOutputOutput {
+	return i.ToGetOpenflowConnectorsOpenflowConnectorShowOutputOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorShowOutputArgs) ToGetOpenflowConnectorsOpenflowConnectorShowOutputOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsOpenflowConnectorShowOutputOutput)
+}
+
+// GetOpenflowConnectorsOpenflowConnectorShowOutputArrayInput is an input type that accepts GetOpenflowConnectorsOpenflowConnectorShowOutputArray and GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowConnectorsOpenflowConnectorShowOutputArrayInput` via:
+//
+//	GetOpenflowConnectorsOpenflowConnectorShowOutputArray{ GetOpenflowConnectorsOpenflowConnectorShowOutputArgs{...} }
+type GetOpenflowConnectorsOpenflowConnectorShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput() GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput
+	ToGetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutputWithContext(context.Context) GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput
+}
+
+type GetOpenflowConnectorsOpenflowConnectorShowOutputArray []GetOpenflowConnectorsOpenflowConnectorShowOutputInput
+
+func (GetOpenflowConnectorsOpenflowConnectorShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowConnectorsOpenflowConnectorShowOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorShowOutputArray) ToGetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput() GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput {
+	return i.ToGetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowConnectorsOpenflowConnectorShowOutputArray) ToGetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput)
+}
+
+type GetOpenflowConnectorsOpenflowConnectorShowOutputOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnectorShowOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) ToGetOpenflowConnectorsOpenflowConnectorShowOutputOutput() GetOpenflowConnectorsOpenflowConnectorShowOutputOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) ToGetOpenflowConnectorsOpenflowConnectorShowOutputOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorShowOutputOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) ConnectorDefinition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.ConnectorDefinition }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) ConnectorUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.ConnectorUrl }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) DefaultVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.DefaultVersion }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) DefaultVersionAlias() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.DefaultVersionAlias }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) DefaultVersionLocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.DefaultVersionLocationUri }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) DefaultVersionName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.DefaultVersionName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) DefaultVersionSourceLocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string {
+		return v.DefaultVersionSourceLocationUri
+	}).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) LiveVersionLocationUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.LiveVersionLocationUri }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) Runtime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.Runtime }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputOutput) UpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowConnectorsOpenflowConnectorShowOutput) string { return v.UpdatedOn }).(pulumi.StringOutput)
+}
+
+type GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowConnectorsOpenflowConnectorShowOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput) ToGetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput() GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput) ToGetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutputWithContext(ctx context.Context) GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput) Index(i pulumi.IntInput) GetOpenflowConnectorsOpenflowConnectorShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowConnectorsOpenflowConnectorShowOutput {
+		return vs[0].([]GetOpenflowConnectorsOpenflowConnectorShowOutput)[vs[1].(int)]
+	}).(GetOpenflowConnectorsOpenflowConnectorShowOutputOutput)
+}
+
+type GetOpenflowDeploymentsLimit struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From *string `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows int `pulumi:"rows"`
+}
+
+// GetOpenflowDeploymentsLimitInput is an input type that accepts GetOpenflowDeploymentsLimitArgs and GetOpenflowDeploymentsLimitOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsLimitInput` via:
+//
+//	GetOpenflowDeploymentsLimitArgs{...}
+type GetOpenflowDeploymentsLimitInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsLimitOutput() GetOpenflowDeploymentsLimitOutput
+	ToGetOpenflowDeploymentsLimitOutputWithContext(context.Context) GetOpenflowDeploymentsLimitOutput
+}
+
+type GetOpenflowDeploymentsLimitArgs struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows pulumi.IntInput `pulumi:"rows"`
+}
+
+func (GetOpenflowDeploymentsLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsLimit)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsLimitArgs) ToGetOpenflowDeploymentsLimitOutput() GetOpenflowDeploymentsLimitOutput {
+	return i.ToGetOpenflowDeploymentsLimitOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsLimitArgs) ToGetOpenflowDeploymentsLimitOutputWithContext(ctx context.Context) GetOpenflowDeploymentsLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsLimitOutput)
+}
+
+func (i GetOpenflowDeploymentsLimitArgs) ToGetOpenflowDeploymentsLimitPtrOutput() GetOpenflowDeploymentsLimitPtrOutput {
+	return i.ToGetOpenflowDeploymentsLimitPtrOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsLimitArgs) ToGetOpenflowDeploymentsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowDeploymentsLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsLimitOutput).ToGetOpenflowDeploymentsLimitPtrOutputWithContext(ctx)
+}
+
+// GetOpenflowDeploymentsLimitPtrInput is an input type that accepts GetOpenflowDeploymentsLimitArgs, GetOpenflowDeploymentsLimitPtr and GetOpenflowDeploymentsLimitPtrOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsLimitPtrInput` via:
+//
+//	        GetOpenflowDeploymentsLimitArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetOpenflowDeploymentsLimitPtrInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsLimitPtrOutput() GetOpenflowDeploymentsLimitPtrOutput
+	ToGetOpenflowDeploymentsLimitPtrOutputWithContext(context.Context) GetOpenflowDeploymentsLimitPtrOutput
+}
+
+type getOpenflowDeploymentsLimitPtrType GetOpenflowDeploymentsLimitArgs
+
+func GetOpenflowDeploymentsLimitPtr(v *GetOpenflowDeploymentsLimitArgs) GetOpenflowDeploymentsLimitPtrInput {
+	return (*getOpenflowDeploymentsLimitPtrType)(v)
+}
+
+func (*getOpenflowDeploymentsLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowDeploymentsLimit)(nil)).Elem()
+}
+
+func (i *getOpenflowDeploymentsLimitPtrType) ToGetOpenflowDeploymentsLimitPtrOutput() GetOpenflowDeploymentsLimitPtrOutput {
+	return i.ToGetOpenflowDeploymentsLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *getOpenflowDeploymentsLimitPtrType) ToGetOpenflowDeploymentsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowDeploymentsLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsLimitPtrOutput)
+}
+
+type GetOpenflowDeploymentsLimitOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsLimit)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsLimitOutput) ToGetOpenflowDeploymentsLimitOutput() GetOpenflowDeploymentsLimitOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsLimitOutput) ToGetOpenflowDeploymentsLimitOutputWithContext(ctx context.Context) GetOpenflowDeploymentsLimitOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsLimitOutput) ToGetOpenflowDeploymentsLimitPtrOutput() GetOpenflowDeploymentsLimitPtrOutput {
+	return o.ToGetOpenflowDeploymentsLimitPtrOutputWithContext(context.Background())
+}
+
+func (o GetOpenflowDeploymentsLimitOutput) ToGetOpenflowDeploymentsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowDeploymentsLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOpenflowDeploymentsLimit) *GetOpenflowDeploymentsLimit {
+		return &v
+	}).(GetOpenflowDeploymentsLimitPtrOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetOpenflowDeploymentsLimitOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsLimit) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetOpenflowDeploymentsLimitOutput) Rows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsLimit) int { return v.Rows }).(pulumi.IntOutput)
+}
+
+type GetOpenflowDeploymentsLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowDeploymentsLimit)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsLimitPtrOutput) ToGetOpenflowDeploymentsLimitPtrOutput() GetOpenflowDeploymentsLimitPtrOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsLimitPtrOutput) ToGetOpenflowDeploymentsLimitPtrOutputWithContext(ctx context.Context) GetOpenflowDeploymentsLimitPtrOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsLimitPtrOutput) Elem() GetOpenflowDeploymentsLimitOutput {
+	return o.ApplyT(func(v *GetOpenflowDeploymentsLimit) GetOpenflowDeploymentsLimit {
+		if v != nil {
+			return *v
+		}
+		var ret GetOpenflowDeploymentsLimit
+		return ret
+	}).(GetOpenflowDeploymentsLimitOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetOpenflowDeploymentsLimitPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowDeploymentsLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetOpenflowDeploymentsLimitPtrOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowDeploymentsLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Rows
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeployment struct {
+	// Holds the output of DESCRIBE OPENFLOW DEPLOYMENT.
+	DescribeOutputs []GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW PARAMETERS IN OPENFLOW DEPLOYMENT.
+	Parameters []GetOpenflowDeploymentsOpenflowDeploymentParameter `pulumi:"parameters"`
+	// Holds the output of SHOW OPENFLOW DEPLOYMENTS.
+	ShowOutputs []GetOpenflowDeploymentsOpenflowDeploymentShowOutput `pulumi:"showOutputs"`
+}
+
+// GetOpenflowDeploymentsOpenflowDeploymentInput is an input type that accepts GetOpenflowDeploymentsOpenflowDeploymentArgs and GetOpenflowDeploymentsOpenflowDeploymentOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsOpenflowDeploymentInput` via:
+//
+//	GetOpenflowDeploymentsOpenflowDeploymentArgs{...}
+type GetOpenflowDeploymentsOpenflowDeploymentInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsOpenflowDeploymentOutput() GetOpenflowDeploymentsOpenflowDeploymentOutput
+	ToGetOpenflowDeploymentsOpenflowDeploymentOutputWithContext(context.Context) GetOpenflowDeploymentsOpenflowDeploymentOutput
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentArgs struct {
+	// Holds the output of DESCRIBE OPENFLOW DEPLOYMENT.
+	DescribeOutputs GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayInput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW PARAMETERS IN OPENFLOW DEPLOYMENT.
+	Parameters GetOpenflowDeploymentsOpenflowDeploymentParameterArrayInput `pulumi:"parameters"`
+	// Holds the output of SHOW OPENFLOW DEPLOYMENTS.
+	ShowOutputs GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayInput `pulumi:"showOutputs"`
+}
+
+func (GetOpenflowDeploymentsOpenflowDeploymentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeployment)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentArgs) ToGetOpenflowDeploymentsOpenflowDeploymentOutput() GetOpenflowDeploymentsOpenflowDeploymentOutput {
+	return i.ToGetOpenflowDeploymentsOpenflowDeploymentOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentArgs) ToGetOpenflowDeploymentsOpenflowDeploymentOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsOpenflowDeploymentOutput)
+}
+
+// GetOpenflowDeploymentsOpenflowDeploymentArrayInput is an input type that accepts GetOpenflowDeploymentsOpenflowDeploymentArray and GetOpenflowDeploymentsOpenflowDeploymentArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsOpenflowDeploymentArrayInput` via:
+//
+//	GetOpenflowDeploymentsOpenflowDeploymentArray{ GetOpenflowDeploymentsOpenflowDeploymentArgs{...} }
+type GetOpenflowDeploymentsOpenflowDeploymentArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsOpenflowDeploymentArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentArrayOutput
+	ToGetOpenflowDeploymentsOpenflowDeploymentArrayOutputWithContext(context.Context) GetOpenflowDeploymentsOpenflowDeploymentArrayOutput
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentArray []GetOpenflowDeploymentsOpenflowDeploymentInput
+
+func (GetOpenflowDeploymentsOpenflowDeploymentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowDeploymentsOpenflowDeployment)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentArray) ToGetOpenflowDeploymentsOpenflowDeploymentArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentArrayOutput {
+	return i.ToGetOpenflowDeploymentsOpenflowDeploymentArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentArray) ToGetOpenflowDeploymentsOpenflowDeploymentArrayOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsOpenflowDeploymentArrayOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsOpenflowDeploymentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeployment)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentOutput) ToGetOpenflowDeploymentsOpenflowDeploymentOutput() GetOpenflowDeploymentsOpenflowDeploymentOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentOutput) ToGetOpenflowDeploymentsOpenflowDeploymentOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentOutput {
+	return o
+}
+
+// Holds the output of DESCRIBE OPENFLOW DEPLOYMENT.
+func (o GetOpenflowDeploymentsOpenflowDeploymentOutput) DescribeOutputs() GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeployment) []GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput {
+		return v.DescribeOutputs
+	}).(GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput)
+}
+
+// Holds the output of SHOW PARAMETERS IN OPENFLOW DEPLOYMENT.
+func (o GetOpenflowDeploymentsOpenflowDeploymentOutput) Parameters() GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeployment) []GetOpenflowDeploymentsOpenflowDeploymentParameter {
+		return v.Parameters
+	}).(GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput)
+}
+
+// Holds the output of SHOW OPENFLOW DEPLOYMENTS.
+func (o GetOpenflowDeploymentsOpenflowDeploymentOutput) ShowOutputs() GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeployment) []GetOpenflowDeploymentsOpenflowDeploymentShowOutput {
+		return v.ShowOutputs
+	}).(GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsOpenflowDeploymentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowDeploymentsOpenflowDeployment)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentArrayOutput) ToGetOpenflowDeploymentsOpenflowDeploymentArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentArrayOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentArrayOutput) ToGetOpenflowDeploymentsOpenflowDeploymentArrayOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentArrayOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentArrayOutput) Index(i pulumi.IntInput) GetOpenflowDeploymentsOpenflowDeploymentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowDeploymentsOpenflowDeployment {
+		return vs[0].([]GetOpenflowDeploymentsOpenflowDeployment)[vs[1].(int)]
+	}).(GetOpenflowDeploymentsOpenflowDeploymentOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput struct {
+	Comment                    string `pulumi:"comment"`
+	CustomIngressHostname      string `pulumi:"customIngressHostname"`
+	DisplayName                string `pulumi:"displayName"`
+	Key                        string `pulumi:"key"`
+	Name                       string `pulumi:"name"`
+	Owner                      string `pulumi:"owner"`
+	Status                     string `pulumi:"status"`
+	Type                       string `pulumi:"type"`
+	UsePrivateLink             bool   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink bool   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    string `pulumi:"vpcType"`
+}
+
+// GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputInput is an input type that accepts GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArgs and GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputInput` via:
+//
+//	GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArgs{...}
+type GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput() GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput
+	ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutputWithContext(context.Context) GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArgs struct {
+	Comment                    pulumi.StringInput `pulumi:"comment"`
+	CustomIngressHostname      pulumi.StringInput `pulumi:"customIngressHostname"`
+	DisplayName                pulumi.StringInput `pulumi:"displayName"`
+	Key                        pulumi.StringInput `pulumi:"key"`
+	Name                       pulumi.StringInput `pulumi:"name"`
+	Owner                      pulumi.StringInput `pulumi:"owner"`
+	Status                     pulumi.StringInput `pulumi:"status"`
+	Type                       pulumi.StringInput `pulumi:"type"`
+	UsePrivateLink             pulumi.BoolInput   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink pulumi.BoolInput   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    pulumi.StringInput `pulumi:"vpcType"`
+}
+
+func (GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArgs) ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput() GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput {
+	return i.ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArgs) ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput)
+}
+
+// GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayInput is an input type that accepts GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArray and GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayInput` via:
+//
+//	GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArray{ GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArgs{...} }
+type GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput
+	ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutputWithContext(context.Context) GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArray []GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputInput
+
+func (GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArray) ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput {
+	return i.ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArray) ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput() GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) CustomIngressHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) string { return v.CustomIngressHostname }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) UsePrivateLink() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) bool { return v.UsePrivateLink }).(pulumi.BoolOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) UseUserAuthOverPrivateLink() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) bool {
+		return v.UseUserAuthOverPrivateLink
+	}).(pulumi.BoolOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput) VpcType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput) string { return v.VpcType }).(pulumi.StringOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput) ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput) ToGetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput {
+		return vs[0].([]GetOpenflowDeploymentsOpenflowDeploymentDescribeOutput)[vs[1].(int)]
+	}).(GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentParameter struct {
+	EventTables []GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable `pulumi:"eventTables"`
+}
+
+// GetOpenflowDeploymentsOpenflowDeploymentParameterInput is an input type that accepts GetOpenflowDeploymentsOpenflowDeploymentParameterArgs and GetOpenflowDeploymentsOpenflowDeploymentParameterOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsOpenflowDeploymentParameterInput` via:
+//
+//	GetOpenflowDeploymentsOpenflowDeploymentParameterArgs{...}
+type GetOpenflowDeploymentsOpenflowDeploymentParameterInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsOpenflowDeploymentParameterOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterOutput
+	ToGetOpenflowDeploymentsOpenflowDeploymentParameterOutputWithContext(context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterOutput
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentParameterArgs struct {
+	EventTables GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayInput `pulumi:"eventTables"`
+}
+
+func (GetOpenflowDeploymentsOpenflowDeploymentParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentParameter)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentParameterArgs) ToGetOpenflowDeploymentsOpenflowDeploymentParameterOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterOutput {
+	return i.ToGetOpenflowDeploymentsOpenflowDeploymentParameterOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentParameterArgs) ToGetOpenflowDeploymentsOpenflowDeploymentParameterOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsOpenflowDeploymentParameterOutput)
+}
+
+// GetOpenflowDeploymentsOpenflowDeploymentParameterArrayInput is an input type that accepts GetOpenflowDeploymentsOpenflowDeploymentParameterArray and GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsOpenflowDeploymentParameterArrayInput` via:
+//
+//	GetOpenflowDeploymentsOpenflowDeploymentParameterArray{ GetOpenflowDeploymentsOpenflowDeploymentParameterArgs{...} }
+type GetOpenflowDeploymentsOpenflowDeploymentParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput
+	ToGetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutputWithContext(context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentParameterArray []GetOpenflowDeploymentsOpenflowDeploymentParameterInput
+
+func (GetOpenflowDeploymentsOpenflowDeploymentParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowDeploymentsOpenflowDeploymentParameter)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentParameterArray) ToGetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput {
+	return i.ToGetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentParameterArray) ToGetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentParameterOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsOpenflowDeploymentParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentParameter)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterOutput) ToGetOpenflowDeploymentsOpenflowDeploymentParameterOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterOutput) ToGetOpenflowDeploymentsOpenflowDeploymentParameterOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterOutput) EventTables() GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentParameter) []GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable {
+		return v.EventTables
+	}).(GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowDeploymentsOpenflowDeploymentParameter)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput) ToGetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput) ToGetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput) Index(i pulumi.IntInput) GetOpenflowDeploymentsOpenflowDeploymentParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowDeploymentsOpenflowDeploymentParameter {
+		return vs[0].([]GetOpenflowDeploymentsOpenflowDeploymentParameter)[vs[1].(int)]
+	}).(GetOpenflowDeploymentsOpenflowDeploymentParameterOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableInput is an input type that accepts GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArgs and GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableInput` via:
+//
+//	GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArgs{...}
+type GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput
+	ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutputWithContext(context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArgs) ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput {
+	return i.ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArgs) ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput)
+}
+
+// GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayInput is an input type that accepts GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArray and GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayInput` via:
+//
+//	GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArray{ GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArgs{...} }
+type GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput
+	ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutputWithContext(context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArray []GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableInput
+
+func (GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArray) ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput {
+	return i.ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArray) ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput) ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput) ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput) ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput) ToGetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput) Index(i pulumi.IntInput) GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable {
+		return vs[0].([]GetOpenflowDeploymentsOpenflowDeploymentParameterEventTable)[vs[1].(int)]
+	}).(GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentShowOutput struct {
+	Comment                    string `pulumi:"comment"`
+	CreatedOn                  string `pulumi:"createdOn"`
+	CustomIngressHostname      string `pulumi:"customIngressHostname"`
+	DisplayName                string `pulumi:"displayName"`
+	Key                        string `pulumi:"key"`
+	Name                       string `pulumi:"name"`
+	Owner                      string `pulumi:"owner"`
+	Status                     string `pulumi:"status"`
+	Type                       string `pulumi:"type"`
+	UpdatedOn                  string `pulumi:"updatedOn"`
+	UsePrivateLink             bool   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink bool   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    string `pulumi:"vpcType"`
+}
+
+// GetOpenflowDeploymentsOpenflowDeploymentShowOutputInput is an input type that accepts GetOpenflowDeploymentsOpenflowDeploymentShowOutputArgs and GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsOpenflowDeploymentShowOutputInput` via:
+//
+//	GetOpenflowDeploymentsOpenflowDeploymentShowOutputArgs{...}
+type GetOpenflowDeploymentsOpenflowDeploymentShowOutputInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput() GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput
+	ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputOutputWithContext(context.Context) GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentShowOutputArgs struct {
+	Comment                    pulumi.StringInput `pulumi:"comment"`
+	CreatedOn                  pulumi.StringInput `pulumi:"createdOn"`
+	CustomIngressHostname      pulumi.StringInput `pulumi:"customIngressHostname"`
+	DisplayName                pulumi.StringInput `pulumi:"displayName"`
+	Key                        pulumi.StringInput `pulumi:"key"`
+	Name                       pulumi.StringInput `pulumi:"name"`
+	Owner                      pulumi.StringInput `pulumi:"owner"`
+	Status                     pulumi.StringInput `pulumi:"status"`
+	Type                       pulumi.StringInput `pulumi:"type"`
+	UpdatedOn                  pulumi.StringInput `pulumi:"updatedOn"`
+	UsePrivateLink             pulumi.BoolInput   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink pulumi.BoolInput   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    pulumi.StringInput `pulumi:"vpcType"`
+}
+
+func (GetOpenflowDeploymentsOpenflowDeploymentShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentShowOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentShowOutputArgs) ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput() GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput {
+	return i.ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentShowOutputArgs) ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput)
+}
+
+// GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayInput is an input type that accepts GetOpenflowDeploymentsOpenflowDeploymentShowOutputArray and GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayInput` via:
+//
+//	GetOpenflowDeploymentsOpenflowDeploymentShowOutputArray{ GetOpenflowDeploymentsOpenflowDeploymentShowOutputArgs{...} }
+type GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput
+	ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutputWithContext(context.Context) GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentShowOutputArray []GetOpenflowDeploymentsOpenflowDeploymentShowOutputInput
+
+func (GetOpenflowDeploymentsOpenflowDeploymentShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowDeploymentsOpenflowDeploymentShowOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentShowOutputArray) ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput {
+	return i.ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowDeploymentsOpenflowDeploymentShowOutputArray) ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentShowOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput() GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) CustomIngressHostname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.CustomIngressHostname }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.Type }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) UpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.UpdatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) UsePrivateLink() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) bool { return v.UsePrivateLink }).(pulumi.BoolOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) UseUserAuthOverPrivateLink() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) bool { return v.UseUserAuthOverPrivateLink }).(pulumi.BoolOutput)
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput) VpcType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowDeploymentsOpenflowDeploymentShowOutput) string { return v.VpcType }).(pulumi.StringOutput)
+}
+
+type GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowDeploymentsOpenflowDeploymentShowOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput) ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput() GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput) ToGetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutputWithContext(ctx context.Context) GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput) Index(i pulumi.IntInput) GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowDeploymentsOpenflowDeploymentShowOutput {
+		return vs[0].([]GetOpenflowDeploymentsOpenflowDeploymentShowOutput)[vs[1].(int)]
+	}).(GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput)
+}
+
+type GetOpenflowRuntimesIn struct {
+	// Returns records for the entire account.
+	Account *bool `pulumi:"account"`
+	// Returns records for the current database in use or for a specified database.
+	Database *string `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+	Schema *string `pulumi:"schema"`
+}
+
+// GetOpenflowRuntimesInInput is an input type that accepts GetOpenflowRuntimesInArgs and GetOpenflowRuntimesInOutput values.
+// You can construct a concrete instance of `GetOpenflowRuntimesInInput` via:
+//
+//	GetOpenflowRuntimesInArgs{...}
+type GetOpenflowRuntimesInInput interface {
+	pulumi.Input
+
+	ToGetOpenflowRuntimesInOutput() GetOpenflowRuntimesInOutput
+	ToGetOpenflowRuntimesInOutputWithContext(context.Context) GetOpenflowRuntimesInOutput
+}
+
+type GetOpenflowRuntimesInArgs struct {
+	// Returns records for the entire account.
+	Account pulumi.BoolPtrInput `pulumi:"account"`
+	// Returns records for the current database in use or for a specified database.
+	Database pulumi.StringPtrInput `pulumi:"database"`
+	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
+}
+
+func (GetOpenflowRuntimesInArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowRuntimesIn)(nil)).Elem()
+}
+
+func (i GetOpenflowRuntimesInArgs) ToGetOpenflowRuntimesInOutput() GetOpenflowRuntimesInOutput {
+	return i.ToGetOpenflowRuntimesInOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowRuntimesInArgs) ToGetOpenflowRuntimesInOutputWithContext(ctx context.Context) GetOpenflowRuntimesInOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesInOutput)
+}
+
+func (i GetOpenflowRuntimesInArgs) ToGetOpenflowRuntimesInPtrOutput() GetOpenflowRuntimesInPtrOutput {
+	return i.ToGetOpenflowRuntimesInPtrOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowRuntimesInArgs) ToGetOpenflowRuntimesInPtrOutputWithContext(ctx context.Context) GetOpenflowRuntimesInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesInOutput).ToGetOpenflowRuntimesInPtrOutputWithContext(ctx)
+}
+
+// GetOpenflowRuntimesInPtrInput is an input type that accepts GetOpenflowRuntimesInArgs, GetOpenflowRuntimesInPtr and GetOpenflowRuntimesInPtrOutput values.
+// You can construct a concrete instance of `GetOpenflowRuntimesInPtrInput` via:
+//
+//	        GetOpenflowRuntimesInArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetOpenflowRuntimesInPtrInput interface {
+	pulumi.Input
+
+	ToGetOpenflowRuntimesInPtrOutput() GetOpenflowRuntimesInPtrOutput
+	ToGetOpenflowRuntimesInPtrOutputWithContext(context.Context) GetOpenflowRuntimesInPtrOutput
+}
+
+type getOpenflowRuntimesInPtrType GetOpenflowRuntimesInArgs
+
+func GetOpenflowRuntimesInPtr(v *GetOpenflowRuntimesInArgs) GetOpenflowRuntimesInPtrInput {
+	return (*getOpenflowRuntimesInPtrType)(v)
+}
+
+func (*getOpenflowRuntimesInPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowRuntimesIn)(nil)).Elem()
+}
+
+func (i *getOpenflowRuntimesInPtrType) ToGetOpenflowRuntimesInPtrOutput() GetOpenflowRuntimesInPtrOutput {
+	return i.ToGetOpenflowRuntimesInPtrOutputWithContext(context.Background())
+}
+
+func (i *getOpenflowRuntimesInPtrType) ToGetOpenflowRuntimesInPtrOutputWithContext(ctx context.Context) GetOpenflowRuntimesInPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesInPtrOutput)
+}
+
+type GetOpenflowRuntimesInOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowRuntimesInOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowRuntimesIn)(nil)).Elem()
+}
+
+func (o GetOpenflowRuntimesInOutput) ToGetOpenflowRuntimesInOutput() GetOpenflowRuntimesInOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesInOutput) ToGetOpenflowRuntimesInOutputWithContext(ctx context.Context) GetOpenflowRuntimesInOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesInOutput) ToGetOpenflowRuntimesInPtrOutput() GetOpenflowRuntimesInPtrOutput {
+	return o.ToGetOpenflowRuntimesInPtrOutputWithContext(context.Background())
+}
+
+func (o GetOpenflowRuntimesInOutput) ToGetOpenflowRuntimesInPtrOutputWithContext(ctx context.Context) GetOpenflowRuntimesInPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOpenflowRuntimesIn) *GetOpenflowRuntimesIn {
+		return &v
+	}).(GetOpenflowRuntimesInPtrOutput)
+}
+
+// Returns records for the entire account.
+func (o GetOpenflowRuntimesInOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesIn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database.
+func (o GetOpenflowRuntimesInOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesIn) *string { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+func (o GetOpenflowRuntimesInOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
+}
+
+type GetOpenflowRuntimesInPtrOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowRuntimesInPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowRuntimesIn)(nil)).Elem()
+}
+
+func (o GetOpenflowRuntimesInPtrOutput) ToGetOpenflowRuntimesInPtrOutput() GetOpenflowRuntimesInPtrOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesInPtrOutput) ToGetOpenflowRuntimesInPtrOutputWithContext(ctx context.Context) GetOpenflowRuntimesInPtrOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesInPtrOutput) Elem() GetOpenflowRuntimesInOutput {
+	return o.ApplyT(func(v *GetOpenflowRuntimesIn) GetOpenflowRuntimesIn {
+		if v != nil {
+			return *v
+		}
+		var ret GetOpenflowRuntimesIn
+		return ret
+	}).(GetOpenflowRuntimesInOutput)
+}
+
+// Returns records for the entire account.
+func (o GetOpenflowRuntimesInPtrOutput) Account() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowRuntimesIn) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Account
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Returns records for the current database in use or for a specified database.
+func (o GetOpenflowRuntimesInPtrOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowRuntimesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Database
+	}).(pulumi.StringPtrOutput)
+}
+
+// Returns records for the current schema in use or a specified schema. Use fully qualified name.
+func (o GetOpenflowRuntimesInPtrOutput) Schema() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowRuntimesIn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetOpenflowRuntimesLimit struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From *string `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows int `pulumi:"rows"`
+}
+
+// GetOpenflowRuntimesLimitInput is an input type that accepts GetOpenflowRuntimesLimitArgs and GetOpenflowRuntimesLimitOutput values.
+// You can construct a concrete instance of `GetOpenflowRuntimesLimitInput` via:
+//
+//	GetOpenflowRuntimesLimitArgs{...}
+type GetOpenflowRuntimesLimitInput interface {
+	pulumi.Input
+
+	ToGetOpenflowRuntimesLimitOutput() GetOpenflowRuntimesLimitOutput
+	ToGetOpenflowRuntimesLimitOutputWithContext(context.Context) GetOpenflowRuntimesLimitOutput
+}
+
+type GetOpenflowRuntimesLimitArgs struct {
+	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// The maximum number of rows to return.
+	Rows pulumi.IntInput `pulumi:"rows"`
+}
+
+func (GetOpenflowRuntimesLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowRuntimesLimit)(nil)).Elem()
+}
+
+func (i GetOpenflowRuntimesLimitArgs) ToGetOpenflowRuntimesLimitOutput() GetOpenflowRuntimesLimitOutput {
+	return i.ToGetOpenflowRuntimesLimitOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowRuntimesLimitArgs) ToGetOpenflowRuntimesLimitOutputWithContext(ctx context.Context) GetOpenflowRuntimesLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesLimitOutput)
+}
+
+func (i GetOpenflowRuntimesLimitArgs) ToGetOpenflowRuntimesLimitPtrOutput() GetOpenflowRuntimesLimitPtrOutput {
+	return i.ToGetOpenflowRuntimesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowRuntimesLimitArgs) ToGetOpenflowRuntimesLimitPtrOutputWithContext(ctx context.Context) GetOpenflowRuntimesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesLimitOutput).ToGetOpenflowRuntimesLimitPtrOutputWithContext(ctx)
+}
+
+// GetOpenflowRuntimesLimitPtrInput is an input type that accepts GetOpenflowRuntimesLimitArgs, GetOpenflowRuntimesLimitPtr and GetOpenflowRuntimesLimitPtrOutput values.
+// You can construct a concrete instance of `GetOpenflowRuntimesLimitPtrInput` via:
+//
+//	        GetOpenflowRuntimesLimitArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetOpenflowRuntimesLimitPtrInput interface {
+	pulumi.Input
+
+	ToGetOpenflowRuntimesLimitPtrOutput() GetOpenflowRuntimesLimitPtrOutput
+	ToGetOpenflowRuntimesLimitPtrOutputWithContext(context.Context) GetOpenflowRuntimesLimitPtrOutput
+}
+
+type getOpenflowRuntimesLimitPtrType GetOpenflowRuntimesLimitArgs
+
+func GetOpenflowRuntimesLimitPtr(v *GetOpenflowRuntimesLimitArgs) GetOpenflowRuntimesLimitPtrInput {
+	return (*getOpenflowRuntimesLimitPtrType)(v)
+}
+
+func (*getOpenflowRuntimesLimitPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowRuntimesLimit)(nil)).Elem()
+}
+
+func (i *getOpenflowRuntimesLimitPtrType) ToGetOpenflowRuntimesLimitPtrOutput() GetOpenflowRuntimesLimitPtrOutput {
+	return i.ToGetOpenflowRuntimesLimitPtrOutputWithContext(context.Background())
+}
+
+func (i *getOpenflowRuntimesLimitPtrType) ToGetOpenflowRuntimesLimitPtrOutputWithContext(ctx context.Context) GetOpenflowRuntimesLimitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesLimitPtrOutput)
+}
+
+type GetOpenflowRuntimesLimitOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowRuntimesLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowRuntimesLimit)(nil)).Elem()
+}
+
+func (o GetOpenflowRuntimesLimitOutput) ToGetOpenflowRuntimesLimitOutput() GetOpenflowRuntimesLimitOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesLimitOutput) ToGetOpenflowRuntimesLimitOutputWithContext(ctx context.Context) GetOpenflowRuntimesLimitOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesLimitOutput) ToGetOpenflowRuntimesLimitPtrOutput() GetOpenflowRuntimesLimitPtrOutput {
+	return o.ToGetOpenflowRuntimesLimitPtrOutputWithContext(context.Background())
+}
+
+func (o GetOpenflowRuntimesLimitOutput) ToGetOpenflowRuntimesLimitPtrOutputWithContext(ctx context.Context) GetOpenflowRuntimesLimitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetOpenflowRuntimesLimit) *GetOpenflowRuntimesLimit {
+		return &v
+	}).(GetOpenflowRuntimesLimitPtrOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetOpenflowRuntimesLimitOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesLimit) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetOpenflowRuntimesLimitOutput) Rows() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesLimit) int { return v.Rows }).(pulumi.IntOutput)
+}
+
+type GetOpenflowRuntimesLimitPtrOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowRuntimesLimitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetOpenflowRuntimesLimit)(nil)).Elem()
+}
+
+func (o GetOpenflowRuntimesLimitPtrOutput) ToGetOpenflowRuntimesLimitPtrOutput() GetOpenflowRuntimesLimitPtrOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesLimitPtrOutput) ToGetOpenflowRuntimesLimitPtrOutputWithContext(ctx context.Context) GetOpenflowRuntimesLimitPtrOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesLimitPtrOutput) Elem() GetOpenflowRuntimesLimitOutput {
+	return o.ApplyT(func(v *GetOpenflowRuntimesLimit) GetOpenflowRuntimesLimit {
+		if v != nil {
+			return *v
+		}
+		var ret GetOpenflowRuntimesLimit
+		return ret
+	}).(GetOpenflowRuntimesLimitOutput)
+}
+
+// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+func (o GetOpenflowRuntimesLimitPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowRuntimesLimit) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of rows to return.
+func (o GetOpenflowRuntimesLimitPtrOutput) Rows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetOpenflowRuntimesLimit) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Rows
+	}).(pulumi.IntPtrOutput)
+}
+
+type GetOpenflowRuntimesOpenflowRuntime struct {
+	// Holds the output of DESCRIBE OPENFLOW RUNTIME.
+	DescribeOutputs []GetOpenflowRuntimesOpenflowRuntimeDescribeOutput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW OPENFLOW RUNTIMES.
+	ShowOutputs []GetOpenflowRuntimesOpenflowRuntimeShowOutput `pulumi:"showOutputs"`
+}
+
+// GetOpenflowRuntimesOpenflowRuntimeInput is an input type that accepts GetOpenflowRuntimesOpenflowRuntimeArgs and GetOpenflowRuntimesOpenflowRuntimeOutput values.
+// You can construct a concrete instance of `GetOpenflowRuntimesOpenflowRuntimeInput` via:
+//
+//	GetOpenflowRuntimesOpenflowRuntimeArgs{...}
+type GetOpenflowRuntimesOpenflowRuntimeInput interface {
+	pulumi.Input
+
+	ToGetOpenflowRuntimesOpenflowRuntimeOutput() GetOpenflowRuntimesOpenflowRuntimeOutput
+	ToGetOpenflowRuntimesOpenflowRuntimeOutputWithContext(context.Context) GetOpenflowRuntimesOpenflowRuntimeOutput
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeArgs struct {
+	// Holds the output of DESCRIBE OPENFLOW RUNTIME.
+	DescribeOutputs GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayInput `pulumi:"describeOutputs"`
+	// Holds the output of SHOW OPENFLOW RUNTIMES.
+	ShowOutputs GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayInput `pulumi:"showOutputs"`
+}
+
+func (GetOpenflowRuntimesOpenflowRuntimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntime)(nil)).Elem()
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeArgs) ToGetOpenflowRuntimesOpenflowRuntimeOutput() GetOpenflowRuntimesOpenflowRuntimeOutput {
+	return i.ToGetOpenflowRuntimesOpenflowRuntimeOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeArgs) ToGetOpenflowRuntimesOpenflowRuntimeOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesOpenflowRuntimeOutput)
+}
+
+// GetOpenflowRuntimesOpenflowRuntimeArrayInput is an input type that accepts GetOpenflowRuntimesOpenflowRuntimeArray and GetOpenflowRuntimesOpenflowRuntimeArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowRuntimesOpenflowRuntimeArrayInput` via:
+//
+//	GetOpenflowRuntimesOpenflowRuntimeArray{ GetOpenflowRuntimesOpenflowRuntimeArgs{...} }
+type GetOpenflowRuntimesOpenflowRuntimeArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowRuntimesOpenflowRuntimeArrayOutput() GetOpenflowRuntimesOpenflowRuntimeArrayOutput
+	ToGetOpenflowRuntimesOpenflowRuntimeArrayOutputWithContext(context.Context) GetOpenflowRuntimesOpenflowRuntimeArrayOutput
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeArray []GetOpenflowRuntimesOpenflowRuntimeInput
+
+func (GetOpenflowRuntimesOpenflowRuntimeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowRuntimesOpenflowRuntime)(nil)).Elem()
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeArray) ToGetOpenflowRuntimesOpenflowRuntimeArrayOutput() GetOpenflowRuntimesOpenflowRuntimeArrayOutput {
+	return i.ToGetOpenflowRuntimesOpenflowRuntimeArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeArray) ToGetOpenflowRuntimesOpenflowRuntimeArrayOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesOpenflowRuntimeArrayOutput)
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowRuntimesOpenflowRuntimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntime)(nil)).Elem()
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeOutput) ToGetOpenflowRuntimesOpenflowRuntimeOutput() GetOpenflowRuntimesOpenflowRuntimeOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeOutput) ToGetOpenflowRuntimesOpenflowRuntimeOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeOutput {
+	return o
+}
+
+// Holds the output of DESCRIBE OPENFLOW RUNTIME.
+func (o GetOpenflowRuntimesOpenflowRuntimeOutput) DescribeOutputs() GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntime) []GetOpenflowRuntimesOpenflowRuntimeDescribeOutput {
+		return v.DescribeOutputs
+	}).(GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput)
+}
+
+// Holds the output of SHOW OPENFLOW RUNTIMES.
+func (o GetOpenflowRuntimesOpenflowRuntimeOutput) ShowOutputs() GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntime) []GetOpenflowRuntimesOpenflowRuntimeShowOutput {
+		return v.ShowOutputs
+	}).(GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput)
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowRuntimesOpenflowRuntimeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowRuntimesOpenflowRuntime)(nil)).Elem()
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeArrayOutput) ToGetOpenflowRuntimesOpenflowRuntimeArrayOutput() GetOpenflowRuntimesOpenflowRuntimeArrayOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeArrayOutput) ToGetOpenflowRuntimesOpenflowRuntimeArrayOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeArrayOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeArrayOutput) Index(i pulumi.IntInput) GetOpenflowRuntimesOpenflowRuntimeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowRuntimesOpenflowRuntime {
+		return vs[0].([]GetOpenflowRuntimesOpenflowRuntime)[vs[1].(int)]
+	}).(GetOpenflowRuntimesOpenflowRuntimeOutput)
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeDescribeOutput struct {
+	Comment                    string   `pulumi:"comment"`
+	Deployment                 string   `pulumi:"deployment"`
+	DisplayName                string   `pulumi:"displayName"`
+	ExecuteAsRole              string   `pulumi:"executeAsRole"`
+	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
+	InitiallySuspended         bool     `pulumi:"initiallySuspended"`
+	Key                        string   `pulumi:"key"`
+	MaxNodes                   int      `pulumi:"maxNodes"`
+	MinNodes                   int      `pulumi:"minNodes"`
+	Name                       string   `pulumi:"name"`
+	NodeType                   string   `pulumi:"nodeType"`
+	NodeTypeTier               string   `pulumi:"nodeTypeTier"`
+	Owner                      string   `pulumi:"owner"`
+	ServerUrl                  string   `pulumi:"serverUrl"`
+	Status                     string   `pulumi:"status"`
+}
+
+// GetOpenflowRuntimesOpenflowRuntimeDescribeOutputInput is an input type that accepts GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArgs and GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput values.
+// You can construct a concrete instance of `GetOpenflowRuntimesOpenflowRuntimeDescribeOutputInput` via:
+//
+//	GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArgs{...}
+type GetOpenflowRuntimesOpenflowRuntimeDescribeOutputInput interface {
+	pulumi.Input
+
+	ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput() GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput
+	ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutputWithContext(context.Context) GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArgs struct {
+	Comment                    pulumi.StringInput      `pulumi:"comment"`
+	Deployment                 pulumi.StringInput      `pulumi:"deployment"`
+	DisplayName                pulumi.StringInput      `pulumi:"displayName"`
+	ExecuteAsRole              pulumi.StringInput      `pulumi:"executeAsRole"`
+	ExternalAccessIntegrations pulumi.StringArrayInput `pulumi:"externalAccessIntegrations"`
+	InitiallySuspended         pulumi.BoolInput        `pulumi:"initiallySuspended"`
+	Key                        pulumi.StringInput      `pulumi:"key"`
+	MaxNodes                   pulumi.IntInput         `pulumi:"maxNodes"`
+	MinNodes                   pulumi.IntInput         `pulumi:"minNodes"`
+	Name                       pulumi.StringInput      `pulumi:"name"`
+	NodeType                   pulumi.StringInput      `pulumi:"nodeType"`
+	NodeTypeTier               pulumi.StringInput      `pulumi:"nodeTypeTier"`
+	Owner                      pulumi.StringInput      `pulumi:"owner"`
+	ServerUrl                  pulumi.StringInput      `pulumi:"serverUrl"`
+	Status                     pulumi.StringInput      `pulumi:"status"`
+}
+
+func (GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntimeDescribeOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArgs) ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput() GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput {
+	return i.ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArgs) ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput)
+}
+
+// GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayInput is an input type that accepts GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArray and GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayInput` via:
+//
+//	GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArray{ GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArgs{...} }
+type GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput() GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput
+	ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutputWithContext(context.Context) GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArray []GetOpenflowRuntimesOpenflowRuntimeDescribeOutputInput
+
+func (GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowRuntimesOpenflowRuntimeDescribeOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArray) ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput() GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput {
+	return i.ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArray) ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput)
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntimeDescribeOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput() GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) Deployment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.Deployment }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) ExecuteAsRole() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.ExecuteAsRole }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) ExternalAccessIntegrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) []string { return v.ExternalAccessIntegrations }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) InitiallySuspended() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) bool { return v.InitiallySuspended }).(pulumi.BoolOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) MaxNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) int { return v.MaxNodes }).(pulumi.IntOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) MinNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) int { return v.MinNodes }).(pulumi.IntOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) NodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.NodeType }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) NodeTypeTier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.NodeTypeTier }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) ServerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.ServerUrl }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeDescribeOutput) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowRuntimesOpenflowRuntimeDescribeOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput) ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput() GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput) ToGetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowRuntimesOpenflowRuntimeDescribeOutput {
+		return vs[0].([]GetOpenflowRuntimesOpenflowRuntimeDescribeOutput)[vs[1].(int)]
+	}).(GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput)
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeShowOutput struct {
+	Comment                    string   `pulumi:"comment"`
+	CreatedOn                  string   `pulumi:"createdOn"`
+	DatabaseName               string   `pulumi:"databaseName"`
+	Deployment                 string   `pulumi:"deployment"`
+	DisplayName                string   `pulumi:"displayName"`
+	ExecuteAsRole              string   `pulumi:"executeAsRole"`
+	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
+	InitiallySuspended         bool     `pulumi:"initiallySuspended"`
+	Key                        string   `pulumi:"key"`
+	MaxNodes                   int      `pulumi:"maxNodes"`
+	MinNodes                   int      `pulumi:"minNodes"`
+	Name                       string   `pulumi:"name"`
+	NodeType                   string   `pulumi:"nodeType"`
+	Owner                      string   `pulumi:"owner"`
+	SchemaName                 string   `pulumi:"schemaName"`
+	Status                     string   `pulumi:"status"`
+	UpdatedOn                  string   `pulumi:"updatedOn"`
+}
+
+// GetOpenflowRuntimesOpenflowRuntimeShowOutputInput is an input type that accepts GetOpenflowRuntimesOpenflowRuntimeShowOutputArgs and GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput values.
+// You can construct a concrete instance of `GetOpenflowRuntimesOpenflowRuntimeShowOutputInput` via:
+//
+//	GetOpenflowRuntimesOpenflowRuntimeShowOutputArgs{...}
+type GetOpenflowRuntimesOpenflowRuntimeShowOutputInput interface {
+	pulumi.Input
+
+	ToGetOpenflowRuntimesOpenflowRuntimeShowOutputOutput() GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput
+	ToGetOpenflowRuntimesOpenflowRuntimeShowOutputOutputWithContext(context.Context) GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeShowOutputArgs struct {
+	Comment                    pulumi.StringInput      `pulumi:"comment"`
+	CreatedOn                  pulumi.StringInput      `pulumi:"createdOn"`
+	DatabaseName               pulumi.StringInput      `pulumi:"databaseName"`
+	Deployment                 pulumi.StringInput      `pulumi:"deployment"`
+	DisplayName                pulumi.StringInput      `pulumi:"displayName"`
+	ExecuteAsRole              pulumi.StringInput      `pulumi:"executeAsRole"`
+	ExternalAccessIntegrations pulumi.StringArrayInput `pulumi:"externalAccessIntegrations"`
+	InitiallySuspended         pulumi.BoolInput        `pulumi:"initiallySuspended"`
+	Key                        pulumi.StringInput      `pulumi:"key"`
+	MaxNodes                   pulumi.IntInput         `pulumi:"maxNodes"`
+	MinNodes                   pulumi.IntInput         `pulumi:"minNodes"`
+	Name                       pulumi.StringInput      `pulumi:"name"`
+	NodeType                   pulumi.StringInput      `pulumi:"nodeType"`
+	Owner                      pulumi.StringInput      `pulumi:"owner"`
+	SchemaName                 pulumi.StringInput      `pulumi:"schemaName"`
+	Status                     pulumi.StringInput      `pulumi:"status"`
+	UpdatedOn                  pulumi.StringInput      `pulumi:"updatedOn"`
+}
+
+func (GetOpenflowRuntimesOpenflowRuntimeShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntimeShowOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeShowOutputArgs) ToGetOpenflowRuntimesOpenflowRuntimeShowOutputOutput() GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput {
+	return i.ToGetOpenflowRuntimesOpenflowRuntimeShowOutputOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeShowOutputArgs) ToGetOpenflowRuntimesOpenflowRuntimeShowOutputOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput)
+}
+
+// GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayInput is an input type that accepts GetOpenflowRuntimesOpenflowRuntimeShowOutputArray and GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput values.
+// You can construct a concrete instance of `GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayInput` via:
+//
+//	GetOpenflowRuntimesOpenflowRuntimeShowOutputArray{ GetOpenflowRuntimesOpenflowRuntimeShowOutputArgs{...} }
+type GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToGetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput() GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput
+	ToGetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutputWithContext(context.Context) GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeShowOutputArray []GetOpenflowRuntimesOpenflowRuntimeShowOutputInput
+
+func (GetOpenflowRuntimesOpenflowRuntimeShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowRuntimesOpenflowRuntimeShowOutput)(nil)).Elem()
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeShowOutputArray) ToGetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput() GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput {
+	return i.ToGetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GetOpenflowRuntimesOpenflowRuntimeShowOutputArray) ToGetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput)
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntimeShowOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) ToGetOpenflowRuntimesOpenflowRuntimeShowOutputOutput() GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) ToGetOpenflowRuntimesOpenflowRuntimeShowOutputOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) Comment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.Comment }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) CreatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) Deployment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.Deployment }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) ExecuteAsRole() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.ExecuteAsRole }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) ExternalAccessIntegrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) []string { return v.ExternalAccessIntegrations }).(pulumi.StringArrayOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) InitiallySuspended() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) bool { return v.InitiallySuspended }).(pulumi.BoolOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) MaxNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) int { return v.MaxNodes }).(pulumi.IntOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) MinNodes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) int { return v.MinNodes }).(pulumi.IntOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) NodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.NodeType }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.Owner }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput) UpdatedOn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOpenflowRuntimesOpenflowRuntimeShowOutput) string { return v.UpdatedOn }).(pulumi.StringOutput)
+}
+
+type GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOpenflowRuntimesOpenflowRuntimeShowOutput)(nil)).Elem()
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput) ToGetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput() GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput) ToGetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutputWithContext(ctx context.Context) GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput {
+	return o
+}
+
+func (o GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput) Index(i pulumi.IntInput) GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOpenflowRuntimesOpenflowRuntimeShowOutput {
+		return vs[0].([]GetOpenflowRuntimesOpenflowRuntimeShowOutput)[vs[1].(int)]
+	}).(GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput)
 }
 
 type GetParametersParameter struct {
@@ -53915,6 +59729,32 @@ func (o GetWarehousesWarehouseShowOutputArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterExternalVolumeInput)(nil)).Elem(), GetDatabasesDatabaseParameterExternalVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterExternalVolumeArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterExternalVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterLogEventLevelInput)(nil)).Elem(), GetDatabasesDatabaseParameterLogEventLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterLogEventLevelArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterLogEventLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterLogLevelInput)(nil)).Elem(), GetDatabasesDatabaseParameterLogLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterLogLevelArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterLogLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayInput)(nil)).Elem(), GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseInput)(nil)).Elem(), GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterReplaceInvalidCharacterInput)(nil)).Elem(), GetDatabasesDatabaseParameterReplaceInvalidCharacterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterReplaceInvalidCharacterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterStorageSerializationPolicyInput)(nil)).Elem(), GetDatabasesDatabaseParameterStorageSerializationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterStorageSerializationPolicyArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterStorageSerializationPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureInput)(nil)).Elem(), GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterTaskAutoRetryAttemptInput)(nil)).Elem(), GetDatabasesDatabaseParameterTaskAutoRetryAttemptArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterTaskAutoRetryAttemptArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterTraceLevelInput)(nil)).Elem(), GetDatabasesDatabaseParameterTraceLevelArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterTraceLevelArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterTraceLevelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeInput)(nil)).Elem(), GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondInput)(nil)).Elem(), GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskTimeoutMInput)(nil)).Elem(), GetDatabasesDatabaseParameterUserTaskTimeoutMArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterUserTaskTimeoutMArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterUserTaskTimeoutMArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseShowOutputInput)(nil)).Elem(), GetDatabasesDatabaseShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseShowOutputArrayInput)(nil)).Elem(), GetDatabasesDatabaseShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesLimitInput)(nil)).Elem(), GetDatabasesLimitArgs{})
@@ -53991,6 +59831,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsGrantsToSharePtrInput)(nil)).Elem(), GetGrantsGrantsToShareArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsInheritedGrantsInInput)(nil)).Elem(), GetGrantsInheritedGrantsInArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrantsInheritedGrantsInPtrInput)(nil)).Elem(), GetGrantsInheritedGrantsInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableInput)(nil)).Elem(), GetHybridTablesHybridTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableArrayInput)(nil)).Elem(), GetHybridTablesHybridTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableDescribeOutputInput)(nil)).Elem(), GetHybridTablesHybridTableDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableDescribeOutputArrayInput)(nil)).Elem(), GetHybridTablesHybridTableDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableParameterInput)(nil)).Elem(), GetHybridTablesHybridTableParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableParameterArrayInput)(nil)).Elem(), GetHybridTablesHybridTableParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableParameterDataRetentionTimeInDayInput)(nil)).Elem(), GetHybridTablesHybridTableParameterDataRetentionTimeInDayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayInput)(nil)).Elem(), GetHybridTablesHybridTableParameterDataRetentionTimeInDayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayInput)(nil)).Elem(), GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayInput)(nil)).Elem(), GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableShowIndexInput)(nil)).Elem(), GetHybridTablesHybridTableShowIndexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableShowIndexArrayInput)(nil)).Elem(), GetHybridTablesHybridTableShowIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableShowKeysOutputInput)(nil)).Elem(), GetHybridTablesHybridTableShowKeysOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableShowKeysOutputArrayInput)(nil)).Elem(), GetHybridTablesHybridTableShowKeysOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableShowOutputInput)(nil)).Elem(), GetHybridTablesHybridTableShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesHybridTableShowOutputArrayInput)(nil)).Elem(), GetHybridTablesHybridTableShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesInInput)(nil)).Elem(), GetHybridTablesInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesInPtrInput)(nil)).Elem(), GetHybridTablesInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesLimitInput)(nil)).Elem(), GetHybridTablesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetHybridTablesLimitPtrInput)(nil)).Elem(), GetHybridTablesLimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIcebergTablesIcebergTableInput)(nil)).Elem(), GetIcebergTablesIcebergTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIcebergTablesIcebergTableArrayInput)(nil)).Elem(), GetIcebergTablesIcebergTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIcebergTablesIcebergTableDescribeOutputInput)(nil)).Elem(), GetIcebergTablesIcebergTableDescribeOutputArgs{})
@@ -54091,6 +59951,44 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotebooksNotebookDescribeOutputArrayInput)(nil)).Elem(), GetNotebooksNotebookDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotebooksNotebookShowOutputInput)(nil)).Elem(), GetNotebooksNotebookShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNotebooksNotebookShowOutputArrayInput)(nil)).Elem(), GetNotebooksNotebookShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorDefinitionsLimitInput)(nil)).Elem(), GetOpenflowConnectorDefinitionsLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorDefinitionsLimitPtrInput)(nil)).Elem(), GetOpenflowConnectorDefinitionsLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionInput)(nil)).Elem(), GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayInput)(nil)).Elem(), GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputInput)(nil)).Elem(), GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayInput)(nil)).Elem(), GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorsInInput)(nil)).Elem(), GetOpenflowConnectorsInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorsInPtrInput)(nil)).Elem(), GetOpenflowConnectorsInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorsLimitInput)(nil)).Elem(), GetOpenflowConnectorsLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorsLimitPtrInput)(nil)).Elem(), GetOpenflowConnectorsLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnectorInput)(nil)).Elem(), GetOpenflowConnectorsOpenflowConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnectorArrayInput)(nil)).Elem(), GetOpenflowConnectorsOpenflowConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnectorDescribeOutputInput)(nil)).Elem(), GetOpenflowConnectorsOpenflowConnectorDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayInput)(nil)).Elem(), GetOpenflowConnectorsOpenflowConnectorDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnectorShowOutputInput)(nil)).Elem(), GetOpenflowConnectorsOpenflowConnectorShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowConnectorsOpenflowConnectorShowOutputArrayInput)(nil)).Elem(), GetOpenflowConnectorsOpenflowConnectorShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsLimitInput)(nil)).Elem(), GetOpenflowDeploymentsLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsLimitPtrInput)(nil)).Elem(), GetOpenflowDeploymentsLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentInput)(nil)).Elem(), GetOpenflowDeploymentsOpenflowDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentArrayInput)(nil)).Elem(), GetOpenflowDeploymentsOpenflowDeploymentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputInput)(nil)).Elem(), GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayInput)(nil)).Elem(), GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentParameterInput)(nil)).Elem(), GetOpenflowDeploymentsOpenflowDeploymentParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentParameterArrayInput)(nil)).Elem(), GetOpenflowDeploymentsOpenflowDeploymentParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableInput)(nil)).Elem(), GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayInput)(nil)).Elem(), GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentShowOutputInput)(nil)).Elem(), GetOpenflowDeploymentsOpenflowDeploymentShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayInput)(nil)).Elem(), GetOpenflowDeploymentsOpenflowDeploymentShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowRuntimesInInput)(nil)).Elem(), GetOpenflowRuntimesInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowRuntimesInPtrInput)(nil)).Elem(), GetOpenflowRuntimesInArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowRuntimesLimitInput)(nil)).Elem(), GetOpenflowRuntimesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowRuntimesLimitPtrInput)(nil)).Elem(), GetOpenflowRuntimesLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntimeInput)(nil)).Elem(), GetOpenflowRuntimesOpenflowRuntimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntimeArrayInput)(nil)).Elem(), GetOpenflowRuntimesOpenflowRuntimeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntimeDescribeOutputInput)(nil)).Elem(), GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayInput)(nil)).Elem(), GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntimeShowOutputInput)(nil)).Elem(), GetOpenflowRuntimesOpenflowRuntimeShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayInput)(nil)).Elem(), GetOpenflowRuntimesOpenflowRuntimeShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetParametersParameterInput)(nil)).Elem(), GetParametersParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetParametersParameterArrayInput)(nil)).Elem(), GetParametersParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPasswordPoliciesInInput)(nil)).Elem(), GetPasswordPoliciesInArgs{})
@@ -54701,6 +60599,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseParameterStatementTimeoutInSecondArrayInput)(nil)).Elem(), GetWarehousesWarehouseParameterStatementTimeoutInSecondArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseShowOutputInput)(nil)).Elem(), GetWarehousesWarehouseShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWarehousesWarehouseShowOutputArrayInput)(nil)).Elem(), GetWarehousesWarehouseShowOutputArray{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterExternalVolumeOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterExternalVolumeArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterLogEventLevelOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterLogEventLevelArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterLogLevelOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterLogLevelArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterReplaceInvalidCharacterOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterStorageSerializationPolicyOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterTaskAutoRetryAttemptOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterTraceLevelOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterTraceLevelArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterUserTaskTimeoutMOutput{})
+	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput{})
 	pulumi.RegisterOutputType(GetDatabasesDatabaseShowOutputOutput{})
 	pulumi.RegisterOutputType(GetDatabasesDatabaseShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(GetDatabasesLimitOutput{})
@@ -54777,6 +60701,26 @@ func init() {
 	pulumi.RegisterOutputType(GetGrantsGrantsToSharePtrOutput{})
 	pulumi.RegisterOutputType(GetGrantsInheritedGrantsInOutput{})
 	pulumi.RegisterOutputType(GetGrantsInheritedGrantsInPtrOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableArrayOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableDescribeOutputOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableParameterOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableParameterDataRetentionTimeInDayOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableParameterDataRetentionTimeInDayArrayOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableParameterMaxDataExtensionTimeInDayArrayOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableShowIndexOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableShowIndexArrayOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableShowKeysOutputOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableShowKeysOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableShowOutputOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesHybridTableShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesInOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesInPtrOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesLimitOutput{})
+	pulumi.RegisterOutputType(GetHybridTablesLimitPtrOutput{})
 	pulumi.RegisterOutputType(GetIcebergTablesIcebergTableOutput{})
 	pulumi.RegisterOutputType(GetIcebergTablesIcebergTableArrayOutput{})
 	pulumi.RegisterOutputType(GetIcebergTablesIcebergTableDescribeOutputOutput{})
@@ -54877,6 +60821,44 @@ func init() {
 	pulumi.RegisterOutputType(GetNotebooksNotebookDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(GetNotebooksNotebookShowOutputOutput{})
 	pulumi.RegisterOutputType(GetNotebooksNotebookShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorDefinitionsLimitOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorDefinitionsLimitPtrOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorDefinitionsOpenflowConnectorDefinitionShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorsInOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorsInPtrOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorsLimitOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorsLimitPtrOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorsOpenflowConnectorOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorsOpenflowConnectorArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorsOpenflowConnectorDescribeOutputOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorsOpenflowConnectorDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorsOpenflowConnectorShowOutputOutput{})
+	pulumi.RegisterOutputType(GetOpenflowConnectorsOpenflowConnectorShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsLimitOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsLimitPtrOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsOpenflowDeploymentOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsOpenflowDeploymentArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsOpenflowDeploymentDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsOpenflowDeploymentParameterOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsOpenflowDeploymentParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsOpenflowDeploymentParameterEventTableArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsOpenflowDeploymentShowOutputOutput{})
+	pulumi.RegisterOutputType(GetOpenflowDeploymentsOpenflowDeploymentShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowRuntimesInOutput{})
+	pulumi.RegisterOutputType(GetOpenflowRuntimesInPtrOutput{})
+	pulumi.RegisterOutputType(GetOpenflowRuntimesLimitOutput{})
+	pulumi.RegisterOutputType(GetOpenflowRuntimesLimitPtrOutput{})
+	pulumi.RegisterOutputType(GetOpenflowRuntimesOpenflowRuntimeOutput{})
+	pulumi.RegisterOutputType(GetOpenflowRuntimesOpenflowRuntimeArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowRuntimesOpenflowRuntimeDescribeOutputOutput{})
+	pulumi.RegisterOutputType(GetOpenflowRuntimesOpenflowRuntimeDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetOpenflowRuntimesOpenflowRuntimeShowOutputOutput{})
+	pulumi.RegisterOutputType(GetOpenflowRuntimesOpenflowRuntimeShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(GetParametersParameterOutput{})
 	pulumi.RegisterOutputType(GetParametersParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetPasswordPoliciesInOutput{})

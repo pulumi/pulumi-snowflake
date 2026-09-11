@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Snowflake
 {
     /// <summary>
-    /// &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `PreviewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-    /// 
     /// &gt; **Note** A file format cannot be dropped successfully if it has dependent external tables. Before dropping the resource, first drop the dependent external tables manually.
     /// 
     /// &gt; **Note** Snowflake returns the same `DESCRIBE FILE FORMAT` output for `NullIf` set to an empty list and for `NullIf` set to a list with a single empty string. Because of that, the provider cannot detect an external change between these two values, and `describe_output.null_if` is empty in both cases.

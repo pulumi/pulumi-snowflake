@@ -19,6 +19,7 @@ public final class GetAccountRolesAccountRoleShowOutput {
     private Integer grantedToRoles;
     private Boolean isCurrent;
     private Boolean isDefault;
+    private Boolean isFromOrganizationUserGroup;
     private Boolean isInherited;
     private String name;
     private String owner;
@@ -44,6 +45,9 @@ public final class GetAccountRolesAccountRoleShowOutput {
     }
     public Boolean isDefault() {
         return this.isDefault;
+    }
+    public Boolean isFromOrganizationUserGroup() {
+        return this.isFromOrganizationUserGroup;
     }
     public Boolean isInherited() {
         return this.isInherited;
@@ -71,6 +75,7 @@ public final class GetAccountRolesAccountRoleShowOutput {
         private Integer grantedToRoles;
         private Boolean isCurrent;
         private Boolean isDefault;
+        private Boolean isFromOrganizationUserGroup;
         private Boolean isInherited;
         private String name;
         private String owner;
@@ -84,6 +89,7 @@ public final class GetAccountRolesAccountRoleShowOutput {
     	      this.grantedToRoles = defaults.grantedToRoles;
     	      this.isCurrent = defaults.isCurrent;
     	      this.isDefault = defaults.isDefault;
+    	      this.isFromOrganizationUserGroup = defaults.isFromOrganizationUserGroup;
     	      this.isInherited = defaults.isInherited;
     	      this.name = defaults.name;
     	      this.owner = defaults.owner;
@@ -146,6 +152,14 @@ public final class GetAccountRolesAccountRoleShowOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder isFromOrganizationUserGroup(Boolean isFromOrganizationUserGroup) {
+            if (isFromOrganizationUserGroup == null) {
+              throw new MissingRequiredPropertyException("GetAccountRolesAccountRoleShowOutput", "isFromOrganizationUserGroup");
+            }
+            this.isFromOrganizationUserGroup = isFromOrganizationUserGroup;
+            return this;
+        }
+        @CustomType.Setter
         public Builder isInherited(Boolean isInherited) {
             if (isInherited == null) {
               throw new MissingRequiredPropertyException("GetAccountRolesAccountRoleShowOutput", "isInherited");
@@ -178,6 +192,7 @@ public final class GetAccountRolesAccountRoleShowOutput {
             _resultValue.grantedToRoles = grantedToRoles;
             _resultValue.isCurrent = isCurrent;
             _resultValue.isDefault = isDefault;
+            _resultValue.isFromOrganizationUserGroup = isFromOrganizationUserGroup;
             _resultValue.isInherited = isInherited;
             _resultValue.name = name;
             _resultValue.owner = owner;

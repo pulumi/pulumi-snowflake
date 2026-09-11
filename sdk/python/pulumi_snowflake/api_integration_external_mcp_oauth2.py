@@ -449,8 +449,6 @@ class ApiIntegrationExternalMcpOauth2(pulumi.CustomResource):
                  oauth_token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
         Resource used to manage API integration for external MCP (Model Context Protocol) servers using OAuth 2.0 authentication. For more information, check [api integration documentation](https://docs.snowflake.com/en/sql-reference/sql/create-api-integration).
 
         ## Example Usage
@@ -516,8 +514,6 @@ class ApiIntegrationExternalMcpOauth2(pulumi.CustomResource):
                  args: ApiIntegrationExternalMcpOauth2Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
         Resource used to manage API integration for external MCP (Model Context Protocol) servers using OAuth 2.0 authentication. For more information, check [api integration documentation](https://docs.snowflake.com/en/sql-reference/sql/create-api-integration).
 
         ## Example Usage

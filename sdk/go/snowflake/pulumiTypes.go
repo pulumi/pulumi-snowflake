@@ -14,16 +14,17 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type AccountRoleShowOutput struct {
-	AssignedToUsers *int    `pulumi:"assignedToUsers"`
-	Comment         *string `pulumi:"comment"`
-	CreatedOn       *string `pulumi:"createdOn"`
-	GrantedRoles    *int    `pulumi:"grantedRoles"`
-	GrantedToRoles  *int    `pulumi:"grantedToRoles"`
-	IsCurrent       *bool   `pulumi:"isCurrent"`
-	IsDefault       *bool   `pulumi:"isDefault"`
-	IsInherited     *bool   `pulumi:"isInherited"`
-	Name            *string `pulumi:"name"`
-	Owner           *string `pulumi:"owner"`
+	AssignedToUsers             *int    `pulumi:"assignedToUsers"`
+	Comment                     *string `pulumi:"comment"`
+	CreatedOn                   *string `pulumi:"createdOn"`
+	GrantedRoles                *int    `pulumi:"grantedRoles"`
+	GrantedToRoles              *int    `pulumi:"grantedToRoles"`
+	IsCurrent                   *bool   `pulumi:"isCurrent"`
+	IsDefault                   *bool   `pulumi:"isDefault"`
+	IsFromOrganizationUserGroup *bool   `pulumi:"isFromOrganizationUserGroup"`
+	IsInherited                 *bool   `pulumi:"isInherited"`
+	Name                        *string `pulumi:"name"`
+	Owner                       *string `pulumi:"owner"`
 }
 
 // AccountRoleShowOutputInput is an input type that accepts AccountRoleShowOutputArgs and AccountRoleShowOutputOutput values.
@@ -38,16 +39,17 @@ type AccountRoleShowOutputInput interface {
 }
 
 type AccountRoleShowOutputArgs struct {
-	AssignedToUsers pulumi.IntPtrInput    `pulumi:"assignedToUsers"`
-	Comment         pulumi.StringPtrInput `pulumi:"comment"`
-	CreatedOn       pulumi.StringPtrInput `pulumi:"createdOn"`
-	GrantedRoles    pulumi.IntPtrInput    `pulumi:"grantedRoles"`
-	GrantedToRoles  pulumi.IntPtrInput    `pulumi:"grantedToRoles"`
-	IsCurrent       pulumi.BoolPtrInput   `pulumi:"isCurrent"`
-	IsDefault       pulumi.BoolPtrInput   `pulumi:"isDefault"`
-	IsInherited     pulumi.BoolPtrInput   `pulumi:"isInherited"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
-	Owner           pulumi.StringPtrInput `pulumi:"owner"`
+	AssignedToUsers             pulumi.IntPtrInput    `pulumi:"assignedToUsers"`
+	Comment                     pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn                   pulumi.StringPtrInput `pulumi:"createdOn"`
+	GrantedRoles                pulumi.IntPtrInput    `pulumi:"grantedRoles"`
+	GrantedToRoles              pulumi.IntPtrInput    `pulumi:"grantedToRoles"`
+	IsCurrent                   pulumi.BoolPtrInput   `pulumi:"isCurrent"`
+	IsDefault                   pulumi.BoolPtrInput   `pulumi:"isDefault"`
+	IsFromOrganizationUserGroup pulumi.BoolPtrInput   `pulumi:"isFromOrganizationUserGroup"`
+	IsInherited                 pulumi.BoolPtrInput   `pulumi:"isInherited"`
+	Name                        pulumi.StringPtrInput `pulumi:"name"`
+	Owner                       pulumi.StringPtrInput `pulumi:"owner"`
 }
 
 func (AccountRoleShowOutputArgs) ElementType() reflect.Type {
@@ -127,6 +129,10 @@ func (o AccountRoleShowOutputOutput) IsCurrent() pulumi.BoolPtrOutput {
 
 func (o AccountRoleShowOutputOutput) IsDefault() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccountRoleShowOutput) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+func (o AccountRoleShowOutputOutput) IsFromOrganizationUserGroup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccountRoleShowOutput) *bool { return v.IsFromOrganizationUserGroup }).(pulumi.BoolPtrOutput)
 }
 
 func (o AccountRoleShowOutputOutput) IsInherited() pulumi.BoolPtrOutput {
@@ -26637,7 +26643,7 @@ type GrantOwnershipOn struct {
 	Future *GrantOwnershipOnFuture `pulumi:"future"`
 	// Specifies the identifier for the object on which you are transferring ownership.
 	ObjectName *string `pulumi:"objectName"`
-	// Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+	// Specifies the type of object on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `COMPUTE POOL` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATABASE` | `DATABASE ROLE` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXTERNAL TABLE` | `EXTERNAL VOLUME` | `FAILOVER GROUP` | `FILE FORMAT` | `FUNCTION` | `GIT REPOSITORY` | `HYBRID TABLE` | `ICEBERG TABLE` | `IMAGE REPOSITORY` | `INTEGRATION` | `INTERACTIVE TABLE` | `MATERIALIZED VIEW` | `NETWORK POLICY` | `NETWORK RULE` | `PACKAGES POLICY` | `PIPE` | `PROCEDURE` | `MASKING POLICY` | `PASSWORD POLICY` | `PROJECTION POLICY` | `REPLICATION GROUP` | `RESOURCE MONITOR` | `ROLE` | `ROW ACCESS POLICY` | `SCHEMA` | `SESSION POLICY` | `SECRET` | `SEMANTIC VIEW` | `SEQUENCE` | `SNOWFLAKE INTELLIGENCE` | `STAGE` | `STREAM` | `TABLE` | `TAG` | `TASK` | `USER` | `VIEW` | `WAREHOUSE`. Snowflake validates the type at apply time.
 	ObjectType *string `pulumi:"objectType"`
 }
 
@@ -26659,7 +26665,7 @@ type GrantOwnershipOnArgs struct {
 	Future GrantOwnershipOnFuturePtrInput `pulumi:"future"`
 	// Specifies the identifier for the object on which you are transferring ownership.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
-	// Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+	// Specifies the type of object on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `COMPUTE POOL` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATABASE` | `DATABASE ROLE` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXTERNAL TABLE` | `EXTERNAL VOLUME` | `FAILOVER GROUP` | `FILE FORMAT` | `FUNCTION` | `GIT REPOSITORY` | `HYBRID TABLE` | `ICEBERG TABLE` | `IMAGE REPOSITORY` | `INTEGRATION` | `INTERACTIVE TABLE` | `MATERIALIZED VIEW` | `NETWORK POLICY` | `NETWORK RULE` | `PACKAGES POLICY` | `PIPE` | `PROCEDURE` | `MASKING POLICY` | `PASSWORD POLICY` | `PROJECTION POLICY` | `REPLICATION GROUP` | `RESOURCE MONITOR` | `ROLE` | `ROW ACCESS POLICY` | `SCHEMA` | `SESSION POLICY` | `SECRET` | `SEMANTIC VIEW` | `SEQUENCE` | `SNOWFLAKE INTELLIGENCE` | `STAGE` | `STREAM` | `TABLE` | `TAG` | `TASK` | `USER` | `VIEW` | `WAREHOUSE`. Snowflake validates the type at apply time.
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
 }
 
@@ -26755,7 +26761,7 @@ func (o GrantOwnershipOnOutput) ObjectName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantOwnershipOn) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+// Specifies the type of object on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `COMPUTE POOL` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATABASE` | `DATABASE ROLE` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXTERNAL TABLE` | `EXTERNAL VOLUME` | `FAILOVER GROUP` | `FILE FORMAT` | `FUNCTION` | `GIT REPOSITORY` | `HYBRID TABLE` | `ICEBERG TABLE` | `IMAGE REPOSITORY` | `INTEGRATION` | `INTERACTIVE TABLE` | `MATERIALIZED VIEW` | `NETWORK POLICY` | `NETWORK RULE` | `PACKAGES POLICY` | `PIPE` | `PROCEDURE` | `MASKING POLICY` | `PASSWORD POLICY` | `PROJECTION POLICY` | `REPLICATION GROUP` | `RESOURCE MONITOR` | `ROLE` | `ROW ACCESS POLICY` | `SCHEMA` | `SESSION POLICY` | `SECRET` | `SEMANTIC VIEW` | `SEQUENCE` | `SNOWFLAKE INTELLIGENCE` | `STAGE` | `STREAM` | `TABLE` | `TAG` | `TASK` | `USER` | `VIEW` | `WAREHOUSE`. Snowflake validates the type at apply time.
 func (o GrantOwnershipOnOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantOwnershipOn) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
@@ -26814,7 +26820,7 @@ func (o GrantOwnershipOnPtrOutput) ObjectName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object on which you are transferring ownership. Available values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | INTERACTIVE TABLE | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEMANTIC VIEW | SEQUENCE | SNOWFLAKE INTELLIGENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE
+// Specifies the type of object on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `COMPUTE POOL` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATABASE` | `DATABASE ROLE` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXTERNAL TABLE` | `EXTERNAL VOLUME` | `FAILOVER GROUP` | `FILE FORMAT` | `FUNCTION` | `GIT REPOSITORY` | `HYBRID TABLE` | `ICEBERG TABLE` | `IMAGE REPOSITORY` | `INTEGRATION` | `INTERACTIVE TABLE` | `MATERIALIZED VIEW` | `NETWORK POLICY` | `NETWORK RULE` | `PACKAGES POLICY` | `PIPE` | `PROCEDURE` | `MASKING POLICY` | `PASSWORD POLICY` | `PROJECTION POLICY` | `REPLICATION GROUP` | `RESOURCE MONITOR` | `ROLE` | `ROW ACCESS POLICY` | `SCHEMA` | `SESSION POLICY` | `SECRET` | `SEMANTIC VIEW` | `SEQUENCE` | `SNOWFLAKE INTELLIGENCE` | `STAGE` | `STREAM` | `TABLE` | `TAG` | `TASK` | `USER` | `VIEW` | `WAREHOUSE`. Snowflake validates the type at apply time.
 func (o GrantOwnershipOnPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnershipOn) *string {
 		if v == nil {
@@ -26829,7 +26835,7 @@ type GrantOwnershipOnAll struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema *string `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -26849,7 +26855,7 @@ type GrantOwnershipOnAllArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -26940,7 +26946,7 @@ func (o GrantOwnershipOnAllOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantOwnershipOnAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantOwnershipOnAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantOwnershipOnAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -26989,7 +26995,7 @@ func (o GrantOwnershipOnAllPtrOutput) InSchema() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantOwnershipOnAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnershipOnAll) *string {
 		if v == nil {
@@ -27004,7 +27010,7 @@ type GrantOwnershipOnFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema *string `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -27024,7 +27030,7 @@ type GrantOwnershipOnFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -27115,7 +27121,7 @@ func (o GrantOwnershipOnFutureOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantOwnershipOnFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantOwnershipOnFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantOwnershipOnFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -27164,7 +27170,7 @@ func (o GrantOwnershipOnFuturePtrOutput) InSchema() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATABASES | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | INTERACTIVE TABLES | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEMANTIC VIEWS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES | WORKSPACES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
+// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantOwnershipOnFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnershipOnFuture) *string {
 		if v == nil {
@@ -27179,7 +27185,7 @@ type GrantPrivilegesToAccountRoleOnAccountObject struct {
 	Inherited *GrantPrivilegesToAccountRoleOnAccountObjectInherited `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
-	// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
+	// The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
 	ObjectType *string `pulumi:"objectType"`
 }
 
@@ -27199,7 +27205,7 @@ type GrantPrivilegesToAccountRoleOnAccountObjectArgs struct {
 	Inherited GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
-	// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
+	// The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
 }
 
@@ -27292,7 +27298,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ObjectName() pulumi.S
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnAccountObject) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
+// The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnAccountObject) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
@@ -27341,7 +27347,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ObjectName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object type of the account object on which privileges will be granted. Valid values are: `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`
+// The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnAccountObject) *string {
 		if v == nil {
@@ -27352,7 +27358,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ObjectType() pulum
 }
 
 type GrantPrivilegesToAccountRoleOnAccountObjectInherited struct {
-	// The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+	// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -27368,7 +27374,7 @@ type GrantPrivilegesToAccountRoleOnAccountObjectInheritedInput interface {
 }
 
 type GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs struct {
-	// The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+	// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -27449,7 +27455,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectInheritedOutput) ToGrantPrivi
 	}).(GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrOutput)
 }
 
-// The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnAccountObjectInheritedOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnAccountObjectInherited) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -27478,7 +27484,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrOutput) Elem() Gr
 	}).(GrantPrivilegesToAccountRoleOnAccountObjectInheritedOutput)
 }
 
-// The plural object type of the account object on which an inherited privilege will be granted. Valid values are (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`.
+// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnAccountObjectInherited) *string {
 		if v == nil {
@@ -27849,7 +27855,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObject struct {
 	Inherited *GrantPrivilegesToAccountRoleOnSchemaObjectInherited `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+	// The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
 	ObjectType *string `pulumi:"objectType"`
 }
 
@@ -27873,7 +27879,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectArgs struct {
 	Inherited GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+	// The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
 }
 
@@ -27980,7 +27986,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ObjectName() pulumi.St
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+// The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
@@ -28049,7 +28055,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ObjectName() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+// The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObject) *string {
 		if v == nil {
@@ -28062,7 +28068,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ObjectType() pulumi
 type GrantPrivilegesToAccountRoleOnSchemaObjectAll struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	InSchema   *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -28080,7 +28086,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectAllInput interface {
 type GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -28169,7 +28175,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) InSchema() pulumi.S
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -28216,7 +28222,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) InSchema() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -28229,7 +28235,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural
 type GrantPrivilegesToAccountRoleOnSchemaObjectFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	InSchema   *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -28247,7 +28253,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectFutureInput interface {
 type GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -28336,7 +28342,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) InSchema() pulum
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -28383,7 +28389,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) InSchema() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -28400,7 +28406,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectInherited struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
+	// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -28422,7 +28428,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
+	// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -28518,7 +28524,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectInheritedOutput) InSchema() pu
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectInherited) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
+// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectInheritedOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectInherited) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -28577,7 +28583,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrOutput) InSchema()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which an inherited privilege will be granted. Valid values are (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`.
+// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectInherited) *string {
 		if v == nil {
@@ -28790,7 +28796,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObject struct {
 	Inherited *GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+	// The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
 	ObjectType *string `pulumi:"objectType"`
 }
 
@@ -28814,7 +28820,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs struct {
 	Inherited GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
-	// The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+	// The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
 }
 
@@ -28921,7 +28927,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectOutput) ObjectName() pulumi.S
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObject) *string { return v.ObjectName }).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+// The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObject) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
@@ -28990,7 +28996,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrOutput) ObjectName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object type of the schema object on which privileges will be granted. Valid values are: AGENT | AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | CORTEX SEARCH SERVICE | DATA METRIC FUNCTION | DATASET | DBT PROJECT | DYNAMIC TABLE | EVENT TABLE | EXPERIMENT | EXTERNAL TABLE | FILE FORMAT | FUNCTION | GATEWAY | GIT REPOSITORY | HYBRID TABLE | IMAGE REPOSITORY | ICEBERG TABLE | INTERACTIVE TABLE | JOIN POLICY | MASKING POLICY | MATERIALIZED VIEW | MCP SERVER | MODEL | MODEL MONITOR | NETWORK RULE | NOTEBOOK | NOTEBOOK PROJECT | ONLINE FEATURE TABLE | PACKAGES POLICY | PASSWORD POLICY | PIPE | PRIVACY POLICY | PROCEDURE | PROJECTION POLICY | ROW ACCESS POLICY | SECRET | SEMANTIC VIEW | SERVICE | SESSION POLICY | SEQUENCE | SNAPSHOT | SNAPSHOT POLICY | SNAPSHOT SET | STAGE | STORAGE LIFECYCLE POLICY | STREAM | STREAMLIT | TABLE | TAG | TASK | VIEW | WORKSPACE
+// The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObject) *string {
 		if v == nil {
@@ -29005,7 +29011,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectAll struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -29025,7 +29031,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -29116,7 +29122,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllOutput) InSchema() pulumi.
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -29165,7 +29171,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) InSchema() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -29180,7 +29186,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -29200,7 +29206,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -29291,7 +29297,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) InSchema() pulu
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -29340,7 +29346,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) InSchema() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | SECRETS | SEMANTIC VIEWS | SERVICES | SEQUENCES | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TASKS | VIEWS | WORKSPACES.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -29355,7 +29361,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -29375,7 +29381,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -29466,7 +29472,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedOutput) InSchema() p
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -29515,7 +29521,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrOutput) InSchema(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: AGENTS | AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DATASETS | DBT PROJECTS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | IMAGE REPOSITORIES | ICEBERG TABLES | INTERACTIVE TABLES | MASKING POLICIES | MATERIALIZED VIEWS | MCP SERVERS | MODELS | MODEL MONITORS | NETWORK RULES | NOTEBOOKS | ONLINE FEATURE TABLES | PACKAGES POLICIES | PASSWORD POLICIES | PIPES | PRIVACY POLICIES | PROCEDURES | PROJECTION POLICIES | ROW ACCESS POLICIES | SECRETS | SEMANTIC VIEWS | SERVICES | SESSION POLICIES | SEQUENCES | SNAPSHOTS | SNAPSHOT POLICIES | SNAPSHOT SETS | STAGES | STREAMS | STREAMLITS | TABLES | TAGS | TASKS | VIEWS | WORKSPACES.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited) *string {
 		if v == nil {
@@ -57796,6 +57802,2021 @@ func (o ObjectParameterObjectIdentifierArrayOutput) Index(i pulumi.IntInput) Obj
 	}).(ObjectParameterObjectIdentifierOutput)
 }
 
+type OpenflowConnectorDescribeOutput struct {
+	Comment                         *string `pulumi:"comment"`
+	ConnectorDefinition             *string `pulumi:"connectorDefinition"`
+	ConnectorUrl                    *string `pulumi:"connectorUrl"`
+	DefaultVersion                  *string `pulumi:"defaultVersion"`
+	DefaultVersionAlias             *string `pulumi:"defaultVersionAlias"`
+	DefaultVersionGitCommitHash     *string `pulumi:"defaultVersionGitCommitHash"`
+	DefaultVersionLocationUri       *string `pulumi:"defaultVersionLocationUri"`
+	DefaultVersionName              *string `pulumi:"defaultVersionName"`
+	DefaultVersionSourceLocationUri *string `pulumi:"defaultVersionSourceLocationUri"`
+	DisplayName                     *string `pulumi:"displayName"`
+	LastVersionAlias                *string `pulumi:"lastVersionAlias"`
+	LastVersionGitCommitHash        *string `pulumi:"lastVersionGitCommitHash"`
+	LastVersionLocationUri          *string `pulumi:"lastVersionLocationUri"`
+	LastVersionName                 *string `pulumi:"lastVersionName"`
+	LastVersionSourceLocationUri    *string `pulumi:"lastVersionSourceLocationUri"`
+	LiveVersionLocationUri          *string `pulumi:"liveVersionLocationUri"`
+	Name                            *string `pulumi:"name"`
+	Owner                           *string `pulumi:"owner"`
+	Runtime                         *string `pulumi:"runtime"`
+	Status                          *string `pulumi:"status"`
+}
+
+// OpenflowConnectorDescribeOutputInput is an input type that accepts OpenflowConnectorDescribeOutputArgs and OpenflowConnectorDescribeOutputOutput values.
+// You can construct a concrete instance of `OpenflowConnectorDescribeOutputInput` via:
+//
+//	OpenflowConnectorDescribeOutputArgs{...}
+type OpenflowConnectorDescribeOutputInput interface {
+	pulumi.Input
+
+	ToOpenflowConnectorDescribeOutputOutput() OpenflowConnectorDescribeOutputOutput
+	ToOpenflowConnectorDescribeOutputOutputWithContext(context.Context) OpenflowConnectorDescribeOutputOutput
+}
+
+type OpenflowConnectorDescribeOutputArgs struct {
+	Comment                         pulumi.StringPtrInput `pulumi:"comment"`
+	ConnectorDefinition             pulumi.StringPtrInput `pulumi:"connectorDefinition"`
+	ConnectorUrl                    pulumi.StringPtrInput `pulumi:"connectorUrl"`
+	DefaultVersion                  pulumi.StringPtrInput `pulumi:"defaultVersion"`
+	DefaultVersionAlias             pulumi.StringPtrInput `pulumi:"defaultVersionAlias"`
+	DefaultVersionGitCommitHash     pulumi.StringPtrInput `pulumi:"defaultVersionGitCommitHash"`
+	DefaultVersionLocationUri       pulumi.StringPtrInput `pulumi:"defaultVersionLocationUri"`
+	DefaultVersionName              pulumi.StringPtrInput `pulumi:"defaultVersionName"`
+	DefaultVersionSourceLocationUri pulumi.StringPtrInput `pulumi:"defaultVersionSourceLocationUri"`
+	DisplayName                     pulumi.StringPtrInput `pulumi:"displayName"`
+	LastVersionAlias                pulumi.StringPtrInput `pulumi:"lastVersionAlias"`
+	LastVersionGitCommitHash        pulumi.StringPtrInput `pulumi:"lastVersionGitCommitHash"`
+	LastVersionLocationUri          pulumi.StringPtrInput `pulumi:"lastVersionLocationUri"`
+	LastVersionName                 pulumi.StringPtrInput `pulumi:"lastVersionName"`
+	LastVersionSourceLocationUri    pulumi.StringPtrInput `pulumi:"lastVersionSourceLocationUri"`
+	LiveVersionLocationUri          pulumi.StringPtrInput `pulumi:"liveVersionLocationUri"`
+	Name                            pulumi.StringPtrInput `pulumi:"name"`
+	Owner                           pulumi.StringPtrInput `pulumi:"owner"`
+	Runtime                         pulumi.StringPtrInput `pulumi:"runtime"`
+	Status                          pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (OpenflowConnectorDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowConnectorDescribeOutput)(nil)).Elem()
+}
+
+func (i OpenflowConnectorDescribeOutputArgs) ToOpenflowConnectorDescribeOutputOutput() OpenflowConnectorDescribeOutputOutput {
+	return i.ToOpenflowConnectorDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i OpenflowConnectorDescribeOutputArgs) ToOpenflowConnectorDescribeOutputOutputWithContext(ctx context.Context) OpenflowConnectorDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowConnectorDescribeOutputOutput)
+}
+
+// OpenflowConnectorDescribeOutputArrayInput is an input type that accepts OpenflowConnectorDescribeOutputArray and OpenflowConnectorDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `OpenflowConnectorDescribeOutputArrayInput` via:
+//
+//	OpenflowConnectorDescribeOutputArray{ OpenflowConnectorDescribeOutputArgs{...} }
+type OpenflowConnectorDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowConnectorDescribeOutputArrayOutput() OpenflowConnectorDescribeOutputArrayOutput
+	ToOpenflowConnectorDescribeOutputArrayOutputWithContext(context.Context) OpenflowConnectorDescribeOutputArrayOutput
+}
+
+type OpenflowConnectorDescribeOutputArray []OpenflowConnectorDescribeOutputInput
+
+func (OpenflowConnectorDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowConnectorDescribeOutput)(nil)).Elem()
+}
+
+func (i OpenflowConnectorDescribeOutputArray) ToOpenflowConnectorDescribeOutputArrayOutput() OpenflowConnectorDescribeOutputArrayOutput {
+	return i.ToOpenflowConnectorDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowConnectorDescribeOutputArray) ToOpenflowConnectorDescribeOutputArrayOutputWithContext(ctx context.Context) OpenflowConnectorDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowConnectorDescribeOutputArrayOutput)
+}
+
+type OpenflowConnectorDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (OpenflowConnectorDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowConnectorDescribeOutput)(nil)).Elem()
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) ToOpenflowConnectorDescribeOutputOutput() OpenflowConnectorDescribeOutputOutput {
+	return o
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) ToOpenflowConnectorDescribeOutputOutputWithContext(ctx context.Context) OpenflowConnectorDescribeOutputOutput {
+	return o
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) ConnectorDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.ConnectorDefinition }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) ConnectorUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.ConnectorUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) DefaultVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.DefaultVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) DefaultVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.DefaultVersionAlias }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) DefaultVersionGitCommitHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.DefaultVersionGitCommitHash }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) DefaultVersionLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.DefaultVersionLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) DefaultVersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.DefaultVersionName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) DefaultVersionSourceLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.DefaultVersionSourceLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) LastVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.LastVersionAlias }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) LastVersionGitCommitHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.LastVersionGitCommitHash }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) LastVersionLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.LastVersionLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) LastVersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.LastVersionName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) LastVersionSourceLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.LastVersionSourceLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) LiveVersionLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.LiveVersionLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorDescribeOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorDescribeOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowConnectorDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowConnectorDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowConnectorDescribeOutput)(nil)).Elem()
+}
+
+func (o OpenflowConnectorDescribeOutputArrayOutput) ToOpenflowConnectorDescribeOutputArrayOutput() OpenflowConnectorDescribeOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowConnectorDescribeOutputArrayOutput) ToOpenflowConnectorDescribeOutputArrayOutputWithContext(ctx context.Context) OpenflowConnectorDescribeOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowConnectorDescribeOutputArrayOutput) Index(i pulumi.IntInput) OpenflowConnectorDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowConnectorDescribeOutput {
+		return vs[0].([]OpenflowConnectorDescribeOutput)[vs[1].(int)]
+	}).(OpenflowConnectorDescribeOutputOutput)
+}
+
+type OpenflowConnectorFrom struct {
+	// Catalog definition ID for the connector type, for example `OPENFLOW_POSTGRES_CDC`. List the available IDs with the `getOpenflowConnectorDefinitions` data source. A connector created this way is a draft: it settles on STOPPED and stays there until a configuration version is committed, which this resource does not do.
+	Definition *string `pulumi:"definition"`
+	// Path to the bundle within the stage. The bundle's root is used when omitted.
+	Path *string `pulumi:"path"`
+	// Identifier of a stage holding a complete configuration bundle, which is how a connector arrives already configured and able to start without a commit. A git repository stage works here too.
+	Stage *string `pulumi:"stage"`
+}
+
+// OpenflowConnectorFromInput is an input type that accepts OpenflowConnectorFromArgs and OpenflowConnectorFromOutput values.
+// You can construct a concrete instance of `OpenflowConnectorFromInput` via:
+//
+//	OpenflowConnectorFromArgs{...}
+type OpenflowConnectorFromInput interface {
+	pulumi.Input
+
+	ToOpenflowConnectorFromOutput() OpenflowConnectorFromOutput
+	ToOpenflowConnectorFromOutputWithContext(context.Context) OpenflowConnectorFromOutput
+}
+
+type OpenflowConnectorFromArgs struct {
+	// Catalog definition ID for the connector type, for example `OPENFLOW_POSTGRES_CDC`. List the available IDs with the `getOpenflowConnectorDefinitions` data source. A connector created this way is a draft: it settles on STOPPED and stays there until a configuration version is committed, which this resource does not do.
+	Definition pulumi.StringPtrInput `pulumi:"definition"`
+	// Path to the bundle within the stage. The bundle's root is used when omitted.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// Identifier of a stage holding a complete configuration bundle, which is how a connector arrives already configured and able to start without a commit. A git repository stage works here too.
+	Stage pulumi.StringPtrInput `pulumi:"stage"`
+}
+
+func (OpenflowConnectorFromArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowConnectorFrom)(nil)).Elem()
+}
+
+func (i OpenflowConnectorFromArgs) ToOpenflowConnectorFromOutput() OpenflowConnectorFromOutput {
+	return i.ToOpenflowConnectorFromOutputWithContext(context.Background())
+}
+
+func (i OpenflowConnectorFromArgs) ToOpenflowConnectorFromOutputWithContext(ctx context.Context) OpenflowConnectorFromOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowConnectorFromOutput)
+}
+
+func (i OpenflowConnectorFromArgs) ToOpenflowConnectorFromPtrOutput() OpenflowConnectorFromPtrOutput {
+	return i.ToOpenflowConnectorFromPtrOutputWithContext(context.Background())
+}
+
+func (i OpenflowConnectorFromArgs) ToOpenflowConnectorFromPtrOutputWithContext(ctx context.Context) OpenflowConnectorFromPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowConnectorFromOutput).ToOpenflowConnectorFromPtrOutputWithContext(ctx)
+}
+
+// OpenflowConnectorFromPtrInput is an input type that accepts OpenflowConnectorFromArgs, OpenflowConnectorFromPtr and OpenflowConnectorFromPtrOutput values.
+// You can construct a concrete instance of `OpenflowConnectorFromPtrInput` via:
+//
+//	        OpenflowConnectorFromArgs{...}
+//
+//	or:
+//
+//	        nil
+type OpenflowConnectorFromPtrInput interface {
+	pulumi.Input
+
+	ToOpenflowConnectorFromPtrOutput() OpenflowConnectorFromPtrOutput
+	ToOpenflowConnectorFromPtrOutputWithContext(context.Context) OpenflowConnectorFromPtrOutput
+}
+
+type openflowConnectorFromPtrType OpenflowConnectorFromArgs
+
+func OpenflowConnectorFromPtr(v *OpenflowConnectorFromArgs) OpenflowConnectorFromPtrInput {
+	return (*openflowConnectorFromPtrType)(v)
+}
+
+func (*openflowConnectorFromPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenflowConnectorFrom)(nil)).Elem()
+}
+
+func (i *openflowConnectorFromPtrType) ToOpenflowConnectorFromPtrOutput() OpenflowConnectorFromPtrOutput {
+	return i.ToOpenflowConnectorFromPtrOutputWithContext(context.Background())
+}
+
+func (i *openflowConnectorFromPtrType) ToOpenflowConnectorFromPtrOutputWithContext(ctx context.Context) OpenflowConnectorFromPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowConnectorFromPtrOutput)
+}
+
+type OpenflowConnectorFromOutput struct{ *pulumi.OutputState }
+
+func (OpenflowConnectorFromOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowConnectorFrom)(nil)).Elem()
+}
+
+func (o OpenflowConnectorFromOutput) ToOpenflowConnectorFromOutput() OpenflowConnectorFromOutput {
+	return o
+}
+
+func (o OpenflowConnectorFromOutput) ToOpenflowConnectorFromOutputWithContext(ctx context.Context) OpenflowConnectorFromOutput {
+	return o
+}
+
+func (o OpenflowConnectorFromOutput) ToOpenflowConnectorFromPtrOutput() OpenflowConnectorFromPtrOutput {
+	return o.ToOpenflowConnectorFromPtrOutputWithContext(context.Background())
+}
+
+func (o OpenflowConnectorFromOutput) ToOpenflowConnectorFromPtrOutputWithContext(ctx context.Context) OpenflowConnectorFromPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OpenflowConnectorFrom) *OpenflowConnectorFrom {
+		return &v
+	}).(OpenflowConnectorFromPtrOutput)
+}
+
+// Catalog definition ID for the connector type, for example `OPENFLOW_POSTGRES_CDC`. List the available IDs with the `getOpenflowConnectorDefinitions` data source. A connector created this way is a draft: it settles on STOPPED and stays there until a configuration version is committed, which this resource does not do.
+func (o OpenflowConnectorFromOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorFrom) *string { return v.Definition }).(pulumi.StringPtrOutput)
+}
+
+// Path to the bundle within the stage. The bundle's root is used when omitted.
+func (o OpenflowConnectorFromOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorFrom) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// Identifier of a stage holding a complete configuration bundle, which is how a connector arrives already configured and able to start without a commit. A git repository stage works here too.
+func (o OpenflowConnectorFromOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorFrom) *string { return v.Stage }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowConnectorFromPtrOutput struct{ *pulumi.OutputState }
+
+func (OpenflowConnectorFromPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OpenflowConnectorFrom)(nil)).Elem()
+}
+
+func (o OpenflowConnectorFromPtrOutput) ToOpenflowConnectorFromPtrOutput() OpenflowConnectorFromPtrOutput {
+	return o
+}
+
+func (o OpenflowConnectorFromPtrOutput) ToOpenflowConnectorFromPtrOutputWithContext(ctx context.Context) OpenflowConnectorFromPtrOutput {
+	return o
+}
+
+func (o OpenflowConnectorFromPtrOutput) Elem() OpenflowConnectorFromOutput {
+	return o.ApplyT(func(v *OpenflowConnectorFrom) OpenflowConnectorFrom {
+		if v != nil {
+			return *v
+		}
+		var ret OpenflowConnectorFrom
+		return ret
+	}).(OpenflowConnectorFromOutput)
+}
+
+// Catalog definition ID for the connector type, for example `OPENFLOW_POSTGRES_CDC`. List the available IDs with the `getOpenflowConnectorDefinitions` data source. A connector created this way is a draft: it settles on STOPPED and stays there until a configuration version is committed, which this resource does not do.
+func (o OpenflowConnectorFromPtrOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenflowConnectorFrom) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Definition
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the bundle within the stage. The bundle's root is used when omitted.
+func (o OpenflowConnectorFromPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenflowConnectorFrom) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identifier of a stage holding a complete configuration bundle, which is how a connector arrives already configured and able to start without a commit. A git repository stage works here too.
+func (o OpenflowConnectorFromPtrOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OpenflowConnectorFrom) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Stage
+	}).(pulumi.StringPtrOutput)
+}
+
+type OpenflowConnectorShowOutput struct {
+	Comment                         *string `pulumi:"comment"`
+	ConnectorDefinition             *string `pulumi:"connectorDefinition"`
+	ConnectorUrl                    *string `pulumi:"connectorUrl"`
+	CreatedOn                       *string `pulumi:"createdOn"`
+	DatabaseName                    *string `pulumi:"databaseName"`
+	DefaultVersion                  *string `pulumi:"defaultVersion"`
+	DefaultVersionAlias             *string `pulumi:"defaultVersionAlias"`
+	DefaultVersionLocationUri       *string `pulumi:"defaultVersionLocationUri"`
+	DefaultVersionName              *string `pulumi:"defaultVersionName"`
+	DefaultVersionSourceLocationUri *string `pulumi:"defaultVersionSourceLocationUri"`
+	DisplayName                     *string `pulumi:"displayName"`
+	LiveVersionLocationUri          *string `pulumi:"liveVersionLocationUri"`
+	Name                            *string `pulumi:"name"`
+	Owner                           *string `pulumi:"owner"`
+	Runtime                         *string `pulumi:"runtime"`
+	SchemaName                      *string `pulumi:"schemaName"`
+	Status                          *string `pulumi:"status"`
+	UpdatedOn                       *string `pulumi:"updatedOn"`
+}
+
+// OpenflowConnectorShowOutputInput is an input type that accepts OpenflowConnectorShowOutputArgs and OpenflowConnectorShowOutputOutput values.
+// You can construct a concrete instance of `OpenflowConnectorShowOutputInput` via:
+//
+//	OpenflowConnectorShowOutputArgs{...}
+type OpenflowConnectorShowOutputInput interface {
+	pulumi.Input
+
+	ToOpenflowConnectorShowOutputOutput() OpenflowConnectorShowOutputOutput
+	ToOpenflowConnectorShowOutputOutputWithContext(context.Context) OpenflowConnectorShowOutputOutput
+}
+
+type OpenflowConnectorShowOutputArgs struct {
+	Comment                         pulumi.StringPtrInput `pulumi:"comment"`
+	ConnectorDefinition             pulumi.StringPtrInput `pulumi:"connectorDefinition"`
+	ConnectorUrl                    pulumi.StringPtrInput `pulumi:"connectorUrl"`
+	CreatedOn                       pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName                    pulumi.StringPtrInput `pulumi:"databaseName"`
+	DefaultVersion                  pulumi.StringPtrInput `pulumi:"defaultVersion"`
+	DefaultVersionAlias             pulumi.StringPtrInput `pulumi:"defaultVersionAlias"`
+	DefaultVersionLocationUri       pulumi.StringPtrInput `pulumi:"defaultVersionLocationUri"`
+	DefaultVersionName              pulumi.StringPtrInput `pulumi:"defaultVersionName"`
+	DefaultVersionSourceLocationUri pulumi.StringPtrInput `pulumi:"defaultVersionSourceLocationUri"`
+	DisplayName                     pulumi.StringPtrInput `pulumi:"displayName"`
+	LiveVersionLocationUri          pulumi.StringPtrInput `pulumi:"liveVersionLocationUri"`
+	Name                            pulumi.StringPtrInput `pulumi:"name"`
+	Owner                           pulumi.StringPtrInput `pulumi:"owner"`
+	Runtime                         pulumi.StringPtrInput `pulumi:"runtime"`
+	SchemaName                      pulumi.StringPtrInput `pulumi:"schemaName"`
+	Status                          pulumi.StringPtrInput `pulumi:"status"`
+	UpdatedOn                       pulumi.StringPtrInput `pulumi:"updatedOn"`
+}
+
+func (OpenflowConnectorShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowConnectorShowOutput)(nil)).Elem()
+}
+
+func (i OpenflowConnectorShowOutputArgs) ToOpenflowConnectorShowOutputOutput() OpenflowConnectorShowOutputOutput {
+	return i.ToOpenflowConnectorShowOutputOutputWithContext(context.Background())
+}
+
+func (i OpenflowConnectorShowOutputArgs) ToOpenflowConnectorShowOutputOutputWithContext(ctx context.Context) OpenflowConnectorShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowConnectorShowOutputOutput)
+}
+
+// OpenflowConnectorShowOutputArrayInput is an input type that accepts OpenflowConnectorShowOutputArray and OpenflowConnectorShowOutputArrayOutput values.
+// You can construct a concrete instance of `OpenflowConnectorShowOutputArrayInput` via:
+//
+//	OpenflowConnectorShowOutputArray{ OpenflowConnectorShowOutputArgs{...} }
+type OpenflowConnectorShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowConnectorShowOutputArrayOutput() OpenflowConnectorShowOutputArrayOutput
+	ToOpenflowConnectorShowOutputArrayOutputWithContext(context.Context) OpenflowConnectorShowOutputArrayOutput
+}
+
+type OpenflowConnectorShowOutputArray []OpenflowConnectorShowOutputInput
+
+func (OpenflowConnectorShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowConnectorShowOutput)(nil)).Elem()
+}
+
+func (i OpenflowConnectorShowOutputArray) ToOpenflowConnectorShowOutputArrayOutput() OpenflowConnectorShowOutputArrayOutput {
+	return i.ToOpenflowConnectorShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowConnectorShowOutputArray) ToOpenflowConnectorShowOutputArrayOutputWithContext(ctx context.Context) OpenflowConnectorShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowConnectorShowOutputArrayOutput)
+}
+
+type OpenflowConnectorShowOutputOutput struct{ *pulumi.OutputState }
+
+func (OpenflowConnectorShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowConnectorShowOutput)(nil)).Elem()
+}
+
+func (o OpenflowConnectorShowOutputOutput) ToOpenflowConnectorShowOutputOutput() OpenflowConnectorShowOutputOutput {
+	return o
+}
+
+func (o OpenflowConnectorShowOutputOutput) ToOpenflowConnectorShowOutputOutputWithContext(ctx context.Context) OpenflowConnectorShowOutputOutput {
+	return o
+}
+
+func (o OpenflowConnectorShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) ConnectorDefinition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.ConnectorDefinition }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) ConnectorUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.ConnectorUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) DefaultVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.DefaultVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) DefaultVersionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.DefaultVersionAlias }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) DefaultVersionLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.DefaultVersionLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) DefaultVersionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.DefaultVersionName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) DefaultVersionSourceLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.DefaultVersionSourceLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) LiveVersionLocationUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.LiveVersionLocationUri }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) Runtime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.Runtime }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowConnectorShowOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowConnectorShowOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowConnectorShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowConnectorShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowConnectorShowOutput)(nil)).Elem()
+}
+
+func (o OpenflowConnectorShowOutputArrayOutput) ToOpenflowConnectorShowOutputArrayOutput() OpenflowConnectorShowOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowConnectorShowOutputArrayOutput) ToOpenflowConnectorShowOutputArrayOutputWithContext(ctx context.Context) OpenflowConnectorShowOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowConnectorShowOutputArrayOutput) Index(i pulumi.IntInput) OpenflowConnectorShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowConnectorShowOutput {
+		return vs[0].([]OpenflowConnectorShowOutput)[vs[1].(int)]
+	}).(OpenflowConnectorShowOutputOutput)
+}
+
+type OpenflowDeploymentByocDescribeOutput struct {
+	Comment                    *string `pulumi:"comment"`
+	CustomIngressHostname      *string `pulumi:"customIngressHostname"`
+	DisplayName                *string `pulumi:"displayName"`
+	Key                        *string `pulumi:"key"`
+	Name                       *string `pulumi:"name"`
+	Owner                      *string `pulumi:"owner"`
+	Status                     *string `pulumi:"status"`
+	Type                       *string `pulumi:"type"`
+	UsePrivateLink             *bool   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink *bool   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    *string `pulumi:"vpcType"`
+}
+
+// OpenflowDeploymentByocDescribeOutputInput is an input type that accepts OpenflowDeploymentByocDescribeOutputArgs and OpenflowDeploymentByocDescribeOutputOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentByocDescribeOutputInput` via:
+//
+//	OpenflowDeploymentByocDescribeOutputArgs{...}
+type OpenflowDeploymentByocDescribeOutputInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentByocDescribeOutputOutput() OpenflowDeploymentByocDescribeOutputOutput
+	ToOpenflowDeploymentByocDescribeOutputOutputWithContext(context.Context) OpenflowDeploymentByocDescribeOutputOutput
+}
+
+type OpenflowDeploymentByocDescribeOutputArgs struct {
+	Comment                    pulumi.StringPtrInput `pulumi:"comment"`
+	CustomIngressHostname      pulumi.StringPtrInput `pulumi:"customIngressHostname"`
+	DisplayName                pulumi.StringPtrInput `pulumi:"displayName"`
+	Key                        pulumi.StringPtrInput `pulumi:"key"`
+	Name                       pulumi.StringPtrInput `pulumi:"name"`
+	Owner                      pulumi.StringPtrInput `pulumi:"owner"`
+	Status                     pulumi.StringPtrInput `pulumi:"status"`
+	Type                       pulumi.StringPtrInput `pulumi:"type"`
+	UsePrivateLink             pulumi.BoolPtrInput   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink pulumi.BoolPtrInput   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    pulumi.StringPtrInput `pulumi:"vpcType"`
+}
+
+func (OpenflowDeploymentByocDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentByocDescribeOutput)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentByocDescribeOutputArgs) ToOpenflowDeploymentByocDescribeOutputOutput() OpenflowDeploymentByocDescribeOutputOutput {
+	return i.ToOpenflowDeploymentByocDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentByocDescribeOutputArgs) ToOpenflowDeploymentByocDescribeOutputOutputWithContext(ctx context.Context) OpenflowDeploymentByocDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentByocDescribeOutputOutput)
+}
+
+// OpenflowDeploymentByocDescribeOutputArrayInput is an input type that accepts OpenflowDeploymentByocDescribeOutputArray and OpenflowDeploymentByocDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentByocDescribeOutputArrayInput` via:
+//
+//	OpenflowDeploymentByocDescribeOutputArray{ OpenflowDeploymentByocDescribeOutputArgs{...} }
+type OpenflowDeploymentByocDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentByocDescribeOutputArrayOutput() OpenflowDeploymentByocDescribeOutputArrayOutput
+	ToOpenflowDeploymentByocDescribeOutputArrayOutputWithContext(context.Context) OpenflowDeploymentByocDescribeOutputArrayOutput
+}
+
+type OpenflowDeploymentByocDescribeOutputArray []OpenflowDeploymentByocDescribeOutputInput
+
+func (OpenflowDeploymentByocDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentByocDescribeOutput)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentByocDescribeOutputArray) ToOpenflowDeploymentByocDescribeOutputArrayOutput() OpenflowDeploymentByocDescribeOutputArrayOutput {
+	return i.ToOpenflowDeploymentByocDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentByocDescribeOutputArray) ToOpenflowDeploymentByocDescribeOutputArrayOutputWithContext(ctx context.Context) OpenflowDeploymentByocDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentByocDescribeOutputArrayOutput)
+}
+
+type OpenflowDeploymentByocDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentByocDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentByocDescribeOutput)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) ToOpenflowDeploymentByocDescribeOutputOutput() OpenflowDeploymentByocDescribeOutputOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) ToOpenflowDeploymentByocDescribeOutputOutputWithContext(ctx context.Context) OpenflowDeploymentByocDescribeOutputOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) CustomIngressHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *string { return v.CustomIngressHostname }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) UsePrivateLink() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *bool { return v.UsePrivateLink }).(pulumi.BoolPtrOutput)
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) UseUserAuthOverPrivateLink() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *bool { return v.UseUserAuthOverPrivateLink }).(pulumi.BoolPtrOutput)
+}
+
+func (o OpenflowDeploymentByocDescribeOutputOutput) VpcType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocDescribeOutput) *string { return v.VpcType }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowDeploymentByocDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentByocDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentByocDescribeOutput)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentByocDescribeOutputArrayOutput) ToOpenflowDeploymentByocDescribeOutputArrayOutput() OpenflowDeploymentByocDescribeOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocDescribeOutputArrayOutput) ToOpenflowDeploymentByocDescribeOutputArrayOutputWithContext(ctx context.Context) OpenflowDeploymentByocDescribeOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocDescribeOutputArrayOutput) Index(i pulumi.IntInput) OpenflowDeploymentByocDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowDeploymentByocDescribeOutput {
+		return vs[0].([]OpenflowDeploymentByocDescribeOutput)[vs[1].(int)]
+	}).(OpenflowDeploymentByocDescribeOutputOutput)
+}
+
+type OpenflowDeploymentByocParameter struct {
+	EventTables []OpenflowDeploymentByocParameterEventTable `pulumi:"eventTables"`
+}
+
+// OpenflowDeploymentByocParameterInput is an input type that accepts OpenflowDeploymentByocParameterArgs and OpenflowDeploymentByocParameterOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentByocParameterInput` via:
+//
+//	OpenflowDeploymentByocParameterArgs{...}
+type OpenflowDeploymentByocParameterInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentByocParameterOutput() OpenflowDeploymentByocParameterOutput
+	ToOpenflowDeploymentByocParameterOutputWithContext(context.Context) OpenflowDeploymentByocParameterOutput
+}
+
+type OpenflowDeploymentByocParameterArgs struct {
+	EventTables OpenflowDeploymentByocParameterEventTableArrayInput `pulumi:"eventTables"`
+}
+
+func (OpenflowDeploymentByocParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentByocParameter)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentByocParameterArgs) ToOpenflowDeploymentByocParameterOutput() OpenflowDeploymentByocParameterOutput {
+	return i.ToOpenflowDeploymentByocParameterOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentByocParameterArgs) ToOpenflowDeploymentByocParameterOutputWithContext(ctx context.Context) OpenflowDeploymentByocParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentByocParameterOutput)
+}
+
+// OpenflowDeploymentByocParameterArrayInput is an input type that accepts OpenflowDeploymentByocParameterArray and OpenflowDeploymentByocParameterArrayOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentByocParameterArrayInput` via:
+//
+//	OpenflowDeploymentByocParameterArray{ OpenflowDeploymentByocParameterArgs{...} }
+type OpenflowDeploymentByocParameterArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentByocParameterArrayOutput() OpenflowDeploymentByocParameterArrayOutput
+	ToOpenflowDeploymentByocParameterArrayOutputWithContext(context.Context) OpenflowDeploymentByocParameterArrayOutput
+}
+
+type OpenflowDeploymentByocParameterArray []OpenflowDeploymentByocParameterInput
+
+func (OpenflowDeploymentByocParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentByocParameter)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentByocParameterArray) ToOpenflowDeploymentByocParameterArrayOutput() OpenflowDeploymentByocParameterArrayOutput {
+	return i.ToOpenflowDeploymentByocParameterArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentByocParameterArray) ToOpenflowDeploymentByocParameterArrayOutputWithContext(ctx context.Context) OpenflowDeploymentByocParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentByocParameterArrayOutput)
+}
+
+type OpenflowDeploymentByocParameterOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentByocParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentByocParameter)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentByocParameterOutput) ToOpenflowDeploymentByocParameterOutput() OpenflowDeploymentByocParameterOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocParameterOutput) ToOpenflowDeploymentByocParameterOutputWithContext(ctx context.Context) OpenflowDeploymentByocParameterOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocParameterOutput) EventTables() OpenflowDeploymentByocParameterEventTableArrayOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocParameter) []OpenflowDeploymentByocParameterEventTable {
+		return v.EventTables
+	}).(OpenflowDeploymentByocParameterEventTableArrayOutput)
+}
+
+type OpenflowDeploymentByocParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentByocParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentByocParameter)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentByocParameterArrayOutput) ToOpenflowDeploymentByocParameterArrayOutput() OpenflowDeploymentByocParameterArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocParameterArrayOutput) ToOpenflowDeploymentByocParameterArrayOutputWithContext(ctx context.Context) OpenflowDeploymentByocParameterArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocParameterArrayOutput) Index(i pulumi.IntInput) OpenflowDeploymentByocParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowDeploymentByocParameter {
+		return vs[0].([]OpenflowDeploymentByocParameter)[vs[1].(int)]
+	}).(OpenflowDeploymentByocParameterOutput)
+}
+
+type OpenflowDeploymentByocParameterEventTable struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// OpenflowDeploymentByocParameterEventTableInput is an input type that accepts OpenflowDeploymentByocParameterEventTableArgs and OpenflowDeploymentByocParameterEventTableOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentByocParameterEventTableInput` via:
+//
+//	OpenflowDeploymentByocParameterEventTableArgs{...}
+type OpenflowDeploymentByocParameterEventTableInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentByocParameterEventTableOutput() OpenflowDeploymentByocParameterEventTableOutput
+	ToOpenflowDeploymentByocParameterEventTableOutputWithContext(context.Context) OpenflowDeploymentByocParameterEventTableOutput
+}
+
+type OpenflowDeploymentByocParameterEventTableArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (OpenflowDeploymentByocParameterEventTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentByocParameterEventTable)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentByocParameterEventTableArgs) ToOpenflowDeploymentByocParameterEventTableOutput() OpenflowDeploymentByocParameterEventTableOutput {
+	return i.ToOpenflowDeploymentByocParameterEventTableOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentByocParameterEventTableArgs) ToOpenflowDeploymentByocParameterEventTableOutputWithContext(ctx context.Context) OpenflowDeploymentByocParameterEventTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentByocParameterEventTableOutput)
+}
+
+// OpenflowDeploymentByocParameterEventTableArrayInput is an input type that accepts OpenflowDeploymentByocParameterEventTableArray and OpenflowDeploymentByocParameterEventTableArrayOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentByocParameterEventTableArrayInput` via:
+//
+//	OpenflowDeploymentByocParameterEventTableArray{ OpenflowDeploymentByocParameterEventTableArgs{...} }
+type OpenflowDeploymentByocParameterEventTableArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentByocParameterEventTableArrayOutput() OpenflowDeploymentByocParameterEventTableArrayOutput
+	ToOpenflowDeploymentByocParameterEventTableArrayOutputWithContext(context.Context) OpenflowDeploymentByocParameterEventTableArrayOutput
+}
+
+type OpenflowDeploymentByocParameterEventTableArray []OpenflowDeploymentByocParameterEventTableInput
+
+func (OpenflowDeploymentByocParameterEventTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentByocParameterEventTable)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentByocParameterEventTableArray) ToOpenflowDeploymentByocParameterEventTableArrayOutput() OpenflowDeploymentByocParameterEventTableArrayOutput {
+	return i.ToOpenflowDeploymentByocParameterEventTableArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentByocParameterEventTableArray) ToOpenflowDeploymentByocParameterEventTableArrayOutputWithContext(ctx context.Context) OpenflowDeploymentByocParameterEventTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentByocParameterEventTableArrayOutput)
+}
+
+type OpenflowDeploymentByocParameterEventTableOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentByocParameterEventTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentByocParameterEventTable)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentByocParameterEventTableOutput) ToOpenflowDeploymentByocParameterEventTableOutput() OpenflowDeploymentByocParameterEventTableOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocParameterEventTableOutput) ToOpenflowDeploymentByocParameterEventTableOutputWithContext(ctx context.Context) OpenflowDeploymentByocParameterEventTableOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocParameterEventTableOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocParameterEventTable) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocParameterEventTableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocParameterEventTable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocParameterEventTableOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocParameterEventTable) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocParameterEventTableOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocParameterEventTable) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocParameterEventTableOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocParameterEventTable) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowDeploymentByocParameterEventTableArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentByocParameterEventTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentByocParameterEventTable)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentByocParameterEventTableArrayOutput) ToOpenflowDeploymentByocParameterEventTableArrayOutput() OpenflowDeploymentByocParameterEventTableArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocParameterEventTableArrayOutput) ToOpenflowDeploymentByocParameterEventTableArrayOutputWithContext(ctx context.Context) OpenflowDeploymentByocParameterEventTableArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocParameterEventTableArrayOutput) Index(i pulumi.IntInput) OpenflowDeploymentByocParameterEventTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowDeploymentByocParameterEventTable {
+		return vs[0].([]OpenflowDeploymentByocParameterEventTable)[vs[1].(int)]
+	}).(OpenflowDeploymentByocParameterEventTableOutput)
+}
+
+type OpenflowDeploymentByocShowOutput struct {
+	Comment                    *string `pulumi:"comment"`
+	CreatedOn                  *string `pulumi:"createdOn"`
+	CustomIngressHostname      *string `pulumi:"customIngressHostname"`
+	DisplayName                *string `pulumi:"displayName"`
+	Key                        *string `pulumi:"key"`
+	Name                       *string `pulumi:"name"`
+	Owner                      *string `pulumi:"owner"`
+	Status                     *string `pulumi:"status"`
+	Type                       *string `pulumi:"type"`
+	UpdatedOn                  *string `pulumi:"updatedOn"`
+	UsePrivateLink             *bool   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink *bool   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    *string `pulumi:"vpcType"`
+}
+
+// OpenflowDeploymentByocShowOutputInput is an input type that accepts OpenflowDeploymentByocShowOutputArgs and OpenflowDeploymentByocShowOutputOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentByocShowOutputInput` via:
+//
+//	OpenflowDeploymentByocShowOutputArgs{...}
+type OpenflowDeploymentByocShowOutputInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentByocShowOutputOutput() OpenflowDeploymentByocShowOutputOutput
+	ToOpenflowDeploymentByocShowOutputOutputWithContext(context.Context) OpenflowDeploymentByocShowOutputOutput
+}
+
+type OpenflowDeploymentByocShowOutputArgs struct {
+	Comment                    pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn                  pulumi.StringPtrInput `pulumi:"createdOn"`
+	CustomIngressHostname      pulumi.StringPtrInput `pulumi:"customIngressHostname"`
+	DisplayName                pulumi.StringPtrInput `pulumi:"displayName"`
+	Key                        pulumi.StringPtrInput `pulumi:"key"`
+	Name                       pulumi.StringPtrInput `pulumi:"name"`
+	Owner                      pulumi.StringPtrInput `pulumi:"owner"`
+	Status                     pulumi.StringPtrInput `pulumi:"status"`
+	Type                       pulumi.StringPtrInput `pulumi:"type"`
+	UpdatedOn                  pulumi.StringPtrInput `pulumi:"updatedOn"`
+	UsePrivateLink             pulumi.BoolPtrInput   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink pulumi.BoolPtrInput   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    pulumi.StringPtrInput `pulumi:"vpcType"`
+}
+
+func (OpenflowDeploymentByocShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentByocShowOutput)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentByocShowOutputArgs) ToOpenflowDeploymentByocShowOutputOutput() OpenflowDeploymentByocShowOutputOutput {
+	return i.ToOpenflowDeploymentByocShowOutputOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentByocShowOutputArgs) ToOpenflowDeploymentByocShowOutputOutputWithContext(ctx context.Context) OpenflowDeploymentByocShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentByocShowOutputOutput)
+}
+
+// OpenflowDeploymentByocShowOutputArrayInput is an input type that accepts OpenflowDeploymentByocShowOutputArray and OpenflowDeploymentByocShowOutputArrayOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentByocShowOutputArrayInput` via:
+//
+//	OpenflowDeploymentByocShowOutputArray{ OpenflowDeploymentByocShowOutputArgs{...} }
+type OpenflowDeploymentByocShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentByocShowOutputArrayOutput() OpenflowDeploymentByocShowOutputArrayOutput
+	ToOpenflowDeploymentByocShowOutputArrayOutputWithContext(context.Context) OpenflowDeploymentByocShowOutputArrayOutput
+}
+
+type OpenflowDeploymentByocShowOutputArray []OpenflowDeploymentByocShowOutputInput
+
+func (OpenflowDeploymentByocShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentByocShowOutput)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentByocShowOutputArray) ToOpenflowDeploymentByocShowOutputArrayOutput() OpenflowDeploymentByocShowOutputArrayOutput {
+	return i.ToOpenflowDeploymentByocShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentByocShowOutputArray) ToOpenflowDeploymentByocShowOutputArrayOutputWithContext(ctx context.Context) OpenflowDeploymentByocShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentByocShowOutputArrayOutput)
+}
+
+type OpenflowDeploymentByocShowOutputOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentByocShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentByocShowOutput)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) ToOpenflowDeploymentByocShowOutputOutput() OpenflowDeploymentByocShowOutputOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) ToOpenflowDeploymentByocShowOutputOutputWithContext(ctx context.Context) OpenflowDeploymentByocShowOutputOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) CustomIngressHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.CustomIngressHostname }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) UsePrivateLink() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *bool { return v.UsePrivateLink }).(pulumi.BoolPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) UseUserAuthOverPrivateLink() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *bool { return v.UseUserAuthOverPrivateLink }).(pulumi.BoolPtrOutput)
+}
+
+func (o OpenflowDeploymentByocShowOutputOutput) VpcType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentByocShowOutput) *string { return v.VpcType }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowDeploymentByocShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentByocShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentByocShowOutput)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentByocShowOutputArrayOutput) ToOpenflowDeploymentByocShowOutputArrayOutput() OpenflowDeploymentByocShowOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocShowOutputArrayOutput) ToOpenflowDeploymentByocShowOutputArrayOutputWithContext(ctx context.Context) OpenflowDeploymentByocShowOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentByocShowOutputArrayOutput) Index(i pulumi.IntInput) OpenflowDeploymentByocShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowDeploymentByocShowOutput {
+		return vs[0].([]OpenflowDeploymentByocShowOutput)[vs[1].(int)]
+	}).(OpenflowDeploymentByocShowOutputOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedDescribeOutput struct {
+	Comment                    *string `pulumi:"comment"`
+	CustomIngressHostname      *string `pulumi:"customIngressHostname"`
+	DisplayName                *string `pulumi:"displayName"`
+	Key                        *string `pulumi:"key"`
+	Name                       *string `pulumi:"name"`
+	Owner                      *string `pulumi:"owner"`
+	Status                     *string `pulumi:"status"`
+	Type                       *string `pulumi:"type"`
+	UsePrivateLink             *bool   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink *bool   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    *string `pulumi:"vpcType"`
+}
+
+// OpenflowDeploymentSnowflakeManagedDescribeOutputInput is an input type that accepts OpenflowDeploymentSnowflakeManagedDescribeOutputArgs and OpenflowDeploymentSnowflakeManagedDescribeOutputOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentSnowflakeManagedDescribeOutputInput` via:
+//
+//	OpenflowDeploymentSnowflakeManagedDescribeOutputArgs{...}
+type OpenflowDeploymentSnowflakeManagedDescribeOutputInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentSnowflakeManagedDescribeOutputOutput() OpenflowDeploymentSnowflakeManagedDescribeOutputOutput
+	ToOpenflowDeploymentSnowflakeManagedDescribeOutputOutputWithContext(context.Context) OpenflowDeploymentSnowflakeManagedDescribeOutputOutput
+}
+
+type OpenflowDeploymentSnowflakeManagedDescribeOutputArgs struct {
+	Comment                    pulumi.StringPtrInput `pulumi:"comment"`
+	CustomIngressHostname      pulumi.StringPtrInput `pulumi:"customIngressHostname"`
+	DisplayName                pulumi.StringPtrInput `pulumi:"displayName"`
+	Key                        pulumi.StringPtrInput `pulumi:"key"`
+	Name                       pulumi.StringPtrInput `pulumi:"name"`
+	Owner                      pulumi.StringPtrInput `pulumi:"owner"`
+	Status                     pulumi.StringPtrInput `pulumi:"status"`
+	Type                       pulumi.StringPtrInput `pulumi:"type"`
+	UsePrivateLink             pulumi.BoolPtrInput   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink pulumi.BoolPtrInput   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    pulumi.StringPtrInput `pulumi:"vpcType"`
+}
+
+func (OpenflowDeploymentSnowflakeManagedDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedDescribeOutput)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentSnowflakeManagedDescribeOutputArgs) ToOpenflowDeploymentSnowflakeManagedDescribeOutputOutput() OpenflowDeploymentSnowflakeManagedDescribeOutputOutput {
+	return i.ToOpenflowDeploymentSnowflakeManagedDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentSnowflakeManagedDescribeOutputArgs) ToOpenflowDeploymentSnowflakeManagedDescribeOutputOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentSnowflakeManagedDescribeOutputOutput)
+}
+
+// OpenflowDeploymentSnowflakeManagedDescribeOutputArrayInput is an input type that accepts OpenflowDeploymentSnowflakeManagedDescribeOutputArray and OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentSnowflakeManagedDescribeOutputArrayInput` via:
+//
+//	OpenflowDeploymentSnowflakeManagedDescribeOutputArray{ OpenflowDeploymentSnowflakeManagedDescribeOutputArgs{...} }
+type OpenflowDeploymentSnowflakeManagedDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput() OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput
+	ToOpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutputWithContext(context.Context) OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput
+}
+
+type OpenflowDeploymentSnowflakeManagedDescribeOutputArray []OpenflowDeploymentSnowflakeManagedDescribeOutputInput
+
+func (OpenflowDeploymentSnowflakeManagedDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentSnowflakeManagedDescribeOutput)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentSnowflakeManagedDescribeOutputArray) ToOpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput() OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput {
+	return i.ToOpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentSnowflakeManagedDescribeOutputArray) ToOpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedDescribeOutput)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) ToOpenflowDeploymentSnowflakeManagedDescribeOutputOutput() OpenflowDeploymentSnowflakeManagedDescribeOutputOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) ToOpenflowDeploymentSnowflakeManagedDescribeOutputOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedDescribeOutputOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) CustomIngressHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *string { return v.CustomIngressHostname }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) UsePrivateLink() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *bool { return v.UsePrivateLink }).(pulumi.BoolPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) UseUserAuthOverPrivateLink() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *bool { return v.UseUserAuthOverPrivateLink }).(pulumi.BoolPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputOutput) VpcType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedDescribeOutput) *string { return v.VpcType }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentSnowflakeManagedDescribeOutput)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput) ToOpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput() OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput) ToOpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput) Index(i pulumi.IntInput) OpenflowDeploymentSnowflakeManagedDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowDeploymentSnowflakeManagedDescribeOutput {
+		return vs[0].([]OpenflowDeploymentSnowflakeManagedDescribeOutput)[vs[1].(int)]
+	}).(OpenflowDeploymentSnowflakeManagedDescribeOutputOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedParameter struct {
+	EventTables []OpenflowDeploymentSnowflakeManagedParameterEventTable `pulumi:"eventTables"`
+}
+
+// OpenflowDeploymentSnowflakeManagedParameterInput is an input type that accepts OpenflowDeploymentSnowflakeManagedParameterArgs and OpenflowDeploymentSnowflakeManagedParameterOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentSnowflakeManagedParameterInput` via:
+//
+//	OpenflowDeploymentSnowflakeManagedParameterArgs{...}
+type OpenflowDeploymentSnowflakeManagedParameterInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentSnowflakeManagedParameterOutput() OpenflowDeploymentSnowflakeManagedParameterOutput
+	ToOpenflowDeploymentSnowflakeManagedParameterOutputWithContext(context.Context) OpenflowDeploymentSnowflakeManagedParameterOutput
+}
+
+type OpenflowDeploymentSnowflakeManagedParameterArgs struct {
+	EventTables OpenflowDeploymentSnowflakeManagedParameterEventTableArrayInput `pulumi:"eventTables"`
+}
+
+func (OpenflowDeploymentSnowflakeManagedParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedParameter)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentSnowflakeManagedParameterArgs) ToOpenflowDeploymentSnowflakeManagedParameterOutput() OpenflowDeploymentSnowflakeManagedParameterOutput {
+	return i.ToOpenflowDeploymentSnowflakeManagedParameterOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentSnowflakeManagedParameterArgs) ToOpenflowDeploymentSnowflakeManagedParameterOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentSnowflakeManagedParameterOutput)
+}
+
+// OpenflowDeploymentSnowflakeManagedParameterArrayInput is an input type that accepts OpenflowDeploymentSnowflakeManagedParameterArray and OpenflowDeploymentSnowflakeManagedParameterArrayOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentSnowflakeManagedParameterArrayInput` via:
+//
+//	OpenflowDeploymentSnowflakeManagedParameterArray{ OpenflowDeploymentSnowflakeManagedParameterArgs{...} }
+type OpenflowDeploymentSnowflakeManagedParameterArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentSnowflakeManagedParameterArrayOutput() OpenflowDeploymentSnowflakeManagedParameterArrayOutput
+	ToOpenflowDeploymentSnowflakeManagedParameterArrayOutputWithContext(context.Context) OpenflowDeploymentSnowflakeManagedParameterArrayOutput
+}
+
+type OpenflowDeploymentSnowflakeManagedParameterArray []OpenflowDeploymentSnowflakeManagedParameterInput
+
+func (OpenflowDeploymentSnowflakeManagedParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentSnowflakeManagedParameter)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentSnowflakeManagedParameterArray) ToOpenflowDeploymentSnowflakeManagedParameterArrayOutput() OpenflowDeploymentSnowflakeManagedParameterArrayOutput {
+	return i.ToOpenflowDeploymentSnowflakeManagedParameterArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentSnowflakeManagedParameterArray) ToOpenflowDeploymentSnowflakeManagedParameterArrayOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentSnowflakeManagedParameterArrayOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedParameterOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentSnowflakeManagedParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedParameter)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterOutput) ToOpenflowDeploymentSnowflakeManagedParameterOutput() OpenflowDeploymentSnowflakeManagedParameterOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterOutput) ToOpenflowDeploymentSnowflakeManagedParameterOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedParameterOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterOutput) EventTables() OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedParameter) []OpenflowDeploymentSnowflakeManagedParameterEventTable {
+		return v.EventTables
+	}).(OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentSnowflakeManagedParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentSnowflakeManagedParameter)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterArrayOutput) ToOpenflowDeploymentSnowflakeManagedParameterArrayOutput() OpenflowDeploymentSnowflakeManagedParameterArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterArrayOutput) ToOpenflowDeploymentSnowflakeManagedParameterArrayOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedParameterArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterArrayOutput) Index(i pulumi.IntInput) OpenflowDeploymentSnowflakeManagedParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowDeploymentSnowflakeManagedParameter {
+		return vs[0].([]OpenflowDeploymentSnowflakeManagedParameter)[vs[1].(int)]
+	}).(OpenflowDeploymentSnowflakeManagedParameterOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedParameterEventTable struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// OpenflowDeploymentSnowflakeManagedParameterEventTableInput is an input type that accepts OpenflowDeploymentSnowflakeManagedParameterEventTableArgs and OpenflowDeploymentSnowflakeManagedParameterEventTableOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentSnowflakeManagedParameterEventTableInput` via:
+//
+//	OpenflowDeploymentSnowflakeManagedParameterEventTableArgs{...}
+type OpenflowDeploymentSnowflakeManagedParameterEventTableInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentSnowflakeManagedParameterEventTableOutput() OpenflowDeploymentSnowflakeManagedParameterEventTableOutput
+	ToOpenflowDeploymentSnowflakeManagedParameterEventTableOutputWithContext(context.Context) OpenflowDeploymentSnowflakeManagedParameterEventTableOutput
+}
+
+type OpenflowDeploymentSnowflakeManagedParameterEventTableArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (OpenflowDeploymentSnowflakeManagedParameterEventTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedParameterEventTable)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentSnowflakeManagedParameterEventTableArgs) ToOpenflowDeploymentSnowflakeManagedParameterEventTableOutput() OpenflowDeploymentSnowflakeManagedParameterEventTableOutput {
+	return i.ToOpenflowDeploymentSnowflakeManagedParameterEventTableOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentSnowflakeManagedParameterEventTableArgs) ToOpenflowDeploymentSnowflakeManagedParameterEventTableOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedParameterEventTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentSnowflakeManagedParameterEventTableOutput)
+}
+
+// OpenflowDeploymentSnowflakeManagedParameterEventTableArrayInput is an input type that accepts OpenflowDeploymentSnowflakeManagedParameterEventTableArray and OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentSnowflakeManagedParameterEventTableArrayInput` via:
+//
+//	OpenflowDeploymentSnowflakeManagedParameterEventTableArray{ OpenflowDeploymentSnowflakeManagedParameterEventTableArgs{...} }
+type OpenflowDeploymentSnowflakeManagedParameterEventTableArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput() OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput
+	ToOpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutputWithContext(context.Context) OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput
+}
+
+type OpenflowDeploymentSnowflakeManagedParameterEventTableArray []OpenflowDeploymentSnowflakeManagedParameterEventTableInput
+
+func (OpenflowDeploymentSnowflakeManagedParameterEventTableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentSnowflakeManagedParameterEventTable)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentSnowflakeManagedParameterEventTableArray) ToOpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput() OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput {
+	return i.ToOpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentSnowflakeManagedParameterEventTableArray) ToOpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedParameterEventTableOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentSnowflakeManagedParameterEventTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedParameterEventTable)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterEventTableOutput) ToOpenflowDeploymentSnowflakeManagedParameterEventTableOutput() OpenflowDeploymentSnowflakeManagedParameterEventTableOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterEventTableOutput) ToOpenflowDeploymentSnowflakeManagedParameterEventTableOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedParameterEventTableOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterEventTableOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedParameterEventTable) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterEventTableOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedParameterEventTable) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterEventTableOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedParameterEventTable) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterEventTableOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedParameterEventTable) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterEventTableOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedParameterEventTable) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentSnowflakeManagedParameterEventTable)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput) ToOpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput() OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput) ToOpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput) Index(i pulumi.IntInput) OpenflowDeploymentSnowflakeManagedParameterEventTableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowDeploymentSnowflakeManagedParameterEventTable {
+		return vs[0].([]OpenflowDeploymentSnowflakeManagedParameterEventTable)[vs[1].(int)]
+	}).(OpenflowDeploymentSnowflakeManagedParameterEventTableOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedShowOutput struct {
+	Comment                    *string `pulumi:"comment"`
+	CreatedOn                  *string `pulumi:"createdOn"`
+	CustomIngressHostname      *string `pulumi:"customIngressHostname"`
+	DisplayName                *string `pulumi:"displayName"`
+	Key                        *string `pulumi:"key"`
+	Name                       *string `pulumi:"name"`
+	Owner                      *string `pulumi:"owner"`
+	Status                     *string `pulumi:"status"`
+	Type                       *string `pulumi:"type"`
+	UpdatedOn                  *string `pulumi:"updatedOn"`
+	UsePrivateLink             *bool   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink *bool   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    *string `pulumi:"vpcType"`
+}
+
+// OpenflowDeploymentSnowflakeManagedShowOutputInput is an input type that accepts OpenflowDeploymentSnowflakeManagedShowOutputArgs and OpenflowDeploymentSnowflakeManagedShowOutputOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentSnowflakeManagedShowOutputInput` via:
+//
+//	OpenflowDeploymentSnowflakeManagedShowOutputArgs{...}
+type OpenflowDeploymentSnowflakeManagedShowOutputInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentSnowflakeManagedShowOutputOutput() OpenflowDeploymentSnowflakeManagedShowOutputOutput
+	ToOpenflowDeploymentSnowflakeManagedShowOutputOutputWithContext(context.Context) OpenflowDeploymentSnowflakeManagedShowOutputOutput
+}
+
+type OpenflowDeploymentSnowflakeManagedShowOutputArgs struct {
+	Comment                    pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn                  pulumi.StringPtrInput `pulumi:"createdOn"`
+	CustomIngressHostname      pulumi.StringPtrInput `pulumi:"customIngressHostname"`
+	DisplayName                pulumi.StringPtrInput `pulumi:"displayName"`
+	Key                        pulumi.StringPtrInput `pulumi:"key"`
+	Name                       pulumi.StringPtrInput `pulumi:"name"`
+	Owner                      pulumi.StringPtrInput `pulumi:"owner"`
+	Status                     pulumi.StringPtrInput `pulumi:"status"`
+	Type                       pulumi.StringPtrInput `pulumi:"type"`
+	UpdatedOn                  pulumi.StringPtrInput `pulumi:"updatedOn"`
+	UsePrivateLink             pulumi.BoolPtrInput   `pulumi:"usePrivateLink"`
+	UseUserAuthOverPrivateLink pulumi.BoolPtrInput   `pulumi:"useUserAuthOverPrivateLink"`
+	VpcType                    pulumi.StringPtrInput `pulumi:"vpcType"`
+}
+
+func (OpenflowDeploymentSnowflakeManagedShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedShowOutput)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentSnowflakeManagedShowOutputArgs) ToOpenflowDeploymentSnowflakeManagedShowOutputOutput() OpenflowDeploymentSnowflakeManagedShowOutputOutput {
+	return i.ToOpenflowDeploymentSnowflakeManagedShowOutputOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentSnowflakeManagedShowOutputArgs) ToOpenflowDeploymentSnowflakeManagedShowOutputOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentSnowflakeManagedShowOutputOutput)
+}
+
+// OpenflowDeploymentSnowflakeManagedShowOutputArrayInput is an input type that accepts OpenflowDeploymentSnowflakeManagedShowOutputArray and OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput values.
+// You can construct a concrete instance of `OpenflowDeploymentSnowflakeManagedShowOutputArrayInput` via:
+//
+//	OpenflowDeploymentSnowflakeManagedShowOutputArray{ OpenflowDeploymentSnowflakeManagedShowOutputArgs{...} }
+type OpenflowDeploymentSnowflakeManagedShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowDeploymentSnowflakeManagedShowOutputArrayOutput() OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput
+	ToOpenflowDeploymentSnowflakeManagedShowOutputArrayOutputWithContext(context.Context) OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput
+}
+
+type OpenflowDeploymentSnowflakeManagedShowOutputArray []OpenflowDeploymentSnowflakeManagedShowOutputInput
+
+func (OpenflowDeploymentSnowflakeManagedShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentSnowflakeManagedShowOutput)(nil)).Elem()
+}
+
+func (i OpenflowDeploymentSnowflakeManagedShowOutputArray) ToOpenflowDeploymentSnowflakeManagedShowOutputArrayOutput() OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput {
+	return i.ToOpenflowDeploymentSnowflakeManagedShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowDeploymentSnowflakeManagedShowOutputArray) ToOpenflowDeploymentSnowflakeManagedShowOutputArrayOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedShowOutputOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentSnowflakeManagedShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedShowOutput)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) ToOpenflowDeploymentSnowflakeManagedShowOutputOutput() OpenflowDeploymentSnowflakeManagedShowOutputOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) ToOpenflowDeploymentSnowflakeManagedShowOutputOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedShowOutputOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) CustomIngressHostname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.CustomIngressHostname }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) UsePrivateLink() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *bool { return v.UsePrivateLink }).(pulumi.BoolPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) UseUserAuthOverPrivateLink() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *bool { return v.UseUserAuthOverPrivateLink }).(pulumi.BoolPtrOutput)
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputOutput) VpcType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowDeploymentSnowflakeManagedShowOutput) *string { return v.VpcType }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowDeploymentSnowflakeManagedShowOutput)(nil)).Elem()
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput) ToOpenflowDeploymentSnowflakeManagedShowOutputArrayOutput() OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput) ToOpenflowDeploymentSnowflakeManagedShowOutputArrayOutputWithContext(ctx context.Context) OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput) Index(i pulumi.IntInput) OpenflowDeploymentSnowflakeManagedShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowDeploymentSnowflakeManagedShowOutput {
+		return vs[0].([]OpenflowDeploymentSnowflakeManagedShowOutput)[vs[1].(int)]
+	}).(OpenflowDeploymentSnowflakeManagedShowOutputOutput)
+}
+
+type OpenflowRuntimeDescribeOutput struct {
+	Comment                    *string  `pulumi:"comment"`
+	Deployment                 *string  `pulumi:"deployment"`
+	DisplayName                *string  `pulumi:"displayName"`
+	ExecuteAsRole              *string  `pulumi:"executeAsRole"`
+	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
+	InitiallySuspended         *bool    `pulumi:"initiallySuspended"`
+	Key                        *string  `pulumi:"key"`
+	MaxNodes                   *int     `pulumi:"maxNodes"`
+	MinNodes                   *int     `pulumi:"minNodes"`
+	Name                       *string  `pulumi:"name"`
+	NodeType                   *string  `pulumi:"nodeType"`
+	NodeTypeTier               *string  `pulumi:"nodeTypeTier"`
+	Owner                      *string  `pulumi:"owner"`
+	ServerUrl                  *string  `pulumi:"serverUrl"`
+	Status                     *string  `pulumi:"status"`
+}
+
+// OpenflowRuntimeDescribeOutputInput is an input type that accepts OpenflowRuntimeDescribeOutputArgs and OpenflowRuntimeDescribeOutputOutput values.
+// You can construct a concrete instance of `OpenflowRuntimeDescribeOutputInput` via:
+//
+//	OpenflowRuntimeDescribeOutputArgs{...}
+type OpenflowRuntimeDescribeOutputInput interface {
+	pulumi.Input
+
+	ToOpenflowRuntimeDescribeOutputOutput() OpenflowRuntimeDescribeOutputOutput
+	ToOpenflowRuntimeDescribeOutputOutputWithContext(context.Context) OpenflowRuntimeDescribeOutputOutput
+}
+
+type OpenflowRuntimeDescribeOutputArgs struct {
+	Comment                    pulumi.StringPtrInput   `pulumi:"comment"`
+	Deployment                 pulumi.StringPtrInput   `pulumi:"deployment"`
+	DisplayName                pulumi.StringPtrInput   `pulumi:"displayName"`
+	ExecuteAsRole              pulumi.StringPtrInput   `pulumi:"executeAsRole"`
+	ExternalAccessIntegrations pulumi.StringArrayInput `pulumi:"externalAccessIntegrations"`
+	InitiallySuspended         pulumi.BoolPtrInput     `pulumi:"initiallySuspended"`
+	Key                        pulumi.StringPtrInput   `pulumi:"key"`
+	MaxNodes                   pulumi.IntPtrInput      `pulumi:"maxNodes"`
+	MinNodes                   pulumi.IntPtrInput      `pulumi:"minNodes"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	NodeType                   pulumi.StringPtrInput   `pulumi:"nodeType"`
+	NodeTypeTier               pulumi.StringPtrInput   `pulumi:"nodeTypeTier"`
+	Owner                      pulumi.StringPtrInput   `pulumi:"owner"`
+	ServerUrl                  pulumi.StringPtrInput   `pulumi:"serverUrl"`
+	Status                     pulumi.StringPtrInput   `pulumi:"status"`
+}
+
+func (OpenflowRuntimeDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowRuntimeDescribeOutput)(nil)).Elem()
+}
+
+func (i OpenflowRuntimeDescribeOutputArgs) ToOpenflowRuntimeDescribeOutputOutput() OpenflowRuntimeDescribeOutputOutput {
+	return i.ToOpenflowRuntimeDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i OpenflowRuntimeDescribeOutputArgs) ToOpenflowRuntimeDescribeOutputOutputWithContext(ctx context.Context) OpenflowRuntimeDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowRuntimeDescribeOutputOutput)
+}
+
+// OpenflowRuntimeDescribeOutputArrayInput is an input type that accepts OpenflowRuntimeDescribeOutputArray and OpenflowRuntimeDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `OpenflowRuntimeDescribeOutputArrayInput` via:
+//
+//	OpenflowRuntimeDescribeOutputArray{ OpenflowRuntimeDescribeOutputArgs{...} }
+type OpenflowRuntimeDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowRuntimeDescribeOutputArrayOutput() OpenflowRuntimeDescribeOutputArrayOutput
+	ToOpenflowRuntimeDescribeOutputArrayOutputWithContext(context.Context) OpenflowRuntimeDescribeOutputArrayOutput
+}
+
+type OpenflowRuntimeDescribeOutputArray []OpenflowRuntimeDescribeOutputInput
+
+func (OpenflowRuntimeDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowRuntimeDescribeOutput)(nil)).Elem()
+}
+
+func (i OpenflowRuntimeDescribeOutputArray) ToOpenflowRuntimeDescribeOutputArrayOutput() OpenflowRuntimeDescribeOutputArrayOutput {
+	return i.ToOpenflowRuntimeDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowRuntimeDescribeOutputArray) ToOpenflowRuntimeDescribeOutputArrayOutputWithContext(ctx context.Context) OpenflowRuntimeDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowRuntimeDescribeOutputArrayOutput)
+}
+
+type OpenflowRuntimeDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (OpenflowRuntimeDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowRuntimeDescribeOutput)(nil)).Elem()
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) ToOpenflowRuntimeDescribeOutputOutput() OpenflowRuntimeDescribeOutputOutput {
+	return o
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) ToOpenflowRuntimeDescribeOutputOutputWithContext(ctx context.Context) OpenflowRuntimeDescribeOutputOutput {
+	return o
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) Deployment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.Deployment }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) ExecuteAsRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.ExecuteAsRole }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) ExternalAccessIntegrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) []string { return v.ExternalAccessIntegrations }).(pulumi.StringArrayOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) InitiallySuspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *bool { return v.InitiallySuspended }).(pulumi.BoolPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) MaxNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *int { return v.MaxNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) MinNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *int { return v.MinNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.NodeType }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) NodeTypeTier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.NodeTypeTier }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) ServerUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.ServerUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeDescribeOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeDescribeOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowRuntimeDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowRuntimeDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowRuntimeDescribeOutput)(nil)).Elem()
+}
+
+func (o OpenflowRuntimeDescribeOutputArrayOutput) ToOpenflowRuntimeDescribeOutputArrayOutput() OpenflowRuntimeDescribeOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowRuntimeDescribeOutputArrayOutput) ToOpenflowRuntimeDescribeOutputArrayOutputWithContext(ctx context.Context) OpenflowRuntimeDescribeOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowRuntimeDescribeOutputArrayOutput) Index(i pulumi.IntInput) OpenflowRuntimeDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowRuntimeDescribeOutput {
+		return vs[0].([]OpenflowRuntimeDescribeOutput)[vs[1].(int)]
+	}).(OpenflowRuntimeDescribeOutputOutput)
+}
+
+type OpenflowRuntimeShowOutput struct {
+	Comment                    *string  `pulumi:"comment"`
+	CreatedOn                  *string  `pulumi:"createdOn"`
+	DatabaseName               *string  `pulumi:"databaseName"`
+	Deployment                 *string  `pulumi:"deployment"`
+	DisplayName                *string  `pulumi:"displayName"`
+	ExecuteAsRole              *string  `pulumi:"executeAsRole"`
+	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
+	InitiallySuspended         *bool    `pulumi:"initiallySuspended"`
+	Key                        *string  `pulumi:"key"`
+	MaxNodes                   *int     `pulumi:"maxNodes"`
+	MinNodes                   *int     `pulumi:"minNodes"`
+	Name                       *string  `pulumi:"name"`
+	NodeType                   *string  `pulumi:"nodeType"`
+	Owner                      *string  `pulumi:"owner"`
+	SchemaName                 *string  `pulumi:"schemaName"`
+	Status                     *string  `pulumi:"status"`
+	UpdatedOn                  *string  `pulumi:"updatedOn"`
+}
+
+// OpenflowRuntimeShowOutputInput is an input type that accepts OpenflowRuntimeShowOutputArgs and OpenflowRuntimeShowOutputOutput values.
+// You can construct a concrete instance of `OpenflowRuntimeShowOutputInput` via:
+//
+//	OpenflowRuntimeShowOutputArgs{...}
+type OpenflowRuntimeShowOutputInput interface {
+	pulumi.Input
+
+	ToOpenflowRuntimeShowOutputOutput() OpenflowRuntimeShowOutputOutput
+	ToOpenflowRuntimeShowOutputOutputWithContext(context.Context) OpenflowRuntimeShowOutputOutput
+}
+
+type OpenflowRuntimeShowOutputArgs struct {
+	Comment                    pulumi.StringPtrInput   `pulumi:"comment"`
+	CreatedOn                  pulumi.StringPtrInput   `pulumi:"createdOn"`
+	DatabaseName               pulumi.StringPtrInput   `pulumi:"databaseName"`
+	Deployment                 pulumi.StringPtrInput   `pulumi:"deployment"`
+	DisplayName                pulumi.StringPtrInput   `pulumi:"displayName"`
+	ExecuteAsRole              pulumi.StringPtrInput   `pulumi:"executeAsRole"`
+	ExternalAccessIntegrations pulumi.StringArrayInput `pulumi:"externalAccessIntegrations"`
+	InitiallySuspended         pulumi.BoolPtrInput     `pulumi:"initiallySuspended"`
+	Key                        pulumi.StringPtrInput   `pulumi:"key"`
+	MaxNodes                   pulumi.IntPtrInput      `pulumi:"maxNodes"`
+	MinNodes                   pulumi.IntPtrInput      `pulumi:"minNodes"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	NodeType                   pulumi.StringPtrInput   `pulumi:"nodeType"`
+	Owner                      pulumi.StringPtrInput   `pulumi:"owner"`
+	SchemaName                 pulumi.StringPtrInput   `pulumi:"schemaName"`
+	Status                     pulumi.StringPtrInput   `pulumi:"status"`
+	UpdatedOn                  pulumi.StringPtrInput   `pulumi:"updatedOn"`
+}
+
+func (OpenflowRuntimeShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowRuntimeShowOutput)(nil)).Elem()
+}
+
+func (i OpenflowRuntimeShowOutputArgs) ToOpenflowRuntimeShowOutputOutput() OpenflowRuntimeShowOutputOutput {
+	return i.ToOpenflowRuntimeShowOutputOutputWithContext(context.Background())
+}
+
+func (i OpenflowRuntimeShowOutputArgs) ToOpenflowRuntimeShowOutputOutputWithContext(ctx context.Context) OpenflowRuntimeShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowRuntimeShowOutputOutput)
+}
+
+// OpenflowRuntimeShowOutputArrayInput is an input type that accepts OpenflowRuntimeShowOutputArray and OpenflowRuntimeShowOutputArrayOutput values.
+// You can construct a concrete instance of `OpenflowRuntimeShowOutputArrayInput` via:
+//
+//	OpenflowRuntimeShowOutputArray{ OpenflowRuntimeShowOutputArgs{...} }
+type OpenflowRuntimeShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToOpenflowRuntimeShowOutputArrayOutput() OpenflowRuntimeShowOutputArrayOutput
+	ToOpenflowRuntimeShowOutputArrayOutputWithContext(context.Context) OpenflowRuntimeShowOutputArrayOutput
+}
+
+type OpenflowRuntimeShowOutputArray []OpenflowRuntimeShowOutputInput
+
+func (OpenflowRuntimeShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowRuntimeShowOutput)(nil)).Elem()
+}
+
+func (i OpenflowRuntimeShowOutputArray) ToOpenflowRuntimeShowOutputArrayOutput() OpenflowRuntimeShowOutputArrayOutput {
+	return i.ToOpenflowRuntimeShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i OpenflowRuntimeShowOutputArray) ToOpenflowRuntimeShowOutputArrayOutputWithContext(ctx context.Context) OpenflowRuntimeShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OpenflowRuntimeShowOutputArrayOutput)
+}
+
+type OpenflowRuntimeShowOutputOutput struct{ *pulumi.OutputState }
+
+func (OpenflowRuntimeShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OpenflowRuntimeShowOutput)(nil)).Elem()
+}
+
+func (o OpenflowRuntimeShowOutputOutput) ToOpenflowRuntimeShowOutputOutput() OpenflowRuntimeShowOutputOutput {
+	return o
+}
+
+func (o OpenflowRuntimeShowOutputOutput) ToOpenflowRuntimeShowOutputOutputWithContext(ctx context.Context) OpenflowRuntimeShowOutputOutput {
+	return o
+}
+
+func (o OpenflowRuntimeShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) Deployment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.Deployment }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) ExecuteAsRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.ExecuteAsRole }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) ExternalAccessIntegrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) []string { return v.ExternalAccessIntegrations }).(pulumi.StringArrayOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) InitiallySuspended() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *bool { return v.InitiallySuspended }).(pulumi.BoolPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) MaxNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *int { return v.MaxNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) MinNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *int { return v.MinNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.NodeType }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o OpenflowRuntimeShowOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OpenflowRuntimeShowOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+type OpenflowRuntimeShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (OpenflowRuntimeShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OpenflowRuntimeShowOutput)(nil)).Elem()
+}
+
+func (o OpenflowRuntimeShowOutputArrayOutput) ToOpenflowRuntimeShowOutputArrayOutput() OpenflowRuntimeShowOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowRuntimeShowOutputArrayOutput) ToOpenflowRuntimeShowOutputArrayOutputWithContext(ctx context.Context) OpenflowRuntimeShowOutputArrayOutput {
+	return o
+}
+
+func (o OpenflowRuntimeShowOutputArrayOutput) Index(i pulumi.IntInput) OpenflowRuntimeShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OpenflowRuntimeShowOutput {
+		return vs[0].([]OpenflowRuntimeShowOutput)[vs[1].(int)]
+	}).(OpenflowRuntimeShowOutputOutput)
+}
+
 type PasswordPolicyDescribeOutput struct {
 	Comment                   *string `pulumi:"comment"`
 	DatabaseName              *string `pulumi:"databaseName"`
@@ -65972,1462 +67993,6 @@ func (o Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput) Index(i pulu
 	}).(Saml2IntegrationDescribeOutputAllowedUserDomainOutput)
 }
 
-type Saml2IntegrationDescribeOutputComment struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputCommentInput is an input type that accepts Saml2IntegrationDescribeOutputCommentArgs and Saml2IntegrationDescribeOutputCommentOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputCommentInput` via:
-//
-//	Saml2IntegrationDescribeOutputCommentArgs{...}
-type Saml2IntegrationDescribeOutputCommentInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputCommentOutput() Saml2IntegrationDescribeOutputCommentOutput
-	ToSaml2IntegrationDescribeOutputCommentOutputWithContext(context.Context) Saml2IntegrationDescribeOutputCommentOutput
-}
-
-type Saml2IntegrationDescribeOutputCommentArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputCommentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputComment)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputCommentArgs) ToSaml2IntegrationDescribeOutputCommentOutput() Saml2IntegrationDescribeOutputCommentOutput {
-	return i.ToSaml2IntegrationDescribeOutputCommentOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputCommentArgs) ToSaml2IntegrationDescribeOutputCommentOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputCommentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputCommentOutput)
-}
-
-// Saml2IntegrationDescribeOutputCommentArrayInput is an input type that accepts Saml2IntegrationDescribeOutputCommentArray and Saml2IntegrationDescribeOutputCommentArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputCommentArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputCommentArray{ Saml2IntegrationDescribeOutputCommentArgs{...} }
-type Saml2IntegrationDescribeOutputCommentArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputCommentArrayOutput() Saml2IntegrationDescribeOutputCommentArrayOutput
-	ToSaml2IntegrationDescribeOutputCommentArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputCommentArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputCommentArray []Saml2IntegrationDescribeOutputCommentInput
-
-func (Saml2IntegrationDescribeOutputCommentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputComment)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputCommentArray) ToSaml2IntegrationDescribeOutputCommentArrayOutput() Saml2IntegrationDescribeOutputCommentArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputCommentArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputCommentArray) ToSaml2IntegrationDescribeOutputCommentArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputCommentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputCommentArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputCommentOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputCommentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputComment)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputCommentOutput) ToSaml2IntegrationDescribeOutputCommentOutput() Saml2IntegrationDescribeOutputCommentOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputCommentOutput) ToSaml2IntegrationDescribeOutputCommentOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputCommentOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputCommentOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputComment) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputCommentOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputComment) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputCommentOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputComment) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputCommentOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputComment) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputCommentArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputCommentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputComment)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputCommentArrayOutput) ToSaml2IntegrationDescribeOutputCommentArrayOutput() Saml2IntegrationDescribeOutputCommentArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputCommentArrayOutput) ToSaml2IntegrationDescribeOutputCommentArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputCommentArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputCommentArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputCommentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputComment {
-		return vs[0].([]Saml2IntegrationDescribeOutputComment)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputCommentOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs and Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs{...}
-type Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput() Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput
-	ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs) ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput() Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs) ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArray and Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArray{ Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput() Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArray []Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedInput
-
-func (Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArray) ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput() Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArray) ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput) ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput() Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput) ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput) ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput() Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput) ToSaml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2DigestMethodsUsed)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2EnableSpInitiated struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs and Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs{...}
-type Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput() Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput
-	ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2EnableSpInitiated)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs) ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput() Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs) ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArray and Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArray{ Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput() Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArray []Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedInput
-
-func (Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2EnableSpInitiated)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArray) ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput() Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArray) ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2EnableSpInitiated)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput) ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput() Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput) ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2EnableSpInitiated) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2EnableSpInitiated) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2EnableSpInitiated) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2EnableSpInitiated) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2EnableSpInitiated)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput) ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput() Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput) ToSaml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2EnableSpInitiated {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2EnableSpInitiated)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2ForceAuthn struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2ForceAuthnInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs and Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2ForceAuthnInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs{...}
-type Saml2IntegrationDescribeOutputSaml2ForceAuthnInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2ForceAuthnOutput() Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput
-	ToSaml2IntegrationDescribeOutputSaml2ForceAuthnOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2ForceAuthn)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs) ToSaml2IntegrationDescribeOutputSaml2ForceAuthnOutput() Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2ForceAuthnOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs) ToSaml2IntegrationDescribeOutputSaml2ForceAuthnOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2ForceAuthnArray and Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2ForceAuthnArray{ Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput() Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2ForceAuthnArray []Saml2IntegrationDescribeOutputSaml2ForceAuthnInput
-
-func (Saml2IntegrationDescribeOutputSaml2ForceAuthnArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2ForceAuthn)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2ForceAuthnArray) ToSaml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput() Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2ForceAuthnArray) ToSaml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2ForceAuthn)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput) ToSaml2IntegrationDescribeOutputSaml2ForceAuthnOutput() Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput) ToSaml2IntegrationDescribeOutputSaml2ForceAuthnOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2ForceAuthn) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2ForceAuthn) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2ForceAuthn) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2ForceAuthn) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2ForceAuthn)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput) ToSaml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput() Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput) ToSaml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2ForceAuthn {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2ForceAuthn)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2Issuer struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2IssuerInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2IssuerArgs and Saml2IntegrationDescribeOutputSaml2IssuerOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2IssuerInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2IssuerArgs{...}
-type Saml2IntegrationDescribeOutputSaml2IssuerInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2IssuerOutput() Saml2IntegrationDescribeOutputSaml2IssuerOutput
-	ToSaml2IntegrationDescribeOutputSaml2IssuerOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2IssuerOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2IssuerArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2IssuerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2Issuer)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2IssuerArgs) ToSaml2IntegrationDescribeOutputSaml2IssuerOutput() Saml2IntegrationDescribeOutputSaml2IssuerOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2IssuerOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2IssuerArgs) ToSaml2IntegrationDescribeOutputSaml2IssuerOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2IssuerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2IssuerOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2IssuerArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2IssuerArray and Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2IssuerArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2IssuerArray{ Saml2IntegrationDescribeOutputSaml2IssuerArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2IssuerArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2IssuerArrayOutput() Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2IssuerArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2IssuerArray []Saml2IntegrationDescribeOutputSaml2IssuerInput
-
-func (Saml2IntegrationDescribeOutputSaml2IssuerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2Issuer)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2IssuerArray) ToSaml2IntegrationDescribeOutputSaml2IssuerArrayOutput() Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2IssuerArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2IssuerArray) ToSaml2IntegrationDescribeOutputSaml2IssuerArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2IssuerOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2IssuerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2Issuer)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2IssuerOutput) ToSaml2IntegrationDescribeOutputSaml2IssuerOutput() Saml2IntegrationDescribeOutputSaml2IssuerOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2IssuerOutput) ToSaml2IntegrationDescribeOutputSaml2IssuerOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2IssuerOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2IssuerOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2Issuer) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2IssuerOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2Issuer) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2IssuerOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2Issuer) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2IssuerOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2Issuer) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2Issuer)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput) ToSaml2IntegrationDescribeOutputSaml2IssuerArrayOutput() Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput) ToSaml2IntegrationDescribeOutputSaml2IssuerArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2IssuerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2Issuer {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2Issuer)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2IssuerOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs and Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs{...}
-type Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput() Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput
-	ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs) ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput() Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs) ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArray and Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArray{ Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArray []Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlInput
-
-func (Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArray) ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArray) ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput) ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput() Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput) ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput) ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput) ToSaml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrl)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2Provider struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2ProviderInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2ProviderArgs and Saml2IntegrationDescribeOutputSaml2ProviderOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2ProviderInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2ProviderArgs{...}
-type Saml2IntegrationDescribeOutputSaml2ProviderInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2ProviderOutput() Saml2IntegrationDescribeOutputSaml2ProviderOutput
-	ToSaml2IntegrationDescribeOutputSaml2ProviderOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2ProviderOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2ProviderArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2ProviderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2Provider)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2ProviderArgs) ToSaml2IntegrationDescribeOutputSaml2ProviderOutput() Saml2IntegrationDescribeOutputSaml2ProviderOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2ProviderOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2ProviderArgs) ToSaml2IntegrationDescribeOutputSaml2ProviderOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2ProviderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2ProviderOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2ProviderArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2ProviderArray and Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2ProviderArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2ProviderArray{ Saml2IntegrationDescribeOutputSaml2ProviderArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2ProviderArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2ProviderArrayOutput() Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2ProviderArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2ProviderArray []Saml2IntegrationDescribeOutputSaml2ProviderInput
-
-func (Saml2IntegrationDescribeOutputSaml2ProviderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2Provider)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2ProviderArray) ToSaml2IntegrationDescribeOutputSaml2ProviderArrayOutput() Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2ProviderArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2ProviderArray) ToSaml2IntegrationDescribeOutputSaml2ProviderArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2ProviderOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2ProviderOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2Provider)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ProviderOutput) ToSaml2IntegrationDescribeOutputSaml2ProviderOutput() Saml2IntegrationDescribeOutputSaml2ProviderOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ProviderOutput) ToSaml2IntegrationDescribeOutputSaml2ProviderOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2ProviderOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ProviderOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2Provider) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ProviderOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2Provider) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ProviderOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2Provider) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ProviderOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2Provider) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2Provider)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput) ToSaml2IntegrationDescribeOutputSaml2ProviderArrayOutput() Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput) ToSaml2IntegrationDescribeOutputSaml2ProviderArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2ProviderOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2Provider {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2Provider)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2ProviderOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs and Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs{...}
-type Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput() Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput
-	ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs) ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput() Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs) ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArray and Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArray{ Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput() Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArray []Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatInput
-
-func (Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArray) ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput() Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArray) ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput) ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput() Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput) ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput) ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput() Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput) ToSaml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2RequestedNameidFormat)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SignRequest struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2SignRequestInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SignRequestArgs and Saml2IntegrationDescribeOutputSaml2SignRequestOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SignRequestInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SignRequestArgs{...}
-type Saml2IntegrationDescribeOutputSaml2SignRequestInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SignRequestOutput() Saml2IntegrationDescribeOutputSaml2SignRequestOutput
-	ToSaml2IntegrationDescribeOutputSaml2SignRequestOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SignRequestOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SignRequestArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2SignRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SignRequest)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SignRequestArgs) ToSaml2IntegrationDescribeOutputSaml2SignRequestOutput() Saml2IntegrationDescribeOutputSaml2SignRequestOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SignRequestOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SignRequestArgs) ToSaml2IntegrationDescribeOutputSaml2SignRequestOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SignRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SignRequestOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2SignRequestArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SignRequestArray and Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SignRequestArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SignRequestArray{ Saml2IntegrationDescribeOutputSaml2SignRequestArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2SignRequestArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SignRequestArrayOutput() Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2SignRequestArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SignRequestArray []Saml2IntegrationDescribeOutputSaml2SignRequestInput
-
-func (Saml2IntegrationDescribeOutputSaml2SignRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SignRequest)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SignRequestArray) ToSaml2IntegrationDescribeOutputSaml2SignRequestArrayOutput() Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SignRequestArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SignRequestArray) ToSaml2IntegrationDescribeOutputSaml2SignRequestArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SignRequestOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SignRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SignRequest)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignRequestOutput) ToSaml2IntegrationDescribeOutputSaml2SignRequestOutput() Saml2IntegrationDescribeOutputSaml2SignRequestOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignRequestOutput) ToSaml2IntegrationDescribeOutputSaml2SignRequestOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SignRequestOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignRequestOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SignRequest) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignRequestOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SignRequest) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignRequestOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SignRequest) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignRequestOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SignRequest) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SignRequest)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SignRequestArrayOutput() Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SignRequestArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2SignRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2SignRequest {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2SignRequest)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2SignRequestOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs and Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs{...}
-type Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput() Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput
-	ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs) ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput() Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs) ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArray and Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArray{ Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput() Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArray []Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedInput
-
-func (Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArray) ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput() Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArray) ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput) ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput() Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput) ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput() Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsed)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs and Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs{...}
-type Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs) ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs) ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArray and Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArray{ Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArray []Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlInput
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArray) ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArray) ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs and Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs{...}
-type Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs) ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs) ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArray and Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArray{ Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArray []Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlInput
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArray) ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArray) ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs and Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs{...}
-type Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs) ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs) ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArray and Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArray{ Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArray []Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataInput
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArray) ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArray) ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -68279,6 +68844,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsShowOutputArrayInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectParameterObjectIdentifierInput)(nil)).Elem(), ObjectParameterObjectIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectParameterObjectIdentifierArrayInput)(nil)).Elem(), ObjectParameterObjectIdentifierArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowConnectorDescribeOutputInput)(nil)).Elem(), OpenflowConnectorDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowConnectorDescribeOutputArrayInput)(nil)).Elem(), OpenflowConnectorDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowConnectorFromInput)(nil)).Elem(), OpenflowConnectorFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowConnectorFromPtrInput)(nil)).Elem(), OpenflowConnectorFromArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowConnectorShowOutputInput)(nil)).Elem(), OpenflowConnectorShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowConnectorShowOutputArrayInput)(nil)).Elem(), OpenflowConnectorShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentByocDescribeOutputInput)(nil)).Elem(), OpenflowDeploymentByocDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentByocDescribeOutputArrayInput)(nil)).Elem(), OpenflowDeploymentByocDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentByocParameterInput)(nil)).Elem(), OpenflowDeploymentByocParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentByocParameterArrayInput)(nil)).Elem(), OpenflowDeploymentByocParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentByocParameterEventTableInput)(nil)).Elem(), OpenflowDeploymentByocParameterEventTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentByocParameterEventTableArrayInput)(nil)).Elem(), OpenflowDeploymentByocParameterEventTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentByocShowOutputInput)(nil)).Elem(), OpenflowDeploymentByocShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentByocShowOutputArrayInput)(nil)).Elem(), OpenflowDeploymentByocShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedDescribeOutputInput)(nil)).Elem(), OpenflowDeploymentSnowflakeManagedDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedDescribeOutputArrayInput)(nil)).Elem(), OpenflowDeploymentSnowflakeManagedDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedParameterInput)(nil)).Elem(), OpenflowDeploymentSnowflakeManagedParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedParameterArrayInput)(nil)).Elem(), OpenflowDeploymentSnowflakeManagedParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedParameterEventTableInput)(nil)).Elem(), OpenflowDeploymentSnowflakeManagedParameterEventTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedParameterEventTableArrayInput)(nil)).Elem(), OpenflowDeploymentSnowflakeManagedParameterEventTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedShowOutputInput)(nil)).Elem(), OpenflowDeploymentSnowflakeManagedShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowDeploymentSnowflakeManagedShowOutputArrayInput)(nil)).Elem(), OpenflowDeploymentSnowflakeManagedShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowRuntimeDescribeOutputInput)(nil)).Elem(), OpenflowRuntimeDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowRuntimeDescribeOutputArrayInput)(nil)).Elem(), OpenflowRuntimeDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowRuntimeShowOutputInput)(nil)).Elem(), OpenflowRuntimeShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenflowRuntimeShowOutputArrayInput)(nil)).Elem(), OpenflowRuntimeShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyDescribeOutputInput)(nil)).Elem(), PasswordPolicyDescribeOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyDescribeOutputArrayInput)(nil)).Elem(), PasswordPolicyDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PasswordPolicyShowOutputInput)(nil)).Elem(), PasswordPolicyShowOutputArgs{})
@@ -68403,32 +68994,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedEmailPatternArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputAllowedEmailPatternArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedUserDomainInput)(nil)).Elem(), Saml2IntegrationDescribeOutputAllowedUserDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputAllowedUserDomainArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputAllowedUserDomainArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputCommentInput)(nil)).Elem(), Saml2IntegrationDescribeOutputCommentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputCommentArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputCommentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2ForceAuthnInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2ForceAuthnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2ForceAuthnArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2IssuerInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2IssuerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2IssuerArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2IssuerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2ProviderInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2ProviderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2ProviderArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2ProviderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SignRequestInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SignRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SignRequestArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SignRequestArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArray{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -69279,6 +69844,32 @@ func init() {
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ObjectParameterObjectIdentifierOutput{})
 	pulumi.RegisterOutputType(ObjectParameterObjectIdentifierArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowConnectorDescribeOutputOutput{})
+	pulumi.RegisterOutputType(OpenflowConnectorDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowConnectorFromOutput{})
+	pulumi.RegisterOutputType(OpenflowConnectorFromPtrOutput{})
+	pulumi.RegisterOutputType(OpenflowConnectorShowOutputOutput{})
+	pulumi.RegisterOutputType(OpenflowConnectorShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentByocDescribeOutputOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentByocDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentByocParameterOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentByocParameterArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentByocParameterEventTableOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentByocParameterEventTableArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentByocShowOutputOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentByocShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentSnowflakeManagedDescribeOutputOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentSnowflakeManagedDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentSnowflakeManagedParameterOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentSnowflakeManagedParameterArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentSnowflakeManagedParameterEventTableOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentSnowflakeManagedParameterEventTableArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentSnowflakeManagedShowOutputOutput{})
+	pulumi.RegisterOutputType(OpenflowDeploymentSnowflakeManagedShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowRuntimeDescribeOutputOutput{})
+	pulumi.RegisterOutputType(OpenflowRuntimeDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(OpenflowRuntimeShowOutputOutput{})
+	pulumi.RegisterOutputType(OpenflowRuntimeShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(PasswordPolicyDescribeOutputOutput{})
 	pulumi.RegisterOutputType(PasswordPolicyDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(PasswordPolicyShowOutputOutput{})
@@ -69403,30 +69994,4 @@ func init() {
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputAllowedEmailPatternArrayOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputAllowedUserDomainOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputAllowedUserDomainArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputCommentOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputCommentArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2EnableSpInitiatedArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2ForceAuthnOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2ForceAuthnArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2IssuerOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2IssuerArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2PostLogoutRedirectUrlArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2ProviderOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2ProviderArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2RequestedNameidFormatArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SignRequestOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SignRequestArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SignatureMethodsUsedArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput{})
 }

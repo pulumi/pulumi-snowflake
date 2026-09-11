@@ -85,6 +85,7 @@ from .get_file_formats import *
 from .get_functions import *
 from .get_git_repositories import *
 from .get_grants import *
+from .get_hybrid_tables import *
 from .get_iceberg_tables import *
 from .get_image_repositories import *
 from .get_listings import *
@@ -94,6 +95,10 @@ from .get_mcp_servers import *
 from .get_network_policies import *
 from .get_network_rules import *
 from .get_notebooks import *
+from .get_openflow_connector_definitions import *
+from .get_openflow_connectors import *
+from .get_openflow_deployments import *
+from .get_openflow_runtimes import *
 from .get_parameters import *
 from .get_password_policies import *
 from .get_pipes import *
@@ -154,6 +159,10 @@ from .notification_integration import *
 from .oauth_integration_for_custom_clients import *
 from .oauth_integration_for_partner_applications import *
 from .object_parameter import *
+from .openflow_connector import *
+from .openflow_deployment_byoc import *
+from .openflow_deployment_snowflake_managed import *
+from .openflow_runtime import *
 from .password_policy import *
 from .pipe import *
 from .postgres_instance import *
@@ -890,6 +899,38 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/objectParameter:ObjectParameter": "ObjectParameter"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/openflowConnector",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/openflowConnector:OpenflowConnector": "OpenflowConnector"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/openflowDeploymentByoc",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/openflowDeploymentByoc:OpenflowDeploymentByoc": "OpenflowDeploymentByoc"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/openflowDeploymentSnowflakeManaged",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/openflowDeploymentSnowflakeManaged:OpenflowDeploymentSnowflakeManaged": "OpenflowDeploymentSnowflakeManaged"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/openflowRuntime",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/openflowRuntime:OpenflowRuntime": "OpenflowRuntime"
   }
  },
  {
