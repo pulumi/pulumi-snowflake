@@ -6,7 +6,7 @@ Subject: [PATCH] add shim
 
 diff --git a/shim/shim.go b/shim/shim.go
 new file mode 100644
-index 000000000..a538febee
+index 000000000000..a538febeec3e
 --- /dev/null
 +++ b/shim/shim.go
 @@ -0,0 +1,10 @@

@@ -1645,10 +1645,10 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
-                                "column": {
+                                "columns": {
                                     "maxItemsOne": false
                                 },
-                                "ref_column": {
+                                "ref_columns": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -1705,7 +1705,7 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
-                                "column": {
+                                "columns": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -1745,7 +1745,7 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
-                                "column": {
+                                "columns": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -2536,6 +2536,94 @@
                 "fields": {
                     "object_identifier": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_openflow_connector": {
+                "current": "snowflake:index/openflowConnector:OpenflowConnector",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "from": {
+                        "maxItemsOne": true
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_openflow_deployment_byoc": {
+                "current": "snowflake:index/openflowDeploymentByoc:OpenflowDeploymentByoc",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "parameters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "event_table": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_openflow_deployment_snowflake_managed": {
+                "current": "snowflake:index/openflowDeploymentSnowflakeManaged:OpenflowDeploymentSnowflakeManaged",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false
+                    },
+                    "parameters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "event_table": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "show_output": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "snowflake_openflow_runtime": {
+                "current": "snowflake:index/openflowRuntime:OpenflowRuntime",
+                "majorVersion": 2,
+                "fields": {
+                    "describe_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "external_access_integrations": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "external_access_integrations": {
+                        "maxItemsOne": false
+                    },
+                    "show_output": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "external_access_integrations": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -6002,6 +6090,60 @@
                     }
                 }
             },
+            "snowflake_hybrid_tables": {
+                "current": "snowflake:index/getHybridTables:getHybridTables",
+                "majorVersion": 2,
+                "fields": {
+                    "hybrid_tables": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false
+                                },
+                                "parameters": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "data_retention_time_in_days": {
+                                                "maxItemsOne": false
+                                            },
+                                            "max_data_extension_time_in_days": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_indexes": {
+                                    "maxItemsOne": false
+                                },
+                                "show_keys_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "columns": {
+                                                "maxItemsOne": false
+                                            },
+                                            "referenced_columns": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "snowflake_iceberg_tables": {
                 "current": "snowflake:index/getIcebergTables:getIcebergTables",
                 "majorVersion": 2,
@@ -6255,6 +6397,128 @@
                                 },
                                 "show_output": {
                                     "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "snowflake_openflow_connector_definitions": {
+                "current": "snowflake:index/getOpenflowConnectorDefinitions:getOpenflowConnectorDefinitions",
+                "majorVersion": 2,
+                "fields": {
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "openflow_connector_definitions": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "show_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "categories": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "snowflake_openflow_connectors": {
+                "current": "snowflake:index/getOpenflowConnectors:getOpenflowConnectors",
+                "majorVersion": 2,
+                "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "openflow_connectors": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "snowflake_openflow_deployments": {
+                "current": "snowflake:index/getOpenflowDeployments:getOpenflowDeployments",
+                "majorVersion": 2,
+                "fields": {
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "openflow_deployments": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false
+                                },
+                                "parameters": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "event_table": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "snowflake_openflow_runtimes": {
+                "current": "snowflake:index/getOpenflowRuntimes:getOpenflowRuntimes",
+                "majorVersion": 2,
+                "fields": {
+                    "in": {
+                        "maxItemsOne": true
+                    },
+                    "limit": {
+                        "maxItemsOne": true
+                    },
+                    "openflow_runtimes": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "describe_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "external_access_integrations": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "show_output": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "external_access_integrations": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
