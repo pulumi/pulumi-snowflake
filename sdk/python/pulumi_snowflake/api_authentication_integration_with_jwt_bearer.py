@@ -561,7 +561,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgsDict', 'outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -573,7 +573,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
             oauth_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
             oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
             oauth_token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict']]]]] = None) -> 'ApiAuthenticationIntegrationWithJwtBearer':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict', 'outputs.ApiAuthenticationIntegrationWithJwtBearerShowOutput']]]]] = None) -> 'ApiAuthenticationIntegrationWithJwtBearer':
         """
         Get an existing ApiAuthenticationIntegrationWithJwtBearer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -582,7 +582,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgsDict', 'outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this security integration is enabled or disabled.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -593,7 +593,7 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oauth_client_secret: Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.int] oauth_refresh_token_validity: Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
         :param pulumi.Input[_builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithJwtBearerShowOutputArgs', 'ApiAuthenticationIntegrationWithJwtBearerShowOutputArgsDict', 'outputs.ApiAuthenticationIntegrationWithJwtBearerShowOutput']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -123,9 +123,9 @@ class AwaitableGetOpenflowRuntimesResult(GetOpenflowRuntimesResult):
             with_describe=self.with_describe)
 
 
-def get_openflow_runtimes(in_: Optional[Union['GetOpenflowRuntimesInArgs', 'GetOpenflowRuntimesInArgsDict']] = None,
+def get_openflow_runtimes(in_: Optional[Union['GetOpenflowRuntimesInArgs', 'GetOpenflowRuntimesInArgsDict', 'outputs.GetOpenflowRuntimesInResult']] = None,
                           like: Optional[_builtins.str] = None,
-                          limit: Optional[Union['GetOpenflowRuntimesLimitArgs', 'GetOpenflowRuntimesLimitArgsDict']] = None,
+                          limit: Optional[Union['GetOpenflowRuntimesLimitArgs', 'GetOpenflowRuntimesLimitArgsDict', 'outputs.GetOpenflowRuntimesLimitResult']] = None,
                           starts_with: Optional[_builtins.str] = None,
                           with_describe: Optional[_builtins.bool] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenflowRuntimesResult:
@@ -162,9 +162,9 @@ def get_openflow_runtimes(in_: Optional[Union['GetOpenflowRuntimesInArgs', 'GetO
     > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
-    :param Union['GetOpenflowRuntimesInArgs', 'GetOpenflowRuntimesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetOpenflowRuntimesInArgs', 'GetOpenflowRuntimesInArgsDict', 'outputs.GetOpenflowRuntimesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetOpenflowRuntimesLimitArgs', 'GetOpenflowRuntimesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetOpenflowRuntimesLimitArgs', 'GetOpenflowRuntimesLimitArgsDict', 'outputs.GetOpenflowRuntimesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC OPENFLOW RUNTIME for each runtime returned by SHOW OPENFLOW RUNTIMES. The output of describe is saved to the description field. By default this value is set to true.
     """
@@ -185,9 +185,9 @@ def get_openflow_runtimes(in_: Optional[Union['GetOpenflowRuntimesInArgs', 'GetO
         openflow_runtimes=pulumi.get(__ret__, 'openflow_runtimes'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_openflow_runtimes_output(in_: pulumi.Input[Optional[Optional[Union['GetOpenflowRuntimesInArgs', 'GetOpenflowRuntimesInArgsDict']]]] = None,
+def get_openflow_runtimes_output(in_: pulumi.Input[Optional[Optional[Union['GetOpenflowRuntimesInArgs', 'GetOpenflowRuntimesInArgsDict', 'outputs.GetOpenflowRuntimesInResult']]]] = None,
                                  like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                 limit: pulumi.Input[Optional[Optional[Union['GetOpenflowRuntimesLimitArgs', 'GetOpenflowRuntimesLimitArgsDict']]]] = None,
+                                 limit: pulumi.Input[Optional[Optional[Union['GetOpenflowRuntimesLimitArgs', 'GetOpenflowRuntimesLimitArgsDict', 'outputs.GetOpenflowRuntimesLimitResult']]]] = None,
                                  starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenflowRuntimesResult]:
@@ -224,9 +224,9 @@ def get_openflow_runtimes_output(in_: pulumi.Input[Optional[Optional[Union['GetO
     > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
-    :param Union['GetOpenflowRuntimesInArgs', 'GetOpenflowRuntimesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetOpenflowRuntimesInArgs', 'GetOpenflowRuntimesInArgsDict', 'outputs.GetOpenflowRuntimesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetOpenflowRuntimesLimitArgs', 'GetOpenflowRuntimesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetOpenflowRuntimesLimitArgs', 'GetOpenflowRuntimesLimitArgsDict', 'outputs.GetOpenflowRuntimesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC OPENFLOW RUNTIME for each runtime returned by SHOW OPENFLOW RUNTIMES. The output of describe is saved to the description field. By default this value is set to true.
     """

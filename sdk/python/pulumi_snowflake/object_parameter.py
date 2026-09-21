@@ -201,7 +201,7 @@ class ObjectParameter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
-                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
+                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict', 'outputs.ObjectParameterObjectIdentifier']]]]] = None,
                  object_type: pulumi.Input[Optional[_builtins.str]] = None,
                  on_account: pulumi.Input[Optional[_builtins.bool]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None,
@@ -276,7 +276,7 @@ class ObjectParameter(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict', 'outputs.ObjectParameterObjectIdentifier']]]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[_builtins.str] object_type: Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[_builtins.bool] on_account: (Default: `false`) If true, the object parameter will be set on the account level.
         :param pulumi.Input[_builtins.str] value: Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
@@ -370,7 +370,7 @@ class ObjectParameter(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  key: pulumi.Input[Optional[_builtins.str]] = None,
-                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
+                 object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict', 'outputs.ObjectParameterObjectIdentifier']]]]] = None,
                  object_type: pulumi.Input[Optional[_builtins.str]] = None,
                  on_account: pulumi.Input[Optional[_builtins.bool]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None,
@@ -403,7 +403,7 @@ class ObjectParameter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             key: pulumi.Input[Optional[_builtins.str]] = None,
-            object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]]] = None,
+            object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict', 'outputs.ObjectParameterObjectIdentifier']]]]] = None,
             object_type: pulumi.Input[Optional[_builtins.str]] = None,
             on_account: pulumi.Input[Optional[_builtins.bool]] = None,
             value: pulumi.Input[Optional[_builtins.str]] = None) -> 'ObjectParameter':
@@ -415,7 +415,7 @@ class ObjectParameter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict', 'outputs.ObjectParameterObjectIdentifier']]]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[_builtins.str] object_type: Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[_builtins.bool] on_account: (Default: `false`) If true, the object parameter will be set on the account level.
         :param pulumi.Input[_builtins.str] value: Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.

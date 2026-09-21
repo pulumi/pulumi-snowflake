@@ -123,9 +123,9 @@ class AwaitableGetOpenflowConnectorsResult(GetOpenflowConnectorsResult):
             with_describe=self.with_describe)
 
 
-def get_openflow_connectors(in_: Optional[Union['GetOpenflowConnectorsInArgs', 'GetOpenflowConnectorsInArgsDict']] = None,
+def get_openflow_connectors(in_: Optional[Union['GetOpenflowConnectorsInArgs', 'GetOpenflowConnectorsInArgsDict', 'outputs.GetOpenflowConnectorsInResult']] = None,
                             like: Optional[_builtins.str] = None,
-                            limit: Optional[Union['GetOpenflowConnectorsLimitArgs', 'GetOpenflowConnectorsLimitArgsDict']] = None,
+                            limit: Optional[Union['GetOpenflowConnectorsLimitArgs', 'GetOpenflowConnectorsLimitArgsDict', 'outputs.GetOpenflowConnectorsLimitResult']] = None,
                             starts_with: Optional[_builtins.str] = None,
                             with_describe: Optional[_builtins.bool] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenflowConnectorsResult:
@@ -162,9 +162,9 @@ def get_openflow_connectors(in_: Optional[Union['GetOpenflowConnectorsInArgs', '
     > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
-    :param Union['GetOpenflowConnectorsInArgs', 'GetOpenflowConnectorsInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetOpenflowConnectorsInArgs', 'GetOpenflowConnectorsInArgsDict', 'outputs.GetOpenflowConnectorsInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetOpenflowConnectorsLimitArgs', 'GetOpenflowConnectorsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetOpenflowConnectorsLimitArgs', 'GetOpenflowConnectorsLimitArgsDict', 'outputs.GetOpenflowConnectorsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC OPENFLOW CONNECTOR for each connector returned by SHOW OPENFLOW CONNECTORS. The output of describe is saved to the description field. By default this value is set to true.
     """
@@ -185,9 +185,9 @@ def get_openflow_connectors(in_: Optional[Union['GetOpenflowConnectorsInArgs', '
         openflow_connectors=pulumi.get(__ret__, 'openflow_connectors'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_openflow_connectors_output(in_: pulumi.Input[Optional[Optional[Union['GetOpenflowConnectorsInArgs', 'GetOpenflowConnectorsInArgsDict']]]] = None,
+def get_openflow_connectors_output(in_: pulumi.Input[Optional[Optional[Union['GetOpenflowConnectorsInArgs', 'GetOpenflowConnectorsInArgsDict', 'outputs.GetOpenflowConnectorsInResult']]]] = None,
                                    like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                   limit: pulumi.Input[Optional[Optional[Union['GetOpenflowConnectorsLimitArgs', 'GetOpenflowConnectorsLimitArgsDict']]]] = None,
+                                   limit: pulumi.Input[Optional[Optional[Union['GetOpenflowConnectorsLimitArgs', 'GetOpenflowConnectorsLimitArgsDict', 'outputs.GetOpenflowConnectorsLimitResult']]]] = None,
                                    starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenflowConnectorsResult]:
@@ -224,9 +224,9 @@ def get_openflow_connectors_output(in_: pulumi.Input[Optional[Optional[Union['Ge
     > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
-    :param Union['GetOpenflowConnectorsInArgs', 'GetOpenflowConnectorsInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetOpenflowConnectorsInArgs', 'GetOpenflowConnectorsInArgsDict', 'outputs.GetOpenflowConnectorsInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetOpenflowConnectorsLimitArgs', 'GetOpenflowConnectorsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetOpenflowConnectorsLimitArgs', 'GetOpenflowConnectorsLimitArgsDict', 'outputs.GetOpenflowConnectorsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC OPENFLOW CONNECTOR for each connector returned by SHOW OPENFLOW CONNECTORS. The output of describe is saved to the description field. By default this value is set to true.
     """

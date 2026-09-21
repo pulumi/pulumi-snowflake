@@ -392,11 +392,11 @@ class ApiIntegrationGitRepositoryGithubApp(pulumi.CustomResource):
             api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryGithubAppDescribeOutputArgs', 'ApiIntegrationGitRepositoryGithubAppDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryGithubAppDescribeOutputArgs', 'ApiIntegrationGitRepositoryGithubAppDescribeOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryGithubAppDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryGithubAppShowOutputArgs', 'ApiIntegrationGitRepositoryGithubAppShowOutputArgsDict']]]]] = None) -> 'ApiIntegrationGitRepositoryGithubApp':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryGithubAppShowOutputArgs', 'ApiIntegrationGitRepositoryGithubAppShowOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryGithubAppShowOutput']]]]] = None) -> 'ApiIntegrationGitRepositoryGithubApp':
         """
         Get an existing ApiIntegrationGitRepositoryGithubApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -407,11 +407,11 @@ class ApiIntegrationGitRepositoryGithubApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service and remote service endpoints and resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryGithubAppDescribeOutputArgs', 'ApiIntegrationGitRepositoryGithubAppDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE API INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryGithubAppDescribeOutputArgs', 'ApiIntegrationGitRepositoryGithubAppDescribeOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryGithubAppDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE API INTEGRATION` for the given integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this API integration is enabled or disabled.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryGithubAppShowOutputArgs', 'ApiIntegrationGitRepositoryGithubAppShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW API INTEGRATIONS` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryGithubAppShowOutputArgs', 'ApiIntegrationGitRepositoryGithubAppShowOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryGithubAppShowOutput']]]] show_outputs: Outputs the result of `SHOW API INTEGRATIONS` for the given integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

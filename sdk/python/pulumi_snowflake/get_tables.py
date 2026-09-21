@@ -123,9 +123,9 @@ class AwaitableGetTablesResult(GetTablesResult):
             with_describe=self.with_describe)
 
 
-def get_tables(in_: Optional[Union['GetTablesInArgs', 'GetTablesInArgsDict']] = None,
+def get_tables(in_: Optional[Union['GetTablesInArgs', 'GetTablesInArgsDict', 'outputs.GetTablesInResult']] = None,
                like: Optional[_builtins.str] = None,
-               limit: Optional[Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict']] = None,
+               limit: Optional[Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict', 'outputs.GetTablesLimitResult']] = None,
                starts_with: Optional[_builtins.str] = None,
                with_describe: Optional[_builtins.bool] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTablesResult:
@@ -135,9 +135,9 @@ def get_tables(in_: Optional[Union['GetTablesInArgs', 'GetTablesInArgsDict']] = 
     Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
 
 
-    :param Union['GetTablesInArgs', 'GetTablesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetTablesInArgs', 'GetTablesInArgsDict', 'outputs.GetTablesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict', 'outputs.GetTablesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
     """
@@ -158,9 +158,9 @@ def get_tables(in_: Optional[Union['GetTablesInArgs', 'GetTablesInArgsDict']] = 
         starts_with=pulumi.get(__ret__, 'starts_with'),
         tables=pulumi.get(__ret__, 'tables'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_tables_output(in_: pulumi.Input[Optional[Optional[Union['GetTablesInArgs', 'GetTablesInArgsDict']]]] = None,
+def get_tables_output(in_: pulumi.Input[Optional[Optional[Union['GetTablesInArgs', 'GetTablesInArgsDict', 'outputs.GetTablesInResult']]]] = None,
                       like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      limit: pulumi.Input[Optional[Optional[Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict']]]] = None,
+                      limit: pulumi.Input[Optional[Optional[Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict', 'outputs.GetTablesLimitResult']]]] = None,
                       starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTablesResult]:
@@ -170,9 +170,9 @@ def get_tables_output(in_: pulumi.Input[Optional[Optional[Union['GetTablesInArgs
     Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
 
 
-    :param Union['GetTablesInArgs', 'GetTablesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetTablesInArgs', 'GetTablesInArgsDict', 'outputs.GetTablesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict', 'outputs.GetTablesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
     """

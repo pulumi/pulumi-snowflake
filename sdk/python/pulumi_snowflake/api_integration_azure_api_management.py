@@ -517,11 +517,11 @@ class ApiIntegrationAzureApiManagement(pulumi.CustomResource):
             azure_ad_application_id: pulumi.Input[Optional[_builtins.str]] = None,
             azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationAzureApiManagementDescribeOutputArgs', 'ApiIntegrationAzureApiManagementDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationAzureApiManagementDescribeOutputArgs', 'ApiIntegrationAzureApiManagementDescribeOutputArgsDict', 'outputs.ApiIntegrationAzureApiManagementDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationAzureApiManagementShowOutputArgs', 'ApiIntegrationAzureApiManagementShowOutputArgsDict']]]]] = None) -> 'ApiIntegrationAzureApiManagement':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationAzureApiManagementShowOutputArgs', 'ApiIntegrationAzureApiManagementShowOutputArgsDict', 'outputs.ApiIntegrationAzureApiManagementShowOutput']]]]] = None) -> 'ApiIntegrationAzureApiManagement':
         """
         Get an existing ApiIntegrationAzureApiManagement resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -535,11 +535,11 @@ class ApiIntegrationAzureApiManagement(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] azure_ad_application_id: The 'Application (client) ID' of the Azure AD app for your Azure API Management instance.
         :param pulumi.Input[_builtins.str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationAzureApiManagementDescribeOutputArgs', 'ApiIntegrationAzureApiManagementDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE API INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationAzureApiManagementDescribeOutputArgs', 'ApiIntegrationAzureApiManagementDescribeOutputArgsDict', 'outputs.ApiIntegrationAzureApiManagementDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE API INTEGRATION` for the given integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this API integration is enabled or disabled.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationAzureApiManagementShowOutputArgs', 'ApiIntegrationAzureApiManagementShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW API INTEGRATIONS` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationAzureApiManagementShowOutputArgs', 'ApiIntegrationAzureApiManagementShowOutputArgsDict', 'outputs.ApiIntegrationAzureApiManagementShowOutput']]]] show_outputs: Outputs the result of `SHOW API INTEGRATIONS` for the given integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

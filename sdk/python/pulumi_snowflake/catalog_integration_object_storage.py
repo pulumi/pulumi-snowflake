@@ -408,12 +408,12 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageDescribeOutputArgs', 'CatalogIntegrationObjectStorageDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageDescribeOutputArgs', 'CatalogIntegrationObjectStorageDescribeOutputArgsDict', 'outputs.CatalogIntegrationObjectStorageDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             refresh_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageShowOutputArgs', 'CatalogIntegrationObjectStorageShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageShowOutputArgs', 'CatalogIntegrationObjectStorageShowOutputArgsDict', 'outputs.CatalogIntegrationObjectStorageShowOutput']]]]] = None,
             table_format: pulumi.Input[Optional[_builtins.str]] = None) -> 'CatalogIntegrationObjectStorage':
         """
         Get an existing CatalogIntegrationObjectStorage resource's state with the given name, id, and optional extra
@@ -424,12 +424,12 @@ class CatalogIntegrationObjectStorage(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageDescribeOutputArgs', 'CatalogIntegrationObjectStorageDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageDescribeOutputArgs', 'CatalogIntegrationObjectStorageDescribeOutputArgsDict', 'outputs.CatalogIntegrationObjectStorageDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageShowOutputArgs', 'CatalogIntegrationObjectStorageShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationObjectStorageShowOutputArgs', 'CatalogIntegrationObjectStorageShowOutputArgsDict', 'outputs.CatalogIntegrationObjectStorageShowOutput']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
         :param pulumi.Input[_builtins.str] table_format: Specifies the table format. Valid values are (case-insensitive): `ICEBERG` | `DELTA`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

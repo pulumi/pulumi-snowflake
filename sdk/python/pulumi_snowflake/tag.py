@@ -406,7 +406,7 @@ class Tag(pulumi.CustomResource):
                  masking_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  no_allowed_values: pulumi.Input[Optional[_builtins.bool]] = None,
-                 on_conflict: pulumi.Input[Optional[Union['TagOnConflictArgs', 'TagOnConflictArgsDict']]] = None,
+                 on_conflict: pulumi.Input[Optional[Union['TagOnConflictArgs', 'TagOnConflictArgsDict', 'outputs.TagOnConflict']]] = None,
                  ordered_allowed_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  propagate: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
@@ -435,7 +435,7 @@ class Tag(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] masking_policies: Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.bool] no_allowed_values: When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowed_values`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowed_values` and `ordered_allowed_values`.
-        :param pulumi.Input[Union['TagOnConflictArgs', 'TagOnConflictArgsDict']] on_conflict: Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
+        :param pulumi.Input[Union['TagOnConflictArgs', 'TagOnConflictArgsDict', 'outputs.TagOnConflict']] on_conflict: Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ordered_allowed_values: Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowed_values` when order matters. Conflicts with `allowed_values` and `no_allowed_values`. Note: transitioning from `allowed_values` to `ordered_allowed_values` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
         :param pulumi.Input[_builtins.str] propagate: Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -483,7 +483,7 @@ class Tag(pulumi.CustomResource):
                  masking_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  no_allowed_values: pulumi.Input[Optional[_builtins.bool]] = None,
-                 on_conflict: pulumi.Input[Optional[Union['TagOnConflictArgs', 'TagOnConflictArgsDict']]] = None,
+                 on_conflict: pulumi.Input[Optional[Union['TagOnConflictArgs', 'TagOnConflictArgsDict', 'outputs.TagOnConflict']]] = None,
                  ordered_allowed_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  propagate: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
@@ -529,11 +529,11 @@ class Tag(pulumi.CustomResource):
             masking_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             no_allowed_values: pulumi.Input[Optional[_builtins.bool]] = None,
-            on_conflict: pulumi.Input[Optional[Union['TagOnConflictArgs', 'TagOnConflictArgsDict']]] = None,
+            on_conflict: pulumi.Input[Optional[Union['TagOnConflictArgs', 'TagOnConflictArgsDict', 'outputs.TagOnConflict']]] = None,
             ordered_allowed_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             propagate: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagShowOutputArgs', 'TagShowOutputArgsDict']]]]] = None) -> 'Tag':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagShowOutputArgs', 'TagShowOutputArgsDict', 'outputs.TagShowOutput']]]]] = None) -> 'Tag':
         """
         Get an existing Tag resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -548,11 +548,11 @@ class Tag(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] masking_policies: Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.bool] no_allowed_values: When set to true, the tag explicitly disallows any value from being assigned. This is different from omitting `allowed_values`, which means any value is accepted. Available only when the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled. Conflicts with `allowed_values` and `ordered_allowed_values`.
-        :param pulumi.Input[Union['TagOnConflictArgs', 'TagOnConflictArgsDict']] on_conflict: Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
+        :param pulumi.Input[Union['TagOnConflictArgs', 'TagOnConflictArgsDict', 'outputs.TagOnConflict']] on_conflict: Specifies what happens when there is a conflict between the values of [propagated tags](https://docs.snowflake.com/en/user-guide/object-tagging/propagation).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ordered_allowed_values: Ordered list of allowed values for the tag. The order is preserved in Snowflake and is significant when `on_conflict.allowed_values_sequence` is used — the first matching value in the sequence wins. Use this instead of `allowed_values` when order matters. Conflicts with `allowed_values` and `no_allowed_values`. Note: transitioning from `allowed_values` to `ordered_allowed_values` always plans an update-in-place for this field, even when the configured order already matches the order stored in Snowflake.
         :param pulumi.Input[_builtins.str] propagate: Specifies that the tag will be automatically propagated from source objects to target objects. See more about tag propagation in the [official documentation](https://docs.snowflake.com/en/user-guide/object-tagging/propagation). Valid options are: `NONE` | `ON_DEPENDENCY` | `ON_DATA_MOVEMENT` | `ON_DEPENDENCY_AND_DATA_MOVEMENT`
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TagShowOutputArgs', 'TagShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW TAGS` for the given tag.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TagShowOutputArgs', 'TagShowOutputArgsDict', 'outputs.TagShowOutput']]]] show_outputs: Outputs the result of `SHOW TAGS` for the given tag.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

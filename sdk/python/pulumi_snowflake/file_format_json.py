@@ -996,7 +996,7 @@ class FileFormatJson(pulumi.CustomResource):
             compression: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
             date_format: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatJsonDescribeOutputArgs', 'FileFormatJsonDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatJsonDescribeOutputArgs', 'FileFormatJsonDescribeOutputArgsDict', 'outputs.FileFormatJsonDescribeOutput']]]]] = None,
             enable_octal: pulumi.Input[Optional[_builtins.str]] = None,
             file_extension: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1006,7 +1006,7 @@ class FileFormatJson(pulumi.CustomResource):
             null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             replace_invalid_characters: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatJsonShowOutputArgs', 'FileFormatJsonShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatJsonShowOutputArgs', 'FileFormatJsonShowOutputArgsDict', 'outputs.FileFormatJsonShowOutput']]]]] = None,
             skip_byte_order_mark: pulumi.Input[Optional[_builtins.str]] = None,
             strip_null_values: pulumi.Input[Optional[_builtins.str]] = None,
             strip_outer_array: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1027,7 +1027,7 @@ class FileFormatJson(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the file format. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatJsonDescribeOutputArgs', 'FileFormatJsonDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE FILE FORMAT` for this file format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatJsonDescribeOutputArgs', 'FileFormatJsonDescribeOutputArgsDict', 'outputs.FileFormatJsonDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE FILE FORMAT` for this file format.
         :param pulumi.Input[_builtins.str] enable_octal: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that enables parsing of octal numbers. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] file_extension: Specifies the extension for files unloaded to a stage.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -1037,7 +1037,7 @@ class FileFormatJson(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] null_ifs: String used to convert to and from SQL NULL.
         :param pulumi.Input[_builtins.str] replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the file format. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatJsonShowOutputArgs', 'FileFormatJsonShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW FILE FORMATS` for this file format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatJsonShowOutputArgs', 'FileFormatJsonShowOutputArgsDict', 'outputs.FileFormatJsonShowOutput']]]] show_outputs: Outputs the result of `SHOW FILE FORMATS` for this file format.
         :param pulumi.Input[_builtins.str] skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] strip_null_values: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove object fields or array elements containing null values. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] strip_outer_array: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that instructs the JSON parser to remove outer brackets. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.

@@ -361,13 +361,13 @@ class SecretWithGenericString(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithGenericStringDescribeOutputArgs', 'SecretWithGenericStringDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithGenericStringDescribeOutputArgs', 'SecretWithGenericStringDescribeOutputArgsDict', 'outputs.SecretWithGenericStringDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             secret_string: pulumi.Input[Optional[_builtins.str]] = None,
             secret_type: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithGenericStringShowOutputArgs', 'SecretWithGenericStringShowOutputArgsDict']]]]] = None) -> 'SecretWithGenericString':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithGenericStringShowOutputArgs', 'SecretWithGenericStringShowOutputArgsDict', 'outputs.SecretWithGenericStringShowOutput']]]]] = None) -> 'SecretWithGenericString':
         """
         Get an existing SecretWithGenericString resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -377,13 +377,13 @@ class SecretWithGenericString(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithGenericStringDescribeOutputArgs', 'SecretWithGenericStringDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithGenericStringDescribeOutputArgs', 'SecretWithGenericStringDescribeOutputArgsDict', 'outputs.SecretWithGenericStringDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] secret_string: Specifies the string to store in the secret. The string can be an API token or a string of sensitive value that can be used in the handler code of a UDF or stored procedure. For details, see [Creating and using an external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access). You should not use this property to store any kind of OAuth token; use one of the other secret types for your OAuth use cases. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] secret_type: Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithGenericStringShowOutputArgs', 'SecretWithGenericStringShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECRETS` for the given secret.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithGenericStringShowOutputArgs', 'SecretWithGenericStringShowOutputArgsDict', 'outputs.SecretWithGenericStringShowOutput']]]] show_outputs: Outputs the result of `SHOW SECRETS` for the given secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

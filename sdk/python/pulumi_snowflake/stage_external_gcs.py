@@ -408,9 +408,9 @@ class StageExternalGcs(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 directory: pulumi.Input[Optional[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']]] = None,
-                 encryption: pulumi.Input[Optional[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']]] = None,
-                 file_format: pulumi.Input[Optional[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict', 'outputs.StageExternalGcsDirectory']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict', 'outputs.StageExternalGcsEncryption']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict', 'outputs.StageExternalGcsFileFormat']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -643,9 +643,9 @@ class StageExternalGcs(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']] directory: Directory tables store a catalog of staged files in cloud storage.
-        :param pulumi.Input[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']] encryption: Specifies the encryption settings for the GCS external stage.
-        :param pulumi.Input[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict', 'outputs.StageExternalGcsDirectory']] directory: Directory tables store a catalog of staged files in cloud storage.
+        :param pulumi.Input[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict', 'outputs.StageExternalGcsEncryption']] encryption: Specifies the encryption settings for the GCS external stage.
+        :param pulumi.Input[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict', 'outputs.StageExternalGcsFileFormat']] file_format: Specifies the file format for the stage.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. GCS stages require a storage integration. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -897,9 +897,9 @@ class StageExternalGcs(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 directory: pulumi.Input[Optional[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']]] = None,
-                 encryption: pulumi.Input[Optional[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']]] = None,
-                 file_format: pulumi.Input[Optional[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict', 'outputs.StageExternalGcsDirectory']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict', 'outputs.StageExternalGcsEncryption']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict', 'outputs.StageExternalGcsFileFormat']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -948,14 +948,14 @@ class StageExternalGcs(pulumi.CustomResource):
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalGcsDescribeOutputArgs', 'StageExternalGcsDescribeOutputArgsDict']]]]] = None,
-            directory: pulumi.Input[Optional[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']]] = None,
-            encryption: pulumi.Input[Optional[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']]] = None,
-            file_format: pulumi.Input[Optional[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalGcsDescribeOutputArgs', 'StageExternalGcsDescribeOutputArgsDict', 'outputs.StageExternalGcsDescribeOutput']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict', 'outputs.StageExternalGcsDirectory']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict', 'outputs.StageExternalGcsEncryption']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict', 'outputs.StageExternalGcsFileFormat']]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalGcsShowOutputArgs', 'StageExternalGcsShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalGcsShowOutputArgs', 'StageExternalGcsShowOutputArgsDict', 'outputs.StageExternalGcsShowOutput']]]]] = None,
             stage_type: pulumi.Input[Optional[_builtins.str]] = None,
             storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None) -> 'StageExternalGcs':
@@ -969,14 +969,14 @@ class StageExternalGcs(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cloud: Specifies a cloud provider for the stage. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalGcsDescribeOutputArgs', 'StageExternalGcsDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STAGE` for the given stage.
-        :param pulumi.Input[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict']] directory: Directory tables store a catalog of staged files in cloud storage.
-        :param pulumi.Input[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict']] encryption: Specifies the encryption settings for the GCS external stage.
-        :param pulumi.Input[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict']] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalGcsDescribeOutputArgs', 'StageExternalGcsDescribeOutputArgsDict', 'outputs.StageExternalGcsDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STAGE` for the given stage.
+        :param pulumi.Input[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict', 'outputs.StageExternalGcsDirectory']] directory: Directory tables store a catalog of staged files in cloud storage.
+        :param pulumi.Input[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict', 'outputs.StageExternalGcsEncryption']] encryption: Specifies the encryption settings for the GCS external stage.
+        :param pulumi.Input[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict', 'outputs.StageExternalGcsFileFormat']] file_format: Specifies the file format for the stage.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalGcsShowOutputArgs', 'StageExternalGcsShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STAGES` for the given stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalGcsShowOutputArgs', 'StageExternalGcsShowOutputArgsDict', 'outputs.StageExternalGcsShowOutput']]]] show_outputs: Outputs the result of `SHOW STAGES` for the given stage.
         :param pulumi.Input[_builtins.str] stage_type: Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[_builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. GCS stages require a storage integration. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] url: Specifies the URL for the GCS bucket (e.g., 'gcs://bucket/path/').

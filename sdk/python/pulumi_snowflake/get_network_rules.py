@@ -123,9 +123,9 @@ class AwaitableGetNetworkRulesResult(GetNetworkRulesResult):
             with_describe=self.with_describe)
 
 
-def get_network_rules(in_: Optional[Union['GetNetworkRulesInArgs', 'GetNetworkRulesInArgsDict']] = None,
+def get_network_rules(in_: Optional[Union['GetNetworkRulesInArgs', 'GetNetworkRulesInArgsDict', 'outputs.GetNetworkRulesInResult']] = None,
                       like: Optional[_builtins.str] = None,
-                      limit: Optional[Union['GetNetworkRulesLimitArgs', 'GetNetworkRulesLimitArgsDict']] = None,
+                      limit: Optional[Union['GetNetworkRulesLimitArgs', 'GetNetworkRulesLimitArgsDict', 'outputs.GetNetworkRulesLimitResult']] = None,
                       starts_with: Optional[_builtins.str] = None,
                       with_describe: Optional[_builtins.bool] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkRulesResult:
@@ -133,9 +133,9 @@ def get_network_rules(in_: Optional[Union['GetNetworkRulesInArgs', 'GetNetworkRu
     Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `network_rules`.
 
 
-    :param Union['GetNetworkRulesInArgs', 'GetNetworkRulesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetNetworkRulesInArgs', 'GetNetworkRulesInArgsDict', 'outputs.GetNetworkRulesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetNetworkRulesLimitArgs', 'GetNetworkRulesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetNetworkRulesLimitArgs', 'GetNetworkRulesLimitArgsDict', 'outputs.GetNetworkRulesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC NETWORK RULE for each network rule returned by SHOW NETWORK RULES. The output of describe is saved to the description field. By default this value is set to true.
     """
@@ -156,9 +156,9 @@ def get_network_rules(in_: Optional[Union['GetNetworkRulesInArgs', 'GetNetworkRu
         network_rules=pulumi.get(__ret__, 'network_rules'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_network_rules_output(in_: pulumi.Input[Optional[Optional[Union['GetNetworkRulesInArgs', 'GetNetworkRulesInArgsDict']]]] = None,
+def get_network_rules_output(in_: pulumi.Input[Optional[Optional[Union['GetNetworkRulesInArgs', 'GetNetworkRulesInArgsDict', 'outputs.GetNetworkRulesInResult']]]] = None,
                              like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                             limit: pulumi.Input[Optional[Optional[Union['GetNetworkRulesLimitArgs', 'GetNetworkRulesLimitArgsDict']]]] = None,
+                             limit: pulumi.Input[Optional[Optional[Union['GetNetworkRulesLimitArgs', 'GetNetworkRulesLimitArgsDict', 'outputs.GetNetworkRulesLimitResult']]]] = None,
                              starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkRulesResult]:
@@ -166,9 +166,9 @@ def get_network_rules_output(in_: pulumi.Input[Optional[Optional[Union['GetNetwo
     Data source used to get details of filtered network rules. Filtering is aligned with the current possibilities for [SHOW NETWORK RULES](https://docs.snowflake.com/en/sql-reference/sql/show-network-rules) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `network_rules`.
 
 
-    :param Union['GetNetworkRulesInArgs', 'GetNetworkRulesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetNetworkRulesInArgs', 'GetNetworkRulesInArgsDict', 'outputs.GetNetworkRulesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetNetworkRulesLimitArgs', 'GetNetworkRulesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetNetworkRulesLimitArgs', 'GetNetworkRulesLimitArgsDict', 'outputs.GetNetworkRulesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC NETWORK RULE for each network rule returned by SHOW NETWORK RULES. The output of describe is saved to the description field. By default this value is set to true.
     """

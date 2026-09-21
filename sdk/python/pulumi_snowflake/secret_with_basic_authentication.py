@@ -398,13 +398,13 @@ class SecretWithBasicAuthentication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithBasicAuthenticationDescribeOutputArgs', 'SecretWithBasicAuthenticationDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithBasicAuthenticationDescribeOutputArgs', 'SecretWithBasicAuthenticationDescribeOutputArgsDict', 'outputs.SecretWithBasicAuthenticationDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             password: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             secret_type: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithBasicAuthenticationShowOutputArgs', 'SecretWithBasicAuthenticationShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithBasicAuthenticationShowOutputArgs', 'SecretWithBasicAuthenticationShowOutputArgsDict', 'outputs.SecretWithBasicAuthenticationShowOutput']]]]] = None,
             username: pulumi.Input[Optional[_builtins.str]] = None) -> 'SecretWithBasicAuthentication':
         """
         Get an existing SecretWithBasicAuthentication resource's state with the given name, id, and optional extra
@@ -415,13 +415,13 @@ class SecretWithBasicAuthentication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithBasicAuthenticationDescribeOutputArgs', 'SecretWithBasicAuthenticationDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithBasicAuthenticationDescribeOutputArgs', 'SecretWithBasicAuthenticationDescribeOutputArgsDict', 'outputs.SecretWithBasicAuthenticationDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] password: Specifies the password value to store in the secret. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] secret_type: Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithBasicAuthenticationShowOutputArgs', 'SecretWithBasicAuthenticationShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECRETS` for the given secret.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithBasicAuthenticationShowOutputArgs', 'SecretWithBasicAuthenticationShowOutputArgsDict', 'outputs.SecretWithBasicAuthenticationShowOutput']]]] show_outputs: Outputs the result of `SHOW SECRETS` for the given secret.
         :param pulumi.Input[_builtins.str] username: Specifies the username value to store in the secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

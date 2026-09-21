@@ -557,8 +557,8 @@ class Service(pulumi.CustomResource):
                  compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: pulumi.Input[Optional[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']]] = None,
-                 from_specification_template: pulumi.Input[Optional[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']]] = None,
+                 from_specification: pulumi.Input[Optional[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict', 'outputs.ServiceFromSpecification']]] = None,
+                 from_specification_template: pulumi.Input[Optional[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict', 'outputs.ServiceFromSpecificationTemplate']]] = None,
                  max_instances: pulumi.Input[Optional[_builtins.int]] = None,
                  min_instances: pulumi.Input[Optional[_builtins.int]] = None,
                  min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
@@ -588,8 +588,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compute_pool: Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_access_integrations: Specifies the names of the external access integrations that allow your service to access external sites.
-        :param pulumi.Input[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']] from_specification: Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
-        :param pulumi.Input[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']] from_specification_template: Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
+        :param pulumi.Input[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict', 'outputs.ServiceFromSpecification']] from_specification: Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
+        :param pulumi.Input[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict', 'outputs.ServiceFromSpecificationTemplate']] from_specification_template: Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         :param pulumi.Input[_builtins.int] max_instances: Specifies the maximum number of service instances to run.
         :param pulumi.Input[_builtins.int] min_instances: Specifies the minimum number of service instances to run.
         :param pulumi.Input[_builtins.int] min_ready_instances: Indicates the minimum service instances that must be ready for Snowflake to consider the service is ready to process requests.
@@ -638,8 +638,8 @@ class Service(pulumi.CustomResource):
                  compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: pulumi.Input[Optional[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']]] = None,
-                 from_specification_template: pulumi.Input[Optional[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']]] = None,
+                 from_specification: pulumi.Input[Optional[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict', 'outputs.ServiceFromSpecification']]] = None,
+                 from_specification_template: pulumi.Input[Optional[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict', 'outputs.ServiceFromSpecificationTemplate']]] = None,
                  max_instances: pulumi.Input[Optional[_builtins.int]] = None,
                  min_instances: pulumi.Input[Optional[_builtins.int]] = None,
                  min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
@@ -694,10 +694,10 @@ class Service(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceDescribeOutputArgs', 'ServiceDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceDescribeOutputArgs', 'ServiceDescribeOutputArgsDict', 'outputs.ServiceDescribeOutput']]]]] = None,
             external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            from_specification: pulumi.Input[Optional[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']]] = None,
-            from_specification_template: pulumi.Input[Optional[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']]] = None,
+            from_specification: pulumi.Input[Optional[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict', 'outputs.ServiceFromSpecification']]] = None,
+            from_specification_template: pulumi.Input[Optional[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict', 'outputs.ServiceFromSpecificationTemplate']]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             max_instances: pulumi.Input[Optional[_builtins.int]] = None,
             min_instances: pulumi.Input[Optional[_builtins.int]] = None,
@@ -706,7 +706,7 @@ class Service(pulumi.CustomResource):
             query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             service_type: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceShowOutputArgs', 'ServiceShowOutputArgsDict']]]]] = None) -> 'Service':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceShowOutputArgs', 'ServiceShowOutputArgsDict', 'outputs.ServiceShowOutput']]]]] = None) -> 'Service':
         """
         Get an existing Service resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -719,10 +719,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the service.
         :param pulumi.Input[_builtins.str] compute_pool: Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceDescribeOutputArgs', 'ServiceDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SERVICE` for the given service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceDescribeOutputArgs', 'ServiceDescribeOutputArgsDict', 'outputs.ServiceDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SERVICE` for the given service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_access_integrations: Specifies the names of the external access integrations that allow your service to access external sites.
-        :param pulumi.Input[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict']] from_specification: Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
-        :param pulumi.Input[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict']] from_specification_template: Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
+        :param pulumi.Input[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict', 'outputs.ServiceFromSpecification']] from_specification: Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
+        :param pulumi.Input[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict', 'outputs.ServiceFromSpecificationTemplate']] from_specification_template: Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.int] max_instances: Specifies the maximum number of service instances to run.
         :param pulumi.Input[_builtins.int] min_instances: Specifies the minimum number of service instances to run.
@@ -731,7 +731,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] query_warehouse: Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] service_type: Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceShowOutputArgs', 'ServiceShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SERVICES` for the given service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceShowOutputArgs', 'ServiceShowOutputArgsDict', 'outputs.ServiceShowOutput']]]] show_outputs: Outputs the result of `SHOW SERVICES` for the given service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

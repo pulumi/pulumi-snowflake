@@ -417,11 +417,11 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnDirectoryTableDescribeOutputArgs', 'StreamOnDirectoryTableDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnDirectoryTableDescribeOutputArgs', 'StreamOnDirectoryTableDescribeOutputArgsDict', 'outputs.StreamOnDirectoryTableDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnDirectoryTableShowOutputArgs', 'StreamOnDirectoryTableShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnDirectoryTableShowOutputArgs', 'StreamOnDirectoryTableShowOutputArgsDict', 'outputs.StreamOnDirectoryTableShowOutput']]]]] = None,
             stage: pulumi.Input[Optional[_builtins.str]] = None,
             stale: pulumi.Input[Optional[_builtins.bool]] = None,
             stream_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'StreamOnDirectoryTable':
@@ -435,11 +435,11 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stream.
         :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnDirectoryTableDescribeOutputArgs', 'StreamOnDirectoryTableDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STREAM` for the given stream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnDirectoryTableDescribeOutputArgs', 'StreamOnDirectoryTableDescribeOutputArgsDict', 'outputs.StreamOnDirectoryTableDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STREAM` for the given stream.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnDirectoryTableShowOutputArgs', 'StreamOnDirectoryTableShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnDirectoryTableShowOutputArgs', 'StreamOnDirectoryTableShowOutputArgsDict', 'outputs.StreamOnDirectoryTableShowOutput']]]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
         :param pulumi.Input[_builtins.str] stage: Specifies an identifier for the stage the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.bool] stale: Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
         :param pulumi.Input[_builtins.str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.

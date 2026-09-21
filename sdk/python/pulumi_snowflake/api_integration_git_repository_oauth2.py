@@ -710,7 +710,7 @@ class ApiIntegrationGitRepositoryOauth2(pulumi.CustomResource):
             api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryOauth2DescribeOutputArgs', 'ApiIntegrationGitRepositoryOauth2DescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryOauth2DescribeOutputArgs', 'ApiIntegrationGitRepositoryOauth2DescribeOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryOauth2DescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -722,7 +722,7 @@ class ApiIntegrationGitRepositoryOauth2(pulumi.CustomResource):
             oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
             oauth_token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
             oauth_username: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryOauth2ShowOutputArgs', 'ApiIntegrationGitRepositoryOauth2ShowOutputArgsDict']]]]] = None) -> 'ApiIntegrationGitRepositoryOauth2':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryOauth2ShowOutputArgs', 'ApiIntegrationGitRepositoryOauth2ShowOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryOauth2ShowOutput']]]]] = None) -> 'ApiIntegrationGitRepositoryOauth2':
         """
         Get an existing ApiIntegrationGitRepositoryOauth2 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -733,7 +733,7 @@ class ApiIntegrationGitRepositoryOauth2(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service and remote service endpoints and resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryOauth2DescribeOutputArgs', 'ApiIntegrationGitRepositoryOauth2DescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE API INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryOauth2DescribeOutputArgs', 'ApiIntegrationGitRepositoryOauth2DescribeOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryOauth2DescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE API INTEGRATION` for the given integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this API integration is enabled or disabled.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -745,7 +745,7 @@ class ApiIntegrationGitRepositoryOauth2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] oauth_refresh_token_validity: Specifies the validity period (in seconds) for the OAuth 2.0 refresh token.
         :param pulumi.Input[_builtins.str] oauth_token_endpoint: The OAuth 2.0 token endpoint for the Git repository.
         :param pulumi.Input[_builtins.str] oauth_username: Specifies the username to authenticate with the Git repository using OAuth 2.0.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryOauth2ShowOutputArgs', 'ApiIntegrationGitRepositoryOauth2ShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW API INTEGRATIONS` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryOauth2ShowOutputArgs', 'ApiIntegrationGitRepositoryOauth2ShowOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryOauth2ShowOutput']]]] show_outputs: Outputs the result of `SHOW API INTEGRATIONS` for the given integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -112,7 +112,7 @@ class AwaitableGetListingsResult(GetListingsResult):
 
 
 def get_listings(like: Optional[_builtins.str] = None,
-                 limit: Optional[Union['GetListingsLimitArgs', 'GetListingsLimitArgsDict']] = None,
+                 limit: Optional[Union['GetListingsLimitArgs', 'GetListingsLimitArgsDict', 'outputs.GetListingsLimitResult']] = None,
                  starts_with: Optional[_builtins.str] = None,
                  with_describe: Optional[_builtins.bool] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetListingsResult:
@@ -123,7 +123,7 @@ def get_listings(like: Optional[_builtins.str] = None,
 
 
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetListingsLimitArgs', 'GetListingsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetListingsLimitArgs', 'GetListingsLimitArgsDict', 'outputs.GetListingsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC LISTING for each listing returned by SHOW LISTINGS. The output of describe is saved to the description field. By default this value is set to true.
     """
@@ -143,7 +143,7 @@ def get_listings(like: Optional[_builtins.str] = None,
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
 def get_listings_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                        limit: pulumi.Input[Optional[Optional[Union['GetListingsLimitArgs', 'GetListingsLimitArgsDict']]]] = None,
+                        limit: pulumi.Input[Optional[Optional[Union['GetListingsLimitArgs', 'GetListingsLimitArgsDict', 'outputs.GetListingsLimitResult']]]] = None,
                         starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListingsResult]:
@@ -154,7 +154,7 @@ def get_listings_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = 
 
 
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetListingsLimitArgs', 'GetListingsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetListingsLimitArgs', 'GetListingsLimitArgsDict', 'outputs.GetListingsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC LISTING for each listing returned by SHOW LISTINGS. The output of describe is saved to the description field. By default this value is set to true.
     """

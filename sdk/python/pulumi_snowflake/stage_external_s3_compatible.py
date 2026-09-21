@@ -407,11 +407,11 @@ class StageExternalS3Compatible(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['StageExternalS3CompatibleCredentialsArgs', 'StageExternalS3CompatibleCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['StageExternalS3CompatibleCredentialsArgs', 'StageExternalS3CompatibleCredentialsArgsDict', 'outputs.StageExternalS3CompatibleCredentials']]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 directory: pulumi.Input[Optional[Union['StageExternalS3CompatibleDirectoryArgs', 'StageExternalS3CompatibleDirectoryArgsDict']]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalS3CompatibleDirectoryArgs', 'StageExternalS3CompatibleDirectoryArgsDict', 'outputs.StageExternalS3CompatibleDirectory']]] = None,
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_format: pulumi.Input[Optional[Union['StageExternalS3CompatibleFileFormatArgs', 'StageExternalS3CompatibleFileFormatArgsDict']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalS3CompatibleFileFormatArgs', 'StageExternalS3CompatibleFileFormatArgsDict', 'outputs.StageExternalS3CompatibleFileFormat']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -623,11 +623,11 @@ class StageExternalS3Compatible(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
-        :param pulumi.Input[Union['StageExternalS3CompatibleCredentialsArgs', 'StageExternalS3CompatibleCredentialsArgsDict']] credentials: Specifies the AWS credentials for the S3-compatible external stage.
+        :param pulumi.Input[Union['StageExternalS3CompatibleCredentialsArgs', 'StageExternalS3CompatibleCredentialsArgsDict', 'outputs.StageExternalS3CompatibleCredentials']] credentials: Specifies the AWS credentials for the S3-compatible external stage.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['StageExternalS3CompatibleDirectoryArgs', 'StageExternalS3CompatibleDirectoryArgsDict']] directory: Directory tables store a catalog of staged files in cloud storage.
+        :param pulumi.Input[Union['StageExternalS3CompatibleDirectoryArgs', 'StageExternalS3CompatibleDirectoryArgsDict', 'outputs.StageExternalS3CompatibleDirectory']] directory: Directory tables store a catalog of staged files in cloud storage.
         :param pulumi.Input[_builtins.str] endpoint: Specifies the endpoint for the S3-compatible storage provider.
-        :param pulumi.Input[Union['StageExternalS3CompatibleFileFormatArgs', 'StageExternalS3CompatibleFileFormatArgsDict']] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[Union['StageExternalS3CompatibleFileFormatArgs', 'StageExternalS3CompatibleFileFormatArgsDict', 'outputs.StageExternalS3CompatibleFileFormat']] file_format: Specifies the file format for the stage.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] url: Specifies the URL for the S3-compatible storage location (e.g., 's3compat://bucket/path/').
@@ -858,11 +858,11 @@ class StageExternalS3Compatible(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['StageExternalS3CompatibleCredentialsArgs', 'StageExternalS3CompatibleCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['StageExternalS3CompatibleCredentialsArgs', 'StageExternalS3CompatibleCredentialsArgsDict', 'outputs.StageExternalS3CompatibleCredentials']]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 directory: pulumi.Input[Optional[Union['StageExternalS3CompatibleDirectoryArgs', 'StageExternalS3CompatibleDirectoryArgsDict']]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalS3CompatibleDirectoryArgs', 'StageExternalS3CompatibleDirectoryArgsDict', 'outputs.StageExternalS3CompatibleDirectory']]] = None,
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_format: pulumi.Input[Optional[Union['StageExternalS3CompatibleFileFormatArgs', 'StageExternalS3CompatibleFileFormatArgsDict']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalS3CompatibleFileFormatArgs', 'StageExternalS3CompatibleFileFormatArgsDict', 'outputs.StageExternalS3CompatibleFileFormat']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -909,16 +909,16 @@ class StageExternalS3Compatible(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            credentials: pulumi.Input[Optional[Union['StageExternalS3CompatibleCredentialsArgs', 'StageExternalS3CompatibleCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['StageExternalS3CompatibleCredentialsArgs', 'StageExternalS3CompatibleCredentialsArgsDict', 'outputs.StageExternalS3CompatibleCredentials']]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalS3CompatibleDescribeOutputArgs', 'StageExternalS3CompatibleDescribeOutputArgsDict']]]]] = None,
-            directory: pulumi.Input[Optional[Union['StageExternalS3CompatibleDirectoryArgs', 'StageExternalS3CompatibleDirectoryArgsDict']]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalS3CompatibleDescribeOutputArgs', 'StageExternalS3CompatibleDescribeOutputArgsDict', 'outputs.StageExternalS3CompatibleDescribeOutput']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageExternalS3CompatibleDirectoryArgs', 'StageExternalS3CompatibleDirectoryArgsDict', 'outputs.StageExternalS3CompatibleDirectory']]] = None,
             endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            file_format: pulumi.Input[Optional[Union['StageExternalS3CompatibleFileFormatArgs', 'StageExternalS3CompatibleFileFormatArgsDict']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageExternalS3CompatibleFileFormatArgs', 'StageExternalS3CompatibleFileFormatArgsDict', 'outputs.StageExternalS3CompatibleFileFormat']]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalS3CompatibleShowOutputArgs', 'StageExternalS3CompatibleShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalS3CompatibleShowOutputArgs', 'StageExternalS3CompatibleShowOutputArgsDict', 'outputs.StageExternalS3CompatibleShowOutput']]]]] = None,
             stage_type: pulumi.Input[Optional[_builtins.str]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None) -> 'StageExternalS3Compatible':
         """
@@ -930,16 +930,16 @@ class StageExternalS3Compatible(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: Specifies a cloud provider for the stage. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
-        :param pulumi.Input[Union['StageExternalS3CompatibleCredentialsArgs', 'StageExternalS3CompatibleCredentialsArgsDict']] credentials: Specifies the AWS credentials for the S3-compatible external stage.
+        :param pulumi.Input[Union['StageExternalS3CompatibleCredentialsArgs', 'StageExternalS3CompatibleCredentialsArgsDict', 'outputs.StageExternalS3CompatibleCredentials']] credentials: Specifies the AWS credentials for the S3-compatible external stage.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalS3CompatibleDescribeOutputArgs', 'StageExternalS3CompatibleDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STAGE` for the given stage.
-        :param pulumi.Input[Union['StageExternalS3CompatibleDirectoryArgs', 'StageExternalS3CompatibleDirectoryArgsDict']] directory: Directory tables store a catalog of staged files in cloud storage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalS3CompatibleDescribeOutputArgs', 'StageExternalS3CompatibleDescribeOutputArgsDict', 'outputs.StageExternalS3CompatibleDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STAGE` for the given stage.
+        :param pulumi.Input[Union['StageExternalS3CompatibleDirectoryArgs', 'StageExternalS3CompatibleDirectoryArgsDict', 'outputs.StageExternalS3CompatibleDirectory']] directory: Directory tables store a catalog of staged files in cloud storage.
         :param pulumi.Input[_builtins.str] endpoint: Specifies the endpoint for the S3-compatible storage provider.
-        :param pulumi.Input[Union['StageExternalS3CompatibleFileFormatArgs', 'StageExternalS3CompatibleFileFormatArgsDict']] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[Union['StageExternalS3CompatibleFileFormatArgs', 'StageExternalS3CompatibleFileFormatArgsDict', 'outputs.StageExternalS3CompatibleFileFormat']] file_format: Specifies the file format for the stage.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalS3CompatibleShowOutputArgs', 'StageExternalS3CompatibleShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STAGES` for the given stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalS3CompatibleShowOutputArgs', 'StageExternalS3CompatibleShowOutputArgsDict', 'outputs.StageExternalS3CompatibleShowOutput']]]] show_outputs: Outputs the result of `SHOW STAGES` for the given stage.
         :param pulumi.Input[_builtins.str] stage_type: Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[_builtins.str] url: Specifies the URL for the S3-compatible storage location (e.g., 's3compat://bucket/path/').
         """

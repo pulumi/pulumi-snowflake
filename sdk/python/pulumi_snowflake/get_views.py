@@ -123,9 +123,9 @@ class AwaitableGetViewsResult(GetViewsResult):
             with_describe=self.with_describe)
 
 
-def get_views(in_: Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']] = None,
+def get_views(in_: Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict', 'outputs.GetViewsInResult']] = None,
               like: Optional[_builtins.str] = None,
-              limit: Optional[Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict']] = None,
+              limit: Optional[Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict', 'outputs.GetViewsLimitResult']] = None,
               starts_with: Optional[_builtins.str] = None,
               with_describe: Optional[_builtins.bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewsResult:
@@ -135,9 +135,9 @@ def get_views(in_: Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']] = Non
     Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
 
 
-    :param Union['GetViewsInArgs', 'GetViewsInArgsDict'] in_: IN clause to filter the list of views
+    :param Union['GetViewsInArgs', 'GetViewsInArgsDict', 'outputs.GetViewsInResult'] in_: IN clause to filter the list of views
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict', 'outputs.GetViewsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
     """
@@ -158,9 +158,9 @@ def get_views(in_: Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']] = Non
         starts_with=pulumi.get(__ret__, 'starts_with'),
         views=pulumi.get(__ret__, 'views'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_views_output(in_: pulumi.Input[Optional[Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']]]] = None,
+def get_views_output(in_: pulumi.Input[Optional[Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict', 'outputs.GetViewsInResult']]]] = None,
                      like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                     limit: pulumi.Input[Optional[Optional[Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict']]]] = None,
+                     limit: pulumi.Input[Optional[Optional[Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict', 'outputs.GetViewsLimitResult']]]] = None,
                      starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                      with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewsResult]:
@@ -170,9 +170,9 @@ def get_views_output(in_: pulumi.Input[Optional[Optional[Union['GetViewsInArgs',
     Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
 
 
-    :param Union['GetViewsInArgs', 'GetViewsInArgsDict'] in_: IN clause to filter the list of views
+    :param Union['GetViewsInArgs', 'GetViewsInArgsDict', 'outputs.GetViewsInResult'] in_: IN clause to filter the list of views
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict', 'outputs.GetViewsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
     """

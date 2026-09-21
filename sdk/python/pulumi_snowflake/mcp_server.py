@@ -342,11 +342,11 @@ class McpServer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['McpServerDescribeOutputArgs', 'McpServerDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['McpServerDescribeOutputArgs', 'McpServerDescribeOutputArgsDict', 'outputs.McpServerDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['McpServerShowOutputArgs', 'McpServerShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['McpServerShowOutputArgs', 'McpServerShowOutputArgsDict', 'outputs.McpServerShowOutput']]]]] = None,
             specification: pulumi.Input[Optional[_builtins.str]] = None) -> 'McpServer':
         """
         Get an existing McpServer resource's state with the given name, id, and optional extra
@@ -357,11 +357,11 @@ class McpServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the MCP server.
         :param pulumi.Input[_builtins.str] database: The database in which to create the MCP server. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['McpServerDescribeOutputArgs', 'McpServerDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE MCP SERVER` for this MCP server.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['McpServerDescribeOutputArgs', 'McpServerDescribeOutputArgsDict', 'outputs.McpServerDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE MCP SERVER` for this MCP server.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the MCP server. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the MCP server. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['McpServerShowOutputArgs', 'McpServerShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW MCP SERVERS` for this MCP server.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['McpServerShowOutputArgs', 'McpServerShowOutputArgsDict', 'outputs.McpServerShowOutput']]]] show_outputs: Outputs the result of `SHOW MCP SERVERS` for this MCP server.
         :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the MCP server tool definitions. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

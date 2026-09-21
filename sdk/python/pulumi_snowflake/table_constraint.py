@@ -436,7 +436,7 @@ class TableConstraint(pulumi.CustomResource):
                  deferrable: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
                  enforced: pulumi.Input[Optional[_builtins.bool]] = None,
-                 foreign_key_properties: pulumi.Input[Optional[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
+                 foreign_key_properties: pulumi.Input[Optional[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict', 'outputs.TableConstraintForeignKeyProperties']]] = None,
                  initially: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rely: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -539,7 +539,7 @@ class TableConstraint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] deferrable: (Default: `true`) Whether the constraint is deferrable
         :param pulumi.Input[_builtins.bool] enable: (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         :param pulumi.Input[_builtins.bool] enforced: (Default: `false`) Whether the constraint is enforced
-        :param pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
+        :param pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict', 'outputs.TableConstraintForeignKeyProperties']] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
         :param pulumi.Input[_builtins.str] initially: (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         :param pulumi.Input[_builtins.str] name: Name of constraint
         :param pulumi.Input[_builtins.bool] rely: (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
@@ -661,7 +661,7 @@ class TableConstraint(pulumi.CustomResource):
                  deferrable: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
                  enforced: pulumi.Input[Optional[_builtins.bool]] = None,
-                 foreign_key_properties: pulumi.Input[Optional[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
+                 foreign_key_properties: pulumi.Input[Optional[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict', 'outputs.TableConstraintForeignKeyProperties']]] = None,
                  initially: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  rely: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -710,7 +710,7 @@ class TableConstraint(pulumi.CustomResource):
             deferrable: pulumi.Input[Optional[_builtins.bool]] = None,
             enable: pulumi.Input[Optional[_builtins.bool]] = None,
             enforced: pulumi.Input[Optional[_builtins.bool]] = None,
-            foreign_key_properties: pulumi.Input[Optional[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']]] = None,
+            foreign_key_properties: pulumi.Input[Optional[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict', 'outputs.TableConstraintForeignKeyProperties']]] = None,
             initially: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             rely: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -729,7 +729,7 @@ class TableConstraint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] deferrable: (Default: `true`) Whether the constraint is deferrable
         :param pulumi.Input[_builtins.bool] enable: (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         :param pulumi.Input[_builtins.bool] enforced: (Default: `false`) Whether the constraint is enforced
-        :param pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
+        :param pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict', 'outputs.TableConstraintForeignKeyProperties']] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
         :param pulumi.Input[_builtins.str] initially: (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         :param pulumi.Input[_builtins.str] name: Name of constraint
         :param pulumi.Input[_builtins.bool] rely: (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.

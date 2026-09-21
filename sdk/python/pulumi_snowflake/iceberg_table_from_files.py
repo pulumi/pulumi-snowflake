@@ -540,15 +540,15 @@ class IcebergTableFromFiles(pulumi.CustomResource):
             catalog: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromFilesDescribeOutputArgs', 'IcebergTableFromFilesDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromFilesDescribeOutputArgs', 'IcebergTableFromFilesDescribeOutputArgsDict', 'outputs.IcebergTableFromFilesDescribeOutput']]]]] = None,
             external_volume: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             metadata_file_path: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromFilesParameterArgs', 'IcebergTableFromFilesParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromFilesParameterArgs', 'IcebergTableFromFilesParameterArgsDict', 'outputs.IcebergTableFromFilesParameter']]]]] = None,
             replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromFilesShowOutputArgs', 'IcebergTableFromFilesShowOutputArgsDict']]]]] = None) -> 'IcebergTableFromFiles':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromFilesShowOutputArgs', 'IcebergTableFromFilesShowOutputArgsDict', 'outputs.IcebergTableFromFilesShowOutput']]]]] = None) -> 'IcebergTableFromFiles':
         """
         Get an existing IcebergTableFromFiles resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -559,15 +559,15 @@ class IcebergTableFromFiles(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] catalog: Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Iceberg table.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromFilesDescribeOutputArgs', 'IcebergTableFromFilesDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromFilesDescribeOutputArgs', 'IcebergTableFromFilesDescribeOutputArgsDict', 'outputs.IcebergTableFromFilesDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
         :param pulumi.Input[_builtins.str] external_volume: Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] metadata_file_path: Specifies the relative path of the Iceberg metadata file in the external volume. Cannot be changed after creation. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromFilesParameterArgs', 'IcebergTableFromFilesParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromFilesParameterArgs', 'IcebergTableFromFilesParameterArgsDict', 'outputs.IcebergTableFromFilesParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
         :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromFilesShowOutputArgs', 'IcebergTableFromFilesShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromFilesShowOutputArgs', 'IcebergTableFromFilesShowOutputArgsDict', 'outputs.IcebergTableFromFilesShowOutput']]]] show_outputs: Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -550,7 +550,7 @@ class FunctionSql(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict']]]]] = None,
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict', 'outputs.FunctionSqlArgument']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -637,7 +637,7 @@ class FunctionSql(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict', 'outputs.FunctionSqlArgument']]]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
         :param pulumi.Input[_builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
@@ -743,7 +743,7 @@ class FunctionSql(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict']]]]] = None,
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict', 'outputs.FunctionSqlArgument']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -802,7 +802,7 @@ class FunctionSql(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict']]]]] = None,
+            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict', 'outputs.FunctionSqlArgument']]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
             enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -814,11 +814,11 @@ class FunctionSql(pulumi.CustomResource):
             log_level: pulumi.Input[Optional[_builtins.str]] = None,
             metric_level: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlParameterArgs', 'FunctionSqlParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlParameterArgs', 'FunctionSqlParameterArgsDict', 'outputs.FunctionSqlParameter']]]]] = None,
             return_results_behavior: pulumi.Input[Optional[_builtins.str]] = None,
             return_type: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlShowOutputArgs', 'FunctionSqlShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlShowOutputArgs', 'FunctionSqlShowOutputArgsDict', 'outputs.FunctionSqlShowOutput']]]]] = None,
             trace_level: pulumi.Input[Optional[_builtins.str]] = None) -> 'FunctionSql':
         """
         Get an existing FunctionSql resource's state with the given name, id, and optional extra
@@ -827,7 +827,7 @@ class FunctionSql(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict', 'outputs.FunctionSqlArgument']]]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
         :param pulumi.Input[_builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
@@ -839,11 +839,11 @@ class FunctionSql(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         :param pulumi.Input[_builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlParameterArgs', 'FunctionSqlParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlParameterArgs', 'FunctionSqlParameterArgsDict', 'outputs.FunctionSqlParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
         :param pulumi.Input[_builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
         :param pulumi.Input[_builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlShowOutputArgs', 'FunctionSqlShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW FUNCTION` for the given function.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlShowOutputArgs', 'FunctionSqlShowOutputArgsDict', 'outputs.FunctionSqlShowOutput']]]] show_outputs: Outputs the result of `SHOW FUNCTION` for the given function.
         :param pulumi.Input[_builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

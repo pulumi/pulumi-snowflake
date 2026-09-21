@@ -111,9 +111,9 @@ class AwaitableGetRowAccessPoliciesResult(GetRowAccessPoliciesResult):
             with_describe=self.with_describe)
 
 
-def get_row_access_policies(in_: Optional[Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict']] = None,
+def get_row_access_policies(in_: Optional[Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict', 'outputs.GetRowAccessPoliciesInResult']] = None,
                             like: Optional[_builtins.str] = None,
-                            limit: Optional[Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict']] = None,
+                            limit: Optional[Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict', 'outputs.GetRowAccessPoliciesLimitResult']] = None,
                             with_describe: Optional[_builtins.bool] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRowAccessPoliciesResult:
     """
@@ -122,9 +122,9 @@ def get_row_access_policies(in_: Optional[Union['GetRowAccessPoliciesInArgs', 'G
     Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
 
 
-    :param Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict'] in_: IN clause to filter the list of row access policies
+    :param Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict', 'outputs.GetRowAccessPoliciesInResult'] in_: IN clause to filter the list of row access policies
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict', 'outputs.GetRowAccessPoliciesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
@@ -142,9 +142,9 @@ def get_row_access_policies(in_: Optional[Union['GetRowAccessPoliciesInArgs', 'G
         limit=pulumi.get(__ret__, 'limit'),
         row_access_policies=pulumi.get(__ret__, 'row_access_policies'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_row_access_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict']]]] = None,
+def get_row_access_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict', 'outputs.GetRowAccessPoliciesInResult']]]] = None,
                                    like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                   limit: pulumi.Input[Optional[Optional[Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict']]]] = None,
+                                   limit: pulumi.Input[Optional[Optional[Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict', 'outputs.GetRowAccessPoliciesLimitResult']]]] = None,
                                    with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRowAccessPoliciesResult]:
     """
@@ -153,9 +153,9 @@ def get_row_access_policies_output(in_: pulumi.Input[Optional[Optional[Union['Ge
     Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
 
 
-    :param Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict'] in_: IN clause to filter the list of row access policies
+    :param Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict', 'outputs.GetRowAccessPoliciesInResult'] in_: IN clause to filter the list of row access policies
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict', 'outputs.GetRowAccessPoliciesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()

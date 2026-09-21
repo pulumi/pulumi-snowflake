@@ -88,7 +88,7 @@ class AwaitableGetOpenflowConnectorDefinitionsResult(GetOpenflowConnectorDefinit
 
 
 def get_openflow_connector_definitions(like: Optional[_builtins.str] = None,
-                                       limit: Optional[Union['GetOpenflowConnectorDefinitionsLimitArgs', 'GetOpenflowConnectorDefinitionsLimitArgsDict']] = None,
+                                       limit: Optional[Union['GetOpenflowConnectorDefinitionsLimitArgs', 'GetOpenflowConnectorDefinitionsLimitArgsDict', 'outputs.GetOpenflowConnectorDefinitionsLimitResult']] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenflowConnectorDefinitionsResult:
     """
     > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -116,7 +116,7 @@ def get_openflow_connector_definitions(like: Optional[_builtins.str] = None,
 
 
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetOpenflowConnectorDefinitionsLimitArgs', 'GetOpenflowConnectorDefinitionsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetOpenflowConnectorDefinitionsLimitArgs', 'GetOpenflowConnectorDefinitionsLimitArgsDict', 'outputs.GetOpenflowConnectorDefinitionsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     """
     __args__ = dict()
     __args__['like'] = like
@@ -130,7 +130,7 @@ def get_openflow_connector_definitions(like: Optional[_builtins.str] = None,
         limit=pulumi.get(__ret__, 'limit'),
         openflow_connector_definitions=pulumi.get(__ret__, 'openflow_connector_definitions'))
 def get_openflow_connector_definitions_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                              limit: pulumi.Input[Optional[Optional[Union['GetOpenflowConnectorDefinitionsLimitArgs', 'GetOpenflowConnectorDefinitionsLimitArgsDict']]]] = None,
+                                              limit: pulumi.Input[Optional[Optional[Union['GetOpenflowConnectorDefinitionsLimitArgs', 'GetOpenflowConnectorDefinitionsLimitArgsDict', 'outputs.GetOpenflowConnectorDefinitionsLimitResult']]]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenflowConnectorDefinitionsResult]:
     """
     > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -158,7 +158,7 @@ def get_openflow_connector_definitions_output(like: pulumi.Input[Optional[Option
 
 
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetOpenflowConnectorDefinitionsLimitArgs', 'GetOpenflowConnectorDefinitionsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetOpenflowConnectorDefinitionsLimitArgs', 'GetOpenflowConnectorDefinitionsLimitArgsDict', 'outputs.GetOpenflowConnectorDefinitionsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     """
     __args__ = dict()
     __args__['like'] = like

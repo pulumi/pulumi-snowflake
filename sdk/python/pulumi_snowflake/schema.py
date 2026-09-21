@@ -1104,7 +1104,7 @@ class Schema(pulumi.CustomResource):
             default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
             default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
             default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaDescribeOutputArgs', 'SchemaDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaDescribeOutputArgs', 'SchemaDescribeOutputArgsDict', 'outputs.SchemaDescribeOutput']]]]] = None,
             enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
             external_volume: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1113,11 +1113,11 @@ class Schema(pulumi.CustomResource):
             log_level: pulumi.Input[Optional[_builtins.str]] = None,
             max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaParameterArgs', 'SchemaParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaParameterArgs', 'SchemaParameterArgsDict', 'outputs.SchemaParameter']]]]] = None,
             pipe_execution_paused: pulumi.Input[Optional[_builtins.bool]] = None,
             quoted_identifiers_ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
             replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaShowOutputArgs', 'SchemaShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SchemaShowOutputArgs', 'SchemaShowOutputArgsDict', 'outputs.SchemaShowOutput']]]]] = None,
             storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
             suspend_task_after_num_failures: pulumi.Input[Optional[_builtins.int]] = None,
             task_auto_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1140,7 +1140,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         :param pulumi.Input[_builtins.str] default_notebook_compute_pool_cpu: Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
         :param pulumi.Input[_builtins.str] default_notebook_compute_pool_gpu: Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaDescribeOutputArgs', 'SchemaDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant_ownership on all objects in the schema.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaDescribeOutputArgs', 'SchemaDescribeOutputArgsDict', 'outputs.SchemaDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant_ownership on all objects in the schema.
         :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
         :param pulumi.Input[_builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -1149,11 +1149,11 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaParameterArgs', 'SchemaParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaParameterArgs', 'SchemaParameterArgsDict', 'outputs.SchemaParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
         :param pulumi.Input[_builtins.bool] pipe_execution_paused: Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
         :param pulumi.Input[_builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaShowOutputArgs', 'SchemaShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SCHEMA` for the given object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SchemaShowOutputArgs', 'SchemaShowOutputArgsDict', 'outputs.SchemaShowOutput']]]] show_outputs: Outputs the result of `SHOW SCHEMA` for the given object.
         :param pulumi.Input[_builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         :param pulumi.Input[_builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         :param pulumi.Input[_builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).

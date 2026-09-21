@@ -759,7 +759,7 @@ class Account(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             region_group: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountShowOutputArgs', 'AccountShowOutputArgsDict']]]]] = None) -> 'Account':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountShowOutputArgs', 'AccountShowOutputArgsDict', 'outputs.AccountShowOutput']]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -784,7 +784,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (*). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores. Note: with the 2026*03 bundle ([BCR-2215](https://docs.snowflake.com/en/release-notes/bcr-bundles/2026_03/bcr-2215)), Snowflake enforces that the combined `<orgname>-<name>` identifier is at most 63 characters and that `name` does not end with `_`; otherwise `CREATE ACCOUNT` and `ALTER ACCOUNT ... RENAME TO` fail with `ORG_ACCOUNT_NAME_EXCEEDS_DNS_LIMIT` / `ACCOUNT_NAME_INVALID_FOR_DNS`. Existing accounts that do not comply keep working but cannot be renamed back to a non-compliant value once renamed to a compliant one.
         :param pulumi.Input[_builtins.str] region: [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
         :param pulumi.Input[_builtins.str] region_group: ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountShowOutputArgs', 'AccountShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW ACCOUNTS` for the given account.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountShowOutputArgs', 'AccountShowOutputArgsDict', 'outputs.AccountShowOutput']]]] show_outputs: Outputs the result of `SHOW ACCOUNTS` for the given account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

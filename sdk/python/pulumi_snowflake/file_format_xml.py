@@ -639,7 +639,7 @@ class FileFormatXml(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             compression: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatXmlDescribeOutputArgs', 'FileFormatXmlDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatXmlDescribeOutputArgs', 'FileFormatXmlDescribeOutputArgsDict', 'outputs.FileFormatXmlDescribeOutput']]]]] = None,
             disable_auto_convert: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             ignore_utf8_errors: pulumi.Input[Optional[_builtins.str]] = None,
@@ -647,7 +647,7 @@ class FileFormatXml(pulumi.CustomResource):
             preserve_space: pulumi.Input[Optional[_builtins.str]] = None,
             replace_invalid_characters: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatXmlShowOutputArgs', 'FileFormatXmlShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatXmlShowOutputArgs', 'FileFormatXmlShowOutputArgsDict', 'outputs.FileFormatXmlShowOutput']]]]] = None,
             skip_byte_order_mark: pulumi.Input[Optional[_builtins.str]] = None,
             strip_outer_element: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'FileFormatXml':
@@ -661,7 +661,7 @@ class FileFormatXml(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the file format.
         :param pulumi.Input[_builtins.str] compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the file format. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatXmlDescribeOutputArgs', 'FileFormatXmlDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE FILE FORMAT` for this file format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatXmlDescribeOutputArgs', 'FileFormatXmlDescribeOutputArgsDict', 'outputs.FileFormatXmlDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE FILE FORMAT` for this file format.
         :param pulumi.Input[_builtins.str] disable_auto_convert: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] ignore_utf8_errors: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether UTF-8 encoding errors produce error conditions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -669,7 +669,7 @@ class FileFormatXml(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] preserve_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser preserves leading and trailing spaces in element content. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the file format. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatXmlShowOutputArgs', 'FileFormatXmlShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW FILE FORMATS` for this file format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatXmlShowOutputArgs', 'FileFormatXmlShowOutputArgsDict', 'outputs.FileFormatXmlShowOutput']]]] show_outputs: Outputs the result of `SHOW FILE FORMATS` for this file format.
         :param pulumi.Input[_builtins.str] skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] strip_outer_element: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] type: Specifies the type of the file format. This field is used to detect when the file format type was changed outside of Terraform and to recreate the resource when that happens.

@@ -135,12 +135,12 @@ class AwaitableGetGrantsResult(GetGrantsResult):
             inherited_grants_in=self.inherited_grants_in)
 
 
-def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict']] = None,
-               future_grants_to: Optional[Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict']] = None,
-               grants_of: Optional[Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict']] = None,
-               grants_on: Optional[Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict']] = None,
-               grants_to: Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict']] = None,
-               inherited_grants_in: Optional[Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict']] = None,
+def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict', 'outputs.GetGrantsFutureGrantsInResult']] = None,
+               future_grants_to: Optional[Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict', 'outputs.GetGrantsFutureGrantsToResult']] = None,
+               grants_of: Optional[Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict', 'outputs.GetGrantsGrantsOfResult']] = None,
+               grants_on: Optional[Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict', 'outputs.GetGrantsGrantsOnResult']] = None,
+               grants_to: Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict', 'outputs.GetGrantsGrantsToResult']] = None,
+               inherited_grants_in: Optional[Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict', 'outputs.GetGrantsInheritedGrantsInResult']] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGrantsResult:
     """
     ## Example Usage
@@ -246,12 +246,12 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
     > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
-    :param Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict'] future_grants_in: Lists all privileges on new (i.e. future) objects.
-    :param Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict'] future_grants_to: Lists all privileges granted to the object on new (i.e. future) objects.
-    :param Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict'] grants_of: Lists all objects to which the given object has been granted.
-    :param Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict'] grants_on: Lists all privileges that have been granted on an object or on an account.
-    :param Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict'] grants_to: Lists all privileges granted to the object.
-    :param Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict'] inherited_grants_in: Lists all inherited grants defined in a container.
+    :param Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict', 'outputs.GetGrantsFutureGrantsInResult'] future_grants_in: Lists all privileges on new (i.e. future) objects.
+    :param Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict', 'outputs.GetGrantsFutureGrantsToResult'] future_grants_to: Lists all privileges granted to the object on new (i.e. future) objects.
+    :param Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict', 'outputs.GetGrantsGrantsOfResult'] grants_of: Lists all objects to which the given object has been granted.
+    :param Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict', 'outputs.GetGrantsGrantsOnResult'] grants_on: Lists all privileges that have been granted on an object or on an account.
+    :param Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict', 'outputs.GetGrantsGrantsToResult'] grants_to: Lists all privileges granted to the object.
+    :param Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict', 'outputs.GetGrantsInheritedGrantsInResult'] inherited_grants_in: Lists all inherited grants defined in a container.
     """
     __args__ = dict()
     __args__['futureGrantsIn'] = future_grants_in
@@ -272,12 +272,12 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
         grants_to=pulumi.get(__ret__, 'grants_to'),
         id=pulumi.get(__ret__, 'id'),
         inherited_grants_in=pulumi.get(__ret__, 'inherited_grants_in'))
-def get_grants_output(future_grants_in: pulumi.Input[Optional[Optional[Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict']]]] = None,
-                      future_grants_to: pulumi.Input[Optional[Optional[Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict']]]] = None,
-                      grants_of: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict']]]] = None,
-                      grants_on: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict']]]] = None,
-                      grants_to: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict']]]] = None,
-                      inherited_grants_in: pulumi.Input[Optional[Optional[Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict']]]] = None,
+def get_grants_output(future_grants_in: pulumi.Input[Optional[Optional[Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict', 'outputs.GetGrantsFutureGrantsInResult']]]] = None,
+                      future_grants_to: pulumi.Input[Optional[Optional[Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict', 'outputs.GetGrantsFutureGrantsToResult']]]] = None,
+                      grants_of: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict', 'outputs.GetGrantsGrantsOfResult']]]] = None,
+                      grants_on: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict', 'outputs.GetGrantsGrantsOnResult']]]] = None,
+                      grants_to: pulumi.Input[Optional[Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict', 'outputs.GetGrantsGrantsToResult']]]] = None,
+                      inherited_grants_in: pulumi.Input[Optional[Optional[Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict', 'outputs.GetGrantsInheritedGrantsInResult']]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrantsResult]:
     """
     ## Example Usage
@@ -383,12 +383,12 @@ def get_grants_output(future_grants_in: pulumi.Input[Optional[Optional[Union['Ge
     > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
-    :param Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict'] future_grants_in: Lists all privileges on new (i.e. future) objects.
-    :param Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict'] future_grants_to: Lists all privileges granted to the object on new (i.e. future) objects.
-    :param Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict'] grants_of: Lists all objects to which the given object has been granted.
-    :param Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict'] grants_on: Lists all privileges that have been granted on an object or on an account.
-    :param Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict'] grants_to: Lists all privileges granted to the object.
-    :param Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict'] inherited_grants_in: Lists all inherited grants defined in a container.
+    :param Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict', 'outputs.GetGrantsFutureGrantsInResult'] future_grants_in: Lists all privileges on new (i.e. future) objects.
+    :param Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict', 'outputs.GetGrantsFutureGrantsToResult'] future_grants_to: Lists all privileges granted to the object on new (i.e. future) objects.
+    :param Union['GetGrantsGrantsOfArgs', 'GetGrantsGrantsOfArgsDict', 'outputs.GetGrantsGrantsOfResult'] grants_of: Lists all objects to which the given object has been granted.
+    :param Union['GetGrantsGrantsOnArgs', 'GetGrantsGrantsOnArgsDict', 'outputs.GetGrantsGrantsOnResult'] grants_on: Lists all privileges that have been granted on an object or on an account.
+    :param Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict', 'outputs.GetGrantsGrantsToResult'] grants_to: Lists all privileges granted to the object.
+    :param Union['GetGrantsInheritedGrantsInArgs', 'GetGrantsInheritedGrantsInArgsDict', 'outputs.GetGrantsInheritedGrantsInResult'] inherited_grants_in: Lists all inherited grants defined in a container.
     """
     __args__ = dict()
     __args__['futureGrantsIn'] = future_grants_in

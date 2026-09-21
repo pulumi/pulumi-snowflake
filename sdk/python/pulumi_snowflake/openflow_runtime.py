@@ -647,7 +647,7 @@ class OpenflowRuntime(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
             deployment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowRuntimeDescribeOutputArgs', 'OpenflowRuntimeDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowRuntimeDescribeOutputArgs', 'OpenflowRuntimeDescribeOutputArgsDict', 'outputs.OpenflowRuntimeDescribeOutput']]]]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             execute_as_role: pulumi.Input[Optional[_builtins.str]] = None,
             external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -657,7 +657,7 @@ class OpenflowRuntime(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             node_type: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowRuntimeShowOutputArgs', 'OpenflowRuntimeShowOutputArgsDict']]]]] = None) -> 'OpenflowRuntime':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowRuntimeShowOutputArgs', 'OpenflowRuntimeShowOutputArgsDict', 'outputs.OpenflowRuntimeShowOutput']]]]] = None) -> 'OpenflowRuntime':
         """
         Get an existing OpenflowRuntime resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -668,7 +668,7 @@ class OpenflowRuntime(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Openflow runtime.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Openflow runtime. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] deployment: Specifies the Openflow deployment the runtime runs in. Snowflake has no ALTER for it, so changing it recreates the runtime. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowRuntimeDescribeOutputArgs', 'OpenflowRuntimeDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE OPENFLOW RUNTIME` for the given runtime.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowRuntimeDescribeOutputArgs', 'OpenflowRuntimeDescribeOutputArgsDict', 'outputs.OpenflowRuntimeDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE OPENFLOW RUNTIME` for the given runtime.
         :param pulumi.Input[_builtins.str] display_name: A free-text alias for the runtime. Shown in the Openflow UI in place of the runtime's identifier when set.
         :param pulumi.Input[_builtins.str] execute_as_role: Specifies the role the runtime executes as. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_access_integrations: Specifies the names of the external access integrations that allow the runtime egress to external data sources. Supported for Snowflake-managed deployments only.
@@ -678,7 +678,7 @@ class OpenflowRuntime(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow runtime; must be unique for the schema in which the runtime is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] node_type: Specifies the size of the runtime's nodes. Snowflake has no ALTER for it, so changing it recreates the runtime. Valid values are (case-insensitive): `SMALL` | `MEDIUM` | `LARGE`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Openflow runtime. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowRuntimeShowOutputArgs', 'OpenflowRuntimeShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW OPENFLOW RUNTIMES` for the given runtime.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowRuntimeShowOutputArgs', 'OpenflowRuntimeShowOutputArgsDict', 'outputs.OpenflowRuntimeShowOutput']]]] show_outputs: Outputs the result of `SHOW OPENFLOW RUNTIMES` for the given runtime.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

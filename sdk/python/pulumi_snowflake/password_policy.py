@@ -863,7 +863,7 @@ class PasswordPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PasswordPolicyDescribeOutputArgs', 'PasswordPolicyDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PasswordPolicyDescribeOutputArgs', 'PasswordPolicyDescribeOutputArgsDict', 'outputs.PasswordPolicyDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             history: pulumi.Input[Optional[_builtins.int]] = None,
             if_not_exists: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -880,7 +880,7 @@ class PasswordPolicy(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PasswordPolicyShowOutputArgs', 'PasswordPolicyShowOutputArgsDict']]]]] = None) -> 'PasswordPolicy':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PasswordPolicyShowOutputArgs', 'PasswordPolicyShowOutputArgsDict', 'outputs.PasswordPolicyShowOutput']]]]] = None) -> 'PasswordPolicy':
         """
         Get an existing PasswordPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -890,7 +890,7 @@ class PasswordPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Adds a comment or overwrites an existing comment for the password policy.
         :param pulumi.Input[_builtins.str] database: The database this password policy belongs to. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PasswordPolicyDescribeOutputArgs', 'PasswordPolicyDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE PASSWORD POLICY` for the given password policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PasswordPolicyDescribeOutputArgs', 'PasswordPolicyDescribeOutputArgsDict', 'outputs.PasswordPolicyDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE PASSWORD POLICY` for the given password policy.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.int] history: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history.
         :param pulumi.Input[_builtins.bool] if_not_exists: (Default: `false`) Prevent overwriting a previous password policy with the same name.
@@ -907,7 +907,7 @@ class PasswordPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Identifier for the password policy; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Whether to override a previous password policy with the same name.
         :param pulumi.Input[_builtins.str] schema: The schema this password policy belongs to. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PasswordPolicyShowOutputArgs', 'PasswordPolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW PASSWORD POLICIES` for the given password policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PasswordPolicyShowOutputArgs', 'PasswordPolicyShowOutputArgsDict', 'outputs.PasswordPolicyShowOutput']]]] show_outputs: Outputs the result of `SHOW PASSWORD POLICIES` for the given password policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

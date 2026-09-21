@@ -123,9 +123,9 @@ class AwaitableGetCortexAgentsResult(GetCortexAgentsResult):
             with_describe=self.with_describe)
 
 
-def get_cortex_agents(in_: Optional[Union['GetCortexAgentsInArgs', 'GetCortexAgentsInArgsDict']] = None,
+def get_cortex_agents(in_: Optional[Union['GetCortexAgentsInArgs', 'GetCortexAgentsInArgsDict', 'outputs.GetCortexAgentsInResult']] = None,
                       like: Optional[_builtins.str] = None,
-                      limit: Optional[Union['GetCortexAgentsLimitArgs', 'GetCortexAgentsLimitArgsDict']] = None,
+                      limit: Optional[Union['GetCortexAgentsLimitArgs', 'GetCortexAgentsLimitArgsDict', 'outputs.GetCortexAgentsLimitResult']] = None,
                       starts_with: Optional[_builtins.str] = None,
                       with_describe: Optional[_builtins.bool] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCortexAgentsResult:
@@ -133,9 +133,9 @@ def get_cortex_agents(in_: Optional[Union['GetCortexAgentsInArgs', 'GetCortexAge
     Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `cortex_agents`.
 
 
-    :param Union['GetCortexAgentsInArgs', 'GetCortexAgentsInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetCortexAgentsInArgs', 'GetCortexAgentsInArgsDict', 'outputs.GetCortexAgentsInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetCortexAgentsLimitArgs', 'GetCortexAgentsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetCortexAgentsLimitArgs', 'GetCortexAgentsLimitArgsDict', 'outputs.GetCortexAgentsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC AGENT for each object returned by SHOW AGENTS. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
@@ -156,9 +156,9 @@ def get_cortex_agents(in_: Optional[Union['GetCortexAgentsInArgs', 'GetCortexAge
         limit=pulumi.get(__ret__, 'limit'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_cortex_agents_output(in_: pulumi.Input[Optional[Optional[Union['GetCortexAgentsInArgs', 'GetCortexAgentsInArgsDict']]]] = None,
+def get_cortex_agents_output(in_: pulumi.Input[Optional[Optional[Union['GetCortexAgentsInArgs', 'GetCortexAgentsInArgsDict', 'outputs.GetCortexAgentsInResult']]]] = None,
                              like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                             limit: pulumi.Input[Optional[Optional[Union['GetCortexAgentsLimitArgs', 'GetCortexAgentsLimitArgsDict']]]] = None,
+                             limit: pulumi.Input[Optional[Optional[Union['GetCortexAgentsLimitArgs', 'GetCortexAgentsLimitArgsDict', 'outputs.GetCortexAgentsLimitResult']]]] = None,
                              starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCortexAgentsResult]:
@@ -166,9 +166,9 @@ def get_cortex_agents_output(in_: pulumi.Input[Optional[Optional[Union['GetCorte
     Data source used to get details of filtered Cortex agents. Filtering is aligned with the current possibilities for [SHOW AGENTS](https://docs.snowflake.com/en/sql-reference/sql/show-agents) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `cortex_agents`.
 
 
-    :param Union['GetCortexAgentsInArgs', 'GetCortexAgentsInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetCortexAgentsInArgs', 'GetCortexAgentsInArgsDict', 'outputs.GetCortexAgentsInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetCortexAgentsLimitArgs', 'GetCortexAgentsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetCortexAgentsLimitArgs', 'GetCortexAgentsLimitArgsDict', 'outputs.GetCortexAgentsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC AGENT for each object returned by SHOW AGENTS. The output of describe is saved to the describe_output field. By default this value is set to true.
     """

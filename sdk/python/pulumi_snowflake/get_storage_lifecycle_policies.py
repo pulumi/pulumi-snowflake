@@ -99,7 +99,7 @@ class AwaitableGetStorageLifecyclePoliciesResult(GetStorageLifecyclePoliciesResu
             with_describe=self.with_describe)
 
 
-def get_storage_lifecycle_policies(in_: Optional[Union['GetStorageLifecyclePoliciesInArgs', 'GetStorageLifecyclePoliciesInArgsDict']] = None,
+def get_storage_lifecycle_policies(in_: Optional[Union['GetStorageLifecyclePoliciesInArgs', 'GetStorageLifecyclePoliciesInArgsDict', 'outputs.GetStorageLifecyclePoliciesInResult']] = None,
                                    like: Optional[_builtins.str] = None,
                                    with_describe: Optional[_builtins.bool] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStorageLifecyclePoliciesResult:
@@ -107,7 +107,7 @@ def get_storage_lifecycle_policies(in_: Optional[Union['GetStorageLifecyclePolic
     Data source used to get details of filtered storage lifecycle policies. Filtering is aligned with the current possibilities for [SHOW STORAGE LIFECYCLE POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-storage-lifecycle-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `storage_lifecycle_policies`.
 
 
-    :param Union['GetStorageLifecyclePoliciesInArgs', 'GetStorageLifecyclePoliciesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetStorageLifecyclePoliciesInArgs', 'GetStorageLifecyclePoliciesInArgsDict', 'outputs.GetStorageLifecyclePoliciesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC STORAGE LIFECYCLE POLICY for each storage lifecycle policy returned by SHOW STORAGE LIFECYCLE POLICIES. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
@@ -124,7 +124,7 @@ def get_storage_lifecycle_policies(in_: Optional[Union['GetStorageLifecyclePolic
         like=pulumi.get(__ret__, 'like'),
         storage_lifecycle_policies=pulumi.get(__ret__, 'storage_lifecycle_policies'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_storage_lifecycle_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetStorageLifecyclePoliciesInArgs', 'GetStorageLifecyclePoliciesInArgsDict']]]] = None,
+def get_storage_lifecycle_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetStorageLifecyclePoliciesInArgs', 'GetStorageLifecyclePoliciesInArgsDict', 'outputs.GetStorageLifecyclePoliciesInResult']]]] = None,
                                           like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageLifecyclePoliciesResult]:
@@ -132,7 +132,7 @@ def get_storage_lifecycle_policies_output(in_: pulumi.Input[Optional[Optional[Un
     Data source used to get details of filtered storage lifecycle policies. Filtering is aligned with the current possibilities for [SHOW STORAGE LIFECYCLE POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-storage-lifecycle-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `storage_lifecycle_policies`.
 
 
-    :param Union['GetStorageLifecyclePoliciesInArgs', 'GetStorageLifecyclePoliciesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetStorageLifecyclePoliciesInArgs', 'GetStorageLifecyclePoliciesInArgsDict', 'outputs.GetStorageLifecyclePoliciesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC STORAGE LIFECYCLE POLICY for each storage lifecycle policy returned by SHOW STORAGE LIFECYCLE POLICIES. The output of describe is saved to the describe_output field. By default this value is set to true.
     """

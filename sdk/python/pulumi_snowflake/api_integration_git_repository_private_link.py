@@ -599,12 +599,12 @@ class ApiIntegrationGitRepositoryPrivateLink(pulumi.CustomResource):
             api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryPrivateLinkDescribeOutputArgs', 'ApiIntegrationGitRepositoryPrivateLinkDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryPrivateLinkDescribeOutputArgs', 'ApiIntegrationGitRepositoryPrivateLinkDescribeOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryPrivateLinkDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             no_allowed_authentication_secrets: pulumi.Input[Optional[_builtins.bool]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryPrivateLinkShowOutputArgs', 'ApiIntegrationGitRepositoryPrivateLinkShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryPrivateLinkShowOutputArgs', 'ApiIntegrationGitRepositoryPrivateLinkShowOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryPrivateLinkShowOutput']]]]] = None,
             tls_trusted_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             use_privatelink_endpoint: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ApiIntegrationGitRepositoryPrivateLink':
         """
@@ -619,12 +619,12 @@ class ApiIntegrationGitRepositoryPrivateLink(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service and remote service endpoints and resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryPrivateLinkDescribeOutputArgs', 'ApiIntegrationGitRepositoryPrivateLinkDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE API INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryPrivateLinkDescribeOutputArgs', 'ApiIntegrationGitRepositoryPrivateLinkDescribeOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryPrivateLinkDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE API INTEGRATION` for the given integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this API integration is enabled or disabled.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.bool] no_allowed_authentication_secrets: When set to true, no authentication secrets are allowed to be used when authenticating to the git repository. Conflicts with `all_allowed_authentication_secrets` and `allowed_authentication_secrets`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryPrivateLinkShowOutputArgs', 'ApiIntegrationGitRepositoryPrivateLinkShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW API INTEGRATIONS` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryPrivateLinkShowOutputArgs', 'ApiIntegrationGitRepositoryPrivateLinkShowOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryPrivateLinkShowOutput']]]] show_outputs: Outputs the result of `SHOW API INTEGRATIONS` for the given integration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tls_trusted_certificates: Specifies secrets containing self-signed certificates to be used when authenticating with a Git repository server over private link. Only needed when the certificate is self-signed rather than signed by a certificate authority. Each entry must be a fully-qualified name of a Snowflake secret of type generic string whose value is Base64-encoded certificate data.
         :param pulumi.Input[_builtins.bool] use_privatelink_endpoint: Specifies whether to use the private link endpoint for the git repository. When set to true, Snowflake uses the VNet-injected endpoint for the git repository.
         """

@@ -135,9 +135,9 @@ class AwaitableGetSchemasResult(GetSchemasResult):
             with_parameters=self.with_parameters)
 
 
-def get_schemas(in_: Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']] = None,
+def get_schemas(in_: Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict', 'outputs.GetSchemasInResult']] = None,
                 like: Optional[_builtins.str] = None,
-                limit: Optional[Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict']] = None,
+                limit: Optional[Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict', 'outputs.GetSchemasLimitResult']] = None,
                 starts_with: Optional[_builtins.str] = None,
                 with_describe: Optional[_builtins.bool] = None,
                 with_parameters: Optional[_builtins.bool] = None,
@@ -149,9 +149,9 @@ def get_schemas(in_: Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']]
     Data source used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
 
 
-    :param Union['GetSchemasInArgs', 'GetSchemasInArgsDict'] in_: IN clause to filter the list of streamlits
+    :param Union['GetSchemasInArgs', 'GetSchemasInArgsDict', 'outputs.GetSchemasInResult'] in_: IN clause to filter the list of streamlits
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict', 'outputs.GetSchemasLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
     :param _builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
@@ -175,9 +175,9 @@ def get_schemas(in_: Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']]
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
-def get_schemas_output(in_: pulumi.Input[Optional[Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict']]]] = None,
+def get_schemas_output(in_: pulumi.Input[Optional[Optional[Union['GetSchemasInArgs', 'GetSchemasInArgsDict', 'outputs.GetSchemasInResult']]]] = None,
                        like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                       limit: pulumi.Input[Optional[Optional[Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict']]]] = None,
+                       limit: pulumi.Input[Optional[Optional[Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict', 'outputs.GetSchemasLimitResult']]]] = None,
                        starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                        with_parameters: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
@@ -189,9 +189,9 @@ def get_schemas_output(in_: pulumi.Input[Optional[Optional[Union['GetSchemasInAr
     Data source used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
 
 
-    :param Union['GetSchemasInArgs', 'GetSchemasInArgsDict'] in_: IN clause to filter the list of streamlits
+    :param Union['GetSchemasInArgs', 'GetSchemasInArgsDict', 'outputs.GetSchemasInResult'] in_: IN clause to filter the list of streamlits
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetSchemasLimitArgs', 'GetSchemasLimitArgsDict', 'outputs.GetSchemasLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
     :param _builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.

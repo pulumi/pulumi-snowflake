@@ -159,9 +159,9 @@ class AwaitableGetHybridTablesResult(GetHybridTablesResult):
             with_parameters=self.with_parameters)
 
 
-def get_hybrid_tables(in_: Optional[Union['GetHybridTablesInArgs', 'GetHybridTablesInArgsDict']] = None,
+def get_hybrid_tables(in_: Optional[Union['GetHybridTablesInArgs', 'GetHybridTablesInArgsDict', 'outputs.GetHybridTablesInResult']] = None,
                       like: Optional[_builtins.str] = None,
-                      limit: Optional[Union['GetHybridTablesLimitArgs', 'GetHybridTablesLimitArgsDict']] = None,
+                      limit: Optional[Union['GetHybridTablesLimitArgs', 'GetHybridTablesLimitArgsDict', 'outputs.GetHybridTablesLimitResult']] = None,
                       starts_with: Optional[_builtins.str] = None,
                       with_describe: Optional[_builtins.bool] = None,
                       with_indexes: Optional[_builtins.bool] = None,
@@ -174,9 +174,9 @@ def get_hybrid_tables(in_: Optional[Union['GetHybridTablesInArgs', 'GetHybridTab
     Data source used to get details of filtered hybrid tables. Filtering is aligned with the current possibilities for [SHOW HYBRID TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-hybrid-tables) query (`like`, `in`, `starts_with`, `limit`). The results of SHOW, DESCRIBE, SHOW PARAMETERS, SHOW PRIMARY KEYS, SHOW UNIQUE KEYS, SHOW IMPORTED KEYS, and SHOW INDEXES are encapsulated in one output collection `hybrid_tables`.
 
 
-    :param Union['GetHybridTablesInArgs', 'GetHybridTablesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetHybridTablesInArgs', 'GetHybridTablesInArgsDict', 'outputs.GetHybridTablesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetHybridTablesLimitArgs', 'GetHybridTablesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetHybridTablesLimitArgs', 'GetHybridTablesLimitArgsDict', 'outputs.GetHybridTablesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC TABLE for each hybrid table returned by SHOW HYBRID TABLES. The output of describe is saved to the describe_output field. By default this value is set to true.
     :param _builtins.bool with_indexes: (Default: `false`) Runs SHOW INDEXES for each hybrid table returned by SHOW HYBRID TABLES. The output is saved to the show_indexes field. By default this value is set to false.
@@ -206,9 +206,9 @@ def get_hybrid_tables(in_: Optional[Union['GetHybridTablesInArgs', 'GetHybridTab
         with_indexes=pulumi.get(__ret__, 'with_indexes'),
         with_keys=pulumi.get(__ret__, 'with_keys'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
-def get_hybrid_tables_output(in_: pulumi.Input[Optional[Optional[Union['GetHybridTablesInArgs', 'GetHybridTablesInArgsDict']]]] = None,
+def get_hybrid_tables_output(in_: pulumi.Input[Optional[Optional[Union['GetHybridTablesInArgs', 'GetHybridTablesInArgsDict', 'outputs.GetHybridTablesInResult']]]] = None,
                              like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                             limit: pulumi.Input[Optional[Optional[Union['GetHybridTablesLimitArgs', 'GetHybridTablesLimitArgsDict']]]] = None,
+                             limit: pulumi.Input[Optional[Optional[Union['GetHybridTablesLimitArgs', 'GetHybridTablesLimitArgsDict', 'outputs.GetHybridTablesLimitResult']]]] = None,
                              starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                              with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                              with_indexes: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
@@ -221,9 +221,9 @@ def get_hybrid_tables_output(in_: pulumi.Input[Optional[Optional[Union['GetHybri
     Data source used to get details of filtered hybrid tables. Filtering is aligned with the current possibilities for [SHOW HYBRID TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-hybrid-tables) query (`like`, `in`, `starts_with`, `limit`). The results of SHOW, DESCRIBE, SHOW PARAMETERS, SHOW PRIMARY KEYS, SHOW UNIQUE KEYS, SHOW IMPORTED KEYS, and SHOW INDEXES are encapsulated in one output collection `hybrid_tables`.
 
 
-    :param Union['GetHybridTablesInArgs', 'GetHybridTablesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetHybridTablesInArgs', 'GetHybridTablesInArgsDict', 'outputs.GetHybridTablesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetHybridTablesLimitArgs', 'GetHybridTablesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetHybridTablesLimitArgs', 'GetHybridTablesLimitArgsDict', 'outputs.GetHybridTablesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC TABLE for each hybrid table returned by SHOW HYBRID TABLES. The output of describe is saved to the describe_output field. By default this value is set to true.
     :param _builtins.bool with_indexes: (Default: `false`) Runs SHOW INDEXES for each hybrid table returned by SHOW HYBRID TABLES. The output is saved to the show_indexes field. By default this value is set to false.

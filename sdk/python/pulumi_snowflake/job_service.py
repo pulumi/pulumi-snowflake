@@ -395,8 +395,8 @@ class JobService(pulumi.CustomResource):
                  compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: pulumi.Input[Optional[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']]] = None,
-                 from_specification_template: pulumi.Input[Optional[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']]] = None,
+                 from_specification: pulumi.Input[Optional[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict', 'outputs.JobServiceFromSpecification']]] = None,
+                 from_specification_template: pulumi.Input[Optional[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict', 'outputs.JobServiceFromSpecificationTemplate']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
@@ -426,8 +426,8 @@ class JobService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compute_pool: Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_access_integrations: Specifies the names of the external access integrations that allow your service to access external sites.
-        :param pulumi.Input[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']] from_specification: Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
-        :param pulumi.Input[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']] from_specification_template: Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
+        :param pulumi.Input[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict', 'outputs.JobServiceFromSpecification']] from_specification: Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
+        :param pulumi.Input[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict', 'outputs.JobServiceFromSpecificationTemplate']] from_specification_template: Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] query_warehouse: Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -476,8 +476,8 @@ class JobService(pulumi.CustomResource):
                  compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 from_specification: pulumi.Input[Optional[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']]] = None,
-                 from_specification_template: pulumi.Input[Optional[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']]] = None,
+                 from_specification: pulumi.Input[Optional[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict', 'outputs.JobServiceFromSpecification']]] = None,
+                 from_specification_template: pulumi.Input[Optional[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict', 'outputs.JobServiceFromSpecificationTemplate']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
@@ -522,16 +522,16 @@ class JobService(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobServiceDescribeOutputArgs', 'JobServiceDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobServiceDescribeOutputArgs', 'JobServiceDescribeOutputArgsDict', 'outputs.JobServiceDescribeOutput']]]]] = None,
             external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            from_specification: pulumi.Input[Optional[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']]] = None,
-            from_specification_template: pulumi.Input[Optional[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']]] = None,
+            from_specification: pulumi.Input[Optional[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict', 'outputs.JobServiceFromSpecification']]] = None,
+            from_specification_template: pulumi.Input[Optional[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict', 'outputs.JobServiceFromSpecificationTemplate']]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             service_type: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobServiceShowOutputArgs', 'JobServiceShowOutputArgsDict']]]]] = None) -> 'JobService':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobServiceShowOutputArgs', 'JobServiceShowOutputArgsDict', 'outputs.JobServiceShowOutput']]]]] = None) -> 'JobService':
         """
         Get an existing JobService resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -542,16 +542,16 @@ class JobService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the service.
         :param pulumi.Input[_builtins.str] compute_pool: Specifies the name of the compute pool in your account on which to run the service. Identifiers with special or lower-case characters are not supported. This limitation in the provider follows the limitation in Snowflake (see [docs](https://docs.snowflake.com/en/sql-reference/sql/create-compute-pool)). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobServiceDescribeOutputArgs', 'JobServiceDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SERVICE` for the given service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobServiceDescribeOutputArgs', 'JobServiceDescribeOutputArgsDict', 'outputs.JobServiceDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SERVICE` for the given service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_access_integrations: Specifies the names of the external access integrations that allow your service to access external sites.
-        :param pulumi.Input[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict']] from_specification: Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
-        :param pulumi.Input[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict']] from_specification_template: Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
+        :param pulumi.Input[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict', 'outputs.JobServiceFromSpecification']] from_specification: Specifies the service specification to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
+        :param pulumi.Input[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict', 'outputs.JobServiceFromSpecificationTemplate']] from_specification_template: Specifies the service specification template to use for the service. Note that external changes on this field and nested fields are not detected. Use correctly formatted YAML files. Watch out for the space/tabs indentation. See [service specification](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/specification-reference#general-guidelines) for more information.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] query_warehouse: Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] service_type: Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobServiceShowOutputArgs', 'JobServiceShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SERVICES` for the given service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['JobServiceShowOutputArgs', 'JobServiceShowOutputArgsDict', 'outputs.JobServiceShowOutput']]]] show_outputs: Outputs the result of `SHOW SERVICES` for the given service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -524,7 +524,7 @@ class Stage(pulumi.CustomResource):
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  snowflake_iam_user: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict', 'outputs.StageTag']]]]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -588,7 +588,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage.
         :param pulumi.Input[_builtins.str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         :param pulumi.Input[_builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict', 'outputs.StageTag']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[_builtins.str] url: Specifies the URL for the stage.
         """
         ...
@@ -671,7 +671,7 @@ class Stage(pulumi.CustomResource):
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  snowflake_iam_user: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict', 'outputs.StageTag']]]]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -726,7 +726,7 @@ class Stage(pulumi.CustomResource):
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             snowflake_iam_user: pulumi.Input[Optional[_builtins.str]] = None,
             storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
-            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict', 'outputs.StageTag']]]]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Stage':
         """
         Get an existing Stage resource's state with the given name, id, and optional extra
@@ -748,7 +748,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage.
         :param pulumi.Input[_builtins.str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         :param pulumi.Input[_builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict', 'outputs.StageTag']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[_builtins.str] url: Specifies the URL for the stage.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

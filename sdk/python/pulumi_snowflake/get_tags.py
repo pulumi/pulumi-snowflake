@@ -87,14 +87,14 @@ class AwaitableGetTagsResult(GetTagsResult):
             tags=self.tags)
 
 
-def get_tags(in_: Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict']] = None,
+def get_tags(in_: Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict', 'outputs.GetTagsInResult']] = None,
              like: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagsResult:
     """
     Data source used to get details of filtered tags. Filtering is aligned with the current possibilities for [SHOW TAGS](https://docs.snowflake.com/en/sql-reference/sql/show-tags) query. The results of SHOW are encapsulated in one output collection `tags`.
 
 
-    :param Union['GetTagsInArgs', 'GetTagsInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetTagsInArgs', 'GetTagsInArgsDict', 'outputs.GetTagsInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     __args__ = dict()
@@ -108,14 +108,14 @@ def get_tags(in_: Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict']] = None,
         in_=pulumi.get(__ret__, 'in_'),
         like=pulumi.get(__ret__, 'like'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_tags_output(in_: pulumi.Input[Optional[Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict']]]] = None,
+def get_tags_output(in_: pulumi.Input[Optional[Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict', 'outputs.GetTagsInResult']]]] = None,
                     like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagsResult]:
     """
     Data source used to get details of filtered tags. Filtering is aligned with the current possibilities for [SHOW TAGS](https://docs.snowflake.com/en/sql-reference/sql/show-tags) query. The results of SHOW are encapsulated in one output collection `tags`.
 
 
-    :param Union['GetTagsInArgs', 'GetTagsInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetTagsInArgs', 'GetTagsInArgsDict', 'outputs.GetTagsInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     __args__ = dict()

@@ -505,11 +505,11 @@ class StageExternalS3(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict', 'outputs.StageExternalS3Credentials']]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 directory: pulumi.Input[Optional[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict']]] = None,
-                 encryption: pulumi.Input[Optional[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict']]] = None,
-                 file_format: pulumi.Input[Optional[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict']]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict', 'outputs.StageExternalS3Directory']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict', 'outputs.StageExternalS3Encryption']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict', 'outputs.StageExternalS3FileFormat']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -772,11 +772,11 @@ class StageExternalS3(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_access_point_arn: Specifies the ARN for an AWS S3 Access Point to use for data transfer.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
-        :param pulumi.Input[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict']] credentials: Specifies the AWS credentials for the external stage.
+        :param pulumi.Input[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict', 'outputs.StageExternalS3Credentials']] credentials: Specifies the AWS credentials for the external stage.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict']] directory: Directory tables store a catalog of staged files in cloud storage.
-        :param pulumi.Input[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict']] encryption: Specifies the encryption settings for the S3 external stage.
-        :param pulumi.Input[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict']] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict', 'outputs.StageExternalS3Directory']] directory: Directory tables store a catalog of staged files in cloud storage.
+        :param pulumi.Input[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict', 'outputs.StageExternalS3Encryption']] encryption: Specifies the encryption settings for the S3 external stage.
+        :param pulumi.Input[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict', 'outputs.StageExternalS3FileFormat']] file_format: Specifies the file format for the stage.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -1058,11 +1058,11 @@ class StageExternalS3(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict', 'outputs.StageExternalS3Credentials']]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 directory: pulumi.Input[Optional[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict']]] = None,
-                 encryption: pulumi.Input[Optional[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict']]] = None,
-                 file_format: pulumi.Input[Optional[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict']]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict', 'outputs.StageExternalS3Directory']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict', 'outputs.StageExternalS3Encryption']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict', 'outputs.StageExternalS3FileFormat']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1113,16 +1113,16 @@ class StageExternalS3(pulumi.CustomResource):
             aws_access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            credentials: pulumi.Input[Optional[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict', 'outputs.StageExternalS3Credentials']]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalS3DescribeOutputArgs', 'StageExternalS3DescribeOutputArgsDict']]]]] = None,
-            directory: pulumi.Input[Optional[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict']]] = None,
-            encryption: pulumi.Input[Optional[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict']]] = None,
-            file_format: pulumi.Input[Optional[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict']]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalS3DescribeOutputArgs', 'StageExternalS3DescribeOutputArgsDict', 'outputs.StageExternalS3DescribeOutput']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict', 'outputs.StageExternalS3Directory']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict', 'outputs.StageExternalS3Encryption']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict', 'outputs.StageExternalS3FileFormat']]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalS3ShowOutputArgs', 'StageExternalS3ShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalS3ShowOutputArgs', 'StageExternalS3ShowOutputArgsDict', 'outputs.StageExternalS3ShowOutput']]]]] = None,
             stage_type: pulumi.Input[Optional[_builtins.str]] = None,
             storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1137,16 +1137,16 @@ class StageExternalS3(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_access_point_arn: Specifies the ARN for an AWS S3 Access Point to use for data transfer.
         :param pulumi.Input[_builtins.str] cloud: Specifies a cloud provider for the stage. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
-        :param pulumi.Input[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict']] credentials: Specifies the AWS credentials for the external stage.
+        :param pulumi.Input[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict', 'outputs.StageExternalS3Credentials']] credentials: Specifies the AWS credentials for the external stage.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalS3DescribeOutputArgs', 'StageExternalS3DescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STAGE` for the given stage.
-        :param pulumi.Input[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict']] directory: Directory tables store a catalog of staged files in cloud storage.
-        :param pulumi.Input[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict']] encryption: Specifies the encryption settings for the S3 external stage.
-        :param pulumi.Input[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict']] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalS3DescribeOutputArgs', 'StageExternalS3DescribeOutputArgsDict', 'outputs.StageExternalS3DescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STAGE` for the given stage.
+        :param pulumi.Input[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict', 'outputs.StageExternalS3Directory']] directory: Directory tables store a catalog of staged files in cloud storage.
+        :param pulumi.Input[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict', 'outputs.StageExternalS3Encryption']] encryption: Specifies the encryption settings for the S3 external stage.
+        :param pulumi.Input[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict', 'outputs.StageExternalS3FileFormat']] file_format: Specifies the file format for the stage.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalS3ShowOutputArgs', 'StageExternalS3ShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STAGES` for the given stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalS3ShowOutputArgs', 'StageExternalS3ShowOutputArgsDict', 'outputs.StageExternalS3ShowOutput']]]] show_outputs: Outputs the result of `SHOW STAGES` for the given stage.
         :param pulumi.Input[_builtins.str] stage_type: Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[_builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] url: Specifies the URL for the S3 bucket (e.g., 's3://bucket-name/path/').

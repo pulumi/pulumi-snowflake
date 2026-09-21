@@ -280,8 +280,8 @@ class ExternalAccessIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_api_authentication_integrations: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs', 'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict']]] = None,
-                 allowed_authentication_secrets: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedAuthenticationSecretsArgs', 'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict']]] = None,
+                 allowed_api_authentication_integrations: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs', 'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict', 'outputs.ExternalAccessIntegrationAllowedApiAuthenticationIntegrations']]] = None,
+                 allowed_authentication_secrets: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedAuthenticationSecretsArgs', 'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict', 'outputs.ExternalAccessIntegrationAllowedAuthenticationSecrets']]] = None,
                  allowed_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -356,8 +356,8 @@ class ExternalAccessIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs', 'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict']] allowed_api_authentication_integrations: Specifies allowed API authentication integrations for this integration. Exactly one of `none` or `integrations` must be set inside the block.
-        :param pulumi.Input[Union['ExternalAccessIntegrationAllowedAuthenticationSecretsArgs', 'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict']] allowed_authentication_secrets: Specifies allowed authentication secrets for this integration. Exactly one of `none`, `all`, or `secrets` must be set inside the block.
+        :param pulumi.Input[Union['ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs', 'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict', 'outputs.ExternalAccessIntegrationAllowedApiAuthenticationIntegrations']] allowed_api_authentication_integrations: Specifies allowed API authentication integrations for this integration. Exactly one of `none` or `integrations` must be set inside the block.
+        :param pulumi.Input[Union['ExternalAccessIntegrationAllowedAuthenticationSecretsArgs', 'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict', 'outputs.ExternalAccessIntegrationAllowedAuthenticationSecrets']] allowed_authentication_secrets: Specifies allowed authentication secrets for this integration. Exactly one of `none`, `all`, or `secrets` must be set inside the block.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_network_rules: Specifies the network rules for external locations reachable through this integration. At least one is required. Only egress network rules may be specified. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the external access integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the integration is enabled.
@@ -451,8 +451,8 @@ class ExternalAccessIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_api_authentication_integrations: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs', 'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict']]] = None,
-                 allowed_authentication_secrets: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedAuthenticationSecretsArgs', 'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict']]] = None,
+                 allowed_api_authentication_integrations: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs', 'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict', 'outputs.ExternalAccessIntegrationAllowedApiAuthenticationIntegrations']]] = None,
+                 allowed_authentication_secrets: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedAuthenticationSecretsArgs', 'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict', 'outputs.ExternalAccessIntegrationAllowedAuthenticationSecrets']]] = None,
                  allowed_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -489,15 +489,15 @@ class ExternalAccessIntegration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_api_authentication_integrations: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs', 'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict']]] = None,
-            allowed_authentication_secrets: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedAuthenticationSecretsArgs', 'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict']]] = None,
+            allowed_api_authentication_integrations: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs', 'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict', 'outputs.ExternalAccessIntegrationAllowedApiAuthenticationIntegrations']]] = None,
+            allowed_authentication_secrets: pulumi.Input[Optional[Union['ExternalAccessIntegrationAllowedAuthenticationSecretsArgs', 'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict', 'outputs.ExternalAccessIntegrationAllowedAuthenticationSecrets']]] = None,
             allowed_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalAccessIntegrationDescribeOutputArgs', 'ExternalAccessIntegrationDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalAccessIntegrationDescribeOutputArgs', 'ExternalAccessIntegrationDescribeOutputArgsDict', 'outputs.ExternalAccessIntegrationDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalAccessIntegrationShowOutputArgs', 'ExternalAccessIntegrationShowOutputArgsDict']]]]] = None) -> 'ExternalAccessIntegration':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalAccessIntegrationShowOutputArgs', 'ExternalAccessIntegrationShowOutputArgsDict', 'outputs.ExternalAccessIntegrationShowOutput']]]]] = None) -> 'ExternalAccessIntegration':
         """
         Get an existing ExternalAccessIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -505,15 +505,15 @@ class ExternalAccessIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs', 'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict']] allowed_api_authentication_integrations: Specifies allowed API authentication integrations for this integration. Exactly one of `none` or `integrations` must be set inside the block.
-        :param pulumi.Input[Union['ExternalAccessIntegrationAllowedAuthenticationSecretsArgs', 'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict']] allowed_authentication_secrets: Specifies allowed authentication secrets for this integration. Exactly one of `none`, `all`, or `secrets` must be set inside the block.
+        :param pulumi.Input[Union['ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs', 'ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgsDict', 'outputs.ExternalAccessIntegrationAllowedApiAuthenticationIntegrations']] allowed_api_authentication_integrations: Specifies allowed API authentication integrations for this integration. Exactly one of `none` or `integrations` must be set inside the block.
+        :param pulumi.Input[Union['ExternalAccessIntegrationAllowedAuthenticationSecretsArgs', 'ExternalAccessIntegrationAllowedAuthenticationSecretsArgsDict', 'outputs.ExternalAccessIntegrationAllowedAuthenticationSecrets']] allowed_authentication_secrets: Specifies allowed authentication secrets for this integration. Exactly one of `none`, `all`, or `secrets` must be set inside the block.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_network_rules: Specifies the network rules for external locations reachable through this integration. At least one is required. Only egress network rules may be specified. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the external access integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalAccessIntegrationDescribeOutputArgs', 'ExternalAccessIntegrationDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE EXTERNAL ACCESS INTEGRATION` for this integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalAccessIntegrationDescribeOutputArgs', 'ExternalAccessIntegrationDescribeOutputArgsDict', 'outputs.ExternalAccessIntegrationDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE EXTERNAL ACCESS INTEGRATION` for this integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the integration is enabled.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the external access integration. Changing this value recreates the integration. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalAccessIntegrationShowOutputArgs', 'ExternalAccessIntegrationShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW EXTERNAL ACCESS INTEGRATIONS` for this integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalAccessIntegrationShowOutputArgs', 'ExternalAccessIntegrationShowOutputArgsDict', 'outputs.ExternalAccessIntegrationShowOutput']]]] show_outputs: Outputs the result of `SHOW EXTERNAL ACCESS INTEGRATIONS` for this integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

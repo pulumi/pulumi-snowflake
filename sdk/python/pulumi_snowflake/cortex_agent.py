@@ -282,7 +282,7 @@ class CortexAgent(pulumi.CustomResource):
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile: pulumi.Input[Optional[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict']]] = None,
+                 profile: pulumi.Input[Optional[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict', 'outputs.CortexAgentProfile']]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  specification: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -301,7 +301,7 @@ class CortexAgent(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Cortex agent.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict']] profile: Specifies agent profile information, such as display_name, avatar, and color.
+        :param pulumi.Input[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict', 'outputs.CortexAgentProfile']] profile: Specifies agent profile information, such as display_name, avatar, and color.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
@@ -339,7 +339,7 @@ class CortexAgent(pulumi.CustomResource):
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile: pulumi.Input[Optional[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict']]] = None,
+                 profile: pulumi.Input[Optional[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict', 'outputs.CortexAgentProfile']]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  specification: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -378,12 +378,12 @@ class CortexAgent(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CortexAgentDescribeOutputArgs', 'CortexAgentDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CortexAgentDescribeOutputArgs', 'CortexAgentDescribeOutputArgsDict', 'outputs.CortexAgentDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            profile: pulumi.Input[Optional[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict']]] = None,
+            profile: pulumi.Input[Optional[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict', 'outputs.CortexAgentProfile']]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CortexAgentShowOutputArgs', 'CortexAgentShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CortexAgentShowOutputArgs', 'CortexAgentShowOutputArgsDict', 'outputs.CortexAgentShowOutput']]]]] = None,
             specification: pulumi.Input[Optional[_builtins.str]] = None) -> 'CortexAgent':
         """
         Get an existing CortexAgent resource's state with the given name, id, and optional extra
@@ -394,12 +394,12 @@ class CortexAgent(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Cortex agent.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CortexAgentDescribeOutputArgs', 'CortexAgentDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE AGENT` for this Cortex agent.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CortexAgentDescribeOutputArgs', 'CortexAgentDescribeOutputArgsDict', 'outputs.CortexAgentDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE AGENT` for this Cortex agent.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict']] profile: Specifies agent profile information, such as display_name, avatar, and color.
+        :param pulumi.Input[Union['CortexAgentProfileArgs', 'CortexAgentProfileArgsDict', 'outputs.CortexAgentProfile']] profile: Specifies agent profile information, such as display_name, avatar, and color.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Cortex agent. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CortexAgentShowOutputArgs', 'CortexAgentShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW AGENTS` for this Cortex agent.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CortexAgentShowOutputArgs', 'CortexAgentShowOutputArgsDict', 'outputs.CortexAgentShowOutput']]]] show_outputs: Outputs the result of `SHOW AGENTS` for this Cortex agent.
         :param pulumi.Input[_builtins.str] specification: Specifies a YAML object containing the settings for the Cortex agent. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

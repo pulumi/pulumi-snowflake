@@ -287,7 +287,7 @@ class DatabaseRole(pulumi.CustomResource):
             database: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatabaseRoleShowOutputArgs', 'DatabaseRoleShowOutputArgsDict']]]]] = None) -> 'DatabaseRole':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatabaseRoleShowOutputArgs', 'DatabaseRoleShowOutputArgsDict', 'outputs.DatabaseRoleShowOutput']]]]] = None) -> 'DatabaseRole':
         """
         Get an existing DatabaseRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -299,7 +299,7 @@ class DatabaseRole(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DatabaseRoleShowOutputArgs', 'DatabaseRoleShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatabaseRoleShowOutputArgs', 'DatabaseRoleShowOutputArgsDict', 'outputs.DatabaseRoleShowOutput']]]] show_outputs: Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

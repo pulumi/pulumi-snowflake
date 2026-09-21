@@ -99,7 +99,7 @@ class AwaitableGetStagesResult(GetStagesResult):
             with_describe=self.with_describe)
 
 
-def get_stages(in_: Optional[Union['GetStagesInArgs', 'GetStagesInArgsDict']] = None,
+def get_stages(in_: Optional[Union['GetStagesInArgs', 'GetStagesInArgsDict', 'outputs.GetStagesInResult']] = None,
                like: Optional[_builtins.str] = None,
                with_describe: Optional[_builtins.bool] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStagesResult:
@@ -109,7 +109,7 @@ def get_stages(in_: Optional[Union['GetStagesInArgs', 'GetStagesInArgsDict']] = 
     Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
 
 
-    :param Union['GetStagesInArgs', 'GetStagesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetStagesInArgs', 'GetStagesInArgsDict', 'outputs.GetStagesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
@@ -126,7 +126,7 @@ def get_stages(in_: Optional[Union['GetStagesInArgs', 'GetStagesInArgsDict']] = 
         like=pulumi.get(__ret__, 'like'),
         stages=pulumi.get(__ret__, 'stages'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_stages_output(in_: pulumi.Input[Optional[Optional[Union['GetStagesInArgs', 'GetStagesInArgsDict']]]] = None,
+def get_stages_output(in_: pulumi.Input[Optional[Optional[Union['GetStagesInArgs', 'GetStagesInArgsDict', 'outputs.GetStagesInResult']]]] = None,
                       like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStagesResult]:
@@ -136,7 +136,7 @@ def get_stages_output(in_: pulumi.Input[Optional[Optional[Union['GetStagesInArgs
     Data source used to get details of filtered stages. Filtering is aligned with the current possibilities for [SHOW STAGES](https://docs.snowflake.com/en/sql-reference/sql/show-stages) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `stages`.
 
 
-    :param Union['GetStagesInArgs', 'GetStagesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetStagesInArgs', 'GetStagesInArgsDict', 'outputs.GetStagesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC STAGE for each stage returned by SHOW STAGES. The output of describe is saved to the describe_output field. By default this value is set to true.
     """

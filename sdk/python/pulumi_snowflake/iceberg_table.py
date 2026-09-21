@@ -967,14 +967,14 @@ class IcebergTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregation_policy: pulumi.Input[Optional[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict']]] = None,
+                 aggregation_policy: pulumi.Input[Optional[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict', 'outputs.IcebergTableAggregationPolicy']]] = None,
                  base_location: pulumi.Input[Optional[_builtins.str]] = None,
                  catalog: pulumi.Input[Optional[_builtins.str]] = None,
                  catalog_sync: pulumi.Input[Optional[_builtins.str]] = None,
                  change_tracking: pulumi.Input[Optional[_builtins.str]] = None,
-                 check_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict']]]]] = None,
+                 check_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict', 'outputs.IcebergTableCheckConstraint']]]]] = None,
                  cluster_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict', 'outputs.IcebergTableColumn']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -982,18 +982,18 @@ class IcebergTable(pulumi.CustomResource):
                  enable_iceberg_merge_on_read: pulumi.Input[Optional[_builtins.bool]] = None,
                  error_logging: pulumi.Input[Optional[_builtins.str]] = None,
                  external_volume: pulumi.Input[Optional[_builtins.str]] = None,
-                 foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict']]]]] = None,
+                 foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict', 'outputs.IcebergTableForeignKeyConstraint']]]]] = None,
                  iceberg_version: pulumi.Input[Optional[_builtins.int]] = None,
                  max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict']]]]] = None,
+                 partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict', 'outputs.IcebergTablePartitionBy']]]]] = None,
                  path_layout: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_key_constraint: pulumi.Input[Optional[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict']]] = None,
-                 row_access_policy: pulumi.Input[Optional[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict']]] = None,
+                 primary_key_constraint: pulumi.Input[Optional[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict', 'outputs.IcebergTablePrimaryKeyConstraint']]] = None,
+                 row_access_policy: pulumi.Input[Optional[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict', 'outputs.IcebergTableRowAccessPolicy']]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  target_file_size: pulumi.Input[Optional[_builtins.str]] = None,
-                 unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict']]]]] = None,
+                 unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict', 'outputs.IcebergTableUniqueConstraint']]]]] = None,
                  __props__=None):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -1215,14 +1215,14 @@ class IcebergTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict']] aggregation_policy: Specifies the aggregation policy to set on a Iceberg table.
+        :param pulumi.Input[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict', 'outputs.IcebergTableAggregationPolicy']] aggregation_policy: Specifies the aggregation policy to set on a Iceberg table.
         :param pulumi.Input[_builtins.str] base_location: The path to a directory where Snowflake can write data and metadata files for the Iceberg table. Specify a relative path from the table's `EXTERNAL_VOLUME` location.
         :param pulumi.Input[_builtins.str] catalog: Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
         :param pulumi.Input[_builtins.str] catalog_sync: Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
         :param pulumi.Input[_builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable change tracking on the Iceberg table. Cannot be changed after creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict']]]] check_constraints: Defines a table-level CHECK constraint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict', 'outputs.IcebergTableCheckConstraint']]]] check_constraints: Defines a table-level CHECK constraint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict']]]] columns: Definitions of the columns to create in the table. Minimum one required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict', 'outputs.IcebergTableColumn']]]] columns: Definitions of the columns to create in the table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Iceberg table.
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         :param pulumi.Input[_builtins.str] database: The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -1230,18 +1230,18 @@ class IcebergTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
         :param pulumi.Input[_builtins.str] error_logging: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether error logging is enabled for the Iceberg table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] external_volume: Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict']]]] foreign_key_constraints: Defines a table-level FOREIGN KEY constraint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict', 'outputs.IcebergTableForeignKeyConstraint']]]] foreign_key_constraints: Defines a table-level FOREIGN KEY constraint.
         :param pulumi.Input[_builtins.int] iceberg_version: Specifies the Iceberg table format version.
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict']]]] partition_bies: Defines the partitioning for the Iceberg table. Cannot be changed after creation. Exactly one of identity, bucket, truncate, year, month, day, or hour must be set for each entry. Cannot be used together with `cluster_by`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict', 'outputs.IcebergTablePartitionBy']]]] partition_bies: Defines the partitioning for the Iceberg table. Cannot be changed after creation. Exactly one of identity, bucket, truncate, year, month, day, or hour must be set for each entry. Cannot be used together with `cluster_by`.
         :param pulumi.Input[_builtins.str] path_layout: Specifies the storage layout for the Iceberg table's Parquet files. Valid values are: [FLAT HIERARCHICAL]. Cannot be changed after creation. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict']] primary_key_constraint: Defines a table-level PRIMARY KEY constraint.
-        :param pulumi.Input[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict']] row_access_policy: Specifies the row access policy to set on a Iceberg table.
+        :param pulumi.Input[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict', 'outputs.IcebergTablePrimaryKeyConstraint']] primary_key_constraint: Defines a table-level PRIMARY KEY constraint.
+        :param pulumi.Input[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict', 'outputs.IcebergTableRowAccessPolicy']] row_access_policy: Specifies the row access policy to set on a Iceberg table.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] storage_serialization_policy: Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict']]]] unique_constraints: Defines a table-level UNIQUE constraint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict', 'outputs.IcebergTableUniqueConstraint']]]] unique_constraints: Defines a table-level UNIQUE constraint.
         """
         ...
     @overload
@@ -1482,14 +1482,14 @@ class IcebergTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregation_policy: pulumi.Input[Optional[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict']]] = None,
+                 aggregation_policy: pulumi.Input[Optional[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict', 'outputs.IcebergTableAggregationPolicy']]] = None,
                  base_location: pulumi.Input[Optional[_builtins.str]] = None,
                  catalog: pulumi.Input[Optional[_builtins.str]] = None,
                  catalog_sync: pulumi.Input[Optional[_builtins.str]] = None,
                  change_tracking: pulumi.Input[Optional[_builtins.str]] = None,
-                 check_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict']]]]] = None,
+                 check_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict', 'outputs.IcebergTableCheckConstraint']]]]] = None,
                  cluster_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict', 'outputs.IcebergTableColumn']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1497,18 +1497,18 @@ class IcebergTable(pulumi.CustomResource):
                  enable_iceberg_merge_on_read: pulumi.Input[Optional[_builtins.bool]] = None,
                  error_logging: pulumi.Input[Optional[_builtins.str]] = None,
                  external_volume: pulumi.Input[Optional[_builtins.str]] = None,
-                 foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict']]]]] = None,
+                 foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict', 'outputs.IcebergTableForeignKeyConstraint']]]]] = None,
                  iceberg_version: pulumi.Input[Optional[_builtins.int]] = None,
                  max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict']]]]] = None,
+                 partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict', 'outputs.IcebergTablePartitionBy']]]]] = None,
                  path_layout: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_key_constraint: pulumi.Input[Optional[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict']]] = None,
-                 row_access_policy: pulumi.Input[Optional[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict']]] = None,
+                 primary_key_constraint: pulumi.Input[Optional[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict', 'outputs.IcebergTablePrimaryKeyConstraint']]] = None,
+                 row_access_policy: pulumi.Input[Optional[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict', 'outputs.IcebergTableRowAccessPolicy']]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  target_file_size: pulumi.Input[Optional[_builtins.str]] = None,
-                 unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict']]]]] = None,
+                 unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict', 'outputs.IcebergTableUniqueConstraint']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1565,37 +1565,37 @@ class IcebergTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aggregation_policy: pulumi.Input[Optional[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict']]] = None,
+            aggregation_policy: pulumi.Input[Optional[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict', 'outputs.IcebergTableAggregationPolicy']]] = None,
             base_location: pulumi.Input[Optional[_builtins.str]] = None,
             catalog: pulumi.Input[Optional[_builtins.str]] = None,
             catalog_sync: pulumi.Input[Optional[_builtins.str]] = None,
             change_tracking: pulumi.Input[Optional[_builtins.str]] = None,
-            check_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict']]]]] = None,
+            check_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict', 'outputs.IcebergTableCheckConstraint']]]]] = None,
             cluster_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict']]]]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict', 'outputs.IcebergTableColumn']]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableDescribeOutputArgs', 'IcebergTableDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableDescribeOutputArgs', 'IcebergTableDescribeOutputArgsDict', 'outputs.IcebergTableDescribeOutput']]]]] = None,
             enable_data_compaction: pulumi.Input[Optional[_builtins.bool]] = None,
             enable_iceberg_merge_on_read: pulumi.Input[Optional[_builtins.bool]] = None,
             error_logging: pulumi.Input[Optional[_builtins.str]] = None,
             external_volume: pulumi.Input[Optional[_builtins.str]] = None,
-            foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict']]]]] = None,
+            foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict', 'outputs.IcebergTableForeignKeyConstraint']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             iceberg_version: pulumi.Input[Optional[_builtins.int]] = None,
             max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableParameterArgs', 'IcebergTableParameterArgsDict']]]]] = None,
-            partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableParameterArgs', 'IcebergTableParameterArgsDict', 'outputs.IcebergTableParameter']]]]] = None,
+            partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict', 'outputs.IcebergTablePartitionBy']]]]] = None,
             path_layout: pulumi.Input[Optional[_builtins.str]] = None,
-            primary_key_constraint: pulumi.Input[Optional[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict']]] = None,
-            row_access_policy: pulumi.Input[Optional[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict']]] = None,
+            primary_key_constraint: pulumi.Input[Optional[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict', 'outputs.IcebergTablePrimaryKeyConstraint']]] = None,
+            row_access_policy: pulumi.Input[Optional[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict', 'outputs.IcebergTableRowAccessPolicy']]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableShowOutputArgs', 'IcebergTableShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableShowOutputArgs', 'IcebergTableShowOutputArgsDict', 'outputs.IcebergTableShowOutput']]]]] = None,
             storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
             target_file_size: pulumi.Input[Optional[_builtins.str]] = None,
-            unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict']]]]] = None) -> 'IcebergTable':
+            unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict', 'outputs.IcebergTableUniqueConstraint']]]]] = None) -> 'IcebergTable':
         """
         Get an existing IcebergTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1603,37 +1603,37 @@ class IcebergTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict']] aggregation_policy: Specifies the aggregation policy to set on a Iceberg table.
+        :param pulumi.Input[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict', 'outputs.IcebergTableAggregationPolicy']] aggregation_policy: Specifies the aggregation policy to set on a Iceberg table.
         :param pulumi.Input[_builtins.str] base_location: The path to a directory where Snowflake can write data and metadata files for the Iceberg table. Specify a relative path from the table's `EXTERNAL_VOLUME` location.
         :param pulumi.Input[_builtins.str] catalog: Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
         :param pulumi.Input[_builtins.str] catalog_sync: Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
         :param pulumi.Input[_builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable change tracking on the Iceberg table. Cannot be changed after creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict']]]] check_constraints: Defines a table-level CHECK constraint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict', 'outputs.IcebergTableCheckConstraint']]]] check_constraints: Defines a table-level CHECK constraint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict']]]] columns: Definitions of the columns to create in the table. Minimum one required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict', 'outputs.IcebergTableColumn']]]] columns: Definitions of the columns to create in the table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Iceberg table.
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         :param pulumi.Input[_builtins.str] database: The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableDescribeOutputArgs', 'IcebergTableDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableDescribeOutputArgs', 'IcebergTableDescribeOutputArgsDict', 'outputs.IcebergTableDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
         :param pulumi.Input[_builtins.bool] enable_data_compaction: Specifies whether automatic background data compaction is enabled for the Iceberg table. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
         :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
         :param pulumi.Input[_builtins.str] error_logging: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether error logging is enabled for the Iceberg table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] external_volume: Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict']]]] foreign_key_constraints: Defines a table-level FOREIGN KEY constraint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict', 'outputs.IcebergTableForeignKeyConstraint']]]] foreign_key_constraints: Defines a table-level FOREIGN KEY constraint.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.int] iceberg_version: Specifies the Iceberg table format version.
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableParameterArgs', 'IcebergTableParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict']]]] partition_bies: Defines the partitioning for the Iceberg table. Cannot be changed after creation. Exactly one of identity, bucket, truncate, year, month, day, or hour must be set for each entry. Cannot be used together with `cluster_by`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableParameterArgs', 'IcebergTableParameterArgsDict', 'outputs.IcebergTableParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict', 'outputs.IcebergTablePartitionBy']]]] partition_bies: Defines the partitioning for the Iceberg table. Cannot be changed after creation. Exactly one of identity, bucket, truncate, year, month, day, or hour must be set for each entry. Cannot be used together with `cluster_by`.
         :param pulumi.Input[_builtins.str] path_layout: Specifies the storage layout for the Iceberg table's Parquet files. Valid values are: [FLAT HIERARCHICAL]. Cannot be changed after creation. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict']] primary_key_constraint: Defines a table-level PRIMARY KEY constraint.
-        :param pulumi.Input[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict']] row_access_policy: Specifies the row access policy to set on a Iceberg table.
+        :param pulumi.Input[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict', 'outputs.IcebergTablePrimaryKeyConstraint']] primary_key_constraint: Defines a table-level PRIMARY KEY constraint.
+        :param pulumi.Input[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict', 'outputs.IcebergTableRowAccessPolicy']] row_access_policy: Specifies the row access policy to set on a Iceberg table.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableShowOutputArgs', 'IcebergTableShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableShowOutputArgs', 'IcebergTableShowOutputArgsDict', 'outputs.IcebergTableShowOutput']]]] show_outputs: Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
         :param pulumi.Input[_builtins.str] storage_serialization_policy: Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict']]]] unique_constraints: Defines a table-level UNIQUE constraint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict', 'outputs.IcebergTableUniqueConstraint']]]] unique_constraints: Defines a table-level UNIQUE constraint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

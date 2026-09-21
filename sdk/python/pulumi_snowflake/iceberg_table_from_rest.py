@@ -807,17 +807,17 @@ class IcebergTableFromRest(pulumi.CustomResource):
             catalog_table_name: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromRestDescribeOutputArgs', 'IcebergTableFromRestDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromRestDescribeOutputArgs', 'IcebergTableFromRestDescribeOutputArgsDict', 'outputs.IcebergTableFromRestDescribeOutput']]]]] = None,
             enable_iceberg_merge_on_read: pulumi.Input[Optional[_builtins.bool]] = None,
             external_volume: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             iceberg_merge_on_read_behavior: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromRestParameterArgs', 'IcebergTableFromRestParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromRestParameterArgs', 'IcebergTableFromRestParameterArgsDict', 'outputs.IcebergTableFromRestParameter']]]]] = None,
             path_layout: pulumi.Input[Optional[_builtins.str]] = None,
             replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromRestShowOutputArgs', 'IcebergTableFromRestShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromRestShowOutputArgs', 'IcebergTableFromRestShowOutputArgsDict', 'outputs.IcebergTableFromRestShowOutput']]]]] = None,
             storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
             target_file_size: pulumi.Input[Optional[_builtins.str]] = None) -> 'IcebergTableFromRest':
         """
@@ -833,17 +833,17 @@ class IcebergTableFromRest(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] catalog_table_name: Specifies the name of the table as it appears in the external catalog.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Iceberg table.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromRestDescribeOutputArgs', 'IcebergTableFromRestDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromRestDescribeOutputArgs', 'IcebergTableFromRestDescribeOutputArgsDict', 'outputs.IcebergTableFromRestDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
         :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
         :param pulumi.Input[_builtins.str] external_volume: Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] iceberg_merge_on_read_behavior: Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromRestParameterArgs', 'IcebergTableFromRestParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromRestParameterArgs', 'IcebergTableFromRestParameterArgsDict', 'outputs.IcebergTableFromRestParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
         :param pulumi.Input[_builtins.str] path_layout: Specifies the storage layout for the Iceberg table's Parquet files. Valid values are: [FLAT HIERARCHICAL]. Cannot be changed after creation. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromRestShowOutputArgs', 'IcebergTableFromRestShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromRestShowOutputArgs', 'IcebergTableFromRestShowOutputArgsDict', 'outputs.IcebergTableFromRestShowOutput']]]] show_outputs: Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
         :param pulumi.Input[_builtins.str] storage_serialization_policy: Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         """

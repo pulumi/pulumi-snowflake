@@ -517,11 +517,11 @@ class ApiIntegrationAmazonApiGateway(pulumi.CustomResource):
             api_key: pulumi.Input[Optional[_builtins.str]] = None,
             api_provider: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationAmazonApiGatewayDescribeOutputArgs', 'ApiIntegrationAmazonApiGatewayDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationAmazonApiGatewayDescribeOutputArgs', 'ApiIntegrationAmazonApiGatewayDescribeOutputArgsDict', 'outputs.ApiIntegrationAmazonApiGatewayDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationAmazonApiGatewayShowOutputArgs', 'ApiIntegrationAmazonApiGatewayShowOutputArgsDict']]]]] = None) -> 'ApiIntegrationAmazonApiGateway':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationAmazonApiGatewayShowOutputArgs', 'ApiIntegrationAmazonApiGatewayShowOutputArgsDict', 'outputs.ApiIntegrationAmazonApiGatewayShowOutput']]]]] = None) -> 'ApiIntegrationAmazonApiGateway':
         """
         Get an existing ApiIntegrationAmazonApiGateway resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -535,11 +535,11 @@ class ApiIntegrationAmazonApiGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_key: Specifies the API key (secret) that Snowflake uses to authenticate when making calls to the proxy service. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] api_provider: Specifies the type of AWS gateway. Valid values are (case-insensitive): `aws_api_gateway` | `aws_private_api_gateway` | `aws_gov_api_gateway` | `aws_gov_private_api_gateway`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationAmazonApiGatewayDescribeOutputArgs', 'ApiIntegrationAmazonApiGatewayDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE API INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationAmazonApiGatewayDescribeOutputArgs', 'ApiIntegrationAmazonApiGatewayDescribeOutputArgsDict', 'outputs.ApiIntegrationAmazonApiGatewayDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE API INTEGRATION` for the given integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this API integration is enabled or disabled.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationAmazonApiGatewayShowOutputArgs', 'ApiIntegrationAmazonApiGatewayShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW API INTEGRATIONS` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApiIntegrationAmazonApiGatewayShowOutputArgs', 'ApiIntegrationAmazonApiGatewayShowOutputArgsDict', 'outputs.ApiIntegrationAmazonApiGatewayShowOutput']]]] show_outputs: Outputs the result of `SHOW API INTEGRATIONS` for the given integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

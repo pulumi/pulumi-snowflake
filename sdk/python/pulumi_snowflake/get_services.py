@@ -135,9 +135,9 @@ class AwaitableGetServicesResult(GetServicesResult):
             with_describe=self.with_describe)
 
 
-def get_services(in_: Optional[Union['GetServicesInArgs', 'GetServicesInArgsDict']] = None,
+def get_services(in_: Optional[Union['GetServicesInArgs', 'GetServicesInArgsDict', 'outputs.GetServicesInResult']] = None,
                  like: Optional[_builtins.str] = None,
-                 limit: Optional[Union['GetServicesLimitArgs', 'GetServicesLimitArgsDict']] = None,
+                 limit: Optional[Union['GetServicesLimitArgs', 'GetServicesLimitArgsDict', 'outputs.GetServicesLimitResult']] = None,
                  service_type: Optional[_builtins.str] = None,
                  starts_with: Optional[_builtins.str] = None,
                  with_describe: Optional[_builtins.bool] = None,
@@ -146,9 +146,9 @@ def get_services(in_: Optional[Union['GetServicesInArgs', 'GetServicesInArgsDict
     Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `services`. By default, the results includes both services and job services. If you want to filter only services or job service, set `service_type` with a relevant option.
 
 
-    :param Union['GetServicesInArgs', 'GetServicesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetServicesInArgs', 'GetServicesInArgsDict', 'outputs.GetServicesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetServicesLimitArgs', 'GetServicesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetServicesLimitArgs', 'GetServicesLimitArgsDict', 'outputs.GetServicesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str service_type: (Default: `ALL`) The type filtering of `SHOW SERVICES` results. `ALL` returns both services and job services. `JOBS_ONLY` returns only job services (`JOB` option in SQL). `SERVICES_ONLY` returns only services (`EXCLUDE_JOBS` option in SQL).
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC SERVICE for each service returned by SHOW SERVICES. The output of describe is saved to the description field. By default this value is set to true.
@@ -172,9 +172,9 @@ def get_services(in_: Optional[Union['GetServicesInArgs', 'GetServicesInArgsDict
         services=pulumi.get(__ret__, 'services'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_services_output(in_: pulumi.Input[Optional[Optional[Union['GetServicesInArgs', 'GetServicesInArgsDict']]]] = None,
+def get_services_output(in_: pulumi.Input[Optional[Optional[Union['GetServicesInArgs', 'GetServicesInArgsDict', 'outputs.GetServicesInResult']]]] = None,
                         like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                        limit: pulumi.Input[Optional[Optional[Union['GetServicesLimitArgs', 'GetServicesLimitArgsDict']]]] = None,
+                        limit: pulumi.Input[Optional[Optional[Union['GetServicesLimitArgs', 'GetServicesLimitArgsDict', 'outputs.GetServicesLimitResult']]]] = None,
                         service_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
@@ -183,9 +183,9 @@ def get_services_output(in_: pulumi.Input[Optional[Optional[Union['GetServicesIn
     Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `services`. By default, the results includes both services and job services. If you want to filter only services or job service, set `service_type` with a relevant option.
 
 
-    :param Union['GetServicesInArgs', 'GetServicesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetServicesInArgs', 'GetServicesInArgsDict', 'outputs.GetServicesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetServicesLimitArgs', 'GetServicesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetServicesLimitArgs', 'GetServicesLimitArgsDict', 'outputs.GetServicesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str service_type: (Default: `ALL`) The type filtering of `SHOW SERVICES` results. `ALL` returns both services and job services. `JOBS_ONLY` returns only job services (`JOB` option in SQL). `SERVICES_ONLY` returns only services (`EXCLUDE_JOBS` option in SQL).
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC SERVICE for each service returned by SHOW SERVICES. The output of describe is saved to the description field. By default this value is set to true.

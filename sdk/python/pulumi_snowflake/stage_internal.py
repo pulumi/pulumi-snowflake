@@ -330,9 +330,9 @@ class StageInternal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 directory: pulumi.Input[Optional[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']]] = None,
-                 encryption: pulumi.Input[Optional[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']]] = None,
-                 file_format: pulumi.Input[Optional[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']]] = None,
+                 directory: pulumi.Input[Optional[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict', 'outputs.StageInternalDirectory']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict', 'outputs.StageInternalEncryption']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict', 'outputs.StageInternalFileFormat']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -522,9 +522,9 @@ class StageInternal(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']] directory: Directory tables store a catalog of staged files in cloud storage.
-        :param pulumi.Input[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']] encryption: Specifies the encryption settings for the internal stage.
-        :param pulumi.Input[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict', 'outputs.StageInternalDirectory']] directory: Directory tables store a catalog of staged files in cloud storage.
+        :param pulumi.Input[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict', 'outputs.StageInternalEncryption']] encryption: Specifies the encryption settings for the internal stage.
+        :param pulumi.Input[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict', 'outputs.StageInternalFileFormat']] file_format: Specifies the file format for the stage.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
@@ -733,9 +733,9 @@ class StageInternal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 directory: pulumi.Input[Optional[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']]] = None,
-                 encryption: pulumi.Input[Optional[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']]] = None,
-                 file_format: pulumi.Input[Optional[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']]] = None,
+                 directory: pulumi.Input[Optional[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict', 'outputs.StageInternalDirectory']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict', 'outputs.StageInternalEncryption']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict', 'outputs.StageInternalFileFormat']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -774,14 +774,14 @@ class StageInternal(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageInternalDescribeOutputArgs', 'StageInternalDescribeOutputArgsDict']]]]] = None,
-            directory: pulumi.Input[Optional[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']]] = None,
-            encryption: pulumi.Input[Optional[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']]] = None,
-            file_format: pulumi.Input[Optional[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageInternalDescribeOutputArgs', 'StageInternalDescribeOutputArgsDict', 'outputs.StageInternalDescribeOutput']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict', 'outputs.StageInternalDirectory']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict', 'outputs.StageInternalEncryption']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict', 'outputs.StageInternalFileFormat']]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageInternalShowOutputArgs', 'StageInternalShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageInternalShowOutputArgs', 'StageInternalShowOutputArgsDict', 'outputs.StageInternalShowOutput']]]]] = None,
             stage_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'StageInternal':
         """
         Get an existing StageInternal resource's state with the given name, id, and optional extra
@@ -792,14 +792,14 @@ class StageInternal(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageInternalDescribeOutputArgs', 'StageInternalDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STAGE` for the given stage.
-        :param pulumi.Input[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict']] directory: Directory tables store a catalog of staged files in cloud storage.
-        :param pulumi.Input[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict']] encryption: Specifies the encryption settings for the internal stage.
-        :param pulumi.Input[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict']] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageInternalDescribeOutputArgs', 'StageInternalDescribeOutputArgsDict', 'outputs.StageInternalDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STAGE` for the given stage.
+        :param pulumi.Input[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict', 'outputs.StageInternalDirectory']] directory: Directory tables store a catalog of staged files in cloud storage.
+        :param pulumi.Input[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict', 'outputs.StageInternalEncryption']] encryption: Specifies the encryption settings for the internal stage.
+        :param pulumi.Input[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict', 'outputs.StageInternalFileFormat']] file_format: Specifies the file format for the stage.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageInternalShowOutputArgs', 'StageInternalShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STAGES` for the given stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageInternalShowOutputArgs', 'StageInternalShowOutputArgsDict', 'outputs.StageInternalShowOutput']]]] show_outputs: Outputs the result of `SHOW STAGES` for the given stage.
         :param pulumi.Input[_builtins.str] stage_type: Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

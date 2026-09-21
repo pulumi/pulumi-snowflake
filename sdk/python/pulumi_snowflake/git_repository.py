@@ -480,13 +480,13 @@ class GitRepository(pulumi.CustomResource):
             api_integration: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GitRepositoryDescribeOutputArgs', 'GitRepositoryDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GitRepositoryDescribeOutputArgs', 'GitRepositoryDescribeOutputArgsDict', 'outputs.GitRepositoryDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             git_credentials: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             origin: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GitRepositoryShowOutputArgs', 'GitRepositoryShowOutputArgsDict']]]]] = None) -> 'GitRepository':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GitRepositoryShowOutputArgs', 'GitRepositoryShowOutputArgsDict', 'outputs.GitRepositoryShowOutput']]]]] = None) -> 'GitRepository':
         """
         Get an existing GitRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -497,13 +497,13 @@ class GitRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_integration: Identifier of API INTEGRATION containing information about the remote Git repository such as allowed credentials and prefixes for target URLs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the git repository.
         :param pulumi.Input[_builtins.str] database: The database in which to create the git repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GitRepositoryDescribeOutputArgs', 'GitRepositoryDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE GIT REPOSITORY` for the given git repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GitRepositoryDescribeOutputArgs', 'GitRepositoryDescribeOutputArgsDict', 'outputs.GitRepositoryDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE GIT REPOSITORY` for the given git repository.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] git_credentials: Specifies the Snowflake secret fully qualified name (e.g `"\\"<db_name>\\".\\"<schema_name>\\".\\"<secret_name>\\""`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the git repository; must be unique for the schema in which the git repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] origin: Specifies the origin URL of the remote Git repository that this Git repository clone represents. The URL must use HTTPS.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the git repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['GitRepositoryShowOutputArgs', 'GitRepositoryShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW GIT REPOSITORIES` for the given git repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['GitRepositoryShowOutputArgs', 'GitRepositoryShowOutputArgsDict', 'outputs.GitRepositoryShowOutput']]]] show_outputs: Outputs the result of `SHOW GIT REPOSITORIES` for the given git repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

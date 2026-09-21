@@ -646,7 +646,7 @@ class PostgresInstance(pulumi.CustomResource):
             authentication_authority: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             compute_family: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PostgresInstanceDescribeOutputArgs', 'PostgresInstanceDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PostgresInstanceDescribeOutputArgs', 'PostgresInstanceDescribeOutputArgsDict', 'outputs.PostgresInstanceDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             high_availability: pulumi.Input[Optional[_builtins.str]] = None,
             maintenance_window_start: pulumi.Input[Optional[_builtins.int]] = None,
@@ -654,7 +654,7 @@ class PostgresInstance(pulumi.CustomResource):
             network_policy: pulumi.Input[Optional[_builtins.str]] = None,
             postgres_settings: pulumi.Input[Optional[_builtins.str]] = None,
             postgres_version: pulumi.Input[Optional[_builtins.int]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PostgresInstanceShowOutputArgs', 'PostgresInstanceShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PostgresInstanceShowOutputArgs', 'PostgresInstanceShowOutputArgsDict', 'outputs.PostgresInstanceShowOutput']]]]] = None,
             storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
             storage_size_gb: pulumi.Input[Optional[_builtins.int]] = None) -> 'PostgresInstance':
         """
@@ -667,7 +667,7 @@ class PostgresInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] authentication_authority: Specifies the authentication authority for the Postgres instance. Valid values are (case-insensitive): `POSTGRES` | `POSTGRES_OR_SNOWFLAKE`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Postgres instance.
         :param pulumi.Input[_builtins.str] compute_family: Specifies the compute family for the Postgres instance. Valid values are (case-insensitive): `STANDARD_M` | `STANDARD_L` | `STANDARD_XL` | `STANDARD_2XL` | `STANDARD_4XL` | `STANDARD_8XL` | `STANDARD_12XL` | `STANDARD_24XL` | `HIGHMEM_L` | `HIGHMEM_XL` | `HIGHMEM_2XL` | `HIGHMEM_4XL` | `HIGHMEM_8XL` | `HIGHMEM_12XL` | `HIGHMEM_16XL` | `HIGHMEM_24XL` | `HIGHMEM_32XL` | `HIGHMEM_48XL` | `BURST_XS` | `BURST_S` | `BURST_M`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PostgresInstanceDescribeOutputArgs', 'PostgresInstanceDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE POSTGRES INSTANCE` for the given Postgres instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PostgresInstanceDescribeOutputArgs', 'PostgresInstanceDescribeOutputArgsDict', 'outputs.PostgresInstanceDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE POSTGRES INSTANCE` for the given Postgres instance.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] high_availability: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the Postgres instance should be configured for high availability. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] maintenance_window_start: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the hour (0-23 UTC) at which the maintenance window starts.
@@ -675,7 +675,7 @@ class PostgresInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] network_policy: Specifies the network policy to associate with the Postgres instance.
         :param pulumi.Input[_builtins.str] postgres_settings: Specifies custom Postgres settings as a JSON string.
         :param pulumi.Input[_builtins.int] postgres_version: Specifies the Postgres version for the instance. Note that Snowflake does not allow downgrading; the version can only be upgraded.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PostgresInstanceShowOutputArgs', 'PostgresInstanceShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW POSTGRES INSTANCES` for the given Postgres instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PostgresInstanceShowOutputArgs', 'PostgresInstanceShowOutputArgsDict', 'outputs.PostgresInstanceShowOutput']]]] show_outputs: Outputs the result of `SHOW POSTGRES INSTANCES` for the given Postgres instance.
         :param pulumi.Input[_builtins.str] storage_integration: Specifies the storage integration for the Postgres instance.
         :param pulumi.Input[_builtins.int] storage_size_gb: Specifies the storage size in GB for the Postgres instance.
         """

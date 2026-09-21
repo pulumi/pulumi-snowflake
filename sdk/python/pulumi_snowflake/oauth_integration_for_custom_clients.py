@@ -857,7 +857,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
             allowed_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict', 'outputs.OauthIntegrationForCustomClientsDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -872,8 +872,8 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
             oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
             oauth_use_secondary_roles: pulumi.Input[Optional[_builtins.str]] = None,
             pre_authorized_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            related_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsRelatedParameterArgs', 'OauthIntegrationForCustomClientsRelatedParameterArgsDict']]]]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsShowOutputArgs', 'OauthIntegrationForCustomClientsShowOutputArgsDict']]]]] = None) -> 'OauthIntegrationForCustomClients':
+            related_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsRelatedParameterArgs', 'OauthIntegrationForCustomClientsRelatedParameterArgsDict', 'outputs.OauthIntegrationForCustomClientsRelatedParameter']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsShowOutputArgs', 'OauthIntegrationForCustomClientsShowOutputArgsDict', 'outputs.OauthIntegrationForCustomClientsShowOutput']]]]] = None) -> 'OauthIntegrationForCustomClients':
         """
         Get an existing OauthIntegrationForCustomClients resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -884,7 +884,7 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_roles_lists: A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the OAuth integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict', 'outputs.OauthIntegrationForCustomClientsDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         :param pulumi.Input[_builtins.str] enabled: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -899,8 +899,8 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] oauth_refresh_token_validity: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[_builtins.str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pre_authorized_roles_lists: A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsRelatedParameterArgs', 'OauthIntegrationForCustomClientsRelatedParameterArgsDict']]]] related_parameters: Parameters related to this security integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsShowOutputArgs', 'OauthIntegrationForCustomClientsShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsRelatedParameterArgs', 'OauthIntegrationForCustomClientsRelatedParameterArgsDict', 'outputs.OauthIntegrationForCustomClientsRelatedParameter']]]] related_parameters: Parameters related to this security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsShowOutputArgs', 'OauthIntegrationForCustomClientsShowOutputArgsDict', 'outputs.OauthIntegrationForCustomClientsShowOutput']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -324,7 +324,7 @@ class PrimaryConnection(pulumi.CustomResource):
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             is_primary: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrimaryConnectionShowOutputArgs', 'PrimaryConnectionShowOutputArgsDict']]]]] = None) -> 'PrimaryConnection':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrimaryConnectionShowOutputArgs', 'PrimaryConnectionShowOutputArgsDict', 'outputs.PrimaryConnectionShowOutput']]]]] = None) -> 'PrimaryConnection':
         """
         Get an existing PrimaryConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -337,7 +337,7 @@ class PrimaryConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.bool] is_primary: Indicates if the connection is primary. When Terraform detects that the connection is not primary, the resource is recreated.
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PrimaryConnectionShowOutputArgs', 'PrimaryConnectionShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW CONNECTIONS` for the given connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PrimaryConnectionShowOutputArgs', 'PrimaryConnectionShowOutputArgsDict', 'outputs.PrimaryConnectionShowOutput']]]] show_outputs: Outputs the result of `SHOW CONNECTIONS` for the given connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
