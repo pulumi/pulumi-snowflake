@@ -378,7 +378,7 @@ class Notebook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 froms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]]] = None,
+                 froms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict', 'outputs.NotebookFrom']]]]] = None,
                  idle_auto_shutdown_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  main_file: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -440,7 +440,7 @@ class Notebook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the notebook.
         :param pulumi.Input[_builtins.str] database: The database in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]] froms: Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict', 'outputs.NotebookFrom']]]] froms: Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.
         :param pulumi.Input[_builtins.int] idle_auto_shutdown_time_seconds: Specifies the number of seconds of idle time before the notebook is shut down automatically.
         :param pulumi.Input[_builtins.str] main_file: Specifies a user-specified identifier for the notebook file name.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -521,7 +521,7 @@ class Notebook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 froms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]]] = None,
+                 froms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict', 'outputs.NotebookFrom']]]]] = None,
                  idle_auto_shutdown_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  main_file: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -565,15 +565,15 @@ class Notebook(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookDescribeOutputArgs', 'NotebookDescribeOutputArgsDict']]]]] = None,
-            froms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookDescribeOutputArgs', 'NotebookDescribeOutputArgsDict', 'outputs.NotebookDescribeOutput']]]]] = None,
+            froms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict', 'outputs.NotebookFrom']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             idle_auto_shutdown_time_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             main_file: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookShowOutputArgs', 'NotebookShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotebookShowOutputArgs', 'NotebookShowOutputArgsDict', 'outputs.NotebookShowOutput']]]]] = None,
             warehouse: pulumi.Input[Optional[_builtins.str]] = None) -> 'Notebook':
         """
         Get an existing Notebook resource's state with the given name, id, and optional extra
@@ -584,15 +584,15 @@ class Notebook(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the notebook.
         :param pulumi.Input[_builtins.str] database: The database in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookDescribeOutputArgs', 'NotebookDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE NOTEBOOK` for the given notebook.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict']]]] froms: Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookDescribeOutputArgs', 'NotebookDescribeOutputArgsDict', 'outputs.NotebookDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE NOTEBOOK` for the given notebook.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookFromArgs', 'NotebookFromArgsDict', 'outputs.NotebookFrom']]]] froms: Specifies the location in a stage of an .ipynb file from which the notebook should be created. MAIN_FILE parameter a user-specified identifier for the notebook file name must also be set alongside it.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.int] idle_auto_shutdown_time_seconds: Specifies the number of seconds of idle time before the notebook is shut down automatically.
         :param pulumi.Input[_builtins.str] main_file: Specifies a user-specified identifier for the notebook file name.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the notebook; must be unique for the schema in which the notebook is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] query_warehouse: Specifies the warehouse where SQL queries in the notebook are run. Only upper-case identifiers are supported.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookShowOutputArgs', 'NotebookShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW NOTEBOOKS` for the given notebook
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotebookShowOutputArgs', 'NotebookShowOutputArgsDict', 'outputs.NotebookShowOutput']]]] show_outputs: Outputs the result of `SHOW NOTEBOOKS` for the given notebook
         :param pulumi.Input[_builtins.str] warehouse: Specifies the warehouse that runs the notebook kernel and python code. Only upper-case identifiers are supported.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

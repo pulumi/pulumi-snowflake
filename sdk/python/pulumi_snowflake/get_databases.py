@@ -124,7 +124,7 @@ class AwaitableGetDatabasesResult(GetDatabasesResult):
 
 
 def get_databases(like: Optional[_builtins.str] = None,
-                  limit: Optional[Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict']] = None,
+                  limit: Optional[Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict', 'outputs.GetDatabasesLimitResult']] = None,
                   starts_with: Optional[_builtins.str] = None,
                   with_describe: Optional[_builtins.bool] = None,
                   with_parameters: Optional[_builtins.bool] = None,
@@ -134,7 +134,7 @@ def get_databases(like: Optional[_builtins.str] = None,
 
 
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict', 'outputs.GetDatabasesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
     :param _builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
@@ -157,7 +157,7 @@ def get_databases(like: Optional[_builtins.str] = None,
         with_describe=pulumi.get(__ret__, 'with_describe'),
         with_parameters=pulumi.get(__ret__, 'with_parameters'))
 def get_databases_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                         limit: pulumi.Input[Optional[Optional[Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict']]]] = None,
+                         limit: pulumi.Input[Optional[Optional[Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict', 'outputs.GetDatabasesLimitResult']]]] = None,
                          starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                          with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                          with_parameters: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
@@ -167,7 +167,7 @@ def get_databases_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] =
 
 
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict', 'outputs.GetDatabasesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
     :param _builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.

@@ -135,10 +135,10 @@ class AwaitableGetSessionPoliciesResult(GetSessionPoliciesResult):
             with_describe=self.with_describe)
 
 
-def get_session_policies(in_: Optional[Union['GetSessionPoliciesInArgs', 'GetSessionPoliciesInArgsDict']] = None,
+def get_session_policies(in_: Optional[Union['GetSessionPoliciesInArgs', 'GetSessionPoliciesInArgsDict', 'outputs.GetSessionPoliciesInResult']] = None,
                          like: Optional[_builtins.str] = None,
-                         limit: Optional[Union['GetSessionPoliciesLimitArgs', 'GetSessionPoliciesLimitArgsDict']] = None,
-                         on: Optional[Union['GetSessionPoliciesOnArgs', 'GetSessionPoliciesOnArgsDict']] = None,
+                         limit: Optional[Union['GetSessionPoliciesLimitArgs', 'GetSessionPoliciesLimitArgsDict', 'outputs.GetSessionPoliciesLimitResult']] = None,
+                         on: Optional[Union['GetSessionPoliciesOnArgs', 'GetSessionPoliciesOnArgsDict', 'outputs.GetSessionPoliciesOnResult']] = None,
                          starts_with: Optional[_builtins.str] = None,
                          with_describe: Optional[_builtins.bool] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSessionPoliciesResult:
@@ -146,10 +146,10 @@ def get_session_policies(in_: Optional[Union['GetSessionPoliciesInArgs', 'GetSes
     Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `session_policies`.
 
 
-    :param Union['GetSessionPoliciesInArgs', 'GetSessionPoliciesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetSessionPoliciesInArgs', 'GetSessionPoliciesInArgsDict', 'outputs.GetSessionPoliciesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetSessionPoliciesLimitArgs', 'GetSessionPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param Union['GetSessionPoliciesOnArgs', 'GetSessionPoliciesOnArgsDict'] on: Lists the policies that are effective on the specified object.
+    :param Union['GetSessionPoliciesLimitArgs', 'GetSessionPoliciesLimitArgsDict', 'outputs.GetSessionPoliciesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetSessionPoliciesOnArgs', 'GetSessionPoliciesOnArgsDict', 'outputs.GetSessionPoliciesOnResult'] on: Lists the policies that are effective on the specified object.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC SESSION POLICY for each object returned by SHOW SESSION POLICIES. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
@@ -172,10 +172,10 @@ def get_session_policies(in_: Optional[Union['GetSessionPoliciesInArgs', 'GetSes
         session_policies=pulumi.get(__ret__, 'session_policies'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_session_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetSessionPoliciesInArgs', 'GetSessionPoliciesInArgsDict']]]] = None,
+def get_session_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetSessionPoliciesInArgs', 'GetSessionPoliciesInArgsDict', 'outputs.GetSessionPoliciesInResult']]]] = None,
                                 like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                limit: pulumi.Input[Optional[Optional[Union['GetSessionPoliciesLimitArgs', 'GetSessionPoliciesLimitArgsDict']]]] = None,
-                                on: pulumi.Input[Optional[Optional[Union['GetSessionPoliciesOnArgs', 'GetSessionPoliciesOnArgsDict']]]] = None,
+                                limit: pulumi.Input[Optional[Optional[Union['GetSessionPoliciesLimitArgs', 'GetSessionPoliciesLimitArgsDict', 'outputs.GetSessionPoliciesLimitResult']]]] = None,
+                                on: pulumi.Input[Optional[Optional[Union['GetSessionPoliciesOnArgs', 'GetSessionPoliciesOnArgsDict', 'outputs.GetSessionPoliciesOnResult']]]] = None,
                                 starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSessionPoliciesResult]:
@@ -183,10 +183,10 @@ def get_session_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetSe
     Data source used to get details of filtered session policies. Filtering is aligned with the current possibilities for [SHOW SESSION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-session-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `session_policies`.
 
 
-    :param Union['GetSessionPoliciesInArgs', 'GetSessionPoliciesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetSessionPoliciesInArgs', 'GetSessionPoliciesInArgsDict', 'outputs.GetSessionPoliciesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetSessionPoliciesLimitArgs', 'GetSessionPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param Union['GetSessionPoliciesOnArgs', 'GetSessionPoliciesOnArgsDict'] on: Lists the policies that are effective on the specified object.
+    :param Union['GetSessionPoliciesLimitArgs', 'GetSessionPoliciesLimitArgsDict', 'outputs.GetSessionPoliciesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetSessionPoliciesOnArgs', 'GetSessionPoliciesOnArgsDict', 'outputs.GetSessionPoliciesOnResult'] on: Lists the policies that are effective on the specified object.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC SESSION POLICY for each object returned by SHOW SESSION POLICIES. The output of describe is saved to the describe_output field. By default this value is set to true.
     """

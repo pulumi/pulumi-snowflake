@@ -567,19 +567,19 @@ class View(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregation_policy: pulumi.Input[Optional[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict']]] = None,
+                 aggregation_policy: pulumi.Input[Optional[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict', 'outputs.ViewAggregationPolicy']]] = None,
                  change_tracking: pulumi.Input[Optional[_builtins.str]] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict', 'outputs.ViewColumn']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
-                 data_metric_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]]] = None,
-                 data_metric_schedule: pulumi.Input[Optional[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict']]] = None,
+                 data_metric_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict', 'outputs.ViewDataMetricFunction']]]]] = None,
+                 data_metric_schedule: pulumi.Input[Optional[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict', 'outputs.ViewDataMetricSchedule']]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  is_recursive: pulumi.Input[Optional[_builtins.str]] = None,
                  is_secure: pulumi.Input[Optional[_builtins.str]] = None,
                  is_temporary: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 row_access_policy: pulumi.Input[Optional[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict']]] = None,
+                 row_access_policy: pulumi.Input[Optional[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict', 'outputs.ViewRowAccessPolicy']]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  statement: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -603,19 +603,19 @@ class View(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict']] aggregation_policy: Specifies the aggregation policy to set on a view.
+        :param pulumi.Input[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict', 'outputs.ViewAggregationPolicy']] aggregation_policy: Specifies the aggregation policy to set on a view.
         :param pulumi.Input[_builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict', 'outputs.ViewColumn']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]] data_metric_functions: Data metric functions used for the view.
-        :param pulumi.Input[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict']] data_metric_schedule: Specifies the schedule to run the data metric functions periodically.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict', 'outputs.ViewDataMetricFunction']]]] data_metric_functions: Data metric functions used for the view.
+        :param pulumi.Input[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict', 'outputs.ViewDataMetricSchedule']] data_metric_schedule: Specifies the schedule to run the data metric functions periodically.
         :param pulumi.Input[_builtins.str] database: The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] is_recursive: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] is_temporary: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict']] row_access_policy: Specifies the row access policy to set on a view.
+        :param pulumi.Input[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict', 'outputs.ViewRowAccessPolicy']] row_access_policy: Specifies the row access policy to set on a view.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
@@ -658,19 +658,19 @@ class View(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aggregation_policy: pulumi.Input[Optional[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict']]] = None,
+                 aggregation_policy: pulumi.Input[Optional[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict', 'outputs.ViewAggregationPolicy']]] = None,
                  change_tracking: pulumi.Input[Optional[_builtins.str]] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict', 'outputs.ViewColumn']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
-                 data_metric_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]]] = None,
-                 data_metric_schedule: pulumi.Input[Optional[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict']]] = None,
+                 data_metric_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict', 'outputs.ViewDataMetricFunction']]]]] = None,
+                 data_metric_schedule: pulumi.Input[Optional[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict', 'outputs.ViewDataMetricSchedule']]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  is_recursive: pulumi.Input[Optional[_builtins.str]] = None,
                  is_secure: pulumi.Input[Optional[_builtins.str]] = None,
                  is_temporary: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 row_access_policy: pulumi.Input[Optional[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict']]] = None,
+                 row_access_policy: pulumi.Input[Optional[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict', 'outputs.ViewRowAccessPolicy']]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  statement: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -716,23 +716,23 @@ class View(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            aggregation_policy: pulumi.Input[Optional[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict']]] = None,
+            aggregation_policy: pulumi.Input[Optional[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict', 'outputs.ViewAggregationPolicy']]] = None,
             change_tracking: pulumi.Input[Optional[_builtins.str]] = None,
-            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict', 'outputs.ViewColumn']]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
-            data_metric_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]]] = None,
-            data_metric_schedule: pulumi.Input[Optional[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict']]] = None,
+            data_metric_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict', 'outputs.ViewDataMetricFunction']]]]] = None,
+            data_metric_schedule: pulumi.Input[Optional[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict', 'outputs.ViewDataMetricSchedule']]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewDescribeOutputArgs', 'ViewDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewDescribeOutputArgs', 'ViewDescribeOutputArgsDict', 'outputs.ViewDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             is_recursive: pulumi.Input[Optional[_builtins.str]] = None,
             is_secure: pulumi.Input[Optional[_builtins.str]] = None,
             is_temporary: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            row_access_policy: pulumi.Input[Optional[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict']]] = None,
+            row_access_policy: pulumi.Input[Optional[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict', 'outputs.ViewRowAccessPolicy']]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewShowOutputArgs', 'ViewShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewShowOutputArgs', 'ViewShowOutputArgsDict', 'outputs.ViewShowOutput']]]]] = None,
             statement: pulumi.Input[Optional[_builtins.str]] = None) -> 'View':
         """
         Get an existing View resource's state with the given name, id, and optional extra
@@ -741,23 +741,23 @@ class View(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict']] aggregation_policy: Specifies the aggregation policy to set on a view.
+        :param pulumi.Input[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict', 'outputs.ViewAggregationPolicy']] aggregation_policy: Specifies the aggregation policy to set on a view.
         :param pulumi.Input[_builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict', 'outputs.ViewColumn']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Retains the access permissions from the original view when a view is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]] data_metric_functions: Data metric functions used for the view.
-        :param pulumi.Input[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict']] data_metric_schedule: Specifies the schedule to run the data metric functions periodically.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict', 'outputs.ViewDataMetricFunction']]]] data_metric_functions: Data metric functions used for the view.
+        :param pulumi.Input[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict', 'outputs.ViewDataMetricSchedule']] data_metric_schedule: Specifies the schedule to run the data metric functions periodically.
         :param pulumi.Input[_builtins.str] database: The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDescribeOutputArgs', 'ViewDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE VIEW` for the given view.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDescribeOutputArgs', 'ViewDescribeOutputArgsDict', 'outputs.ViewDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE VIEW` for the given view.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] is_recursive: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view is secure. By design, the Snowflake's `SHOW VIEWS` command does not provide information about secure views (consult [view usage notes](https://docs.snowflake.com/en/sql-reference/sql/create-view#usage-notes)) which is essential to manage/import view with Terraform. Use the role owning the view while managing secure views. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] is_temporary: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view persists only for the duration of the session that you created it in. A temporary view and all its contents are dropped at the end of the session. In context of this provider, it means that it's dropped after a Terraform operation. This results in a permanent plan with object creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict']] row_access_policy: Specifies the row access policy to set on a view.
+        :param pulumi.Input[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict', 'outputs.ViewRowAccessPolicy']] row_access_policy: Specifies the row access policy to set on a view.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewShowOutputArgs', 'ViewShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW VIEW` for the given view.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ViewShowOutputArgs', 'ViewShowOutputArgsDict', 'outputs.ViewShowOutput']]]] show_outputs: Outputs the result of `SHOW VIEW` for the given view.
         :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

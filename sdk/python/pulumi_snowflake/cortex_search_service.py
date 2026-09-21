@@ -617,7 +617,7 @@ class CortexSearchService(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             created_on: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CortexSearchServiceDescribeOutputArgs', 'CortexSearchServiceDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CortexSearchServiceDescribeOutputArgs', 'CortexSearchServiceDescribeOutputArgsDict', 'outputs.CortexSearchServiceDescribeOutput']]]]] = None,
             embedding_model: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -637,7 +637,7 @@ class CortexSearchService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[_builtins.str] created_on: Creation date for the given Cortex search service.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Cortex search service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CortexSearchServiceDescribeOutputArgs', 'CortexSearchServiceDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CortexSearchServiceDescribeOutputArgs', 'CortexSearchServiceDescribeOutputArgsDict', 'outputs.CortexSearchServiceDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
         :param pulumi.Input[_builtins.str] embedding_model: Specifies the embedding model to use for the Cortex search service.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.

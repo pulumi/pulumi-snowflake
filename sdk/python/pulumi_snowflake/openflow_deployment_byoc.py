@@ -556,13 +556,13 @@ class OpenflowDeploymentByoc(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             custom_ingress_hostname: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentByocDescribeOutputArgs', 'OpenflowDeploymentByocDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentByocDescribeOutputArgs', 'OpenflowDeploymentByocDescribeOutputArgsDict', 'outputs.OpenflowDeploymentByocDescribeOutput']]]]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             event_table: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentByocParameterArgs', 'OpenflowDeploymentByocParameterArgsDict']]]]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentByocShowOutputArgs', 'OpenflowDeploymentByocShowOutputArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentByocParameterArgs', 'OpenflowDeploymentByocParameterArgsDict', 'outputs.OpenflowDeploymentByocParameter']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentByocShowOutputArgs', 'OpenflowDeploymentByocShowOutputArgsDict', 'outputs.OpenflowDeploymentByocShowOutput']]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             use_private_link: pulumi.Input[Optional[_builtins.str]] = None,
             use_user_auth_over_privatelink: pulumi.Input[Optional[_builtins.str]] = None,
@@ -576,13 +576,13 @@ class OpenflowDeploymentByoc(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Openflow deployment.
         :param pulumi.Input[_builtins.str] custom_ingress_hostname: Specifies a custom hostname for ingress into the deployment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentByocDescribeOutputArgs', 'OpenflowDeploymentByocDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE OPENFLOW DEPLOYMENT` for the given deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentByocDescribeOutputArgs', 'OpenflowDeploymentByocDescribeOutputArgsDict', 'outputs.OpenflowDeploymentByocDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE OPENFLOW DEPLOYMENT` for the given deployment.
         :param pulumi.Input[_builtins.str] display_name: A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
         :param pulumi.Input[_builtins.str] event_table: Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow deployment; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentByocParameterArgs', 'OpenflowDeploymentByocParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN OPENFLOW DEPLOYMENT` for the given deployment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentByocShowOutputArgs', 'OpenflowDeploymentByocShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW OPENFLOW DEPLOYMENTS` for the given deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentByocParameterArgs', 'OpenflowDeploymentByocParameterArgsDict', 'outputs.OpenflowDeploymentByocParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN OPENFLOW DEPLOYMENT` for the given deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentByocShowOutputArgs', 'OpenflowDeploymentByocShowOutputArgsDict', 'outputs.OpenflowDeploymentByocShowOutput']]]] show_outputs: Outputs the result of `SHOW OPENFLOW DEPLOYMENTS` for the given deployment.
         :param pulumi.Input[_builtins.str] type: Specifies the type of the Openflow deployment. This field is used to detect when the deployment type was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] use_private_link: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the deployment is reached over private link. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] use_user_auth_over_privatelink: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether user authentication is performed over private link. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.

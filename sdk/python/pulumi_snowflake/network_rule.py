@@ -462,12 +462,12 @@ class NetworkRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkRuleDescribeOutputArgs', 'NetworkRuleDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkRuleDescribeOutputArgs', 'NetworkRuleDescribeOutputArgsDict', 'outputs.NetworkRuleDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             mode: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkRuleShowOutputArgs', 'NetworkRuleShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkRuleShowOutputArgs', 'NetworkRuleShowOutputArgsDict', 'outputs.NetworkRuleShowOutput']]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             value_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'NetworkRule':
         """
@@ -479,12 +479,12 @@ class NetworkRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the network rule.
         :param pulumi.Input[_builtins.str] database: The database in which to create the network rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkRuleDescribeOutputArgs', 'NetworkRuleDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE NETWORK RULE` for the given network rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkRuleDescribeOutputArgs', 'NetworkRuleDescribeOutputArgsDict', 'outputs.NetworkRuleDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE NETWORK RULE` for the given network rule.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] mode: Specifies what is restricted by the network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `INGRESS` | `INTERNAL_STAGE` | `EGRESS` | `POSTGRES_INGRESS` | `POSTGRES_EGRESS`.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the network rule; must be unique for the database and schema in which the network rule is created.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the network rule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkRuleShowOutputArgs', 'NetworkRuleShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW NETWORK RULES` for the given network rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkRuleShowOutputArgs', 'NetworkRuleShowOutputArgsDict', 'outputs.NetworkRuleShowOutput']]]] show_outputs: Outputs the result of `SHOW NETWORK RULES` for the given network rule.
         :param pulumi.Input[_builtins.str] type: Specifies the type of network identifiers being allowed or blocked. A network rule can have only one type. Allowed values are determined by the mode of the network rule; see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details. Valid values are (case-insensitive): `IPV4` | `AWSVPCEID` | `AZURELINKID` | `GCPPSCID` | `HOST_PORT` | `PRIVATE_HOST_PORT`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] value_lists: Specifies the network identifiers that will be allowed or blocked. Valid values in the list are determined by the type of network rule, see https://docs.snowflake.com/en/sql-reference/sql/create-network-rule#required-parameters for details.
         """

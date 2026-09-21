@@ -99,7 +99,7 @@ class AwaitableGetFileFormatsResult(GetFileFormatsResult):
             with_describe=self.with_describe)
 
 
-def get_file_formats(in_: Optional[Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict']] = None,
+def get_file_formats(in_: Optional[Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict', 'outputs.GetFileFormatsInResult']] = None,
                      like: Optional[_builtins.str] = None,
                      with_describe: Optional[_builtins.bool] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFileFormatsResult:
@@ -107,7 +107,7 @@ def get_file_formats(in_: Optional[Union['GetFileFormatsInArgs', 'GetFileFormats
     Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `file_formats`.
 
 
-    :param Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict', 'outputs.GetFileFormatsInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
@@ -124,7 +124,7 @@ def get_file_formats(in_: Optional[Union['GetFileFormatsInArgs', 'GetFileFormats
         in_=pulumi.get(__ret__, 'in_'),
         like=pulumi.get(__ret__, 'like'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_file_formats_output(in_: pulumi.Input[Optional[Optional[Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict']]]] = None,
+def get_file_formats_output(in_: pulumi.Input[Optional[Optional[Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict', 'outputs.GetFileFormatsInResult']]]] = None,
                             like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileFormatsResult]:
@@ -132,7 +132,7 @@ def get_file_formats_output(in_: pulumi.Input[Optional[Optional[Union['GetFileFo
     Data source used to get details of filtered file formats. Filtering is aligned with the current possibilities for [SHOW FILE FORMATS](https://docs.snowflake.com/en/sql-reference/sql/show-file-formats) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `file_formats`.
 
 
-    :param Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetFileFormatsInArgs', 'GetFileFormatsInArgsDict', 'outputs.GetFileFormatsInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC FILE FORMAT for each file format returned by SHOW FILE FORMATS. The output of describe is saved to the describe_output field. By default this value is set to true.
     """

@@ -99,7 +99,7 @@ class AwaitableGetSecretsResult(GetSecretsResult):
             with_describe=self.with_describe)
 
 
-def get_secrets(in_: Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']] = None,
+def get_secrets(in_: Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict', 'outputs.GetSecretsInResult']] = None,
                 like: Optional[_builtins.str] = None,
                 with_describe: Optional[_builtins.bool] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsResult:
@@ -134,7 +134,7 @@ def get_secrets(in_: Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']]
     > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
-    :param Union['GetSecretsInArgs', 'GetSecretsInArgsDict'] in_: IN clause to filter the list of secrets
+    :param Union['GetSecretsInArgs', 'GetSecretsInArgsDict', 'outputs.GetSecretsInResult'] in_: IN clause to filter the list of secrets
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
     """
@@ -151,7 +151,7 @@ def get_secrets(in_: Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']]
         like=pulumi.get(__ret__, 'like'),
         secrets=pulumi.get(__ret__, 'secrets'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_secrets_output(in_: pulumi.Input[Optional[Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']]]] = None,
+def get_secrets_output(in_: pulumi.Input[Optional[Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict', 'outputs.GetSecretsInResult']]]] = None,
                        like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                        with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
@@ -186,7 +186,7 @@ def get_secrets_output(in_: pulumi.Input[Optional[Optional[Union['GetSecretsInAr
     > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
-    :param Union['GetSecretsInArgs', 'GetSecretsInArgsDict'] in_: IN clause to filter the list of secrets
+    :param Union['GetSecretsInArgs', 'GetSecretsInArgsDict', 'outputs.GetSecretsInResult'] in_: IN clause to filter the list of secrets
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
     """

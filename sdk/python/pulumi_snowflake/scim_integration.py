@@ -417,14 +417,14 @@ class ScimIntegration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScimIntegrationDescribeOutputArgs', 'ScimIntegrationDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScimIntegrationDescribeOutputArgs', 'ScimIntegrationDescribeOutputArgsDict', 'outputs.ScimIntegrationDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_policy: pulumi.Input[Optional[_builtins.str]] = None,
             run_as_role: pulumi.Input[Optional[_builtins.str]] = None,
             scim_client: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScimIntegrationShowOutputArgs', 'ScimIntegrationShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScimIntegrationShowOutputArgs', 'ScimIntegrationShowOutputArgsDict', 'outputs.ScimIntegrationShowOutput']]]]] = None,
             sync_password: pulumi.Input[Optional[_builtins.str]] = None) -> 'ScimIntegration':
         """
         Get an existing ScimIntegration resource's state with the given name, id, and optional extra
@@ -434,14 +434,14 @@ class ScimIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScimIntegrationDescribeOutputArgs', 'ScimIntegrationDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScimIntegrationDescribeOutputArgs', 'ScimIntegrationDescribeOutputArgsDict', 'outputs.ScimIntegrationDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[_builtins.bool] enabled: Specify whether the security integration is enabled.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] network_policy: Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] run_as_role: Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. This field is case-sensitive. The exception is using `generic_scim_provisioner`, `okta_provisioner`, or `aad_provisioner`, which are automatically converted to uppercase for backwards compatibility.
         :param pulumi.Input[_builtins.str] scim_client: Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScimIntegrationShowOutputArgs', 'ScimIntegrationShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScimIntegrationShowOutputArgs', 'ScimIntegrationShowOutputArgsDict', 'outputs.ScimIntegrationShowOutput']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[_builtins.str] sync_password: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -87,14 +87,14 @@ class AwaitableGetImageRepositoriesResult(GetImageRepositoriesResult):
             like=self.like)
 
 
-def get_image_repositories(in_: Optional[Union['GetImageRepositoriesInArgs', 'GetImageRepositoriesInArgsDict']] = None,
+def get_image_repositories(in_: Optional[Union['GetImageRepositoriesInArgs', 'GetImageRepositoriesInArgsDict', 'outputs.GetImageRepositoriesInResult']] = None,
                            like: Optional[_builtins.str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetImageRepositoriesResult:
     """
     Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `image_repositories`.
 
 
-    :param Union['GetImageRepositoriesInArgs', 'GetImageRepositoriesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetImageRepositoriesInArgs', 'GetImageRepositoriesInArgsDict', 'outputs.GetImageRepositoriesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     __args__ = dict()
@@ -108,14 +108,14 @@ def get_image_repositories(in_: Optional[Union['GetImageRepositoriesInArgs', 'Ge
         image_repositories=pulumi.get(__ret__, 'image_repositories'),
         in_=pulumi.get(__ret__, 'in_'),
         like=pulumi.get(__ret__, 'like'))
-def get_image_repositories_output(in_: pulumi.Input[Optional[Optional[Union['GetImageRepositoriesInArgs', 'GetImageRepositoriesInArgsDict']]]] = None,
+def get_image_repositories_output(in_: pulumi.Input[Optional[Optional[Union['GetImageRepositoriesInArgs', 'GetImageRepositoriesInArgsDict', 'outputs.GetImageRepositoriesInResult']]]] = None,
                                   like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageRepositoriesResult]:
     """
     Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `image_repositories`.
 
 
-    :param Union['GetImageRepositoriesInArgs', 'GetImageRepositoriesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetImageRepositoriesInArgs', 'GetImageRepositoriesInArgsDict', 'outputs.GetImageRepositoriesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     __args__ = dict()

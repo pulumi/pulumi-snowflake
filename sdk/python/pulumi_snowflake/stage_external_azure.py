@@ -472,11 +472,11 @@ class StageExternalAzure(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict', 'outputs.StageExternalAzureCredentials']]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 directory: pulumi.Input[Optional[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']]] = None,
-                 encryption: pulumi.Input[Optional[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']]] = None,
-                 file_format: pulumi.Input[Optional[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict', 'outputs.StageExternalAzureDirectory']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict', 'outputs.StageExternalAzureEncryption']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict', 'outputs.StageExternalAzureFileFormat']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -708,11 +708,11 @@ class StageExternalAzure(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
-        :param pulumi.Input[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']] credentials: Specifies the Azure SAS token credentials for the external stage.
+        :param pulumi.Input[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict', 'outputs.StageExternalAzureCredentials']] credentials: Specifies the Azure SAS token credentials for the external stage.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']] directory: Directory tables store a catalog of staged files in cloud storage.
-        :param pulumi.Input[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']] encryption: Specifies the encryption settings for the Azure external stage.
-        :param pulumi.Input[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict', 'outputs.StageExternalAzureDirectory']] directory: Directory tables store a catalog of staged files in cloud storage.
+        :param pulumi.Input[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict', 'outputs.StageExternalAzureEncryption']] encryption: Specifies the encryption settings for the Azure external stage.
+        :param pulumi.Input[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict', 'outputs.StageExternalAzureFileFormat']] file_format: Specifies the file format for the stage.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -963,11 +963,11 @@ class StageExternalAzure(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']]] = None,
+                 credentials: pulumi.Input[Optional[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict', 'outputs.StageExternalAzureCredentials']]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 directory: pulumi.Input[Optional[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']]] = None,
-                 encryption: pulumi.Input[Optional[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']]] = None,
-                 file_format: pulumi.Input[Optional[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']]] = None,
+                 directory: pulumi.Input[Optional[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict', 'outputs.StageExternalAzureDirectory']]] = None,
+                 encryption: pulumi.Input[Optional[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict', 'outputs.StageExternalAzureEncryption']]] = None,
+                 file_format: pulumi.Input[Optional[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict', 'outputs.StageExternalAzureFileFormat']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1016,16 +1016,16 @@ class StageExternalAzure(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             cloud: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            credentials: pulumi.Input[Optional[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']]] = None,
+            credentials: pulumi.Input[Optional[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict', 'outputs.StageExternalAzureCredentials']]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalAzureDescribeOutputArgs', 'StageExternalAzureDescribeOutputArgsDict']]]]] = None,
-            directory: pulumi.Input[Optional[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']]] = None,
-            encryption: pulumi.Input[Optional[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']]] = None,
-            file_format: pulumi.Input[Optional[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalAzureDescribeOutputArgs', 'StageExternalAzureDescribeOutputArgsDict', 'outputs.StageExternalAzureDescribeOutput']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict', 'outputs.StageExternalAzureDirectory']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict', 'outputs.StageExternalAzureEncryption']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict', 'outputs.StageExternalAzureFileFormat']]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalAzureShowOutputArgs', 'StageExternalAzureShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalAzureShowOutputArgs', 'StageExternalAzureShowOutputArgsDict', 'outputs.StageExternalAzureShowOutput']]]]] = None,
             stage_type: pulumi.Input[Optional[_builtins.str]] = None,
             storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1039,16 +1039,16 @@ class StageExternalAzure(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cloud: Specifies a cloud provider for the stage. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stage.
-        :param pulumi.Input[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict']] credentials: Specifies the Azure SAS token credentials for the external stage.
+        :param pulumi.Input[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict', 'outputs.StageExternalAzureCredentials']] credentials: Specifies the Azure SAS token credentials for the external stage.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalAzureDescribeOutputArgs', 'StageExternalAzureDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STAGE` for the given stage.
-        :param pulumi.Input[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict']] directory: Directory tables store a catalog of staged files in cloud storage.
-        :param pulumi.Input[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict']] encryption: Specifies the encryption settings for the Azure external stage.
-        :param pulumi.Input[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict']] file_format: Specifies the file format for the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalAzureDescribeOutputArgs', 'StageExternalAzureDescribeOutputArgsDict', 'outputs.StageExternalAzureDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STAGE` for the given stage.
+        :param pulumi.Input[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict', 'outputs.StageExternalAzureDirectory']] directory: Directory tables store a catalog of staged files in cloud storage.
+        :param pulumi.Input[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict', 'outputs.StageExternalAzureEncryption']] encryption: Specifies the encryption settings for the Azure external stage.
+        :param pulumi.Input[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict', 'outputs.StageExternalAzureFileFormat']] file_format: Specifies the file format for the stage.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stage. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalAzureShowOutputArgs', 'StageExternalAzureShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STAGES` for the given stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageExternalAzureShowOutputArgs', 'StageExternalAzureShowOutputArgsDict', 'outputs.StageExternalAzureShowOutput']]]] show_outputs: Outputs the result of `SHOW STAGES` for the given stage.
         :param pulumi.Input[_builtins.str] stage_type: Specifies a type for the stage. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[_builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility to a Snowflake identity. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] url: Specifies the URL for the Azure storage container (e.g., 'azure://account.blob.core.windows.net/container').

@@ -436,14 +436,14 @@ class SecretWithAuthorizationCodeGrant(pulumi.CustomResource):
             api_authentication: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithAuthorizationCodeGrantDescribeOutputArgs', 'SecretWithAuthorizationCodeGrantDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithAuthorizationCodeGrantDescribeOutputArgs', 'SecretWithAuthorizationCodeGrantDescribeOutputArgsDict', 'outputs.SecretWithAuthorizationCodeGrantDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             oauth_refresh_token: pulumi.Input[Optional[_builtins.str]] = None,
             oauth_refresh_token_expiry_time: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             secret_type: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithAuthorizationCodeGrantShowOutputArgs', 'SecretWithAuthorizationCodeGrantShowOutputArgsDict']]]]] = None) -> 'SecretWithAuthorizationCodeGrant':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecretWithAuthorizationCodeGrantShowOutputArgs', 'SecretWithAuthorizationCodeGrantShowOutputArgsDict', 'outputs.SecretWithAuthorizationCodeGrantShowOutput']]]]] = None) -> 'SecretWithAuthorizationCodeGrant':
         """
         Get an existing SecretWithAuthorizationCodeGrant resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -454,14 +454,14 @@ class SecretWithAuthorizationCodeGrant(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] api_authentication: Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the secret.
         :param pulumi.Input[_builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithAuthorizationCodeGrantDescribeOutputArgs', 'SecretWithAuthorizationCodeGrantDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithAuthorizationCodeGrantDescribeOutputArgs', 'SecretWithAuthorizationCodeGrantDescribeOutputArgsDict', 'outputs.SecretWithAuthorizationCodeGrantDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] oauth_refresh_token: Specifies the token as a string that is used to obtain a new access token from the OAuth authorization server when the access token expires. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] oauth_refresh_token_expiry_time: Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \\n\\n
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] secret_type: Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithAuthorizationCodeGrantShowOutputArgs', 'SecretWithAuthorizationCodeGrantShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECRETS` for the given secret.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithAuthorizationCodeGrantShowOutputArgs', 'SecretWithAuthorizationCodeGrantShowOutputArgsDict', 'outputs.SecretWithAuthorizationCodeGrantShowOutput']]]] show_outputs: Outputs the result of `SHOW SECRETS` for the given secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

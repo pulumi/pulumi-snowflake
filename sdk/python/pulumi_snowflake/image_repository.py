@@ -384,7 +384,7 @@ class ImageRepository(pulumi.CustomResource):
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRepositoryShowOutputArgs', 'ImageRepositoryShowOutputArgsDict']]]]] = None) -> 'ImageRepository':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageRepositoryShowOutputArgs', 'ImageRepositoryShowOutputArgsDict', 'outputs.ImageRepositoryShowOutput']]]]] = None) -> 'ImageRepository':
         """
         Get an existing ImageRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -398,7 +398,7 @@ class ImageRepository(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the image repository; must be unique for the schema in which the image repository is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the image repository. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRepositoryShowOutputArgs', 'ImageRepositoryShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW IMAGE REPOSITORIES` for the given image repository.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRepositoryShowOutputArgs', 'ImageRepositoryShowOutputArgsDict', 'outputs.ImageRepositoryShowOutput']]]] show_outputs: Outputs the result of `SHOW IMAGE REPOSITORIES` for the given image repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

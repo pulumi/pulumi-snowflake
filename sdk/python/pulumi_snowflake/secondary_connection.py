@@ -329,7 +329,7 @@ class SecondaryConnection(pulumi.CustomResource):
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             is_primary: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecondaryConnectionShowOutputArgs', 'SecondaryConnectionShowOutputArgsDict']]]]] = None) -> 'SecondaryConnection':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecondaryConnectionShowOutputArgs', 'SecondaryConnectionShowOutputArgsDict', 'outputs.SecondaryConnectionShowOutput']]]]] = None) -> 'SecondaryConnection':
         """
         Get an existing SecondaryConnection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -342,7 +342,7 @@ class SecondaryConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.bool] is_primary: Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecondaryConnectionShowOutputArgs', 'SecondaryConnectionShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW CONNECTIONS` for the given connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecondaryConnectionShowOutputArgs', 'SecondaryConnectionShowOutputArgsDict', 'outputs.SecondaryConnectionShowOutput']]]] show_outputs: Outputs the result of `SHOW CONNECTIONS` for the given connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

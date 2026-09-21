@@ -652,13 +652,13 @@ class FileFormatParquet(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             compression: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatParquetDescribeOutputArgs', 'FileFormatParquetDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatParquetDescribeOutputArgs', 'FileFormatParquetDescribeOutputArgsDict', 'outputs.FileFormatParquetDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             replace_invalid_characters: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatParquetShowOutputArgs', 'FileFormatParquetShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatParquetShowOutputArgs', 'FileFormatParquetShowOutputArgsDict', 'outputs.FileFormatParquetShowOutput']]]]] = None,
             trim_space: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             use_logical_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -674,13 +674,13 @@ class FileFormatParquet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the file format.
         :param pulumi.Input[_builtins.str] compression: Specifies the compression format. Valid values: `AUTO` | `LZO` | `SNAPPY` | `NONE`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the file format. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatParquetDescribeOutputArgs', 'FileFormatParquetDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE FILE FORMAT` for this file format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatParquetDescribeOutputArgs', 'FileFormatParquetDescribeOutputArgsDict', 'outputs.FileFormatParquetDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE FILE FORMAT` for this file format.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] null_ifs: String used to convert to and from SQL NULL.
         :param pulumi.Input[_builtins.str] replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the file format. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatParquetShowOutputArgs', 'FileFormatParquetShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW FILE FORMATS` for this file format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatParquetShowOutputArgs', 'FileFormatParquetShowOutputArgsDict', 'outputs.FileFormatParquetShowOutput']]]] show_outputs: Outputs the result of `SHOW FILE FORMATS` for this file format.
         :param pulumi.Input[_builtins.str] trim_space: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to remove white space from fields. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] type: Specifies the type of the file format. This field is used to detect when the file format type was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] use_logical_type: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to use Parquet logical types when loading data. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.

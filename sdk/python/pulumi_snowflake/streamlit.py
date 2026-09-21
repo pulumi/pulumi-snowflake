@@ -539,7 +539,7 @@ class Streamlit(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict', 'outputs.StreamlitDescribeOutput']]]]] = None,
             directory_location: pulumi.Input[Optional[_builtins.str]] = None,
             external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -547,7 +547,7 @@ class Streamlit(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict', 'outputs.StreamlitShowOutput']]]]] = None,
             stage: pulumi.Input[Optional[_builtins.str]] = None,
             title: pulumi.Input[Optional[_builtins.str]] = None) -> 'Streamlit':
         """
@@ -559,7 +559,7 @@ class Streamlit(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the streamlit.
         :param pulumi.Input[_builtins.str] database: The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict', 'outputs.StreamlitDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
         :param pulumi.Input[_builtins.str] directory_location: Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_access_integrations: External access integrations connected to the Streamlit.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -567,7 +567,7 @@ class Streamlit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMLIT` for the given streamlit.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict', 'outputs.StreamlitShowOutput']]]] show_outputs: Outputs the result of `SHOW STREAMLIT` for the given streamlit.
         :param pulumi.Input[_builtins.str] stage: The stage in which streamlit files are located. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] title: Specifies a title for the Streamlit app to display in Snowsight.
         """

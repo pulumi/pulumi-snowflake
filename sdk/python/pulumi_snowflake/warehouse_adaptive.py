@@ -476,10 +476,10 @@ class WarehouseAdaptive(pulumi.CustomResource):
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             max_query_performance_level: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseAdaptiveParameterArgs', 'WarehouseAdaptiveParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseAdaptiveParameterArgs', 'WarehouseAdaptiveParameterArgsDict', 'outputs.WarehouseAdaptiveParameter']]]]] = None,
             query_throughput_multiplier: pulumi.Input[Optional[_builtins.int]] = None,
             resource_monitor: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseAdaptiveShowOutputArgs', 'WarehouseAdaptiveShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseAdaptiveShowOutputArgs', 'WarehouseAdaptiveShowOutputArgsDict', 'outputs.WarehouseAdaptiveShowOutput']]]]] = None,
             statement_queued_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             statement_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             warehouse_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'WarehouseAdaptive':
@@ -494,10 +494,10 @@ class WarehouseAdaptive(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] max_query_performance_level: Specifies the maximum query performance level for the adaptive warehouse. Determines the initial compute capacity. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE`.
         :param pulumi.Input[_builtins.str] name: Identifier for the adaptive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseAdaptiveParameterArgs', 'WarehouseAdaptiveParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given adaptive warehouse.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseAdaptiveParameterArgs', 'WarehouseAdaptiveParameterArgsDict', 'outputs.WarehouseAdaptiveParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given adaptive warehouse.
         :param pulumi.Input[_builtins.int] query_throughput_multiplier: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the query throughput multiplier for the adaptive warehouse.
         :param pulumi.Input[_builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseAdaptiveShowOutputArgs', 'WarehouseAdaptiveShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseAdaptiveShowOutputArgs', 'WarehouseAdaptiveShowOutputArgsDict', 'outputs.WarehouseAdaptiveShowOutput']]]] show_outputs: Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
         :param pulumi.Input[_builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[_builtins.int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
         :param pulumi.Input[_builtins.str] warehouse_type: Specifies the type for the adaptive warehouse. This field is used for checking external changes and recreating the resource if needed.

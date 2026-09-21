@@ -559,7 +559,7 @@ class ExternalTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
                  aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict', 'outputs.ExternalTableColumn']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -571,7 +571,7 @@ class ExternalTable(pulumi.CustomResource):
                  refresh_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  table_format: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict', 'outputs.ExternalTableTag']]]]] = None,
                  __props__=None):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -629,7 +629,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_refresh: (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         :param pulumi.Input[_builtins.str] aws_sns_topic: Specifies the aws sns topic for the external table.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]] columns: Definitions of a column to create in the external table. Minimum one required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict', 'outputs.ExternalTableColumn']]]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the external table.
         :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         :param pulumi.Input[_builtins.str] database: The database in which to create the external table.
@@ -641,7 +641,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] refresh_on_create: (Default: `true`) Specifies weather to refresh when an external table is created.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the external table.
         :param pulumi.Input[_builtins.str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict', 'outputs.ExternalTableTag']]]] tags: Definitions of a tag to associate with the resource.
         """
         ...
     @overload
@@ -718,7 +718,7 @@ class ExternalTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
                  aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict', 'outputs.ExternalTableColumn']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -730,7 +730,7 @@ class ExternalTable(pulumi.CustomResource):
                  refresh_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  table_format: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict', 'outputs.ExternalTableTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -779,7 +779,7 @@ class ExternalTable(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
             aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
-            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict', 'outputs.ExternalTableColumn']]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -793,7 +793,7 @@ class ExternalTable(pulumi.CustomResource):
             refresh_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             table_format: pulumi.Input[Optional[_builtins.str]] = None,
-            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]]] = None) -> 'ExternalTable':
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict', 'outputs.ExternalTableTag']]]]] = None) -> 'ExternalTable':
         """
         Get an existing ExternalTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -803,7 +803,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_refresh: (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         :param pulumi.Input[_builtins.str] aws_sns_topic: Specifies the aws sns topic for the external table.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]] columns: Definitions of a column to create in the external table. Minimum one required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict', 'outputs.ExternalTableColumn']]]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the external table.
         :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         :param pulumi.Input[_builtins.str] database: The database in which to create the external table.
@@ -817,7 +817,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] refresh_on_create: (Default: `true`) Specifies weather to refresh when an external table is created.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the external table.
         :param pulumi.Input[_builtins.str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict', 'outputs.ExternalTableTag']]]] tags: Definitions of a tag to associate with the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

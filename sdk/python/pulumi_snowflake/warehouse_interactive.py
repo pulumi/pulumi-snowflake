@@ -784,9 +784,9 @@ class WarehouseInteractive(pulumi.CustomResource):
             max_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
             min_cluster_count: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseInteractiveParameterArgs', 'WarehouseInteractiveParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseInteractiveParameterArgs', 'WarehouseInteractiveParameterArgsDict', 'outputs.WarehouseInteractiveParameter']]]]] = None,
             resource_monitor: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseInteractiveShowOutputArgs', 'WarehouseInteractiveShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseInteractiveShowOutputArgs', 'WarehouseInteractiveShowOutputArgsDict', 'outputs.WarehouseInteractiveShowOutput']]]]] = None,
             statement_queued_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             statement_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             tables: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -809,9 +809,9 @@ class WarehouseInteractive(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by an interactive warehouse.
         :param pulumi.Input[_builtins.int] min_cluster_count: Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[_builtins.str] name: Identifier for the interactive warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseInteractiveParameterArgs', 'WarehouseInteractiveParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given interactive warehouse.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseInteractiveParameterArgs', 'WarehouseInteractiveParameterArgsDict', 'outputs.WarehouseInteractiveParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given interactive warehouse.
         :param pulumi.Input[_builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the interactive warehouse. For more information about this resource, see docs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseInteractiveShowOutputArgs', 'WarehouseInteractiveShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW WAREHOUSES` for the given interactive warehouse.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseInteractiveShowOutputArgs', 'WarehouseInteractiveShowOutputArgsDict', 'outputs.WarehouseInteractiveShowOutput']]]] show_outputs: Outputs the result of `SHOW WAREHOUSES` for the given interactive warehouse.
         :param pulumi.Input[_builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on an interactive warehouse before it is canceled by the system.
         :param pulumi.Input[_builtins.int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tables: Specifies the fully qualified names of the tables associated with the interactive warehouse. Changes are applied incrementally (ADD TABLES / DROP TABLES) rather than by full re-association.

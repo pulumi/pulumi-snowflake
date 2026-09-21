@@ -604,7 +604,7 @@ class ComputePool(pulumi.CustomResource):
             auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
             backup_instance_families: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputePoolDescribeOutputArgs', 'ComputePoolDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputePoolDescribeOutputArgs', 'ComputePoolDescribeOutputArgsDict', 'outputs.ComputePoolDescribeOutput']]]]] = None,
             for_application: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             initially_suspended: pulumi.Input[Optional[_builtins.str]] = None,
@@ -612,7 +612,7 @@ class ComputePool(pulumi.CustomResource):
             max_nodes: pulumi.Input[Optional[_builtins.int]] = None,
             min_nodes: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputePoolShowOutputArgs', 'ComputePoolShowOutputArgsDict']]]]] = None) -> 'ComputePool':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ComputePoolShowOutputArgs', 'ComputePoolShowOutputArgsDict', 'outputs.ComputePoolShowOutput']]]]] = None) -> 'ComputePool':
         """
         Get an existing ComputePool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -624,7 +624,7 @@ class ComputePool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] auto_suspend_secs: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of seconds of inactivity after which you want Snowflake to automatically suspend the compute pool.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_instance_families: Specifies an ordered list of instance families to fall back on when the primary `instance_family` is unavailable. The order determines the fallback priority. Valid values are (case-insensitive): `CPU_X64_XS` | `CPU_X64_S` | `CPU_X64_M` | `CPU_X64_SL` | `CPU_X64_L` | `HIGHMEM_X64_S` | `HIGHMEM_X64_M` | `HIGHMEM_X64_L` | `HIGHMEM_X64_SL` | `GPU_NV_S` | `GPU_NV_M` | `GPU_NV_L` | `GPU_NV_XS` | `GPU_NV_SM` | `GPU_NV_2M` | `GPU_NV_3M` | `GPU_NV_SL` | `GPU_GCP_NV_L4_1_24G` | `GPU_GCP_NV_L4_4_24G` | `GPU_GCP_NV_A100_8_40G` | `GEN_ARM_G1_2` | `GEN_ARM_G1_4` | `GEN_ARM_G1_8` | `GEN_ARM_G1_16` | `GEN_ARM_G1_32` | `GEN_X64_G2_2` | `GEN_X64_G2_4` | `GEN_X64_G2_8` | `GEN_X64_G2_16` | `GEN_X64_G2_32` | `MEM_X64_G2_8` | `MEM_X64_G2_32` | `MEM_X64_G2_64` | `MEM_X64_G2_96` | `MEM_X64_G2_192` | `GPU_L40S_G1_8` | `GPU_L40S_G1_16` | `GPU_L40S_G1_48` | `GPU_L40S_G1_192` | `GPU_R6K_G1_8` | `GPU_R6K_G1_16` | `GPU_R6K_G1_32` | `GPU_R6K_G1_48` | `GPU_R6K_G1_96` | `GPU_R6K_G1_192` | `GPU_A100_G1_12` | `GPU_A100_G1_48`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the compute pool.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ComputePoolDescribeOutputArgs', 'ComputePoolDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE COMPUTE POOL` for the given compute pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ComputePoolDescribeOutputArgs', 'ComputePoolDescribeOutputArgsDict', 'outputs.ComputePoolDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE COMPUTE POOL` for the given compute pool.
         :param pulumi.Input[_builtins.str] for_application: Specifies the Snowflake Native App name.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] initially_suspended: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the compute pool is created initially in the suspended state. This field is used only when creating a compute pool. Changes on this field are ignored after creation.
@@ -632,7 +632,7 @@ class ComputePool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_nodes: Specifies the maximum number of nodes for the compute pool.
         :param pulumi.Input[_builtins.int] min_nodes: Specifies the minimum number of nodes for the compute pool.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the compute pool; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ComputePoolShowOutputArgs', 'ComputePoolShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW COMPUTE POOLS` for the given compute pool.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ComputePoolShowOutputArgs', 'ComputePoolShowOutputArgsDict', 'outputs.ComputePoolShowOutput']]]] show_outputs: Outputs the result of `SHOW COMPUTE POOLS` for the given compute pool.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

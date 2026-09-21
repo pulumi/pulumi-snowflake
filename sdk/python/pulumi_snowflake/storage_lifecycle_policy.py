@@ -344,7 +344,7 @@ class StorageLifecyclePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_for_days: pulumi.Input[Optional[_builtins.int]] = None,
                  archive_tier: pulumi.Input[Optional[_builtins.str]] = None,
-                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict']]]]] = None,
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict', 'outputs.StorageLifecyclePolicyArgument']]]]] = None,
                  body: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -407,7 +407,7 @@ class StorageLifecyclePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] archive_for_days: Specifies the number of days to keep rows that match the policy expression in archive storage. If set, Snowflake moves the data into archive storage according to the value you select for archive_tier. If unset, Snowflake expires the rows from the table without archiving the data.
         :param pulumi.Input[_builtins.str] archive_tier: Specifies the type of storage tier to use for archiving rows. After you set the ARCHIVE_TIER for a policy, you can’t modify it. If you don’t specify this parameter, the policy is an expiration policy that deletes rows without archiving them. Valid values are (case-insensitive): `COOL` | `COLD`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict']]]] arguments: List of the arguments for the storage lifecycle policy. A signature specifies a set of attributes that must be considered to determine whether the row is ready for expiration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict', 'outputs.StorageLifecyclePolicyArgument']]]] arguments: List of the arguments for the storage lifecycle policy. A signature specifies a set of attributes that must be considered to determine whether the row is ready for expiration.
         :param pulumi.Input[_builtins.str] body: Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the storage lifecycle policy.
         :param pulumi.Input[_builtins.str] database: The database in which to create the storage lifecycle policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -489,7 +489,7 @@ class StorageLifecyclePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  archive_for_days: pulumi.Input[Optional[_builtins.int]] = None,
                  archive_tier: pulumi.Input[Optional[_builtins.str]] = None,
-                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict']]]]] = None,
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict', 'outputs.StorageLifecyclePolicyArgument']]]]] = None,
                  body: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -535,15 +535,15 @@ class StorageLifecyclePolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             archive_for_days: pulumi.Input[Optional[_builtins.int]] = None,
             archive_tier: pulumi.Input[Optional[_builtins.str]] = None,
-            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict']]]]] = None,
+            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict', 'outputs.StorageLifecyclePolicyArgument']]]]] = None,
             body: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyDescribeOutputArgs', 'StorageLifecyclePolicyDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyDescribeOutputArgs', 'StorageLifecyclePolicyDescribeOutputArgsDict', 'outputs.StorageLifecyclePolicyDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyShowOutputArgs', 'StorageLifecyclePolicyShowOutputArgsDict']]]]] = None) -> 'StorageLifecyclePolicy':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyShowOutputArgs', 'StorageLifecyclePolicyShowOutputArgsDict', 'outputs.StorageLifecyclePolicyShowOutput']]]]] = None) -> 'StorageLifecyclePolicy':
         """
         Get an existing StorageLifecyclePolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -553,15 +553,15 @@ class StorageLifecyclePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] archive_for_days: Specifies the number of days to keep rows that match the policy expression in archive storage. If set, Snowflake moves the data into archive storage according to the value you select for archive_tier. If unset, Snowflake expires the rows from the table without archiving the data.
         :param pulumi.Input[_builtins.str] archive_tier: Specifies the type of storage tier to use for archiving rows. After you set the ARCHIVE_TIER for a policy, you can’t modify it. If you don’t specify this parameter, the policy is an expiration policy that deletes rows without archiving them. Valid values are (case-insensitive): `COOL` | `COLD`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict']]]] arguments: List of the arguments for the storage lifecycle policy. A signature specifies a set of attributes that must be considered to determine whether the row is ready for expiration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict', 'outputs.StorageLifecyclePolicyArgument']]]] arguments: List of the arguments for the storage lifecycle policy. A signature specifies a set of attributes that must be considered to determine whether the row is ready for expiration.
         :param pulumi.Input[_builtins.str] body: Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the storage lifecycle policy.
         :param pulumi.Input[_builtins.str] database: The database in which to create the storage lifecycle policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageLifecyclePolicyDescribeOutputArgs', 'StorageLifecyclePolicyDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STORAGE LIFECYCLE POLICY` for the given storage lifecycle policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageLifecyclePolicyDescribeOutputArgs', 'StorageLifecyclePolicyDescribeOutputArgsDict', 'outputs.StorageLifecyclePolicyDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STORAGE LIFECYCLE POLICY` for the given storage lifecycle policy.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the storage lifecycle policy; must be unique for the database and schema in which the storage lifecycle policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the storage lifecycle policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageLifecyclePolicyShowOutputArgs', 'StorageLifecyclePolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STORAGE LIFECYCLE POLICIES` for the given storage lifecycle policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageLifecyclePolicyShowOutputArgs', 'StorageLifecyclePolicyShowOutputArgsDict', 'outputs.StorageLifecyclePolicyShowOutput']]]] show_outputs: Outputs the result of `SHOW STORAGE LIFECYCLE POLICIES` for the given storage lifecycle policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

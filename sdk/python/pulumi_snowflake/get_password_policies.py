@@ -135,10 +135,10 @@ class AwaitableGetPasswordPoliciesResult(GetPasswordPoliciesResult):
             with_describe=self.with_describe)
 
 
-def get_password_policies(in_: Optional[Union['GetPasswordPoliciesInArgs', 'GetPasswordPoliciesInArgsDict']] = None,
+def get_password_policies(in_: Optional[Union['GetPasswordPoliciesInArgs', 'GetPasswordPoliciesInArgsDict', 'outputs.GetPasswordPoliciesInResult']] = None,
                           like: Optional[_builtins.str] = None,
-                          limit: Optional[Union['GetPasswordPoliciesLimitArgs', 'GetPasswordPoliciesLimitArgsDict']] = None,
-                          on: Optional[Union['GetPasswordPoliciesOnArgs', 'GetPasswordPoliciesOnArgsDict']] = None,
+                          limit: Optional[Union['GetPasswordPoliciesLimitArgs', 'GetPasswordPoliciesLimitArgsDict', 'outputs.GetPasswordPoliciesLimitResult']] = None,
+                          on: Optional[Union['GetPasswordPoliciesOnArgs', 'GetPasswordPoliciesOnArgsDict', 'outputs.GetPasswordPoliciesOnResult']] = None,
                           starts_with: Optional[_builtins.str] = None,
                           with_describe: Optional[_builtins.bool] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPasswordPoliciesResult:
@@ -148,10 +148,10 @@ def get_password_policies(in_: Optional[Union['GetPasswordPoliciesInArgs', 'GetP
     Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `password_policies`.
 
 
-    :param Union['GetPasswordPoliciesInArgs', 'GetPasswordPoliciesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetPasswordPoliciesInArgs', 'GetPasswordPoliciesInArgsDict', 'outputs.GetPasswordPoliciesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetPasswordPoliciesLimitArgs', 'GetPasswordPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param Union['GetPasswordPoliciesOnArgs', 'GetPasswordPoliciesOnArgsDict'] on: Lists the policies that are effective on the specified object.
+    :param Union['GetPasswordPoliciesLimitArgs', 'GetPasswordPoliciesLimitArgsDict', 'outputs.GetPasswordPoliciesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetPasswordPoliciesOnArgs', 'GetPasswordPoliciesOnArgsDict', 'outputs.GetPasswordPoliciesOnResult'] on: Lists the policies that are effective on the specified object.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC PASSWORD POLICY for each password policy returned by SHOW PASSWORD POLICIES. The output of describe is saved to the describe_output field. By default this value is set to true.
     """
@@ -174,10 +174,10 @@ def get_password_policies(in_: Optional[Union['GetPasswordPoliciesInArgs', 'GetP
         password_policies=pulumi.get(__ret__, 'password_policies'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_password_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetPasswordPoliciesInArgs', 'GetPasswordPoliciesInArgsDict']]]] = None,
+def get_password_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetPasswordPoliciesInArgs', 'GetPasswordPoliciesInArgsDict', 'outputs.GetPasswordPoliciesInResult']]]] = None,
                                  like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                 limit: pulumi.Input[Optional[Optional[Union['GetPasswordPoliciesLimitArgs', 'GetPasswordPoliciesLimitArgsDict']]]] = None,
-                                 on: pulumi.Input[Optional[Optional[Union['GetPasswordPoliciesOnArgs', 'GetPasswordPoliciesOnArgsDict']]]] = None,
+                                 limit: pulumi.Input[Optional[Optional[Union['GetPasswordPoliciesLimitArgs', 'GetPasswordPoliciesLimitArgsDict', 'outputs.GetPasswordPoliciesLimitResult']]]] = None,
+                                 on: pulumi.Input[Optional[Optional[Union['GetPasswordPoliciesOnArgs', 'GetPasswordPoliciesOnArgsDict', 'outputs.GetPasswordPoliciesOnResult']]]] = None,
                                  starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                  with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPasswordPoliciesResult]:
@@ -187,10 +187,10 @@ def get_password_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetP
     Data source used to get details of filtered password policies. Filtering is aligned with the current possibilities for [SHOW PASSWORD POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-password-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `password_policies`.
 
 
-    :param Union['GetPasswordPoliciesInArgs', 'GetPasswordPoliciesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetPasswordPoliciesInArgs', 'GetPasswordPoliciesInArgsDict', 'outputs.GetPasswordPoliciesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetPasswordPoliciesLimitArgs', 'GetPasswordPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param Union['GetPasswordPoliciesOnArgs', 'GetPasswordPoliciesOnArgsDict'] on: Lists the policies that are effective on the specified object.
+    :param Union['GetPasswordPoliciesLimitArgs', 'GetPasswordPoliciesLimitArgsDict', 'outputs.GetPasswordPoliciesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetPasswordPoliciesOnArgs', 'GetPasswordPoliciesOnArgsDict', 'outputs.GetPasswordPoliciesOnResult'] on: Lists the policies that are effective on the specified object.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC PASSWORD POLICY for each password policy returned by SHOW PASSWORD POLICIES. The output of describe is saved to the describe_output field. By default this value is set to true.
     """

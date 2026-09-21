@@ -678,7 +678,7 @@ class StorageIntegration(pulumi.CustomResource):
             azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             created_on: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationDescribeOutputArgs', 'StorageIntegrationDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationDescribeOutputArgs', 'StorageIntegrationDescribeOutputArgsDict', 'outputs.StorageIntegrationDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -704,7 +704,7 @@ class StorageIntegration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the storage integration.
         :param pulumi.Input[_builtins.str] created_on: Date and time when the storage integration was created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationDescribeOutputArgs', 'StorageIntegrationDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationDescribeOutputArgs', 'StorageIntegrationDescribeOutputArgsDict', 'outputs.StorageIntegrationDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
         :param pulumi.Input[_builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account.

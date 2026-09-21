@@ -1221,7 +1221,7 @@ class FileFormatCsv(pulumi.CustomResource):
             compression: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
             date_format: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatCsvDescribeOutputArgs', 'FileFormatCsvDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatCsvDescribeOutputArgs', 'FileFormatCsvDescribeOutputArgsDict', 'outputs.FileFormatCsvDescribeOutput']]]]] = None,
             empty_field_as_null: pulumi.Input[Optional[_builtins.str]] = None,
             encoding: pulumi.Input[Optional[_builtins.str]] = None,
             error_on_column_count_mismatch: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1238,7 +1238,7 @@ class FileFormatCsv(pulumi.CustomResource):
             record_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
             replace_invalid_characters: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatCsvShowOutputArgs', 'FileFormatCsvShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatCsvShowOutputArgs', 'FileFormatCsvShowOutputArgsDict', 'outputs.FileFormatCsvShowOutput']]]]] = None,
             skip_blank_lines: pulumi.Input[Optional[_builtins.str]] = None,
             skip_byte_order_mark: pulumi.Input[Optional[_builtins.str]] = None,
             skip_header: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1258,7 +1258,7 @@ class FileFormatCsv(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] compression: Specifies the compression format. Valid values: `AUTO` | `GZIP` | `BZ2` | `BROTLI` | `ZSTD` | `DEFLATE` | `RAW_DEFLATE` | `NONE`.
         :param pulumi.Input[_builtins.str] database: The database in which to create the file format. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] date_format: Defines the format of date values in the data files. Use `AUTO` to have Snowflake auto-detect the format.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatCsvDescribeOutputArgs', 'FileFormatCsvDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE FILE FORMAT` for this file format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatCsvDescribeOutputArgs', 'FileFormatCsvDescribeOutputArgsDict', 'outputs.FileFormatCsvDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE FILE FORMAT` for this file format.
         :param pulumi.Input[_builtins.str] empty_field_as_null: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to insert SQL NULL for empty fields in an input file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] encoding: Specifies the character set of the source data when loading data into a table. Valid values: `BIG5` | `EUCJP` | `EUCKR` | `GB18030` | `IBM420` | `IBM424` | `ISO2022CN` | `ISO2022JP` | `ISO2022KR` | `ISO88591` | `ISO88592` | `ISO88595` | `ISO88596` | `ISO88597` | `ISO88598` | `ISO88599` | `ISO885915` | `KOI8R` | `SHIFTJIS` | `UTF8` | `UTF16` | `UTF16BE` | `UTF16LE` | `UTF32` | `UTF32BE` | `UTF32LE` | `WINDOWS1250` | `WINDOWS1251` | `WINDOWS1252` | `WINDOWS1253` | `WINDOWS1254` | `WINDOWS1255` | `WINDOWS1256`. Hyphenated aliases returned by Snowflake (e.g. UTF-8, UTF-16LE) are accepted and normalized to these values.
         :param pulumi.Input[_builtins.str] error_on_column_count_mismatch: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to generate a parsing error if the number of delimited columns in an input file does not match the number of columns in the corresponding table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
@@ -1275,7 +1275,7 @@ class FileFormatCsv(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] record_delimiter: One or more singlebyte or multibyte characters that separate records in an input file. Use `NONE` to specify no delimiter.
         :param pulumi.Input[_builtins.str] replace_invalid_characters: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to replace invalid UTF-8 characters with the Unicode replacement character. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the file format. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatCsvShowOutputArgs', 'FileFormatCsvShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW FILE FORMATS` for this file format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FileFormatCsvShowOutputArgs', 'FileFormatCsvShowOutputArgsDict', 'outputs.FileFormatCsvShowOutput']]]] show_outputs: Outputs the result of `SHOW FILE FORMATS` for this file format.
         :param pulumi.Input[_builtins.str] skip_blank_lines: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies to skip any blank lines encountered in the data files. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.str] skip_byte_order_mark: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to skip the BOM (byte order mark) if present in a data file. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[_builtins.int] skip_header: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Number of lines at the start of the file to skip.

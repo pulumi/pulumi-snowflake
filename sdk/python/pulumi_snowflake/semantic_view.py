@@ -361,13 +361,13 @@ class SemanticView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewDimensionArgs', 'SemanticViewDimensionArgsDict']]]]] = None,
-                 facts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewFactArgs', 'SemanticViewFactArgsDict']]]]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewMetricArgs', 'SemanticViewMetricArgsDict']]]]] = None,
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewDimensionArgs', 'SemanticViewDimensionArgsDict', 'outputs.SemanticViewDimension']]]]] = None,
+                 facts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewFactArgs', 'SemanticViewFactArgsDict', 'outputs.SemanticViewFact']]]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewMetricArgs', 'SemanticViewMetricArgsDict', 'outputs.SemanticViewMetric']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 relationships: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewRelationshipArgs', 'SemanticViewRelationshipArgsDict']]]]] = None,
+                 relationships: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewRelationshipArgs', 'SemanticViewRelationshipArgsDict', 'outputs.SemanticViewRelationship']]]]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
-                 tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewTableArgs', 'SemanticViewTableArgsDict']]]]] = None,
+                 tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewTableArgs', 'SemanticViewTableArgsDict', 'outputs.SemanticViewTable']]]]] = None,
                  __props__=None):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -519,13 +519,13 @@ class SemanticView(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the semantic view.
         :param pulumi.Input[_builtins.str] database: The database in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewDimensionArgs', 'SemanticViewDimensionArgsDict']]]] dimensions: The list of dimensions in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewFactArgs', 'SemanticViewFactArgsDict']]]] facts: The list of facts in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewMetricArgs', 'SemanticViewMetricArgsDict']]]] metrics: Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewDimensionArgs', 'SemanticViewDimensionArgsDict', 'outputs.SemanticViewDimension']]]] dimensions: The list of dimensions in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewFactArgs', 'SemanticViewFactArgsDict', 'outputs.SemanticViewFact']]]] facts: The list of facts in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewMetricArgs', 'SemanticViewMetricArgsDict', 'outputs.SemanticViewMetric']]]] metrics: Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the semantic view; must be unique within the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewRelationshipArgs', 'SemanticViewRelationshipArgsDict']]]] relationships: The list of relationships between the logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewRelationshipArgs', 'SemanticViewRelationshipArgsDict', 'outputs.SemanticViewRelationship']]]] relationships: The list of relationships between the logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewTableArgs', 'SemanticViewTableArgsDict']]]] tables: The list of logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewTableArgs', 'SemanticViewTableArgsDict', 'outputs.SemanticViewTable']]]] tables: The list of logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         ...
     @overload
@@ -696,13 +696,13 @@ class SemanticView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewDimensionArgs', 'SemanticViewDimensionArgsDict']]]]] = None,
-                 facts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewFactArgs', 'SemanticViewFactArgsDict']]]]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewMetricArgs', 'SemanticViewMetricArgsDict']]]]] = None,
+                 dimensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewDimensionArgs', 'SemanticViewDimensionArgsDict', 'outputs.SemanticViewDimension']]]]] = None,
+                 facts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewFactArgs', 'SemanticViewFactArgsDict', 'outputs.SemanticViewFact']]]]] = None,
+                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewMetricArgs', 'SemanticViewMetricArgsDict', 'outputs.SemanticViewMetric']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 relationships: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewRelationshipArgs', 'SemanticViewRelationshipArgsDict']]]]] = None,
+                 relationships: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewRelationshipArgs', 'SemanticViewRelationshipArgsDict', 'outputs.SemanticViewRelationship']]]]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
-                 tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewTableArgs', 'SemanticViewTableArgsDict']]]]] = None,
+                 tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewTableArgs', 'SemanticViewTableArgsDict', 'outputs.SemanticViewTable']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -741,15 +741,15 @@ class SemanticView(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            dimensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewDimensionArgs', 'SemanticViewDimensionArgsDict']]]]] = None,
-            facts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewFactArgs', 'SemanticViewFactArgsDict']]]]] = None,
+            dimensions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewDimensionArgs', 'SemanticViewDimensionArgsDict', 'outputs.SemanticViewDimension']]]]] = None,
+            facts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewFactArgs', 'SemanticViewFactArgsDict', 'outputs.SemanticViewFact']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
-            metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewMetricArgs', 'SemanticViewMetricArgsDict']]]]] = None,
+            metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewMetricArgs', 'SemanticViewMetricArgsDict', 'outputs.SemanticViewMetric']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            relationships: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewRelationshipArgs', 'SemanticViewRelationshipArgsDict']]]]] = None,
+            relationships: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewRelationshipArgs', 'SemanticViewRelationshipArgsDict', 'outputs.SemanticViewRelationship']]]]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewShowOutputArgs', 'SemanticViewShowOutputArgsDict']]]]] = None,
-            tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewTableArgs', 'SemanticViewTableArgsDict']]]]] = None) -> 'SemanticView':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewShowOutputArgs', 'SemanticViewShowOutputArgsDict', 'outputs.SemanticViewShowOutput']]]]] = None,
+            tables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SemanticViewTableArgs', 'SemanticViewTableArgsDict', 'outputs.SemanticViewTable']]]]] = None) -> 'SemanticView':
         """
         Get an existing SemanticView resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -759,15 +759,15 @@ class SemanticView(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the semantic view.
         :param pulumi.Input[_builtins.str] database: The database in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewDimensionArgs', 'SemanticViewDimensionArgsDict']]]] dimensions: The list of dimensions in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewFactArgs', 'SemanticViewFactArgsDict']]]] facts: The list of facts in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewDimensionArgs', 'SemanticViewDimensionArgsDict', 'outputs.SemanticViewDimension']]]] dimensions: The list of dimensions in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewFactArgs', 'SemanticViewFactArgsDict', 'outputs.SemanticViewFact']]]] facts: The list of facts in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewMetricArgs', 'SemanticViewMetricArgsDict']]]] metrics: Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewMetricArgs', 'SemanticViewMetricArgsDict', 'outputs.SemanticViewMetric']]]] metrics: Specify a list of metrics for the semantic view. Each metric can have either a semantic expression or a window function in its definition. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the semantic view; must be unique within the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewRelationshipArgs', 'SemanticViewRelationshipArgsDict']]]] relationships: The list of relationships between the logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewRelationshipArgs', 'SemanticViewRelationshipArgsDict', 'outputs.SemanticViewRelationship']]]] relationships: The list of relationships between the logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the semantic view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewShowOutputArgs', 'SemanticViewShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SEMANTIC VIEWS` for the given semantic view.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewTableArgs', 'SemanticViewTableArgsDict']]]] tables: The list of logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewShowOutputArgs', 'SemanticViewShowOutputArgsDict', 'outputs.SemanticViewShowOutput']]]] show_outputs: Outputs the result of `SHOW SEMANTIC VIEWS` for the given semantic view.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SemanticViewTableArgs', 'SemanticViewTableArgsDict', 'outputs.SemanticViewTable']]]] tables: The list of logical tables in the semantic view. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

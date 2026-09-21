@@ -486,11 +486,11 @@ class StorageIntegrationAzure(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAzureDescribeOutputArgs', 'StorageIntegrationAzureDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAzureDescribeOutputArgs', 'StorageIntegrationAzureDescribeOutputArgsDict', 'outputs.StorageIntegrationAzureDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAzureShowOutputArgs', 'StorageIntegrationAzureShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAzureShowOutputArgs', 'StorageIntegrationAzureShowOutputArgsDict', 'outputs.StorageIntegrationAzureShowOutput']]]]] = None,
             storage_allowed_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             storage_blocked_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> 'StorageIntegrationAzure':
@@ -503,11 +503,11 @@ class StorageIntegrationAzure(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] azure_tenant_id: Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the storage integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationAzureDescribeOutputArgs', 'StorageIntegrationAzureDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationAzureDescribeOutputArgs', 'StorageIntegrationAzureDescribeOutputArgsDict', 'outputs.StorageIntegrationAzureDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this storage integration is available for usage in stages. `TRUE` allows users to create new stages that reference this integration. Existing stages that reference this integration function normally. `FALSE` prevents users from creating new stages that reference this integration. Existing stages that reference this integration cannot access the storage location in the stage definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationAzureShowOutputArgs', 'StorageIntegrationAzureShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STORAGE INTEGRATIONS` for the given storage integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationAzureShowOutputArgs', 'StorageIntegrationAzureShowOutputArgsDict', 'outputs.StorageIntegrationAzureShowOutput']]]] show_outputs: Outputs the result of `SHOW STORAGE INTEGRATIONS` for the given storage integration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[_builtins.str] use_privatelink_endpoint: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to use outbound private connectivity to harden the security posture. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.

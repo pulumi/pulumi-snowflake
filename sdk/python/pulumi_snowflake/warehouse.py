@@ -826,12 +826,12 @@ class Warehouse(pulumi.CustomResource):
             max_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
             min_cluster_count: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict', 'outputs.WarehouseParameter']]]]] = None,
             query_acceleration_max_scale_factor: pulumi.Input[Optional[_builtins.int]] = None,
             resource_constraint: pulumi.Input[Optional[_builtins.str]] = None,
             resource_monitor: pulumi.Input[Optional[_builtins.str]] = None,
             scaling_policy: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseShowOutputArgs', 'WarehouseShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseShowOutputArgs', 'WarehouseShowOutputArgsDict', 'outputs.WarehouseShowOutput']]]]] = None,
             statement_queued_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             statement_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
             warehouse_size: pulumi.Input[Optional[_builtins.str]] = None,
@@ -854,12 +854,12 @@ class Warehouse(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[_builtins.int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
         :param pulumi.Input[_builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict', 'outputs.WarehouseParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
         :param pulumi.Input[_builtins.int] query_acceleration_max_scale_factor: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
         :param pulumi.Input[_builtins.str] resource_constraint: Specifies the resource constraint for the warehouse. Only available for snowpark-optimized warehouses. For setting generation please use the `generation` field. Please check [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for required warehouse sizes for each resource constraint. Valid values are (case-insensitive): `MEMORY_1X` | `MEMORY_1X_x86` | `MEMORY_16X` | `MEMORY_16X_x86` | `MEMORY_64X` | `MEMORY_64X_x86`. Gen2 warehouses are not available in all regions. Please consult the [Snowflake Gen2 Region Availability documentation](https://docs.snowflake.com/en/user-guide/warehouses-gen2#region-availability) prior to configuration.
         :param pulumi.Input[_builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseShowOutputArgs', 'WarehouseShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseShowOutputArgs', 'WarehouseShowOutputArgsDict', 'outputs.WarehouseShowOutput']]]] show_outputs: Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
         :param pulumi.Input[_builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
         :param pulumi.Input[_builtins.int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
         :param pulumi.Input[_builtins.str] warehouse_size: Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.

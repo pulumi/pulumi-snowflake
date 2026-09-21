@@ -440,8 +440,8 @@ class StreamOnTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  append_only: pulumi.Input[Optional[_builtins.str]] = None,
-                 at: pulumi.Input[Optional[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']]] = None,
-                 before: pulumi.Input[Optional[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']]] = None,
+                 at: pulumi.Input[Optional[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict', 'outputs.StreamOnTableAt']]] = None,
+                 before: pulumi.Input[Optional[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict', 'outputs.StreamOnTableBefore']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -467,8 +467,8 @@ class StreamOnTable(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] append_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']] at: This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']] before: This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict', 'outputs.StreamOnTableAt']] at: This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict', 'outputs.StreamOnTableBefore']] before: This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stream.
         :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -513,8 +513,8 @@ class StreamOnTable(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  append_only: pulumi.Input[Optional[_builtins.str]] = None,
-                 at: pulumi.Input[Optional[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']]] = None,
-                 before: pulumi.Input[Optional[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']]] = None,
+                 at: pulumi.Input[Optional[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict', 'outputs.StreamOnTableAt']]] = None,
+                 before: pulumi.Input[Optional[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict', 'outputs.StreamOnTableBefore']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -563,17 +563,17 @@ class StreamOnTable(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             append_only: pulumi.Input[Optional[_builtins.str]] = None,
-            at: pulumi.Input[Optional[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']]] = None,
-            before: pulumi.Input[Optional[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']]] = None,
+            at: pulumi.Input[Optional[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict', 'outputs.StreamOnTableAt']]] = None,
+            before: pulumi.Input[Optional[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict', 'outputs.StreamOnTableBefore']]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnTableDescribeOutputArgs', 'StreamOnTableDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnTableDescribeOutputArgs', 'StreamOnTableDescribeOutputArgsDict', 'outputs.StreamOnTableDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             show_initial_rows: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnTableShowOutputArgs', 'StreamOnTableShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnTableShowOutputArgs', 'StreamOnTableShowOutputArgsDict', 'outputs.StreamOnTableShowOutput']]]]] = None,
             stale: pulumi.Input[Optional[_builtins.bool]] = None,
             stream_type: pulumi.Input[Optional[_builtins.str]] = None,
             table: pulumi.Input[Optional[_builtins.str]] = None) -> 'StreamOnTable':
@@ -585,17 +585,17 @@ class StreamOnTable(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] append_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict']] at: This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict']] before: This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict', 'outputs.StreamOnTableAt']] at: This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        :param pulumi.Input[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict', 'outputs.StreamOnTableBefore']] before: This field specifies that the request refers to a point immediately preceding the specified parameter. This point in time is just before the statement, identified by its query ID, is completed.  Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the stream.
         :param pulumi.Input[_builtins.bool] copy_grants: (Default: `false`) Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. This is used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect during creating a new object with Terraform.
         :param pulumi.Input[_builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnTableDescribeOutputArgs', 'StreamOnTableDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STREAM` for the given stream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnTableDescribeOutputArgs', 'StreamOnTableDescribeOutputArgsDict', 'outputs.StreamOnTableDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STREAM` for the given stream.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] show_initial_rows: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to return all existing rows in the source table as row inserts the first time the stream is consumed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnTableShowOutputArgs', 'StreamOnTableShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnTableShowOutputArgs', 'StreamOnTableShowOutputArgsDict', 'outputs.StreamOnTableShowOutput']]]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
         :param pulumi.Input[_builtins.bool] stale: Indicated if the stream is stale. When Terraform detects that the stream is stale, the stream is recreated with `CREATE OR REPLACE`. Read more on stream staleness in Snowflake [docs](https://docs.snowflake.com/en/user-guide/streams-intro#data-retention-period-and-staleness).
         :param pulumi.Input[_builtins.str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[_builtins.str] table: Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.

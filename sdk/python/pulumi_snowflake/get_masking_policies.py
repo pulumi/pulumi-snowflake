@@ -111,9 +111,9 @@ class AwaitableGetMaskingPoliciesResult(GetMaskingPoliciesResult):
             with_describe=self.with_describe)
 
 
-def get_masking_policies(in_: Optional[Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict']] = None,
+def get_masking_policies(in_: Optional[Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict', 'outputs.GetMaskingPoliciesInResult']] = None,
                          like: Optional[_builtins.str] = None,
-                         limit: Optional[Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict']] = None,
+                         limit: Optional[Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict', 'outputs.GetMaskingPoliciesLimitResult']] = None,
                          with_describe: Optional[_builtins.bool] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaskingPoliciesResult:
     """
@@ -122,9 +122,9 @@ def get_masking_policies(in_: Optional[Union['GetMaskingPoliciesInArgs', 'GetMas
     Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
 
 
-    :param Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict'] in_: IN clause to filter the list of masking policies
+    :param Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict', 'outputs.GetMaskingPoliciesInResult'] in_: IN clause to filter the list of masking policies
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict', 'outputs.GetMaskingPoliciesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
@@ -142,9 +142,9 @@ def get_masking_policies(in_: Optional[Union['GetMaskingPoliciesInArgs', 'GetMas
         limit=pulumi.get(__ret__, 'limit'),
         masking_policies=pulumi.get(__ret__, 'masking_policies'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_masking_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict']]]] = None,
+def get_masking_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict', 'outputs.GetMaskingPoliciesInResult']]]] = None,
                                 like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                limit: pulumi.Input[Optional[Optional[Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict']]]] = None,
+                                limit: pulumi.Input[Optional[Optional[Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict', 'outputs.GetMaskingPoliciesLimitResult']]]] = None,
                                 with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaskingPoliciesResult]:
     """
@@ -153,9 +153,9 @@ def get_masking_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetMa
     Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
 
 
-    :param Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict'] in_: IN clause to filter the list of masking policies
+    :param Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict', 'outputs.GetMaskingPoliciesInResult'] in_: IN clause to filter the list of masking policies
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict', 'outputs.GetMaskingPoliciesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()

@@ -392,15 +392,15 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bearer_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict']]] = None,
+                 bearer_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestBearerRestAuthentication']]] = None,
                  catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 oauth_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict']]] = None,
+                 oauth_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestOauthRestAuthentication']]] = None,
                  refresh_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 rest_config: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict']]] = None,
-                 sigv4_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict']]] = None,
+                 rest_config: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict', 'outputs.CatalogIntegrationIcebergRestRestConfig']]] = None,
+                 sigv4_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestSigv4RestAuthentication']]] = None,
                  __props__=None):
         """
         > **Known limitation for SigV4 authentication:** `sigv4_rest_authentication.sigv4_external_id` is not returned by Snowflake, cannot be altered after creation, and is marked as `ForceNew` in the provider. If your configuration specifies this field after import, Terraform may still produce a destroy-before-create plan because the value cannot be populated in state during import and cannot be synced via an in-place update. To avoid recreation after import for `sigv4_rest_authentication` you can omit `sigv4_external_id` if you don't need to track its changes within the configuration, adjust the state manually for this field, or accept a one-time recreation plan. We plan to address this limitation in a future release; for now, this behavior is expected. See the migration guide for details.
@@ -485,15 +485,15 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict']] bearer_rest_authentication: Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
+        :param pulumi.Input[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestBearerRestAuthentication']] bearer_rest_authentication: Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
-        :param pulumi.Input[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict']] oauth_rest_authentication: Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
+        :param pulumi.Input[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestOauthRestAuthentication']] oauth_rest_authentication: Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
-        :param pulumi.Input[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict']] rest_config: Specifies information about REST configuration.
-        :param pulumi.Input[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict']] sigv4_rest_authentication: Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
+        :param pulumi.Input[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict', 'outputs.CatalogIntegrationIcebergRestRestConfig']] rest_config: Specifies information about REST configuration.
+        :param pulumi.Input[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestSigv4RestAuthentication']] sigv4_rest_authentication: Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         """
         ...
     @overload
@@ -597,15 +597,15 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bearer_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict']]] = None,
+                 bearer_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestBearerRestAuthentication']]] = None,
                  catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 oauth_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict']]] = None,
+                 oauth_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestOauthRestAuthentication']]] = None,
                  refresh_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 rest_config: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict']]] = None,
-                 sigv4_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict']]] = None,
+                 rest_config: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict', 'outputs.CatalogIntegrationIcebergRestRestConfig']]] = None,
+                 sigv4_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestSigv4RestAuthentication']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -642,19 +642,19 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            bearer_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict']]] = None,
+            bearer_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestBearerRestAuthentication']]] = None,
             catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
             catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestDescribeOutputArgs', 'CatalogIntegrationIcebergRestDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestDescribeOutputArgs', 'CatalogIntegrationIcebergRestDescribeOutputArgsDict', 'outputs.CatalogIntegrationIcebergRestDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            oauth_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict']]] = None,
+            oauth_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestOauthRestAuthentication']]] = None,
             refresh_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-            rest_config: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict']]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestShowOutputArgs', 'CatalogIntegrationIcebergRestShowOutputArgsDict']]]]] = None,
-            sigv4_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict']]] = None) -> 'CatalogIntegrationIcebergRest':
+            rest_config: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict', 'outputs.CatalogIntegrationIcebergRestRestConfig']]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestShowOutputArgs', 'CatalogIntegrationIcebergRestShowOutputArgsDict', 'outputs.CatalogIntegrationIcebergRestShowOutput']]]]] = None,
+            sigv4_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestSigv4RestAuthentication']]] = None) -> 'CatalogIntegrationIcebergRest':
         """
         Get an existing CatalogIntegrationIcebergRest resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -662,19 +662,19 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict']] bearer_rest_authentication: Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
+        :param pulumi.Input[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestBearerRestAuthentication']] bearer_rest_authentication: Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default namespace for all Iceberg tables that you associate with the catalog integration.
         :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestDescribeOutputArgs', 'CatalogIntegrationIcebergRestDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestDescribeOutputArgs', 'CatalogIntegrationIcebergRestDescribeOutputArgsDict', 'outputs.CatalogIntegrationIcebergRestDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
-        :param pulumi.Input[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict']] oauth_rest_authentication: Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
+        :param pulumi.Input[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestOauthRestAuthentication']] oauth_rest_authentication: Specifies OAuth as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
-        :param pulumi.Input[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict']] rest_config: Specifies information about REST configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestShowOutputArgs', 'CatalogIntegrationIcebergRestShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
-        :param pulumi.Input[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict']] sigv4_rest_authentication: Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
+        :param pulumi.Input[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict', 'outputs.CatalogIntegrationIcebergRestRestConfig']] rest_config: Specifies information about REST configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestShowOutputArgs', 'CatalogIntegrationIcebergRestShowOutputArgsDict', 'outputs.CatalogIntegrationIcebergRestShowOutput']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        :param pulumi.Input[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestSigv4RestAuthentication']] sigv4_rest_authentication: Specifies Signature Version 4 as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

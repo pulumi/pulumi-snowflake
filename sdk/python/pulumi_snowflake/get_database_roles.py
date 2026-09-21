@@ -101,7 +101,7 @@ class AwaitableGetDatabaseRolesResult(GetDatabaseRolesResult):
 
 def get_database_roles(in_database: Optional[_builtins.str] = None,
                        like: Optional[_builtins.str] = None,
-                       limit: Optional[Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict']] = None,
+                       limit: Optional[Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict', 'outputs.GetDatabaseRolesLimitResult']] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseRolesResult:
     """
     Data source used to get details of filtered database roles. Filtering is aligned with the current possibilities for [SHOW DATABASE ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-database-roles) query (`like` and `limit` are supported). The results of SHOW is encapsulated in show_output collection.
@@ -109,7 +109,7 @@ def get_database_roles(in_database: Optional[_builtins.str] = None,
 
     :param _builtins.str in_database: The database from which to return the database roles from.
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict', 'outputs.GetDatabaseRolesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     """
     __args__ = dict()
     __args__['inDatabase'] = in_database
@@ -126,7 +126,7 @@ def get_database_roles(in_database: Optional[_builtins.str] = None,
         limit=pulumi.get(__ret__, 'limit'))
 def get_database_roles_output(in_database: pulumi.Input[Optional[_builtins.str]] = None,
                               like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                              limit: pulumi.Input[Optional[Optional[Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict']]]] = None,
+                              limit: pulumi.Input[Optional[Optional[Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict', 'outputs.GetDatabaseRolesLimitResult']]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseRolesResult]:
     """
     Data source used to get details of filtered database roles. Filtering is aligned with the current possibilities for [SHOW DATABASE ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-database-roles) query (`like` and `limit` are supported). The results of SHOW is encapsulated in show_output collection.
@@ -134,7 +134,7 @@ def get_database_roles_output(in_database: pulumi.Input[Optional[_builtins.str]]
 
     :param _builtins.str in_database: The database from which to return the database roles from.
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict', 'outputs.GetDatabaseRolesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     """
     __args__ = dict()
     __args__['inDatabase'] = in_database

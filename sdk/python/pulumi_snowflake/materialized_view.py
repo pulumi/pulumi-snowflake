@@ -357,7 +357,7 @@ class MaterializedView(pulumi.CustomResource):
                  or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  statement: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict', 'outputs.MaterializedViewTag']]]]] = None,
                  warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -409,7 +409,7 @@ class MaterializedView(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict', 'outputs.MaterializedViewTag']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[_builtins.str] warehouse: The warehouse name.
         """
         ...
@@ -480,7 +480,7 @@ class MaterializedView(pulumi.CustomResource):
                  or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  statement: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict', 'outputs.MaterializedViewTag']]]]] = None,
                  warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -527,7 +527,7 @@ class MaterializedView(pulumi.CustomResource):
             or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             statement: pulumi.Input[Optional[_builtins.str]] = None,
-            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict', 'outputs.MaterializedViewTag']]]]] = None,
             warehouse: pulumi.Input[Optional[_builtins.str]] = None) -> 'MaterializedView':
         """
         Get an existing MaterializedView resource's state with the given name, id, and optional extra
@@ -544,7 +544,7 @@ class MaterializedView(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] or_replace: (Default: `false`) Specifies whether to use CREATE OR REPLACE when creating the materialized view. Note: this does not enable in-place updates when other fields forcing object recreation change; such fields always trigger delete and create operations in pulumi preview.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[_builtins.str] statement: Specifies the query used to create the view. Changing this value will trigger a drop and recreate of the materialized view.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict', 'outputs.MaterializedViewTag']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[_builtins.str] warehouse: The warehouse name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

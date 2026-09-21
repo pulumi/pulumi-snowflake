@@ -246,7 +246,7 @@ class AccountRole(pulumi.CustomResource):
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountRoleShowOutputArgs', 'AccountRoleShowOutputArgsDict']]]]] = None) -> 'AccountRole':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountRoleShowOutputArgs', 'AccountRoleShowOutputArgsDict', 'outputs.AccountRoleShowOutput']]]]] = None) -> 'AccountRole':
         """
         Get an existing AccountRole resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -256,7 +256,7 @@ class AccountRole(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountRoleShowOutputArgs', 'AccountRoleShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW ROLES` for the given role.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccountRoleShowOutputArgs', 'AccountRoleShowOutputArgsDict', 'outputs.AccountRoleShowOutput']]]] show_outputs: Outputs the result of `SHOW ROLES` for the given role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

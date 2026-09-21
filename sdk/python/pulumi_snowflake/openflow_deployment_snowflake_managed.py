@@ -390,13 +390,13 @@ class OpenflowDeploymentSnowflakeManaged(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedDescribeOutputArgs', 'OpenflowDeploymentSnowflakeManagedDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedDescribeOutputArgs', 'OpenflowDeploymentSnowflakeManagedDescribeOutputArgsDict', 'outputs.OpenflowDeploymentSnowflakeManagedDescribeOutput']]]]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
             event_table: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedParameterArgs', 'OpenflowDeploymentSnowflakeManagedParameterArgsDict']]]]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedShowOutputArgs', 'OpenflowDeploymentSnowflakeManagedShowOutputArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedParameterArgs', 'OpenflowDeploymentSnowflakeManagedParameterArgsDict', 'outputs.OpenflowDeploymentSnowflakeManagedParameter']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedShowOutputArgs', 'OpenflowDeploymentSnowflakeManagedShowOutputArgsDict', 'outputs.OpenflowDeploymentSnowflakeManagedShowOutput']]]]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None) -> 'OpenflowDeploymentSnowflakeManaged':
         """
         Get an existing OpenflowDeploymentSnowflakeManaged resource's state with the given name, id, and optional extra
@@ -406,13 +406,13 @@ class OpenflowDeploymentSnowflakeManaged(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Openflow deployment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedDescribeOutputArgs', 'OpenflowDeploymentSnowflakeManagedDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE OPENFLOW DEPLOYMENT` for the given deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedDescribeOutputArgs', 'OpenflowDeploymentSnowflakeManagedDescribeOutputArgsDict', 'outputs.OpenflowDeploymentSnowflakeManagedDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE OPENFLOW DEPLOYMENT` for the given deployment.
         :param pulumi.Input[_builtins.str] display_name: A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
         :param pulumi.Input[_builtins.str] event_table: Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow deployment; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedParameterArgs', 'OpenflowDeploymentSnowflakeManagedParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN OPENFLOW DEPLOYMENT` for the given deployment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedShowOutputArgs', 'OpenflowDeploymentSnowflakeManagedShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW OPENFLOW DEPLOYMENTS` for the given deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedParameterArgs', 'OpenflowDeploymentSnowflakeManagedParameterArgsDict', 'outputs.OpenflowDeploymentSnowflakeManagedParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN OPENFLOW DEPLOYMENT` for the given deployment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedShowOutputArgs', 'OpenflowDeploymentSnowflakeManagedShowOutputArgsDict', 'outputs.OpenflowDeploymentSnowflakeManagedShowOutput']]]] show_outputs: Outputs the result of `SHOW OPENFLOW DEPLOYMENTS` for the given deployment.
         :param pulumi.Input[_builtins.str] type: Specifies the type of the Openflow deployment. This field is used to detect when the deployment type was changed outside of Terraform and to recreate the resource when that happens.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

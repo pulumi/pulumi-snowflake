@@ -342,7 +342,7 @@ class Alert(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
-                 alert_schedule: pulumi.Input[Optional[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict']]] = None,
+                 alert_schedule: pulumi.Input[Optional[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict', 'outputs.AlertAlertSchedule']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  condition: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -391,7 +391,7 @@ class Alert(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The SQL statement that should be executed if the condition returns one or more rows.
-        :param pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict']] alert_schedule: The schedule for periodically running an alert.
+        :param pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict', 'outputs.AlertAlertSchedule']] alert_schedule: The schedule for periodically running an alert.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the alert.
         :param pulumi.Input[_builtins.str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
         :param pulumi.Input[_builtins.str] database: The database in which to create the alert.
@@ -459,7 +459,7 @@ class Alert(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional[_builtins.str]] = None,
-                 alert_schedule: pulumi.Input[Optional[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict']]] = None,
+                 alert_schedule: pulumi.Input[Optional[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict', 'outputs.AlertAlertSchedule']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  condition: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -507,7 +507,7 @@ class Alert(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             action: pulumi.Input[Optional[_builtins.str]] = None,
-            alert_schedule: pulumi.Input[Optional[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict']]] = None,
+            alert_schedule: pulumi.Input[Optional[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict', 'outputs.AlertAlertSchedule']]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             condition: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -524,7 +524,7 @@ class Alert(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The SQL statement that should be executed if the condition returns one or more rows.
-        :param pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict']] alert_schedule: The schedule for periodically running an alert.
+        :param pulumi.Input[Union['AlertAlertScheduleArgs', 'AlertAlertScheduleArgsDict', 'outputs.AlertAlertSchedule']] alert_schedule: The schedule for periodically running an alert.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the alert.
         :param pulumi.Input[_builtins.str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
         :param pulumi.Input[_builtins.str] database: The database in which to create the alert.

@@ -602,11 +602,11 @@ class StorageIntegrationAws(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAwsDescribeOutputArgs', 'StorageIntegrationAwsDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAwsDescribeOutputArgs', 'StorageIntegrationAwsDescribeOutputArgsDict', 'outputs.StorageIntegrationAwsDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAwsShowOutputArgs', 'StorageIntegrationAwsShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAwsShowOutputArgs', 'StorageIntegrationAwsShowOutputArgsDict', 'outputs.StorageIntegrationAwsShowOutput']]]]] = None,
             storage_allowed_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             storage_aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
             storage_aws_object_acl: pulumi.Input[Optional[_builtins.str]] = None,
@@ -622,11 +622,11 @@ class StorageIntegrationAws(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the storage integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationAwsDescribeOutputArgs', 'StorageIntegrationAwsDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationAwsDescribeOutputArgs', 'StorageIntegrationAwsDescribeOutputArgsDict', 'outputs.StorageIntegrationAwsDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE STORAGE INTEGRATION` for the given storage integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether this storage integration is available for usage in stages. `TRUE` allows users to create new stages that reference this integration. Existing stages that reference this integration function normally. `FALSE` prevents users from creating new stages that reference this integration. Existing stages that reference this integration cannot access the storage location in the stage definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationAwsShowOutputArgs', 'StorageIntegrationAwsShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STORAGE INTEGRATIONS` for the given storage integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StorageIntegrationAwsShowOutputArgs', 'StorageIntegrationAwsShowOutputArgsDict', 'outputs.StorageIntegrationAwsShowOutput']]]] show_outputs: Outputs the result of `SHOW STORAGE INTEGRATIONS` for the given storage integration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[_builtins.str] storage_aws_external_id: Optionally specifies an external ID that Snowflake uses to establish a trust relationship with AWS.
         :param pulumi.Input[_builtins.str] storage_aws_object_acl: Enables support for AWS access control lists (ACLs) to grant the bucket owner full control. `bucket-owner-full-control` is the only currently supported value.

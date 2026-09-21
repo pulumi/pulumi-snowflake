@@ -111,9 +111,9 @@ class AwaitableGetSemanticViewsResult(GetSemanticViewsResult):
             starts_with=self.starts_with)
 
 
-def get_semantic_views(in_: Optional[Union['GetSemanticViewsInArgs', 'GetSemanticViewsInArgsDict']] = None,
+def get_semantic_views(in_: Optional[Union['GetSemanticViewsInArgs', 'GetSemanticViewsInArgsDict', 'outputs.GetSemanticViewsInResult']] = None,
                        like: Optional[_builtins.str] = None,
-                       limit: Optional[Union['GetSemanticViewsLimitArgs', 'GetSemanticViewsLimitArgsDict']] = None,
+                       limit: Optional[Union['GetSemanticViewsLimitArgs', 'GetSemanticViewsLimitArgsDict', 'outputs.GetSemanticViewsLimitResult']] = None,
                        starts_with: Optional[_builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSemanticViewsResult:
     """
@@ -124,9 +124,9 @@ def get_semantic_views(in_: Optional[Union['GetSemanticViewsInArgs', 'GetSemanti
     Data source used to get details of filtered semantic views. Filtering is aligned with the current possibilities for [SHOW SEMANTIC VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-semantic-views) query. The results are encapsulated in one output collection `semantic_views`. DESCRIBE is not currently supported and will be added before promoting the resource to stable.
 
 
-    :param Union['GetSemanticViewsInArgs', 'GetSemanticViewsInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetSemanticViewsInArgs', 'GetSemanticViewsInArgsDict', 'outputs.GetSemanticViewsInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetSemanticViewsLimitArgs', 'GetSemanticViewsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetSemanticViewsLimitArgs', 'GetSemanticViewsLimitArgsDict', 'outputs.GetSemanticViewsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     """
     __args__ = dict()
@@ -144,9 +144,9 @@ def get_semantic_views(in_: Optional[Union['GetSemanticViewsInArgs', 'GetSemanti
         limit=pulumi.get(__ret__, 'limit'),
         semantic_views=pulumi.get(__ret__, 'semantic_views'),
         starts_with=pulumi.get(__ret__, 'starts_with'))
-def get_semantic_views_output(in_: pulumi.Input[Optional[Optional[Union['GetSemanticViewsInArgs', 'GetSemanticViewsInArgsDict']]]] = None,
+def get_semantic_views_output(in_: pulumi.Input[Optional[Optional[Union['GetSemanticViewsInArgs', 'GetSemanticViewsInArgsDict', 'outputs.GetSemanticViewsInResult']]]] = None,
                               like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                              limit: pulumi.Input[Optional[Optional[Union['GetSemanticViewsLimitArgs', 'GetSemanticViewsLimitArgsDict']]]] = None,
+                              limit: pulumi.Input[Optional[Optional[Union['GetSemanticViewsLimitArgs', 'GetSemanticViewsLimitArgsDict', 'outputs.GetSemanticViewsLimitResult']]]] = None,
                               starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSemanticViewsResult]:
     """
@@ -157,9 +157,9 @@ def get_semantic_views_output(in_: pulumi.Input[Optional[Optional[Union['GetSema
     Data source used to get details of filtered semantic views. Filtering is aligned with the current possibilities for [SHOW SEMANTIC VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-semantic-views) query. The results are encapsulated in one output collection `semantic_views`. DESCRIBE is not currently supported and will be added before promoting the resource to stable.
 
 
-    :param Union['GetSemanticViewsInArgs', 'GetSemanticViewsInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetSemanticViewsInArgs', 'GetSemanticViewsInArgsDict', 'outputs.GetSemanticViewsInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetSemanticViewsLimitArgs', 'GetSemanticViewsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetSemanticViewsLimitArgs', 'GetSemanticViewsLimitArgsDict', 'outputs.GetSemanticViewsLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     """
     __args__ = dict()

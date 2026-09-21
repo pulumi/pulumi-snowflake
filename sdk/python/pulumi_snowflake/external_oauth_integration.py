@@ -768,7 +768,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationDescribeOutputArgs', 'ExternalOauthIntegrationDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationDescribeOutputArgs', 'ExternalOauthIntegrationDescribeOutputArgsDict', 'outputs.ExternalOauthIntegrationDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             external_oauth_allowed_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             external_oauth_any_role_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -785,8 +785,8 @@ class ExternalOauthIntegration(pulumi.CustomResource):
             external_oauth_type: pulumi.Input[Optional[_builtins.str]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            related_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationRelatedParameterArgs', 'ExternalOauthIntegrationRelatedParameterArgsDict']]]]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationShowOutputArgs', 'ExternalOauthIntegrationShowOutputArgsDict']]]]] = None) -> 'ExternalOauthIntegration':
+            related_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationRelatedParameterArgs', 'ExternalOauthIntegrationRelatedParameterArgsDict', 'outputs.ExternalOauthIntegrationRelatedParameter']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationShowOutputArgs', 'ExternalOauthIntegrationShowOutputArgsDict', 'outputs.ExternalOauthIntegrationShowOutput']]]]] = None) -> 'ExternalOauthIntegration':
         """
         Get an existing ExternalOauthIntegration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -795,7 +795,7 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the OAuth integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationDescribeOutputArgs', 'ExternalOauthIntegrationDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationDescribeOutputArgs', 'ExternalOauthIntegrationDescribeOutputArgsDict', 'outputs.ExternalOauthIntegrationDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether to initiate operation of the integration or suspend it.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] external_oauth_allowed_roles_lists: Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] external_oauth_any_role_mode: Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
@@ -812,8 +812,8 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] external_oauth_type: Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationRelatedParameterArgs', 'ExternalOauthIntegrationRelatedParameterArgsDict']]]] related_parameters: Parameters related to this security integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationShowOutputArgs', 'ExternalOauthIntegrationShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationRelatedParameterArgs', 'ExternalOauthIntegrationRelatedParameterArgsDict', 'outputs.ExternalOauthIntegrationRelatedParameter']]]] related_parameters: Parameters related to this security integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalOauthIntegrationShowOutputArgs', 'ExternalOauthIntegrationShowOutputArgsDict', 'outputs.ExternalOauthIntegrationShowOutput']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

@@ -111,18 +111,18 @@ class AwaitableGetGitRepositoriesResult(GetGitRepositoriesResult):
             with_describe=self.with_describe)
 
 
-def get_git_repositories(in_: Optional[Union['GetGitRepositoriesInArgs', 'GetGitRepositoriesInArgsDict']] = None,
+def get_git_repositories(in_: Optional[Union['GetGitRepositoriesInArgs', 'GetGitRepositoriesInArgsDict', 'outputs.GetGitRepositoriesInResult']] = None,
                          like: Optional[_builtins.str] = None,
-                         limit: Optional[Union['GetGitRepositoriesLimitArgs', 'GetGitRepositoriesLimitArgsDict']] = None,
+                         limit: Optional[Union['GetGitRepositoriesLimitArgs', 'GetGitRepositoriesLimitArgsDict', 'outputs.GetGitRepositoriesLimitResult']] = None,
                          with_describe: Optional[_builtins.bool] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGitRepositoriesResult:
     """
     Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `git_repositories`.
 
 
-    :param Union['GetGitRepositoriesInArgs', 'GetGitRepositoriesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetGitRepositoriesInArgs', 'GetGitRepositoriesInArgsDict', 'outputs.GetGitRepositoriesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetGitRepositoriesLimitArgs', 'GetGitRepositoriesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetGitRepositoriesLimitArgs', 'GetGitRepositoriesLimitArgsDict', 'outputs.GetGitRepositoriesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC GIT REPOSITORY for each git repository returned by SHOW GIT REPOSITORIES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
@@ -140,18 +140,18 @@ def get_git_repositories(in_: Optional[Union['GetGitRepositoriesInArgs', 'GetGit
         like=pulumi.get(__ret__, 'like'),
         limit=pulumi.get(__ret__, 'limit'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_git_repositories_output(in_: pulumi.Input[Optional[Optional[Union['GetGitRepositoriesInArgs', 'GetGitRepositoriesInArgsDict']]]] = None,
+def get_git_repositories_output(in_: pulumi.Input[Optional[Optional[Union['GetGitRepositoriesInArgs', 'GetGitRepositoriesInArgsDict', 'outputs.GetGitRepositoriesInResult']]]] = None,
                                 like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                limit: pulumi.Input[Optional[Optional[Union['GetGitRepositoriesLimitArgs', 'GetGitRepositoriesLimitArgsDict']]]] = None,
+                                limit: pulumi.Input[Optional[Optional[Union['GetGitRepositoriesLimitArgs', 'GetGitRepositoriesLimitArgsDict', 'outputs.GetGitRepositoriesLimitResult']]]] = None,
                                 with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGitRepositoriesResult]:
     """
     Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `git_repositories`.
 
 
-    :param Union['GetGitRepositoriesInArgs', 'GetGitRepositoriesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetGitRepositoriesInArgs', 'GetGitRepositoriesInArgsDict', 'outputs.GetGitRepositoriesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetGitRepositoriesLimitArgs', 'GetGitRepositoriesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetGitRepositoriesLimitArgs', 'GetGitRepositoriesLimitArgsDict', 'outputs.GetGitRepositoriesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC GIT REPOSITORY for each git repository returned by SHOW GIT REPOSITORIES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()

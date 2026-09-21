@@ -334,8 +334,8 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
                  always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
                  database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  on_database: pulumi.Input[Optional[_builtins.str]] = None,
-                 on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']]] = None,
-                 on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']]] = None,
+                 on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchema']]] = None,
+                 on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchemaObject']]] = None,
                  privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -354,8 +354,8 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] always_apply_trigger: (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[_builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
-        :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']] on_schema: Specifies the schema on which privileges will be granted.
-        :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']] on_schema_object: Specifies the schema object on which privileges will be granted.
+        :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchema']] on_schema: Specifies the schema on which privileges will be granted.
+        :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchemaObject']] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] privileges: The privileges to grant on the database role.
         :param pulumi.Input[_builtins.bool] with_grant_option: (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
         """
@@ -393,8 +393,8 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
                  always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
                  database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  on_database: pulumi.Input[Optional[_builtins.str]] = None,
-                 on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']]] = None,
-                 on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']]] = None,
+                 on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchema']]] = None,
+                 on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchemaObject']]] = None,
                  privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
@@ -432,8 +432,8 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
             always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
             database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
             on_database: pulumi.Input[Optional[_builtins.str]] = None,
-            on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']]] = None,
-            on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']]] = None,
+            on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchema']]] = None,
+            on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchemaObject']]] = None,
             privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None) -> 'GrantPrivilegesToDatabaseRole':
         """
@@ -448,8 +448,8 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] always_apply_trigger: (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[_builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
-        :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']] on_schema: Specifies the schema on which privileges will be granted.
-        :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']] on_schema_object: Specifies the schema object on which privileges will be granted.
+        :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchema']] on_schema: Specifies the schema on which privileges will be granted.
+        :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchemaObject']] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] privileges: The privileges to grant on the database role.
         :param pulumi.Input[_builtins.bool] with_grant_option: (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
         """

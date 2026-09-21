@@ -573,7 +573,7 @@ class DynamicTable(pulumi.CustomResource):
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  refresh_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_lag: pulumi.Input[Optional[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
+                 target_lag: pulumi.Input[Optional[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict', 'outputs.DynamicTableTargetLag']]] = None,
                  warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -620,7 +620,7 @@ class DynamicTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] query: Specifies the query to use to populate the dynamic table.
         :param pulumi.Input[_builtins.str] refresh_mode: (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the dynamic table.
-        :param pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']] target_lag: Specifies the target lag time for the dynamic table.
+        :param pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict', 'outputs.DynamicTableTargetLag']] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[_builtins.str] warehouse: The warehouse in which to create the dynamic table.
         """
         ...
@@ -686,7 +686,7 @@ class DynamicTable(pulumi.CustomResource):
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  refresh_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_lag: pulumi.Input[Optional[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
+                 target_lag: pulumi.Input[Optional[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict', 'outputs.DynamicTableTargetLag']]] = None,
                  warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -761,7 +761,7 @@ class DynamicTable(pulumi.CustomResource):
             rows: pulumi.Input[Optional[_builtins.int]] = None,
             scheduling_state: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            target_lag: pulumi.Input[Optional[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']]] = None,
+            target_lag: pulumi.Input[Optional[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict', 'outputs.DynamicTableTargetLag']]] = None,
             warehouse: pulumi.Input[Optional[_builtins.str]] = None) -> 'DynamicTable':
         """
         Get an existing DynamicTable resource's state with the given name, id, and optional extra
@@ -791,7 +791,7 @@ class DynamicTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] rows: Number of rows in the table.
         :param pulumi.Input[_builtins.str] scheduling_state: Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the dynamic table.
-        :param pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']] target_lag: Specifies the target lag time for the dynamic table.
+        :param pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict', 'outputs.DynamicTableTargetLag']] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[_builtins.str] warehouse: The warehouse in which to create the dynamic table.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

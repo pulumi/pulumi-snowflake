@@ -135,10 +135,10 @@ class AwaitableGetAuthenticationPoliciesResult(GetAuthenticationPoliciesResult):
             with_describe=self.with_describe)
 
 
-def get_authentication_policies(in_: Optional[Union['GetAuthenticationPoliciesInArgs', 'GetAuthenticationPoliciesInArgsDict']] = None,
+def get_authentication_policies(in_: Optional[Union['GetAuthenticationPoliciesInArgs', 'GetAuthenticationPoliciesInArgsDict', 'outputs.GetAuthenticationPoliciesInResult']] = None,
                                 like: Optional[_builtins.str] = None,
-                                limit: Optional[Union['GetAuthenticationPoliciesLimitArgs', 'GetAuthenticationPoliciesLimitArgsDict']] = None,
-                                on: Optional[Union['GetAuthenticationPoliciesOnArgs', 'GetAuthenticationPoliciesOnArgsDict']] = None,
+                                limit: Optional[Union['GetAuthenticationPoliciesLimitArgs', 'GetAuthenticationPoliciesLimitArgsDict', 'outputs.GetAuthenticationPoliciesLimitResult']] = None,
+                                on: Optional[Union['GetAuthenticationPoliciesOnArgs', 'GetAuthenticationPoliciesOnArgsDict', 'outputs.GetAuthenticationPoliciesOnResult']] = None,
                                 starts_with: Optional[_builtins.str] = None,
                                 with_describe: Optional[_builtins.bool] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAuthenticationPoliciesResult:
@@ -148,10 +148,10 @@ def get_authentication_policies(in_: Optional[Union['GetAuthenticationPoliciesIn
     Data source used to get details of filtered authentication policies. Filtering is aligned with the current possibilities for [SHOW AUTHENTICATION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-authentication-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `authentication_policies`.
 
 
-    :param Union['GetAuthenticationPoliciesInArgs', 'GetAuthenticationPoliciesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetAuthenticationPoliciesInArgs', 'GetAuthenticationPoliciesInArgsDict', 'outputs.GetAuthenticationPoliciesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetAuthenticationPoliciesLimitArgs', 'GetAuthenticationPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param Union['GetAuthenticationPoliciesOnArgs', 'GetAuthenticationPoliciesOnArgsDict'] on: Lists the policies that are effective on the specified object.
+    :param Union['GetAuthenticationPoliciesLimitArgs', 'GetAuthenticationPoliciesLimitArgsDict', 'outputs.GetAuthenticationPoliciesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetAuthenticationPoliciesOnArgs', 'GetAuthenticationPoliciesOnArgsDict', 'outputs.GetAuthenticationPoliciesOnResult'] on: Lists the policies that are effective on the specified object.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC AUTHENTICATION POLICY for each service returned by SHOW AUTHENTICATION POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
@@ -174,10 +174,10 @@ def get_authentication_policies(in_: Optional[Union['GetAuthenticationPoliciesIn
         on=pulumi.get(__ret__, 'on'),
         starts_with=pulumi.get(__ret__, 'starts_with'),
         with_describe=pulumi.get(__ret__, 'with_describe'))
-def get_authentication_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetAuthenticationPoliciesInArgs', 'GetAuthenticationPoliciesInArgsDict']]]] = None,
+def get_authentication_policies_output(in_: pulumi.Input[Optional[Optional[Union['GetAuthenticationPoliciesInArgs', 'GetAuthenticationPoliciesInArgsDict', 'outputs.GetAuthenticationPoliciesInResult']]]] = None,
                                        like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                       limit: pulumi.Input[Optional[Optional[Union['GetAuthenticationPoliciesLimitArgs', 'GetAuthenticationPoliciesLimitArgsDict']]]] = None,
-                                       on: pulumi.Input[Optional[Optional[Union['GetAuthenticationPoliciesOnArgs', 'GetAuthenticationPoliciesOnArgsDict']]]] = None,
+                                       limit: pulumi.Input[Optional[Optional[Union['GetAuthenticationPoliciesLimitArgs', 'GetAuthenticationPoliciesLimitArgsDict', 'outputs.GetAuthenticationPoliciesLimitResult']]]] = None,
+                                       on: pulumi.Input[Optional[Optional[Union['GetAuthenticationPoliciesOnArgs', 'GetAuthenticationPoliciesOnArgsDict', 'outputs.GetAuthenticationPoliciesOnResult']]]] = None,
                                        starts_with: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                        with_describe: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthenticationPoliciesResult]:
@@ -187,10 +187,10 @@ def get_authentication_policies_output(in_: pulumi.Input[Optional[Optional[Union
     Data source used to get details of filtered authentication policies. Filtering is aligned with the current possibilities for [SHOW AUTHENTICATION POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-authentication-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `authentication_policies`.
 
 
-    :param Union['GetAuthenticationPoliciesInArgs', 'GetAuthenticationPoliciesInArgsDict'] in_: IN clause to filter the list of objects
+    :param Union['GetAuthenticationPoliciesInArgs', 'GetAuthenticationPoliciesInArgsDict', 'outputs.GetAuthenticationPoliciesInResult'] in_: IN clause to filter the list of objects
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetAuthenticationPoliciesLimitArgs', 'GetAuthenticationPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param Union['GetAuthenticationPoliciesOnArgs', 'GetAuthenticationPoliciesOnArgsDict'] on: Lists the policies that are effective on the specified object.
+    :param Union['GetAuthenticationPoliciesLimitArgs', 'GetAuthenticationPoliciesLimitArgsDict', 'outputs.GetAuthenticationPoliciesLimitResult'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetAuthenticationPoliciesOnArgs', 'GetAuthenticationPoliciesOnArgsDict', 'outputs.GetAuthenticationPoliciesOnResult'] on: Lists the policies that are effective on the specified object.
     :param _builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     :param _builtins.bool with_describe: (Default: `true`) Runs DESC AUTHENTICATION POLICY for each service returned by SHOW AUTHENTICATION POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """

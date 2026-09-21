@@ -454,17 +454,17 @@ class HybridTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict', 'outputs.HybridTableColumn']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict']]]]] = None,
-                 indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict']]]]] = None,
+                 foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict', 'outputs.HybridTableForeignKeyConstraint']]]]] = None,
+                 indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict', 'outputs.HybridTableIndex']]]]] = None,
                  max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_key_constraint: pulumi.Input[Optional[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict']]] = None,
+                 primary_key_constraint: pulumi.Input[Optional[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict', 'outputs.HybridTablePrimaryKeyConstraint']]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
-                 unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict']]]]] = None,
+                 unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict', 'outputs.HybridTableUniqueConstraint']]]]] = None,
                  __props__=None):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -582,17 +582,17 @@ class HybridTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict']]]] columns: Definitions of a column to create in the hybrid table. Minimum one required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict', 'outputs.HybridTableColumn']]]] columns: Definitions of a column to create in the hybrid table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the hybrid table.
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         :param pulumi.Input[_builtins.str] database: The database in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict']]]] foreign_key_constraints: Defines FOREIGN KEY constraints.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict']]]] indices: Defines secondary indexes on the hybrid table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict', 'outputs.HybridTableForeignKeyConstraint']]]] foreign_key_constraints: Defines FOREIGN KEY constraints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict', 'outputs.HybridTableIndex']]]] indices: Defines secondary indexes on the hybrid table.
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for the hybrid table to prevent streams on it from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict']] primary_key_constraint: Defines the primary key constraint for the hybrid table.
+        :param pulumi.Input[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict', 'outputs.HybridTablePrimaryKeyConstraint']] primary_key_constraint: Defines the primary key constraint for the hybrid table.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict']]]] unique_constraints: Defines UNIQUE constraints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict', 'outputs.HybridTableUniqueConstraint']]]] unique_constraints: Defines UNIQUE constraints.
         """
         ...
     @overload
@@ -729,17 +729,17 @@ class HybridTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict']]]]] = None,
+                 columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict', 'outputs.HybridTableColumn']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
-                 foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict']]]]] = None,
-                 indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict']]]]] = None,
+                 foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict', 'outputs.HybridTableForeignKeyConstraint']]]]] = None,
+                 indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict', 'outputs.HybridTableIndex']]]]] = None,
                  max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_key_constraint: pulumi.Input[Optional[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict']]] = None,
+                 primary_key_constraint: pulumi.Input[Optional[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict', 'outputs.HybridTablePrimaryKeyConstraint']]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
-                 unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict']]]]] = None,
+                 unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict', 'outputs.HybridTableUniqueConstraint']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -782,21 +782,21 @@ class HybridTable(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict']]]]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict', 'outputs.HybridTableColumn']]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableDescribeOutputArgs', 'HybridTableDescribeOutputArgsDict']]]]] = None,
-            foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableDescribeOutputArgs', 'HybridTableDescribeOutputArgsDict', 'outputs.HybridTableDescribeOutput']]]]] = None,
+            foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict', 'outputs.HybridTableForeignKeyConstraint']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
-            indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict']]]]] = None,
+            indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict', 'outputs.HybridTableIndex']]]]] = None,
             max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            primary_key_constraint: pulumi.Input[Optional[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict']]] = None,
+            primary_key_constraint: pulumi.Input[Optional[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict', 'outputs.HybridTablePrimaryKeyConstraint']]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_keys_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableShowKeysOutputArgs', 'HybridTableShowKeysOutputArgsDict']]]]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableShowOutputArgs', 'HybridTableShowOutputArgsDict']]]]] = None,
-            unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict']]]]] = None) -> 'HybridTable':
+            show_keys_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableShowKeysOutputArgs', 'HybridTableShowKeysOutputArgsDict', 'outputs.HybridTableShowKeysOutput']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableShowOutputArgs', 'HybridTableShowOutputArgsDict', 'outputs.HybridTableShowOutput']]]]] = None,
+            unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict', 'outputs.HybridTableUniqueConstraint']]]]] = None) -> 'HybridTable':
         """
         Get an existing HybridTable resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -804,21 +804,21 @@ class HybridTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict']]]] columns: Definitions of a column to create in the hybrid table. Minimum one required.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict', 'outputs.HybridTableColumn']]]] columns: Definitions of a column to create in the hybrid table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the hybrid table.
         :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         :param pulumi.Input[_builtins.str] database: The database in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableDescribeOutputArgs', 'HybridTableDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE TABLE` for the given hybrid table.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict']]]] foreign_key_constraints: Defines FOREIGN KEY constraints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableDescribeOutputArgs', 'HybridTableDescribeOutputArgsDict', 'outputs.HybridTableDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE TABLE` for the given hybrid table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict', 'outputs.HybridTableForeignKeyConstraint']]]] foreign_key_constraints: Defines FOREIGN KEY constraints.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict']]]] indices: Defines secondary indexes on the hybrid table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict', 'outputs.HybridTableIndex']]]] indices: Defines secondary indexes on the hybrid table.
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for the hybrid table to prevent streams on it from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict']] primary_key_constraint: Defines the primary key constraint for the hybrid table.
+        :param pulumi.Input[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict', 'outputs.HybridTablePrimaryKeyConstraint']] primary_key_constraint: Defines the primary key constraint for the hybrid table.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableShowKeysOutputArgs', 'HybridTableShowKeysOutputArgsDict']]]] show_keys_outputs: Outputs the result of `SHOW PRIMARY KEYS`, `SHOW UNIQUE KEYS`, and `SHOW IMPORTED KEYS` for the given hybrid table, merged and grouped by constraint name and ordered by kind, then by column names. The `referenced_table`, `referenced_columns`, `delete_rule`, and `update_rule` fields are populated for FOREIGN KEY constraints only.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableShowOutputArgs', 'HybridTableShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW HYBRID TABLES` for the given hybrid table.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict']]]] unique_constraints: Defines UNIQUE constraints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableShowKeysOutputArgs', 'HybridTableShowKeysOutputArgsDict', 'outputs.HybridTableShowKeysOutput']]]] show_keys_outputs: Outputs the result of `SHOW PRIMARY KEYS`, `SHOW UNIQUE KEYS`, and `SHOW IMPORTED KEYS` for the given hybrid table, merged and grouped by constraint name and ordered by kind, then by column names. The `referenced_table`, `referenced_columns`, `delete_rule`, and `update_rule` fields are populated for FOREIGN KEY constraints only.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableShowOutputArgs', 'HybridTableShowOutputArgsDict', 'outputs.HybridTableShowOutput']]]] show_outputs: Outputs the result of `SHOW HYBRID TABLES` for the given hybrid table.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict', 'outputs.HybridTableUniqueConstraint']]]] unique_constraints: Defines UNIQUE constraints.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

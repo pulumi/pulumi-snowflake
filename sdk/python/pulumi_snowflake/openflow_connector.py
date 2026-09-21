@@ -313,7 +313,7 @@ class OpenflowConnector(pulumi.CustomResource):
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 from_: pulumi.Input[Optional[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict']]] = None,
+                 from_: pulumi.Input[Optional[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict', 'outputs.OpenflowConnectorFrom']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
@@ -446,7 +446,7 @@ class OpenflowConnector(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Openflow connector.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Openflow connector. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] display_name: A free-text alias for the connector. Shown in the Openflow UI in place of the connector's identifier when set.
-        :param pulumi.Input[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict']] from_: Specifies what the connector is created from. Snowflake has no ALTER for it, so changing it recreates the connector. Note that external changes on this field and nested fields are not detected: Snowflake resolves a definition for a connector created from a stage too, so a value read from SHOW could not be told apart from a configured one. `show_output.connector_definition` reports what Snowflake resolved.
+        :param pulumi.Input[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict', 'outputs.OpenflowConnectorFrom']] from_: Specifies what the connector is created from. Snowflake has no ALTER for it, so changing it recreates the connector. Note that external changes on this field and nested fields are not detected: Snowflake resolves a definition for a connector created from a stage too, so a value read from SHOW could not be told apart from a configured one. `show_output.connector_definition` reports what Snowflake resolved.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow connector; must be unique for the schema in which the connector is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] runtime: Specifies the fully qualified name of the Openflow runtime the connector runs in. The connector is created in the runtime's schema, so `database` and `schema` must match it. Snowflake has no ALTER for it, so changing it recreates the connector.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Openflow connector. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -598,7 +598,7 @@ class OpenflowConnector(pulumi.CustomResource):
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 from_: pulumi.Input[Optional[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict']]] = None,
+                 from_: pulumi.Input[Optional[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict', 'outputs.OpenflowConnectorFrom']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
@@ -641,14 +641,14 @@ class OpenflowConnector(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowConnectorDescribeOutputArgs', 'OpenflowConnectorDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowConnectorDescribeOutputArgs', 'OpenflowConnectorDescribeOutputArgsDict', 'outputs.OpenflowConnectorDescribeOutput']]]]] = None,
             display_name: pulumi.Input[Optional[_builtins.str]] = None,
-            from_: pulumi.Input[Optional[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict']]] = None,
+            from_: pulumi.Input[Optional[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict', 'outputs.OpenflowConnectorFrom']]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             runtime: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowConnectorShowOutputArgs', 'OpenflowConnectorShowOutputArgsDict']]]]] = None) -> 'OpenflowConnector':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowConnectorShowOutputArgs', 'OpenflowConnectorShowOutputArgsDict', 'outputs.OpenflowConnectorShowOutput']]]]] = None) -> 'OpenflowConnector':
         """
         Get an existing OpenflowConnector resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -658,14 +658,14 @@ class OpenflowConnector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Openflow connector.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Openflow connector. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowConnectorDescribeOutputArgs', 'OpenflowConnectorDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE OPENFLOW CONNECTOR` for the given connector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowConnectorDescribeOutputArgs', 'OpenflowConnectorDescribeOutputArgsDict', 'outputs.OpenflowConnectorDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE OPENFLOW CONNECTOR` for the given connector.
         :param pulumi.Input[_builtins.str] display_name: A free-text alias for the connector. Shown in the Openflow UI in place of the connector's identifier when set.
-        :param pulumi.Input[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict']] from_: Specifies what the connector is created from. Snowflake has no ALTER for it, so changing it recreates the connector. Note that external changes on this field and nested fields are not detected: Snowflake resolves a definition for a connector created from a stage too, so a value read from SHOW could not be told apart from a configured one. `show_output.connector_definition` reports what Snowflake resolved.
+        :param pulumi.Input[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict', 'outputs.OpenflowConnectorFrom']] from_: Specifies what the connector is created from. Snowflake has no ALTER for it, so changing it recreates the connector. Note that external changes on this field and nested fields are not detected: Snowflake resolves a definition for a connector created from a stage too, so a value read from SHOW could not be told apart from a configured one. `show_output.connector_definition` reports what Snowflake resolved.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow connector; must be unique for the schema in which the connector is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] runtime: Specifies the fully qualified name of the Openflow runtime the connector runs in. The connector is created in the runtime's schema, so `database` and `schema` must match it. Snowflake has no ALTER for it, so changing it recreates the connector.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Openflow connector. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowConnectorShowOutputArgs', 'OpenflowConnectorShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW OPENFLOW CONNECTORS` for the given connector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowConnectorShowOutputArgs', 'OpenflowConnectorShowOutputArgsDict', 'outputs.OpenflowConnectorShowOutput']]]] show_outputs: Outputs the result of `SHOW OPENFLOW CONNECTORS` for the given connector.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

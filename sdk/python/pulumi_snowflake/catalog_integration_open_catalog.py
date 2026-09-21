@@ -332,8 +332,8 @@ class CatalogIntegrationOpenCatalog(pulumi.CustomResource):
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  refresh_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestAuthenticationArgs', 'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict']]] = None,
-                 rest_config: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestConfigArgs', 'CatalogIntegrationOpenCatalogRestConfigArgsDict']]] = None,
+                 rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestAuthenticationArgs', 'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict', 'outputs.CatalogIntegrationOpenCatalogRestAuthentication']]] = None,
+                 rest_config: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestConfigArgs', 'CatalogIntegrationOpenCatalogRestConfigArgsDict', 'outputs.CatalogIntegrationOpenCatalogRestConfig']]] = None,
                  __props__=None):
         """
         > **Note on import behavior** After import, the first `pulumi preview` may show an in-place **update** (not recreation) for the write-only authentication secret that Snowflake does not return: `rest_authentication.oauth_client_secret`. Run `pulumi up` once to sync this value into state.
@@ -399,8 +399,8 @@ class CatalogIntegrationOpenCatalog(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
-        :param pulumi.Input[Union['CatalogIntegrationOpenCatalogRestAuthenticationArgs', 'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict']] rest_authentication: Specifies authentication details that Snowflake uses to connect to Open Catalog.
-        :param pulumi.Input[Union['CatalogIntegrationOpenCatalogRestConfigArgs', 'CatalogIntegrationOpenCatalogRestConfigArgsDict']] rest_config: Specifies information about the Open Catalog account and catalog name.
+        :param pulumi.Input[Union['CatalogIntegrationOpenCatalogRestAuthenticationArgs', 'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict', 'outputs.CatalogIntegrationOpenCatalogRestAuthentication']] rest_authentication: Specifies authentication details that Snowflake uses to connect to Open Catalog.
+        :param pulumi.Input[Union['CatalogIntegrationOpenCatalogRestConfigArgs', 'CatalogIntegrationOpenCatalogRestConfigArgsDict', 'outputs.CatalogIntegrationOpenCatalogRestConfig']] rest_config: Specifies information about the Open Catalog account and catalog name.
         """
         ...
     @overload
@@ -485,8 +485,8 @@ class CatalogIntegrationOpenCatalog(pulumi.CustomResource):
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  refresh_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestAuthenticationArgs', 'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict']]] = None,
-                 rest_config: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestConfigArgs', 'CatalogIntegrationOpenCatalogRestConfigArgsDict']]] = None,
+                 rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestAuthenticationArgs', 'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict', 'outputs.CatalogIntegrationOpenCatalogRestAuthentication']]] = None,
+                 rest_config: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestConfigArgs', 'CatalogIntegrationOpenCatalogRestConfigArgsDict', 'outputs.CatalogIntegrationOpenCatalogRestConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -526,14 +526,14 @@ class CatalogIntegrationOpenCatalog(pulumi.CustomResource):
             catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
             catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationOpenCatalogDescribeOutputArgs', 'CatalogIntegrationOpenCatalogDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationOpenCatalogDescribeOutputArgs', 'CatalogIntegrationOpenCatalogDescribeOutputArgsDict', 'outputs.CatalogIntegrationOpenCatalogDescribeOutput']]]]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             refresh_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-            rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestAuthenticationArgs', 'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict']]] = None,
-            rest_config: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestConfigArgs', 'CatalogIntegrationOpenCatalogRestConfigArgsDict']]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationOpenCatalogShowOutputArgs', 'CatalogIntegrationOpenCatalogShowOutputArgsDict']]]]] = None) -> 'CatalogIntegrationOpenCatalog':
+            rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestAuthenticationArgs', 'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict', 'outputs.CatalogIntegrationOpenCatalogRestAuthentication']]] = None,
+            rest_config: pulumi.Input[Optional[Union['CatalogIntegrationOpenCatalogRestConfigArgs', 'CatalogIntegrationOpenCatalogRestConfigArgsDict', 'outputs.CatalogIntegrationOpenCatalogRestConfig']]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationOpenCatalogShowOutputArgs', 'CatalogIntegrationOpenCatalogShowOutputArgsDict', 'outputs.CatalogIntegrationOpenCatalogShowOutput']]]]] = None) -> 'CatalogIntegrationOpenCatalog':
         """
         Get an existing CatalogIntegrationOpenCatalog resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -544,14 +544,14 @@ class CatalogIntegrationOpenCatalog(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
         :param pulumi.Input[_builtins.str] catalog_source: Specifies the type of catalog source. This field is used to detect when the catalog source was changed outside of Terraform and to recreate the resource when that happens.
         :param pulumi.Input[_builtins.str] comment: (Default: ``) Specifies a comment for the catalog integration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationOpenCatalogDescribeOutputArgs', 'CatalogIntegrationOpenCatalogDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationOpenCatalogDescribeOutputArgs', 'CatalogIntegrationOpenCatalogDescribeOutputArgsDict', 'outputs.CatalogIntegrationOpenCatalogDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE CATALOG INTEGRATION` for the given catalog integration.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the catalog integration is available for use for Iceberg tables. `true` allows users to create new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration function normally. `false` prevents users from creating new Iceberg tables that reference this integration. Existing Iceberg tables that reference this integration cannot access the catalog in the table definition.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier (i.e. name) of the catalog integration; must be unique in your account.
         :param pulumi.Input[_builtins.int] refresh_interval_seconds: Specifies the number of seconds to wait between attempts to poll the external Iceberg catalog for metadata updates for automated refresh. For Delta-based tables, specifies the number of seconds to wait between attempts to poll your external cloud storage for new metadata.
-        :param pulumi.Input[Union['CatalogIntegrationOpenCatalogRestAuthenticationArgs', 'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict']] rest_authentication: Specifies authentication details that Snowflake uses to connect to Open Catalog.
-        :param pulumi.Input[Union['CatalogIntegrationOpenCatalogRestConfigArgs', 'CatalogIntegrationOpenCatalogRestConfigArgsDict']] rest_config: Specifies information about the Open Catalog account and catalog name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationOpenCatalogShowOutputArgs', 'CatalogIntegrationOpenCatalogShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
+        :param pulumi.Input[Union['CatalogIntegrationOpenCatalogRestAuthenticationArgs', 'CatalogIntegrationOpenCatalogRestAuthenticationArgsDict', 'outputs.CatalogIntegrationOpenCatalogRestAuthentication']] rest_authentication: Specifies authentication details that Snowflake uses to connect to Open Catalog.
+        :param pulumi.Input[Union['CatalogIntegrationOpenCatalogRestConfigArgs', 'CatalogIntegrationOpenCatalogRestConfigArgsDict', 'outputs.CatalogIntegrationOpenCatalogRestConfig']] rest_config: Specifies information about the Open Catalog account and catalog name.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CatalogIntegrationOpenCatalogShowOutputArgs', 'CatalogIntegrationOpenCatalogShowOutputArgsDict', 'outputs.CatalogIntegrationOpenCatalogShowOutput']]]] show_outputs: Outputs the result of `SHOW CATALOG INTEGRATIONS` for the given catalog integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

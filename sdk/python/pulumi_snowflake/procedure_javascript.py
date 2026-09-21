@@ -582,7 +582,7 @@ class ProcedureJavascript(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict']]]]] = None,
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict', 'outputs.ProcedureJavascriptArgument']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -661,7 +661,7 @@ class ProcedureJavascript(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict']]]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict', 'outputs.ProcedureJavascriptArgument']]]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
         :param pulumi.Input[_builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
@@ -759,7 +759,7 @@ class ProcedureJavascript(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict']]]]] = None,
+                 arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict', 'outputs.ProcedureJavascriptArgument']]]]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -820,7 +820,7 @@ class ProcedureJavascript(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict']]]]] = None,
+            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict', 'outputs.ProcedureJavascriptArgument']]]]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
             enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -832,12 +832,12 @@ class ProcedureJavascript(pulumi.CustomResource):
             metric_level: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
-            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedureJavascriptParameterArgs', 'ProcedureJavascriptParameterArgsDict']]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedureJavascriptParameterArgs', 'ProcedureJavascriptParameterArgsDict', 'outputs.ProcedureJavascriptParameter']]]]] = None,
             procedure_definition: pulumi.Input[Optional[_builtins.str]] = None,
             procedure_language: pulumi.Input[Optional[_builtins.str]] = None,
             return_type: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedureJavascriptShowOutputArgs', 'ProcedureJavascriptShowOutputArgsDict']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcedureJavascriptShowOutputArgs', 'ProcedureJavascriptShowOutputArgsDict', 'outputs.ProcedureJavascriptShowOutput']]]]] = None,
             trace_level: pulumi.Input[Optional[_builtins.str]] = None) -> 'ProcedureJavascript':
         """
         Get an existing ProcedureJavascript resource's state with the given name, id, and optional extra
@@ -846,7 +846,7 @@ class ProcedureJavascript(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict']]]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict', 'outputs.ProcedureJavascriptArgument']]]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
         :param pulumi.Input[_builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
@@ -858,12 +858,12 @@ class ProcedureJavascript(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptParameterArgs', 'ProcedureJavascriptParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptParameterArgs', 'ProcedureJavascriptParameterArgsDict', 'outputs.ProcedureJavascriptParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
         :param pulumi.Input[_builtins.str] procedure_definition: Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be JavaScript source code. For more information, see [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[_builtins.str] procedure_language: Specifies language for the procedure. Used to detect external changes.
         :param pulumi.Input[_builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL and JavaScript data type mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptShowOutputArgs', 'ProcedureJavascriptShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW PROCEDURE` for the given procedure.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptShowOutputArgs', 'ProcedureJavascriptShowOutputArgsDict', 'outputs.ProcedureJavascriptShowOutput']]]] show_outputs: Outputs the result of `SHOW PROCEDURE` for the given procedure.
         :param pulumi.Input[_builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

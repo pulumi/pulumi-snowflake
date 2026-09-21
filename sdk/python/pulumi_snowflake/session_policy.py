@@ -344,8 +344,8 @@ class SessionPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyAllowedSecondaryRolesArgs', 'SessionPolicyAllowedSecondaryRolesArgsDict']]] = None,
-                 blocked_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyBlockedSecondaryRolesArgs', 'SessionPolicyBlockedSecondaryRolesArgsDict']]] = None,
+                 allowed_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyAllowedSecondaryRolesArgs', 'SessionPolicyAllowedSecondaryRolesArgsDict', 'outputs.SessionPolicyAllowedSecondaryRoles']]] = None,
+                 blocked_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyBlockedSecondaryRolesArgs', 'SessionPolicyBlockedSecondaryRolesArgsDict', 'outputs.SessionPolicyBlockedSecondaryRoles']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -414,8 +414,8 @@ class SessionPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SessionPolicyAllowedSecondaryRolesArgs', 'SessionPolicyAllowedSecondaryRolesArgsDict']] allowed_secondary_roles: Specifies the allowed secondary roles for a session policy, if any.
-        :param pulumi.Input[Union['SessionPolicyBlockedSecondaryRolesArgs', 'SessionPolicyBlockedSecondaryRolesArgsDict']] blocked_secondary_roles: Specifies the blocked secondary roles for a session policy, if any. Blocked secondary roles take precedence over allowed secondary roles.
+        :param pulumi.Input[Union['SessionPolicyAllowedSecondaryRolesArgs', 'SessionPolicyAllowedSecondaryRolesArgsDict', 'outputs.SessionPolicyAllowedSecondaryRoles']] allowed_secondary_roles: Specifies the allowed secondary roles for a session policy, if any.
+        :param pulumi.Input[Union['SessionPolicyBlockedSecondaryRolesArgs', 'SessionPolicyBlockedSecondaryRolesArgsDict', 'outputs.SessionPolicyBlockedSecondaryRoles']] blocked_secondary_roles: Specifies the blocked secondary roles for a session policy, if any. Blocked secondary roles take precedence over allowed secondary roles.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the session policy.
         :param pulumi.Input[_builtins.str] database: The database in which to create the session policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the session policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -503,8 +503,8 @@ class SessionPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyAllowedSecondaryRolesArgs', 'SessionPolicyAllowedSecondaryRolesArgsDict']]] = None,
-                 blocked_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyBlockedSecondaryRolesArgs', 'SessionPolicyBlockedSecondaryRolesArgsDict']]] = None,
+                 allowed_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyAllowedSecondaryRolesArgs', 'SessionPolicyAllowedSecondaryRolesArgsDict', 'outputs.SessionPolicyAllowedSecondaryRoles']]] = None,
+                 blocked_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyBlockedSecondaryRolesArgs', 'SessionPolicyBlockedSecondaryRolesArgsDict', 'outputs.SessionPolicyBlockedSecondaryRoles']]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -545,17 +545,17 @@ class SessionPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowed_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyAllowedSecondaryRolesArgs', 'SessionPolicyAllowedSecondaryRolesArgsDict']]] = None,
-            blocked_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyBlockedSecondaryRolesArgs', 'SessionPolicyBlockedSecondaryRolesArgsDict']]] = None,
+            allowed_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyAllowedSecondaryRolesArgs', 'SessionPolicyAllowedSecondaryRolesArgsDict', 'outputs.SessionPolicyAllowedSecondaryRoles']]] = None,
+            blocked_secondary_roles: pulumi.Input[Optional[Union['SessionPolicyBlockedSecondaryRolesArgs', 'SessionPolicyBlockedSecondaryRolesArgsDict', 'outputs.SessionPolicyBlockedSecondaryRoles']]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
-            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SessionPolicyDescribeOutputArgs', 'SessionPolicyDescribeOutputArgsDict']]]]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SessionPolicyDescribeOutputArgs', 'SessionPolicyDescribeOutputArgsDict', 'outputs.SessionPolicyDescribeOutput']]]]] = None,
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             session_idle_timeout_mins: pulumi.Input[Optional[_builtins.int]] = None,
             session_ui_idle_timeout_mins: pulumi.Input[Optional[_builtins.int]] = None,
-            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SessionPolicyShowOutputArgs', 'SessionPolicyShowOutputArgsDict']]]]] = None) -> 'SessionPolicy':
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SessionPolicyShowOutputArgs', 'SessionPolicyShowOutputArgsDict', 'outputs.SessionPolicyShowOutput']]]]] = None) -> 'SessionPolicy':
         """
         Get an existing SessionPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -563,17 +563,17 @@ class SessionPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SessionPolicyAllowedSecondaryRolesArgs', 'SessionPolicyAllowedSecondaryRolesArgsDict']] allowed_secondary_roles: Specifies the allowed secondary roles for a session policy, if any.
-        :param pulumi.Input[Union['SessionPolicyBlockedSecondaryRolesArgs', 'SessionPolicyBlockedSecondaryRolesArgsDict']] blocked_secondary_roles: Specifies the blocked secondary roles for a session policy, if any. Blocked secondary roles take precedence over allowed secondary roles.
+        :param pulumi.Input[Union['SessionPolicyAllowedSecondaryRolesArgs', 'SessionPolicyAllowedSecondaryRolesArgsDict', 'outputs.SessionPolicyAllowedSecondaryRoles']] allowed_secondary_roles: Specifies the allowed secondary roles for a session policy, if any.
+        :param pulumi.Input[Union['SessionPolicyBlockedSecondaryRolesArgs', 'SessionPolicyBlockedSecondaryRolesArgsDict', 'outputs.SessionPolicyBlockedSecondaryRoles']] blocked_secondary_roles: Specifies the blocked secondary roles for a session policy, if any. Blocked secondary roles take precedence over allowed secondary roles.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the session policy.
         :param pulumi.Input[_builtins.str] database: The database in which to create the session policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SessionPolicyDescribeOutputArgs', 'SessionPolicyDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SESSION POLICY` for this session policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SessionPolicyDescribeOutputArgs', 'SessionPolicyDescribeOutputArgsDict', 'outputs.SessionPolicyDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE SESSION POLICY` for this session policy.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the session policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the session policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.int] session_idle_timeout_mins: For Snowflake clients and programmatic clients, specifies the number of minutes in which a session can be idle before users must authenticate to Snowflake again.
         :param pulumi.Input[_builtins.int] session_ui_idle_timeout_mins: For Snowsight, specifies the number of minutes in which a session can be idle before users must authenticate to Snowflake again.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SessionPolicyShowOutputArgs', 'SessionPolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SESSION POLICIES` for this session policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SessionPolicyShowOutputArgs', 'SessionPolicyShowOutputArgsDict', 'outputs.SessionPolicyShowOutput']]]] show_outputs: Outputs the result of `SHOW SESSION POLICIES` for this session policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
