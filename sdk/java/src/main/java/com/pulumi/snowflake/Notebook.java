@@ -71,13 +71,13 @@ import javax.annotation.Nullable;
  *             .database("DATABASE")
  *             .schema("SCHEMA")
  *             .froms(NotebookFromArgs.builder()
- *                 .stage(test.fullyQualifiedName())
+ *                 .stage(test.get("fullyQualifiedName"))
  *                 .path("some/path")
  *                 .build())
  *             .mainFile("my_notebook.ipynb")
- *             .queryWarehouse(testSnowflakeWarehouse.name())
+ *             .queryWarehouse(testSnowflakeWarehouse.get("name"))
  *             .idleAutoShutdownTimeSeconds(2400)
- *             .warehouse(testSnowflakeWarehouse.name())
+ *             .warehouse(testSnowflakeWarehouse.get("name"))
  *             .comment("Lorem ipsum")
  *             .build());
  * 

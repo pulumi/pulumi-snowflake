@@ -251,7 +251,7 @@ import javax.annotation.Nullable;
  *             .url("s3compat://bucket/path/")
  *             .endpoint("s3.my-provider.com")
  *             .fileFormat(StageExternalS3CompatibleFileFormatArgs.builder()
- *                 .formatName(test.fullyQualifiedName())
+ *                 .formatName(test.get("fullyQualifiedName"))
  *                 .build())
  *             .build());
  * 

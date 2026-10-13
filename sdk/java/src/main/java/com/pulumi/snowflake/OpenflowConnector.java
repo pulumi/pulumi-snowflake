@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .database("my_database")
  *             .schema("my_schema")
  *             .name("my_connector")
- *             .runtime(example.fullyQualifiedName())
+ *             .runtime(example.get("fullyQualifiedName"))
  *             .from(OpenflowConnectorFromArgs.builder()
  *                 .definition("OPENFLOW_POSTGRES_CDC")
  *                 .build())
@@ -80,9 +80,9 @@ import javax.annotation.Nullable;
  *             .database("my_database")
  *             .schema("my_schema")
  *             .name("my_configured_connector")
- *             .runtime(example.fullyQualifiedName())
+ *             .runtime(example.get("fullyQualifiedName"))
  *             .from(OpenflowConnectorFromArgs.builder()
- *                 .stage(exampleSnowflakeStage.fullyQualifiedName())
+ *                 .stage(exampleSnowflakeStage.get("fullyQualifiedName"))
  *                 .path("connectors/postgres")
  *                 .build())
  *             .build());
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *         // location and checks that the connector definition it names matches, so that file has to be there; the same
  *         // PUT pattern uploads anything else the bundle needs, such as a driver jar.
  *         //
- *         // PUT runs from the machine executing Terraform, so the local file has to exist there. That rules it out for
+ *         // PUT runs from the machine executing Pulumi, so the local file has to exist there. That rules it out for
  *         // runners that do not have your bundle checked out, where a git repository stage is the better route.
  *         var bundles = new Stage("bundles", StageArgs.builder()
  *             .database("my_database")
@@ -133,7 +133,7 @@ import javax.annotation.Nullable;
  *             .database("my_database")
  *             .schema("my_schema")
  *             .name("my_uploaded_connector")
- *             .runtime(example.fullyQualifiedName())
+ *             .runtime(example.get("fullyQualifiedName"))
  *             .from(OpenflowConnectorFromArgs.builder()
  *                 .stage(bundles.fullyQualifiedName())
  *                 .path("orders")
@@ -145,14 +145,14 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         // from a git repository, which is a stage as far as Snowflake is concerned. Preferred when the bundle is
- *         // version controlled, since nothing has to be uploaded from the machine running Terraform.
+ *         // version controlled, since nothing has to be uploaded from the machine running Pulumi.
  *         var fromGit = new OpenflowConnector("fromGit", OpenflowConnectorArgs.builder()
  *             .database("my_database")
  *             .schema("my_schema")
  *             .name("my_git_connector")
- *             .runtime(example.fullyQualifiedName())
+ *             .runtime(example.get("fullyQualifiedName"))
  *             .from(OpenflowConnectorFromArgs.builder()
- *                 .stage(exampleSnowflakeGitRepository.fullyQualifiedName())
+ *                 .stage(exampleSnowflakeGitRepository.get("fullyQualifiedName"))
  *                 .path("branches/main/connectors/orders")
  *                 .build())
  *             .build());
@@ -162,7 +162,7 @@ import javax.annotation.Nullable;
  *             .database("my_database")
  *             .schema("my_schema")
  *             .name("my_connector_complete")
- *             .runtime(example.fullyQualifiedName())
+ *             .runtime(example.get("fullyQualifiedName"))
  *             .from(OpenflowConnectorFromArgs.builder()
  *                 .definition("OPENFLOW_POSTGRES_CDC")
  *                 .build())

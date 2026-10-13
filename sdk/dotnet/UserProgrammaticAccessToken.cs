@@ -87,8 +87,8 @@ namespace Pulumi.Snowflake
     ///         Comment = "COMMENT",
     ///     });
     /// 
-    ///     // Note that the fields of this resource are updated only when Terraform is run.
-    ///     // This means that the schedule may not be respected if Terraform is not run regularly.
+    ///     // Note that the fields of this resource are updated only when Pulumi is run.
+    ///     // This means that the schedule may not be respected if Pulumi is not run regularly.
     ///     var rotationSchedule = new Time.Rotating("rotation_schedule", new()
     ///     {
     ///         RotationDays = 30,

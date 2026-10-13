@@ -69,8 +69,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Minimal
  *         var minimal = new FunctionSql("minimal", FunctionSqlArgs.builder()
- *             .database(test.name())
- *             .schema(testSnowflakeSchema.name())
+ *             .database(test.get("name"))
+ *             .schema(testSnowflakeSchema.get("name"))
  *             .name("my_sql_function")
  *             .arguments(FunctionSqlArgumentArgs.builder()
  *                 .argDataType("FLOAT")
@@ -84,8 +84,8 @@ import javax.annotation.Nullable;
  * 
  *         // Complete
  *         var complete = new FunctionSql("complete", FunctionSqlArgs.builder()
- *             .database(test.name())
- *             .schema(testSnowflakeSchema.name())
+ *             .database(test.get("name"))
+ *             .schema(testSnowflakeSchema.get("name"))
  *             .name("my_sql_function")
  *             .isSecure("false")
  *             .arguments(FunctionSqlArgumentArgs.builder()

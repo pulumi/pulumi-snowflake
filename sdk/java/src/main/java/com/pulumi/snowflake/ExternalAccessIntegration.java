@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *         var basic = new ExternalAccessIntegration("basic", ExternalAccessIntegrationArgs.builder()
  *             .name("external_access_integration_name")
  *             .enabled(true)
- *             .allowedNetworkRules(egress.fullyQualifiedName())
+ *             .allowedNetworkRules(egress.get("fullyQualifiedName"))
  *             .build());
  * 
  *         //# Complete (with every optional set)
@@ -66,13 +66,13 @@ import javax.annotation.Nullable;
  *             .name("external_access_integration_name")
  *             .enabled(true)
  *             .allowedNetworkRules(            
- *                 egress.fullyQualifiedName(),
- *                 otherEgress.fullyQualifiedName())
+ *                 egress.get("fullyQualifiedName"),
+ *                 otherEgress.get("fullyQualifiedName"))
  *             .allowedApiAuthenticationIntegrations(ExternalAccessIntegrationAllowedApiAuthenticationIntegrationsArgs.builder()
- *                 .integrations(example.name())
+ *                 .integrations(example.get("name"))
  *                 .build())
  *             .allowedAuthenticationSecrets(ExternalAccessIntegrationAllowedAuthenticationSecretsArgs.builder()
- *                 .secrets(exampleSnowflakeSecretWithBasicAuthentication.fullyQualifiedName())
+ *                 .secrets(exampleSnowflakeSecretWithBasicAuthentication.get("fullyQualifiedName"))
  *                 .build())
  *             .comment("my external access integration")
  *             .build());
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *         var allSecrets = new ExternalAccessIntegration("allSecrets", ExternalAccessIntegrationArgs.builder()
  *             .name("external_access_integration_name")
  *             .enabled(true)
- *             .allowedNetworkRules(egress.fullyQualifiedName())
+ *             .allowedNetworkRules(egress.get("fullyQualifiedName"))
  *             .allowedAuthenticationSecrets(ExternalAccessIntegrationAllowedAuthenticationSecretsArgs.builder()
  *                 .all(true)
  *                 .build())
@@ -91,7 +91,7 @@ import javax.annotation.Nullable;
  *         var noneAllowed = new ExternalAccessIntegration("noneAllowed", ExternalAccessIntegrationArgs.builder()
  *             .name("external_access_integration_name")
  *             .enabled(true)
- *             .allowedNetworkRules(egress.fullyQualifiedName())
+ *             .allowedNetworkRules(egress.get("fullyQualifiedName"))
  *             .allowedAuthenticationSecrets(ExternalAccessIntegrationAllowedAuthenticationSecretsArgs.builder()
  *                 .none(true)
  *                 .build())

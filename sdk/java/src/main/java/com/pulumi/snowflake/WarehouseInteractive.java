@@ -65,8 +65,8 @@ import javax.annotation.Nullable;
  *             .autoSuspend(86400)
  *             .autoResume("true")
  *             .initiallySuspended(true)
- *             .resourceMonitor(monitor.fullyQualifiedName())
- *             .fallbackWarehouse(fallback.fullyQualifiedName())
+ *             .resourceMonitor(monitor.get("fullyQualifiedName"))
+ *             .fallbackWarehouse(fallback.get("fullyQualifiedName"))
  *             .tables(            
  *                 "\"MY_DB\".\"MY_SCHEMA\".\"MY_TABLE_1\"",
  *                 "\"MY_DB\".\"MY_SCHEMA\".\"MY_TABLE_2\"")

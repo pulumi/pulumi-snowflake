@@ -442,8 +442,8 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
             disabled="false",
             comment="COMMENT")
         pulumi.export("token", complete.token)
-        # Note that the fields of this resource are updated only when Terraform is run.
-        # This means that the schedule may not be respected if Terraform is not run regularly.
+        # Note that the fields of this resource are updated only when Pulumi is run.
+        # This means that the schedule may not be respected if Pulumi is not run regularly.
         rotation_schedule = time.Rotating("rotation_schedule", rotation_days=30)
         # Rotate the token regularly using the keeper field and time_rotating resource.
         rotating = snowflake.UserProgrammaticAccessToken("rotating",
@@ -532,8 +532,8 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
             disabled="false",
             comment="COMMENT")
         pulumi.export("token", complete.token)
-        # Note that the fields of this resource are updated only when Terraform is run.
-        # This means that the schedule may not be respected if Terraform is not run regularly.
+        # Note that the fields of this resource are updated only when Pulumi is run.
+        # This means that the schedule may not be respected if Pulumi is not run regularly.
         rotation_schedule = time.Rotating("rotation_schedule", rotation_days=30)
         # Rotate the token regularly using the keeper field and time_rotating resource.
         rotating = snowflake.UserProgrammaticAccessToken("rotating",

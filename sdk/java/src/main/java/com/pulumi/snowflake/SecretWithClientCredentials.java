@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *             .name("EXAMPLE_SECRET")
  *             .database("EXAMPLE_DB")
  *             .schema("EXAMPLE_SCHEMA")
- *             .apiAuthentication(example.fullyQualifiedName())
+ *             .apiAuthentication(example.get("fullyQualifiedName"))
  *             .build());
  * 
  *         // resource with explicit oauth_scopes
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *             .name("EXAMPLE_SECRET")
  *             .database("EXAMPLE_DB")
  *             .schema("EXAMPLE_SCHEMA")
- *             .apiAuthentication(example.fullyQualifiedName())
+ *             .apiAuthentication(example.get("fullyQualifiedName"))
  *             .oauthScopes(            
  *                 "useraccount",
  *                 "testscope")
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .name("EXAMPLE_SECRET")
  *             .database("EXAMPLE_DB")
  *             .schema("EXAMPLE_SCHEMA")
- *             .apiAuthentication(example.fullyQualifiedName())
+ *             .apiAuthentication(example.get("fullyQualifiedName"))
  *             .oauthScopes(            
  *                 "useraccount",
  *                 "testscope")

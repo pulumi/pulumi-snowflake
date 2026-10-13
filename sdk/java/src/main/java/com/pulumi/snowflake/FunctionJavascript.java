@@ -69,8 +69,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Minimal
  *         var minimal = new FunctionJavascript("minimal", FunctionJavascriptArgs.builder()
- *             .database(test.name())
- *             .schema(testSnowflakeSchema.name())
+ *             .database(test.get("name"))
+ *             .schema(testSnowflakeSchema.get("name"))
  *             .name("my_javascript_function")
  *             .arguments(FunctionJavascriptArgumentArgs.builder()
  *                 .argDataType("VARIANT")

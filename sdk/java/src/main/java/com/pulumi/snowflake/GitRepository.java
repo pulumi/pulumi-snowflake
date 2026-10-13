@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .schema("SCHEMA")
  *             .origin("https://github.com/user/repo")
  *             .apiIntegration("API_INTEGRATION")
- *             .gitCredentials(secretName.fullyQualifiedName())
+ *             .gitCredentials(secretName.get("fullyQualifiedName"))
  *             .comment("comment")
  *             .build());
  * 
