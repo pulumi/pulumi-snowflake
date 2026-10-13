@@ -73,8 +73,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Minimal
  *         var minimal = new FunctionScala("minimal", FunctionScalaArgs.builder()
- *             .database(test.name())
- *             .schema(testSnowflakeSchema.name())
+ *             .database(test.get("name"))
+ *             .schema(testSnowflakeSchema.get("name"))
  *             .name("my_scala_function")
  *             .arguments(FunctionScalaArgumentArgs.builder()
  *                 .argDataType("VARCHAR(100)")
@@ -94,8 +94,8 @@ import javax.annotation.Nullable;
  * 
  *         // Complete
  *         var complete = new FunctionScala("complete", FunctionScalaArgs.builder()
- *             .database(test.name())
- *             .schema(testSnowflakeSchema.name())
+ *             .database(test.get("name"))
+ *             .schema(testSnowflakeSchema.get("name"))
  *             .name("my_scala_function")
  *             .isSecure("false")
  *             .arguments(FunctionScalaArgumentArgs.builder()
@@ -132,16 +132,16 @@ import javax.annotation.Nullable;
  *             .runtimeVersion("2.12")
  *             .secrets(            
  *                 FunctionScalaSecretArgs.builder()
- *                     .secretId(one.fullyQualifiedName())
+ *                     .secretId(one.get("fullyQualifiedName"))
  *                     .secretVariableName("abc")
  *                     .build(),
  *                 FunctionScalaSecretArgs.builder()
- *                     .secretId(two.fullyQualifiedName())
+ *                     .secretId(two.get("fullyQualifiedName"))
  *                     .secretVariableName("def")
  *                     .build())
  *             .targetPath(FunctionScalaTargetPathArgs.builder()
  *                 .pathOnStage("target_jar_name.jar")
- *                 .stageLocation(testSnowflakeStage.fullyQualifiedName())
+ *                 .stageLocation(testSnowflakeStage.get("fullyQualifiedName"))
  *                 .build())
  *             .build());
  * 

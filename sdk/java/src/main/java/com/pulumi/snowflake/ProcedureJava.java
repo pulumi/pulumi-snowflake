@@ -123,7 +123,7 @@ import javax.annotation.Nullable;
  *             .executeAs("CALLER")
  *             .targetPath(ProcedureJavaTargetPathArgs.builder()
  *                 .pathOnStage("tf-1734028493-OkoTf.jar")
- *                 .stageLocation(example.fullyQualifiedName())
+ *                 .stageLocation(example.get("fullyQualifiedName"))
  *                 .build())
  *             .packages("com.snowflake:telemetry:0.1.0")
  *             .imports(            
@@ -142,11 +142,11 @@ import javax.annotation.Nullable;
  *                 "INTEGRATION_2")
  *             .secrets(            
  *                 ProcedureJavaSecretArgs.builder()
- *                     .secretId(example1.fullyQualifiedName())
+ *                     .secretId(example1.get("fullyQualifiedName"))
  *                     .secretVariableName("abc")
  *                     .build(),
  *                 ProcedureJavaSecretArgs.builder()
- *                     .secretId(example2.fullyQualifiedName())
+ *                     .secretId(example2.get("fullyQualifiedName"))
  *                     .secretVariableName("def")
  *                     .build())
  *             .build());

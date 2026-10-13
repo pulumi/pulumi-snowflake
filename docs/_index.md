@@ -822,7 +822,7 @@ config:
     snowflake:role:
         value: ACCOUNTADMIN
     snowflake:tmpDirectoryPath:
-        value: /tmp/pulumi-provider/
+        value: /tmp/terraform-provider/
     snowflake:user:
         value: user
     snowflake:validateDefaultParameters:
@@ -955,7 +955,7 @@ config:
     snowflake:role:
         value: ACCOUNTADMIN
     snowflake:tmpDirectoryPath:
-        value: /tmp/pulumi-provider/
+        value: /tmp/terraform-provider/
     snowflake:user:
         value: user
     snowflake:validateDefaultParameters:
@@ -1088,7 +1088,7 @@ config:
     snowflake:role:
         value: ACCOUNTADMIN
     snowflake:tmpDirectoryPath:
-        value: /tmp/pulumi-provider/
+        value: /tmp/terraform-provider/
     snowflake:user:
         value: user
     snowflake:validateDefaultParameters:
@@ -1227,7 +1227,7 @@ config:
     snowflake:role:
         value: ACCOUNTADMIN
     snowflake:tmpDirectoryPath:
-        value: /tmp/pulumi-provider/
+        value: /tmp/terraform-provider/
     snowflake:user:
         value: user
     snowflake:validateDefaultParameters:
@@ -1370,7 +1370,7 @@ config:
     snowflake:role:
         value: ACCOUNTADMIN
     snowflake:tmpDirectoryPath:
-        value: /tmp/pulumi-provider/
+        value: /tmp/terraform-provider/
     snowflake:user:
         value: user
     snowflake:validateDefaultParameters:
@@ -1513,7 +1513,7 @@ config:
     snowflake:role:
         value: ACCOUNTADMIN
     snowflake:tmpDirectoryPath:
-        value: /tmp/pulumi-provider/
+        value: /tmp/terraform-provider/
     snowflake:user:
         value: user
     snowflake:validateDefaultParameters:
@@ -1822,7 +1822,7 @@ public class App {
             .input("TODO: ForExpression")
             .build()).result())) {
             new GrantAccountRole("exampleGrantAccountRole-" + range.key(), GrantAccountRoleArgs.builder()
-                .roleName(exampleRole.name())
+                .roleName(exampleRole.get("name"))
                 .userName(range.value())
                 .build());
         }
@@ -1834,7 +1834,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     snowflake = {
       source = "pulumi/snowflake"
@@ -1846,13 +1846,25 @@ pulumi {
 }
 
 resource "snowflake_user" "example" {
+  lifecycle {
+    create_before_destroy = true
+  }
   name = "my_user"
 }
 resource "snowflake_role" "example" {
+  lifecycle {
+    create_before_destroy = true
+  }
   name = "my_role"
 }
-resource "snowflake_grantaccountrole" "example" {
-  for_each  = toset([for u in [snowflake_user.example.name] : nonsensitive(u)])
+resource "snowflake_grant_account_role" "example" {
+  for_each = toset([for u in [snowflake_user.example.name] : nonsensitive(u)])
+  pulumi {
+    name ="example-${each.key}"
+  }
+  lifecycle {
+    create_before_destroy = true
+  }
   role_name = snowflake_role.example.name
   user_name = each.value
 }
@@ -1996,7 +2008,7 @@ public class App {
 {{% /choosable %}}
 {{% choosable language hcl %}}
 ```hcl
-pulumi {
+terraform {
   required_providers {
     snowflake = {
       source = "pulumi/snowflake"
@@ -2005,6 +2017,9 @@ pulumi {
 }
 
 resource "snowflake_execute" "test" {
+  lifecycle {
+    create_before_destroy = true
+  }
   execute = "CREATE DATABASE ABC"
   revert  = "DROP DATABASE ABC"
   query   = "SHOW DATABASES LIKE '%ABC%'"

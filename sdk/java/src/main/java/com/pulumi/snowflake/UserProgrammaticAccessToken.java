@@ -111,8 +111,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         ctx.export("token", complete.token());
- *         // Note that the fields of this resource are updated only when Terraform is run.
- *         // This means that the schedule may not be respected if Terraform is not run regularly.
+ *         // Note that the fields of this resource are updated only when Pulumi is run.
+ *         // This means that the schedule may not be respected if Pulumi is not run regularly.
  *         var rotationSchedule = new Rotating("rotationSchedule", RotatingArgs.builder()
  *             .rotationDays(30)
  *             .build());
@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  *         var rotating = new UserProgrammaticAccessToken("rotating", UserProgrammaticAccessTokenArgs.builder()
  *             .user("USER")
  *             .name("TOKEN")
- *             .keeper(rotationSchedule.rotationRfc3339())
+ *             .keeper(rotationSchedule.get("rotationRfc3339"))
  *             .build());
  * 
  *     }

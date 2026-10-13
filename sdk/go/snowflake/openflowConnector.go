@@ -74,7 +74,7 @@ import (
 //			// location and checks that the connector definition it names matches, so that file has to be there; the same
 //			// PUT pattern uploads anything else the bundle needs, such as a driver jar.
 //			//
-//			// PUT runs from the machine executing Terraform, so the local file has to exist there. That rules it out for
+//			// PUT runs from the machine executing Pulumi, so the local file has to exist there. That rules it out for
 //			// runners that do not have your bundle checked out, where a git repository stage is the better route.
 //			bundles, err := snowflake.NewStage(ctx, "bundles", &snowflake.StageArgs{
 //				Database: pulumi.String("my_database"),
@@ -135,7 +135,7 @@ import (
 //				return err
 //			}
 //			// from a git repository, which is a stage as far as Snowflake is concerned. Preferred when the bundle is
-//			// version controlled, since nothing has to be uploaded from the machine running Terraform.
+//			// version controlled, since nothing has to be uploaded from the machine running Pulumi.
 //			_, err = snowflake.NewOpenflowConnector(ctx, "from_git", &snowflake.OpenflowConnectorArgs{
 //				Database: pulumi.String("my_database"),
 //				Schema:   pulumi.String("my_schema"),

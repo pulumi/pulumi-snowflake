@@ -231,7 +231,7 @@ import javax.annotation.Nullable;
  *             .database("my_database")
  *             .schema("my_schema")
  *             .fileFormat(StageInternalFileFormatArgs.builder()
- *                 .formatName(test.fullyQualifiedName())
+ *                 .formatName(test.get("fullyQualifiedName"))
  *                 .build())
  *             .build());
  * 

@@ -64,8 +64,8 @@ import javax.annotation.Nullable;
  *             .creditQuota(100)
  *             .suspendTrigger(100)
  *             .notifyUsers(            
- *                 one.fullyQualifiedName(),
- *                 two.fullyQualifiedName())
+ *                 one.get("fullyQualifiedName"),
+ *                 two.get("fullyQualifiedName"))
  *             .build());
  * 
  *         var complete = new ResourceMonitor("complete", ResourceMonitorArgs.builder()
@@ -80,8 +80,8 @@ import javax.annotation.Nullable;
  *             .suspendTrigger(50)
  *             .suspendImmediateTrigger(90)
  *             .notifyUsers(            
- *                 one.fullyQualifiedName(),
- *                 two.fullyQualifiedName())
+ *                 one.get("fullyQualifiedName"),
+ *                 two.get("fullyQualifiedName"))
  *             .build());
  * 
  *     }

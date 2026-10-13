@@ -66,7 +66,7 @@ namespace Pulumi.Snowflake
     ///     // location and checks that the connector definition it names matches, so that file has to be there; the same
     ///     // PUT pattern uploads anything else the bundle needs, such as a driver jar.
     ///     //
-    ///     // PUT runs from the machine executing Terraform, so the local file has to exist there. That rules it out for
+    ///     // PUT runs from the machine executing Pulumi, so the local file has to exist there. That rules it out for
     ///     // runners that do not have your bundle checked out, where a git repository stage is the better route.
     ///     var bundles = new Snowflake.Stage("bundles", new()
     ///     {
@@ -132,7 +132,7 @@ namespace Pulumi.Snowflake
     ///     });
     /// 
     ///     // from a git repository, which is a stage as far as Snowflake is concerned. Preferred when the bundle is
-    ///     // version controlled, since nothing has to be uploaded from the machine running Terraform.
+    ///     // version controlled, since nothing has to be uploaded from the machine running Pulumi.
     ///     var fromGit = new Snowflake.OpenflowConnector("from_git", new()
     ///     {
     ///         Database = "my_database",

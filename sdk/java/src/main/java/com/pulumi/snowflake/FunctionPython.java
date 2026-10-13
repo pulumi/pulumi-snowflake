@@ -73,8 +73,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Minimal
  *         var minimal = new FunctionPython("minimal", FunctionPythonArgs.builder()
- *             .database(test.name())
- *             .schema(testSnowflakeSchema.name())
+ *             .database(test.get("name"))
+ *             .schema(testSnowflakeSchema.get("name"))
  *             .name("my_function_function")
  *             .runtimeVersion("3.9")
  *             .arguments(FunctionPythonArgumentArgs.builder()

@@ -72,16 +72,16 @@ import javax.annotation.Nullable;
  *             .oauthEnforcePkce("true")
  *             .oauthUseSecondaryRoles("NONE")
  *             .preAuthorizedRolesLists(            
- *                 one.fullyQualifiedName(),
- *                 two.fullyQualifiedName())
- *             .allowedRolesLists(three.fullyQualifiedName())
+ *                 one.get("fullyQualifiedName"),
+ *                 two.get("fullyQualifiedName"))
+ *             .allowedRolesLists(three.get("fullyQualifiedName"))
  *             .blockedRolesLists(            
  *                 "ACCOUNTADMIN",
  *                 "SECURITYADMIN",
- *                 four.fullyQualifiedName())
+ *                 four.get("fullyQualifiedName"))
  *             .oauthIssueRefreshTokens("true")
  *             .oauthRefreshTokenValidity(87600)
- *             .networkPolicy(example.fullyQualifiedName())
+ *             .networkPolicy(example.get("fullyQualifiedName"))
  *             .oauthClientRsaPublicKey(StdFunctions.file(FileArgs.builder()
  *                 .input("rsa.pub")
  *                 .build()).result())

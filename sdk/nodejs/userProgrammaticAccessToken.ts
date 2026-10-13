@@ -65,8 +65,8 @@ import * as utilities from "./utilities";
  *     comment: "COMMENT",
  * });
  * export const token = complete.token;
- * // Note that the fields of this resource are updated only when Terraform is run.
- * // This means that the schedule may not be respected if Terraform is not run regularly.
+ * // Note that the fields of this resource are updated only when Pulumi is run.
+ * // This means that the schedule may not be respected if Pulumi is not run regularly.
  * const rotationSchedule = new time.index.Rotating("rotation_schedule", {rotationDays: 30});
  * // Rotate the token regularly using the keeper field and time_rotating resource.
  * const rotating = new snowflake.UserProgrammaticAccessToken("rotating", {

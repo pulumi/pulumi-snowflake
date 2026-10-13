@@ -8959,7 +8959,7 @@ public final class SnowflakeFunctions {
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
-     *                 .schema(test.fullyQualifiedName())
+     *                 .schema(test.get("fullyQualifiedName"))
      *                 .build())
      *             .build());
      * 
@@ -9029,7 +9029,7 @@ public final class SnowflakeFunctions {
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
-     *                 .schema(test.fullyQualifiedName())
+     *                 .schema(test.get("fullyQualifiedName"))
      *                 .build())
      *             .build());
      * 
@@ -9099,7 +9099,7 @@ public final class SnowflakeFunctions {
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
-     *                 .schema(test.fullyQualifiedName())
+     *                 .schema(test.get("fullyQualifiedName"))
      *                 .build())
      *             .build());
      * 
@@ -9169,7 +9169,7 @@ public final class SnowflakeFunctions {
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
-     *                 .schema(test.fullyQualifiedName())
+     *                 .schema(test.get("fullyQualifiedName"))
      *                 .build())
      *             .build());
      * 
@@ -9239,7 +9239,7 @@ public final class SnowflakeFunctions {
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
-     *                 .schema(test.fullyQualifiedName())
+     *                 .schema(test.get("fullyQualifiedName"))
      *                 .build())
      *             .build());
      * 
@@ -9309,7 +9309,7 @@ public final class SnowflakeFunctions {
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
-     *                 .schema(test.fullyQualifiedName())
+     *                 .schema(test.get("fullyQualifiedName"))
      *                 .build())
      *             .build());
      * 
@@ -9379,7 +9379,7 @@ public final class SnowflakeFunctions {
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
-     *                 .schema(test.fullyQualifiedName())
+     *                 .schema(test.get("fullyQualifiedName"))
      *                 .build())
      *             .build());
      * 
@@ -10939,7 +10939,7 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.get("id")))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
@@ -10950,19 +10950,19 @@ public final class SnowflakeFunctions {
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *     }
@@ -11033,7 +11033,7 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.get("id")))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
@@ -11044,19 +11044,19 @@ public final class SnowflakeFunctions {
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *     }
@@ -11127,7 +11127,7 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.get("id")))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
@@ -11138,19 +11138,19 @@ public final class SnowflakeFunctions {
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *     }
@@ -11221,7 +11221,7 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.get("id")))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
@@ -11232,19 +11232,19 @@ public final class SnowflakeFunctions {
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *     }
@@ -11315,7 +11315,7 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.get("id")))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
@@ -11326,19 +11326,19 @@ public final class SnowflakeFunctions {
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *     }
@@ -11409,7 +11409,7 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.get("id")))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
@@ -11420,19 +11420,19 @@ public final class SnowflakeFunctions {
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *     }
@@ -11503,7 +11503,7 @@ public final class SnowflakeFunctions {
      *             .vpcId(vpcId)
      *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.id()))
+     *             .securityGroupIds(Arrays.asList(snowflakePrivateLinkSecurityGroup.get("id")))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
@@ -11514,19 +11514,19 @@ public final class SnowflakeFunctions {
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
+     *             .zoneId(snowflakePrivateLinkRoute53Zone.get("zoneId"))
      *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
+     *             .records(Arrays.asList(snowflakePrivateLinkVpcEndpoint.get("dnsEntry")[0].get("dns_name")))
      *             .build());
      * 
      *     }

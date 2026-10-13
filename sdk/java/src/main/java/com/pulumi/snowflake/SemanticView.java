@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .tables(SemanticViewTableArgs.builder()
  *                 .tableAlias("lt1")
- *                 .tableName(test.fullyQualifiedName())
+ *                 .tableName(test.get("fullyQualifiedName"))
  *                 .build())
  *             .build());
  * 
@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  *                         "orders",
  *                         "sales")
  *                     .tableAlias("lt1")
- *                     .tableName(test.fullyQualifiedName())
+ *                     .tableName(test.get("fullyQualifiedName"))
  *                     .uniques(                    
  *                         SemanticViewTableUniqueArgs.builder()
  *                             .values("a2")
@@ -173,7 +173,7 @@ import javax.annotation.Nullable;
  *                     .comment("logical table 2 comment")
  *                     .primaryKeys("a1")
  *                     .tableAlias("lt2")
- *                     .tableName(test2.fullyQualifiedName())
+ *                     .tableName(test2.get("fullyQualifiedName"))
  *                     .build())
  *             .build());
  * 
