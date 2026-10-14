@@ -39,6 +39,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("errorIntegration")]
         public Input<string>? ErrorIntegration { get; set; }
 
+        [Input("executeAsUser")]
+        public Input<string>? ExecuteAsUser { get; set; }
+
         [Input("id")]
         public Input<string>? Id { get; set; }
 

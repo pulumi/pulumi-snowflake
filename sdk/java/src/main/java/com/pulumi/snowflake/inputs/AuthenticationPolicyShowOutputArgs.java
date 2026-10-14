@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -78,6 +79,13 @@ public final class AuthenticationPolicyShowOutputArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.schemaName);
     }
 
+    @Import(name="targetScopes")
+    private @Nullable Output<List<String>> targetScopes;
+
+    public Optional<Output<List<String>>> targetScopes() {
+        return Optional.ofNullable(this.targetScopes);
+    }
+
     private AuthenticationPolicyShowOutputArgs() {}
 
     private AuthenticationPolicyShowOutputArgs(AuthenticationPolicyShowOutputArgs $) {
@@ -90,6 +98,7 @@ public final class AuthenticationPolicyShowOutputArgs extends com.pulumi.resourc
         this.owner = $.owner;
         this.ownerRoleType = $.ownerRoleType;
         this.schemaName = $.schemaName;
+        this.targetScopes = $.targetScopes;
     }
 
     public static Builder builder() {
@@ -189,6 +198,19 @@ public final class AuthenticationPolicyShowOutputArgs extends com.pulumi.resourc
 
         public Builder schemaName(String schemaName) {
             return schemaName(Output.of(schemaName));
+        }
+
+        public Builder targetScopes(@Nullable Output<List<String>> targetScopes) {
+            $.targetScopes = targetScopes;
+            return this;
+        }
+
+        public Builder targetScopes(List<String> targetScopes) {
+            return targetScopes(Output.of(targetScopes));
+        }
+
+        public Builder targetScopes(String... targetScopes) {
+            return targetScopes(List.of(targetScopes));
         }
 
         public AuthenticationPolicyShowOutputArgs build() {

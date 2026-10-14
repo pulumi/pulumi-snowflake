@@ -155,6 +155,21 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+     * 
+     */
+    @Import(name="optimizedRefresh")
+    private @Nullable Output<Boolean> optimizedRefresh;
+
+    /**
+     * @return (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+     * 
+     */
+    public Optional<Output<Boolean>> optimizedRefresh() {
+        return Optional.ofNullable(this.optimizedRefresh);
+    }
+
+    /**
      * Specifies the schedule for refreshing secondary failover groups.
      * 
      */
@@ -169,6 +184,21 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.replicationSchedule);
     }
 
+    /**
+     * (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+     * 
+     */
+    @Import(name="rpoAssurance")
+    private @Nullable Output<Boolean> rpoAssurance;
+
+    /**
+     * @return (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+     * 
+     */
+    public Optional<Output<Boolean>> rpoAssurance() {
+        return Optional.ofNullable(this.rpoAssurance);
+    }
+
     private FailoverGroupState() {}
 
     private FailoverGroupState(FailoverGroupState $) {
@@ -181,7 +211,9 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         this.ignoreEditionCheck = $.ignoreEditionCheck;
         this.name = $.name;
         this.objectTypes = $.objectTypes;
+        this.optimizedRefresh = $.optimizedRefresh;
         this.replicationSchedule = $.replicationSchedule;
+        this.rpoAssurance = $.rpoAssurance;
     }
 
     public static Builder builder() {
@@ -442,6 +474,27 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param optimizedRefresh (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder optimizedRefresh(@Nullable Output<Boolean> optimizedRefresh) {
+            $.optimizedRefresh = optimizedRefresh;
+            return this;
+        }
+
+        /**
+         * @param optimizedRefresh (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder optimizedRefresh(Boolean optimizedRefresh) {
+            return optimizedRefresh(Output.of(optimizedRefresh));
+        }
+
+        /**
          * @param replicationSchedule Specifies the schedule for refreshing secondary failover groups.
          * 
          * @return builder
@@ -460,6 +513,27 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder replicationSchedule(FailoverGroupReplicationScheduleArgs replicationSchedule) {
             return replicationSchedule(Output.of(replicationSchedule));
+        }
+
+        /**
+         * @param rpoAssurance (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rpoAssurance(@Nullable Output<Boolean> rpoAssurance) {
+            $.rpoAssurance = rpoAssurance;
+            return this;
+        }
+
+        /**
+         * @param rpoAssurance (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rpoAssurance(Boolean rpoAssurance) {
+            return rpoAssurance(Output.of(rpoAssurance));
         }
 
         public FailoverGroupState build() {

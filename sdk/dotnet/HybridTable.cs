@@ -200,7 +200,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         /// </summary>
         [Output("dataRetentionTimeInDays")]
         public Output<int> DataRetentionTimeInDays { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         /// </summary>
         [Input("dataRetentionTimeInDays")]
         public Input<int>? DataRetentionTimeInDays { get; set; }
@@ -440,7 +440,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         /// </summary>
         [Input("dataRetentionTimeInDays")]
         public Input<int>? DataRetentionTimeInDays { get; set; }

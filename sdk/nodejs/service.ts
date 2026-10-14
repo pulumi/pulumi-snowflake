@@ -104,6 +104,10 @@ export class Service extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
+     * Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+     */
+    declare public /*out*/ readonly parameters: pulumi.Output<outputs.ServiceParameter[]>;
+    /**
      * Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly queryWarehouse: pulumi.Output<string | undefined>;
@@ -111,6 +115,10 @@ export class Service extends pulumi.CustomResource {
      * The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     declare public readonly schema: pulumi.Output<string>;
+    /**
+     * Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+     */
+    declare public readonly serviceCallerTokenValiditySecs: pulumi.Output<number>;
     /**
      * Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
      */
@@ -147,8 +155,10 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["minInstances"] = state?.minInstances;
             resourceInputs["minReadyInstances"] = state?.minReadyInstances;
             resourceInputs["name"] = state?.name;
+            resourceInputs["parameters"] = state?.parameters;
             resourceInputs["queryWarehouse"] = state?.queryWarehouse;
             resourceInputs["schema"] = state?.schema;
+            resourceInputs["serviceCallerTokenValiditySecs"] = state?.serviceCallerTokenValiditySecs;
             resourceInputs["serviceType"] = state?.serviceType;
             resourceInputs["showOutputs"] = state?.showOutputs;
         } else {
@@ -176,8 +186,10 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["queryWarehouse"] = args?.queryWarehouse;
             resourceInputs["schema"] = args?.schema;
+            resourceInputs["serviceCallerTokenValiditySecs"] = args?.serviceCallerTokenValiditySecs;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
+            resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["serviceType"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
@@ -247,6 +259,10 @@ export interface ServiceState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
+     * Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+     */
+    parameters?: pulumi.Input<pulumi.Input<inputs.ServiceParameter>[] | undefined>;
+    /**
      * Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     queryWarehouse?: pulumi.Input<string | undefined>;
@@ -254,6 +270,10 @@ export interface ServiceState {
      * The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string | undefined>;
+    /**
+     * Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+     */
+    serviceCallerTokenValiditySecs?: pulumi.Input<number | undefined>;
     /**
      * Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
      */
@@ -324,4 +344,8 @@ export interface ServiceArgs {
      * The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
+    /**
+     * Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+     */
+    serviceCallerTokenValiditySecs?: pulumi.Input<number | undefined>;
 }

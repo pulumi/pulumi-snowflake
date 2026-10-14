@@ -110,6 +110,12 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableArray<Outputs.ServiceParameter>> Parameters { get; private set; } = null!;
+
+        /// <summary>
         /// Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("queryWarehouse")]
@@ -120,6 +126,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
+
+        /// <summary>
+        /// Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+        /// </summary>
+        [Output("serviceCallerTokenValiditySecs")]
+        public Output<int> ServiceCallerTokenValiditySecs { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
@@ -269,6 +281,12 @@ namespace Pulumi.Snowflake
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
+        /// <summary>
+        /// Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+        /// </summary>
+        [Input("serviceCallerTokenValiditySecs")]
+        public Input<int>? ServiceCallerTokenValiditySecs { get; set; }
+
         public ServiceArgs()
         {
         }
@@ -373,6 +391,18 @@ namespace Pulumi.Snowflake
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("parameters")]
+        private InputList<Inputs.ServiceParameterGetArgs>? _parameters;
+
+        /// <summary>
+        /// Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+        /// </summary>
+        public InputList<Inputs.ServiceParameterGetArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.ServiceParameterGetArgs>());
+            set => _parameters = value;
+        }
+
         /// <summary>
         /// Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
@@ -384,6 +414,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
+
+        /// <summary>
+        /// Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+        /// </summary>
+        [Input("serviceCallerTokenValiditySecs")]
+        public Input<int>? ServiceCallerTokenValiditySecs { get; set; }
 
         /// <summary>
         /// Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.

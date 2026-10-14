@@ -41,7 +41,9 @@ public final class GetUsersUserDescribeOutput {
     private String rsaPublicKey;
     private String rsaPublicKey2;
     private String rsaPublicKey2Fp;
+    private String rsaPublicKey2LastSetTime;
     private String rsaPublicKeyFp;
+    private String rsaPublicKeyLastSetTime;
     private Boolean snowflakeLock;
     private Boolean snowflakeSupport;
     private String type;
@@ -131,8 +133,14 @@ public final class GetUsersUserDescribeOutput {
     public String rsaPublicKey2Fp() {
         return this.rsaPublicKey2Fp;
     }
+    public String rsaPublicKey2LastSetTime() {
+        return this.rsaPublicKey2LastSetTime;
+    }
     public String rsaPublicKeyFp() {
         return this.rsaPublicKeyFp;
+    }
+    public String rsaPublicKeyLastSetTime() {
+        return this.rsaPublicKeyLastSetTime;
     }
     public Boolean snowflakeLock() {
         return this.snowflakeLock;
@@ -181,7 +189,9 @@ public final class GetUsersUserDescribeOutput {
         private String rsaPublicKey;
         private String rsaPublicKey2;
         private String rsaPublicKey2Fp;
+        private String rsaPublicKey2LastSetTime;
         private String rsaPublicKeyFp;
+        private String rsaPublicKeyLastSetTime;
         private Boolean snowflakeLock;
         private Boolean snowflakeSupport;
         private String type;
@@ -216,7 +226,9 @@ public final class GetUsersUserDescribeOutput {
     	      this.rsaPublicKey = defaults.rsaPublicKey;
     	      this.rsaPublicKey2 = defaults.rsaPublicKey2;
     	      this.rsaPublicKey2Fp = defaults.rsaPublicKey2Fp;
+    	      this.rsaPublicKey2LastSetTime = defaults.rsaPublicKey2LastSetTime;
     	      this.rsaPublicKeyFp = defaults.rsaPublicKeyFp;
+    	      this.rsaPublicKeyLastSetTime = defaults.rsaPublicKeyLastSetTime;
     	      this.snowflakeLock = defaults.snowflakeLock;
     	      this.snowflakeSupport = defaults.snowflakeSupport;
     	      this.type = defaults.type;
@@ -447,11 +459,27 @@ public final class GetUsersUserDescribeOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder rsaPublicKey2LastSetTime(String rsaPublicKey2LastSetTime) {
+            if (rsaPublicKey2LastSetTime == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserDescribeOutput", "rsaPublicKey2LastSetTime");
+            }
+            this.rsaPublicKey2LastSetTime = rsaPublicKey2LastSetTime;
+            return this;
+        }
+        @CustomType.Setter
         public Builder rsaPublicKeyFp(String rsaPublicKeyFp) {
             if (rsaPublicKeyFp == null) {
               throw new MissingRequiredPropertyException("GetUsersUserDescribeOutput", "rsaPublicKeyFp");
             }
             this.rsaPublicKeyFp = rsaPublicKeyFp;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rsaPublicKeyLastSetTime(String rsaPublicKeyLastSetTime) {
+            if (rsaPublicKeyLastSetTime == null) {
+              throw new MissingRequiredPropertyException("GetUsersUserDescribeOutput", "rsaPublicKeyLastSetTime");
+            }
+            this.rsaPublicKeyLastSetTime = rsaPublicKeyLastSetTime;
             return this;
         }
         @CustomType.Setter
@@ -508,7 +536,9 @@ public final class GetUsersUserDescribeOutput {
             _resultValue.rsaPublicKey = rsaPublicKey;
             _resultValue.rsaPublicKey2 = rsaPublicKey2;
             _resultValue.rsaPublicKey2Fp = rsaPublicKey2Fp;
+            _resultValue.rsaPublicKey2LastSetTime = rsaPublicKey2LastSetTime;
             _resultValue.rsaPublicKeyFp = rsaPublicKeyFp;
+            _resultValue.rsaPublicKeyLastSetTime = rsaPublicKeyLastSetTime;
             _resultValue.snowflakeLock = snowflakeLock;
             _resultValue.snowflakeSupport = snowflakeSupport;
             _resultValue.type = type;

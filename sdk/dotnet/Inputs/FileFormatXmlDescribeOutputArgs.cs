@@ -18,6 +18,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("disableAutoConvert")]
         public Input<bool>? DisableAutoConvert { get; set; }
 
+        [Input("disableSnowflakeData")]
+        public Input<bool>? DisableSnowflakeData { get; set; }
+
         [Input("id")]
         public Input<string>? Id { get; set; }
 

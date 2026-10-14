@@ -41,7 +41,9 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string RsaPublicKey;
         public readonly string RsaPublicKey2;
         public readonly string RsaPublicKey2Fp;
+        public readonly string RsaPublicKey2LastSetTime;
         public readonly string RsaPublicKeyFp;
+        public readonly string RsaPublicKeyLastSetTime;
         public readonly bool SnowflakeLock;
         public readonly bool SnowflakeSupport;
         public readonly string Type;
@@ -104,7 +106,11 @@ namespace Pulumi.Snowflake.Outputs
 
             string rsaPublicKey2Fp,
 
+            string rsaPublicKey2LastSetTime,
+
             string rsaPublicKeyFp,
+
+            string rsaPublicKeyLastSetTime,
 
             bool snowflakeLock,
 
@@ -140,7 +146,9 @@ namespace Pulumi.Snowflake.Outputs
             RsaPublicKey = rsaPublicKey;
             RsaPublicKey2 = rsaPublicKey2;
             RsaPublicKey2Fp = rsaPublicKey2Fp;
+            RsaPublicKey2LastSetTime = rsaPublicKey2LastSetTime;
             RsaPublicKeyFp = rsaPublicKeyFp;
+            RsaPublicKeyLastSetTime = rsaPublicKeyLastSetTime;
             SnowflakeLock = snowflakeLock;
             SnowflakeSupport = snowflakeSupport;
             Type = type;

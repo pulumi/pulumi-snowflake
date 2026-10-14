@@ -144,6 +144,7 @@ from .iceberg_table_from_delta_files import *
 from .iceberg_table_from_files import *
 from .iceberg_table_from_rest import *
 from .image_repository import *
+from .intelligence_cortex_agent_attachment import *
 from .job_service import *
 from .legacy_service_user import *
 from .listing import *
@@ -779,6 +780,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/imageRepository:ImageRepository": "ImageRepository"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/intelligenceCortexAgentAttachment",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/intelligenceCortexAgentAttachment:IntelligenceCortexAgentAttachment": "IntelligenceCortexAgentAttachment"
   }
  },
  {

@@ -22,6 +22,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? DatabaseName;
         public readonly string? Definition;
         public readonly string? ErrorIntegration;
+        public readonly string? ExecuteAsUser;
         public readonly string? Id;
         public readonly string? LastCommittedOn;
         public readonly string? LastSuspendedOn;
@@ -56,6 +57,8 @@ namespace Pulumi.Snowflake.Outputs
             string? definition,
 
             string? errorIntegration,
+
+            string? executeAsUser,
 
             string? id,
 
@@ -94,6 +97,7 @@ namespace Pulumi.Snowflake.Outputs
             DatabaseName = databaseName;
             Definition = definition;
             ErrorIntegration = errorIntegration;
+            ExecuteAsUser = executeAsUser;
             Id = id;
             LastCommittedOn = lastCommittedOn;
             LastSuspendedOn = lastSuspendedOn;

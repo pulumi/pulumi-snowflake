@@ -695,6 +695,11 @@ export type ImageRepository = import("./imageRepository").ImageRepository;
 export const ImageRepository: typeof import("./imageRepository").ImageRepository = null as any;
 utilities.lazyLoad(exports, ["ImageRepository"], () => require("./imageRepository"));
 
+export { IntelligenceCortexAgentAttachmentArgs, IntelligenceCortexAgentAttachmentState } from "./intelligenceCortexAgentAttachment";
+export type IntelligenceCortexAgentAttachment = import("./intelligenceCortexAgentAttachment").IntelligenceCortexAgentAttachment;
+export const IntelligenceCortexAgentAttachment: typeof import("./intelligenceCortexAgentAttachment").IntelligenceCortexAgentAttachment = null as any;
+utilities.lazyLoad(exports, ["IntelligenceCortexAgentAttachment"], () => require("./intelligenceCortexAgentAttachment"));
+
 export { JobServiceArgs, JobServiceState } from "./jobService";
 export type JobService = import("./jobService").JobService;
 export const JobService: typeof import("./jobService").JobService = null as any;
@@ -1243,6 +1248,8 @@ const _module = {
                 return new IcebergTableFromRest(name, <any>undefined, { urn })
             case "snowflake:index/imageRepository:ImageRepository":
                 return new ImageRepository(name, <any>undefined, { urn })
+            case "snowflake:index/intelligenceCortexAgentAttachment:IntelligenceCortexAgentAttachment":
+                return new IntelligenceCortexAgentAttachment(name, <any>undefined, { urn })
             case "snowflake:index/jobService:JobService":
                 return new JobService(name, <any>undefined, { urn })
             case "snowflake:index/legacyServiceUser:LegacyServiceUser":
@@ -1474,6 +1481,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromDeltaF
 pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromFiles", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/icebergTableFromRest", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/imageRepository", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/intelligenceCortexAgentAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/jobService", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/legacyServiceUser", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/listing", _module)

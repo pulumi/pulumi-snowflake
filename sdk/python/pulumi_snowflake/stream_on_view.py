@@ -453,7 +453,7 @@ class StreamOnView(pulumi.CustomResource):
         """
         > **Note about copy_grants** Fields like `view`, `append_only`, `at`, `before`, `show_initial_rows` and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copy_grants`. Beware that even though a change is marked as update, the resource is recreated.
 
-        > **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect.
+        > **Note** Importing this resource sets boolean fields that use the special `"default"` value to `"default"` instead of the Snowflake-reported value, avoiding persistent diffs. This is the `IMPORT_BOOLEAN_DEFAULT` experiment, which is enabled by default. Opt out by listing it in `experimental_features_disabled`.
 
         Resource used to manage streams on views. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
 
@@ -486,7 +486,7 @@ class StreamOnView(pulumi.CustomResource):
         """
         > **Note about copy_grants** Fields like `view`, `append_only`, `at`, `before`, `show_initial_rows` and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copy_grants`. Beware that even though a change is marked as update, the resource is recreated.
 
-        > **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect.
+        > **Note** Importing this resource sets boolean fields that use the special `"default"` value to `"default"` instead of the Snowflake-reported value, avoiding persistent diffs. This is the `IMPORT_BOOLEAN_DEFAULT` experiment, which is enabled by default. Opt out by listing it in `experimental_features_disabled`.
 
         Resource used to manage streams on views. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
 

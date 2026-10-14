@@ -39,6 +39,14 @@ namespace Pulumi.Snowflake.Inputs
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
 
+        [Input("targetScopes")]
+        private InputList<string>? _targetScopes;
+        public InputList<string> TargetScopes
+        {
+            get => _targetScopes ?? (_targetScopes = new InputList<string>());
+            set => _targetScopes = value;
+        }
+
         public SessionPolicyShowOutputArgs()
         {
         }

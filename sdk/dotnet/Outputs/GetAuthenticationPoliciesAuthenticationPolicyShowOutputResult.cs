@@ -22,6 +22,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string Owner;
         public readonly string OwnerRoleType;
         public readonly string SchemaName;
+        public readonly ImmutableArray<string> TargetScopes;
 
         [OutputConstructor]
         private GetAuthenticationPoliciesAuthenticationPolicyShowOutputResult(
@@ -41,7 +42,9 @@ namespace Pulumi.Snowflake.Outputs
 
             string ownerRoleType,
 
-            string schemaName)
+            string schemaName,
+
+            ImmutableArray<string> targetScopes)
         {
             Comment = comment;
             CreatedOn = createdOn;
@@ -52,6 +55,7 @@ namespace Pulumi.Snowflake.Outputs
             Owner = owner;
             OwnerRoleType = ownerRoleType;
             SchemaName = schemaName;
+            TargetScopes = targetScopes;
         }
     }
 }

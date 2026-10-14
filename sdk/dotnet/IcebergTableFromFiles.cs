@@ -69,7 +69,7 @@ namespace Pulumi.Snowflake
     public partial class IcebergTableFromFiles : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        /// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         /// </summary>
         [Output("catalog")]
         public Output<string> Catalog { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.IcebergTableFromFilesDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        /// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         /// </summary>
         [Output("externalVolume")]
         public Output<string> ExternalVolume { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.IcebergTableFromFilesParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         /// </summary>
         [Output("replaceInvalidCharacters")]
         public Output<bool> ReplaceInvalidCharacters { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Snowflake
     public sealed class IcebergTableFromFilesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        /// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         /// </summary>
         [Input("catalog")]
         public Input<string>? Catalog { get; set; }
@@ -205,7 +205,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        /// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         /// </summary>
         [Input("externalVolume")]
         public Input<string>? ExternalVolume { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         /// </summary>
         [Input("replaceInvalidCharacters")]
         public Input<bool>? ReplaceInvalidCharacters { get; set; }
@@ -243,7 +243,7 @@ namespace Pulumi.Snowflake
     public sealed class IcebergTableFromFilesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        /// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         /// </summary>
         [Input("catalog")]
         public Input<string>? Catalog { get; set; }
@@ -273,7 +273,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        /// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         /// </summary>
         [Input("externalVolume")]
         public Input<string>? ExternalVolume { get; set; }
@@ -309,7 +309,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         /// </summary>
         [Input("replaceInvalidCharacters")]
         public Input<bool>? ReplaceInvalidCharacters { get; set; }

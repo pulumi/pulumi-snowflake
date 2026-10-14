@@ -27,7 +27,7 @@ class GetAccountsResult:
     """
     A collection of values returned by getAccounts.
     """
-    def __init__(__self__, accounts=None, id=None, like=None, with_history=None):
+    def __init__(__self__, accounts=None, id=None, like=None, with_history=None, with_parameters=None):
         if accounts and not isinstance(accounts, list):
             raise TypeError("Expected argument 'accounts' to be a list")
         pulumi.set(__self__, "accounts", accounts)
@@ -40,6 +40,9 @@ class GetAccountsResult:
         if with_history and not isinstance(with_history, bool):
             raise TypeError("Expected argument 'with_history' to be a bool")
         pulumi.set(__self__, "with_history", with_history)
+        if with_parameters and not isinstance(with_parameters, bool):
+            raise TypeError("Expected argument 'with_parameters' to be a bool")
+        pulumi.set(__self__, "with_parameters", with_parameters)
 
     @_builtins.property
     @pulumi.getter
@@ -73,6 +76,14 @@ class GetAccountsResult:
         """
         return pulumi.get(self, "with_history")
 
+    @_builtins.property
+    @pulumi.getter(name="withParameters")
+    def with_parameters(self) -> Optional[_builtins.bool]:
+        """
+        (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account's row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_parameters")
+
 
 class AwaitableGetAccountsResult(GetAccountsResult):
     # pylint: disable=using-constant-test
@@ -83,22 +94,26 @@ class AwaitableGetAccountsResult(GetAccountsResult):
             accounts=self.accounts,
             id=self.id,
             like=self.like,
-            with_history=self.with_history)
+            with_history=self.with_history,
+            with_parameters=self.with_parameters)
 
 
 def get_accounts(like: Optional[_builtins.str] = None,
                  with_history: Optional[_builtins.bool] = None,
+                 with_parameters: Optional[_builtins.bool] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountsResult:
     """
-    Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+    Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
 
 
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param _builtins.bool with_history: Includes dropped accounts that have not yet been deleted.
+    :param _builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account's row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
     """
     __args__ = dict()
     __args__['like'] = like
     __args__['withHistory'] = with_history
+    __args__['withParameters'] = with_parameters
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getAccounts:getAccounts', __args__, opts=opts, typ=GetAccountsResult).value
 
@@ -106,24 +121,29 @@ def get_accounts(like: Optional[_builtins.str] = None,
         accounts=pulumi.get(__ret__, 'accounts'),
         id=pulumi.get(__ret__, 'id'),
         like=pulumi.get(__ret__, 'like'),
-        with_history=pulumi.get(__ret__, 'with_history'))
+        with_history=pulumi.get(__ret__, 'with_history'),
+        with_parameters=pulumi.get(__ret__, 'with_parameters'))
 def get_accounts_output(like: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                         with_history: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                        with_parameters: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountsResult]:
     """
-    Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+    Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
 
 
     :param _builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param _builtins.bool with_history: Includes dropped accounts that have not yet been deleted.
+    :param _builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account's row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
     """
     __args__ = dict()
     __args__['like'] = like
     __args__['withHistory'] = with_history
+    __args__['withParameters'] = with_parameters
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getAccounts:getAccounts', __args__, opts=opts, typ=GetAccountsResult)
     return __ret__.apply(lambda __response__: GetAccountsResult(
         accounts=pulumi.get(__response__, 'accounts'),
         id=pulumi.get(__response__, 'id'),
         like=pulumi.get(__response__, 'like'),
-        with_history=pulumi.get(__response__, 'with_history')))
+        with_history=pulumi.get(__response__, 'with_history'),
+        with_parameters=pulumi.get(__response__, 'with_parameters')))

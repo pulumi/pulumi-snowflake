@@ -14,6 +14,8 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetStagesStageDescribeOutputDirectoryTableResult
     {
         public readonly bool AutoRefresh;
+        public readonly string AwsSnsTopic;
+        public readonly string DirectoryNotificationChannel;
         public readonly bool Enable;
         public readonly string LastRefreshedOn;
 
@@ -21,11 +23,17 @@ namespace Pulumi.Snowflake.Outputs
         private GetStagesStageDescribeOutputDirectoryTableResult(
             bool autoRefresh,
 
+            string awsSnsTopic,
+
+            string directoryNotificationChannel,
+
             bool enable,
 
             string lastRefreshedOn)
         {
             AutoRefresh = autoRefresh;
+            AwsSnsTopic = awsSnsTopic;
+            DirectoryNotificationChannel = directoryNotificationChannel;
             Enable = enable;
             LastRefreshedOn = lastRefreshedOn;
         }

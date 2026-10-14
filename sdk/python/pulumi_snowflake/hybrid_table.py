@@ -40,7 +40,7 @@ class HybridTableArgs:
         :param pulumi.Input['HybridTablePrimaryKeyConstraintArgs'] primary_key_constraint: Defines the primary key constraint for the hybrid table.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the hybrid table.
-        :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         :param pulumi.Input[Sequence[pulumi.Input['HybridTableForeignKeyConstraintArgs']]] foreign_key_constraints: Defines FOREIGN KEY constraints.
         :param pulumi.Input[Sequence[pulumi.Input['HybridTableIndexArgs']]] indices: Defines secondary indexes on the hybrid table.
         :param pulumi.Input[_builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for the hybrid table to prevent streams on it from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
@@ -130,7 +130,7 @@ class HybridTableArgs:
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -222,7 +222,7 @@ class _HybridTableState:
 
         :param pulumi.Input[Sequence[pulumi.Input['HybridTableColumnArgs']]] columns: Definitions of a column to create in the hybrid table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the hybrid table.
-        :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         :param pulumi.Input[_builtins.str] database: The database in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['HybridTableDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE TABLE` for the given hybrid table.
         :param pulumi.Input[Sequence[pulumi.Input['HybridTableForeignKeyConstraintArgs']]] foreign_key_constraints: Defines FOREIGN KEY constraints.
@@ -295,7 +295,7 @@ class _HybridTableState:
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -584,7 +584,7 @@ class HybridTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict', 'outputs.HybridTableColumn']]]] columns: Definitions of a column to create in the hybrid table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the hybrid table.
-        :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         :param pulumi.Input[_builtins.str] database: The database in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict', 'outputs.HybridTableForeignKeyConstraint']]]] foreign_key_constraints: Defines FOREIGN KEY constraints.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict', 'outputs.HybridTableIndex']]]] indices: Defines secondary indexes on the hybrid table.
@@ -806,7 +806,7 @@ class HybridTable(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict', 'outputs.HybridTableColumn']]]] columns: Definitions of a column to create in the hybrid table. Minimum one required.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the hybrid table.
-        :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        :param pulumi.Input[_builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         :param pulumi.Input[_builtins.str] database: The database in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableDescribeOutputArgs', 'HybridTableDescribeOutputArgsDict', 'outputs.HybridTableDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE TABLE` for the given hybrid table.
         :param pulumi.Input[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict', 'outputs.HybridTableForeignKeyConstraint']]]] foreign_key_constraints: Defines FOREIGN KEY constraints.
@@ -861,7 +861,7 @@ class HybridTable(pulumi.CustomResource):
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> pulumi.Output[_builtins.int]:
         """
-        Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         """
         return pulumi.get(self, "data_retention_time_in_days")
 

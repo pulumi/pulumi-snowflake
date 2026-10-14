@@ -21,12 +21,16 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string? DatabaseName;
         public readonly string? Definition;
         public readonly string? EmbeddingModel;
+        public readonly int? FullIndexBuildIntervalDays;
         public readonly string? IndexingError;
         public readonly string? IndexingState;
         public readonly string? Name;
+        public readonly ImmutableArray<string> PrimaryKeyColumns;
         public readonly string? SchemaName;
+        public readonly int? ScoringProfileCount;
         public readonly string? SearchColumn;
         public readonly string? ServiceQueryUrl;
+        public readonly string? ServingState;
         public readonly int? SourceDataNumRows;
         public readonly string? TargetLag;
         public readonly string? Warehouse;
@@ -49,17 +53,25 @@ namespace Pulumi.Snowflake.Outputs
 
             string? embeddingModel,
 
+            int? fullIndexBuildIntervalDays,
+
             string? indexingError,
 
             string? indexingState,
 
             string? name,
 
+            ImmutableArray<string> primaryKeyColumns,
+
             string? schemaName,
+
+            int? scoringProfileCount,
 
             string? searchColumn,
 
             string? serviceQueryUrl,
+
+            string? servingState,
 
             int? sourceDataNumRows,
 
@@ -75,12 +87,16 @@ namespace Pulumi.Snowflake.Outputs
             DatabaseName = databaseName;
             Definition = definition;
             EmbeddingModel = embeddingModel;
+            FullIndexBuildIntervalDays = fullIndexBuildIntervalDays;
             IndexingError = indexingError;
             IndexingState = indexingState;
             Name = name;
+            PrimaryKeyColumns = primaryKeyColumns;
             SchemaName = schemaName;
+            ScoringProfileCount = scoringProfileCount;
             SearchColumn = searchColumn;
             ServiceQueryUrl = serviceQueryUrl;
+            ServingState = servingState;
             SourceDataNumRows = sourceDataNumRows;
             TargetLag = targetLag;
             Warehouse = warehouse;

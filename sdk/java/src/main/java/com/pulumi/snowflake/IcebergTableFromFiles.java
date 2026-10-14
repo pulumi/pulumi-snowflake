@@ -93,14 +93,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/icebergTableFromFiles:IcebergTableFromFiles")
 public class IcebergTableFromFiles extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+     * The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     @Export(name="catalog", refs={String.class}, tree="[0]")
     private Output<String> catalog;
 
     /**
-     * @return Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+     * @return The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     public Output<String> catalog() {
@@ -149,14 +149,14 @@ public class IcebergTableFromFiles extends com.pulumi.resources.CustomResource {
         return this.describeOutputs;
     }
     /**
-     * Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+     * The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     @Export(name="externalVolume", refs={String.class}, tree="[0]")
     private Output<String> externalVolume;
 
     /**
-     * @return Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+     * @return The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     public Output<String> externalVolume() {
@@ -219,14 +219,14 @@ public class IcebergTableFromFiles extends com.pulumi.resources.CustomResource {
         return this.parameters;
     }
     /**
-     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     @Export(name="replaceInvalidCharacters", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> replaceInvalidCharacters;
 
     /**
-     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     public Output<Boolean> replaceInvalidCharacters() {

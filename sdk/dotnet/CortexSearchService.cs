@@ -99,6 +99,12 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> Attributes { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
+        [Output("autoSuspend")]
+        public Output<int?> AutoSuspend { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies a comment for the Cortex search service.
         /// </summary>
         [Output("comment")]
@@ -145,6 +151,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("on")]
         public Output<string> On { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+        /// </summary>
+        [Output("primaryKeys")]
+        public Output<ImmutableArray<string>> PrimaryKeys { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the query to use to populate the Cortex search service.
@@ -229,6 +241,12 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
+        [Input("autoSuspend")]
+        public Input<int>? AutoSuspend { get; set; }
+
+        /// <summary>
         /// Specifies a comment for the Cortex search service.
         /// </summary>
         [Input("comment")]
@@ -257,6 +275,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("on", required: true)]
         public Input<string> On { get; set; } = null!;
+
+        [Input("primaryKeys")]
+        private InputList<string>? _primaryKeys;
+
+        /// <summary>
+        /// Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+        /// </summary>
+        public InputList<string> PrimaryKeys
+        {
+            get => _primaryKeys ?? (_primaryKeys = new InputList<string>());
+            set => _primaryKeys = value;
+        }
 
         /// <summary>
         /// Specifies the query to use to populate the Cortex search service.
@@ -301,6 +331,12 @@ namespace Pulumi.Snowflake
             get => _attributes ?? (_attributes = new InputList<string>());
             set => _attributes = value;
         }
+
+        /// <summary>
+        /// Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        /// </summary>
+        [Input("autoSuspend")]
+        public Input<int>? AutoSuspend { get; set; }
 
         /// <summary>
         /// Specifies a comment for the Cortex search service.
@@ -355,6 +391,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("on")]
         public Input<string>? On { get; set; }
+
+        [Input("primaryKeys")]
+        private InputList<string>? _primaryKeys;
+
+        /// <summary>
+        /// Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+        /// </summary>
+        public InputList<string> PrimaryKeys
+        {
+            get => _primaryKeys ?? (_primaryKeys = new InputList<string>());
+            set => _primaryKeys = value;
+        }
 
         /// <summary>
         /// Specifies the query to use to populate the Cortex search service.

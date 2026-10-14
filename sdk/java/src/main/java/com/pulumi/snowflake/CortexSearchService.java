@@ -11,6 +11,7 @@ import com.pulumi.snowflake.CortexSearchServiceArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.CortexSearchServiceState;
 import com.pulumi.snowflake.outputs.CortexSearchServiceDescribeOutput;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -126,6 +127,20 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.attributes);
     }
     /**
+     * Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
+    @Export(name="autoSuspend", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> autoSuspend;
+
+    /**
+     * @return Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
+    public Output<Optional<Integer>> autoSuspend() {
+        return Codegen.optional(this.autoSuspend);
+    }
+    /**
      * Specifies a comment for the Cortex search service.
      * 
      */
@@ -236,6 +251,20 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
      */
     public Output<String> on() {
         return this.on;
+    }
+    /**
+     * Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+     * 
+     */
+    @Export(name="primaryKeys", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> primaryKeys;
+
+    /**
+     * @return Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+     * 
+     */
+    public Output<Optional<List<String>>> primaryKeys() {
+        return Codegen.optional(this.primaryKeys);
     }
     /**
      * Specifies the query to use to populate the Cortex search service.

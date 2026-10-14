@@ -19,6 +19,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string Compression;
         public readonly string DateFormat;
         public readonly bool DisableAutoConvert;
+        public readonly bool DisableSnowflakeData;
         public readonly bool EmptyFieldAsNull;
         public readonly bool EnableOctal;
         public readonly string Encoding;
@@ -63,6 +64,8 @@ namespace Pulumi.Snowflake.Outputs
             string dateFormat,
 
             bool disableAutoConvert,
+
+            bool disableSnowflakeData,
 
             bool emptyFieldAsNull,
 
@@ -130,6 +133,7 @@ namespace Pulumi.Snowflake.Outputs
             Compression = compression;
             DateFormat = dateFormat;
             DisableAutoConvert = disableAutoConvert;
+            DisableSnowflakeData = disableSnowflakeData;
             EmptyFieldAsNull = emptyFieldAsNull;
             EnableOctal = enableOctal;
             Encoding = encoding;

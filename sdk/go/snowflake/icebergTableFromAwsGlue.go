@@ -79,7 +79,7 @@ type IcebergTableFromAwsGlue struct {
 
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the AWS Glue catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoRefresh pulumi.StringPtrOutput `pulumi:"autoRefresh"`
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringOutput `pulumi:"catalog"`
 	// Specifies the namespace (or database) in the AWS Glue catalog that the table belongs to. If not specified, the catalog integration's default namespace is used.
 	CatalogNamespace pulumi.StringPtrOutput `pulumi:"catalogNamespace"`
@@ -91,7 +91,7 @@ type IcebergTableFromAwsGlue struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
 	DescribeOutputs IcebergTableFromAwsGlueDescribeOutputArrayOutput `pulumi:"describeOutputs"`
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringOutput `pulumi:"externalVolume"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
@@ -99,7 +99,7 @@ type IcebergTableFromAwsGlue struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
 	Parameters IcebergTableFromAwsGlueParameterArrayOutput `pulumi:"parameters"`
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters pulumi.BoolOutput `pulumi:"replaceInvalidCharacters"`
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -148,7 +148,7 @@ func GetIcebergTableFromAwsGlue(ctx *pulumi.Context,
 type icebergTableFromAwsGlueState struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the AWS Glue catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoRefresh *string `pulumi:"autoRefresh"`
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`
 	// Specifies the namespace (or database) in the AWS Glue catalog that the table belongs to. If not specified, the catalog integration's default namespace is used.
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
@@ -160,7 +160,7 @@ type icebergTableFromAwsGlueState struct {
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
 	DescribeOutputs []IcebergTableFromAwsGlueDescribeOutput `pulumi:"describeOutputs"`
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume *string `pulumi:"externalVolume"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
@@ -168,7 +168,7 @@ type icebergTableFromAwsGlueState struct {
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
 	Parameters []IcebergTableFromAwsGlueParameter `pulumi:"parameters"`
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters *bool `pulumi:"replaceInvalidCharacters"`
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
@@ -179,7 +179,7 @@ type icebergTableFromAwsGlueState struct {
 type IcebergTableFromAwsGlueState struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the AWS Glue catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoRefresh pulumi.StringPtrInput
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringPtrInput
 	// Specifies the namespace (or database) in the AWS Glue catalog that the table belongs to. If not specified, the catalog integration's default namespace is used.
 	CatalogNamespace pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type IcebergTableFromAwsGlueState struct {
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
 	DescribeOutputs IcebergTableFromAwsGlueDescribeOutputArrayInput
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
@@ -199,7 +199,7 @@ type IcebergTableFromAwsGlueState struct {
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
 	Parameters IcebergTableFromAwsGlueParameterArrayInput
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters pulumi.BoolPtrInput
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
@@ -214,7 +214,7 @@ func (IcebergTableFromAwsGlueState) ElementType() reflect.Type {
 type icebergTableFromAwsGlueArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the AWS Glue catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoRefresh *string `pulumi:"autoRefresh"`
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`
 	// Specifies the namespace (or database) in the AWS Glue catalog that the table belongs to. If not specified, the catalog integration's default namespace is used.
 	CatalogNamespace *string `pulumi:"catalogNamespace"`
@@ -224,11 +224,11 @@ type icebergTableFromAwsGlueArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume *string `pulumi:"externalVolume"`
 	// Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters *bool `pulumi:"replaceInvalidCharacters"`
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
@@ -238,7 +238,7 @@ type icebergTableFromAwsGlueArgs struct {
 type IcebergTableFromAwsGlueArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the AWS Glue catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoRefresh pulumi.StringPtrInput
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringPtrInput
 	// Specifies the namespace (or database) in the AWS Glue catalog that the table belongs to. If not specified, the catalog integration's default namespace is used.
 	CatalogNamespace pulumi.StringPtrInput
@@ -248,11 +248,11 @@ type IcebergTableFromAwsGlueArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringPtrInput
 	// Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters pulumi.BoolPtrInput
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
@@ -350,7 +350,7 @@ func (o IcebergTableFromAwsGlueOutput) AutoRefresh() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IcebergTableFromAwsGlue) pulumi.StringPtrOutput { return v.AutoRefresh }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 func (o IcebergTableFromAwsGlueOutput) Catalog() pulumi.StringOutput {
 	return o.ApplyT(func(v *IcebergTableFromAwsGlue) pulumi.StringOutput { return v.Catalog }).(pulumi.StringOutput)
 }
@@ -382,7 +382,7 @@ func (o IcebergTableFromAwsGlueOutput) DescribeOutputs() IcebergTableFromAwsGlue
 	}).(IcebergTableFromAwsGlueDescribeOutputArrayOutput)
 }
 
-// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 func (o IcebergTableFromAwsGlueOutput) ExternalVolume() pulumi.StringOutput {
 	return o.ApplyT(func(v *IcebergTableFromAwsGlue) pulumi.StringOutput { return v.ExternalVolume }).(pulumi.StringOutput)
 }
@@ -402,7 +402,7 @@ func (o IcebergTableFromAwsGlueOutput) Parameters() IcebergTableFromAwsGlueParam
 	return o.ApplyT(func(v *IcebergTableFromAwsGlue) IcebergTableFromAwsGlueParameterArrayOutput { return v.Parameters }).(IcebergTableFromAwsGlueParameterArrayOutput)
 }
 
-// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 func (o IcebergTableFromAwsGlueOutput) ReplaceInvalidCharacters() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IcebergTableFromAwsGlue) pulumi.BoolOutput { return v.ReplaceInvalidCharacters }).(pulumi.BoolOutput)
 }

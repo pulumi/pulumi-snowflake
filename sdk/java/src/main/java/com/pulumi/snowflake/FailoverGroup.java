@@ -229,6 +229,20 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.objectTypes);
     }
     /**
+     * (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+     * 
+     */
+    @Export(name="optimizedRefresh", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> optimizedRefresh;
+
+    /**
+     * @return (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+     * 
+     */
+    public Output<Optional<Boolean>> optimizedRefresh() {
+        return Codegen.optional(this.optimizedRefresh);
+    }
+    /**
      * Specifies the schedule for refreshing secondary failover groups.
      * 
      */
@@ -241,6 +255,20 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<FailoverGroupReplicationSchedule>> replicationSchedule() {
         return Codegen.optional(this.replicationSchedule);
+    }
+    /**
+     * (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+     * 
+     */
+    @Export(name="rpoAssurance", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> rpoAssurance;
+
+    /**
+     * @return (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+     * 
+     */
+    public Output<Optional<Boolean>> rpoAssurance() {
+        return Codegen.optional(this.rpoAssurance);
     }
 
     /**

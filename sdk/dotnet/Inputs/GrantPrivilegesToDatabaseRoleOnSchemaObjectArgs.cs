@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<Inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs>? Future { get; set; }
 
         /// <summary>
-        /// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `ExperimentalFeaturesEnabled` field.
+        /// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `ExperimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         /// </summary>
         [Input("inherited")]
         public Input<Inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs>? Inherited { get; set; }

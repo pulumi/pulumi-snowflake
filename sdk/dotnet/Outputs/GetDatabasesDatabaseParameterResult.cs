@@ -16,6 +16,8 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.GetDatabasesDatabaseParameterCatalogResult> Catalogs;
         public readonly ImmutableArray<Outputs.GetDatabasesDatabaseParameterDataRetentionTimeInDayResult> DataRetentionTimeInDays;
         public readonly ImmutableArray<Outputs.GetDatabasesDatabaseParameterDefaultDdlCollationResult> DefaultDdlCollations;
+        public readonly ImmutableArray<Outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpusResult> DefaultNotebookComputePoolCpus;
+        public readonly ImmutableArray<Outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpusResult> DefaultNotebookComputePoolGpus;
         public readonly ImmutableArray<Outputs.GetDatabasesDatabaseParameterEnableConsoleOutputResult> EnableConsoleOutputs;
         public readonly ImmutableArray<Outputs.GetDatabasesDatabaseParameterExternalVolumeResult> ExternalVolumes;
         public readonly ImmutableArray<Outputs.GetDatabasesDatabaseParameterLogEventLevelResult> LogEventLevels;
@@ -38,6 +40,10 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.GetDatabasesDatabaseParameterDataRetentionTimeInDayResult> dataRetentionTimeInDays,
 
             ImmutableArray<Outputs.GetDatabasesDatabaseParameterDefaultDdlCollationResult> defaultDdlCollations,
+
+            ImmutableArray<Outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpusResult> defaultNotebookComputePoolCpus,
+
+            ImmutableArray<Outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpusResult> defaultNotebookComputePoolGpus,
 
             ImmutableArray<Outputs.GetDatabasesDatabaseParameterEnableConsoleOutputResult> enableConsoleOutputs,
 
@@ -70,6 +76,8 @@ namespace Pulumi.Snowflake.Outputs
             Catalogs = catalogs;
             DataRetentionTimeInDays = dataRetentionTimeInDays;
             DefaultDdlCollations = defaultDdlCollations;
+            DefaultNotebookComputePoolCpus = defaultNotebookComputePoolCpus;
+            DefaultNotebookComputePoolGpus = defaultNotebookComputePoolGpus;
             EnableConsoleOutputs = enableConsoleOutputs;
             ExternalVolumes = externalVolumes;
             LogEventLevels = logEventLevels;

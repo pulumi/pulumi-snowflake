@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class GrantPrivilegesToAccountRoleOnAccountObjectInheritedGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+        /// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         /// </summary>
         [Input("objectTypePlural", required: true)]
         public Input<string> ObjectTypePlural { get; set; } = null!;

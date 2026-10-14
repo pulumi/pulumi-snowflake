@@ -91,7 +91,7 @@ type OpenflowDeploymentByoc struct {
 	DescribeOutputs OpenflowDeploymentByocDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
-	// Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+	// Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
 	EventTable pulumi.StringOutput `pulumi:"eventTable"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
@@ -152,7 +152,7 @@ type openflowDeploymentByocState struct {
 	DescribeOutputs []OpenflowDeploymentByocDescribeOutput `pulumi:"describeOutputs"`
 	// A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
 	DisplayName *string `pulumi:"displayName"`
-	// Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+	// Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
 	EventTable *string `pulumi:"eventTable"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
@@ -181,7 +181,7 @@ type OpenflowDeploymentByocState struct {
 	DescribeOutputs OpenflowDeploymentByocDescribeOutputArrayInput
 	// A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
 	DisplayName pulumi.StringPtrInput
-	// Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+	// Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
 	EventTable pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
@@ -212,7 +212,7 @@ type openflowDeploymentByocArgs struct {
 	CustomIngressHostname *string `pulumi:"customIngressHostname"`
 	// A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
 	DisplayName *string `pulumi:"displayName"`
-	// Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+	// Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
 	EventTable *string `pulumi:"eventTable"`
 	// Specifies the identifier for the Openflow deployment; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
@@ -232,7 +232,7 @@ type OpenflowDeploymentByocArgs struct {
 	CustomIngressHostname pulumi.StringPtrInput
 	// A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
 	DisplayName pulumi.StringPtrInput
-	// Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+	// Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
 	EventTable pulumi.StringPtrInput
 	// Specifies the identifier for the Openflow deployment; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
@@ -353,7 +353,7 @@ func (o OpenflowDeploymentByocOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenflowDeploymentByoc) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+// Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
 func (o OpenflowDeploymentByocOutput) EventTable() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenflowDeploymentByoc) pulumi.StringOutput { return v.EventTable }).(pulumi.StringOutput)
 }

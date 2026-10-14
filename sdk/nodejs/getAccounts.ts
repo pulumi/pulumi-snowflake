@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+ * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
  */
 export function getAccounts(args?: GetAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountsResult> {
     args = args || {};
@@ -15,6 +15,7 @@ export function getAccounts(args?: GetAccountsArgs, opts?: pulumi.InvokeOptions)
     return pulumi.runtime.invoke("snowflake:index/getAccounts:getAccounts", {
         "like": args.like,
         "withHistory": args.withHistory,
+        "withParameters": args.withParameters,
     }, opts);
 }
 
@@ -30,6 +31,10 @@ export interface GetAccountsArgs {
      * Includes dropped accounts that have not yet been deleted.
      */
     withHistory?: boolean;
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account's row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+     */
+    withParameters?: boolean;
 }
 
 /**
@@ -52,9 +57,13 @@ export interface GetAccountsResult {
      * Includes dropped accounts that have not yet been deleted.
      */
     readonly withHistory?: boolean;
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account's row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+     */
+    readonly withParameters?: boolean;
 }
 /**
- * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+ * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
  */
 export function getAccountsOutput(args?: GetAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountsResult> {
     args = args || {};
@@ -62,6 +71,7 @@ export function getAccountsOutput(args?: GetAccountsOutputArgs, opts?: pulumi.In
     return pulumi.runtime.invokeOutput("snowflake:index/getAccounts:getAccounts", {
         "like": args.like,
         "withHistory": args.withHistory,
+        "withParameters": args.withParameters,
     }, opts);
 }
 
@@ -77,4 +87,8 @@ export interface GetAccountsOutputArgs {
      * Includes dropped accounts that have not yet been deleted.
      */
     withHistory?: pulumi.Input<boolean | undefined>;
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account's row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+     */
+    withParameters?: pulumi.Input<boolean | undefined>;
 }

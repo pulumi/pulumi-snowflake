@@ -78,7 +78,7 @@ import (
 type IcebergTableFromFiles struct {
 	pulumi.CustomResourceState
 
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringOutput `pulumi:"catalog"`
 	// Specifies a comment for the Iceberg table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -86,7 +86,7 @@ type IcebergTableFromFiles struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
 	DescribeOutputs IcebergTableFromFilesDescribeOutputArrayOutput `pulumi:"describeOutputs"`
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringOutput `pulumi:"externalVolume"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
@@ -96,7 +96,7 @@ type IcebergTableFromFiles struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
 	Parameters IcebergTableFromFilesParameterArrayOutput `pulumi:"parameters"`
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters pulumi.BoolOutput `pulumi:"replaceInvalidCharacters"`
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -143,7 +143,7 @@ func GetIcebergTableFromFiles(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IcebergTableFromFiles resources.
 type icebergTableFromFilesState struct {
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`
 	// Specifies a comment for the Iceberg table.
 	Comment *string `pulumi:"comment"`
@@ -151,7 +151,7 @@ type icebergTableFromFilesState struct {
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
 	DescribeOutputs []IcebergTableFromFilesDescribeOutput `pulumi:"describeOutputs"`
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume *string `pulumi:"externalVolume"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
@@ -161,7 +161,7 @@ type icebergTableFromFilesState struct {
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
 	Parameters []IcebergTableFromFilesParameter `pulumi:"parameters"`
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters *bool `pulumi:"replaceInvalidCharacters"`
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
@@ -170,7 +170,7 @@ type icebergTableFromFilesState struct {
 }
 
 type IcebergTableFromFilesState struct {
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringPtrInput
 	// Specifies a comment for the Iceberg table.
 	Comment pulumi.StringPtrInput
@@ -178,7 +178,7 @@ type IcebergTableFromFilesState struct {
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
 	DescribeOutputs IcebergTableFromFilesDescribeOutputArrayInput
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
@@ -188,7 +188,7 @@ type IcebergTableFromFilesState struct {
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
 	Parameters IcebergTableFromFilesParameterArrayInput
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters pulumi.BoolPtrInput
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
@@ -201,19 +201,19 @@ func (IcebergTableFromFilesState) ElementType() reflect.Type {
 }
 
 type icebergTableFromFilesArgs struct {
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`
 	// Specifies a comment for the Iceberg table.
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume *string `pulumi:"externalVolume"`
 	// Specifies the relative path of the Iceberg metadata file in the external volume. Cannot be changed after creation. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	MetadataFilePath string `pulumi:"metadataFilePath"`
 	// Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters *bool `pulumi:"replaceInvalidCharacters"`
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
@@ -221,19 +221,19 @@ type icebergTableFromFilesArgs struct {
 
 // The set of arguments for constructing a IcebergTableFromFiles resource.
 type IcebergTableFromFilesArgs struct {
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringPtrInput
 	// Specifies a comment for the Iceberg table.
 	Comment pulumi.StringPtrInput
 	// The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringPtrInput
 	// Specifies the relative path of the Iceberg metadata file in the external volume. Cannot be changed after creation. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	MetadataFilePath pulumi.StringInput
 	// Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters pulumi.BoolPtrInput
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
@@ -326,7 +326,7 @@ func (o IcebergTableFromFilesOutput) ToIcebergTableFromFilesOutputWithContext(ct
 	return o
 }
 
-// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 func (o IcebergTableFromFilesOutput) Catalog() pulumi.StringOutput {
 	return o.ApplyT(func(v *IcebergTableFromFiles) pulumi.StringOutput { return v.Catalog }).(pulumi.StringOutput)
 }
@@ -348,7 +348,7 @@ func (o IcebergTableFromFilesOutput) DescribeOutputs() IcebergTableFromFilesDesc
 	}).(IcebergTableFromFilesDescribeOutputArrayOutput)
 }
 
-// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 func (o IcebergTableFromFilesOutput) ExternalVolume() pulumi.StringOutput {
 	return o.ApplyT(func(v *IcebergTableFromFiles) pulumi.StringOutput { return v.ExternalVolume }).(pulumi.StringOutput)
 }
@@ -373,7 +373,7 @@ func (o IcebergTableFromFilesOutput) Parameters() IcebergTableFromFilesParameter
 	return o.ApplyT(func(v *IcebergTableFromFiles) IcebergTableFromFilesParameterArrayOutput { return v.Parameters }).(IcebergTableFromFilesParameterArrayOutput)
 }
 
-// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 func (o IcebergTableFromFilesOutput) ReplaceInvalidCharacters() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IcebergTableFromFiles) pulumi.BoolOutput { return v.ReplaceInvalidCharacters }).(pulumi.BoolOutput)
 }

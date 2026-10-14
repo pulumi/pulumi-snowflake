@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -20,6 +21,7 @@ public final class AuthenticationPolicyShowOutput {
     private @Nullable String owner;
     private @Nullable String ownerRoleType;
     private @Nullable String schemaName;
+    private @Nullable List<String> targetScopes;
 
     private AuthenticationPolicyShowOutput() {}
     public Optional<String> comment() {
@@ -49,6 +51,9 @@ public final class AuthenticationPolicyShowOutput {
     public Optional<String> schemaName() {
         return Optional.ofNullable(this.schemaName);
     }
+    public List<String> targetScopes() {
+        return this.targetScopes == null ? List.of() : this.targetScopes;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -68,6 +73,7 @@ public final class AuthenticationPolicyShowOutput {
         private @Nullable String owner;
         private @Nullable String ownerRoleType;
         private @Nullable String schemaName;
+        private @Nullable List<String> targetScopes;
         public Builder() {}
         public Builder(AuthenticationPolicyShowOutput defaults) {
     	      Objects.requireNonNull(defaults);
@@ -80,6 +86,7 @@ public final class AuthenticationPolicyShowOutput {
     	      this.owner = defaults.owner;
     	      this.ownerRoleType = defaults.ownerRoleType;
     	      this.schemaName = defaults.schemaName;
+    	      this.targetScopes = defaults.targetScopes;
         }
 
         @CustomType.Setter
@@ -136,6 +143,15 @@ public final class AuthenticationPolicyShowOutput {
             this.schemaName = schemaName;
             return this;
         }
+        @CustomType.Setter
+        public Builder targetScopes(@Nullable List<String> targetScopes) {
+
+            this.targetScopes = targetScopes;
+            return this;
+        }
+        public Builder targetScopes(String... targetScopes) {
+            return targetScopes(List.of(targetScopes));
+        }
         public AuthenticationPolicyShowOutput build() {
             final var _resultValue = new AuthenticationPolicyShowOutput();
             _resultValue.comment = comment;
@@ -147,6 +163,7 @@ public final class AuthenticationPolicyShowOutput {
             _resultValue.owner = owner;
             _resultValue.ownerRoleType = ownerRoleType;
             _resultValue.schemaName = schemaName;
+            _resultValue.targetScopes = targetScopes;
             return _resultValue;
         }
     }

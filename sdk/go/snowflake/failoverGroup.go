@@ -109,8 +109,12 @@ type FailoverGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
 	ObjectTypes pulumi.StringArrayOutput `pulumi:"objectTypes"`
+	// (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+	OptimizedRefresh pulumi.BoolPtrOutput `pulumi:"optimizedRefresh"`
 	// Specifies the schedule for refreshing secondary failover groups.
 	ReplicationSchedule FailoverGroupReplicationSchedulePtrOutput `pulumi:"replicationSchedule"`
+	// (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+	RpoAssurance pulumi.BoolPtrOutput `pulumi:"rpoAssurance"`
 }
 
 // NewFailoverGroup registers a new resource with the given unique name, arguments, and options.
@@ -161,8 +165,12 @@ type failoverGroupState struct {
 	Name *string `pulumi:"name"`
 	// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
 	ObjectTypes []string `pulumi:"objectTypes"`
+	// (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+	OptimizedRefresh *bool `pulumi:"optimizedRefresh"`
 	// Specifies the schedule for refreshing secondary failover groups.
 	ReplicationSchedule *FailoverGroupReplicationSchedule `pulumi:"replicationSchedule"`
+	// (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+	RpoAssurance *bool `pulumi:"rpoAssurance"`
 }
 
 type FailoverGroupState struct {
@@ -184,8 +192,12 @@ type FailoverGroupState struct {
 	Name pulumi.StringPtrInput
 	// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
 	ObjectTypes pulumi.StringArrayInput
+	// (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+	OptimizedRefresh pulumi.BoolPtrInput
 	// Specifies the schedule for refreshing secondary failover groups.
 	ReplicationSchedule FailoverGroupReplicationSchedulePtrInput
+	// (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+	RpoAssurance pulumi.BoolPtrInput
 }
 
 func (FailoverGroupState) ElementType() reflect.Type {
@@ -209,8 +221,12 @@ type failoverGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
 	ObjectTypes []string `pulumi:"objectTypes"`
+	// (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+	OptimizedRefresh *bool `pulumi:"optimizedRefresh"`
 	// Specifies the schedule for refreshing secondary failover groups.
 	ReplicationSchedule *FailoverGroupReplicationSchedule `pulumi:"replicationSchedule"`
+	// (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+	RpoAssurance *bool `pulumi:"rpoAssurance"`
 }
 
 // The set of arguments for constructing a FailoverGroup resource.
@@ -231,8 +247,12 @@ type FailoverGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
 	ObjectTypes pulumi.StringArrayInput
+	// (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+	OptimizedRefresh pulumi.BoolPtrInput
 	// Specifies the schedule for refreshing secondary failover groups.
 	ReplicationSchedule FailoverGroupReplicationSchedulePtrInput
+	// (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+	RpoAssurance pulumi.BoolPtrInput
 }
 
 func (FailoverGroupArgs) ElementType() reflect.Type {
@@ -367,9 +387,19 @@ func (o FailoverGroupOutput) ObjectTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FailoverGroup) pulumi.StringArrayOutput { return v.ObjectTypes }).(pulumi.StringArrayOutput)
 }
 
+// (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+func (o FailoverGroupOutput) OptimizedRefresh() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FailoverGroup) pulumi.BoolPtrOutput { return v.OptimizedRefresh }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the schedule for refreshing secondary failover groups.
 func (o FailoverGroupOutput) ReplicationSchedule() FailoverGroupReplicationSchedulePtrOutput {
 	return o.ApplyT(func(v *FailoverGroup) FailoverGroupReplicationSchedulePtrOutput { return v.ReplicationSchedule }).(FailoverGroupReplicationSchedulePtrOutput)
+}
+
+// (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+func (o FailoverGroupOutput) RpoAssurance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FailoverGroup) pulumi.BoolPtrOutput { return v.RpoAssurance }).(pulumi.BoolPtrOutput)
 }
 
 type FailoverGroupArrayOutput struct{ *pulumi.OutputState }

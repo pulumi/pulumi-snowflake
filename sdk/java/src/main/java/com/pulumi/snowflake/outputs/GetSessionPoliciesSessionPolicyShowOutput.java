@@ -6,6 +6,7 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -19,6 +20,7 @@ public final class GetSessionPoliciesSessionPolicyShowOutput {
     private String owner;
     private String ownerRoleType;
     private String schemaName;
+    private List<String> targetScopes;
 
     private GetSessionPoliciesSessionPolicyShowOutput() {}
     public String comment() {
@@ -48,6 +50,9 @@ public final class GetSessionPoliciesSessionPolicyShowOutput {
     public String schemaName() {
         return this.schemaName;
     }
+    public List<String> targetScopes() {
+        return this.targetScopes;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -67,6 +72,7 @@ public final class GetSessionPoliciesSessionPolicyShowOutput {
         private String owner;
         private String ownerRoleType;
         private String schemaName;
+        private List<String> targetScopes;
         public Builder() {}
         public Builder(GetSessionPoliciesSessionPolicyShowOutput defaults) {
     	      Objects.requireNonNull(defaults);
@@ -79,6 +85,7 @@ public final class GetSessionPoliciesSessionPolicyShowOutput {
     	      this.owner = defaults.owner;
     	      this.ownerRoleType = defaults.ownerRoleType;
     	      this.schemaName = defaults.schemaName;
+    	      this.targetScopes = defaults.targetScopes;
         }
 
         @CustomType.Setter
@@ -153,6 +160,17 @@ public final class GetSessionPoliciesSessionPolicyShowOutput {
             this.schemaName = schemaName;
             return this;
         }
+        @CustomType.Setter
+        public Builder targetScopes(List<String> targetScopes) {
+            if (targetScopes == null) {
+              throw new MissingRequiredPropertyException("GetSessionPoliciesSessionPolicyShowOutput", "targetScopes");
+            }
+            this.targetScopes = targetScopes;
+            return this;
+        }
+        public Builder targetScopes(String... targetScopes) {
+            return targetScopes(List.of(targetScopes));
+        }
         public GetSessionPoliciesSessionPolicyShowOutput build() {
             final var _resultValue = new GetSessionPoliciesSessionPolicyShowOutput();
             _resultValue.comment = comment;
@@ -164,6 +182,7 @@ public final class GetSessionPoliciesSessionPolicyShowOutput {
             _resultValue.owner = owner;
             _resultValue.ownerRoleType = ownerRoleType;
             _resultValue.schemaName = schemaName;
+            _resultValue.targetScopes = targetScopes;
             return _resultValue;
         }
     }

@@ -30,7 +30,7 @@ class OpenflowDeploymentSnowflakeManagedArgs:
 
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Openflow deployment.
         :param pulumi.Input[_builtins.str] display_name: A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
-        :param pulumi.Input[_builtins.str] event_table: Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+        :param pulumi.Input[_builtins.str] event_table: Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow deployment; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         if comment is not None:
@@ -70,7 +70,7 @@ class OpenflowDeploymentSnowflakeManagedArgs:
     @pulumi.getter(name="eventTable")
     def event_table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+        Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         """
         return pulumi.get(self, "event_table")
 
@@ -109,7 +109,7 @@ class _OpenflowDeploymentSnowflakeManagedState:
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Openflow deployment.
         :param pulumi.Input[Sequence[pulumi.Input['OpenflowDeploymentSnowflakeManagedDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE OPENFLOW DEPLOYMENT` for the given deployment.
         :param pulumi.Input[_builtins.str] display_name: A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
-        :param pulumi.Input[_builtins.str] event_table: Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+        :param pulumi.Input[_builtins.str] event_table: Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow deployment; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['OpenflowDeploymentSnowflakeManagedParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN OPENFLOW DEPLOYMENT` for the given deployment.
@@ -175,7 +175,7 @@ class _OpenflowDeploymentSnowflakeManagedState:
     @pulumi.getter(name="eventTable")
     def event_table(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+        Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         """
         return pulumi.get(self, "event_table")
 
@@ -296,7 +296,7 @@ class OpenflowDeploymentSnowflakeManaged(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Openflow deployment.
         :param pulumi.Input[_builtins.str] display_name: A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
-        :param pulumi.Input[_builtins.str] event_table: Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+        :param pulumi.Input[_builtins.str] event_table: Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow deployment; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         ...
@@ -408,7 +408,7 @@ class OpenflowDeploymentSnowflakeManaged(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Openflow deployment.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedDescribeOutputArgs', 'OpenflowDeploymentSnowflakeManagedDescribeOutputArgsDict', 'outputs.OpenflowDeploymentSnowflakeManagedDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE OPENFLOW DEPLOYMENT` for the given deployment.
         :param pulumi.Input[_builtins.str] display_name: A free-text alias for the deployment. Shown in the Openflow UI in place of the deployment's identifier when set.
-        :param pulumi.Input[_builtins.str] event_table: Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+        :param pulumi.Input[_builtins.str] event_table: Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Openflow deployment; must be unique for the account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OpenflowDeploymentSnowflakeManagedParameterArgs', 'OpenflowDeploymentSnowflakeManagedParameterArgsDict', 'outputs.OpenflowDeploymentSnowflakeManagedParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN OPENFLOW DEPLOYMENT` for the given deployment.
@@ -458,7 +458,7 @@ class OpenflowDeploymentSnowflakeManaged(pulumi.CustomResource):
     @pulumi.getter(name="eventTable")
     def event_table(self) -> pulumi.Output[_builtins.str]:
         """
-        Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+        Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         """
         return pulumi.get(self, "event_table")
 

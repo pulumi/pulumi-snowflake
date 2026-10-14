@@ -13,12 +13,20 @@ import javax.annotation.Nullable;
 @CustomType
 public final class StageExternalAzureDescribeOutputDirectoryTable {
     private @Nullable Boolean autoRefresh;
+    private @Nullable String awsSnsTopic;
+    private @Nullable String directoryNotificationChannel;
     private @Nullable Boolean enable;
     private @Nullable String lastRefreshedOn;
 
     private StageExternalAzureDescribeOutputDirectoryTable() {}
     public Optional<Boolean> autoRefresh() {
         return Optional.ofNullable(this.autoRefresh);
+    }
+    public Optional<String> awsSnsTopic() {
+        return Optional.ofNullable(this.awsSnsTopic);
+    }
+    public Optional<String> directoryNotificationChannel() {
+        return Optional.ofNullable(this.directoryNotificationChannel);
     }
     public Optional<Boolean> enable() {
         return Optional.ofNullable(this.enable);
@@ -37,12 +45,16 @@ public final class StageExternalAzureDescribeOutputDirectoryTable {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoRefresh;
+        private @Nullable String awsSnsTopic;
+        private @Nullable String directoryNotificationChannel;
         private @Nullable Boolean enable;
         private @Nullable String lastRefreshedOn;
         public Builder() {}
         public Builder(StageExternalAzureDescribeOutputDirectoryTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRefresh = defaults.autoRefresh;
+    	      this.awsSnsTopic = defaults.awsSnsTopic;
+    	      this.directoryNotificationChannel = defaults.directoryNotificationChannel;
     	      this.enable = defaults.enable;
     	      this.lastRefreshedOn = defaults.lastRefreshedOn;
         }
@@ -51,6 +63,18 @@ public final class StageExternalAzureDescribeOutputDirectoryTable {
         public Builder autoRefresh(@Nullable Boolean autoRefresh) {
 
             this.autoRefresh = autoRefresh;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder awsSnsTopic(@Nullable String awsSnsTopic) {
+
+            this.awsSnsTopic = awsSnsTopic;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder directoryNotificationChannel(@Nullable String directoryNotificationChannel) {
+
+            this.directoryNotificationChannel = directoryNotificationChannel;
             return this;
         }
         @CustomType.Setter
@@ -68,6 +92,8 @@ public final class StageExternalAzureDescribeOutputDirectoryTable {
         public StageExternalAzureDescribeOutputDirectoryTable build() {
             final var _resultValue = new StageExternalAzureDescribeOutputDirectoryTable();
             _resultValue.autoRefresh = autoRefresh;
+            _resultValue.awsSnsTopic = awsSnsTopic;
+            _resultValue.directoryNotificationChannel = directoryNotificationChannel;
             _resultValue.enable = enable;
             _resultValue.lastRefreshedOn = lastRefreshedOn;
             return _resultValue;

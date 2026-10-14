@@ -46,6 +46,9 @@ namespace Pulumi.Snowflake.Inputs
         [Input("embeddingModel")]
         public Input<string>? EmbeddingModel { get; set; }
 
+        [Input("fullIndexBuildIntervalDays")]
+        public Input<int>? FullIndexBuildIntervalDays { get; set; }
+
         [Input("indexingError")]
         public Input<string>? IndexingError { get; set; }
 
@@ -55,14 +58,28 @@ namespace Pulumi.Snowflake.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("primaryKeyColumns")]
+        private InputList<string>? _primaryKeyColumns;
+        public InputList<string> PrimaryKeyColumns
+        {
+            get => _primaryKeyColumns ?? (_primaryKeyColumns = new InputList<string>());
+            set => _primaryKeyColumns = value;
+        }
+
         [Input("schemaName")]
         public Input<string>? SchemaName { get; set; }
+
+        [Input("scoringProfileCount")]
+        public Input<int>? ScoringProfileCount { get; set; }
 
         [Input("searchColumn")]
         public Input<string>? SearchColumn { get; set; }
 
         [Input("serviceQueryUrl")]
         public Input<string>? ServiceQueryUrl { get; set; }
+
+        [Input("servingState")]
+        public Input<string>? ServingState { get; set; }
 
         [Input("sourceDataNumRows")]
         public Input<int>? SourceDataNumRows { get; set; }

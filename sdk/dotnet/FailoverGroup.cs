@@ -143,10 +143,22 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> ObjectTypes { get; private set; } = null!;
 
         /// <summary>
+        /// (Default: `False`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+        /// </summary>
+        [Output("optimizedRefresh")]
+        public Output<bool?> OptimizedRefresh { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the schedule for refreshing secondary failover groups.
         /// </summary>
         [Output("replicationSchedule")]
         public Output<Outputs.FailoverGroupReplicationSchedule?> ReplicationSchedule { get; private set; } = null!;
+
+        /// <summary>
+        /// (Default: `False`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+        /// </summary>
+        [Output("rpoAssurance")]
+        public Output<bool?> RpoAssurance { get; private set; } = null!;
 
 
         /// <summary>
@@ -273,10 +285,22 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// (Default: `False`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+        /// </summary>
+        [Input("optimizedRefresh")]
+        public Input<bool>? OptimizedRefresh { get; set; }
+
+        /// <summary>
         /// Specifies the schedule for refreshing secondary failover groups.
         /// </summary>
         [Input("replicationSchedule")]
         public Input<Inputs.FailoverGroupReplicationScheduleArgs>? ReplicationSchedule { get; set; }
+
+        /// <summary>
+        /// (Default: `False`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+        /// </summary>
+        [Input("rpoAssurance")]
+        public Input<bool>? RpoAssurance { get; set; }
 
         public FailoverGroupArgs()
         {
@@ -371,10 +395,22 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
+        /// (Default: `False`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+        /// </summary>
+        [Input("optimizedRefresh")]
+        public Input<bool>? OptimizedRefresh { get; set; }
+
+        /// <summary>
         /// Specifies the schedule for refreshing secondary failover groups.
         /// </summary>
         [Input("replicationSchedule")]
         public Input<Inputs.FailoverGroupReplicationScheduleGetArgs>? ReplicationSchedule { get; set; }
+
+        /// <summary>
+        /// (Default: `False`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+        /// </summary>
+        [Input("rpoAssurance")]
+        public Input<bool>? RpoAssurance { get; set; }
 
         public FailoverGroupState()
         {

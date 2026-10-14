@@ -97,6 +97,10 @@ export class CortexSearchService extends pulumi.CustomResource {
      */
     declare public readonly attributes: pulumi.Output<string[] | undefined>;
     /**
+     * Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    declare public readonly autoSuspend: pulumi.Output<number | undefined>;
+    /**
      * Specifies a comment for the Cortex search service.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
@@ -129,6 +133,10 @@ export class CortexSearchService extends pulumi.CustomResource {
      */
     declare public readonly on: pulumi.Output<string>;
     /**
+     * Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+     */
+    declare public readonly primaryKeys: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the query to use to populate the Cortex search service.
      */
     declare public readonly query: pulumi.Output<string>;
@@ -159,6 +167,7 @@ export class CortexSearchService extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CortexSearchServiceState | undefined;
             resourceInputs["attributes"] = state?.attributes;
+            resourceInputs["autoSuspend"] = state?.autoSuspend;
             resourceInputs["comment"] = state?.comment;
             resourceInputs["createdOn"] = state?.createdOn;
             resourceInputs["database"] = state?.database;
@@ -167,6 +176,7 @@ export class CortexSearchService extends pulumi.CustomResource {
             resourceInputs["fullyQualifiedName"] = state?.fullyQualifiedName;
             resourceInputs["name"] = state?.name;
             resourceInputs["on"] = state?.on;
+            resourceInputs["primaryKeys"] = state?.primaryKeys;
             resourceInputs["query"] = state?.query;
             resourceInputs["schema"] = state?.schema;
             resourceInputs["targetLag"] = state?.targetLag;
@@ -192,11 +202,13 @@ export class CortexSearchService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'warehouse'");
             }
             resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["autoSuspend"] = args?.autoSuspend;
             resourceInputs["comment"] = args?.comment;
             resourceInputs["database"] = args?.database;
             resourceInputs["embeddingModel"] = args?.embeddingModel;
             resourceInputs["name"] = args?.name;
             resourceInputs["on"] = args?.on;
+            resourceInputs["primaryKeys"] = args?.primaryKeys;
             resourceInputs["query"] = args?.query;
             resourceInputs["schema"] = args?.schema;
             resourceInputs["targetLag"] = args?.targetLag;
@@ -218,6 +230,10 @@ export interface CortexSearchServiceState {
      * Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
      */
     attributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    autoSuspend?: pulumi.Input<number | undefined>;
     /**
      * Specifies a comment for the Cortex search service.
      */
@@ -251,6 +267,10 @@ export interface CortexSearchServiceState {
      */
     on?: pulumi.Input<string | undefined>;
     /**
+     * Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+     */
+    primaryKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
      * Specifies the query to use to populate the Cortex search service.
      */
     query?: pulumi.Input<string | undefined>;
@@ -277,6 +297,10 @@ export interface CortexSearchServiceArgs {
      */
     attributes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
+     * Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+     */
+    autoSuspend?: pulumi.Input<number | undefined>;
+    /**
      * Specifies a comment for the Cortex search service.
      */
     comment?: pulumi.Input<string | undefined>;
@@ -296,6 +320,10 @@ export interface CortexSearchServiceArgs {
      * Specifies the column to use as the search column for the Cortex search service; must be a text value.
      */
     on: pulumi.Input<string>;
+    /**
+     * Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+     */
+    primaryKeys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the query to use to populate the Cortex search service.
      */

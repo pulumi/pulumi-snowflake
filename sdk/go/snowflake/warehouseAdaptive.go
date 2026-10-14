@@ -81,9 +81,9 @@ type WarehouseAdaptive struct {
 	ResourceMonitor pulumi.StringPtrOutput `pulumi:"resourceMonitor"`
 	// Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
 	ShowOutputs WarehouseAdaptiveShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntOutput `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntOutput `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the type for the adaptive warehouse. This field is used for checking external changes and recreating the resource if needed.
 	WarehouseType pulumi.StringOutput `pulumi:"warehouseType"`
@@ -135,9 +135,9 @@ type warehouseAdaptiveState struct {
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
 	ShowOutputs []WarehouseAdaptiveShowOutput `pulumi:"showOutputs"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the type for the adaptive warehouse. This field is used for checking external changes and recreating the resource if needed.
 	WarehouseType *string `pulumi:"warehouseType"`
@@ -160,9 +160,9 @@ type WarehouseAdaptiveState struct {
 	ResourceMonitor pulumi.StringPtrInput
 	// Outputs the result of `SHOW WAREHOUSES` for the given adaptive warehouse.
 	ShowOutputs WarehouseAdaptiveShowOutputArrayInput
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the type for the adaptive warehouse. This field is used for checking external changes and recreating the resource if needed.
 	WarehouseType pulumi.StringPtrInput
@@ -183,9 +183,9 @@ type warehouseAdaptiveArgs struct {
 	QueryThroughputMultiplier *int `pulumi:"queryThroughputMultiplier"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 }
 
@@ -201,9 +201,9 @@ type WarehouseAdaptiveArgs struct {
 	QueryThroughputMultiplier pulumi.IntPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the adaptive warehouse. For more information about this resource, see docs.
 	ResourceMonitor pulumi.StringPtrInput
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 }
 
@@ -334,12 +334,12 @@ func (o WarehouseAdaptiveOutput) ShowOutputs() WarehouseAdaptiveShowOutputArrayO
 	return o.ApplyT(func(v *WarehouseAdaptive) WarehouseAdaptiveShowOutputArrayOutput { return v.ShowOutputs }).(WarehouseAdaptiveShowOutputArrayOutput)
 }
 
-// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 func (o WarehouseAdaptiveOutput) StatementQueuedTimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *WarehouseAdaptive) pulumi.IntOutput { return v.StatementQueuedTimeoutInSeconds }).(pulumi.IntOutput)
 }
 
-// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 func (o WarehouseAdaptiveOutput) StatementTimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *WarehouseAdaptive) pulumi.IntOutput { return v.StatementTimeoutInSeconds }).(pulumi.IntOutput)
 }

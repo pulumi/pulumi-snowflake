@@ -17,14 +17,14 @@ public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.p
     public static final GrantPrivilegesToAccountRoleOnAccountObjectArgs Empty = new GrantPrivilegesToAccountRoleOnAccountObjectArgs();
 
     /**
-     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      * 
      */
     @Import(name="inherited")
     private @Nullable Output<GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs> inherited;
 
     /**
-     * @return Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * @return Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      * 
      */
     public Optional<Output<GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs>> inherited() {
@@ -88,7 +88,7 @@ public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.p
         }
 
         /**
-         * @param inherited Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+         * @param inherited Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GrantPrivilegesToAccountRoleOnAccountObjectArgs extends com.p
         }
 
         /**
-         * @param inherited Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+         * @param inherited Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
          * 
          * @return builder
          * 

@@ -536,6 +536,8 @@ __all__ = [
     'SchemaParameterCatalog',
     'SchemaParameterDataRetentionTimeInDay',
     'SchemaParameterDefaultDdlCollation',
+    'SchemaParameterDefaultNotebookComputePoolCpus',
+    'SchemaParameterDefaultNotebookComputePoolGpus',
     'SchemaParameterEnableConsoleOutput',
     'SchemaParameterExternalVolume',
     'SchemaParameterLogEventLevel',
@@ -584,6 +586,8 @@ __all__ = [
     'ServiceFromSpecification',
     'ServiceFromSpecificationTemplate',
     'ServiceFromSpecificationTemplateUsing',
+    'ServiceParameter',
+    'ServiceParameterServiceCallerTokenValiditySec',
     'ServiceShowOutput',
     'ServiceUserDefaultWorkloadIdentity',
     'ServiceUserDefaultWorkloadIdentityAws',
@@ -971,6 +975,151 @@ __all__ = [
     'GetAccountRolesAccountRoleResult',
     'GetAccountRolesAccountRoleShowOutputResult',
     'GetAccountsAccountResult',
+    'GetAccountsAccountParameterResult',
+    'GetAccountsAccountParameterAbortDetachedQueryResult',
+    'GetAccountsAccountParameterActivePythonProfilerResult',
+    'GetAccountsAccountParameterAllowBindValuesAccessResult',
+    'GetAccountsAccountParameterAllowClientMfaCachingResult',
+    'GetAccountsAccountParameterAllowIdTokenResult',
+    'GetAccountsAccountParameterAllowedSpcsWorkloadTypeResult',
+    'GetAccountsAccountParameterAutocommitResult',
+    'GetAccountsAccountParameterBaseLocationPrefixResult',
+    'GetAccountsAccountParameterBinaryInputFormatResult',
+    'GetAccountsAccountParameterBinaryOutputFormatResult',
+    'GetAccountsAccountParameterCatalogResult',
+    'GetAccountsAccountParameterCatalogSyncResult',
+    'GetAccountsAccountParameterClientEnableLogInfoStatementParameterResult',
+    'GetAccountsAccountParameterClientEncryptionKeySizeResult',
+    'GetAccountsAccountParameterClientMemoryLimitResult',
+    'GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxResult',
+    'GetAccountsAccountParameterClientMetadataUseSessionDatabaseResult',
+    'GetAccountsAccountParameterClientPrefetchThreadResult',
+    'GetAccountsAccountParameterClientResultChunkSizeResult',
+    'GetAccountsAccountParameterClientResultColumnCaseInsensitiveResult',
+    'GetAccountsAccountParameterClientSessionKeepAlifeResult',
+    'GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyResult',
+    'GetAccountsAccountParameterClientTimestampTypeMappingResult',
+    'GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserResult',
+    'GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserResult',
+    'GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserResult',
+    'GetAccountsAccountParameterCortexEnabledCrossRegionResult',
+    'GetAccountsAccountParameterCortexModelsAllowlistResult',
+    'GetAccountsAccountParameterCsvTimestampFormatResult',
+    'GetAccountsAccountParameterDataMetricScheduleResult',
+    'GetAccountsAccountParameterDataRetentionTimeInDayResult',
+    'GetAccountsAccountParameterDateInputFormatResult',
+    'GetAccountsAccountParameterDateOutputFormatResult',
+    'GetAccountsAccountParameterDefaultDbtVersionResult',
+    'GetAccountsAccountParameterDefaultDdlCollationResult',
+    'GetAccountsAccountParameterDefaultNotebookComputePoolCpusResult',
+    'GetAccountsAccountParameterDefaultNotebookComputePoolGpusResult',
+    'GetAccountsAccountParameterDefaultNullOrderingResult',
+    'GetAccountsAccountParameterDefaultStreamlitComputePoolResult',
+    'GetAccountsAccountParameterDefaultStreamlitNotebookWarehouseResult',
+    'GetAccountsAccountParameterDisableUiDownloadButtonResult',
+    'GetAccountsAccountParameterDisableUserPrivilegeGrantResult',
+    'GetAccountsAccountParameterDisallowedSpcsWorkloadTypeResult',
+    'GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLogResult',
+    'GetAccountsAccountParameterEnableBudgetEventLoggingResult',
+    'GetAccountsAccountParameterEnableConsoleOutputResult',
+    'GetAccountsAccountParameterEnableCortexAnalystResult',
+    'GetAccountsAccountParameterEnableDataCompactionResult',
+    'GetAccountsAccountParameterEnableEgressCostOptimizerResult',
+    'GetAccountsAccountParameterEnableGetDdlUseDataTypeAliasResult',
+    'GetAccountsAccountParameterEnableIcebergMergeOnReadResult',
+    'GetAccountsAccountParameterEnableIdentifierFirstLoginResult',
+    'GetAccountsAccountParameterEnableInternalStagesPrivatelinkResult',
+    'GetAccountsAccountParameterEnableNotebookCreationInPersonalDbResult',
+    'GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrlResult',
+    'GetAccountsAccountParameterEnablePersonalDatabaseResult',
+    'GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcementResult',
+    'GetAccountsAccountParameterEnableTagPropagationEventLoggingResult',
+    'GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepositoryResult',
+    'GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorageResult',
+    'GetAccountsAccountParameterEnableUnhandledExceptionsReportingResult',
+    'GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimizationResult',
+    'GetAccountsAccountParameterEnableUnredactedQuerySyntaxErrorResult',
+    'GetAccountsAccountParameterEnableUnredactedSecureObjectErrorResult',
+    'GetAccountsAccountParameterEnforceNetworkRulesForInternalStageResult',
+    'GetAccountsAccountParameterErrorOnNondeterministicMergeResult',
+    'GetAccountsAccountParameterErrorOnNondeterministicUpdateResult',
+    'GetAccountsAccountParameterEventTableResult',
+    'GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedListResult',
+    'GetAccountsAccountParameterExternalVolumeResult',
+    'GetAccountsAccountParameterGeographyOutputFormatResult',
+    'GetAccountsAccountParameterGeometryOutputFormatResult',
+    'GetAccountsAccountParameterHybridTableLockTimeoutResult',
+    'GetAccountsAccountParameterIcebergVersionDefaultResult',
+    'GetAccountsAccountParameterInitialReplicationSizeLimitInTbResult',
+    'GetAccountsAccountParameterJdbcTreatDecimalAsIntResult',
+    'GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtcResult',
+    'GetAccountsAccountParameterJdbcUseSessionTimezoneResult',
+    'GetAccountsAccountParameterJsTreatIntegerAsBigintResult',
+    'GetAccountsAccountParameterJsonIndentResult',
+    'GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshScheduleResult',
+    'GetAccountsAccountParameterLockTimeoutResult',
+    'GetAccountsAccountParameterLogEventLevelResult',
+    'GetAccountsAccountParameterLogLevelResult',
+    'GetAccountsAccountParameterMaxConcurrencyLevelResult',
+    'GetAccountsAccountParameterMaxDataExtensionTimeInDayResult',
+    'GetAccountsAccountParameterMetricLevelResult',
+    'GetAccountsAccountParameterMinDataRetentionTimeInDayResult',
+    'GetAccountsAccountParameterMultiStatementCountResult',
+    'GetAccountsAccountParameterNetworkPolicyResult',
+    'GetAccountsAccountParameterNoorderSequenceAsDefaultResult',
+    'GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedListResult',
+    'GetAccountsAccountParameterOdbcTreatDecimalAsIntResult',
+    'GetAccountsAccountParameterPeriodicDataRekeyingResult',
+    'GetAccountsAccountParameterPipeExecutionPausedResult',
+    'GetAccountsAccountParameterPreventLoadFromInlineUrlResult',
+    'GetAccountsAccountParameterPreventUnloadToInlineUrlResult',
+    'GetAccountsAccountParameterPreventUnloadToInternalStageResult',
+    'GetAccountsAccountParameterPythonProfilerModuleResult',
+    'GetAccountsAccountParameterPythonProfilerTargetStageResult',
+    'GetAccountsAccountParameterQueryTagResult',
+    'GetAccountsAccountParameterQuotedIdentifiersIgnoreCaseResult',
+    'GetAccountsAccountParameterReadConsistencyModeResult',
+    'GetAccountsAccountParameterReplaceInvalidCharacterResult',
+    'GetAccountsAccountParameterRequireStorageIntegrationForStageCreationResult',
+    'GetAccountsAccountParameterRequireStorageIntegrationForStageOperationResult',
+    'GetAccountsAccountParameterRowTimestampDefaultResult',
+    'GetAccountsAccountParameterRowsPerResultsetResult',
+    'GetAccountsAccountParameterS3StageVpceDnsNameResult',
+    'GetAccountsAccountParameterSearchPathResult',
+    'GetAccountsAccountParameterServerlessTaskMaxStatementSizeResult',
+    'GetAccountsAccountParameterServerlessTaskMinStatementSizeResult',
+    'GetAccountsAccountParameterShareRestrictionResult',
+    'GetAccountsAccountParameterSimulatedDataSharingConsumerResult',
+    'GetAccountsAccountParameterSqlTraceQueryTextResult',
+    'GetAccountsAccountParameterSsoLoginPageResult',
+    'GetAccountsAccountParameterStatementQueuedTimeoutInSecondResult',
+    'GetAccountsAccountParameterStatementTimeoutInSecondResult',
+    'GetAccountsAccountParameterStorageSerializationPolicyResult',
+    'GetAccountsAccountParameterStrictJsonOutputResult',
+    'GetAccountsAccountParameterSuspendTaskAfterNumFailureResult',
+    'GetAccountsAccountParameterTaskAutoRetryAttemptResult',
+    'GetAccountsAccountParameterTimeInputFormatResult',
+    'GetAccountsAccountParameterTimeOutputFormatResult',
+    'GetAccountsAccountParameterTimestampDayIsAlways24hResult',
+    'GetAccountsAccountParameterTimestampInputFormatResult',
+    'GetAccountsAccountParameterTimestampLtzOutputFormatResult',
+    'GetAccountsAccountParameterTimestampNtzOutputFormatResult',
+    'GetAccountsAccountParameterTimestampOutputFormatResult',
+    'GetAccountsAccountParameterTimestampTypeMappingResult',
+    'GetAccountsAccountParameterTimestampTzOutputFormatResult',
+    'GetAccountsAccountParameterTimezoneResult',
+    'GetAccountsAccountParameterTraceLevelResult',
+    'GetAccountsAccountParameterTransactionAbortOnErrorResult',
+    'GetAccountsAccountParameterTransactionDefaultIsolationLevelResult',
+    'GetAccountsAccountParameterTwoDigitCenturyStartResult',
+    'GetAccountsAccountParameterUnsupportedDdlActionResult',
+    'GetAccountsAccountParameterUseCachedResultResult',
+    'GetAccountsAccountParameterUseWorkspacesForSqlResult',
+    'GetAccountsAccountParameterUserTaskManagedInitialWarehouseSizeResult',
+    'GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecondResult',
+    'GetAccountsAccountParameterUserTaskTimeoutMResult',
+    'GetAccountsAccountParameterWeekOfYearPolicyResult',
+    'GetAccountsAccountParameterWeekStartResult',
     'GetAccountsAccountShowOutputResult',
     'GetAlertsAlertResult',
     'GetApiIntegrationsApiIntegrationResult',
@@ -1014,6 +1163,8 @@ __all__ = [
     'GetDatabasesDatabaseParameterCatalogResult',
     'GetDatabasesDatabaseParameterDataRetentionTimeInDayResult',
     'GetDatabasesDatabaseParameterDefaultDdlCollationResult',
+    'GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpusResult',
+    'GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpusResult',
     'GetDatabasesDatabaseParameterEnableConsoleOutputResult',
     'GetDatabasesDatabaseParameterExternalVolumeResult',
     'GetDatabasesDatabaseParameterLogEventLevelResult',
@@ -1170,6 +1321,8 @@ __all__ = [
     'GetSchemasSchemaParameterCatalogResult',
     'GetSchemasSchemaParameterDataRetentionTimeInDayResult',
     'GetSchemasSchemaParameterDefaultDdlCollationResult',
+    'GetSchemasSchemaParameterDefaultNotebookComputePoolCpusResult',
+    'GetSchemasSchemaParameterDefaultNotebookComputePoolGpusResult',
     'GetSchemasSchemaParameterEnableConsoleOutputResult',
     'GetSchemasSchemaParameterExternalVolumeResult',
     'GetSchemasSchemaParameterLogEventLevelResult',
@@ -5699,6 +5852,8 @@ class AuthenticationPolicyShowOutput(dict):
             suggest = "owner_role_type"
         elif key == "schemaName":
             suggest = "schema_name"
+        elif key == "targetScopes":
+            suggest = "target_scopes"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AuthenticationPolicyShowOutput. Access the value via the '{suggest}' property getter instead.")
@@ -5720,7 +5875,8 @@ class AuthenticationPolicyShowOutput(dict):
                  options: Optional[_builtins.str] = None,
                  owner: Optional[_builtins.str] = None,
                  owner_role_type: Optional[_builtins.str] = None,
-                 schema_name: Optional[_builtins.str] = None):
+                 schema_name: Optional[_builtins.str] = None,
+                 target_scopes: Optional[Sequence[_builtins.str]] = None):
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
@@ -5739,6 +5895,8 @@ class AuthenticationPolicyShowOutput(dict):
             pulumi.set(__self__, "owner_role_type", owner_role_type)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
+        if target_scopes is not None:
+            pulumi.set(__self__, "target_scopes", target_scopes)
 
     @_builtins.property
     @pulumi.getter
@@ -5784,6 +5942,11 @@ class AuthenticationPolicyShowOutput(dict):
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="targetScopes")
+    def target_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "target_scopes")
 
 
 @pulumi.output_type
@@ -8074,16 +8237,24 @@ class CortexSearchServiceDescribeOutput(dict):
             suggest = "database_name"
         elif key == "embeddingModel":
             suggest = "embedding_model"
+        elif key == "fullIndexBuildIntervalDays":
+            suggest = "full_index_build_interval_days"
         elif key == "indexingError":
             suggest = "indexing_error"
         elif key == "indexingState":
             suggest = "indexing_state"
+        elif key == "primaryKeyColumns":
+            suggest = "primary_key_columns"
         elif key == "schemaName":
             suggest = "schema_name"
+        elif key == "scoringProfileCount":
+            suggest = "scoring_profile_count"
         elif key == "searchColumn":
             suggest = "search_column"
         elif key == "serviceQueryUrl":
             suggest = "service_query_url"
+        elif key == "servingState":
+            suggest = "serving_state"
         elif key == "sourceDataNumRows":
             suggest = "source_data_num_rows"
         elif key == "targetLag":
@@ -8109,12 +8280,16 @@ class CortexSearchServiceDescribeOutput(dict):
                  database_name: Optional[_builtins.str] = None,
                  definition: Optional[_builtins.str] = None,
                  embedding_model: Optional[_builtins.str] = None,
+                 full_index_build_interval_days: Optional[_builtins.int] = None,
                  indexing_error: Optional[_builtins.str] = None,
                  indexing_state: Optional[_builtins.str] = None,
                  name: Optional[_builtins.str] = None,
+                 primary_key_columns: Optional[Sequence[_builtins.str]] = None,
                  schema_name: Optional[_builtins.str] = None,
+                 scoring_profile_count: Optional[_builtins.int] = None,
                  search_column: Optional[_builtins.str] = None,
                  service_query_url: Optional[_builtins.str] = None,
+                 serving_state: Optional[_builtins.str] = None,
                  source_data_num_rows: Optional[_builtins.int] = None,
                  target_lag: Optional[_builtins.str] = None,
                  warehouse: Optional[_builtins.str] = None):
@@ -8134,18 +8309,26 @@ class CortexSearchServiceDescribeOutput(dict):
             pulumi.set(__self__, "definition", definition)
         if embedding_model is not None:
             pulumi.set(__self__, "embedding_model", embedding_model)
+        if full_index_build_interval_days is not None:
+            pulumi.set(__self__, "full_index_build_interval_days", full_index_build_interval_days)
         if indexing_error is not None:
             pulumi.set(__self__, "indexing_error", indexing_error)
         if indexing_state is not None:
             pulumi.set(__self__, "indexing_state", indexing_state)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if primary_key_columns is not None:
+            pulumi.set(__self__, "primary_key_columns", primary_key_columns)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
+        if scoring_profile_count is not None:
+            pulumi.set(__self__, "scoring_profile_count", scoring_profile_count)
         if search_column is not None:
             pulumi.set(__self__, "search_column", search_column)
         if service_query_url is not None:
             pulumi.set(__self__, "service_query_url", service_query_url)
+        if serving_state is not None:
+            pulumi.set(__self__, "serving_state", serving_state)
         if source_data_num_rows is not None:
             pulumi.set(__self__, "source_data_num_rows", source_data_num_rows)
         if target_lag is not None:
@@ -8194,6 +8377,11 @@ class CortexSearchServiceDescribeOutput(dict):
         return pulumi.get(self, "embedding_model")
 
     @_builtins.property
+    @pulumi.getter(name="fullIndexBuildIntervalDays")
+    def full_index_build_interval_days(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "full_index_build_interval_days")
+
+    @_builtins.property
     @pulumi.getter(name="indexingError")
     def indexing_error(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "indexing_error")
@@ -8209,9 +8397,19 @@ class CortexSearchServiceDescribeOutput(dict):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="primaryKeyColumns")
+    def primary_key_columns(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "primary_key_columns")
+
+    @_builtins.property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="scoringProfileCount")
+    def scoring_profile_count(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "scoring_profile_count")
 
     @_builtins.property
     @pulumi.getter(name="searchColumn")
@@ -8222,6 +8420,11 @@ class CortexSearchServiceDescribeOutput(dict):
     @pulumi.getter(name="serviceQueryUrl")
     def service_query_url(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "service_query_url")
+
+    @_builtins.property
+    @pulumi.getter(name="servingState")
+    def serving_state(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "serving_state")
 
     @_builtins.property
     @pulumi.getter(name="sourceDataNumRows")
@@ -11905,6 +12108,8 @@ class FileFormatXmlDescribeOutput(dict):
         suggest = None
         if key == "disableAutoConvert":
             suggest = "disable_auto_convert"
+        elif key == "disableSnowflakeData":
+            suggest = "disable_snowflake_data"
         elif key == "ignoreUtf8Errors":
             suggest = "ignore_utf8_errors"
         elif key == "preserveSpace":
@@ -11930,6 +12135,7 @@ class FileFormatXmlDescribeOutput(dict):
     def __init__(__self__, *,
                  compression: Optional[_builtins.str] = None,
                  disable_auto_convert: Optional[_builtins.bool] = None,
+                 disable_snowflake_data: Optional[_builtins.bool] = None,
                  id: Optional[_builtins.str] = None,
                  ignore_utf8_errors: Optional[_builtins.bool] = None,
                  preserve_space: Optional[_builtins.bool] = None,
@@ -11941,6 +12147,8 @@ class FileFormatXmlDescribeOutput(dict):
             pulumi.set(__self__, "compression", compression)
         if disable_auto_convert is not None:
             pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if disable_snowflake_data is not None:
+            pulumi.set(__self__, "disable_snowflake_data", disable_snowflake_data)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_utf8_errors is not None:
@@ -11965,6 +12173,11 @@ class FileFormatXmlDescribeOutput(dict):
     @pulumi.getter(name="disableAutoConvert")
     def disable_auto_convert(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="disableSnowflakeData")
+    def disable_snowflake_data(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disable_snowflake_data")
 
     @_builtins.property
     @pulumi.getter
@@ -15679,7 +15892,7 @@ class GrantOwnershipOnAll(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param _builtins.str in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -15693,7 +15906,7 @@ class GrantOwnershipOnAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+        Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -15742,7 +15955,7 @@ class GrantOwnershipOnFuture(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param _builtins.str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param _builtins.str in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -15756,7 +15969,7 @@ class GrantOwnershipOnFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+        Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -15803,7 +16016,7 @@ class GrantPrivilegesToAccountRoleOnAccountObject(dict):
                  object_name: Optional[_builtins.str] = None,
                  object_type: Optional[_builtins.str] = None):
         """
-        :param 'GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        :param 'GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         :param _builtins.str object_name: The fully qualified name of the object on which privileges will be granted.
         :param _builtins.str object_type: The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
         """
@@ -15818,7 +16031,7 @@ class GrantPrivilegesToAccountRoleOnAccountObject(dict):
     @pulumi.getter
     def inherited(self) -> Optional['outputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited']:
         """
-        Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -15861,7 +16074,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectInherited(dict):
     def __init__(__self__, *,
                  object_type_plural: _builtins.str):
         """
-        :param _builtins.str object_type_plural: The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+        :param _builtins.str object_type_plural: The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
 
@@ -15869,7 +16082,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectInherited(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+        The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -15905,7 +16118,7 @@ class GrantPrivilegesToAccountRoleOnSchema(dict):
         """
         :param _builtins.str all_schemas_in_database: The fully qualified name of the database.
         :param _builtins.str future_schemas_in_database: The fully qualified name of the database.
-        :param 'GrantPrivilegesToAccountRoleOnSchemaInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        :param 'GrantPrivilegesToAccountRoleOnSchemaInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         :param _builtins.str schema_name: The fully qualified name of the schema.
         """
         if all_schemas_in_database is not None:
@@ -15937,7 +16150,7 @@ class GrantPrivilegesToAccountRoleOnSchema(dict):
     @pulumi.getter
     def inherited(self) -> Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaInherited']:
         """
-        Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -16030,7 +16243,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObject(dict):
         """
         :param 'GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on future objects in either a database or schema.
-        :param 'GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        :param 'GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         :param _builtins.str object_name: The fully qualified name of the object on which privileges will be granted.
         :param _builtins.str object_type: The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
         """
@@ -16065,7 +16278,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObject(dict):
     @pulumi.getter
     def inherited(self) -> Optional['outputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited']:
         """
-        Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -16114,7 +16327,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAll(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -16126,7 +16339,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -16169,7 +16382,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -16181,7 +16394,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -16227,7 +16440,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectInherited(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         :param _builtins.bool in_account: If true, the inherited privilege will be granted on all objects of the given type in the account.
         :param _builtins.str in_database: The fully qualified name of the database in which the inherited privilege will be granted on all objects of the given type.
         :param _builtins.str in_schema: The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
@@ -16244,7 +16457,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectInherited(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -16304,7 +16517,7 @@ class GrantPrivilegesToDatabaseRoleOnSchema(dict):
         """
         :param _builtins.str all_schemas_in_database: The fully qualified name of the database.
         :param _builtins.str future_schemas_in_database: The fully qualified name of the database.
-        :param _builtins.str inherited: Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        :param _builtins.str inherited: Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         :param _builtins.str schema_name: The fully qualified name of the schema.
         """
         if all_schemas_in_database is not None:
@@ -16336,7 +16549,7 @@ class GrantPrivilegesToDatabaseRoleOnSchema(dict):
     @pulumi.getter
     def inherited(self) -> Optional[_builtins.str]:
         """
-        Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -16379,7 +16592,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObject(dict):
         """
         :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs' all: Configures the privilege to be granted on all objects in either a database or schema.
         :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs' future: Configures the privilege to be granted on future objects in either a database or schema.
-        :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        :param 'GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs' inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         :param _builtins.str object_name: The fully qualified name of the object on which privileges will be granted.
         :param _builtins.str object_type: The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
         """
@@ -16414,7 +16627,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObject(dict):
     @pulumi.getter
     def inherited(self) -> Optional['outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited']:
         """
-        Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -16463,7 +16676,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAll(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database.
         :param _builtins.str in_schema: The fully qualified name of the schema.
         """
@@ -16477,7 +16690,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAll(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -16526,7 +16739,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database.
         :param _builtins.str in_schema: The fully qualified name of the schema.
         """
@@ -16540,7 +16753,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -16589,7 +16802,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited(dict):
                  in_database: Optional[_builtins.str] = None,
                  in_schema: Optional[_builtins.str] = None):
         """
-        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param _builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         :param _builtins.str in_database: The fully qualified name of the database.
         :param _builtins.str in_schema: The fully qualified name of the schema.
         """
@@ -16603,7 +16816,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> _builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -37231,6 +37444,10 @@ class SchemaParameter(dict):
             suggest = "data_retention_time_in_days"
         elif key == "defaultDdlCollations":
             suggest = "default_ddl_collations"
+        elif key == "defaultNotebookComputePoolCpus":
+            suggest = "default_notebook_compute_pool_cpus"
+        elif key == "defaultNotebookComputePoolGpus":
+            suggest = "default_notebook_compute_pool_gpus"
         elif key == "enableConsoleOutputs":
             suggest = "enable_console_outputs"
         elif key == "externalVolumes":
@@ -37277,6 +37494,8 @@ class SchemaParameter(dict):
                  catalogs: Optional[Sequence['outputs.SchemaParameterCatalog']] = None,
                  data_retention_time_in_days: Optional[Sequence['outputs.SchemaParameterDataRetentionTimeInDay']] = None,
                  default_ddl_collations: Optional[Sequence['outputs.SchemaParameterDefaultDdlCollation']] = None,
+                 default_notebook_compute_pool_cpus: Optional[Sequence['outputs.SchemaParameterDefaultNotebookComputePoolCpus']] = None,
+                 default_notebook_compute_pool_gpus: Optional[Sequence['outputs.SchemaParameterDefaultNotebookComputePoolGpus']] = None,
                  enable_console_outputs: Optional[Sequence['outputs.SchemaParameterEnableConsoleOutput']] = None,
                  external_volumes: Optional[Sequence['outputs.SchemaParameterExternalVolume']] = None,
                  log_event_levels: Optional[Sequence['outputs.SchemaParameterLogEventLevel']] = None,
@@ -37298,6 +37517,10 @@ class SchemaParameter(dict):
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if default_ddl_collations is not None:
             pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
+        if default_notebook_compute_pool_cpus is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_cpus", default_notebook_compute_pool_cpus)
+        if default_notebook_compute_pool_gpus is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_gpus", default_notebook_compute_pool_gpus)
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
         if external_volumes is not None:
@@ -37343,6 +37566,16 @@ class SchemaParameter(dict):
     @pulumi.getter(name="defaultDdlCollations")
     def default_ddl_collations(self) -> Optional[Sequence['outputs.SchemaParameterDefaultDdlCollation']]:
         return pulumi.get(self, "default_ddl_collations")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpus")
+    def default_notebook_compute_pool_cpus(self) -> Optional[Sequence['outputs.SchemaParameterDefaultNotebookComputePoolCpus']]:
+        return pulumi.get(self, "default_notebook_compute_pool_cpus")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpus")
+    def default_notebook_compute_pool_gpus(self) -> Optional[Sequence['outputs.SchemaParameterDefaultNotebookComputePoolGpus']]:
+        return pulumi.get(self, "default_notebook_compute_pool_gpus")
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutputs")
@@ -37512,6 +37745,96 @@ class SchemaParameterDataRetentionTimeInDay(dict):
 
 @pulumi.output_type
 class SchemaParameterDefaultDdlCollation(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterDefaultNotebookComputePoolCpus(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class SchemaParameterDefaultNotebookComputePoolGpus(dict):
     def __init__(__self__, *,
                  default: Optional[_builtins.str] = None,
                  description: Optional[_builtins.str] = None,
@@ -41016,6 +41339,81 @@ class ServiceFromSpecificationTemplateUsing(dict):
         """
         The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
         """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceCallerTokenValiditySecs":
+            suggest = "service_caller_token_validity_secs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 service_caller_token_validity_secs: Optional[Sequence['outputs.ServiceParameterServiceCallerTokenValiditySec']] = None):
+        if service_caller_token_validity_secs is not None:
+            pulumi.set(__self__, "service_caller_token_validity_secs", service_caller_token_validity_secs)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceCallerTokenValiditySecs")
+    def service_caller_token_validity_secs(self) -> Optional[Sequence['outputs.ServiceParameterServiceCallerTokenValiditySec']]:
+        return pulumi.get(self, "service_caller_token_validity_secs")
+
+
+@pulumi.output_type
+class ServiceParameterServiceCallerTokenValiditySec(dict):
+    def __init__(__self__, *,
+                 default: Optional[_builtins.str] = None,
+                 description: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 level: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "value")
 
 
@@ -45253,6 +45651,8 @@ class SessionPolicyShowOutput(dict):
             suggest = "owner_role_type"
         elif key == "schemaName":
             suggest = "schema_name"
+        elif key == "targetScopes":
+            suggest = "target_scopes"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SessionPolicyShowOutput. Access the value via the '{suggest}' property getter instead.")
@@ -45274,7 +45674,8 @@ class SessionPolicyShowOutput(dict):
                  options: Optional[_builtins.str] = None,
                  owner: Optional[_builtins.str] = None,
                  owner_role_type: Optional[_builtins.str] = None,
-                 schema_name: Optional[_builtins.str] = None):
+                 schema_name: Optional[_builtins.str] = None,
+                 target_scopes: Optional[Sequence[_builtins.str]] = None):
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
@@ -45293,6 +45694,8 @@ class SessionPolicyShowOutput(dict):
             pulumi.set(__self__, "owner_role_type", owner_role_type)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
+        if target_scopes is not None:
+            pulumi.set(__self__, "target_scopes", target_scopes)
 
     @_builtins.property
     @pulumi.getter
@@ -45338,6 +45741,11 @@ class SessionPolicyShowOutput(dict):
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="targetScopes")
+    def target_scopes(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "target_scopes")
 
 
 @pulumi.output_type
@@ -45422,6 +45830,10 @@ class StageExternalAzureDescribeOutputDirectoryTable(dict):
         suggest = None
         if key == "autoRefresh":
             suggest = "auto_refresh"
+        elif key == "awsSnsTopic":
+            suggest = "aws_sns_topic"
+        elif key == "directoryNotificationChannel":
+            suggest = "directory_notification_channel"
         elif key == "lastRefreshedOn":
             suggest = "last_refreshed_on"
 
@@ -45438,10 +45850,16 @@ class StageExternalAzureDescribeOutputDirectoryTable(dict):
 
     def __init__(__self__, *,
                  auto_refresh: Optional[_builtins.bool] = None,
+                 aws_sns_topic: Optional[_builtins.str] = None,
+                 directory_notification_channel: Optional[_builtins.str] = None,
                  enable: Optional[_builtins.bool] = None,
                  last_refreshed_on: Optional[_builtins.str] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        if directory_notification_channel is not None:
+            pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if last_refreshed_on is not None:
@@ -45451,6 +45869,16 @@ class StageExternalAzureDescribeOutputDirectoryTable(dict):
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "directory_notification_channel")
 
     @_builtins.property
     @pulumi.getter
@@ -47722,6 +48150,10 @@ class StageExternalGcsDescribeOutputDirectoryTable(dict):
         suggest = None
         if key == "autoRefresh":
             suggest = "auto_refresh"
+        elif key == "awsSnsTopic":
+            suggest = "aws_sns_topic"
+        elif key == "directoryNotificationChannel":
+            suggest = "directory_notification_channel"
         elif key == "lastRefreshedOn":
             suggest = "last_refreshed_on"
 
@@ -47738,10 +48170,16 @@ class StageExternalGcsDescribeOutputDirectoryTable(dict):
 
     def __init__(__self__, *,
                  auto_refresh: Optional[_builtins.bool] = None,
+                 aws_sns_topic: Optional[_builtins.str] = None,
+                 directory_notification_channel: Optional[_builtins.str] = None,
                  enable: Optional[_builtins.bool] = None,
                  last_refreshed_on: Optional[_builtins.str] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        if directory_notification_channel is not None:
+            pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if last_refreshed_on is not None:
@@ -47751,6 +48189,16 @@ class StageExternalGcsDescribeOutputDirectoryTable(dict):
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "directory_notification_channel")
 
     @_builtins.property
     @pulumi.getter
@@ -50079,6 +50527,10 @@ class StageExternalS3CompatibleDescribeOutputDirectoryTable(dict):
         suggest = None
         if key == "autoRefresh":
             suggest = "auto_refresh"
+        elif key == "awsSnsTopic":
+            suggest = "aws_sns_topic"
+        elif key == "directoryNotificationChannel":
+            suggest = "directory_notification_channel"
         elif key == "lastRefreshedOn":
             suggest = "last_refreshed_on"
 
@@ -50095,10 +50547,16 @@ class StageExternalS3CompatibleDescribeOutputDirectoryTable(dict):
 
     def __init__(__self__, *,
                  auto_refresh: Optional[_builtins.bool] = None,
+                 aws_sns_topic: Optional[_builtins.str] = None,
+                 directory_notification_channel: Optional[_builtins.str] = None,
                  enable: Optional[_builtins.bool] = None,
                  last_refreshed_on: Optional[_builtins.str] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        if directory_notification_channel is not None:
+            pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if last_refreshed_on is not None:
@@ -50108,6 +50566,16 @@ class StageExternalS3CompatibleDescribeOutputDirectoryTable(dict):
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "directory_notification_channel")
 
     @_builtins.property
     @pulumi.getter
@@ -52383,6 +52851,10 @@ class StageExternalS3DescribeOutputDirectoryTable(dict):
         suggest = None
         if key == "autoRefresh":
             suggest = "auto_refresh"
+        elif key == "awsSnsTopic":
+            suggest = "aws_sns_topic"
+        elif key == "directoryNotificationChannel":
+            suggest = "directory_notification_channel"
         elif key == "lastRefreshedOn":
             suggest = "last_refreshed_on"
 
@@ -52399,10 +52871,16 @@ class StageExternalS3DescribeOutputDirectoryTable(dict):
 
     def __init__(__self__, *,
                  auto_refresh: Optional[_builtins.bool] = None,
+                 aws_sns_topic: Optional[_builtins.str] = None,
+                 directory_notification_channel: Optional[_builtins.str] = None,
                  enable: Optional[_builtins.bool] = None,
                  last_refreshed_on: Optional[_builtins.str] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        if directory_notification_channel is not None:
+            pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if last_refreshed_on is not None:
@@ -52412,6 +52890,16 @@ class StageExternalS3DescribeOutputDirectoryTable(dict):
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "directory_notification_channel")
 
     @_builtins.property
     @pulumi.getter
@@ -54821,6 +55309,10 @@ class StageInternalDescribeOutputDirectoryTable(dict):
         suggest = None
         if key == "autoRefresh":
             suggest = "auto_refresh"
+        elif key == "awsSnsTopic":
+            suggest = "aws_sns_topic"
+        elif key == "directoryNotificationChannel":
+            suggest = "directory_notification_channel"
         elif key == "lastRefreshedOn":
             suggest = "last_refreshed_on"
 
@@ -54837,10 +55329,16 @@ class StageInternalDescribeOutputDirectoryTable(dict):
 
     def __init__(__self__, *,
                  auto_refresh: Optional[_builtins.bool] = None,
+                 aws_sns_topic: Optional[_builtins.str] = None,
+                 directory_notification_channel: Optional[_builtins.str] = None,
                  enable: Optional[_builtins.bool] = None,
                  last_refreshed_on: Optional[_builtins.str] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        if directory_notification_channel is not None:
+            pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if last_refreshed_on is not None:
@@ -54850,6 +55348,16 @@ class StageInternalDescribeOutputDirectoryTable(dict):
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "directory_notification_channel")
 
     @_builtins.property
     @pulumi.getter
@@ -64362,6 +64870,8 @@ class TaskShowOutput(dict):
             suggest = "database_name"
         elif key == "errorIntegration":
             suggest = "error_integration"
+        elif key == "executeAsUser":
+            suggest = "execute_as_user"
         elif key == "lastCommittedOn":
             suggest = "last_committed_on"
         elif key == "lastSuspendedOn":
@@ -64398,6 +64908,7 @@ class TaskShowOutput(dict):
                  database_name: Optional[_builtins.str] = None,
                  definition: Optional[_builtins.str] = None,
                  error_integration: Optional[_builtins.str] = None,
+                 execute_as_user: Optional[_builtins.str] = None,
                  id: Optional[_builtins.str] = None,
                  last_committed_on: Optional[_builtins.str] = None,
                  last_suspended_on: Optional[_builtins.str] = None,
@@ -64430,6 +64941,8 @@ class TaskShowOutput(dict):
             pulumi.set(__self__, "definition", definition)
         if error_integration is not None:
             pulumi.set(__self__, "error_integration", error_integration)
+        if execute_as_user is not None:
+            pulumi.set(__self__, "execute_as_user", execute_as_user)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if last_committed_on is not None:
@@ -64503,6 +65016,11 @@ class TaskShowOutput(dict):
     @pulumi.getter(name="errorIntegration")
     def error_integration(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "error_integration")
+
+    @_builtins.property
+    @pulumi.getter(name="executeAsUser")
+    def execute_as_user(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "execute_as_user")
 
     @_builtins.property
     @pulumi.getter
@@ -70375,11 +70893,22 @@ class GetAccountRolesAccountRoleShowOutputResult(dict):
 @pulumi.output_type
 class GetAccountsAccountResult(dict):
     def __init__(__self__, *,
+                 parameters: Sequence['outputs.GetAccountsAccountParameterResult'],
                  show_outputs: Sequence['outputs.GetAccountsAccountShowOutputResult']):
         """
+        :param Sequence['GetAccountsAccountParameterArgs'] parameters: Holds the output of SHOW PARAMETERS IN ACCOUNT for the connected account.
         :param Sequence['GetAccountsAccountShowOutputArgs'] show_outputs: Holds the output of SHOW ACCOUNTS.
         """
+        pulumi.set(__self__, "parameters", parameters)
         pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Sequence['outputs.GetAccountsAccountParameterResult']:
+        """
+        Holds the output of SHOW PARAMETERS IN ACCOUNT for the connected account.
+        """
+        return pulumi.get(self, "parameters")
 
     @_builtins.property
     @pulumi.getter(name="showOutputs")
@@ -70388,6 +70917,6779 @@ class GetAccountsAccountResult(dict):
         Holds the output of SHOW ACCOUNTS.
         """
         return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterResult(dict):
+    def __init__(__self__, *,
+                 abort_detached_queries: Sequence['outputs.GetAccountsAccountParameterAbortDetachedQueryResult'],
+                 active_python_profilers: Sequence['outputs.GetAccountsAccountParameterActivePythonProfilerResult'],
+                 allow_bind_values_accesses: Sequence['outputs.GetAccountsAccountParameterAllowBindValuesAccessResult'],
+                 allow_client_mfa_cachings: Sequence['outputs.GetAccountsAccountParameterAllowClientMfaCachingResult'],
+                 allow_id_tokens: Sequence['outputs.GetAccountsAccountParameterAllowIdTokenResult'],
+                 allowed_spcs_workload_types: Sequence['outputs.GetAccountsAccountParameterAllowedSpcsWorkloadTypeResult'],
+                 autocommits: Sequence['outputs.GetAccountsAccountParameterAutocommitResult'],
+                 base_location_prefixes: Sequence['outputs.GetAccountsAccountParameterBaseLocationPrefixResult'],
+                 binary_input_formats: Sequence['outputs.GetAccountsAccountParameterBinaryInputFormatResult'],
+                 binary_output_formats: Sequence['outputs.GetAccountsAccountParameterBinaryOutputFormatResult'],
+                 catalog_syncs: Sequence['outputs.GetAccountsAccountParameterCatalogSyncResult'],
+                 catalogs: Sequence['outputs.GetAccountsAccountParameterCatalogResult'],
+                 client_enable_log_info_statement_parameters: Sequence['outputs.GetAccountsAccountParameterClientEnableLogInfoStatementParameterResult'],
+                 client_encryption_key_sizes: Sequence['outputs.GetAccountsAccountParameterClientEncryptionKeySizeResult'],
+                 client_memory_limits: Sequence['outputs.GetAccountsAccountParameterClientMemoryLimitResult'],
+                 client_metadata_request_use_connection_ctxes: Sequence['outputs.GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxResult'],
+                 client_metadata_use_session_databases: Sequence['outputs.GetAccountsAccountParameterClientMetadataUseSessionDatabaseResult'],
+                 client_prefetch_threads: Sequence['outputs.GetAccountsAccountParameterClientPrefetchThreadResult'],
+                 client_result_chunk_sizes: Sequence['outputs.GetAccountsAccountParameterClientResultChunkSizeResult'],
+                 client_result_column_case_insensitives: Sequence['outputs.GetAccountsAccountParameterClientResultColumnCaseInsensitiveResult'],
+                 client_session_keep_alive_heartbeat_frequencies: Sequence['outputs.GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyResult'],
+                 client_session_keep_alives: Sequence['outputs.GetAccountsAccountParameterClientSessionKeepAlifeResult'],
+                 client_timestamp_type_mappings: Sequence['outputs.GetAccountsAccountParameterClientTimestampTypeMappingResult'],
+                 cortex_code_cli_daily_est_credit_limit_per_users: Sequence['outputs.GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserResult'],
+                 cortex_code_desktop_daily_est_credit_limit_per_users: Sequence['outputs.GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserResult'],
+                 cortex_code_snowsight_daily_est_credit_limit_per_users: Sequence['outputs.GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserResult'],
+                 cortex_enabled_cross_regions: Sequence['outputs.GetAccountsAccountParameterCortexEnabledCrossRegionResult'],
+                 cortex_models_allowlists: Sequence['outputs.GetAccountsAccountParameterCortexModelsAllowlistResult'],
+                 csv_timestamp_formats: Sequence['outputs.GetAccountsAccountParameterCsvTimestampFormatResult'],
+                 data_metric_schedules: Sequence['outputs.GetAccountsAccountParameterDataMetricScheduleResult'],
+                 data_retention_time_in_days: Sequence['outputs.GetAccountsAccountParameterDataRetentionTimeInDayResult'],
+                 date_input_formats: Sequence['outputs.GetAccountsAccountParameterDateInputFormatResult'],
+                 date_output_formats: Sequence['outputs.GetAccountsAccountParameterDateOutputFormatResult'],
+                 default_dbt_versions: Sequence['outputs.GetAccountsAccountParameterDefaultDbtVersionResult'],
+                 default_ddl_collations: Sequence['outputs.GetAccountsAccountParameterDefaultDdlCollationResult'],
+                 default_notebook_compute_pool_cpus: Sequence['outputs.GetAccountsAccountParameterDefaultNotebookComputePoolCpusResult'],
+                 default_notebook_compute_pool_gpus: Sequence['outputs.GetAccountsAccountParameterDefaultNotebookComputePoolGpusResult'],
+                 default_null_orderings: Sequence['outputs.GetAccountsAccountParameterDefaultNullOrderingResult'],
+                 default_streamlit_compute_pools: Sequence['outputs.GetAccountsAccountParameterDefaultStreamlitComputePoolResult'],
+                 default_streamlit_notebook_warehouses: Sequence['outputs.GetAccountsAccountParameterDefaultStreamlitNotebookWarehouseResult'],
+                 disable_ui_download_buttons: Sequence['outputs.GetAccountsAccountParameterDisableUiDownloadButtonResult'],
+                 disable_user_privilege_grants: Sequence['outputs.GetAccountsAccountParameterDisableUserPrivilegeGrantResult'],
+                 disallowed_spcs_workload_types: Sequence['outputs.GetAccountsAccountParameterDisallowedSpcsWorkloadTypeResult'],
+                 enable_automatic_sensitive_data_classification_logs: Sequence['outputs.GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLogResult'],
+                 enable_budget_event_loggings: Sequence['outputs.GetAccountsAccountParameterEnableBudgetEventLoggingResult'],
+                 enable_console_outputs: Sequence['outputs.GetAccountsAccountParameterEnableConsoleOutputResult'],
+                 enable_cortex_analysts: Sequence['outputs.GetAccountsAccountParameterEnableCortexAnalystResult'],
+                 enable_data_compactions: Sequence['outputs.GetAccountsAccountParameterEnableDataCompactionResult'],
+                 enable_egress_cost_optimizers: Sequence['outputs.GetAccountsAccountParameterEnableEgressCostOptimizerResult'],
+                 enable_get_ddl_use_data_type_aliases: Sequence['outputs.GetAccountsAccountParameterEnableGetDdlUseDataTypeAliasResult'],
+                 enable_iceberg_merge_on_reads: Sequence['outputs.GetAccountsAccountParameterEnableIcebergMergeOnReadResult'],
+                 enable_identifier_first_logins: Sequence['outputs.GetAccountsAccountParameterEnableIdentifierFirstLoginResult'],
+                 enable_internal_stages_privatelinks: Sequence['outputs.GetAccountsAccountParameterEnableInternalStagesPrivatelinkResult'],
+                 enable_notebook_creation_in_personal_dbs: Sequence['outputs.GetAccountsAccountParameterEnableNotebookCreationInPersonalDbResult'],
+                 enable_per_account_app_service_privatelink_urls: Sequence['outputs.GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrlResult'],
+                 enable_personal_databases: Sequence['outputs.GetAccountsAccountParameterEnablePersonalDatabaseResult'],
+                 enable_spcs_block_storage_snowflake_full_encryption_enforcements: Sequence['outputs.GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcementResult'],
+                 enable_tag_propagation_event_loggings: Sequence['outputs.GetAccountsAccountParameterEnableTagPropagationEventLoggingResult'],
+                 enable_tri_secret_and_rekey_opt_out_for_image_repositories: Sequence['outputs.GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepositoryResult'],
+                 enable_tri_secret_and_rekey_opt_out_for_spcs_block_storages: Sequence['outputs.GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorageResult'],
+                 enable_unhandled_exceptions_reportings: Sequence['outputs.GetAccountsAccountParameterEnableUnhandledExceptionsReportingResult'],
+                 enable_unload_physical_type_optimizations: Sequence['outputs.GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimizationResult'],
+                 enable_unredacted_query_syntax_errors: Sequence['outputs.GetAccountsAccountParameterEnableUnredactedQuerySyntaxErrorResult'],
+                 enable_unredacted_secure_object_errors: Sequence['outputs.GetAccountsAccountParameterEnableUnredactedSecureObjectErrorResult'],
+                 enforce_network_rules_for_internal_stages: Sequence['outputs.GetAccountsAccountParameterEnforceNetworkRulesForInternalStageResult'],
+                 error_on_nondeterministic_merges: Sequence['outputs.GetAccountsAccountParameterErrorOnNondeterministicMergeResult'],
+                 error_on_nondeterministic_updates: Sequence['outputs.GetAccountsAccountParameterErrorOnNondeterministicUpdateResult'],
+                 event_tables: Sequence['outputs.GetAccountsAccountParameterEventTableResult'],
+                 external_oauth_add_privileged_roles_to_blocked_lists: Sequence['outputs.GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedListResult'],
+                 external_volumes: Sequence['outputs.GetAccountsAccountParameterExternalVolumeResult'],
+                 geography_output_formats: Sequence['outputs.GetAccountsAccountParameterGeographyOutputFormatResult'],
+                 geometry_output_formats: Sequence['outputs.GetAccountsAccountParameterGeometryOutputFormatResult'],
+                 hybrid_table_lock_timeouts: Sequence['outputs.GetAccountsAccountParameterHybridTableLockTimeoutResult'],
+                 iceberg_version_defaults: Sequence['outputs.GetAccountsAccountParameterIcebergVersionDefaultResult'],
+                 initial_replication_size_limit_in_tbs: Sequence['outputs.GetAccountsAccountParameterInitialReplicationSizeLimitInTbResult'],
+                 jdbc_treat_decimal_as_ints: Sequence['outputs.GetAccountsAccountParameterJdbcTreatDecimalAsIntResult'],
+                 jdbc_treat_timestamp_ntz_as_utcs: Sequence['outputs.GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtcResult'],
+                 jdbc_use_session_timezones: Sequence['outputs.GetAccountsAccountParameterJdbcUseSessionTimezoneResult'],
+                 js_treat_integer_as_bigints: Sequence['outputs.GetAccountsAccountParameterJsTreatIntegerAsBigintResult'],
+                 json_indents: Sequence['outputs.GetAccountsAccountParameterJsonIndentResult'],
+                 listing_auto_fulfillment_replication_refresh_schedules: Sequence['outputs.GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshScheduleResult'],
+                 lock_timeouts: Sequence['outputs.GetAccountsAccountParameterLockTimeoutResult'],
+                 log_event_levels: Sequence['outputs.GetAccountsAccountParameterLogEventLevelResult'],
+                 log_levels: Sequence['outputs.GetAccountsAccountParameterLogLevelResult'],
+                 max_concurrency_levels: Sequence['outputs.GetAccountsAccountParameterMaxConcurrencyLevelResult'],
+                 max_data_extension_time_in_days: Sequence['outputs.GetAccountsAccountParameterMaxDataExtensionTimeInDayResult'],
+                 metric_levels: Sequence['outputs.GetAccountsAccountParameterMetricLevelResult'],
+                 min_data_retention_time_in_days: Sequence['outputs.GetAccountsAccountParameterMinDataRetentionTimeInDayResult'],
+                 multi_statement_counts: Sequence['outputs.GetAccountsAccountParameterMultiStatementCountResult'],
+                 network_policies: Sequence['outputs.GetAccountsAccountParameterNetworkPolicyResult'],
+                 noorder_sequence_as_defaults: Sequence['outputs.GetAccountsAccountParameterNoorderSequenceAsDefaultResult'],
+                 oauth_add_privileged_roles_to_blocked_lists: Sequence['outputs.GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedListResult'],
+                 odbc_treat_decimal_as_ints: Sequence['outputs.GetAccountsAccountParameterOdbcTreatDecimalAsIntResult'],
+                 periodic_data_rekeyings: Sequence['outputs.GetAccountsAccountParameterPeriodicDataRekeyingResult'],
+                 pipe_execution_pauseds: Sequence['outputs.GetAccountsAccountParameterPipeExecutionPausedResult'],
+                 prevent_load_from_inline_urls: Sequence['outputs.GetAccountsAccountParameterPreventLoadFromInlineUrlResult'],
+                 prevent_unload_to_inline_urls: Sequence['outputs.GetAccountsAccountParameterPreventUnloadToInlineUrlResult'],
+                 prevent_unload_to_internal_stages: Sequence['outputs.GetAccountsAccountParameterPreventUnloadToInternalStageResult'],
+                 python_profiler_modules: Sequence['outputs.GetAccountsAccountParameterPythonProfilerModuleResult'],
+                 python_profiler_target_stages: Sequence['outputs.GetAccountsAccountParameterPythonProfilerTargetStageResult'],
+                 query_tags: Sequence['outputs.GetAccountsAccountParameterQueryTagResult'],
+                 quoted_identifiers_ignore_cases: Sequence['outputs.GetAccountsAccountParameterQuotedIdentifiersIgnoreCaseResult'],
+                 read_consistency_modes: Sequence['outputs.GetAccountsAccountParameterReadConsistencyModeResult'],
+                 replace_invalid_characters: Sequence['outputs.GetAccountsAccountParameterReplaceInvalidCharacterResult'],
+                 require_storage_integration_for_stage_creations: Sequence['outputs.GetAccountsAccountParameterRequireStorageIntegrationForStageCreationResult'],
+                 require_storage_integration_for_stage_operations: Sequence['outputs.GetAccountsAccountParameterRequireStorageIntegrationForStageOperationResult'],
+                 row_timestamp_defaults: Sequence['outputs.GetAccountsAccountParameterRowTimestampDefaultResult'],
+                 rows_per_resultsets: Sequence['outputs.GetAccountsAccountParameterRowsPerResultsetResult'],
+                 s3_stage_vpce_dns_names: Sequence['outputs.GetAccountsAccountParameterS3StageVpceDnsNameResult'],
+                 search_paths: Sequence['outputs.GetAccountsAccountParameterSearchPathResult'],
+                 serverless_task_max_statement_sizes: Sequence['outputs.GetAccountsAccountParameterServerlessTaskMaxStatementSizeResult'],
+                 serverless_task_min_statement_sizes: Sequence['outputs.GetAccountsAccountParameterServerlessTaskMinStatementSizeResult'],
+                 share_restrictions: Sequence['outputs.GetAccountsAccountParameterShareRestrictionResult'],
+                 simulated_data_sharing_consumers: Sequence['outputs.GetAccountsAccountParameterSimulatedDataSharingConsumerResult'],
+                 sql_trace_query_texts: Sequence['outputs.GetAccountsAccountParameterSqlTraceQueryTextResult'],
+                 sso_login_pages: Sequence['outputs.GetAccountsAccountParameterSsoLoginPageResult'],
+                 statement_queued_timeout_in_seconds: Sequence['outputs.GetAccountsAccountParameterStatementQueuedTimeoutInSecondResult'],
+                 statement_timeout_in_seconds: Sequence['outputs.GetAccountsAccountParameterStatementTimeoutInSecondResult'],
+                 storage_serialization_policies: Sequence['outputs.GetAccountsAccountParameterStorageSerializationPolicyResult'],
+                 strict_json_outputs: Sequence['outputs.GetAccountsAccountParameterStrictJsonOutputResult'],
+                 suspend_task_after_num_failures: Sequence['outputs.GetAccountsAccountParameterSuspendTaskAfterNumFailureResult'],
+                 task_auto_retry_attempts: Sequence['outputs.GetAccountsAccountParameterTaskAutoRetryAttemptResult'],
+                 time_input_formats: Sequence['outputs.GetAccountsAccountParameterTimeInputFormatResult'],
+                 time_output_formats: Sequence['outputs.GetAccountsAccountParameterTimeOutputFormatResult'],
+                 timestamp_day_is_always24hs: Sequence['outputs.GetAccountsAccountParameterTimestampDayIsAlways24hResult'],
+                 timestamp_input_formats: Sequence['outputs.GetAccountsAccountParameterTimestampInputFormatResult'],
+                 timestamp_ltz_output_formats: Sequence['outputs.GetAccountsAccountParameterTimestampLtzOutputFormatResult'],
+                 timestamp_ntz_output_formats: Sequence['outputs.GetAccountsAccountParameterTimestampNtzOutputFormatResult'],
+                 timestamp_output_formats: Sequence['outputs.GetAccountsAccountParameterTimestampOutputFormatResult'],
+                 timestamp_type_mappings: Sequence['outputs.GetAccountsAccountParameterTimestampTypeMappingResult'],
+                 timestamp_tz_output_formats: Sequence['outputs.GetAccountsAccountParameterTimestampTzOutputFormatResult'],
+                 timezones: Sequence['outputs.GetAccountsAccountParameterTimezoneResult'],
+                 trace_levels: Sequence['outputs.GetAccountsAccountParameterTraceLevelResult'],
+                 transaction_abort_on_errors: Sequence['outputs.GetAccountsAccountParameterTransactionAbortOnErrorResult'],
+                 transaction_default_isolation_levels: Sequence['outputs.GetAccountsAccountParameterTransactionDefaultIsolationLevelResult'],
+                 two_digit_century_starts: Sequence['outputs.GetAccountsAccountParameterTwoDigitCenturyStartResult'],
+                 unsupported_ddl_actions: Sequence['outputs.GetAccountsAccountParameterUnsupportedDdlActionResult'],
+                 use_cached_results: Sequence['outputs.GetAccountsAccountParameterUseCachedResultResult'],
+                 use_workspaces_for_sqls: Sequence['outputs.GetAccountsAccountParameterUseWorkspacesForSqlResult'],
+                 user_task_managed_initial_warehouse_sizes: Sequence['outputs.GetAccountsAccountParameterUserTaskManagedInitialWarehouseSizeResult'],
+                 user_task_minimum_trigger_interval_in_seconds: Sequence['outputs.GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecondResult'],
+                 user_task_timeout_ms: Sequence['outputs.GetAccountsAccountParameterUserTaskTimeoutMResult'],
+                 week_of_year_policies: Sequence['outputs.GetAccountsAccountParameterWeekOfYearPolicyResult'],
+                 week_starts: Sequence['outputs.GetAccountsAccountParameterWeekStartResult']):
+        pulumi.set(__self__, "abort_detached_queries", abort_detached_queries)
+        pulumi.set(__self__, "active_python_profilers", active_python_profilers)
+        pulumi.set(__self__, "allow_bind_values_accesses", allow_bind_values_accesses)
+        pulumi.set(__self__, "allow_client_mfa_cachings", allow_client_mfa_cachings)
+        pulumi.set(__self__, "allow_id_tokens", allow_id_tokens)
+        pulumi.set(__self__, "allowed_spcs_workload_types", allowed_spcs_workload_types)
+        pulumi.set(__self__, "autocommits", autocommits)
+        pulumi.set(__self__, "base_location_prefixes", base_location_prefixes)
+        pulumi.set(__self__, "binary_input_formats", binary_input_formats)
+        pulumi.set(__self__, "binary_output_formats", binary_output_formats)
+        pulumi.set(__self__, "catalog_syncs", catalog_syncs)
+        pulumi.set(__self__, "catalogs", catalogs)
+        pulumi.set(__self__, "client_enable_log_info_statement_parameters", client_enable_log_info_statement_parameters)
+        pulumi.set(__self__, "client_encryption_key_sizes", client_encryption_key_sizes)
+        pulumi.set(__self__, "client_memory_limits", client_memory_limits)
+        pulumi.set(__self__, "client_metadata_request_use_connection_ctxes", client_metadata_request_use_connection_ctxes)
+        pulumi.set(__self__, "client_metadata_use_session_databases", client_metadata_use_session_databases)
+        pulumi.set(__self__, "client_prefetch_threads", client_prefetch_threads)
+        pulumi.set(__self__, "client_result_chunk_sizes", client_result_chunk_sizes)
+        pulumi.set(__self__, "client_result_column_case_insensitives", client_result_column_case_insensitives)
+        pulumi.set(__self__, "client_session_keep_alive_heartbeat_frequencies", client_session_keep_alive_heartbeat_frequencies)
+        pulumi.set(__self__, "client_session_keep_alives", client_session_keep_alives)
+        pulumi.set(__self__, "client_timestamp_type_mappings", client_timestamp_type_mappings)
+        pulumi.set(__self__, "cortex_code_cli_daily_est_credit_limit_per_users", cortex_code_cli_daily_est_credit_limit_per_users)
+        pulumi.set(__self__, "cortex_code_desktop_daily_est_credit_limit_per_users", cortex_code_desktop_daily_est_credit_limit_per_users)
+        pulumi.set(__self__, "cortex_code_snowsight_daily_est_credit_limit_per_users", cortex_code_snowsight_daily_est_credit_limit_per_users)
+        pulumi.set(__self__, "cortex_enabled_cross_regions", cortex_enabled_cross_regions)
+        pulumi.set(__self__, "cortex_models_allowlists", cortex_models_allowlists)
+        pulumi.set(__self__, "csv_timestamp_formats", csv_timestamp_formats)
+        pulumi.set(__self__, "data_metric_schedules", data_metric_schedules)
+        pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
+        pulumi.set(__self__, "date_input_formats", date_input_formats)
+        pulumi.set(__self__, "date_output_formats", date_output_formats)
+        pulumi.set(__self__, "default_dbt_versions", default_dbt_versions)
+        pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
+        pulumi.set(__self__, "default_notebook_compute_pool_cpus", default_notebook_compute_pool_cpus)
+        pulumi.set(__self__, "default_notebook_compute_pool_gpus", default_notebook_compute_pool_gpus)
+        pulumi.set(__self__, "default_null_orderings", default_null_orderings)
+        pulumi.set(__self__, "default_streamlit_compute_pools", default_streamlit_compute_pools)
+        pulumi.set(__self__, "default_streamlit_notebook_warehouses", default_streamlit_notebook_warehouses)
+        pulumi.set(__self__, "disable_ui_download_buttons", disable_ui_download_buttons)
+        pulumi.set(__self__, "disable_user_privilege_grants", disable_user_privilege_grants)
+        pulumi.set(__self__, "disallowed_spcs_workload_types", disallowed_spcs_workload_types)
+        pulumi.set(__self__, "enable_automatic_sensitive_data_classification_logs", enable_automatic_sensitive_data_classification_logs)
+        pulumi.set(__self__, "enable_budget_event_loggings", enable_budget_event_loggings)
+        pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        pulumi.set(__self__, "enable_cortex_analysts", enable_cortex_analysts)
+        pulumi.set(__self__, "enable_data_compactions", enable_data_compactions)
+        pulumi.set(__self__, "enable_egress_cost_optimizers", enable_egress_cost_optimizers)
+        pulumi.set(__self__, "enable_get_ddl_use_data_type_aliases", enable_get_ddl_use_data_type_aliases)
+        pulumi.set(__self__, "enable_iceberg_merge_on_reads", enable_iceberg_merge_on_reads)
+        pulumi.set(__self__, "enable_identifier_first_logins", enable_identifier_first_logins)
+        pulumi.set(__self__, "enable_internal_stages_privatelinks", enable_internal_stages_privatelinks)
+        pulumi.set(__self__, "enable_notebook_creation_in_personal_dbs", enable_notebook_creation_in_personal_dbs)
+        pulumi.set(__self__, "enable_per_account_app_service_privatelink_urls", enable_per_account_app_service_privatelink_urls)
+        pulumi.set(__self__, "enable_personal_databases", enable_personal_databases)
+        pulumi.set(__self__, "enable_spcs_block_storage_snowflake_full_encryption_enforcements", enable_spcs_block_storage_snowflake_full_encryption_enforcements)
+        pulumi.set(__self__, "enable_tag_propagation_event_loggings", enable_tag_propagation_event_loggings)
+        pulumi.set(__self__, "enable_tri_secret_and_rekey_opt_out_for_image_repositories", enable_tri_secret_and_rekey_opt_out_for_image_repositories)
+        pulumi.set(__self__, "enable_tri_secret_and_rekey_opt_out_for_spcs_block_storages", enable_tri_secret_and_rekey_opt_out_for_spcs_block_storages)
+        pulumi.set(__self__, "enable_unhandled_exceptions_reportings", enable_unhandled_exceptions_reportings)
+        pulumi.set(__self__, "enable_unload_physical_type_optimizations", enable_unload_physical_type_optimizations)
+        pulumi.set(__self__, "enable_unredacted_query_syntax_errors", enable_unredacted_query_syntax_errors)
+        pulumi.set(__self__, "enable_unredacted_secure_object_errors", enable_unredacted_secure_object_errors)
+        pulumi.set(__self__, "enforce_network_rules_for_internal_stages", enforce_network_rules_for_internal_stages)
+        pulumi.set(__self__, "error_on_nondeterministic_merges", error_on_nondeterministic_merges)
+        pulumi.set(__self__, "error_on_nondeterministic_updates", error_on_nondeterministic_updates)
+        pulumi.set(__self__, "event_tables", event_tables)
+        pulumi.set(__self__, "external_oauth_add_privileged_roles_to_blocked_lists", external_oauth_add_privileged_roles_to_blocked_lists)
+        pulumi.set(__self__, "external_volumes", external_volumes)
+        pulumi.set(__self__, "geography_output_formats", geography_output_formats)
+        pulumi.set(__self__, "geometry_output_formats", geometry_output_formats)
+        pulumi.set(__self__, "hybrid_table_lock_timeouts", hybrid_table_lock_timeouts)
+        pulumi.set(__self__, "iceberg_version_defaults", iceberg_version_defaults)
+        pulumi.set(__self__, "initial_replication_size_limit_in_tbs", initial_replication_size_limit_in_tbs)
+        pulumi.set(__self__, "jdbc_treat_decimal_as_ints", jdbc_treat_decimal_as_ints)
+        pulumi.set(__self__, "jdbc_treat_timestamp_ntz_as_utcs", jdbc_treat_timestamp_ntz_as_utcs)
+        pulumi.set(__self__, "jdbc_use_session_timezones", jdbc_use_session_timezones)
+        pulumi.set(__self__, "js_treat_integer_as_bigints", js_treat_integer_as_bigints)
+        pulumi.set(__self__, "json_indents", json_indents)
+        pulumi.set(__self__, "listing_auto_fulfillment_replication_refresh_schedules", listing_auto_fulfillment_replication_refresh_schedules)
+        pulumi.set(__self__, "lock_timeouts", lock_timeouts)
+        pulumi.set(__self__, "log_event_levels", log_event_levels)
+        pulumi.set(__self__, "log_levels", log_levels)
+        pulumi.set(__self__, "max_concurrency_levels", max_concurrency_levels)
+        pulumi.set(__self__, "max_data_extension_time_in_days", max_data_extension_time_in_days)
+        pulumi.set(__self__, "metric_levels", metric_levels)
+        pulumi.set(__self__, "min_data_retention_time_in_days", min_data_retention_time_in_days)
+        pulumi.set(__self__, "multi_statement_counts", multi_statement_counts)
+        pulumi.set(__self__, "network_policies", network_policies)
+        pulumi.set(__self__, "noorder_sequence_as_defaults", noorder_sequence_as_defaults)
+        pulumi.set(__self__, "oauth_add_privileged_roles_to_blocked_lists", oauth_add_privileged_roles_to_blocked_lists)
+        pulumi.set(__self__, "odbc_treat_decimal_as_ints", odbc_treat_decimal_as_ints)
+        pulumi.set(__self__, "periodic_data_rekeyings", periodic_data_rekeyings)
+        pulumi.set(__self__, "pipe_execution_pauseds", pipe_execution_pauseds)
+        pulumi.set(__self__, "prevent_load_from_inline_urls", prevent_load_from_inline_urls)
+        pulumi.set(__self__, "prevent_unload_to_inline_urls", prevent_unload_to_inline_urls)
+        pulumi.set(__self__, "prevent_unload_to_internal_stages", prevent_unload_to_internal_stages)
+        pulumi.set(__self__, "python_profiler_modules", python_profiler_modules)
+        pulumi.set(__self__, "python_profiler_target_stages", python_profiler_target_stages)
+        pulumi.set(__self__, "query_tags", query_tags)
+        pulumi.set(__self__, "quoted_identifiers_ignore_cases", quoted_identifiers_ignore_cases)
+        pulumi.set(__self__, "read_consistency_modes", read_consistency_modes)
+        pulumi.set(__self__, "replace_invalid_characters", replace_invalid_characters)
+        pulumi.set(__self__, "require_storage_integration_for_stage_creations", require_storage_integration_for_stage_creations)
+        pulumi.set(__self__, "require_storage_integration_for_stage_operations", require_storage_integration_for_stage_operations)
+        pulumi.set(__self__, "row_timestamp_defaults", row_timestamp_defaults)
+        pulumi.set(__self__, "rows_per_resultsets", rows_per_resultsets)
+        pulumi.set(__self__, "s3_stage_vpce_dns_names", s3_stage_vpce_dns_names)
+        pulumi.set(__self__, "search_paths", search_paths)
+        pulumi.set(__self__, "serverless_task_max_statement_sizes", serverless_task_max_statement_sizes)
+        pulumi.set(__self__, "serverless_task_min_statement_sizes", serverless_task_min_statement_sizes)
+        pulumi.set(__self__, "share_restrictions", share_restrictions)
+        pulumi.set(__self__, "simulated_data_sharing_consumers", simulated_data_sharing_consumers)
+        pulumi.set(__self__, "sql_trace_query_texts", sql_trace_query_texts)
+        pulumi.set(__self__, "sso_login_pages", sso_login_pages)
+        pulumi.set(__self__, "statement_queued_timeout_in_seconds", statement_queued_timeout_in_seconds)
+        pulumi.set(__self__, "statement_timeout_in_seconds", statement_timeout_in_seconds)
+        pulumi.set(__self__, "storage_serialization_policies", storage_serialization_policies)
+        pulumi.set(__self__, "strict_json_outputs", strict_json_outputs)
+        pulumi.set(__self__, "suspend_task_after_num_failures", suspend_task_after_num_failures)
+        pulumi.set(__self__, "task_auto_retry_attempts", task_auto_retry_attempts)
+        pulumi.set(__self__, "time_input_formats", time_input_formats)
+        pulumi.set(__self__, "time_output_formats", time_output_formats)
+        pulumi.set(__self__, "timestamp_day_is_always24hs", timestamp_day_is_always24hs)
+        pulumi.set(__self__, "timestamp_input_formats", timestamp_input_formats)
+        pulumi.set(__self__, "timestamp_ltz_output_formats", timestamp_ltz_output_formats)
+        pulumi.set(__self__, "timestamp_ntz_output_formats", timestamp_ntz_output_formats)
+        pulumi.set(__self__, "timestamp_output_formats", timestamp_output_formats)
+        pulumi.set(__self__, "timestamp_type_mappings", timestamp_type_mappings)
+        pulumi.set(__self__, "timestamp_tz_output_formats", timestamp_tz_output_formats)
+        pulumi.set(__self__, "timezones", timezones)
+        pulumi.set(__self__, "trace_levels", trace_levels)
+        pulumi.set(__self__, "transaction_abort_on_errors", transaction_abort_on_errors)
+        pulumi.set(__self__, "transaction_default_isolation_levels", transaction_default_isolation_levels)
+        pulumi.set(__self__, "two_digit_century_starts", two_digit_century_starts)
+        pulumi.set(__self__, "unsupported_ddl_actions", unsupported_ddl_actions)
+        pulumi.set(__self__, "use_cached_results", use_cached_results)
+        pulumi.set(__self__, "use_workspaces_for_sqls", use_workspaces_for_sqls)
+        pulumi.set(__self__, "user_task_managed_initial_warehouse_sizes", user_task_managed_initial_warehouse_sizes)
+        pulumi.set(__self__, "user_task_minimum_trigger_interval_in_seconds", user_task_minimum_trigger_interval_in_seconds)
+        pulumi.set(__self__, "user_task_timeout_ms", user_task_timeout_ms)
+        pulumi.set(__self__, "week_of_year_policies", week_of_year_policies)
+        pulumi.set(__self__, "week_starts", week_starts)
+
+    @_builtins.property
+    @pulumi.getter(name="abortDetachedQueries")
+    def abort_detached_queries(self) -> Sequence['outputs.GetAccountsAccountParameterAbortDetachedQueryResult']:
+        return pulumi.get(self, "abort_detached_queries")
+
+    @_builtins.property
+    @pulumi.getter(name="activePythonProfilers")
+    def active_python_profilers(self) -> Sequence['outputs.GetAccountsAccountParameterActivePythonProfilerResult']:
+        return pulumi.get(self, "active_python_profilers")
+
+    @_builtins.property
+    @pulumi.getter(name="allowBindValuesAccesses")
+    def allow_bind_values_accesses(self) -> Sequence['outputs.GetAccountsAccountParameterAllowBindValuesAccessResult']:
+        return pulumi.get(self, "allow_bind_values_accesses")
+
+    @_builtins.property
+    @pulumi.getter(name="allowClientMfaCachings")
+    def allow_client_mfa_cachings(self) -> Sequence['outputs.GetAccountsAccountParameterAllowClientMfaCachingResult']:
+        return pulumi.get(self, "allow_client_mfa_cachings")
+
+    @_builtins.property
+    @pulumi.getter(name="allowIdTokens")
+    def allow_id_tokens(self) -> Sequence['outputs.GetAccountsAccountParameterAllowIdTokenResult']:
+        return pulumi.get(self, "allow_id_tokens")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedSpcsWorkloadTypes")
+    def allowed_spcs_workload_types(self) -> Sequence['outputs.GetAccountsAccountParameterAllowedSpcsWorkloadTypeResult']:
+        return pulumi.get(self, "allowed_spcs_workload_types")
+
+    @_builtins.property
+    @pulumi.getter
+    def autocommits(self) -> Sequence['outputs.GetAccountsAccountParameterAutocommitResult']:
+        return pulumi.get(self, "autocommits")
+
+    @_builtins.property
+    @pulumi.getter(name="baseLocationPrefixes")
+    def base_location_prefixes(self) -> Sequence['outputs.GetAccountsAccountParameterBaseLocationPrefixResult']:
+        return pulumi.get(self, "base_location_prefixes")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryInputFormats")
+    def binary_input_formats(self) -> Sequence['outputs.GetAccountsAccountParameterBinaryInputFormatResult']:
+        return pulumi.get(self, "binary_input_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="binaryOutputFormats")
+    def binary_output_formats(self) -> Sequence['outputs.GetAccountsAccountParameterBinaryOutputFormatResult']:
+        return pulumi.get(self, "binary_output_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="catalogSyncs")
+    def catalog_syncs(self) -> Sequence['outputs.GetAccountsAccountParameterCatalogSyncResult']:
+        return pulumi.get(self, "catalog_syncs")
+
+    @_builtins.property
+    @pulumi.getter
+    def catalogs(self) -> Sequence['outputs.GetAccountsAccountParameterCatalogResult']:
+        return pulumi.get(self, "catalogs")
+
+    @_builtins.property
+    @pulumi.getter(name="clientEnableLogInfoStatementParameters")
+    def client_enable_log_info_statement_parameters(self) -> Sequence['outputs.GetAccountsAccountParameterClientEnableLogInfoStatementParameterResult']:
+        return pulumi.get(self, "client_enable_log_info_statement_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="clientEncryptionKeySizes")
+    def client_encryption_key_sizes(self) -> Sequence['outputs.GetAccountsAccountParameterClientEncryptionKeySizeResult']:
+        return pulumi.get(self, "client_encryption_key_sizes")
+
+    @_builtins.property
+    @pulumi.getter(name="clientMemoryLimits")
+    def client_memory_limits(self) -> Sequence['outputs.GetAccountsAccountParameterClientMemoryLimitResult']:
+        return pulumi.get(self, "client_memory_limits")
+
+    @_builtins.property
+    @pulumi.getter(name="clientMetadataRequestUseConnectionCtxes")
+    def client_metadata_request_use_connection_ctxes(self) -> Sequence['outputs.GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxResult']:
+        return pulumi.get(self, "client_metadata_request_use_connection_ctxes")
+
+    @_builtins.property
+    @pulumi.getter(name="clientMetadataUseSessionDatabases")
+    def client_metadata_use_session_databases(self) -> Sequence['outputs.GetAccountsAccountParameterClientMetadataUseSessionDatabaseResult']:
+        return pulumi.get(self, "client_metadata_use_session_databases")
+
+    @_builtins.property
+    @pulumi.getter(name="clientPrefetchThreads")
+    def client_prefetch_threads(self) -> Sequence['outputs.GetAccountsAccountParameterClientPrefetchThreadResult']:
+        return pulumi.get(self, "client_prefetch_threads")
+
+    @_builtins.property
+    @pulumi.getter(name="clientResultChunkSizes")
+    def client_result_chunk_sizes(self) -> Sequence['outputs.GetAccountsAccountParameterClientResultChunkSizeResult']:
+        return pulumi.get(self, "client_result_chunk_sizes")
+
+    @_builtins.property
+    @pulumi.getter(name="clientResultColumnCaseInsensitives")
+    def client_result_column_case_insensitives(self) -> Sequence['outputs.GetAccountsAccountParameterClientResultColumnCaseInsensitiveResult']:
+        return pulumi.get(self, "client_result_column_case_insensitives")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSessionKeepAliveHeartbeatFrequencies")
+    def client_session_keep_alive_heartbeat_frequencies(self) -> Sequence['outputs.GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyResult']:
+        return pulumi.get(self, "client_session_keep_alive_heartbeat_frequencies")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSessionKeepAlives")
+    def client_session_keep_alives(self) -> Sequence['outputs.GetAccountsAccountParameterClientSessionKeepAlifeResult']:
+        return pulumi.get(self, "client_session_keep_alives")
+
+    @_builtins.property
+    @pulumi.getter(name="clientTimestampTypeMappings")
+    def client_timestamp_type_mappings(self) -> Sequence['outputs.GetAccountsAccountParameterClientTimestampTypeMappingResult']:
+        return pulumi.get(self, "client_timestamp_type_mappings")
+
+    @_builtins.property
+    @pulumi.getter(name="cortexCodeCliDailyEstCreditLimitPerUsers")
+    def cortex_code_cli_daily_est_credit_limit_per_users(self) -> Sequence['outputs.GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserResult']:
+        return pulumi.get(self, "cortex_code_cli_daily_est_credit_limit_per_users")
+
+    @_builtins.property
+    @pulumi.getter(name="cortexCodeDesktopDailyEstCreditLimitPerUsers")
+    def cortex_code_desktop_daily_est_credit_limit_per_users(self) -> Sequence['outputs.GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserResult']:
+        return pulumi.get(self, "cortex_code_desktop_daily_est_credit_limit_per_users")
+
+    @_builtins.property
+    @pulumi.getter(name="cortexCodeSnowsightDailyEstCreditLimitPerUsers")
+    def cortex_code_snowsight_daily_est_credit_limit_per_users(self) -> Sequence['outputs.GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserResult']:
+        return pulumi.get(self, "cortex_code_snowsight_daily_est_credit_limit_per_users")
+
+    @_builtins.property
+    @pulumi.getter(name="cortexEnabledCrossRegions")
+    def cortex_enabled_cross_regions(self) -> Sequence['outputs.GetAccountsAccountParameterCortexEnabledCrossRegionResult']:
+        return pulumi.get(self, "cortex_enabled_cross_regions")
+
+    @_builtins.property
+    @pulumi.getter(name="cortexModelsAllowlists")
+    def cortex_models_allowlists(self) -> Sequence['outputs.GetAccountsAccountParameterCortexModelsAllowlistResult']:
+        return pulumi.get(self, "cortex_models_allowlists")
+
+    @_builtins.property
+    @pulumi.getter(name="csvTimestampFormats")
+    def csv_timestamp_formats(self) -> Sequence['outputs.GetAccountsAccountParameterCsvTimestampFormatResult']:
+        return pulumi.get(self, "csv_timestamp_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="dataMetricSchedules")
+    def data_metric_schedules(self) -> Sequence['outputs.GetAccountsAccountParameterDataMetricScheduleResult']:
+        return pulumi.get(self, "data_metric_schedules")
+
+    @_builtins.property
+    @pulumi.getter(name="dataRetentionTimeInDays")
+    def data_retention_time_in_days(self) -> Sequence['outputs.GetAccountsAccountParameterDataRetentionTimeInDayResult']:
+        return pulumi.get(self, "data_retention_time_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="dateInputFormats")
+    def date_input_formats(self) -> Sequence['outputs.GetAccountsAccountParameterDateInputFormatResult']:
+        return pulumi.get(self, "date_input_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="dateOutputFormats")
+    def date_output_formats(self) -> Sequence['outputs.GetAccountsAccountParameterDateOutputFormatResult']:
+        return pulumi.get(self, "date_output_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultDbtVersions")
+    def default_dbt_versions(self) -> Sequence['outputs.GetAccountsAccountParameterDefaultDbtVersionResult']:
+        return pulumi.get(self, "default_dbt_versions")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultDdlCollations")
+    def default_ddl_collations(self) -> Sequence['outputs.GetAccountsAccountParameterDefaultDdlCollationResult']:
+        return pulumi.get(self, "default_ddl_collations")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpus")
+    def default_notebook_compute_pool_cpus(self) -> Sequence['outputs.GetAccountsAccountParameterDefaultNotebookComputePoolCpusResult']:
+        return pulumi.get(self, "default_notebook_compute_pool_cpus")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpus")
+    def default_notebook_compute_pool_gpus(self) -> Sequence['outputs.GetAccountsAccountParameterDefaultNotebookComputePoolGpusResult']:
+        return pulumi.get(self, "default_notebook_compute_pool_gpus")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNullOrderings")
+    def default_null_orderings(self) -> Sequence['outputs.GetAccountsAccountParameterDefaultNullOrderingResult']:
+        return pulumi.get(self, "default_null_orderings")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultStreamlitComputePools")
+    def default_streamlit_compute_pools(self) -> Sequence['outputs.GetAccountsAccountParameterDefaultStreamlitComputePoolResult']:
+        return pulumi.get(self, "default_streamlit_compute_pools")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultStreamlitNotebookWarehouses")
+    def default_streamlit_notebook_warehouses(self) -> Sequence['outputs.GetAccountsAccountParameterDefaultStreamlitNotebookWarehouseResult']:
+        return pulumi.get(self, "default_streamlit_notebook_warehouses")
+
+    @_builtins.property
+    @pulumi.getter(name="disableUiDownloadButtons")
+    def disable_ui_download_buttons(self) -> Sequence['outputs.GetAccountsAccountParameterDisableUiDownloadButtonResult']:
+        return pulumi.get(self, "disable_ui_download_buttons")
+
+    @_builtins.property
+    @pulumi.getter(name="disableUserPrivilegeGrants")
+    def disable_user_privilege_grants(self) -> Sequence['outputs.GetAccountsAccountParameterDisableUserPrivilegeGrantResult']:
+        return pulumi.get(self, "disable_user_privilege_grants")
+
+    @_builtins.property
+    @pulumi.getter(name="disallowedSpcsWorkloadTypes")
+    def disallowed_spcs_workload_types(self) -> Sequence['outputs.GetAccountsAccountParameterDisallowedSpcsWorkloadTypeResult']:
+        return pulumi.get(self, "disallowed_spcs_workload_types")
+
+    @_builtins.property
+    @pulumi.getter(name="enableAutomaticSensitiveDataClassificationLogs")
+    def enable_automatic_sensitive_data_classification_logs(self) -> Sequence['outputs.GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLogResult']:
+        return pulumi.get(self, "enable_automatic_sensitive_data_classification_logs")
+
+    @_builtins.property
+    @pulumi.getter(name="enableBudgetEventLoggings")
+    def enable_budget_event_loggings(self) -> Sequence['outputs.GetAccountsAccountParameterEnableBudgetEventLoggingResult']:
+        return pulumi.get(self, "enable_budget_event_loggings")
+
+    @_builtins.property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Sequence['outputs.GetAccountsAccountParameterEnableConsoleOutputResult']:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="enableCortexAnalysts")
+    def enable_cortex_analysts(self) -> Sequence['outputs.GetAccountsAccountParameterEnableCortexAnalystResult']:
+        return pulumi.get(self, "enable_cortex_analysts")
+
+    @_builtins.property
+    @pulumi.getter(name="enableDataCompactions")
+    def enable_data_compactions(self) -> Sequence['outputs.GetAccountsAccountParameterEnableDataCompactionResult']:
+        return pulumi.get(self, "enable_data_compactions")
+
+    @_builtins.property
+    @pulumi.getter(name="enableEgressCostOptimizers")
+    def enable_egress_cost_optimizers(self) -> Sequence['outputs.GetAccountsAccountParameterEnableEgressCostOptimizerResult']:
+        return pulumi.get(self, "enable_egress_cost_optimizers")
+
+    @_builtins.property
+    @pulumi.getter(name="enableGetDdlUseDataTypeAliases")
+    def enable_get_ddl_use_data_type_aliases(self) -> Sequence['outputs.GetAccountsAccountParameterEnableGetDdlUseDataTypeAliasResult']:
+        return pulumi.get(self, "enable_get_ddl_use_data_type_aliases")
+
+    @_builtins.property
+    @pulumi.getter(name="enableIcebergMergeOnReads")
+    def enable_iceberg_merge_on_reads(self) -> Sequence['outputs.GetAccountsAccountParameterEnableIcebergMergeOnReadResult']:
+        return pulumi.get(self, "enable_iceberg_merge_on_reads")
+
+    @_builtins.property
+    @pulumi.getter(name="enableIdentifierFirstLogins")
+    def enable_identifier_first_logins(self) -> Sequence['outputs.GetAccountsAccountParameterEnableIdentifierFirstLoginResult']:
+        return pulumi.get(self, "enable_identifier_first_logins")
+
+    @_builtins.property
+    @pulumi.getter(name="enableInternalStagesPrivatelinks")
+    def enable_internal_stages_privatelinks(self) -> Sequence['outputs.GetAccountsAccountParameterEnableInternalStagesPrivatelinkResult']:
+        return pulumi.get(self, "enable_internal_stages_privatelinks")
+
+    @_builtins.property
+    @pulumi.getter(name="enableNotebookCreationInPersonalDbs")
+    def enable_notebook_creation_in_personal_dbs(self) -> Sequence['outputs.GetAccountsAccountParameterEnableNotebookCreationInPersonalDbResult']:
+        return pulumi.get(self, "enable_notebook_creation_in_personal_dbs")
+
+    @_builtins.property
+    @pulumi.getter(name="enablePerAccountAppServicePrivatelinkUrls")
+    def enable_per_account_app_service_privatelink_urls(self) -> Sequence['outputs.GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrlResult']:
+        return pulumi.get(self, "enable_per_account_app_service_privatelink_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="enablePersonalDatabases")
+    def enable_personal_databases(self) -> Sequence['outputs.GetAccountsAccountParameterEnablePersonalDatabaseResult']:
+        return pulumi.get(self, "enable_personal_databases")
+
+    @_builtins.property
+    @pulumi.getter(name="enableSpcsBlockStorageSnowflakeFullEncryptionEnforcements")
+    def enable_spcs_block_storage_snowflake_full_encryption_enforcements(self) -> Sequence['outputs.GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcementResult']:
+        return pulumi.get(self, "enable_spcs_block_storage_snowflake_full_encryption_enforcements")
+
+    @_builtins.property
+    @pulumi.getter(name="enableTagPropagationEventLoggings")
+    def enable_tag_propagation_event_loggings(self) -> Sequence['outputs.GetAccountsAccountParameterEnableTagPropagationEventLoggingResult']:
+        return pulumi.get(self, "enable_tag_propagation_event_loggings")
+
+    @_builtins.property
+    @pulumi.getter(name="enableTriSecretAndRekeyOptOutForImageRepositories")
+    def enable_tri_secret_and_rekey_opt_out_for_image_repositories(self) -> Sequence['outputs.GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepositoryResult']:
+        return pulumi.get(self, "enable_tri_secret_and_rekey_opt_out_for_image_repositories")
+
+    @_builtins.property
+    @pulumi.getter(name="enableTriSecretAndRekeyOptOutForSpcsBlockStorages")
+    def enable_tri_secret_and_rekey_opt_out_for_spcs_block_storages(self) -> Sequence['outputs.GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorageResult']:
+        return pulumi.get(self, "enable_tri_secret_and_rekey_opt_out_for_spcs_block_storages")
+
+    @_builtins.property
+    @pulumi.getter(name="enableUnhandledExceptionsReportings")
+    def enable_unhandled_exceptions_reportings(self) -> Sequence['outputs.GetAccountsAccountParameterEnableUnhandledExceptionsReportingResult']:
+        return pulumi.get(self, "enable_unhandled_exceptions_reportings")
+
+    @_builtins.property
+    @pulumi.getter(name="enableUnloadPhysicalTypeOptimizations")
+    def enable_unload_physical_type_optimizations(self) -> Sequence['outputs.GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimizationResult']:
+        return pulumi.get(self, "enable_unload_physical_type_optimizations")
+
+    @_builtins.property
+    @pulumi.getter(name="enableUnredactedQuerySyntaxErrors")
+    def enable_unredacted_query_syntax_errors(self) -> Sequence['outputs.GetAccountsAccountParameterEnableUnredactedQuerySyntaxErrorResult']:
+        return pulumi.get(self, "enable_unredacted_query_syntax_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="enableUnredactedSecureObjectErrors")
+    def enable_unredacted_secure_object_errors(self) -> Sequence['outputs.GetAccountsAccountParameterEnableUnredactedSecureObjectErrorResult']:
+        return pulumi.get(self, "enable_unredacted_secure_object_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="enforceNetworkRulesForInternalStages")
+    def enforce_network_rules_for_internal_stages(self) -> Sequence['outputs.GetAccountsAccountParameterEnforceNetworkRulesForInternalStageResult']:
+        return pulumi.get(self, "enforce_network_rules_for_internal_stages")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnNondeterministicMerges")
+    def error_on_nondeterministic_merges(self) -> Sequence['outputs.GetAccountsAccountParameterErrorOnNondeterministicMergeResult']:
+        return pulumi.get(self, "error_on_nondeterministic_merges")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOnNondeterministicUpdates")
+    def error_on_nondeterministic_updates(self) -> Sequence['outputs.GetAccountsAccountParameterErrorOnNondeterministicUpdateResult']:
+        return pulumi.get(self, "error_on_nondeterministic_updates")
+
+    @_builtins.property
+    @pulumi.getter(name="eventTables")
+    def event_tables(self) -> Sequence['outputs.GetAccountsAccountParameterEventTableResult']:
+        return pulumi.get(self, "event_tables")
+
+    @_builtins.property
+    @pulumi.getter(name="externalOauthAddPrivilegedRolesToBlockedLists")
+    def external_oauth_add_privileged_roles_to_blocked_lists(self) -> Sequence['outputs.GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedListResult']:
+        return pulumi.get(self, "external_oauth_add_privileged_roles_to_blocked_lists")
+
+    @_builtins.property
+    @pulumi.getter(name="externalVolumes")
+    def external_volumes(self) -> Sequence['outputs.GetAccountsAccountParameterExternalVolumeResult']:
+        return pulumi.get(self, "external_volumes")
+
+    @_builtins.property
+    @pulumi.getter(name="geographyOutputFormats")
+    def geography_output_formats(self) -> Sequence['outputs.GetAccountsAccountParameterGeographyOutputFormatResult']:
+        return pulumi.get(self, "geography_output_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="geometryOutputFormats")
+    def geometry_output_formats(self) -> Sequence['outputs.GetAccountsAccountParameterGeometryOutputFormatResult']:
+        return pulumi.get(self, "geometry_output_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="hybridTableLockTimeouts")
+    def hybrid_table_lock_timeouts(self) -> Sequence['outputs.GetAccountsAccountParameterHybridTableLockTimeoutResult']:
+        return pulumi.get(self, "hybrid_table_lock_timeouts")
+
+    @_builtins.property
+    @pulumi.getter(name="icebergVersionDefaults")
+    def iceberg_version_defaults(self) -> Sequence['outputs.GetAccountsAccountParameterIcebergVersionDefaultResult']:
+        return pulumi.get(self, "iceberg_version_defaults")
+
+    @_builtins.property
+    @pulumi.getter(name="initialReplicationSizeLimitInTbs")
+    def initial_replication_size_limit_in_tbs(self) -> Sequence['outputs.GetAccountsAccountParameterInitialReplicationSizeLimitInTbResult']:
+        return pulumi.get(self, "initial_replication_size_limit_in_tbs")
+
+    @_builtins.property
+    @pulumi.getter(name="jdbcTreatDecimalAsInts")
+    def jdbc_treat_decimal_as_ints(self) -> Sequence['outputs.GetAccountsAccountParameterJdbcTreatDecimalAsIntResult']:
+        return pulumi.get(self, "jdbc_treat_decimal_as_ints")
+
+    @_builtins.property
+    @pulumi.getter(name="jdbcTreatTimestampNtzAsUtcs")
+    def jdbc_treat_timestamp_ntz_as_utcs(self) -> Sequence['outputs.GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtcResult']:
+        return pulumi.get(self, "jdbc_treat_timestamp_ntz_as_utcs")
+
+    @_builtins.property
+    @pulumi.getter(name="jdbcUseSessionTimezones")
+    def jdbc_use_session_timezones(self) -> Sequence['outputs.GetAccountsAccountParameterJdbcUseSessionTimezoneResult']:
+        return pulumi.get(self, "jdbc_use_session_timezones")
+
+    @_builtins.property
+    @pulumi.getter(name="jsTreatIntegerAsBigints")
+    def js_treat_integer_as_bigints(self) -> Sequence['outputs.GetAccountsAccountParameterJsTreatIntegerAsBigintResult']:
+        return pulumi.get(self, "js_treat_integer_as_bigints")
+
+    @_builtins.property
+    @pulumi.getter(name="jsonIndents")
+    def json_indents(self) -> Sequence['outputs.GetAccountsAccountParameterJsonIndentResult']:
+        return pulumi.get(self, "json_indents")
+
+    @_builtins.property
+    @pulumi.getter(name="listingAutoFulfillmentReplicationRefreshSchedules")
+    def listing_auto_fulfillment_replication_refresh_schedules(self) -> Sequence['outputs.GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshScheduleResult']:
+        return pulumi.get(self, "listing_auto_fulfillment_replication_refresh_schedules")
+
+    @_builtins.property
+    @pulumi.getter(name="lockTimeouts")
+    def lock_timeouts(self) -> Sequence['outputs.GetAccountsAccountParameterLockTimeoutResult']:
+        return pulumi.get(self, "lock_timeouts")
+
+    @_builtins.property
+    @pulumi.getter(name="logEventLevels")
+    def log_event_levels(self) -> Sequence['outputs.GetAccountsAccountParameterLogEventLevelResult']:
+        return pulumi.get(self, "log_event_levels")
+
+    @_builtins.property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Sequence['outputs.GetAccountsAccountParameterLogLevelResult']:
+        return pulumi.get(self, "log_levels")
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrencyLevels")
+    def max_concurrency_levels(self) -> Sequence['outputs.GetAccountsAccountParameterMaxConcurrencyLevelResult']:
+        return pulumi.get(self, "max_concurrency_levels")
+
+    @_builtins.property
+    @pulumi.getter(name="maxDataExtensionTimeInDays")
+    def max_data_extension_time_in_days(self) -> Sequence['outputs.GetAccountsAccountParameterMaxDataExtensionTimeInDayResult']:
+        return pulumi.get(self, "max_data_extension_time_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Sequence['outputs.GetAccountsAccountParameterMetricLevelResult']:
+        return pulumi.get(self, "metric_levels")
+
+    @_builtins.property
+    @pulumi.getter(name="minDataRetentionTimeInDays")
+    def min_data_retention_time_in_days(self) -> Sequence['outputs.GetAccountsAccountParameterMinDataRetentionTimeInDayResult']:
+        return pulumi.get(self, "min_data_retention_time_in_days")
+
+    @_builtins.property
+    @pulumi.getter(name="multiStatementCounts")
+    def multi_statement_counts(self) -> Sequence['outputs.GetAccountsAccountParameterMultiStatementCountResult']:
+        return pulumi.get(self, "multi_statement_counts")
+
+    @_builtins.property
+    @pulumi.getter(name="networkPolicies")
+    def network_policies(self) -> Sequence['outputs.GetAccountsAccountParameterNetworkPolicyResult']:
+        return pulumi.get(self, "network_policies")
+
+    @_builtins.property
+    @pulumi.getter(name="noorderSequenceAsDefaults")
+    def noorder_sequence_as_defaults(self) -> Sequence['outputs.GetAccountsAccountParameterNoorderSequenceAsDefaultResult']:
+        return pulumi.get(self, "noorder_sequence_as_defaults")
+
+    @_builtins.property
+    @pulumi.getter(name="oauthAddPrivilegedRolesToBlockedLists")
+    def oauth_add_privileged_roles_to_blocked_lists(self) -> Sequence['outputs.GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedListResult']:
+        return pulumi.get(self, "oauth_add_privileged_roles_to_blocked_lists")
+
+    @_builtins.property
+    @pulumi.getter(name="odbcTreatDecimalAsInts")
+    def odbc_treat_decimal_as_ints(self) -> Sequence['outputs.GetAccountsAccountParameterOdbcTreatDecimalAsIntResult']:
+        return pulumi.get(self, "odbc_treat_decimal_as_ints")
+
+    @_builtins.property
+    @pulumi.getter(name="periodicDataRekeyings")
+    def periodic_data_rekeyings(self) -> Sequence['outputs.GetAccountsAccountParameterPeriodicDataRekeyingResult']:
+        return pulumi.get(self, "periodic_data_rekeyings")
+
+    @_builtins.property
+    @pulumi.getter(name="pipeExecutionPauseds")
+    def pipe_execution_pauseds(self) -> Sequence['outputs.GetAccountsAccountParameterPipeExecutionPausedResult']:
+        return pulumi.get(self, "pipe_execution_pauseds")
+
+    @_builtins.property
+    @pulumi.getter(name="preventLoadFromInlineUrls")
+    def prevent_load_from_inline_urls(self) -> Sequence['outputs.GetAccountsAccountParameterPreventLoadFromInlineUrlResult']:
+        return pulumi.get(self, "prevent_load_from_inline_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="preventUnloadToInlineUrls")
+    def prevent_unload_to_inline_urls(self) -> Sequence['outputs.GetAccountsAccountParameterPreventUnloadToInlineUrlResult']:
+        return pulumi.get(self, "prevent_unload_to_inline_urls")
+
+    @_builtins.property
+    @pulumi.getter(name="preventUnloadToInternalStages")
+    def prevent_unload_to_internal_stages(self) -> Sequence['outputs.GetAccountsAccountParameterPreventUnloadToInternalStageResult']:
+        return pulumi.get(self, "prevent_unload_to_internal_stages")
+
+    @_builtins.property
+    @pulumi.getter(name="pythonProfilerModules")
+    def python_profiler_modules(self) -> Sequence['outputs.GetAccountsAccountParameterPythonProfilerModuleResult']:
+        return pulumi.get(self, "python_profiler_modules")
+
+    @_builtins.property
+    @pulumi.getter(name="pythonProfilerTargetStages")
+    def python_profiler_target_stages(self) -> Sequence['outputs.GetAccountsAccountParameterPythonProfilerTargetStageResult']:
+        return pulumi.get(self, "python_profiler_target_stages")
+
+    @_builtins.property
+    @pulumi.getter(name="queryTags")
+    def query_tags(self) -> Sequence['outputs.GetAccountsAccountParameterQueryTagResult']:
+        return pulumi.get(self, "query_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="quotedIdentifiersIgnoreCases")
+    def quoted_identifiers_ignore_cases(self) -> Sequence['outputs.GetAccountsAccountParameterQuotedIdentifiersIgnoreCaseResult']:
+        return pulumi.get(self, "quoted_identifiers_ignore_cases")
+
+    @_builtins.property
+    @pulumi.getter(name="readConsistencyModes")
+    def read_consistency_modes(self) -> Sequence['outputs.GetAccountsAccountParameterReadConsistencyModeResult']:
+        return pulumi.get(self, "read_consistency_modes")
+
+    @_builtins.property
+    @pulumi.getter(name="replaceInvalidCharacters")
+    def replace_invalid_characters(self) -> Sequence['outputs.GetAccountsAccountParameterReplaceInvalidCharacterResult']:
+        return pulumi.get(self, "replace_invalid_characters")
+
+    @_builtins.property
+    @pulumi.getter(name="requireStorageIntegrationForStageCreations")
+    def require_storage_integration_for_stage_creations(self) -> Sequence['outputs.GetAccountsAccountParameterRequireStorageIntegrationForStageCreationResult']:
+        return pulumi.get(self, "require_storage_integration_for_stage_creations")
+
+    @_builtins.property
+    @pulumi.getter(name="requireStorageIntegrationForStageOperations")
+    def require_storage_integration_for_stage_operations(self) -> Sequence['outputs.GetAccountsAccountParameterRequireStorageIntegrationForStageOperationResult']:
+        return pulumi.get(self, "require_storage_integration_for_stage_operations")
+
+    @_builtins.property
+    @pulumi.getter(name="rowTimestampDefaults")
+    def row_timestamp_defaults(self) -> Sequence['outputs.GetAccountsAccountParameterRowTimestampDefaultResult']:
+        return pulumi.get(self, "row_timestamp_defaults")
+
+    @_builtins.property
+    @pulumi.getter(name="rowsPerResultsets")
+    def rows_per_resultsets(self) -> Sequence['outputs.GetAccountsAccountParameterRowsPerResultsetResult']:
+        return pulumi.get(self, "rows_per_resultsets")
+
+    @_builtins.property
+    @pulumi.getter(name="s3StageVpceDnsNames")
+    def s3_stage_vpce_dns_names(self) -> Sequence['outputs.GetAccountsAccountParameterS3StageVpceDnsNameResult']:
+        return pulumi.get(self, "s3_stage_vpce_dns_names")
+
+    @_builtins.property
+    @pulumi.getter(name="searchPaths")
+    def search_paths(self) -> Sequence['outputs.GetAccountsAccountParameterSearchPathResult']:
+        return pulumi.get(self, "search_paths")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMaxStatementSizes")
+    def serverless_task_max_statement_sizes(self) -> Sequence['outputs.GetAccountsAccountParameterServerlessTaskMaxStatementSizeResult']:
+        return pulumi.get(self, "serverless_task_max_statement_sizes")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessTaskMinStatementSizes")
+    def serverless_task_min_statement_sizes(self) -> Sequence['outputs.GetAccountsAccountParameterServerlessTaskMinStatementSizeResult']:
+        return pulumi.get(self, "serverless_task_min_statement_sizes")
+
+    @_builtins.property
+    @pulumi.getter(name="shareRestrictions")
+    def share_restrictions(self) -> Sequence['outputs.GetAccountsAccountParameterShareRestrictionResult']:
+        return pulumi.get(self, "share_restrictions")
+
+    @_builtins.property
+    @pulumi.getter(name="simulatedDataSharingConsumers")
+    def simulated_data_sharing_consumers(self) -> Sequence['outputs.GetAccountsAccountParameterSimulatedDataSharingConsumerResult']:
+        return pulumi.get(self, "simulated_data_sharing_consumers")
+
+    @_builtins.property
+    @pulumi.getter(name="sqlTraceQueryTexts")
+    def sql_trace_query_texts(self) -> Sequence['outputs.GetAccountsAccountParameterSqlTraceQueryTextResult']:
+        return pulumi.get(self, "sql_trace_query_texts")
+
+    @_builtins.property
+    @pulumi.getter(name="ssoLoginPages")
+    def sso_login_pages(self) -> Sequence['outputs.GetAccountsAccountParameterSsoLoginPageResult']:
+        return pulumi.get(self, "sso_login_pages")
+
+    @_builtins.property
+    @pulumi.getter(name="statementQueuedTimeoutInSeconds")
+    def statement_queued_timeout_in_seconds(self) -> Sequence['outputs.GetAccountsAccountParameterStatementQueuedTimeoutInSecondResult']:
+        return pulumi.get(self, "statement_queued_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="statementTimeoutInSeconds")
+    def statement_timeout_in_seconds(self) -> Sequence['outputs.GetAccountsAccountParameterStatementTimeoutInSecondResult']:
+        return pulumi.get(self, "statement_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="storageSerializationPolicies")
+    def storage_serialization_policies(self) -> Sequence['outputs.GetAccountsAccountParameterStorageSerializationPolicyResult']:
+        return pulumi.get(self, "storage_serialization_policies")
+
+    @_builtins.property
+    @pulumi.getter(name="strictJsonOutputs")
+    def strict_json_outputs(self) -> Sequence['outputs.GetAccountsAccountParameterStrictJsonOutputResult']:
+        return pulumi.get(self, "strict_json_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="suspendTaskAfterNumFailures")
+    def suspend_task_after_num_failures(self) -> Sequence['outputs.GetAccountsAccountParameterSuspendTaskAfterNumFailureResult']:
+        return pulumi.get(self, "suspend_task_after_num_failures")
+
+    @_builtins.property
+    @pulumi.getter(name="taskAutoRetryAttempts")
+    def task_auto_retry_attempts(self) -> Sequence['outputs.GetAccountsAccountParameterTaskAutoRetryAttemptResult']:
+        return pulumi.get(self, "task_auto_retry_attempts")
+
+    @_builtins.property
+    @pulumi.getter(name="timeInputFormats")
+    def time_input_formats(self) -> Sequence['outputs.GetAccountsAccountParameterTimeInputFormatResult']:
+        return pulumi.get(self, "time_input_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="timeOutputFormats")
+    def time_output_formats(self) -> Sequence['outputs.GetAccountsAccountParameterTimeOutputFormatResult']:
+        return pulumi.get(self, "time_output_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampDayIsAlways24hs")
+    def timestamp_day_is_always24hs(self) -> Sequence['outputs.GetAccountsAccountParameterTimestampDayIsAlways24hResult']:
+        return pulumi.get(self, "timestamp_day_is_always24hs")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampInputFormats")
+    def timestamp_input_formats(self) -> Sequence['outputs.GetAccountsAccountParameterTimestampInputFormatResult']:
+        return pulumi.get(self, "timestamp_input_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampLtzOutputFormats")
+    def timestamp_ltz_output_formats(self) -> Sequence['outputs.GetAccountsAccountParameterTimestampLtzOutputFormatResult']:
+        return pulumi.get(self, "timestamp_ltz_output_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampNtzOutputFormats")
+    def timestamp_ntz_output_formats(self) -> Sequence['outputs.GetAccountsAccountParameterTimestampNtzOutputFormatResult']:
+        return pulumi.get(self, "timestamp_ntz_output_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampOutputFormats")
+    def timestamp_output_formats(self) -> Sequence['outputs.GetAccountsAccountParameterTimestampOutputFormatResult']:
+        return pulumi.get(self, "timestamp_output_formats")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampTypeMappings")
+    def timestamp_type_mappings(self) -> Sequence['outputs.GetAccountsAccountParameterTimestampTypeMappingResult']:
+        return pulumi.get(self, "timestamp_type_mappings")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampTzOutputFormats")
+    def timestamp_tz_output_formats(self) -> Sequence['outputs.GetAccountsAccountParameterTimestampTzOutputFormatResult']:
+        return pulumi.get(self, "timestamp_tz_output_formats")
+
+    @_builtins.property
+    @pulumi.getter
+    def timezones(self) -> Sequence['outputs.GetAccountsAccountParameterTimezoneResult']:
+        return pulumi.get(self, "timezones")
+
+    @_builtins.property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Sequence['outputs.GetAccountsAccountParameterTraceLevelResult']:
+        return pulumi.get(self, "trace_levels")
+
+    @_builtins.property
+    @pulumi.getter(name="transactionAbortOnErrors")
+    def transaction_abort_on_errors(self) -> Sequence['outputs.GetAccountsAccountParameterTransactionAbortOnErrorResult']:
+        return pulumi.get(self, "transaction_abort_on_errors")
+
+    @_builtins.property
+    @pulumi.getter(name="transactionDefaultIsolationLevels")
+    def transaction_default_isolation_levels(self) -> Sequence['outputs.GetAccountsAccountParameterTransactionDefaultIsolationLevelResult']:
+        return pulumi.get(self, "transaction_default_isolation_levels")
+
+    @_builtins.property
+    @pulumi.getter(name="twoDigitCenturyStarts")
+    def two_digit_century_starts(self) -> Sequence['outputs.GetAccountsAccountParameterTwoDigitCenturyStartResult']:
+        return pulumi.get(self, "two_digit_century_starts")
+
+    @_builtins.property
+    @pulumi.getter(name="unsupportedDdlActions")
+    def unsupported_ddl_actions(self) -> Sequence['outputs.GetAccountsAccountParameterUnsupportedDdlActionResult']:
+        return pulumi.get(self, "unsupported_ddl_actions")
+
+    @_builtins.property
+    @pulumi.getter(name="useCachedResults")
+    def use_cached_results(self) -> Sequence['outputs.GetAccountsAccountParameterUseCachedResultResult']:
+        return pulumi.get(self, "use_cached_results")
+
+    @_builtins.property
+    @pulumi.getter(name="useWorkspacesForSqls")
+    def use_workspaces_for_sqls(self) -> Sequence['outputs.GetAccountsAccountParameterUseWorkspacesForSqlResult']:
+        return pulumi.get(self, "use_workspaces_for_sqls")
+
+    @_builtins.property
+    @pulumi.getter(name="userTaskManagedInitialWarehouseSizes")
+    def user_task_managed_initial_warehouse_sizes(self) -> Sequence['outputs.GetAccountsAccountParameterUserTaskManagedInitialWarehouseSizeResult']:
+        return pulumi.get(self, "user_task_managed_initial_warehouse_sizes")
+
+    @_builtins.property
+    @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
+    def user_task_minimum_trigger_interval_in_seconds(self) -> Sequence['outputs.GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecondResult']:
+        return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="userTaskTimeoutMs")
+    def user_task_timeout_ms(self) -> Sequence['outputs.GetAccountsAccountParameterUserTaskTimeoutMResult']:
+        return pulumi.get(self, "user_task_timeout_ms")
+
+    @_builtins.property
+    @pulumi.getter(name="weekOfYearPolicies")
+    def week_of_year_policies(self) -> Sequence['outputs.GetAccountsAccountParameterWeekOfYearPolicyResult']:
+        return pulumi.get(self, "week_of_year_policies")
+
+    @_builtins.property
+    @pulumi.getter(name="weekStarts")
+    def week_starts(self) -> Sequence['outputs.GetAccountsAccountParameterWeekStartResult']:
+        return pulumi.get(self, "week_starts")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterAbortDetachedQueryResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterActivePythonProfilerResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterAllowBindValuesAccessResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterAllowClientMfaCachingResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterAllowIdTokenResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterAllowedSpcsWorkloadTypeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterAutocommitResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterBaseLocationPrefixResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterBinaryInputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterBinaryOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterCatalogResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterCatalogSyncResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientEnableLogInfoStatementParameterResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientEncryptionKeySizeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientMemoryLimitResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientMetadataUseSessionDatabaseResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientPrefetchThreadResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientResultChunkSizeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientResultColumnCaseInsensitiveResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientSessionKeepAlifeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterClientTimestampTypeMappingResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterCortexEnabledCrossRegionResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterCortexModelsAllowlistResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterCsvTimestampFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDataMetricScheduleResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDataRetentionTimeInDayResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDateInputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDateOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDefaultDbtVersionResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDefaultDdlCollationResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDefaultNotebookComputePoolCpusResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDefaultNotebookComputePoolGpusResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDefaultNullOrderingResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDefaultStreamlitComputePoolResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDefaultStreamlitNotebookWarehouseResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDisableUiDownloadButtonResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDisableUserPrivilegeGrantResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterDisallowedSpcsWorkloadTypeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLogResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableBudgetEventLoggingResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableConsoleOutputResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableCortexAnalystResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableDataCompactionResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableEgressCostOptimizerResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableGetDdlUseDataTypeAliasResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableIcebergMergeOnReadResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableIdentifierFirstLoginResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableInternalStagesPrivatelinkResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableNotebookCreationInPersonalDbResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrlResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnablePersonalDatabaseResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcementResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableTagPropagationEventLoggingResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepositoryResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorageResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableUnhandledExceptionsReportingResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimizationResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableUnredactedQuerySyntaxErrorResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnableUnredactedSecureObjectErrorResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEnforceNetworkRulesForInternalStageResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterErrorOnNondeterministicMergeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterErrorOnNondeterministicUpdateResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterEventTableResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedListResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterExternalVolumeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterGeographyOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterGeometryOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterHybridTableLockTimeoutResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterIcebergVersionDefaultResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterInitialReplicationSizeLimitInTbResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterJdbcTreatDecimalAsIntResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtcResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterJdbcUseSessionTimezoneResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterJsTreatIntegerAsBigintResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterJsonIndentResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshScheduleResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterLockTimeoutResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterLogEventLevelResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterLogLevelResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterMaxConcurrencyLevelResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterMaxDataExtensionTimeInDayResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterMetricLevelResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterMinDataRetentionTimeInDayResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterMultiStatementCountResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterNetworkPolicyResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterNoorderSequenceAsDefaultResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedListResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterOdbcTreatDecimalAsIntResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterPeriodicDataRekeyingResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterPipeExecutionPausedResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterPreventLoadFromInlineUrlResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterPreventUnloadToInlineUrlResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterPreventUnloadToInternalStageResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterPythonProfilerModuleResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterPythonProfilerTargetStageResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterQueryTagResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterQuotedIdentifiersIgnoreCaseResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterReadConsistencyModeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterReplaceInvalidCharacterResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterRequireStorageIntegrationForStageCreationResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterRequireStorageIntegrationForStageOperationResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterRowTimestampDefaultResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterRowsPerResultsetResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterS3StageVpceDnsNameResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterSearchPathResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterServerlessTaskMaxStatementSizeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterServerlessTaskMinStatementSizeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterShareRestrictionResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterSimulatedDataSharingConsumerResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterSqlTraceQueryTextResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterSsoLoginPageResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterStatementQueuedTimeoutInSecondResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterStatementTimeoutInSecondResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterStorageSerializationPolicyResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterStrictJsonOutputResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterSuspendTaskAfterNumFailureResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTaskAutoRetryAttemptResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTimeInputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTimeOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTimestampDayIsAlways24hResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTimestampInputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTimestampLtzOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTimestampNtzOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTimestampOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTimestampTypeMappingResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTimestampTzOutputFormatResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTimezoneResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTraceLevelResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTransactionAbortOnErrorResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTransactionDefaultIsolationLevelResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterTwoDigitCenturyStartResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterUnsupportedDdlActionResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterUseCachedResultResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterUseWorkspacesForSqlResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterUserTaskManagedInitialWarehouseSizeResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecondResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterUserTaskTimeoutMResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterWeekOfYearPolicyResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetAccountsAccountParameterWeekStartResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -71095,7 +78397,8 @@ class GetAuthenticationPoliciesAuthenticationPolicyShowOutputResult(dict):
                  options: _builtins.str,
                  owner: _builtins.str,
                  owner_role_type: _builtins.str,
-                 schema_name: _builtins.str):
+                 schema_name: _builtins.str,
+                 target_scopes: Sequence[_builtins.str]):
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "created_on", created_on)
         pulumi.set(__self__, "database_name", database_name)
@@ -71105,6 +78408,7 @@ class GetAuthenticationPoliciesAuthenticationPolicyShowOutputResult(dict):
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "owner_role_type", owner_role_type)
         pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "target_scopes", target_scopes)
 
     @_builtins.property
     @pulumi.getter
@@ -71150,6 +78454,11 @@ class GetAuthenticationPoliciesAuthenticationPolicyShowOutputResult(dict):
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> _builtins.str:
         return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="targetScopes")
+    def target_scopes(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "target_scopes")
 
 
 @pulumi.output_type
@@ -72692,6 +80001,8 @@ class GetDatabasesDatabaseParameterResult(dict):
                  catalogs: Sequence['outputs.GetDatabasesDatabaseParameterCatalogResult'],
                  data_retention_time_in_days: Sequence['outputs.GetDatabasesDatabaseParameterDataRetentionTimeInDayResult'],
                  default_ddl_collations: Sequence['outputs.GetDatabasesDatabaseParameterDefaultDdlCollationResult'],
+                 default_notebook_compute_pool_cpus: Sequence['outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpusResult'],
+                 default_notebook_compute_pool_gpus: Sequence['outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpusResult'],
                  enable_console_outputs: Sequence['outputs.GetDatabasesDatabaseParameterEnableConsoleOutputResult'],
                  external_volumes: Sequence['outputs.GetDatabasesDatabaseParameterExternalVolumeResult'],
                  log_event_levels: Sequence['outputs.GetDatabasesDatabaseParameterLogEventLevelResult'],
@@ -72709,6 +80020,8 @@ class GetDatabasesDatabaseParameterResult(dict):
         pulumi.set(__self__, "catalogs", catalogs)
         pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
+        pulumi.set(__self__, "default_notebook_compute_pool_cpus", default_notebook_compute_pool_cpus)
+        pulumi.set(__self__, "default_notebook_compute_pool_gpus", default_notebook_compute_pool_gpus)
         pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
         pulumi.set(__self__, "external_volumes", external_volumes)
         pulumi.set(__self__, "log_event_levels", log_event_levels)
@@ -72738,6 +80051,16 @@ class GetDatabasesDatabaseParameterResult(dict):
     @pulumi.getter(name="defaultDdlCollations")
     def default_ddl_collations(self) -> Sequence['outputs.GetDatabasesDatabaseParameterDefaultDdlCollationResult']:
         return pulumi.get(self, "default_ddl_collations")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpus")
+    def default_notebook_compute_pool_cpus(self) -> Sequence['outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpusResult']:
+        return pulumi.get(self, "default_notebook_compute_pool_cpus")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpus")
+    def default_notebook_compute_pool_gpus(self) -> Sequence['outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpusResult']:
+        return pulumi.get(self, "default_notebook_compute_pool_gpus")
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutputs")
@@ -72892,6 +80215,86 @@ class GetDatabasesDatabaseParameterDataRetentionTimeInDayResult(dict):
 
 @pulumi.output_type
 class GetDatabasesDatabaseParameterDefaultDdlCollationResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpusResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpusResult(dict):
     def __init__(__self__, *,
                  default: _builtins.str,
                  description: _builtins.str,
@@ -74651,6 +82054,7 @@ class GetFileFormatsFileFormatDescribeOutputResult(dict):
                  compression: _builtins.str,
                  date_format: _builtins.str,
                  disable_auto_convert: _builtins.bool,
+                 disable_snowflake_data: _builtins.bool,
                  empty_field_as_null: _builtins.bool,
                  enable_octal: _builtins.bool,
                  encoding: _builtins.str,
@@ -74687,6 +82091,7 @@ class GetFileFormatsFileFormatDescribeOutputResult(dict):
         pulumi.set(__self__, "compression", compression)
         pulumi.set(__self__, "date_format", date_format)
         pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        pulumi.set(__self__, "disable_snowflake_data", disable_snowflake_data)
         pulumi.set(__self__, "empty_field_as_null", empty_field_as_null)
         pulumi.set(__self__, "enable_octal", enable_octal)
         pulumi.set(__self__, "encoding", encoding)
@@ -74747,6 +82152,11 @@ class GetFileFormatsFileFormatDescribeOutputResult(dict):
     @pulumi.getter(name="disableAutoConvert")
     def disable_auto_convert(self) -> _builtins.bool:
         return pulumi.get(self, "disable_auto_convert")
+
+    @_builtins.property
+    @pulumi.getter(name="disableSnowflakeData")
+    def disable_snowflake_data(self) -> _builtins.bool:
+        return pulumi.get(self, "disable_snowflake_data")
 
     @_builtins.property
     @pulumi.getter(name="emptyFieldAsNull")
@@ -81314,6 +88724,8 @@ class GetSchemasSchemaParameterResult(dict):
                  catalogs: Sequence['outputs.GetSchemasSchemaParameterCatalogResult'],
                  data_retention_time_in_days: Sequence['outputs.GetSchemasSchemaParameterDataRetentionTimeInDayResult'],
                  default_ddl_collations: Sequence['outputs.GetSchemasSchemaParameterDefaultDdlCollationResult'],
+                 default_notebook_compute_pool_cpus: Sequence['outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolCpusResult'],
+                 default_notebook_compute_pool_gpus: Sequence['outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolGpusResult'],
                  enable_console_outputs: Sequence['outputs.GetSchemasSchemaParameterEnableConsoleOutputResult'],
                  external_volumes: Sequence['outputs.GetSchemasSchemaParameterExternalVolumeResult'],
                  log_event_levels: Sequence['outputs.GetSchemasSchemaParameterLogEventLevelResult'],
@@ -81332,6 +88744,8 @@ class GetSchemasSchemaParameterResult(dict):
         pulumi.set(__self__, "catalogs", catalogs)
         pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
+        pulumi.set(__self__, "default_notebook_compute_pool_cpus", default_notebook_compute_pool_cpus)
+        pulumi.set(__self__, "default_notebook_compute_pool_gpus", default_notebook_compute_pool_gpus)
         pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
         pulumi.set(__self__, "external_volumes", external_volumes)
         pulumi.set(__self__, "log_event_levels", log_event_levels)
@@ -81362,6 +88776,16 @@ class GetSchemasSchemaParameterResult(dict):
     @pulumi.getter(name="defaultDdlCollations")
     def default_ddl_collations(self) -> Sequence['outputs.GetSchemasSchemaParameterDefaultDdlCollationResult']:
         return pulumi.get(self, "default_ddl_collations")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpus")
+    def default_notebook_compute_pool_cpus(self) -> Sequence['outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolCpusResult']:
+        return pulumi.get(self, "default_notebook_compute_pool_cpus")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpus")
+    def default_notebook_compute_pool_gpus(self) -> Sequence['outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolGpusResult']:
+        return pulumi.get(self, "default_notebook_compute_pool_gpus")
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutputs")
@@ -81521,6 +88945,86 @@ class GetSchemasSchemaParameterDataRetentionTimeInDayResult(dict):
 
 @pulumi.output_type
 class GetSchemasSchemaParameterDefaultDdlCollationResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterDefaultNotebookComputePoolCpusResult(dict):
+    def __init__(__self__, *,
+                 default: _builtins.str,
+                 description: _builtins.str,
+                 key: _builtins.str,
+                 level: _builtins.str,
+                 value: _builtins.str):
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> _builtins.str:
+        return pulumi.get(self, "default")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> _builtins.str:
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> _builtins.str:
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetSchemasSchemaParameterDefaultNotebookComputePoolGpusResult(dict):
     def __init__(__self__, *,
                  default: _builtins.str,
                  description: _builtins.str,
@@ -85632,7 +93136,8 @@ class GetSessionPoliciesSessionPolicyShowOutputResult(dict):
                  options: _builtins.str,
                  owner: _builtins.str,
                  owner_role_type: _builtins.str,
-                 schema_name: _builtins.str):
+                 schema_name: _builtins.str,
+                 target_scopes: Sequence[_builtins.str]):
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "created_on", created_on)
         pulumi.set(__self__, "database_name", database_name)
@@ -85642,6 +93147,7 @@ class GetSessionPoliciesSessionPolicyShowOutputResult(dict):
         pulumi.set(__self__, "owner", owner)
         pulumi.set(__self__, "owner_role_type", owner_role_type)
         pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "target_scopes", target_scopes)
 
     @_builtins.property
     @pulumi.getter
@@ -85687,6 +93193,11 @@ class GetSessionPoliciesSessionPolicyShowOutputResult(dict):
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> _builtins.str:
         return pulumi.get(self, "schema_name")
+
+    @_builtins.property
+    @pulumi.getter(name="targetScopes")
+    def target_scopes(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "target_scopes")
 
 
 @pulumi.output_type
@@ -85884,9 +93395,13 @@ class GetStagesStageDescribeOutputResult(dict):
 class GetStagesStageDescribeOutputDirectoryTableResult(dict):
     def __init__(__self__, *,
                  auto_refresh: _builtins.bool,
+                 aws_sns_topic: _builtins.str,
+                 directory_notification_channel: _builtins.str,
                  enable: _builtins.bool,
                  last_refreshed_on: _builtins.str):
         pulumi.set(__self__, "auto_refresh", auto_refresh)
+        pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         pulumi.set(__self__, "enable", enable)
         pulumi.set(__self__, "last_refreshed_on", last_refreshed_on)
 
@@ -85894,6 +93409,16 @@ class GetStagesStageDescribeOutputDirectoryTableResult(dict):
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> _builtins.bool:
         return pulumi.get(self, "auto_refresh")
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> _builtins.str:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> _builtins.str:
+        return pulumi.get(self, "directory_notification_channel")
 
     @_builtins.property
     @pulumi.getter
@@ -91162,6 +98687,7 @@ class GetTasksTaskShowOutputResult(dict):
                  database_name: _builtins.str,
                  definition: _builtins.str,
                  error_integration: _builtins.str,
+                 execute_as_user: _builtins.str,
                  id: _builtins.str,
                  last_committed_on: _builtins.str,
                  last_suspended_on: _builtins.str,
@@ -91185,6 +98711,7 @@ class GetTasksTaskShowOutputResult(dict):
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "error_integration", error_integration)
+        pulumi.set(__self__, "execute_as_user", execute_as_user)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "last_committed_on", last_committed_on)
         pulumi.set(__self__, "last_suspended_on", last_suspended_on)
@@ -91244,6 +98771,11 @@ class GetTasksTaskShowOutputResult(dict):
     @pulumi.getter(name="errorIntegration")
     def error_integration(self) -> _builtins.str:
         return pulumi.get(self, "error_integration")
+
+    @_builtins.property
+    @pulumi.getter(name="executeAsUser")
+    def execute_as_user(self) -> _builtins.str:
+        return pulumi.get(self, "execute_as_user")
 
     @_builtins.property
     @pulumi.getter
@@ -91562,7 +99094,9 @@ class GetUsersUserDescribeOutputResult(dict):
                  rsa_public_key: _builtins.str,
                  rsa_public_key2: _builtins.str,
                  rsa_public_key2_fp: _builtins.str,
+                 rsa_public_key2_last_set_time: _builtins.str,
                  rsa_public_key_fp: _builtins.str,
+                 rsa_public_key_last_set_time: _builtins.str,
                  snowflake_lock: _builtins.bool,
                  snowflake_support: _builtins.bool,
                  type: _builtins.str):
@@ -91594,7 +99128,9 @@ class GetUsersUserDescribeOutputResult(dict):
         pulumi.set(__self__, "rsa_public_key", rsa_public_key)
         pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
         pulumi.set(__self__, "rsa_public_key2_fp", rsa_public_key2_fp)
+        pulumi.set(__self__, "rsa_public_key2_last_set_time", rsa_public_key2_last_set_time)
         pulumi.set(__self__, "rsa_public_key_fp", rsa_public_key_fp)
+        pulumi.set(__self__, "rsa_public_key_last_set_time", rsa_public_key_last_set_time)
         pulumi.set(__self__, "snowflake_lock", snowflake_lock)
         pulumi.set(__self__, "snowflake_support", snowflake_support)
         pulumi.set(__self__, "type", type)
@@ -91740,9 +99276,19 @@ class GetUsersUserDescribeOutputResult(dict):
         return pulumi.get(self, "rsa_public_key2_fp")
 
     @_builtins.property
+    @pulumi.getter(name="rsaPublicKey2LastSetTime")
+    def rsa_public_key2_last_set_time(self) -> _builtins.str:
+        return pulumi.get(self, "rsa_public_key2_last_set_time")
+
+    @_builtins.property
     @pulumi.getter(name="rsaPublicKeyFp")
     def rsa_public_key_fp(self) -> _builtins.str:
         return pulumi.get(self, "rsa_public_key_fp")
+
+    @_builtins.property
+    @pulumi.getter(name="rsaPublicKeyLastSetTime")
+    def rsa_public_key_last_set_time(self) -> _builtins.str:
+        return pulumi.get(self, "rsa_public_key_last_set_time")
 
     @_builtins.property
     @pulumi.getter(name="snowflakeLock")

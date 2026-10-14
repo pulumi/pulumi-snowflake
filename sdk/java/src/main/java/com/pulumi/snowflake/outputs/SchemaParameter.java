@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.snowflake.outputs.SchemaParameterCatalog;
 import com.pulumi.snowflake.outputs.SchemaParameterDataRetentionTimeInDay;
 import com.pulumi.snowflake.outputs.SchemaParameterDefaultDdlCollation;
+import com.pulumi.snowflake.outputs.SchemaParameterDefaultNotebookComputePoolCpus;
+import com.pulumi.snowflake.outputs.SchemaParameterDefaultNotebookComputePoolGpus;
 import com.pulumi.snowflake.outputs.SchemaParameterEnableConsoleOutput;
 import com.pulumi.snowflake.outputs.SchemaParameterExternalVolume;
 import com.pulumi.snowflake.outputs.SchemaParameterLogEventLevel;
@@ -31,6 +33,8 @@ public final class SchemaParameter {
     private @Nullable List<SchemaParameterCatalog> catalogs;
     private @Nullable List<SchemaParameterDataRetentionTimeInDay> dataRetentionTimeInDays;
     private @Nullable List<SchemaParameterDefaultDdlCollation> defaultDdlCollations;
+    private @Nullable List<SchemaParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus;
+    private @Nullable List<SchemaParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus;
     private @Nullable List<SchemaParameterEnableConsoleOutput> enableConsoleOutputs;
     private @Nullable List<SchemaParameterExternalVolume> externalVolumes;
     private @Nullable List<SchemaParameterLogEventLevel> logEventLevels;
@@ -56,6 +60,12 @@ public final class SchemaParameter {
     }
     public List<SchemaParameterDefaultDdlCollation> defaultDdlCollations() {
         return this.defaultDdlCollations == null ? List.of() : this.defaultDdlCollations;
+    }
+    public List<SchemaParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus() {
+        return this.defaultNotebookComputePoolCpus == null ? List.of() : this.defaultNotebookComputePoolCpus;
+    }
+    public List<SchemaParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus() {
+        return this.defaultNotebookComputePoolGpus == null ? List.of() : this.defaultNotebookComputePoolGpus;
     }
     public List<SchemaParameterEnableConsoleOutput> enableConsoleOutputs() {
         return this.enableConsoleOutputs == null ? List.of() : this.enableConsoleOutputs;
@@ -115,6 +125,8 @@ public final class SchemaParameter {
         private @Nullable List<SchemaParameterCatalog> catalogs;
         private @Nullable List<SchemaParameterDataRetentionTimeInDay> dataRetentionTimeInDays;
         private @Nullable List<SchemaParameterDefaultDdlCollation> defaultDdlCollations;
+        private @Nullable List<SchemaParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus;
+        private @Nullable List<SchemaParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus;
         private @Nullable List<SchemaParameterEnableConsoleOutput> enableConsoleOutputs;
         private @Nullable List<SchemaParameterExternalVolume> externalVolumes;
         private @Nullable List<SchemaParameterLogEventLevel> logEventLevels;
@@ -136,6 +148,8 @@ public final class SchemaParameter {
     	      this.catalogs = defaults.catalogs;
     	      this.dataRetentionTimeInDays = defaults.dataRetentionTimeInDays;
     	      this.defaultDdlCollations = defaults.defaultDdlCollations;
+    	      this.defaultNotebookComputePoolCpus = defaults.defaultNotebookComputePoolCpus;
+    	      this.defaultNotebookComputePoolGpus = defaults.defaultNotebookComputePoolGpus;
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
     	      this.externalVolumes = defaults.externalVolumes;
     	      this.logEventLevels = defaults.logEventLevels;
@@ -179,6 +193,24 @@ public final class SchemaParameter {
         }
         public Builder defaultDdlCollations(SchemaParameterDefaultDdlCollation... defaultDdlCollations) {
             return defaultDdlCollations(List.of(defaultDdlCollations));
+        }
+        @CustomType.Setter
+        public Builder defaultNotebookComputePoolCpus(@Nullable List<SchemaParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus) {
+
+            this.defaultNotebookComputePoolCpus = defaultNotebookComputePoolCpus;
+            return this;
+        }
+        public Builder defaultNotebookComputePoolCpus(SchemaParameterDefaultNotebookComputePoolCpus... defaultNotebookComputePoolCpus) {
+            return defaultNotebookComputePoolCpus(List.of(defaultNotebookComputePoolCpus));
+        }
+        @CustomType.Setter
+        public Builder defaultNotebookComputePoolGpus(@Nullable List<SchemaParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus) {
+
+            this.defaultNotebookComputePoolGpus = defaultNotebookComputePoolGpus;
+            return this;
+        }
+        public Builder defaultNotebookComputePoolGpus(SchemaParameterDefaultNotebookComputePoolGpus... defaultNotebookComputePoolGpus) {
+            return defaultNotebookComputePoolGpus(List.of(defaultNotebookComputePoolGpus));
         }
         @CustomType.Setter
         public Builder enableConsoleOutputs(@Nullable List<SchemaParameterEnableConsoleOutput> enableConsoleOutputs) {
@@ -320,6 +352,8 @@ public final class SchemaParameter {
             _resultValue.catalogs = catalogs;
             _resultValue.dataRetentionTimeInDays = dataRetentionTimeInDays;
             _resultValue.defaultDdlCollations = defaultDdlCollations;
+            _resultValue.defaultNotebookComputePoolCpus = defaultNotebookComputePoolCpus;
+            _resultValue.defaultNotebookComputePoolGpus = defaultNotebookComputePoolGpus;
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
             _resultValue.externalVolumes = externalVolumes;
             _resultValue.logEventLevels = logEventLevels;

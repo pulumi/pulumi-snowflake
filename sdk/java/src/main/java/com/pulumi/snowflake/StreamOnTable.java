@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
 /**
  * &gt; **Note about copy_grants** Fields like `table`, `appendOnly`, `at`, `before`, `showInitialRows` and `stale` can not be ALTERed on Snowflake side (check [docs](https://docs.snowflake.com/en/sql-reference/sql/alter-stream)), and a change on these fields means recreation of the resource. ForceNew can not be used because it does not preserve grants from `copyGrants`. Beware that even though a change is marked as update, the resource is recreated.
  * 
- * &gt; **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect.
+ * &gt; **Note** Importing this resource sets boolean fields that use the special `&#34;default&#34;` value to `&#34;default&#34;` instead of the Snowflake-reported value, avoiding persistent diffs. This is the `IMPORT_BOOLEAN_DEFAULT` experiment, which is enabled by default. Opt out by listing it in `experimentalFeaturesDisabled`.
  * 
  * Resource used to manage streams on tables. For more information, check [stream documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stream).
  * 

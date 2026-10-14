@@ -23,6 +23,20 @@ public final class StageExternalGcsDescribeOutputDirectoryTableArgs extends com.
         return Optional.ofNullable(this.autoRefresh);
     }
 
+    @Import(name="awsSnsTopic")
+    private @Nullable Output<String> awsSnsTopic;
+
+    public Optional<Output<String>> awsSnsTopic() {
+        return Optional.ofNullable(this.awsSnsTopic);
+    }
+
+    @Import(name="directoryNotificationChannel")
+    private @Nullable Output<String> directoryNotificationChannel;
+
+    public Optional<Output<String>> directoryNotificationChannel() {
+        return Optional.ofNullable(this.directoryNotificationChannel);
+    }
+
     @Import(name="enable")
     private @Nullable Output<Boolean> enable;
 
@@ -41,6 +55,8 @@ public final class StageExternalGcsDescribeOutputDirectoryTableArgs extends com.
 
     private StageExternalGcsDescribeOutputDirectoryTableArgs(StageExternalGcsDescribeOutputDirectoryTableArgs $) {
         this.autoRefresh = $.autoRefresh;
+        this.awsSnsTopic = $.awsSnsTopic;
+        this.directoryNotificationChannel = $.directoryNotificationChannel;
         this.enable = $.enable;
         this.lastRefreshedOn = $.lastRefreshedOn;
     }
@@ -70,6 +86,24 @@ public final class StageExternalGcsDescribeOutputDirectoryTableArgs extends com.
 
         public Builder autoRefresh(Boolean autoRefresh) {
             return autoRefresh(Output.of(autoRefresh));
+        }
+
+        public Builder awsSnsTopic(@Nullable Output<String> awsSnsTopic) {
+            $.awsSnsTopic = awsSnsTopic;
+            return this;
+        }
+
+        public Builder awsSnsTopic(String awsSnsTopic) {
+            return awsSnsTopic(Output.of(awsSnsTopic));
+        }
+
+        public Builder directoryNotificationChannel(@Nullable Output<String> directoryNotificationChannel) {
+            $.directoryNotificationChannel = directoryNotificationChannel;
+            return this;
+        }
+
+        public Builder directoryNotificationChannel(String directoryNotificationChannel) {
+            return directoryNotificationChannel(Output.of(directoryNotificationChannel));
         }
 
         public Builder enable(@Nullable Output<Boolean> enable) {

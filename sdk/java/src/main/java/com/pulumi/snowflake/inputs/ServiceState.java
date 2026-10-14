@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.ServiceDescribeOutputArgs;
 import com.pulumi.snowflake.inputs.ServiceFromSpecificationArgs;
 import com.pulumi.snowflake.inputs.ServiceFromSpecificationTemplateArgs;
+import com.pulumi.snowflake.inputs.ServiceParameterArgs;
 import com.pulumi.snowflake.inputs.ServiceShowOutputArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -232,6 +233,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+     * 
+     */
+    @Import(name="parameters")
+    private @Nullable Output<List<ServiceParameterArgs>> parameters;
+
+    /**
+     * @return Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+     * 
+     */
+    public Optional<Output<List<ServiceParameterArgs>>> parameters() {
+        return Optional.ofNullable(this.parameters);
+    }
+
+    /**
      * Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
@@ -259,6 +275,21 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> schema() {
         return Optional.ofNullable(this.schema);
+    }
+
+    /**
+     * Controls how long a caller&#39;s rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+     * 
+     */
+    @Import(name="serviceCallerTokenValiditySecs")
+    private @Nullable Output<Integer> serviceCallerTokenValiditySecs;
+
+    /**
+     * @return Controls how long a caller&#39;s rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+     * 
+     */
+    public Optional<Output<Integer>> serviceCallerTokenValiditySecs() {
+        return Optional.ofNullable(this.serviceCallerTokenValiditySecs);
     }
 
     /**
@@ -308,8 +339,10 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         this.minInstances = $.minInstances;
         this.minReadyInstances = $.minReadyInstances;
         this.name = $.name;
+        this.parameters = $.parameters;
         this.queryWarehouse = $.queryWarehouse;
         this.schema = $.schema;
+        this.serviceCallerTokenValiditySecs = $.serviceCallerTokenValiditySecs;
         this.serviceType = $.serviceType;
         this.showOutputs = $.showOutputs;
     }
@@ -647,6 +680,37 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(@Nullable Output<List<ServiceParameterArgs>> parameters) {
+            $.parameters = parameters;
+            return this;
+        }
+
+        /**
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(List<ServiceParameterArgs> parameters) {
+            return parameters(Output.of(parameters));
+        }
+
+        /**
+         * @param parameters Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(ServiceParameterArgs... parameters) {
+            return parameters(List.of(parameters));
+        }
+
+        /**
          * @param queryWarehouse Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
@@ -686,6 +750,27 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
+        }
+
+        /**
+         * @param serviceCallerTokenValiditySecs Controls how long a caller&#39;s rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceCallerTokenValiditySecs(@Nullable Output<Integer> serviceCallerTokenValiditySecs) {
+            $.serviceCallerTokenValiditySecs = serviceCallerTokenValiditySecs;
+            return this;
+        }
+
+        /**
+         * @param serviceCallerTokenValiditySecs Controls how long a caller&#39;s rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceCallerTokenValiditySecs(Integer serviceCallerTokenValiditySecs) {
+            return serviceCallerTokenValiditySecs(Output.of(serviceCallerTokenValiditySecs));
         }
 
         /**

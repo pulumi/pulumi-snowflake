@@ -16,6 +16,8 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.GetSchemasSchemaParameterCatalogResult> Catalogs;
         public readonly ImmutableArray<Outputs.GetSchemasSchemaParameterDataRetentionTimeInDayResult> DataRetentionTimeInDays;
         public readonly ImmutableArray<Outputs.GetSchemasSchemaParameterDefaultDdlCollationResult> DefaultDdlCollations;
+        public readonly ImmutableArray<Outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolCpusResult> DefaultNotebookComputePoolCpus;
+        public readonly ImmutableArray<Outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolGpusResult> DefaultNotebookComputePoolGpus;
         public readonly ImmutableArray<Outputs.GetSchemasSchemaParameterEnableConsoleOutputResult> EnableConsoleOutputs;
         public readonly ImmutableArray<Outputs.GetSchemasSchemaParameterExternalVolumeResult> ExternalVolumes;
         public readonly ImmutableArray<Outputs.GetSchemasSchemaParameterLogEventLevelResult> LogEventLevels;
@@ -39,6 +41,10 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.GetSchemasSchemaParameterDataRetentionTimeInDayResult> dataRetentionTimeInDays,
 
             ImmutableArray<Outputs.GetSchemasSchemaParameterDefaultDdlCollationResult> defaultDdlCollations,
+
+            ImmutableArray<Outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolCpusResult> defaultNotebookComputePoolCpus,
+
+            ImmutableArray<Outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolGpusResult> defaultNotebookComputePoolGpus,
 
             ImmutableArray<Outputs.GetSchemasSchemaParameterEnableConsoleOutputResult> enableConsoleOutputs,
 
@@ -73,6 +79,8 @@ namespace Pulumi.Snowflake.Outputs
             Catalogs = catalogs;
             DataRetentionTimeInDays = dataRetentionTimeInDays;
             DefaultDdlCollations = defaultDdlCollations;
+            DefaultNotebookComputePoolCpus = defaultNotebookComputePoolCpus;
+            DefaultNotebookComputePoolGpus = defaultNotebookComputePoolGpus;
             EnableConsoleOutputs = enableConsoleOutputs;
             ExternalVolumes = externalVolumes;
             LogEventLevels = logEventLevels;
