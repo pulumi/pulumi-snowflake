@@ -192,28 +192,28 @@ public class WarehouseAdaptive extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+     * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      * 
      */
     @Export(name="statementQueuedTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> statementQueuedTimeoutInSeconds;
 
     /**
-     * @return Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+     * @return Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      * 
      */
     public Output<Integer> statementQueuedTimeoutInSeconds() {
         return this.statementQueuedTimeoutInSeconds;
     }
     /**
-     * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+     * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      * 
      */
     @Export(name="statementTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> statementTimeoutInSeconds;
 
     /**
-     * @return Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+     * @return Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      * 
      */
     public Output<Integer> statementTimeoutInSeconds() {

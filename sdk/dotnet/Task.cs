@@ -52,13 +52,13 @@ namespace Pulumi.Snowflake
         public Output<bool> Autocommit { get; private set; } = null!;
 
         /// <summary>
-        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64` | `UTF8`. For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         /// </summary>
         [Output("binaryInputFormat")]
         public Output<string> BinaryInputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64`. For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         /// </summary>
         [Output("binaryOutputFormat")]
         public Output<string> BinaryOutputFormat { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Snowflake
         public Output<int> ClientSessionKeepAliveHeartbeatFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         /// </summary>
         [Output("clientTimestampTypeMapping")]
         public Output<string> ClientTimestampTypeMapping { get; private set; } = null!;
@@ -166,6 +166,12 @@ namespace Pulumi.Snowflake
         public Output<bool> ErrorOnNondeterministicUpdate { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the user on whose behalf the task runs instead of the system service, with the task owner role's privileges plus that user's identity and default secondary roles. The task owner role must be granted IMPERSONATE on this user, and the user must be granted the task owner role. When the task runs, the session primary role is the task owner role and the user's default secondary roles are activated. The task SQL statement may use USE ROLE or USE SECONDARY ROLES to adjust the session. For more information, see [Run tasks with user privileges](https://docs.snowflake.com/en/user-guide/tasks-intro#run-tasks-with-user-privileges). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        /// </summary>
+        [Output("executeAsUser")]
+        public Output<string?> ExecuteAsUser { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("finalize")]
@@ -178,19 +184,19 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Output("geographyOutputFormat")]
         public Output<string> GeographyOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         /// </summary>
         [Output("geometryOutputFormat")]
         public Output<string> GeometryOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        /// Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         /// </summary>
         [Output("jdbcTreatTimestampNtzAsUtc")]
         public Output<bool> JdbcTreatTimestampNtzAsUtc { get; private set; } = null!;
@@ -214,13 +220,13 @@ namespace Pulumi.Snowflake
         public Output<int> LockTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         /// </summary>
         [Output("logEventLevel")]
         public Output<string> LogEventLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Output("logLevel")]
         public Output<string> LogLevel { get; private set; } = null!;
@@ -262,7 +268,7 @@ namespace Pulumi.Snowflake
         public Output<string> QueryTag { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Output("quotedIdentifiersIgnoreCase")]
         public Output<bool> QuotedIdentifiersIgnoreCase { get; private set; } = null!;
@@ -298,13 +304,13 @@ namespace Pulumi.Snowflake
         public Output<string> SearchPath { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        /// Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
         /// </summary>
         [Output("serverlessTaskMaxStatementSize")]
         public Output<string> ServerlessTaskMaxStatementSize { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+        /// Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
         /// </summary>
         [Output("serverlessTaskMinStatementSize")]
         public Output<string> ServerlessTaskMinStatementSize { get; private set; } = null!;
@@ -346,7 +352,7 @@ namespace Pulumi.Snowflake
         public Output<bool> StrictJsonOutput { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        /// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         /// </summary>
         [Output("suspendTaskAfterNumFailures")]
         public Output<int> SuspendTaskAfterNumFailures { get; private set; } = null!;
@@ -358,7 +364,7 @@ namespace Pulumi.Snowflake
         public Output<Outputs.TaskTargetCompletionInterval?> TargetCompletionInterval { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        /// Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         /// </summary>
         [Output("taskAutoRetryAttempts")]
         public Output<int> TaskAutoRetryAttempts { get; private set; } = null!;
@@ -406,7 +412,7 @@ namespace Pulumi.Snowflake
         public Output<string> TimestampOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ` | `TIMESTAMP_TZ`. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         /// </summary>
         [Output("timestampTypeMapping")]
         public Output<string> TimestampTypeMapping { get; private set; } = null!;
@@ -424,7 +430,7 @@ namespace Pulumi.Snowflake
         public Output<string> Timezone { get; private set; } = null!;
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        /// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Output("traceLevel")]
         public Output<string> TraceLevel { get; private set; } = null!;
@@ -436,7 +442,7 @@ namespace Pulumi.Snowflake
         public Output<bool> TransactionAbortOnError { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        /// Specifies the isolation level for transactions in the user session. Valid values are (case-insensitive): `READ COMMITTED`. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         /// </summary>
         [Output("transactionDefaultIsolationLevel")]
         public Output<string> TransactionDefaultIsolationLevel { get; private set; } = null!;
@@ -448,7 +454,7 @@ namespace Pulumi.Snowflake
         public Output<int> TwoDigitCenturyStart { get; private set; } = null!;
 
         /// <summary>
-        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. Valid values are (case-insensitive): `IGNORE` | `FAIL`. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         /// </summary>
         [Output("unsupportedDdlAction")]
         public Output<string> UnsupportedDdlAction { get; private set; } = null!;
@@ -460,19 +466,19 @@ namespace Pulumi.Snowflake
         public Output<bool> UseCachedResult { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Output("userTaskManagedInitialWarehouseSize")]
         public Output<string> UserTaskManagedInitialWarehouseSize { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        /// Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         /// </summary>
         [Output("userTaskMinimumTriggerIntervalInSeconds")]
         public Output<int> UserTaskMinimumTriggerIntervalInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        /// User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         /// </summary>
         [Output("userTaskTimeoutMs")]
         public Output<int> UserTaskTimeoutMs { get; private set; } = null!;
@@ -578,13 +584,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? Autocommit { get; set; }
 
         /// <summary>
-        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64` | `UTF8`. For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         /// </summary>
         [Input("binaryInputFormat")]
         public Input<string>? BinaryInputFormat { get; set; }
 
         /// <summary>
-        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64`. For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         /// </summary>
         [Input("binaryOutputFormat")]
         public Input<string>? BinaryOutputFormat { get; set; }
@@ -632,7 +638,7 @@ namespace Pulumi.Snowflake
         public Input<int>? ClientSessionKeepAliveHeartbeatFrequency { get; set; }
 
         /// <summary>
-        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         /// </summary>
         [Input("clientTimestampTypeMapping")]
         public Input<string>? ClientTimestampTypeMapping { get; set; }
@@ -692,25 +698,31 @@ namespace Pulumi.Snowflake
         public Input<bool>? ErrorOnNondeterministicUpdate { get; set; }
 
         /// <summary>
+        /// Specifies the user on whose behalf the task runs instead of the system service, with the task owner role's privileges plus that user's identity and default secondary roles. The task owner role must be granted IMPERSONATE on this user, and the user must be granted the task owner role. When the task runs, the session primary role is the task owner role and the user's default secondary roles are activated. The task SQL statement may use USE ROLE or USE SECONDARY ROLES to adjust the session. For more information, see [Run tasks with user privileges](https://docs.snowflake.com/en/user-guide/tasks-intro#run-tasks-with-user-privileges). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        /// </summary>
+        [Input("executeAsUser")]
+        public Input<string>? ExecuteAsUser { get; set; }
+
+        /// <summary>
         /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("finalize")]
         public Input<string>? Finalize { get; set; }
 
         /// <summary>
-        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Input("geographyOutputFormat")]
         public Input<string>? GeographyOutputFormat { get; set; }
 
         /// <summary>
-        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         /// </summary>
         [Input("geometryOutputFormat")]
         public Input<string>? GeometryOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        /// Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         /// </summary>
         [Input("jdbcTreatTimestampNtzAsUtc")]
         public Input<bool>? JdbcTreatTimestampNtzAsUtc { get; set; }
@@ -734,13 +746,13 @@ namespace Pulumi.Snowflake
         public Input<int>? LockTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         /// </summary>
         [Input("logEventLevel")]
         public Input<string>? LogEventLevel { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
@@ -776,7 +788,7 @@ namespace Pulumi.Snowflake
         public Input<string>? QueryTag { get; set; }
 
         /// <summary>
-        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Input("quotedIdentifiersIgnoreCase")]
         public Input<bool>? QuotedIdentifiersIgnoreCase { get; set; }
@@ -812,13 +824,13 @@ namespace Pulumi.Snowflake
         public Input<string>? SearchPath { get; set; }
 
         /// <summary>
-        /// Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        /// Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
         /// </summary>
         [Input("serverlessTaskMaxStatementSize")]
         public Input<string>? ServerlessTaskMaxStatementSize { get; set; }
 
         /// <summary>
-        /// Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+        /// Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
         /// </summary>
         [Input("serverlessTaskMinStatementSize")]
         public Input<string>? ServerlessTaskMinStatementSize { get; set; }
@@ -854,7 +866,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? StrictJsonOutput { get; set; }
 
         /// <summary>
-        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        /// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         /// </summary>
         [Input("suspendTaskAfterNumFailures")]
         public Input<int>? SuspendTaskAfterNumFailures { get; set; }
@@ -866,7 +878,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.TaskTargetCompletionIntervalArgs>? TargetCompletionInterval { get; set; }
 
         /// <summary>
-        /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        /// Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         /// </summary>
         [Input("taskAutoRetryAttempts")]
         public Input<int>? TaskAutoRetryAttempts { get; set; }
@@ -914,7 +926,7 @@ namespace Pulumi.Snowflake
         public Input<string>? TimestampOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ` | `TIMESTAMP_TZ`. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         /// </summary>
         [Input("timestampTypeMapping")]
         public Input<string>? TimestampTypeMapping { get; set; }
@@ -932,7 +944,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        /// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Input("traceLevel")]
         public Input<string>? TraceLevel { get; set; }
@@ -944,7 +956,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? TransactionAbortOnError { get; set; }
 
         /// <summary>
-        /// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        /// Specifies the isolation level for transactions in the user session. Valid values are (case-insensitive): `READ COMMITTED`. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         /// </summary>
         [Input("transactionDefaultIsolationLevel")]
         public Input<string>? TransactionDefaultIsolationLevel { get; set; }
@@ -956,7 +968,7 @@ namespace Pulumi.Snowflake
         public Input<int>? TwoDigitCenturyStart { get; set; }
 
         /// <summary>
-        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. Valid values are (case-insensitive): `IGNORE` | `FAIL`. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         /// </summary>
         [Input("unsupportedDdlAction")]
         public Input<string>? UnsupportedDdlAction { get; set; }
@@ -968,19 +980,19 @@ namespace Pulumi.Snowflake
         public Input<bool>? UseCachedResult { get; set; }
 
         /// <summary>
-        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Input("userTaskManagedInitialWarehouseSize")]
         public Input<string>? UserTaskManagedInitialWarehouseSize { get; set; }
 
         /// <summary>
-        /// Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        /// Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         /// </summary>
         [Input("userTaskMinimumTriggerIntervalInSeconds")]
         public Input<int>? UserTaskMinimumTriggerIntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        /// User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         /// </summary>
         [Input("userTaskTimeoutMs")]
         public Input<int>? UserTaskTimeoutMs { get; set; }
@@ -1048,13 +1060,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? Autocommit { get; set; }
 
         /// <summary>
-        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64` | `UTF8`. For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         /// </summary>
         [Input("binaryInputFormat")]
         public Input<string>? BinaryInputFormat { get; set; }
 
         /// <summary>
-        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64`. For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         /// </summary>
         [Input("binaryOutputFormat")]
         public Input<string>? BinaryOutputFormat { get; set; }
@@ -1102,7 +1114,7 @@ namespace Pulumi.Snowflake
         public Input<int>? ClientSessionKeepAliveHeartbeatFrequency { get; set; }
 
         /// <summary>
-        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         /// </summary>
         [Input("clientTimestampTypeMapping")]
         public Input<string>? ClientTimestampTypeMapping { get; set; }
@@ -1162,6 +1174,12 @@ namespace Pulumi.Snowflake
         public Input<bool>? ErrorOnNondeterministicUpdate { get; set; }
 
         /// <summary>
+        /// Specifies the user on whose behalf the task runs instead of the system service, with the task owner role's privileges plus that user's identity and default secondary roles. The task owner role must be granted IMPERSONATE on this user, and the user must be granted the task owner role. When the task runs, the session primary role is the task owner role and the user's default secondary roles are activated. The task SQL statement may use USE ROLE or USE SECONDARY ROLES to adjust the session. For more information, see [Run tasks with user privileges](https://docs.snowflake.com/en/user-guide/tasks-intro#run-tasks-with-user-privileges). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        /// </summary>
+        [Input("executeAsUser")]
+        public Input<string>? ExecuteAsUser { get; set; }
+
+        /// <summary>
         /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("finalize")]
@@ -1174,19 +1192,19 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Input("geographyOutputFormat")]
         public Input<string>? GeographyOutputFormat { get; set; }
 
         /// <summary>
-        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         /// </summary>
         [Input("geometryOutputFormat")]
         public Input<string>? GeometryOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        /// Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         /// </summary>
         [Input("jdbcTreatTimestampNtzAsUtc")]
         public Input<bool>? JdbcTreatTimestampNtzAsUtc { get; set; }
@@ -1210,13 +1228,13 @@ namespace Pulumi.Snowflake
         public Input<int>? LockTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         /// </summary>
         [Input("logEventLevel")]
         public Input<string>? LogEventLevel { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
@@ -1264,7 +1282,7 @@ namespace Pulumi.Snowflake
         public Input<string>? QueryTag { get; set; }
 
         /// <summary>
-        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Input("quotedIdentifiersIgnoreCase")]
         public Input<bool>? QuotedIdentifiersIgnoreCase { get; set; }
@@ -1300,13 +1318,13 @@ namespace Pulumi.Snowflake
         public Input<string>? SearchPath { get; set; }
 
         /// <summary>
-        /// Specifies the maximum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+        /// Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
         /// </summary>
         [Input("serverlessTaskMaxStatementSize")]
         public Input<string>? ServerlessTaskMaxStatementSize { get; set; }
 
         /// <summary>
-        /// Specifies the minimum warehouse size for serverless tasks. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+        /// Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
         /// </summary>
         [Input("serverlessTaskMinStatementSize")]
         public Input<string>? ServerlessTaskMinStatementSize { get; set; }
@@ -1354,7 +1372,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? StrictJsonOutput { get; set; }
 
         /// <summary>
-        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        /// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         /// </summary>
         [Input("suspendTaskAfterNumFailures")]
         public Input<int>? SuspendTaskAfterNumFailures { get; set; }
@@ -1366,7 +1384,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.TaskTargetCompletionIntervalGetArgs>? TargetCompletionInterval { get; set; }
 
         /// <summary>
-        /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        /// Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         /// </summary>
         [Input("taskAutoRetryAttempts")]
         public Input<int>? TaskAutoRetryAttempts { get; set; }
@@ -1414,7 +1432,7 @@ namespace Pulumi.Snowflake
         public Input<string>? TimestampOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ` | `TIMESTAMP_TZ`. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         /// </summary>
         [Input("timestampTypeMapping")]
         public Input<string>? TimestampTypeMapping { get; set; }
@@ -1432,7 +1450,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        /// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Input("traceLevel")]
         public Input<string>? TraceLevel { get; set; }
@@ -1444,7 +1462,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? TransactionAbortOnError { get; set; }
 
         /// <summary>
-        /// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        /// Specifies the isolation level for transactions in the user session. Valid values are (case-insensitive): `READ COMMITTED`. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         /// </summary>
         [Input("transactionDefaultIsolationLevel")]
         public Input<string>? TransactionDefaultIsolationLevel { get; set; }
@@ -1456,7 +1474,7 @@ namespace Pulumi.Snowflake
         public Input<int>? TwoDigitCenturyStart { get; set; }
 
         /// <summary>
-        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. Valid values are (case-insensitive): `IGNORE` | `FAIL`. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         /// </summary>
         [Input("unsupportedDdlAction")]
         public Input<string>? UnsupportedDdlAction { get; set; }
@@ -1468,19 +1486,19 @@ namespace Pulumi.Snowflake
         public Input<bool>? UseCachedResult { get; set; }
 
         /// <summary>
-        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Input("userTaskManagedInitialWarehouseSize")]
         public Input<string>? UserTaskManagedInitialWarehouseSize { get; set; }
 
         /// <summary>
-        /// Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        /// Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         /// </summary>
         [Input("userTaskMinimumTriggerIntervalInSeconds")]
         public Input<int>? UserTaskMinimumTriggerIntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        /// User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         /// </summary>
         [Input("userTaskTimeoutMs")]
         public Input<int>? UserTaskTimeoutMs { get; set; }

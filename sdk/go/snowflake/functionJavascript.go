@@ -99,7 +99,7 @@ type FunctionJavascript struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput pulumi.BoolOutput `pulumi:"enableConsoleOutput"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
@@ -109,11 +109,11 @@ type FunctionJavascript struct {
 	FunctionLanguage pulumi.StringOutput `pulumi:"functionLanguage"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsSecure pulumi.StringPtrOutput `pulumi:"isSecure"`
-	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
 	LogEventLevel pulumi.StringOutput `pulumi:"logEventLevel"`
-	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
-	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel pulumi.StringOutput `pulumi:"metricLevel"`
 	// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -129,7 +129,7 @@ type FunctionJavascript struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW FUNCTION` for the given function.
 	ShowOutputs FunctionJavascriptShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringOutput `pulumi:"traceLevel"`
 }
 
@@ -181,7 +181,7 @@ type functionJavascriptState struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
-	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput *bool `pulumi:"enableConsoleOutput"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
@@ -191,11 +191,11 @@ type functionJavascriptState struct {
 	FunctionLanguage *string `pulumi:"functionLanguage"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsSecure *string `pulumi:"isSecure"`
-	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
 	LogEventLevel *string `pulumi:"logEventLevel"`
-	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
-	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel *string `pulumi:"metricLevel"`
 	// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
@@ -211,7 +211,7 @@ type functionJavascriptState struct {
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW FUNCTION` for the given function.
 	ShowOutputs []FunctionJavascriptShowOutput `pulumi:"showOutputs"`
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel *string `pulumi:"traceLevel"`
 }
 
@@ -222,7 +222,7 @@ type FunctionJavascriptState struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
-	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput pulumi.BoolPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
@@ -232,11 +232,11 @@ type FunctionJavascriptState struct {
 	FunctionLanguage pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsSecure pulumi.StringPtrInput
-	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
 	LogEventLevel pulumi.StringPtrInput
-	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
-	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel pulumi.StringPtrInput
 	// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
@@ -252,7 +252,7 @@ type FunctionJavascriptState struct {
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW FUNCTION` for the given function.
 	ShowOutputs FunctionJavascriptShowOutputArrayInput
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringPtrInput
 }
 
@@ -267,17 +267,17 @@ type functionJavascriptArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput *bool `pulumi:"enableConsoleOutput"`
 	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be JavaScript source code. For more information, see [Introduction to JavaScript UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	FunctionDefinition string `pulumi:"functionDefinition"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsSecure *string `pulumi:"isSecure"`
-	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
 	LogEventLevel *string `pulumi:"logEventLevel"`
-	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
-	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel *string `pulumi:"metricLevel"`
 	// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
@@ -289,7 +289,7 @@ type functionJavascriptArgs struct {
 	ReturnType string `pulumi:"returnType"`
 	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel *string `pulumi:"traceLevel"`
 }
 
@@ -301,17 +301,17 @@ type FunctionJavascriptArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput pulumi.BoolPtrInput
 	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be JavaScript source code. For more information, see [Introduction to JavaScript UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	FunctionDefinition pulumi.StringInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is secure. By design, the Snowflake's `SHOW FUNCTIONS` command does not provide information about secure functions (consult [function docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#id1) and [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure)) which is essential to manage/import function with Terraform. Use the role owning the function while managing secure functions. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsSecure pulumi.StringPtrInput
-	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+	// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
 	LogEventLevel pulumi.StringPtrInput
-	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
-	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel pulumi.StringPtrInput
 	// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
@@ -323,7 +323,7 @@ type FunctionJavascriptArgs struct {
 	ReturnType pulumi.StringInput
 	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringPtrInput
 }
 
@@ -429,7 +429,7 @@ func (o FunctionJavascriptOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionJavascript) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+// If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 func (o FunctionJavascriptOutput) EnableConsoleOutput() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FunctionJavascript) pulumi.BoolOutput { return v.EnableConsoleOutput }).(pulumi.BoolOutput)
 }
@@ -454,17 +454,17 @@ func (o FunctionJavascriptOutput) IsSecure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionJavascript) pulumi.StringPtrOutput { return v.IsSecure }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
 func (o FunctionJavascriptOutput) LogEventLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionJavascript) pulumi.StringOutput { return v.LogEventLevel }).(pulumi.StringOutput)
 }
 
-// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 func (o FunctionJavascriptOutput) LogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionJavascript) pulumi.StringOutput { return v.LogLevel }).(pulumi.StringOutput)
 }
 
-// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+// Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 func (o FunctionJavascriptOutput) MetricLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionJavascript) pulumi.StringOutput { return v.MetricLevel }).(pulumi.StringOutput)
 }
@@ -504,7 +504,7 @@ func (o FunctionJavascriptOutput) ShowOutputs() FunctionJavascriptShowOutputArra
 	return o.ApplyT(func(v *FunctionJavascript) FunctionJavascriptShowOutputArrayOutput { return v.ShowOutputs }).(FunctionJavascriptShowOutputArrayOutput)
 }
 
-// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 func (o FunctionJavascriptOutput) TraceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionJavascript) pulumi.StringOutput { return v.TraceLevel }).(pulumi.StringOutput)
 }

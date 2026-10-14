@@ -66,14 +66,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     @Import(name="enableConsoleOutput")
     private @Nullable Output<Boolean> enableConsoleOutput;
 
     /**
-     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * @return If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     public Optional<Output<Boolean>> enableConsoleOutput() {
@@ -141,14 +141,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
      * 
      */
     @Import(name="logEventLevel")
     private @Nullable Output<String> logEventLevel;
 
     /**
-     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
      * 
      */
     public Optional<Output<String>> logEventLevel() {
@@ -156,14 +156,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
     /**
-     * @return LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     public Optional<Output<String>> logLevel() {
@@ -171,14 +171,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     @Import(name="metricLevel")
     private @Nullable Output<String> metricLevel;
 
     /**
-     * @return METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * @return Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     public Optional<Output<String>> metricLevel() {
@@ -291,14 +291,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     @Import(name="traceLevel")
     private @Nullable Output<String> traceLevel;
 
     /**
-     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * @return Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     public Optional<Output<String>> traceLevel() {
@@ -421,7 +421,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+         * @param enableConsoleOutput If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+         * @param enableConsoleOutput If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param logLevel LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -558,7 +558,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param logLevel LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param metricLevel METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+         * @param metricLevel Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param metricLevel METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+         * @param metricLevel Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
          * 
          * @return builder
          * 
@@ -756,7 +756,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+         * @param traceLevel Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+         * @param traceLevel Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 

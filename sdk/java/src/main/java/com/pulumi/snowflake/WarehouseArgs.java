@@ -123,14 +123,14 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+     * Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
      * 
      */
     @Import(name="maxConcurrencyLevel")
     private @Nullable Output<Integer> maxConcurrencyLevel;
 
     /**
-     * @return Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+     * @return Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
      * 
      */
     public Optional<Output<Integer>> maxConcurrencyLevel() {
@@ -228,14 +228,14 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+     * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      * 
      */
     @Import(name="statementQueuedTimeoutInSeconds")
     private @Nullable Output<Integer> statementQueuedTimeoutInSeconds;
 
     /**
-     * @return Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+     * @return Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      * 
      */
     public Optional<Output<Integer>> statementQueuedTimeoutInSeconds() {
@@ -243,14 +243,14 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+     * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      * 
      */
     @Import(name="statementTimeoutInSeconds")
     private @Nullable Output<Integer> statementTimeoutInSeconds;
 
     /**
-     * @return Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+     * @return Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      * 
      */
     public Optional<Output<Integer>> statementTimeoutInSeconds() {
@@ -476,7 +476,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxConcurrencyLevel Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+         * @param maxConcurrencyLevel Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxConcurrencyLevel Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+         * @param maxConcurrencyLevel Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementQueuedTimeoutInSeconds Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+         * @param statementQueuedTimeoutInSeconds Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementQueuedTimeoutInSeconds Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+         * @param statementQueuedTimeoutInSeconds Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
          * 
          * @return builder
          * 
@@ -644,7 +644,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementTimeoutInSeconds Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+         * @param statementTimeoutInSeconds Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
          * 
          * @return builder
          * 
@@ -655,7 +655,7 @@ public final class WarehouseArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementTimeoutInSeconds Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+         * @param statementTimeoutInSeconds Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
          * 
          * @return builder
          * 

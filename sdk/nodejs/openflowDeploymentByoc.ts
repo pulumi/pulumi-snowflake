@@ -100,7 +100,7 @@ export class OpenflowDeploymentByoc extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
-     * Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+     * Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
      */
     declare public readonly eventTable: pulumi.Output<string>;
     /**
@@ -207,7 +207,7 @@ export interface OpenflowDeploymentByocState {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+     * Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
      */
     eventTable?: pulumi.Input<string | undefined>;
     /**
@@ -261,7 +261,7 @@ export interface OpenflowDeploymentByocArgs {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+     * Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
      */
     eventTable?: pulumi.Input<string | undefined>;
     /**

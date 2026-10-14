@@ -235,13 +235,13 @@ namespace Pulumi.Snowflake
         public Output<bool> Autocommit { get; private set; } = null!;
 
         /// <summary>
-        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64` | `UTF8`. For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         /// </summary>
         [Output("binaryInputFormat")]
         public Output<string> BinaryInputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64`. For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         /// </summary>
         [Output("binaryOutputFormat")]
         public Output<string> BinaryOutputFormat { get; private set; } = null!;
@@ -289,7 +289,7 @@ namespace Pulumi.Snowflake
         public Output<int> ClientSessionKeepAliveHeartbeatFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         /// </summary>
         [Output("clientTimestampTypeMapping")]
         public Output<string> ClientTimestampTypeMapping { get; private set; } = null!;
@@ -373,7 +373,7 @@ namespace Pulumi.Snowflake
         public Output<bool> EnableUnloadPhysicalTypeOptimization { get; private set; } = null!;
 
         /// <summary>
-        /// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+        /// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If FALSE, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
         /// </summary>
         [Output("enableUnredactedQuerySyntaxError")]
         public Output<bool> EnableUnredactedQuerySyntaxError { get; private set; } = null!;
@@ -397,13 +397,13 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Output("geographyOutputFormat")]
         public Output<string> GeographyOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         /// </summary>
         [Output("geometryOutputFormat")]
         public Output<string> GeometryOutputFormat { get; private set; } = null!;
@@ -415,7 +415,7 @@ namespace Pulumi.Snowflake
         public Output<bool> JdbcTreatDecimalAsInt { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        /// Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         /// </summary>
         [Output("jdbcTreatTimestampNtzAsUtc")]
         public Output<bool> JdbcTreatTimestampNtzAsUtc { get; private set; } = null!;
@@ -439,13 +439,13 @@ namespace Pulumi.Snowflake
         public Output<int> LockTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         /// </summary>
         [Output("logEventLevel")]
         public Output<string> LogEventLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Output("logLevel")]
         public Output<string> LogLevel { get; private set; } = null!;
@@ -481,7 +481,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+        /// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         /// </summary>
         [Output("networkPolicy")]
         public Output<string> NetworkPolicy { get; private set; } = null!;
@@ -511,7 +511,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+        /// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO location](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
         /// </summary>
         [Output("preventUnloadToInternalStages")]
         public Output<bool> PreventUnloadToInternalStages { get; private set; } = null!;
@@ -523,7 +523,7 @@ namespace Pulumi.Snowflake
         public Output<string> QueryTag { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Output("quotedIdentifiersIgnoreCase")]
         public Output<bool> QuotedIdentifiersIgnoreCase { get; private set; } = null!;
@@ -565,7 +565,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.LegacyServiceUserShowOutput>> ShowOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+        /// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
         /// </summary>
         [Output("simulatedDataSharingConsumer")]
         public Output<string> SimulatedDataSharingConsumer { get; private set; } = null!;
@@ -631,7 +631,7 @@ namespace Pulumi.Snowflake
         public Output<string> TimestampOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ` | `TIMESTAMP_TZ`. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         /// </summary>
         [Output("timestampTypeMapping")]
         public Output<string> TimestampTypeMapping { get; private set; } = null!;
@@ -649,7 +649,7 @@ namespace Pulumi.Snowflake
         public Output<string> Timezone { get; private set; } = null!;
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        /// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Output("traceLevel")]
         public Output<string> TraceLevel { get; private set; } = null!;
@@ -661,7 +661,7 @@ namespace Pulumi.Snowflake
         public Output<bool> TransactionAbortOnError { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        /// Specifies the isolation level for transactions in the user session. Valid values are (case-insensitive): `READ COMMITTED`. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         /// </summary>
         [Output("transactionDefaultIsolationLevel")]
         public Output<string> TransactionDefaultIsolationLevel { get; private set; } = null!;
@@ -673,7 +673,7 @@ namespace Pulumi.Snowflake
         public Output<int> TwoDigitCenturyStart { get; private set; } = null!;
 
         /// <summary>
-        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. Valid values are (case-insensitive): `IGNORE` | `FAIL`. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         /// </summary>
         [Output("unsupportedDdlAction")]
         public Output<string> UnsupportedDdlAction { get; private set; } = null!;
@@ -767,13 +767,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? Autocommit { get; set; }
 
         /// <summary>
-        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64` | `UTF8`. For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         /// </summary>
         [Input("binaryInputFormat")]
         public Input<string>? BinaryInputFormat { get; set; }
 
         /// <summary>
-        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64`. For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         /// </summary>
         [Input("binaryOutputFormat")]
         public Input<string>? BinaryOutputFormat { get; set; }
@@ -821,7 +821,7 @@ namespace Pulumi.Snowflake
         public Input<int>? ClientSessionKeepAliveHeartbeatFrequency { get; set; }
 
         /// <summary>
-        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         /// </summary>
         [Input("clientTimestampTypeMapping")]
         public Input<string>? ClientTimestampTypeMapping { get; set; }
@@ -915,7 +915,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableUnloadPhysicalTypeOptimization { get; set; }
 
         /// <summary>
-        /// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+        /// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If FALSE, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
         /// </summary>
         [Input("enableUnredactedQuerySyntaxError")]
         public Input<bool>? EnableUnredactedQuerySyntaxError { get; set; }
@@ -933,13 +933,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? ErrorOnNondeterministicUpdate { get; set; }
 
         /// <summary>
-        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Input("geographyOutputFormat")]
         public Input<string>? GeographyOutputFormat { get; set; }
 
         /// <summary>
-        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         /// </summary>
         [Input("geometryOutputFormat")]
         public Input<string>? GeometryOutputFormat { get; set; }
@@ -951,7 +951,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? JdbcTreatDecimalAsInt { get; set; }
 
         /// <summary>
-        /// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        /// Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         /// </summary>
         [Input("jdbcTreatTimestampNtzAsUtc")]
         public Input<bool>? JdbcTreatTimestampNtzAsUtc { get; set; }
@@ -975,13 +975,13 @@ namespace Pulumi.Snowflake
         public Input<int>? LockTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         /// </summary>
         [Input("logEventLevel")]
         public Input<string>? LogEventLevel { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
@@ -1027,7 +1027,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+        /// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
@@ -1061,7 +1061,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+        /// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO location](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
         /// </summary>
         [Input("preventUnloadToInternalStages")]
         public Input<bool>? PreventUnloadToInternalStages { get; set; }
@@ -1073,7 +1073,7 @@ namespace Pulumi.Snowflake
         public Input<string>? QueryTag { get; set; }
 
         /// <summary>
-        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Input("quotedIdentifiersIgnoreCase")]
         public Input<bool>? QuotedIdentifiersIgnoreCase { get; set; }
@@ -1109,7 +1109,7 @@ namespace Pulumi.Snowflake
         public Input<string>? SearchPath { get; set; }
 
         /// <summary>
-        /// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+        /// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
         /// </summary>
         [Input("simulatedDataSharingConsumer")]
         public Input<string>? SimulatedDataSharingConsumer { get; set; }
@@ -1175,7 +1175,7 @@ namespace Pulumi.Snowflake
         public Input<string>? TimestampOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ` | `TIMESTAMP_TZ`. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         /// </summary>
         [Input("timestampTypeMapping")]
         public Input<string>? TimestampTypeMapping { get; set; }
@@ -1193,7 +1193,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        /// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Input("traceLevel")]
         public Input<string>? TraceLevel { get; set; }
@@ -1205,7 +1205,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? TransactionAbortOnError { get; set; }
 
         /// <summary>
-        /// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        /// Specifies the isolation level for transactions in the user session. Valid values are (case-insensitive): `READ COMMITTED`. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         /// </summary>
         [Input("transactionDefaultIsolationLevel")]
         public Input<string>? TransactionDefaultIsolationLevel { get; set; }
@@ -1217,7 +1217,7 @@ namespace Pulumi.Snowflake
         public Input<int>? TwoDigitCenturyStart { get; set; }
 
         /// <summary>
-        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. Valid values are (case-insensitive): `IGNORE` | `FAIL`. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         /// </summary>
         [Input("unsupportedDdlAction")]
         public Input<string>? UnsupportedDdlAction { get; set; }
@@ -1261,13 +1261,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? Autocommit { get; set; }
 
         /// <summary>
-        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64` | `UTF8`. For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         /// </summary>
         [Input("binaryInputFormat")]
         public Input<string>? BinaryInputFormat { get; set; }
 
         /// <summary>
-        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). Valid values are (case-insensitive): `HEX` | `BASE64`. For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         /// </summary>
         [Input("binaryOutputFormat")]
         public Input<string>? BinaryOutputFormat { get; set; }
@@ -1315,7 +1315,7 @@ namespace Pulumi.Snowflake
         public Input<int>? ClientSessionKeepAliveHeartbeatFrequency { get; set; }
 
         /// <summary>
-        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ`. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         /// </summary>
         [Input("clientTimestampTypeMapping")]
         public Input<string>? ClientTimestampTypeMapping { get; set; }
@@ -1409,7 +1409,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableUnloadPhysicalTypeOptimization { get; set; }
 
         /// <summary>
-        /// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+        /// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If FALSE, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to TRUE for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check [ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
         /// </summary>
         [Input("enableUnredactedQuerySyntaxError")]
         public Input<bool>? EnableUnredactedQuerySyntaxError { get; set; }
@@ -1433,13 +1433,13 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Input("geographyOutputFormat")]
         public Input<string>? GeographyOutputFormat { get; set; }
 
         /// <summary>
-        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). Valid values are (case-insensitive): `GeoJSON` | `WKT` | `WKB` | `EWKT` | `EWKB`. For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         /// </summary>
         [Input("geometryOutputFormat")]
         public Input<string>? GeometryOutputFormat { get; set; }
@@ -1451,7 +1451,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? JdbcTreatDecimalAsInt { get; set; }
 
         /// <summary>
-        /// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        /// Specifies how JDBC processes TIMESTAMP*NTZ values ([more details](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc)). For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         /// </summary>
         [Input("jdbcTreatTimestampNtzAsUtc")]
         public Input<bool>? JdbcTreatTimestampNtzAsUtc { get; set; }
@@ -1475,13 +1475,13 @@ namespace Pulumi.Snowflake
         public Input<int>? LockTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         /// </summary>
         [Input("logEventLevel")]
         public Input<string>? LogEventLevel { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
@@ -1527,7 +1527,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+        /// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
@@ -1573,7 +1573,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+        /// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO location](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
         /// </summary>
         [Input("preventUnloadToInternalStages")]
         public Input<bool>? PreventUnloadToInternalStages { get; set; }
@@ -1585,7 +1585,7 @@ namespace Pulumi.Snowflake
         public Input<string>? QueryTag { get; set; }
 
         /// <summary>
-        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Input("quotedIdentifiersIgnoreCase")]
         public Input<bool>? QuotedIdentifiersIgnoreCase { get; set; }
@@ -1633,7 +1633,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+        /// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
         /// </summary>
         [Input("simulatedDataSharingConsumer")]
         public Input<string>? SimulatedDataSharingConsumer { get; set; }
@@ -1699,7 +1699,7 @@ namespace Pulumi.Snowflake
         public Input<string>? TimestampOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. Valid values are (case-insensitive): `TIMESTAMP_LTZ` | `TIMESTAMP_NTZ` | `TIMESTAMP_TZ`. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         /// </summary>
         [Input("timestampTypeMapping")]
         public Input<string>? TimestampTypeMapping { get; set; }
@@ -1717,7 +1717,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        /// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Input("traceLevel")]
         public Input<string>? TraceLevel { get; set; }
@@ -1729,7 +1729,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? TransactionAbortOnError { get; set; }
 
         /// <summary>
-        /// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        /// Specifies the isolation level for transactions in the user session. Valid values are (case-insensitive): `READ COMMITTED`. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         /// </summary>
         [Input("transactionDefaultIsolationLevel")]
         public Input<string>? TransactionDefaultIsolationLevel { get; set; }
@@ -1741,7 +1741,7 @@ namespace Pulumi.Snowflake
         public Input<int>? TwoDigitCenturyStart { get; set; }
 
         /// <summary>
-        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. Valid values are (case-insensitive): `IGNORE` | `FAIL`. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         /// </summary>
         [Input("unsupportedDdlAction")]
         public Input<string>? UnsupportedDdlAction { get; set; }

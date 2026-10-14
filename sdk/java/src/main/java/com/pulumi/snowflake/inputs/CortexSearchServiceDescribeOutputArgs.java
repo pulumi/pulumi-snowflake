@@ -73,6 +73,13 @@ public final class CortexSearchServiceDescribeOutputArgs extends com.pulumi.reso
         return Optional.ofNullable(this.embeddingModel);
     }
 
+    @Import(name="fullIndexBuildIntervalDays")
+    private @Nullable Output<Integer> fullIndexBuildIntervalDays;
+
+    public Optional<Output<Integer>> fullIndexBuildIntervalDays() {
+        return Optional.ofNullable(this.fullIndexBuildIntervalDays);
+    }
+
     @Import(name="indexingError")
     private @Nullable Output<String> indexingError;
 
@@ -94,11 +101,25 @@ public final class CortexSearchServiceDescribeOutputArgs extends com.pulumi.reso
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="primaryKeyColumns")
+    private @Nullable Output<List<String>> primaryKeyColumns;
+
+    public Optional<Output<List<String>>> primaryKeyColumns() {
+        return Optional.ofNullable(this.primaryKeyColumns);
+    }
+
     @Import(name="schemaName")
     private @Nullable Output<String> schemaName;
 
     public Optional<Output<String>> schemaName() {
         return Optional.ofNullable(this.schemaName);
+    }
+
+    @Import(name="scoringProfileCount")
+    private @Nullable Output<Integer> scoringProfileCount;
+
+    public Optional<Output<Integer>> scoringProfileCount() {
+        return Optional.ofNullable(this.scoringProfileCount);
     }
 
     @Import(name="searchColumn")
@@ -113,6 +134,13 @@ public final class CortexSearchServiceDescribeOutputArgs extends com.pulumi.reso
 
     public Optional<Output<String>> serviceQueryUrl() {
         return Optional.ofNullable(this.serviceQueryUrl);
+    }
+
+    @Import(name="servingState")
+    private @Nullable Output<String> servingState;
+
+    public Optional<Output<String>> servingState() {
+        return Optional.ofNullable(this.servingState);
     }
 
     @Import(name="sourceDataNumRows")
@@ -147,12 +175,16 @@ public final class CortexSearchServiceDescribeOutputArgs extends com.pulumi.reso
         this.databaseName = $.databaseName;
         this.definition = $.definition;
         this.embeddingModel = $.embeddingModel;
+        this.fullIndexBuildIntervalDays = $.fullIndexBuildIntervalDays;
         this.indexingError = $.indexingError;
         this.indexingState = $.indexingState;
         this.name = $.name;
+        this.primaryKeyColumns = $.primaryKeyColumns;
         this.schemaName = $.schemaName;
+        this.scoringProfileCount = $.scoringProfileCount;
         this.searchColumn = $.searchColumn;
         this.serviceQueryUrl = $.serviceQueryUrl;
+        this.servingState = $.servingState;
         this.sourceDataNumRows = $.sourceDataNumRows;
         this.targetLag = $.targetLag;
         this.warehouse = $.warehouse;
@@ -256,6 +288,15 @@ public final class CortexSearchServiceDescribeOutputArgs extends com.pulumi.reso
             return embeddingModel(Output.of(embeddingModel));
         }
 
+        public Builder fullIndexBuildIntervalDays(@Nullable Output<Integer> fullIndexBuildIntervalDays) {
+            $.fullIndexBuildIntervalDays = fullIndexBuildIntervalDays;
+            return this;
+        }
+
+        public Builder fullIndexBuildIntervalDays(Integer fullIndexBuildIntervalDays) {
+            return fullIndexBuildIntervalDays(Output.of(fullIndexBuildIntervalDays));
+        }
+
         public Builder indexingError(@Nullable Output<String> indexingError) {
             $.indexingError = indexingError;
             return this;
@@ -283,6 +324,19 @@ public final class CortexSearchServiceDescribeOutputArgs extends com.pulumi.reso
             return name(Output.of(name));
         }
 
+        public Builder primaryKeyColumns(@Nullable Output<List<String>> primaryKeyColumns) {
+            $.primaryKeyColumns = primaryKeyColumns;
+            return this;
+        }
+
+        public Builder primaryKeyColumns(List<String> primaryKeyColumns) {
+            return primaryKeyColumns(Output.of(primaryKeyColumns));
+        }
+
+        public Builder primaryKeyColumns(String... primaryKeyColumns) {
+            return primaryKeyColumns(List.of(primaryKeyColumns));
+        }
+
         public Builder schemaName(@Nullable Output<String> schemaName) {
             $.schemaName = schemaName;
             return this;
@@ -290,6 +344,15 @@ public final class CortexSearchServiceDescribeOutputArgs extends com.pulumi.reso
 
         public Builder schemaName(String schemaName) {
             return schemaName(Output.of(schemaName));
+        }
+
+        public Builder scoringProfileCount(@Nullable Output<Integer> scoringProfileCount) {
+            $.scoringProfileCount = scoringProfileCount;
+            return this;
+        }
+
+        public Builder scoringProfileCount(Integer scoringProfileCount) {
+            return scoringProfileCount(Output.of(scoringProfileCount));
         }
 
         public Builder searchColumn(@Nullable Output<String> searchColumn) {
@@ -308,6 +371,15 @@ public final class CortexSearchServiceDescribeOutputArgs extends com.pulumi.reso
 
         public Builder serviceQueryUrl(String serviceQueryUrl) {
             return serviceQueryUrl(Output.of(serviceQueryUrl));
+        }
+
+        public Builder servingState(@Nullable Output<String> servingState) {
+            $.servingState = servingState;
+            return this;
+        }
+
+        public Builder servingState(String servingState) {
+            return servingState(Output.of(servingState));
         }
 
         public Builder sourceDataNumRows(@Nullable Output<Integer> sourceDataNumRows) {

@@ -20,8 +20,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * &gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- * 
  * &gt; **Note** Creating interactive warehouse on Snowflake switches the session onto the new warehouse, same as creating any warehouse. The provider automatically restores the session to whichever warehouse (or lack of one) was active beforehand. If none was selected, Snowflake has no way to directly unset the current warehouse, so the provider may briefly create and drop a small helper warehouse (named with a `TF_TEMP_` prefix) to achieve the same effect - you may notice it appear and disappear in `SHOW WAREHOUSES` or query history.
  * 
  * Resource used to manage interactive warehouse objects. Interactive warehouses are optimized for low-latency, high-concurrency queries against a defined set of tables. For more information, check [interactive warehouse documentation](https://docs.snowflake.com/en/user-guide/warehouses-interactive).
@@ -147,14 +145,14 @@ public class WarehouseInteractive extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Specifies the name of the fallback warehouse for the interactive warehouse. For more information about this resource, see docs.
+     * If not null, specifies the warehouse to use as a fallback for statements that timed out. For more information, check [FALLBACK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#fallback-warehouse).
      * 
      */
     @Export(name="fallbackWarehouse", refs={String.class}, tree="[0]")
     private Output<String> fallbackWarehouse;
 
     /**
-     * @return Specifies the name of the fallback warehouse for the interactive warehouse. For more information about this resource, see docs.
+     * @return If not null, specifies the warehouse to use as a fallback for statements that timed out. For more information, check [FALLBACK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#fallback-warehouse).
      * 
      */
     public Output<String> fallbackWarehouse() {
@@ -203,14 +201,14 @@ public class WarehouseInteractive extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxClusterCount);
     }
     /**
-     * Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by an interactive warehouse.
+     * Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
      * 
      */
     @Export(name="maxConcurrencyLevel", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxConcurrencyLevel;
 
     /**
-     * @return Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by an interactive warehouse.
+     * @return Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
      * 
      */
     public Output<Integer> maxConcurrencyLevel() {
@@ -287,28 +285,28 @@ public class WarehouseInteractive extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on an interactive warehouse before it is canceled by the system.
+     * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      * 
      */
     @Export(name="statementQueuedTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> statementQueuedTimeoutInSeconds;
 
     /**
-     * @return Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on an interactive warehouse before it is canceled by the system.
+     * @return Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      * 
      */
     public Output<Integer> statementQueuedTimeoutInSeconds() {
         return this.statementQueuedTimeoutInSeconds;
     }
     /**
-     * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+     * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      * 
      */
     @Export(name="statementTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> statementTimeoutInSeconds;
 
     /**
-     * @return Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+     * @return Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      * 
      */
     public Output<Integer> statementTimeoutInSeconds() {

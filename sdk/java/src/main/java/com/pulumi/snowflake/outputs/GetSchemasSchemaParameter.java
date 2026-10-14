@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterCatalog;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterDataRetentionTimeInDay;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterDefaultDdlCollation;
+import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolCpus;
+import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolGpus;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterEnableConsoleOutput;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterExternalVolume;
 import com.pulumi.snowflake.outputs.GetSchemasSchemaParameterLogEventLevel;
@@ -31,6 +33,8 @@ public final class GetSchemasSchemaParameter {
     private List<GetSchemasSchemaParameterCatalog> catalogs;
     private List<GetSchemasSchemaParameterDataRetentionTimeInDay> dataRetentionTimeInDays;
     private List<GetSchemasSchemaParameterDefaultDdlCollation> defaultDdlCollations;
+    private List<GetSchemasSchemaParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus;
+    private List<GetSchemasSchemaParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus;
     private List<GetSchemasSchemaParameterEnableConsoleOutput> enableConsoleOutputs;
     private List<GetSchemasSchemaParameterExternalVolume> externalVolumes;
     private List<GetSchemasSchemaParameterLogEventLevel> logEventLevels;
@@ -56,6 +60,12 @@ public final class GetSchemasSchemaParameter {
     }
     public List<GetSchemasSchemaParameterDefaultDdlCollation> defaultDdlCollations() {
         return this.defaultDdlCollations;
+    }
+    public List<GetSchemasSchemaParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus() {
+        return this.defaultNotebookComputePoolCpus;
+    }
+    public List<GetSchemasSchemaParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus() {
+        return this.defaultNotebookComputePoolGpus;
     }
     public List<GetSchemasSchemaParameterEnableConsoleOutput> enableConsoleOutputs() {
         return this.enableConsoleOutputs;
@@ -115,6 +125,8 @@ public final class GetSchemasSchemaParameter {
         private List<GetSchemasSchemaParameterCatalog> catalogs;
         private List<GetSchemasSchemaParameterDataRetentionTimeInDay> dataRetentionTimeInDays;
         private List<GetSchemasSchemaParameterDefaultDdlCollation> defaultDdlCollations;
+        private List<GetSchemasSchemaParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus;
+        private List<GetSchemasSchemaParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus;
         private List<GetSchemasSchemaParameterEnableConsoleOutput> enableConsoleOutputs;
         private List<GetSchemasSchemaParameterExternalVolume> externalVolumes;
         private List<GetSchemasSchemaParameterLogEventLevel> logEventLevels;
@@ -136,6 +148,8 @@ public final class GetSchemasSchemaParameter {
     	      this.catalogs = defaults.catalogs;
     	      this.dataRetentionTimeInDays = defaults.dataRetentionTimeInDays;
     	      this.defaultDdlCollations = defaults.defaultDdlCollations;
+    	      this.defaultNotebookComputePoolCpus = defaults.defaultNotebookComputePoolCpus;
+    	      this.defaultNotebookComputePoolGpus = defaults.defaultNotebookComputePoolGpus;
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
     	      this.externalVolumes = defaults.externalVolumes;
     	      this.logEventLevels = defaults.logEventLevels;
@@ -185,6 +199,28 @@ public final class GetSchemasSchemaParameter {
         }
         public Builder defaultDdlCollations(GetSchemasSchemaParameterDefaultDdlCollation... defaultDdlCollations) {
             return defaultDdlCollations(List.of(defaultDdlCollations));
+        }
+        @CustomType.Setter
+        public Builder defaultNotebookComputePoolCpus(List<GetSchemasSchemaParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus) {
+            if (defaultNotebookComputePoolCpus == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchemaParameter", "defaultNotebookComputePoolCpus");
+            }
+            this.defaultNotebookComputePoolCpus = defaultNotebookComputePoolCpus;
+            return this;
+        }
+        public Builder defaultNotebookComputePoolCpus(GetSchemasSchemaParameterDefaultNotebookComputePoolCpus... defaultNotebookComputePoolCpus) {
+            return defaultNotebookComputePoolCpus(List.of(defaultNotebookComputePoolCpus));
+        }
+        @CustomType.Setter
+        public Builder defaultNotebookComputePoolGpus(List<GetSchemasSchemaParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus) {
+            if (defaultNotebookComputePoolGpus == null) {
+              throw new MissingRequiredPropertyException("GetSchemasSchemaParameter", "defaultNotebookComputePoolGpus");
+            }
+            this.defaultNotebookComputePoolGpus = defaultNotebookComputePoolGpus;
+            return this;
+        }
+        public Builder defaultNotebookComputePoolGpus(GetSchemasSchemaParameterDefaultNotebookComputePoolGpus... defaultNotebookComputePoolGpus) {
+            return defaultNotebookComputePoolGpus(List.of(defaultNotebookComputePoolGpus));
         }
         @CustomType.Setter
         public Builder enableConsoleOutputs(List<GetSchemasSchemaParameterEnableConsoleOutput> enableConsoleOutputs) {
@@ -356,6 +392,8 @@ public final class GetSchemasSchemaParameter {
             _resultValue.catalogs = catalogs;
             _resultValue.dataRetentionTimeInDays = dataRetentionTimeInDays;
             _resultValue.defaultDdlCollations = defaultDdlCollations;
+            _resultValue.defaultNotebookComputePoolCpus = defaultNotebookComputePoolCpus;
+            _resultValue.defaultNotebookComputePoolGpus = defaultNotebookComputePoolGpus;
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
             _resultValue.externalVolumes = externalVolumes;
             _resultValue.logEventLevels = logEventLevels;

@@ -14,6 +14,7 @@ import javax.annotation.Nullable;
 public final class FileFormatXmlDescribeOutput {
     private @Nullable String compression;
     private @Nullable Boolean disableAutoConvert;
+    private @Nullable Boolean disableSnowflakeData;
     private @Nullable String id;
     private @Nullable Boolean ignoreUtf8Errors;
     private @Nullable Boolean preserveSpace;
@@ -28,6 +29,9 @@ public final class FileFormatXmlDescribeOutput {
     }
     public Optional<Boolean> disableAutoConvert() {
         return Optional.ofNullable(this.disableAutoConvert);
+    }
+    public Optional<Boolean> disableSnowflakeData() {
+        return Optional.ofNullable(this.disableSnowflakeData);
     }
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -62,6 +66,7 @@ public final class FileFormatXmlDescribeOutput {
     public static final class Builder {
         private @Nullable String compression;
         private @Nullable Boolean disableAutoConvert;
+        private @Nullable Boolean disableSnowflakeData;
         private @Nullable String id;
         private @Nullable Boolean ignoreUtf8Errors;
         private @Nullable Boolean preserveSpace;
@@ -74,6 +79,7 @@ public final class FileFormatXmlDescribeOutput {
     	      Objects.requireNonNull(defaults);
     	      this.compression = defaults.compression;
     	      this.disableAutoConvert = defaults.disableAutoConvert;
+    	      this.disableSnowflakeData = defaults.disableSnowflakeData;
     	      this.id = defaults.id;
     	      this.ignoreUtf8Errors = defaults.ignoreUtf8Errors;
     	      this.preserveSpace = defaults.preserveSpace;
@@ -93,6 +99,12 @@ public final class FileFormatXmlDescribeOutput {
         public Builder disableAutoConvert(@Nullable Boolean disableAutoConvert) {
 
             this.disableAutoConvert = disableAutoConvert;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableSnowflakeData(@Nullable Boolean disableSnowflakeData) {
+
+            this.disableSnowflakeData = disableSnowflakeData;
             return this;
         }
         @CustomType.Setter
@@ -141,6 +153,7 @@ public final class FileFormatXmlDescribeOutput {
             final var _resultValue = new FileFormatXmlDescribeOutput();
             _resultValue.compression = compression;
             _resultValue.disableAutoConvert = disableAutoConvert;
+            _resultValue.disableSnowflakeData = disableSnowflakeData;
             _resultValue.id = id;
             _resultValue.ignoreUtf8Errors = ignoreUtf8Errors;
             _resultValue.preserveSpace = preserveSpace;

@@ -54,10 +54,14 @@ type Service struct {
 	MinReadyInstances pulumi.IntPtrOutput `pulumi:"minReadyInstances"`
 	// Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+	Parameters ServiceParameterArrayOutput `pulumi:"parameters"`
 	// Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	QueryWarehouse pulumi.StringPtrOutput `pulumi:"queryWarehouse"`
 	// The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
+	// Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+	ServiceCallerTokenValiditySecs pulumi.IntOutput `pulumi:"serviceCallerTokenValiditySecs"`
 	// Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
 	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
 	// Outputs the result of `SHOW SERVICES` for the given service.
@@ -131,10 +135,14 @@ type serviceState struct {
 	MinReadyInstances *int `pulumi:"minReadyInstances"`
 	// Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
+	// Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+	Parameters []ServiceParameter `pulumi:"parameters"`
 	// Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	QueryWarehouse *string `pulumi:"queryWarehouse"`
 	// The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
+	// Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+	ServiceCallerTokenValiditySecs *int `pulumi:"serviceCallerTokenValiditySecs"`
 	// Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
 	ServiceType *string `pulumi:"serviceType"`
 	// Outputs the result of `SHOW SERVICES` for the given service.
@@ -170,10 +178,14 @@ type ServiceState struct {
 	MinReadyInstances pulumi.IntPtrInput
 	// Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
+	// Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+	Parameters ServiceParameterArrayInput
 	// Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	QueryWarehouse pulumi.StringPtrInput
 	// The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
+	// Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+	ServiceCallerTokenValiditySecs pulumi.IntPtrInput
 	// Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
 	ServiceType pulumi.StringPtrInput
 	// Outputs the result of `SHOW SERVICES` for the given service.
@@ -213,6 +225,8 @@ type serviceArgs struct {
 	QueryWarehouse *string `pulumi:"queryWarehouse"`
 	// The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
+	// Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+	ServiceCallerTokenValiditySecs *int `pulumi:"serviceCallerTokenValiditySecs"`
 }
 
 // The set of arguments for constructing a Service resource.
@@ -245,6 +259,8 @@ type ServiceArgs struct {
 	QueryWarehouse pulumi.StringPtrInput
 	// The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
+	// Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+	ServiceCallerTokenValiditySecs pulumi.IntPtrInput
 }
 
 func (ServiceArgs) ElementType() reflect.Type {
@@ -404,6 +420,11 @@ func (o ServiceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+func (o ServiceOutput) Parameters() ServiceParameterArrayOutput {
+	return o.ApplyT(func(v *Service) ServiceParameterArrayOutput { return v.Parameters }).(ServiceParameterArrayOutput)
+}
+
 // Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ServiceOutput) QueryWarehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.QueryWarehouse }).(pulumi.StringPtrOutput)
@@ -412,6 +433,11 @@ func (o ServiceOutput) QueryWarehouse() pulumi.StringPtrOutput {
 // The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ServiceOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
+}
+
+// Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+func (o ServiceOutput) ServiceCallerTokenValiditySecs() pulumi.IntOutput {
+	return o.ApplyT(func(v *Service) pulumi.IntOutput { return v.ServiceCallerTokenValiditySecs }).(pulumi.IntOutput)
 }
 
 // Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.

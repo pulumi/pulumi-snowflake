@@ -67,18 +67,18 @@ import javax.annotation.Nullable;
  * 
  *         //# Complete (with every optional set)
  *         var complete = new CurrentOrganizationAccount("complete", CurrentOrganizationAccountArgs.builder()
- *             .comment("This is a comment for the current organization account resource")
- *             .resourceMonitor(exampleSnowflakeResourceMonitor.get("fullyQualifiedName"))
- *             .sessionPolicy("\"<database_name>\".\"<schema_name>\".\"<session_policy_name>\"")
- *             .passwordPolicy(exampleSnowflakePasswordPolicy.get("fullyQualifiedName"))
  *             .abortDetachedQuery(true)
+ *             .activePythonProfiler("LINE")
+ *             .allowBindValuesAccess(true)
  *             .allowClientMfaCaching(true)
  *             .allowIdToken(true)
+ *             .allowedSpcsWorkloadTypes("ALL")
  *             .autocommit(false)
  *             .baseLocationPrefix("STORAGE_BASE_URL/")
  *             .binaryInputFormat("BASE64")
  *             .binaryOutputFormat("BASE64")
  *             .catalog("SNOWFLAKE")
+ *             .catalogSync("MY_OPEN_CATALOG_INTEGRATION")
  *             .clientEnableLogInfoStatementParameters(true)
  *             .clientEncryptionKeySize(256)
  *             .clientMemoryLimit(1540)
@@ -90,22 +90,40 @@ import javax.annotation.Nullable;
  *             .clientSessionKeepAlive(true)
  *             .clientSessionKeepAliveHeartbeatFrequency(3599)
  *             .clientTimestampTypeMapping("TIMESTAMP_NTZ")
+ *             .comment("This is a comment for the current organization account resource")
+ *             .cortexCodeCliDailyEstCreditLimitPerUser(10)
+ *             .cortexCodeDesktopDailyEstCreditLimitPerUser(20)
+ *             .cortexCodeSnowsightDailyEstCreditLimitPerUser(30)
  *             .cortexEnabledCrossRegion("ANY_REGION")
- *             .cortexModelsAllowlist("All")
+ *             .cortexModelsAllowlist("NONE")
  *             .csvTimestampFormat("YYYY-MM-DD")
+ *             .dataMetricSchedule("60 MINUTES")
  *             .dataRetentionTimeInDays(2)
  *             .dateInputFormat("YYYY-MM-DD")
  *             .dateOutputFormat("YYYY-MM-DD")
+ *             .defaultDbtVersion("1.9.4")
  *             .defaultDdlCollation("en-cs")
  *             .defaultNotebookComputePoolCpu("CPU_X64_S")
  *             .defaultNotebookComputePoolGpu("GPU_NV_S")
  *             .defaultNullOrdering("FIRST")
+ *             .defaultStreamlitComputePool("SYSTEM_COMPUTE_POOL_CPU")
  *             .defaultStreamlitNotebookWarehouse(example.get("fullyQualifiedName"))
  *             .disableUiDownloadButton(true)
  *             .disableUserPrivilegeGrants(true)
+ *             .disallowedSpcsWorkloadTypes("")
  *             .enableAutomaticSensitiveDataClassificationLog(false)
+ *             .enableBudgetEventLogging(true)
+ *             .enableCortexAnalyst(false)
+ *             .enableDataCompaction(true)
  *             .enableEgressCostOptimizer(false)
+ *             .enableGetDdlUseDataTypeAlias(false)
+ *             .enableIcebergMergeOnRead(true)
  *             .enableIdentifierFirstLogin(false)
+ *             .enableInternalStagesPrivatelink(true)
+ *             .enableNotebookCreationInPersonalDb(false)
+ *             .enablePerAccountAppServicePrivatelinkUrl(true)
+ *             .enableSpcsBlockStorageSnowflakeFullEncryptionEnforcement(false)
+ *             .enableTagPropagationEventLogging(false)
  *             .enableTriSecretAndRekeyOptOutForImageRepository(true)
  *             .enableTriSecretAndRekeyOptOutForSpcsBlockStorage(true)
  *             .enableUnhandledExceptionsReporting(false)
@@ -121,6 +139,7 @@ import javax.annotation.Nullable;
  *             .geographyOutputFormat("WKT")
  *             .geometryOutputFormat("WKT")
  *             .hybridTableLockTimeout(3599)
+ *             .icebergVersionDefault(2)
  *             .initialReplicationSizeLimitInTb("9.9")
  *             .jdbcTreatDecimalAsInt(false)
  *             .jdbcTreatTimestampNtzAsUtc(true)
@@ -129,6 +148,7 @@ import javax.annotation.Nullable;
  *             .jsonIndent(4)
  *             .listingAutoFulfillmentReplicationRefreshSchedule("2 minutes")
  *             .lockTimeout(43201)
+ *             .logEventLevel("INFO")
  *             .logLevel("INFO")
  *             .maxConcurrencyLevel(7)
  *             .maxDataExtensionTimeInDays(13)
@@ -139,20 +159,29 @@ import javax.annotation.Nullable;
  *             .noorderSequenceAsDefault(false)
  *             .oauthAddPrivilegedRolesToBlockedList(false)
  *             .odbcTreatDecimalAsInt(true)
+ *             .passwordPolicy(exampleSnowflakePasswordPolicy.get("fullyQualifiedName"))
  *             .periodicDataRekeying(false)
  *             .pipeExecutionPaused(true)
  *             .preventUnloadToInlineUrl(true)
  *             .preventUnloadToInternalStages(true)
+ *             .pythonProfilerModules("numpy, pandas")
  *             .pythonProfilerTargetStage(exampleSnowflakeStage.get("fullyQualifiedName"))
  *             .queryTag("test-query-tag")
  *             .quotedIdentifiersIgnoreCase(true)
+ *             .readConsistencyMode("SESSION")
  *             .replaceInvalidCharacters(true)
  *             .requireStorageIntegrationForStageCreation(true)
  *             .requireStorageIntegrationForStageOperation(true)
+ *             .resourceMonitor(exampleSnowflakeResourceMonitor.get("fullyQualifiedName"))
+ *             .rowTimestampDefault(false)
  *             .rowsPerResultset(1000)
+ *             .s3StageVpceDnsName("vpce-id.s3.region.vpce.amazonaws.com")
  *             .searchPath("$current, $public")
  *             .serverlessTaskMaxStatementSize("XLARGE")
  *             .serverlessTaskMinStatementSize("SMALL")
+ *             .sessionPolicy("\"<database_name>\".\"<schema_name>\".\"<session_policy_name>\"")
+ *             .simulatedDataSharingConsumer("some_consumer")
+ *             .sqlTraceQueryText("OFF")
  *             .ssoLoginPage(true)
  *             .statementQueuedTimeoutInSeconds(1)
  *             .statementTimeoutInSeconds(1)
@@ -176,6 +205,7 @@ import javax.annotation.Nullable;
  *             .twoDigitCenturyStart(1971)
  *             .unsupportedDdlAction("FAIL")
  *             .useCachedResult(false)
+ *             .useWorkspacesForSql("always")
  *             .userTaskManagedInitialWarehouseSize("SMALL")
  *             .userTaskMinimumTriggerIntervalInSeconds(10)
  *             .userTaskTimeoutMs(10)
@@ -228,6 +258,20 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.activePythonProfiler;
     }
     /**
+     * Used to allow clients to access bind variable values. For more information, check [ALLOW*BIND*VALUES_ACCESS docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-bind-values-access).
+     * 
+     */
+    @Export(name="allowBindValuesAccess", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> allowBindValuesAccess;
+
+    /**
+     * @return Used to allow clients to access bind variable values. For more information, check [ALLOW*BIND*VALUES_ACCESS docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-bind-values-access).
+     * 
+     */
+    public Output<Boolean> allowBindValuesAccess() {
+        return this.allowBindValuesAccess;
+    }
+    /**
      * Specifies whether an MFA token can be saved in the client-side operating system keystore to promote continuous, secure connectivity without users needing to respond to an MFA prompt at the start of each connection attempt to Snowflake. For details and the list of supported Snowflake-provided clients, see [Using MFA token caching to minimize the number of prompts during authentication — optional.](https://docs.snowflake.com/en/user-guide/security-mfa.html#label-mfa-token-caching) For more information, check [ALLOW*CLIENT*MFA_CACHING docs](https://docs.snowflake.com/en/sql-reference/parameters#allow-client-mfa-caching).
      * 
      */
@@ -254,6 +298,20 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
      */
     public Output<Boolean> allowIdToken() {
         return this.allowIdToken;
+    }
+    /**
+     * Used to specify the workload types that are allowed in your account to deploy to Snowpark Container Services. For more information, check [ALLOWED*SPCS*WORKLOAD_TYPES docs](https://docs.snowflake.com/en/sql-reference/parameters#allowed-spcs-workload-types).
+     * 
+     */
+    @Export(name="allowedSpcsWorkloadTypes", refs={String.class}, tree="[0]")
+    private Output<String> allowedSpcsWorkloadTypes;
+
+    /**
+     * @return Used to specify the workload types that are allowed in your account to deploy to Snowpark Container Services. For more information, check [ALLOWED*SPCS*WORKLOAD_TYPES docs](https://docs.snowflake.com/en/sql-reference/parameters#allowed-spcs-workload-types).
+     * 
+     */
+    public Output<String> allowedSpcsWorkloadTypes() {
+        return this.allowedSpcsWorkloadTypes;
     }
     /**
      * Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
@@ -312,42 +370,42 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.binaryOutputFormat;
     }
     /**
-     * Specifies the catalog for Apache Iceberg™ tables. For more information, see the [Iceberg table documentation](https://docs.snowflake.com/en/user-guide/tables-iceberg.html#label-tables-iceberg-catalog-def). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+     * The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     @Export(name="catalog", refs={String.class}, tree="[0]")
     private Output<String> catalog;
 
     /**
-     * @return Specifies the catalog for Apache Iceberg™ tables. For more information, see the [Iceberg table documentation](https://docs.snowflake.com/en/user-guide/tables-iceberg.html#label-tables-iceberg-catalog-def). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+     * @return The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     public Output<String> catalog() {
         return this.catalog;
     }
     /**
-     * Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+     * Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
      * 
      */
     @Export(name="catalogSync", refs={String.class}, tree="[0]")
     private Output<String> catalogSync;
 
     /**
-     * @return Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+     * @return Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
      * 
      */
     public Output<String> catalogSync() {
         return this.catalogSync;
     }
     /**
-     * Enables users to log the data values bound to [PreparedStatements](https://docs.snowflake.com/en/developer-guide/jdbc/jdbc-api.html#label-jdbc-api-preparedstatement) ([more details](https://docs.snowflake.com/en/sql-reference/parameters#client-enable-log-info-statement-parameters)). For more information, check [CLIENT*ENABLE*LOG*INFO*STATEMENT_PARAMETERS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-enable-log-info-statement-parameters).
+     * Enables users to log the data values bound to [PreparedStatements](https://docs.snowflake.com/en/developer-guide/jdbc/jdbc-api.html#label-jdbc-api-preparedstatement). For more information, check [CLIENT*ENABLE*LOG*INFO*STATEMENT_PARAMETERS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-enable-log-info-statement-parameters).
      * 
      */
     @Export(name="clientEnableLogInfoStatementParameters", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> clientEnableLogInfoStatementParameters;
 
     /**
-     * @return Enables users to log the data values bound to [PreparedStatements](https://docs.snowflake.com/en/developer-guide/jdbc/jdbc-api.html#label-jdbc-api-preparedstatement) ([more details](https://docs.snowflake.com/en/sql-reference/parameters#client-enable-log-info-statement-parameters)). For more information, check [CLIENT*ENABLE*LOG*INFO*STATEMENT_PARAMETERS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-enable-log-info-statement-parameters).
+     * @return Enables users to log the data values bound to [PreparedStatements](https://docs.snowflake.com/en/developer-guide/jdbc/jdbc-api.html#label-jdbc-api-preparedstatement). For more information, check [CLIENT*ENABLE*LOG*INFO*STATEMENT_PARAMETERS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-enable-log-info-statement-parameters).
      * 
      */
     public Output<Boolean> clientEnableLogInfoStatementParameters() {
@@ -592,14 +650,28 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.csvTimestampFormat;
     }
     /**
-     * Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see [Understanding &amp; using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+     * Specifies the schedule to run the data metric functions associated to the table. All data metric functions on the table or view follow the same schedule. For more information, check [DATA*METRIC*SCHEDULE docs](https://docs.snowflake.com/en/sql-reference/parameters#data-metric-schedule).
+     * 
+     */
+    @Export(name="dataMetricSchedule", refs={String.class}, tree="[0]")
+    private Output<String> dataMetricSchedule;
+
+    /**
+     * @return Specifies the schedule to run the data metric functions associated to the table. All data metric functions on the table or view follow the same schedule. For more information, check [DATA*METRIC*SCHEDULE docs](https://docs.snowflake.com/en/sql-reference/parameters#data-metric-schedule).
+     * 
+     */
+    public Output<String> dataMetricSchedule() {
+        return this.dataMetricSchedule;
+    }
+    /**
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
      * 
      */
     @Export(name="dataRetentionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> dataRetentionTimeInDays;
 
     /**
-     * @return Number of days for which Snowflake retains historical data for performing Time Travel actions (SELECT, CLONE, UNDROP) on the object. A value of 0 effectively disables Time Travel for the specified database, schema, or table. For more information, see [Understanding &amp; using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+     * @return Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
      * 
      */
     public Output<Integer> dataRetentionTimeInDays() {
@@ -634,42 +706,56 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.dateOutputFormat;
     }
     /**
-     * Sets the default collation used for the following DDL operations: [CREATE TABLE](https://docs.snowflake.com/en/sql-reference/sql/create-table), [ALTER TABLE](https://docs.snowflake.com/en/sql-reference/sql/alter-table) … ADD COLUMN. Setting this parameter forces all subsequently-created columns in the affected objects (table, schema, database, or account) to have the specified collation as the default, unless the collation for the column is explicitly defined in the DDL. For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
+     * Used to set the default version for all future dbt project objects created in an account. For more information, check [DEFAULT*DBT*VERSION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-dbt-version).
+     * 
+     */
+    @Export(name="defaultDbtVersion", refs={String.class}, tree="[0]")
+    private Output<String> defaultDbtVersion;
+
+    /**
+     * @return Used to set the default version for all future dbt project objects created in an account. For more information, check [DEFAULT*DBT*VERSION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-dbt-version).
+     * 
+     */
+    public Output<String> defaultDbtVersion() {
+        return this.defaultDbtVersion;
+    }
+    /**
+     * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification). For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
      * 
      */
     @Export(name="defaultDdlCollation", refs={String.class}, tree="[0]")
     private Output<String> defaultDdlCollation;
 
     /**
-     * @return Sets the default collation used for the following DDL operations: [CREATE TABLE](https://docs.snowflake.com/en/sql-reference/sql/create-table), [ALTER TABLE](https://docs.snowflake.com/en/sql-reference/sql/alter-table) … ADD COLUMN. Setting this parameter forces all subsequently-created columns in the affected objects (table, schema, database, or account) to have the specified collation as the default, unless the collation for the column is explicitly defined in the DDL. For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
+     * @return Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification). For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
      * 
      */
     public Output<String> defaultDdlCollation() {
         return this.defaultDdlCollation;
     }
     /**
-     * Sets the preferred CPU compute pool used for [Notebooks on CPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
      * 
      */
     @Export(name="defaultNotebookComputePoolCpu", refs={String.class}, tree="[0]")
     private Output<String> defaultNotebookComputePoolCpu;
 
     /**
-     * @return Sets the preferred CPU compute pool used for [Notebooks on CPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
+     * @return Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
      * 
      */
     public Output<String> defaultNotebookComputePoolCpu() {
         return this.defaultNotebookComputePoolCpu;
     }
     /**
-     * Sets the preferred GPU compute pool used for [Notebooks on GPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
      * 
      */
     @Export(name="defaultNotebookComputePoolGpu", refs={String.class}, tree="[0]")
     private Output<String> defaultNotebookComputePoolGpu;
 
     /**
-     * @return Sets the preferred GPU compute pool used for [Notebooks on GPU Container Runtime](https://docs.snowflake.com/en/developer-guide/snowflake-ml/notebooks-on-spcs). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
+     * @return Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
      * 
      */
     public Output<String> defaultNotebookComputePoolGpu() {
@@ -690,28 +776,28 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.defaultNullOrdering;
     }
     /**
-     * Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+     * Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
      * 
      */
     @Export(name="defaultStreamlitComputePool", refs={String.class}, tree="[0]")
     private Output<String> defaultStreamlitComputePool;
 
     /**
-     * @return Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
+     * @return Specifies the name of the default compute pool to use when creating container-runtime Streamlit apps. For more information, check [DEFAULT*STREAMLIT*COMPUTE_POOL docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-compute-pool).
      * 
      */
     public Output<String> defaultStreamlitComputePool() {
         return this.defaultStreamlitComputePool;
     }
     /**
-     * Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
+     * Specifies the name of the default warehouse to use when creating a notebook. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
      * 
      */
     @Export(name="defaultStreamlitNotebookWarehouse", refs={String.class}, tree="[0]")
     private Output<String> defaultStreamlitNotebookWarehouse;
 
     /**
-     * @return Specifies the name of the default warehouse to use when creating a notebook. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
+     * @return Specifies the name of the default warehouse to use when creating a notebook. For more information, check [DEFAULT*STREAMLIT*NOTEBOOK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#default-streamlit-notebook-warehouse).
      * 
      */
     public Output<String> defaultStreamlitNotebookWarehouse() {
@@ -746,6 +832,20 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.disableUserPrivilegeGrants;
     }
     /**
+     * Used to specify the workload types that are disallowed in your account to deploy to Snowpark Container Services. For more information, check [DISALLOWED*SPCS*WORKLOAD_TYPES docs](https://docs.snowflake.com/en/sql-reference/parameters#disallowed-spcs-workload-types).
+     * 
+     */
+    @Export(name="disallowedSpcsWorkloadTypes", refs={String.class}, tree="[0]")
+    private Output<String> disallowedSpcsWorkloadTypes;
+
+    /**
+     * @return Used to specify the workload types that are disallowed in your account to deploy to Snowpark Container Services. For more information, check [DISALLOWED*SPCS*WORKLOAD_TYPES docs](https://docs.snowflake.com/en/sql-reference/parameters#disallowed-spcs-workload-types).
+     * 
+     */
+    public Output<String> disallowedSpcsWorkloadTypes() {
+        return this.disallowedSpcsWorkloadTypes;
+    }
+    /**
      * Controls whether events from [automatic sensitive data classification](https://docs.snowflake.com/en/user-guide/classify-auto) are logged in the user event table. For more information, check [ENABLE*AUTOMATIC*SENSITIVE*DATA*CLASSIFICATION_LOG docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-automatic-sensitive-data-classification-log).
      * 
      */
@@ -760,6 +860,48 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.enableAutomaticSensitiveDataClassificationLog;
     }
     /**
+     * Controls whether events from budgets are logged to the event table. For more information, check [ENABLE*BUDGET*EVENT_LOGGING docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-budget-event-logging).
+     * 
+     */
+    @Export(name="enableBudgetEventLogging", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableBudgetEventLogging;
+
+    /**
+     * @return Controls whether events from budgets are logged to the event table. For more information, check [ENABLE*BUDGET*EVENT_LOGGING docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-budget-event-logging).
+     * 
+     */
+    public Output<Boolean> enableBudgetEventLogging() {
+        return this.enableBudgetEventLogging;
+    }
+    /**
+     * Controls whether Cortex Analyst is enabled for the account. For more information, check [ENABLE*CORTEX*ANALYST docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-cortex-analyst).
+     * 
+     */
+    @Export(name="enableCortexAnalyst", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableCortexAnalyst;
+
+    /**
+     * @return Controls whether Cortex Analyst is enabled for the account. For more information, check [ENABLE*CORTEX*ANALYST docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-cortex-analyst).
+     * 
+     */
+    public Output<Boolean> enableCortexAnalyst() {
+        return this.enableCortexAnalyst;
+    }
+    /**
+     * Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+     * 
+     */
+    @Export(name="enableDataCompaction", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableDataCompaction;
+
+    /**
+     * @return Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+     * 
+     */
+    public Output<Boolean> enableDataCompaction() {
+        return this.enableDataCompaction;
+    }
+    /**
      * Enables or disables the Listing Cross-cloud auto-fulfillment Egress cost optimizer. For more information, check [ENABLE*EGRESS*COST_OPTIMIZER docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-egress-cost-optimizer).
      * 
      */
@@ -772,6 +914,34 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
      */
     public Output<Boolean> enableEgressCostOptimizer() {
         return this.enableEgressCostOptimizer;
+    }
+    /**
+     * Specifies whether the output returned by the GET*DDL function contains data type synonyms specified in the original DDL statement. Data type synonyms are also called data type aliases. For more information, check *GET*DDL*USE*DATA*TYPE_ALIAS docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-get-ddl-use-data-type-alias).
+     * 
+     */
+    @Export(name="enableGetDdlUseDataTypeAlias", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableGetDdlUseDataTypeAlias;
+
+    /**
+     * @return Specifies whether the output returned by the GET*DDL function contains data type synonyms specified in the original DDL statement. Data type synonyms are also called data type aliases. For more information, check *GET*DDL*USE*DATA*TYPE_ALIAS docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-get-ddl-use-data-type-alias).
+     * 
+     */
+    public Output<Boolean> enableGetDdlUseDataTypeAlias() {
+        return this.enableGetDdlUseDataTypeAlias;
+    }
+    /**
+     * Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+     * 
+     */
+    @Export(name="enableIcebergMergeOnRead", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableIcebergMergeOnRead;
+
+    /**
+     * @return Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+     * 
+     */
+    public Output<Boolean> enableIcebergMergeOnRead() {
+        return this.enableIcebergMergeOnRead;
     }
     /**
      * Determines the login flow for users. When enabled, Snowflake prompts users for their username or email address before presenting authentication methods. For details, see [Identifier-first login](https://docs.snowflake.com/en/user-guide/identifier-first-login). For more information, check [ENABLE*IDENTIFIER*FIRST_LOGIN docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-identifier-first-login).
@@ -802,6 +972,20 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.enableInternalStagesPrivatelink;
     }
     /**
+     * Used to enable or disable private notebooks on a Snowflake account. For more information, check [ENABLE*NOTEBOOK*CREATION*IN*PERSONAL_DB docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-notebook-creation-in-personal-db).
+     * 
+     */
+    @Export(name="enableNotebookCreationInPersonalDb", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableNotebookCreationInPersonalDb;
+
+    /**
+     * @return Used to enable or disable private notebooks on a Snowflake account. For more information, check [ENABLE*NOTEBOOK*CREATION*IN*PERSONAL_DB docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-notebook-creation-in-personal-db).
+     * 
+     */
+    public Output<Boolean> enableNotebookCreationInPersonalDb() {
+        return this.enableNotebookCreationInPersonalDb;
+    }
+    /**
      * Specifies whether Snowflake generates a per-account private connectivity URL for the Snowflake App Service. For more information, see [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url). For more information, check [ENABLE*PER*ACCOUNT*APP*SERVICE*PRIVATELINK*URL docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-per-account-app-service-privatelink-url).
      * 
      */
@@ -814,6 +998,34 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
      */
     public Output<Boolean> enablePerAccountAppServicePrivatelinkUrl() {
         return this.enablePerAccountAppServicePrivatelinkUrl;
+    }
+    /**
+     * Used to enable enforcement of SNOWFLAKE*FULL encryption for Snowpark Container Services block-storage volumes and snapshots. For more information, check *SPCS*BLOCK*STORAGE*SNOWFLAKE*FULL*ENCRYPTION*ENFORCEMENT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-spcs-block-storage-snowflake-full-encryption-enforcement).
+     * 
+     */
+    @Export(name="enableSpcsBlockStorageSnowflakeFullEncryptionEnforcement", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableSpcsBlockStorageSnowflakeFullEncryptionEnforcement;
+
+    /**
+     * @return Used to enable enforcement of SNOWFLAKE*FULL encryption for Snowpark Container Services block-storage volumes and snapshots. For more information, check *SPCS*BLOCK*STORAGE*SNOWFLAKE*FULL*ENCRYPTION*ENFORCEMENT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-spcs-block-storage-snowflake-full-encryption-enforcement).
+     * 
+     */
+    public Output<Boolean> enableSpcsBlockStorageSnowflakeFullEncryptionEnforcement() {
+        return this.enableSpcsBlockStorageSnowflakeFullEncryptionEnforcement;
+    }
+    /**
+     * Controls whether Snowflake collects telemetry data for tag propagation. For more information, check [ENABLE*TAG*PROPAGATION*EVENT*LOGGING docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tag-propagation-event-logging).
+     * 
+     */
+    @Export(name="enableTagPropagationEventLogging", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> enableTagPropagationEventLogging;
+
+    /**
+     * @return Controls whether Snowflake collects telemetry data for tag propagation. For more information, check [ENABLE*TAG*PROPAGATION*EVENT*LOGGING docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tag-propagation-event-logging).
+     * 
+     */
+    public Output<Boolean> enableTagPropagationEventLogging() {
+        return this.enableTagPropagationEventLogging;
     }
     /**
      * Specifies choice for the [image repository](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository.html#label-registry-and-repository-image-repository) to opt out of Tri-Secret Secure and [Periodic rekeying](https://docs.snowflake.com/en/user-guide/security-encryption-manage.html#label-periodic-rekeying). For more information, check [ENABLE*TRI*SECRET*AND*REKEY*OPT*OUT*FOR*IMAGE_REPOSITORY docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-tri-secret-and-rekey-opt-out-for-image-repository).
@@ -942,14 +1154,14 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.errorOnNondeterministicUpdate;
     }
     /**
-     * Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+     * Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
      * 
      */
     @Export(name="eventTable", refs={String.class}, tree="[0]")
     private Output<String> eventTable;
 
     /**
-     * @return Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+     * @return Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
      * 
      */
     public Output<String> eventTable() {
@@ -970,14 +1182,14 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.externalOauthAddPrivilegedRolesToBlockedList;
     }
     /**
-     * Specifies the external volume for Apache Iceberg™ tables. For more information, see the [Iceberg table documentation](https://docs.snowflake.com/en/user-guide/tables-iceberg.html#label-tables-iceberg-external-volume-def). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+     * The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     @Export(name="externalVolume", refs={String.class}, tree="[0]")
     private Output<String> externalVolume;
 
     /**
-     * @return Specifies the external volume for Apache Iceberg™ tables. For more information, see the [Iceberg table documentation](https://docs.snowflake.com/en/user-guide/tables-iceberg.html#label-tables-iceberg-external-volume-def). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+     * @return The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     public Output<String> externalVolume() {
@@ -1024,6 +1236,20 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
      */
     public Output<Integer> hybridTableLockTimeout() {
         return this.hybridTableLockTimeout;
+    }
+    /**
+     * Specifies the Iceberg specification version to conform to when creating new Snowflake-managed Iceberg tables. For more information, check [ICEBERG*VERSION*DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-version-default).
+     * 
+     */
+    @Export(name="icebergVersionDefault", refs={Integer.class}, tree="[0]")
+    private Output<Integer> icebergVersionDefault;
+
+    /**
+     * @return Specifies the Iceberg specification version to conform to when creating new Snowflake-managed Iceberg tables. For more information, check [ICEBERG*VERSION*DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-version-default).
+     * 
+     */
+    public Output<Integer> icebergVersionDefault() {
+        return this.icebergVersionDefault;
     }
     /**
      * Sets the maximum estimated size limit for the initial replication of a primary database to a secondary database (in TB). Set this parameter on any account that stores a secondary database. This size limit helps prevent accounts from accidentally incurring large database replication charges. To remove the size limit, set the value to 0.0. It is required to pass numbers with scale of at least 1 (e.g. 20.5, 32.25, 33.333, etc.). For more information, check [INITIAL*REPLICATION*SIZE*LIMIT*IN_TB docs](https://docs.snowflake.com/en/sql-reference/parameters#initial-replication-size-limit-in-tb).
@@ -1138,56 +1364,56 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.lockTimeout;
     }
     /**
-     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
      * 
      */
     @Export(name="logEventLevel", refs={String.class}, tree="[0]")
     private Output<String> logEventLevel;
 
     /**
-     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
      * 
      */
     public Output<String> logEventLevel() {
         return this.logEventLevel;
     }
     /**
-     * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     @Export(name="logLevel", refs={String.class}, tree="[0]")
     private Output<String> logLevel;
 
     /**
-     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     public Output<String> logLevel() {
         return this.logLevel;
     }
     /**
-     * Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse ([more details](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level)). For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
+     * Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
      * 
      */
     @Export(name="maxConcurrencyLevel", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxConcurrencyLevel;
 
     /**
-     * @return Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse ([more details](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level)). For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
+     * @return Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
      * 
      */
     public Output<Integer> maxConcurrencyLevel() {
         return this.maxConcurrencyLevel;
     }
     /**
-     * Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check *DATA*EXTENSION*TIME*IN*DAYS docs[MAX](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+     * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
      * 
      */
     @Export(name="maxDataExtensionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxDataExtensionTimeInDays;
 
     /**
-     * @return Maximum number of days Snowflake can extend the data retention period for tables to prevent streams on the tables from becoming stale. By default, if the [DATA*RETENTION*TIME*IN*DAYS](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days) setting for a source table is less than 14 days, and a stream has not been consumed, Snowflake temporarily extends this period to the stream’s offset, up to a maximum of 14 days, regardless of the [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions) for your account. The MAX*DATA*EXTENSION*TIME*IN*DAYS parameter enables you to limit this automatic extension period to control storage costs for data retention or for compliance reasons. For more information, check *DATA*EXTENSION*TIME*IN*DAYS docs[MAX](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+     * @return Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
      * 
      */
     public Output<Integer> maxDataExtensionTimeInDays() {
@@ -1250,14 +1476,14 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.name;
     }
     /**
-     * Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+     * Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
      * 
      */
     @Export(name="networkPolicy", refs={String.class}, tree="[0]")
     private Output<String> networkPolicy;
 
     /**
-     * @return Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+     * @return Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
      * 
      */
     public Output<String> networkPolicy() {
@@ -1334,14 +1560,14 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.periodicDataRekeying;
     }
     /**
-     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role ([more details](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused)). For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      * 
      */
     @Export(name="pipeExecutionPaused", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> pipeExecutionPaused;
 
     /**
-     * @return Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role ([more details](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused)). For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * @return Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      * 
      */
     public Output<Boolean> pipeExecutionPaused() {
@@ -1418,28 +1644,42 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.queryTag;
     }
     /**
-     * Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     @Export(name="quotedIdentifiersIgnoreCase", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> quotedIdentifiersIgnoreCase;
 
     /**
-     * @return Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * @return If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     public Output<Boolean> quotedIdentifiersIgnoreCase() {
         return this.quotedIdentifiersIgnoreCase;
     }
     /**
-     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for [Apache Iceberg™ tables](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table) that use an external catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * Defines the level of consistency guarantees that are required for sessions with near-concurrent changes. For more information, check [READ*CONSISTENCY*MODE docs](https://docs.snowflake.com/en/sql-reference/parameters#read-consistency-mode).
+     * 
+     */
+    @Export(name="readConsistencyMode", refs={String.class}, tree="[0]")
+    private Output<String> readConsistencyMode;
+
+    /**
+     * @return Defines the level of consistency guarantees that are required for sessions with near-concurrent changes. For more information, check [READ*CONSISTENCY*MODE docs](https://docs.snowflake.com/en/sql-reference/parameters#read-consistency-mode).
+     * 
+     */
+    public Output<String> readConsistencyMode() {
+        return this.readConsistencyMode;
+    }
+    /**
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     @Export(name="replaceInvalidCharacters", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> replaceInvalidCharacters;
 
     /**
-     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for [Apache Iceberg™ tables](https://docs.snowflake.com/en/sql-reference/sql/create-iceberg-table) that use an external catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     public Output<Boolean> replaceInvalidCharacters() {
@@ -1488,6 +1728,20 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.resourceMonitor);
     }
     /**
+     * Use this parameter to set row timestamps by default for new tables in a container. For more information, check [ROW*TIMESTAMP*DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#row-timestamp-default).
+     * 
+     */
+    @Export(name="rowTimestampDefault", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> rowTimestampDefault;
+
+    /**
+     * @return Use this parameter to set row timestamps by default for new tables in a container. For more information, check [ROW*TIMESTAMP*DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#row-timestamp-default).
+     * 
+     */
+    public Output<Boolean> rowTimestampDefault() {
+        return this.rowTimestampDefault;
+    }
+    /**
      * Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
      * 
      */
@@ -1530,28 +1784,28 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.searchPath;
     }
     /**
-     * Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+     * Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
      * 
      */
     @Export(name="serverlessTaskMaxStatementSize", refs={String.class}, tree="[0]")
     private Output<String> serverlessTaskMaxStatementSize;
 
     /**
-     * @return Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
+     * @return Specifies the maximum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [SERVERLESS*TASK*MAX*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-max-statement-size).
      * 
      */
     public Output<String> serverlessTaskMaxStatementSize() {
         return this.serverlessTaskMaxStatementSize;
     }
     /**
-     * Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+     * Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
      * 
      */
     @Export(name="serverlessTaskMinStatementSize", refs={String.class}, tree="[0]")
     private Output<String> serverlessTaskMinStatementSize;
 
     /**
-     * @return Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
+     * @return Specifies the minimum allowed warehouse size for [Serverless tasks](https://docs.snowflake.com/en/user-guide/tasks-intro.html#label-tasks-compute-resources-serverless). Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [SERVERLESS*TASK*MIN*STATEMENT*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#serverless-task-min-statement-size).
      * 
      */
     public Output<String> serverlessTaskMinStatementSize() {
@@ -1600,6 +1854,20 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.simulatedDataSharingConsumer;
     }
     /**
+     * Used to specify whether to capture the SQL text of a traced SQL statement. For more information, check [SQL*TRACE*QUERY_TEXT docs](https://docs.snowflake.com/en/sql-reference/parameters#sql-trace-query-text).
+     * 
+     */
+    @Export(name="sqlTraceQueryText", refs={String.class}, tree="[0]")
+    private Output<String> sqlTraceQueryText;
+
+    /**
+     * @return Used to specify whether to capture the SQL text of a traced SQL statement. For more information, check [SQL*TRACE*QUERY_TEXT docs](https://docs.snowflake.com/en/sql-reference/parameters#sql-trace-query-text).
+     * 
+     */
+    public Output<String> sqlTraceQueryText() {
+        return this.sqlTraceQueryText;
+    }
+    /**
      * This deprecated parameter disables preview mode for testing SSO (after enabling federated authentication) before rolling it out to users. For more information, check [SSO*LOGIN*PAGE docs](https://docs.snowflake.com/en/sql-reference/parameters#sso-login-page).
      * 
      */
@@ -1642,14 +1910,14 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.statementTimeoutInSeconds;
     }
     /**
-     * Specifies the storage serialization policy for Snowflake-managed [Apache Iceberg™ tables](https://docs.snowflake.com/en/user-guide/tables-iceberg). Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      * 
      */
     @Export(name="storageSerializationPolicy", refs={String.class}, tree="[0]")
     private Output<String> storageSerializationPolicy;
 
     /**
-     * @return Specifies the storage serialization policy for Snowflake-managed [Apache Iceberg™ tables](https://docs.snowflake.com/en/user-guide/tables-iceberg). Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+     * @return The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      * 
      */
     public Output<String> storageSerializationPolicy() {
@@ -1670,28 +1938,28 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.strictJsonOutput;
     }
     /**
-     * Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      * 
      */
     @Export(name="suspendTaskAfterNumFailures", refs={Integer.class}, tree="[0]")
     private Output<Integer> suspendTaskAfterNumFailures;
 
     /**
-     * @return Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+     * @return How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      * 
      */
     public Output<Integer> suspendTaskAfterNumFailures() {
         return this.suspendTaskAfterNumFailures;
     }
     /**
-     * Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+     * Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      * 
      */
     @Export(name="taskAutoRetryAttempts", refs={Integer.class}, tree="[0]")
     private Output<Integer> taskAutoRetryAttempts;
 
     /**
-     * @return Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+     * @return Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      * 
      */
     public Output<Integer> taskAutoRetryAttempts() {
@@ -1838,14 +2106,14 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.timezone;
     }
     /**
-     * Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     @Export(name="traceLevel", refs={String.class}, tree="[0]")
     private Output<String> traceLevel;
 
     /**
-     * @return Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * @return Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     public Output<String> traceLevel() {
@@ -1894,14 +2162,14 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.twoDigitCenturyStart;
     }
     /**
-     * Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+     * Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. Valid values are (case-insensitive): `IGNORE` | `FAIL`. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
      * 
      */
     @Export(name="unsupportedDdlAction", refs={String.class}, tree="[0]")
     private Output<String> unsupportedDdlAction;
 
     /**
-     * @return Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+     * @return Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. Valid values are (case-insensitive): `IGNORE` | `FAIL`. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
      * 
      */
     public Output<String> unsupportedDdlAction() {
@@ -1922,42 +2190,56 @@ public class CurrentOrganizationAccount extends com.pulumi.resources.CustomResou
         return this.useCachedResult;
     }
     /**
-     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * Controls whether the Workspaces editor is the default SQL editing experience for the account. Valid values are `always` and `never`. For more information, check [USE*WORKSPACES*FOR_SQL docs](https://docs.snowflake.com/en/sql-reference/parameters#use-workspaces-for-sql).
+     * 
+     */
+    @Export(name="useWorkspacesForSql", refs={String.class}, tree="[0]")
+    private Output<String> useWorkspacesForSql;
+
+    /**
+     * @return Controls whether the Workspaces editor is the default SQL editing experience for the account. Valid values are `always` and `never`. For more information, check [USE*WORKSPACES*FOR_SQL docs](https://docs.snowflake.com/en/sql-reference/parameters#use-workspaces-for-sql).
+     * 
+     */
+    public Output<String> useWorkspacesForSql() {
+        return this.useWorkspacesForSql;
+    }
+    /**
+     * The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     @Export(name="userTaskManagedInitialWarehouseSize", refs={String.class}, tree="[0]")
     private Output<String> userTaskManagedInitialWarehouseSize;
 
     /**
-     * @return Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * @return The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     public Output<String> userTaskManagedInitialWarehouseSize() {
         return this.userTaskManagedInitialWarehouseSize;
     }
     /**
-     * Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+     * Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
      * 
      */
     @Export(name="userTaskMinimumTriggerIntervalInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> userTaskMinimumTriggerIntervalInSeconds;
 
     /**
-     * @return Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+     * @return Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
      * 
      */
     public Output<Integer> userTaskMinimumTriggerIntervalInSeconds() {
         return this.userTaskMinimumTriggerIntervalInSeconds;
     }
     /**
-     * Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+     * User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      * 
      */
     @Export(name="userTaskTimeoutMs", refs={Integer.class}, tree="[0]")
     private Output<Integer> userTaskTimeoutMs;
 
     /**
-     * @return Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+     * @return User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      * 
      */
     public Output<Integer> userTaskTimeoutMs() {

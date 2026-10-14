@@ -23,6 +23,7 @@ public final class GetTasksTaskShowOutput {
     private String databaseName;
     private String definition;
     private String errorIntegration;
+    private String executeAsUser;
     private String id;
     private String lastCommittedOn;
     private String lastSuspendedOn;
@@ -65,6 +66,9 @@ public final class GetTasksTaskShowOutput {
     }
     public String errorIntegration() {
         return this.errorIntegration;
+    }
+    public String executeAsUser() {
+        return this.executeAsUser;
     }
     public String id() {
         return this.id;
@@ -127,6 +131,7 @@ public final class GetTasksTaskShowOutput {
         private String databaseName;
         private String definition;
         private String errorIntegration;
+        private String executeAsUser;
         private String id;
         private String lastCommittedOn;
         private String lastSuspendedOn;
@@ -153,6 +158,7 @@ public final class GetTasksTaskShowOutput {
     	      this.databaseName = defaults.databaseName;
     	      this.definition = defaults.definition;
     	      this.errorIntegration = defaults.errorIntegration;
+    	      this.executeAsUser = defaults.executeAsUser;
     	      this.id = defaults.id;
     	      this.lastCommittedOn = defaults.lastCommittedOn;
     	      this.lastSuspendedOn = defaults.lastSuspendedOn;
@@ -239,6 +245,14 @@ public final class GetTasksTaskShowOutput {
               throw new MissingRequiredPropertyException("GetTasksTaskShowOutput", "errorIntegration");
             }
             this.errorIntegration = errorIntegration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder executeAsUser(String executeAsUser) {
+            if (executeAsUser == null) {
+              throw new MissingRequiredPropertyException("GetTasksTaskShowOutput", "executeAsUser");
+            }
+            this.executeAsUser = executeAsUser;
             return this;
         }
         @CustomType.Setter
@@ -373,6 +387,7 @@ public final class GetTasksTaskShowOutput {
             _resultValue.databaseName = databaseName;
             _resultValue.definition = definition;
             _resultValue.errorIntegration = errorIntegration;
+            _resultValue.executeAsUser = executeAsUser;
             _resultValue.id = id;
             _resultValue.lastCommittedOn = lastCommittedOn;
             _resultValue.lastSuspendedOn = lastSuspendedOn;

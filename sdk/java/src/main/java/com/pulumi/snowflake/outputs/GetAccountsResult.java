@@ -35,6 +35,11 @@ public final class GetAccountsResult {
      * 
      */
     private @Nullable Boolean withHistory;
+    /**
+     * @return (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account&#39;s row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+     * 
+     */
+    private @Nullable Boolean withParameters;
 
     private GetAccountsResult() {}
     /**
@@ -65,6 +70,13 @@ public final class GetAccountsResult {
     public Optional<Boolean> withHistory() {
         return Optional.ofNullable(this.withHistory);
     }
+    /**
+     * @return (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account&#39;s row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withParameters() {
+        return Optional.ofNullable(this.withParameters);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -79,6 +91,7 @@ public final class GetAccountsResult {
         private String id;
         private @Nullable String like;
         private @Nullable Boolean withHistory;
+        private @Nullable Boolean withParameters;
         public Builder() {}
         public Builder(GetAccountsResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,6 +99,7 @@ public final class GetAccountsResult {
     	      this.id = defaults.id;
     	      this.like = defaults.like;
     	      this.withHistory = defaults.withHistory;
+    	      this.withParameters = defaults.withParameters;
         }
 
         @CustomType.Setter
@@ -119,12 +133,19 @@ public final class GetAccountsResult {
             this.withHistory = withHistory;
             return this;
         }
+        @CustomType.Setter
+        public Builder withParameters(@Nullable Boolean withParameters) {
+
+            this.withParameters = withParameters;
+            return this;
+        }
         public GetAccountsResult build() {
             final var _resultValue = new GetAccountsResult();
             _resultValue.accounts = accounts;
             _resultValue.id = id;
             _resultValue.like = like;
             _resultValue.withHistory = withHistory;
+            _resultValue.withParameters = withParameters;
             return _resultValue;
         }
     }

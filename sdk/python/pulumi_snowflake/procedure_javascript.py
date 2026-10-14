@@ -45,15 +45,15 @@ class ProcedureJavascriptArgs:
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureJavascriptArgumentArgs']]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
-        :param pulumi.Input[_builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         :param pulumi.Input[_builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
         :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
-        :param pulumi.Input[_builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[_builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[_builtins.str] metric_level: Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
-        :param pulumi.Input[_builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[_builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "procedure_definition", procedure_definition)
@@ -158,7 +158,7 @@ class ProcedureJavascriptArgs:
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -194,7 +194,7 @@ class ProcedureJavascriptArgs:
     @pulumi.getter(name="logEventLevel")
     def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         """
         return pulumi.get(self, "log_event_level")
 
@@ -206,7 +206,7 @@ class ProcedureJavascriptArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -218,7 +218,7 @@ class ProcedureJavascriptArgs:
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -254,7 +254,7 @@ class ProcedureJavascriptArgs:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -291,13 +291,13 @@ class _ProcedureJavascriptState:
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureJavascriptArgumentArgs']]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
         :param pulumi.Input[_builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         :param pulumi.Input[_builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
-        :param pulumi.Input[_builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[_builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[_builtins.str] metric_level: Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureJavascriptParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
@@ -306,7 +306,7 @@ class _ProcedureJavascriptState:
         :param pulumi.Input[_builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL and JavaScript data type mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureJavascriptShowOutputArgs']]] show_outputs: Outputs the result of `SHOW PROCEDURE` for the given procedure.
-        :param pulumi.Input[_builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[_builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -387,7 +387,7 @@ class _ProcedureJavascriptState:
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -435,7 +435,7 @@ class _ProcedureJavascriptState:
     @pulumi.getter(name="logEventLevel")
     def log_event_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         """
         return pulumi.get(self, "log_event_level")
 
@@ -447,7 +447,7 @@ class _ProcedureJavascriptState:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -459,7 +459,7 @@ class _ProcedureJavascriptState:
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -567,7 +567,7 @@ class _ProcedureJavascriptState:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -664,18 +664,18 @@ class ProcedureJavascript(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict', 'outputs.ProcedureJavascriptArgument']]]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
         :param pulumi.Input[_builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         :param pulumi.Input[_builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
         :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
-        :param pulumi.Input[_builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[_builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[_builtins.str] metric_level: Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         :param pulumi.Input[_builtins.str] procedure_definition: Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be JavaScript source code. For more information, see [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[_builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL and JavaScript data type mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[_builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         ...
     @overload
@@ -849,13 +849,13 @@ class ProcedureJavascript(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptArgumentArgs', 'ProcedureJavascriptArgumentArgsDict', 'outputs.ProcedureJavascriptArgument']]]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         :param pulumi.Input[_builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
         :param pulumi.Input[_builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[_builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         :param pulumi.Input[_builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
-        :param pulumi.Input[_builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[_builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[_builtins.str] log_event_level: Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        :param pulumi.Input[_builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[_builtins.str] metric_level: Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         :param pulumi.Input[_builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptParameterArgs', 'ProcedureJavascriptParameterArgsDict', 'outputs.ProcedureJavascriptParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
@@ -864,7 +864,7 @@ class ProcedureJavascript(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL and JavaScript data type mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureJavascriptShowOutputArgs', 'ProcedureJavascriptShowOutputArgsDict', 'outputs.ProcedureJavascriptShowOutput']]]] show_outputs: Outputs the result of `SHOW PROCEDURE` for the given procedure.
-        :param pulumi.Input[_builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[_builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -919,7 +919,7 @@ class ProcedureJavascript(pulumi.CustomResource):
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> pulumi.Output[_builtins.bool]:
         """
-        Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -951,7 +951,7 @@ class ProcedureJavascript(pulumi.CustomResource):
     @pulumi.getter(name="logEventLevel")
     def log_event_level(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
+        Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         """
         return pulumi.get(self, "log_event_level")
 
@@ -959,7 +959,7 @@ class ProcedureJavascript(pulumi.CustomResource):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Output[_builtins.str]:
         """
-        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -967,7 +967,7 @@ class ProcedureJavascript(pulumi.CustomResource):
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> pulumi.Output[_builtins.str]:
         """
-        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        Controls how metrics data is ingested into the event table. For more information about metric levels, see [Setting levels for logging, metrics, and tracing](https://docs.snowflake.com/en/developer-guide/logging-tracing/telemetry-levels). Valid values are (case-insensitive): `ALL` | `NONE`. For more information, check [METRIC_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -1039,7 +1039,7 @@ class ProcedureJavascript(pulumi.CustomResource):
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> pulumi.Output[_builtins.str]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 

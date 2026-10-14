@@ -19,6 +19,7 @@ public final class GetFileFormatsFileFormatDescribeOutput {
     private String compression;
     private String dateFormat;
     private Boolean disableAutoConvert;
+    private Boolean disableSnowflakeData;
     private Boolean emptyFieldAsNull;
     private Boolean enableOctal;
     private String encoding;
@@ -68,6 +69,9 @@ public final class GetFileFormatsFileFormatDescribeOutput {
     }
     public Boolean disableAutoConvert() {
         return this.disableAutoConvert;
+    }
+    public Boolean disableSnowflakeData() {
+        return this.disableSnowflakeData;
     }
     public Boolean emptyFieldAsNull() {
         return this.emptyFieldAsNull;
@@ -175,6 +179,7 @@ public final class GetFileFormatsFileFormatDescribeOutput {
         private String compression;
         private String dateFormat;
         private Boolean disableAutoConvert;
+        private Boolean disableSnowflakeData;
         private Boolean emptyFieldAsNull;
         private Boolean enableOctal;
         private String encoding;
@@ -214,6 +219,7 @@ public final class GetFileFormatsFileFormatDescribeOutput {
     	      this.compression = defaults.compression;
     	      this.dateFormat = defaults.dateFormat;
     	      this.disableAutoConvert = defaults.disableAutoConvert;
+    	      this.disableSnowflakeData = defaults.disableSnowflakeData;
     	      this.emptyFieldAsNull = defaults.emptyFieldAsNull;
     	      this.enableOctal = defaults.enableOctal;
     	      this.encoding = defaults.encoding;
@@ -292,6 +298,14 @@ public final class GetFileFormatsFileFormatDescribeOutput {
               throw new MissingRequiredPropertyException("GetFileFormatsFileFormatDescribeOutput", "disableAutoConvert");
             }
             this.disableAutoConvert = disableAutoConvert;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder disableSnowflakeData(Boolean disableSnowflakeData) {
+            if (disableSnowflakeData == null) {
+              throw new MissingRequiredPropertyException("GetFileFormatsFileFormatDescribeOutput", "disableSnowflakeData");
+            }
+            this.disableSnowflakeData = disableSnowflakeData;
             return this;
         }
         @CustomType.Setter
@@ -545,6 +559,7 @@ public final class GetFileFormatsFileFormatDescribeOutput {
             _resultValue.compression = compression;
             _resultValue.dateFormat = dateFormat;
             _resultValue.disableAutoConvert = disableAutoConvert;
+            _resultValue.disableSnowflakeData = disableSnowflakeData;
             _resultValue.emptyFieldAsNull = emptyFieldAsNull;
             _resultValue.enableOctal = enableOctal;
             _resultValue.encoding = encoding;

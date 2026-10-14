@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.CortexSearchServiceDescribeOutputArgs;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -30,6 +31,21 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
      */
     public Optional<Output<List<String>>> attributes() {
         return Optional.ofNullable(this.attributes);
+    }
+
+    /**
+     * Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
+    @Import(name="autoSuspend")
+    private @Nullable Output<Integer> autoSuspend;
+
+    /**
+     * @return Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+     * 
+     */
+    public Optional<Output<Integer>> autoSuspend() {
+        return Optional.ofNullable(this.autoSuspend);
     }
 
     /**
@@ -153,6 +169,21 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
     }
 
     /**
+     * Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+     * 
+     */
+    @Import(name="primaryKeys")
+    private @Nullable Output<List<String>> primaryKeys;
+
+    /**
+     * @return Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+     * 
+     */
+    public Optional<Output<List<String>>> primaryKeys() {
+        return Optional.ofNullable(this.primaryKeys);
+    }
+
+    /**
      * Specifies the query to use to populate the Cortex search service.
      * 
      */
@@ -216,6 +247,7 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
 
     private CortexSearchServiceState(CortexSearchServiceState $) {
         this.attributes = $.attributes;
+        this.autoSuspend = $.autoSuspend;
         this.comment = $.comment;
         this.createdOn = $.createdOn;
         this.database = $.database;
@@ -224,6 +256,7 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
         this.fullyQualifiedName = $.fullyQualifiedName;
         this.name = $.name;
         this.on = $.on;
+        this.primaryKeys = $.primaryKeys;
         this.query = $.query;
         this.schema = $.schema;
         this.targetLag = $.targetLag;
@@ -277,6 +310,27 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
          */
         public Builder attributes(String... attributes) {
             return attributes(List.of(attributes));
+        }
+
+        /**
+         * @param autoSuspend Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoSuspend(@Nullable Output<Integer> autoSuspend) {
+            $.autoSuspend = autoSuspend;
+            return this;
+        }
+
+        /**
+         * @param autoSuspend Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won&#39;t be detected. In case you want to apply external changes, you can re-create the resource manually using &#34;terraform taint&#34;.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoSuspend(Integer autoSuspend) {
+            return autoSuspend(Output.of(autoSuspend));
         }
 
         /**
@@ -455,6 +509,37 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
          */
         public Builder on(String on) {
             return on(Output.of(on));
+        }
+
+        /**
+         * @param primaryKeys Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryKeys(@Nullable Output<List<String>> primaryKeys) {
+            $.primaryKeys = primaryKeys;
+            return this;
+        }
+
+        /**
+         * @param primaryKeys Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryKeys(List<String> primaryKeys) {
+            return primaryKeys(Output.of(primaryKeys));
+        }
+
+        /**
+         * @param primaryKeys Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder primaryKeys(String... primaryKeys) {
+            return primaryKeys(List.of(primaryKeys));
         }
 
         /**

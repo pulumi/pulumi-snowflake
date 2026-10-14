@@ -13,6 +13,7 @@ import com.pulumi.snowflake.inputs.ServiceState;
 import com.pulumi.snowflake.outputs.ServiceDescribeOutput;
 import com.pulumi.snowflake.outputs.ServiceFromSpecification;
 import com.pulumi.snowflake.outputs.ServiceFromSpecificationTemplate;
+import com.pulumi.snowflake.outputs.ServiceParameter;
 import com.pulumi.snowflake.outputs.ServiceShowOutput;
 import java.lang.Integer;
 import java.lang.String;
@@ -233,6 +234,20 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+     * 
+     */
+    @Export(name="parameters", refs={List.class,ServiceParameter.class}, tree="[0,1]")
+    private Output<List<ServiceParameter>> parameters;
+
+    /**
+     * @return Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+     * 
+     */
+    public Output<List<ServiceParameter>> parameters() {
+        return this.parameters;
+    }
+    /**
      * Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
@@ -259,6 +274,20 @@ public class Service extends com.pulumi.resources.CustomResource {
      */
     public Output<String> schema() {
         return this.schema;
+    }
+    /**
+     * Controls how long a caller&#39;s rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+     * 
+     */
+    @Export(name="serviceCallerTokenValiditySecs", refs={Integer.class}, tree="[0]")
+    private Output<Integer> serviceCallerTokenValiditySecs;
+
+    /**
+     * @return Controls how long a caller&#39;s rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+     * 
+     */
+    public Output<Integer> serviceCallerTokenValiditySecs() {
+        return this.serviceCallerTokenValiditySecs;
     }
     /**
      * Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.

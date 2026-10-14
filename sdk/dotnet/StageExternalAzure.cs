@@ -16,7 +16,7 @@ namespace Pulumi.Snowflake
     /// 
     /// &gt; **Note** Due to Snowflake limitations, when `directory.auto_refresh` is set to a new value in the configuration, the resource is recreated. When it is unset, the provider alters the whole `Directory` field with the `Enable` value from the configuration.
     /// 
-    /// &gt; **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect. See the migration guide for details.
+    /// &gt; **Note** Importing this resource sets boolean fields that use the special `"default"` value to `"default"` instead of the Snowflake-reported value, avoiding persistent diffs. This is the `IMPORT_BOOLEAN_DEFAULT` experiment, which is enabled by default. Opt out by listing it in `ExperimentalFeaturesDisabled`. See the migration guide for details.
     /// 
     /// Resource used to manage external Azure stages. For more information, check [external stage documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stage#external-stage-parameters-externalstageparams).
     /// 

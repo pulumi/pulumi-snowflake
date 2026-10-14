@@ -28,9 +28,11 @@ class CortexSearchServiceArgs:
                  target_lag: pulumi.Input[_builtins.str],
                  warehouse: pulumi.Input[_builtins.str],
                  attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_suspend: pulumi.Input[Optional[_builtins.int]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  embedding_model: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CortexSearchService resource.
 
@@ -41,9 +43,11 @@ class CortexSearchServiceArgs:
         :param pulumi.Input[_builtins.str] target_lag: Specifies the maximum target lag time for the Cortex search service.
         :param pulumi.Input[_builtins.str] warehouse: The warehouse in which to create the Cortex search service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes: Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
+        :param pulumi.Input[_builtins.int] auto_suspend: Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[_builtins.str] embedding_model: Specifies the embedding model to use for the Cortex search service.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] primary_keys: Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "on", on)
@@ -53,12 +57,16 @@ class CortexSearchServiceArgs:
         pulumi.set(__self__, "warehouse", warehouse)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
+        if auto_suspend is not None:
+            pulumi.set(__self__, "auto_suspend", auto_suspend)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if embedding_model is not None:
             pulumi.set(__self__, "embedding_model", embedding_model)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if primary_keys is not None:
+            pulumi.set(__self__, "primary_keys", primary_keys)
 
     @_builtins.property
     @pulumi.getter
@@ -145,6 +153,18 @@ class CortexSearchServiceArgs:
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
+    @pulumi.getter(name="autoSuspend")
+    def auto_suspend(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "auto_suspend")
+
+    @auto_suspend.setter
+    def auto_suspend(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "auto_suspend", value)
+
+    @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -180,11 +200,24 @@ class CortexSearchServiceArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="primaryKeys")
+    def primary_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+        """
+        return pulumi.get(self, "primary_keys")
+
+    @primary_keys.setter
+    def primary_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "primary_keys", value)
+
 
 @pulumi.input_type
 class _CortexSearchServiceState:
     def __init__(__self__, *,
                  attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_suspend: pulumi.Input[Optional[_builtins.int]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  created_on: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -193,6 +226,7 @@ class _CortexSearchServiceState:
                  fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  on: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  target_lag: pulumi.Input[Optional[_builtins.str]] = None,
@@ -201,6 +235,7 @@ class _CortexSearchServiceState:
         Input properties used for looking up and filtering CortexSearchService resources.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes: Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
+        :param pulumi.Input[_builtins.int] auto_suspend: Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[_builtins.str] created_on: Creation date for the given Cortex search service.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Cortex search service.
@@ -209,6 +244,7 @@ class _CortexSearchServiceState:
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         :param pulumi.Input[_builtins.str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] primary_keys: Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
         :param pulumi.Input[_builtins.str] query: Specifies the query to use to populate the Cortex search service.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Cortex search service.
         :param pulumi.Input[_builtins.str] target_lag: Specifies the maximum target lag time for the Cortex search service.
@@ -216,6 +252,8 @@ class _CortexSearchServiceState:
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
+        if auto_suspend is not None:
+            pulumi.set(__self__, "auto_suspend", auto_suspend)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
@@ -232,6 +270,8 @@ class _CortexSearchServiceState:
             pulumi.set(__self__, "name", name)
         if on is not None:
             pulumi.set(__self__, "on", on)
+        if primary_keys is not None:
+            pulumi.set(__self__, "primary_keys", primary_keys)
         if query is not None:
             pulumi.set(__self__, "query", query)
         if schema is not None:
@@ -252,6 +292,18 @@ class _CortexSearchServiceState:
     @attributes.setter
     def attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attributes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoSuspend")
+    def auto_suspend(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "auto_suspend")
+
+    @auto_suspend.setter
+    def auto_suspend(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "auto_suspend", value)
 
     @_builtins.property
     @pulumi.getter
@@ -350,6 +402,18 @@ class _CortexSearchServiceState:
         pulumi.set(self, "on", value)
 
     @_builtins.property
+    @pulumi.getter(name="primaryKeys")
+    def primary_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+        """
+        return pulumi.get(self, "primary_keys")
+
+    @primary_keys.setter
+    def primary_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "primary_keys", value)
+
+    @_builtins.property
     @pulumi.getter
     def query(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -405,11 +469,13 @@ class CortexSearchService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_suspend: pulumi.Input[Optional[_builtins.int]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  embedding_model: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  on: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  target_lag: pulumi.Input[Optional[_builtins.str]] = None,
@@ -473,11 +539,13 @@ class CortexSearchService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes: Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
+        :param pulumi.Input[_builtins.int] auto_suspend: Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Cortex search service.
         :param pulumi.Input[_builtins.str] embedding_model: Specifies the embedding model to use for the Cortex search service.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         :param pulumi.Input[_builtins.str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] primary_keys: Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
         :param pulumi.Input[_builtins.str] query: Specifies the query to use to populate the Cortex search service.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Cortex search service.
         :param pulumi.Input[_builtins.str] target_lag: Specifies the maximum target lag time for the Cortex search service.
@@ -560,11 +628,13 @@ class CortexSearchService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 auto_suspend: pulumi.Input[Optional[_builtins.int]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  database: pulumi.Input[Optional[_builtins.str]] = None,
                  embedding_model: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  on: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  query: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
                  target_lag: pulumi.Input[Optional[_builtins.str]] = None,
@@ -579,6 +649,7 @@ class CortexSearchService(pulumi.CustomResource):
             __props__ = CortexSearchServiceArgs.__new__(CortexSearchServiceArgs)
 
             __props__.__dict__["attributes"] = attributes
+            __props__.__dict__["auto_suspend"] = auto_suspend
             __props__.__dict__["comment"] = comment
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
@@ -588,6 +659,7 @@ class CortexSearchService(pulumi.CustomResource):
             if on is None and not opts.urn:
                 raise TypeError("Missing required property 'on'")
             __props__.__dict__["on"] = on
+            __props__.__dict__["primary_keys"] = primary_keys
             if query is None and not opts.urn:
                 raise TypeError("Missing required property 'query'")
             __props__.__dict__["query"] = query
@@ -614,6 +686,7 @@ class CortexSearchService(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auto_suspend: pulumi.Input[Optional[_builtins.int]] = None,
             comment: pulumi.Input[Optional[_builtins.str]] = None,
             created_on: pulumi.Input[Optional[_builtins.str]] = None,
             database: pulumi.Input[Optional[_builtins.str]] = None,
@@ -622,6 +695,7 @@ class CortexSearchService(pulumi.CustomResource):
             fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             on: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             query: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
             target_lag: pulumi.Input[Optional[_builtins.str]] = None,
@@ -634,6 +708,7 @@ class CortexSearchService(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attributes: Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
+        :param pulumi.Input[_builtins.int] auto_suspend: Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[_builtins.str] created_on: Creation date for the given Cortex search service.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Cortex search service.
@@ -642,6 +717,7 @@ class CortexSearchService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         :param pulumi.Input[_builtins.str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] primary_keys: Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
         :param pulumi.Input[_builtins.str] query: Specifies the query to use to populate the Cortex search service.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Cortex search service.
         :param pulumi.Input[_builtins.str] target_lag: Specifies the maximum target lag time for the Cortex search service.
@@ -652,6 +728,7 @@ class CortexSearchService(pulumi.CustomResource):
         __props__ = _CortexSearchServiceState.__new__(_CortexSearchServiceState)
 
         __props__.__dict__["attributes"] = attributes
+        __props__.__dict__["auto_suspend"] = auto_suspend
         __props__.__dict__["comment"] = comment
         __props__.__dict__["created_on"] = created_on
         __props__.__dict__["database"] = database
@@ -660,6 +737,7 @@ class CortexSearchService(pulumi.CustomResource):
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["on"] = on
+        __props__.__dict__["primary_keys"] = primary_keys
         __props__.__dict__["query"] = query
         __props__.__dict__["schema"] = schema
         __props__.__dict__["target_lag"] = target_lag
@@ -673,6 +751,14 @@ class CortexSearchService(pulumi.CustomResource):
         Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
         """
         return pulumi.get(self, "attributes")
+
+    @_builtins.property
+    @pulumi.getter(name="autoSuspend")
+    def auto_suspend(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+        """
+        return pulumi.get(self, "auto_suspend")
 
     @_builtins.property
     @pulumi.getter
@@ -737,6 +823,14 @@ class CortexSearchService(pulumi.CustomResource):
         Specifies the column to use as the search column for the Cortex search service; must be a text value.
         """
         return pulumi.get(self, "on")
+
+    @_builtins.property
+    @pulumi.getter(name="primaryKeys")
+    def primary_keys(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+        """
+        return pulumi.get(self, "primary_keys")
 
     @_builtins.property
     @pulumi.getter

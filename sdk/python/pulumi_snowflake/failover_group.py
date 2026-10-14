@@ -29,7 +29,9 @@ class FailoverGroupArgs:
                  ignore_edition_check: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  object_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 replication_schedule: pulumi.Input[Optional['FailoverGroupReplicationScheduleArgs']] = None):
+                 optimized_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replication_schedule: pulumi.Input[Optional['FailoverGroupReplicationScheduleArgs']] = None,
+                 rpo_assurance: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a FailoverGroup resource.
 
@@ -41,7 +43,9 @@ class FailoverGroupArgs:
         :param pulumi.Input[_builtins.bool] ignore_edition_check: (Default: `false`) Allows replicating objects to accounts on lower editions.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
+        :param pulumi.Input[_builtins.bool] optimized_refresh: (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
         :param pulumi.Input['FailoverGroupReplicationScheduleArgs'] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
+        :param pulumi.Input[_builtins.bool] rpo_assurance: (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
         """
         if allowed_accounts is not None:
             pulumi.set(__self__, "allowed_accounts", allowed_accounts)
@@ -59,8 +63,12 @@ class FailoverGroupArgs:
             pulumi.set(__self__, "name", name)
         if object_types is not None:
             pulumi.set(__self__, "object_types", object_types)
+        if optimized_refresh is not None:
+            pulumi.set(__self__, "optimized_refresh", optimized_refresh)
         if replication_schedule is not None:
             pulumi.set(__self__, "replication_schedule", replication_schedule)
+        if rpo_assurance is not None:
+            pulumi.set(__self__, "rpo_assurance", rpo_assurance)
 
     @_builtins.property
     @pulumi.getter(name="allowedAccounts")
@@ -159,6 +167,18 @@ class FailoverGroupArgs:
         pulumi.set(self, "object_types", value)
 
     @_builtins.property
+    @pulumi.getter(name="optimizedRefresh")
+    def optimized_refresh(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+        """
+        return pulumi.get(self, "optimized_refresh")
+
+    @optimized_refresh.setter
+    def optimized_refresh(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "optimized_refresh", value)
+
+    @_builtins.property
     @pulumi.getter(name="replicationSchedule")
     def replication_schedule(self) -> pulumi.Input[Optional['FailoverGroupReplicationScheduleArgs']]:
         """
@@ -169,6 +189,18 @@ class FailoverGroupArgs:
     @replication_schedule.setter
     def replication_schedule(self, value: pulumi.Input[Optional['FailoverGroupReplicationScheduleArgs']]):
         pulumi.set(self, "replication_schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rpoAssurance")
+    def rpo_assurance(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+        """
+        return pulumi.get(self, "rpo_assurance")
+
+    @rpo_assurance.setter
+    def rpo_assurance(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "rpo_assurance", value)
 
 
 @pulumi.input_type
@@ -183,7 +215,9 @@ class _FailoverGroupState:
                  ignore_edition_check: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  object_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 replication_schedule: pulumi.Input[Optional['FailoverGroupReplicationScheduleArgs']] = None):
+                 optimized_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 replication_schedule: pulumi.Input[Optional['FailoverGroupReplicationScheduleArgs']] = None,
+                 rpo_assurance: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering FailoverGroup resources.
 
@@ -196,7 +230,9 @@ class _FailoverGroupState:
         :param pulumi.Input[_builtins.bool] ignore_edition_check: (Default: `false`) Allows replicating objects to accounts on lower editions.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
+        :param pulumi.Input[_builtins.bool] optimized_refresh: (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
         :param pulumi.Input['FailoverGroupReplicationScheduleArgs'] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
+        :param pulumi.Input[_builtins.bool] rpo_assurance: (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
         """
         if allowed_accounts is not None:
             pulumi.set(__self__, "allowed_accounts", allowed_accounts)
@@ -216,8 +252,12 @@ class _FailoverGroupState:
             pulumi.set(__self__, "name", name)
         if object_types is not None:
             pulumi.set(__self__, "object_types", object_types)
+        if optimized_refresh is not None:
+            pulumi.set(__self__, "optimized_refresh", optimized_refresh)
         if replication_schedule is not None:
             pulumi.set(__self__, "replication_schedule", replication_schedule)
+        if rpo_assurance is not None:
+            pulumi.set(__self__, "rpo_assurance", rpo_assurance)
 
     @_builtins.property
     @pulumi.getter(name="allowedAccounts")
@@ -328,6 +368,18 @@ class _FailoverGroupState:
         pulumi.set(self, "object_types", value)
 
     @_builtins.property
+    @pulumi.getter(name="optimizedRefresh")
+    def optimized_refresh(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+        """
+        return pulumi.get(self, "optimized_refresh")
+
+    @optimized_refresh.setter
+    def optimized_refresh(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "optimized_refresh", value)
+
+    @_builtins.property
     @pulumi.getter(name="replicationSchedule")
     def replication_schedule(self) -> pulumi.Input[Optional['FailoverGroupReplicationScheduleArgs']]:
         """
@@ -338,6 +390,18 @@ class _FailoverGroupState:
     @replication_schedule.setter
     def replication_schedule(self, value: pulumi.Input[Optional['FailoverGroupReplicationScheduleArgs']]):
         pulumi.set(self, "replication_schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rpoAssurance")
+    def rpo_assurance(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+        """
+        return pulumi.get(self, "rpo_assurance")
+
+    @rpo_assurance.setter
+    def rpo_assurance(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "rpo_assurance", value)
 
 
 @pulumi.type_token("snowflake:index/failoverGroup:FailoverGroup")
@@ -354,7 +418,9 @@ class FailoverGroup(pulumi.CustomResource):
                  ignore_edition_check: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  object_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 optimized_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
                  replication_schedule: pulumi.Input[Optional[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict', 'outputs.FailoverGroupReplicationSchedule']]] = None,
+                 rpo_assurance: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
         > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
@@ -417,7 +483,9 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] ignore_edition_check: (Default: `false`) Allows replicating objects to accounts on lower editions.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
+        :param pulumi.Input[_builtins.bool] optimized_refresh: (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
         :param pulumi.Input[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict', 'outputs.FailoverGroupReplicationSchedule']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
+        :param pulumi.Input[_builtins.bool] rpo_assurance: (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
         """
         ...
     @overload
@@ -499,7 +567,9 @@ class FailoverGroup(pulumi.CustomResource):
                  ignore_edition_check: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  object_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 optimized_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
                  replication_schedule: pulumi.Input[Optional[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict', 'outputs.FailoverGroupReplicationSchedule']]] = None,
+                 rpo_assurance: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -517,7 +587,9 @@ class FailoverGroup(pulumi.CustomResource):
             __props__.__dict__["ignore_edition_check"] = ignore_edition_check
             __props__.__dict__["name"] = name
             __props__.__dict__["object_types"] = object_types
+            __props__.__dict__["optimized_refresh"] = optimized_refresh
             __props__.__dict__["replication_schedule"] = replication_schedule
+            __props__.__dict__["rpo_assurance"] = rpo_assurance
             __props__.__dict__["fully_qualified_name"] = None
         super(FailoverGroup, __self__).__init__(
             'snowflake:index/failoverGroup:FailoverGroup',
@@ -538,7 +610,9 @@ class FailoverGroup(pulumi.CustomResource):
             ignore_edition_check: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             object_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            replication_schedule: pulumi.Input[Optional[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict', 'outputs.FailoverGroupReplicationSchedule']]] = None) -> 'FailoverGroup':
+            optimized_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+            replication_schedule: pulumi.Input[Optional[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict', 'outputs.FailoverGroupReplicationSchedule']]] = None,
+            rpo_assurance: pulumi.Input[Optional[_builtins.bool]] = None) -> 'FailoverGroup':
         """
         Get an existing FailoverGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -555,7 +629,9 @@ class FailoverGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] ignore_edition_check: (Default: `false`) Allows replicating objects to accounts on lower editions.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] object_types: Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
+        :param pulumi.Input[_builtins.bool] optimized_refresh: (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
         :param pulumi.Input[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict', 'outputs.FailoverGroupReplicationSchedule']] replication_schedule: Specifies the schedule for refreshing secondary failover groups.
+        :param pulumi.Input[_builtins.bool] rpo_assurance: (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -570,7 +646,9 @@ class FailoverGroup(pulumi.CustomResource):
         __props__.__dict__["ignore_edition_check"] = ignore_edition_check
         __props__.__dict__["name"] = name
         __props__.__dict__["object_types"] = object_types
+        __props__.__dict__["optimized_refresh"] = optimized_refresh
         __props__.__dict__["replication_schedule"] = replication_schedule
+        __props__.__dict__["rpo_assurance"] = rpo_assurance
         return FailoverGroup(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -646,10 +724,26 @@ class FailoverGroup(pulumi.CustomResource):
         return pulumi.get(self, "object_types")
 
     @_builtins.property
+    @pulumi.getter(name="optimizedRefresh")
+    def optimized_refresh(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+        """
+        return pulumi.get(self, "optimized_refresh")
+
+    @_builtins.property
     @pulumi.getter(name="replicationSchedule")
     def replication_schedule(self) -> pulumi.Output[Optional['outputs.FailoverGroupReplicationSchedule']]:
         """
         Specifies the schedule for refreshing secondary failover groups.
         """
         return pulumi.get(self, "replication_schedule")
+
+    @_builtins.property
+    @pulumi.getter(name="rpoAssurance")
+    def rpo_assurance(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+        """
+        return pulumi.get(self, "rpo_assurance")
 

@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterCatalog;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterDataRetentionTimeInDay;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterDefaultDdlCollation;
+import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpus;
+import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpus;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterEnableConsoleOutput;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterExternalVolume;
 import com.pulumi.snowflake.outputs.GetDatabasesDatabaseParameterLogEventLevel;
@@ -30,6 +32,8 @@ public final class GetDatabasesDatabaseParameter {
     private List<GetDatabasesDatabaseParameterCatalog> catalogs;
     private List<GetDatabasesDatabaseParameterDataRetentionTimeInDay> dataRetentionTimeInDays;
     private List<GetDatabasesDatabaseParameterDefaultDdlCollation> defaultDdlCollations;
+    private List<GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus;
+    private List<GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus;
     private List<GetDatabasesDatabaseParameterEnableConsoleOutput> enableConsoleOutputs;
     private List<GetDatabasesDatabaseParameterExternalVolume> externalVolumes;
     private List<GetDatabasesDatabaseParameterLogEventLevel> logEventLevels;
@@ -54,6 +58,12 @@ public final class GetDatabasesDatabaseParameter {
     }
     public List<GetDatabasesDatabaseParameterDefaultDdlCollation> defaultDdlCollations() {
         return this.defaultDdlCollations;
+    }
+    public List<GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus() {
+        return this.defaultNotebookComputePoolCpus;
+    }
+    public List<GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus() {
+        return this.defaultNotebookComputePoolGpus;
     }
     public List<GetDatabasesDatabaseParameterEnableConsoleOutput> enableConsoleOutputs() {
         return this.enableConsoleOutputs;
@@ -110,6 +120,8 @@ public final class GetDatabasesDatabaseParameter {
         private List<GetDatabasesDatabaseParameterCatalog> catalogs;
         private List<GetDatabasesDatabaseParameterDataRetentionTimeInDay> dataRetentionTimeInDays;
         private List<GetDatabasesDatabaseParameterDefaultDdlCollation> defaultDdlCollations;
+        private List<GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus;
+        private List<GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus;
         private List<GetDatabasesDatabaseParameterEnableConsoleOutput> enableConsoleOutputs;
         private List<GetDatabasesDatabaseParameterExternalVolume> externalVolumes;
         private List<GetDatabasesDatabaseParameterLogEventLevel> logEventLevels;
@@ -130,6 +142,8 @@ public final class GetDatabasesDatabaseParameter {
     	      this.catalogs = defaults.catalogs;
     	      this.dataRetentionTimeInDays = defaults.dataRetentionTimeInDays;
     	      this.defaultDdlCollations = defaults.defaultDdlCollations;
+    	      this.defaultNotebookComputePoolCpus = defaults.defaultNotebookComputePoolCpus;
+    	      this.defaultNotebookComputePoolGpus = defaults.defaultNotebookComputePoolGpus;
     	      this.enableConsoleOutputs = defaults.enableConsoleOutputs;
     	      this.externalVolumes = defaults.externalVolumes;
     	      this.logEventLevels = defaults.logEventLevels;
@@ -178,6 +192,28 @@ public final class GetDatabasesDatabaseParameter {
         }
         public Builder defaultDdlCollations(GetDatabasesDatabaseParameterDefaultDdlCollation... defaultDdlCollations) {
             return defaultDdlCollations(List.of(defaultDdlCollations));
+        }
+        @CustomType.Setter
+        public Builder defaultNotebookComputePoolCpus(List<GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus) {
+            if (defaultNotebookComputePoolCpus == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabaseParameter", "defaultNotebookComputePoolCpus");
+            }
+            this.defaultNotebookComputePoolCpus = defaultNotebookComputePoolCpus;
+            return this;
+        }
+        public Builder defaultNotebookComputePoolCpus(GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpus... defaultNotebookComputePoolCpus) {
+            return defaultNotebookComputePoolCpus(List.of(defaultNotebookComputePoolCpus));
+        }
+        @CustomType.Setter
+        public Builder defaultNotebookComputePoolGpus(List<GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus) {
+            if (defaultNotebookComputePoolGpus == null) {
+              throw new MissingRequiredPropertyException("GetDatabasesDatabaseParameter", "defaultNotebookComputePoolGpus");
+            }
+            this.defaultNotebookComputePoolGpus = defaultNotebookComputePoolGpus;
+            return this;
+        }
+        public Builder defaultNotebookComputePoolGpus(GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpus... defaultNotebookComputePoolGpus) {
+            return defaultNotebookComputePoolGpus(List.of(defaultNotebookComputePoolGpus));
         }
         @CustomType.Setter
         public Builder enableConsoleOutputs(List<GetDatabasesDatabaseParameterEnableConsoleOutput> enableConsoleOutputs) {
@@ -338,6 +374,8 @@ public final class GetDatabasesDatabaseParameter {
             _resultValue.catalogs = catalogs;
             _resultValue.dataRetentionTimeInDays = dataRetentionTimeInDays;
             _resultValue.defaultDdlCollations = defaultDdlCollations;
+            _resultValue.defaultNotebookComputePoolCpus = defaultNotebookComputePoolCpus;
+            _resultValue.defaultNotebookComputePoolGpus = defaultNotebookComputePoolGpus;
             _resultValue.enableConsoleOutputs = enableConsoleOutputs;
             _resultValue.externalVolumes = externalVolumes;
             _resultValue.logEventLevels = logEventLevels;

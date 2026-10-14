@@ -36,6 +36,22 @@ namespace Pulumi.Snowflake.Inputs
             set => _defaultDdlCollations = value;
         }
 
+        [Input("defaultNotebookComputePoolCpus")]
+        private InputList<Inputs.SchemaParameterDefaultNotebookComputePoolCpusArgs>? _defaultNotebookComputePoolCpus;
+        public InputList<Inputs.SchemaParameterDefaultNotebookComputePoolCpusArgs> DefaultNotebookComputePoolCpus
+        {
+            get => _defaultNotebookComputePoolCpus ?? (_defaultNotebookComputePoolCpus = new InputList<Inputs.SchemaParameterDefaultNotebookComputePoolCpusArgs>());
+            set => _defaultNotebookComputePoolCpus = value;
+        }
+
+        [Input("defaultNotebookComputePoolGpus")]
+        private InputList<Inputs.SchemaParameterDefaultNotebookComputePoolGpusArgs>? _defaultNotebookComputePoolGpus;
+        public InputList<Inputs.SchemaParameterDefaultNotebookComputePoolGpusArgs> DefaultNotebookComputePoolGpus
+        {
+            get => _defaultNotebookComputePoolGpus ?? (_defaultNotebookComputePoolGpus = new InputList<Inputs.SchemaParameterDefaultNotebookComputePoolGpusArgs>());
+            set => _defaultNotebookComputePoolGpus = value;
+        }
+
         [Input("enableConsoleOutputs")]
         private InputList<Inputs.SchemaParameterEnableConsoleOutputArgs>? _enableConsoleOutputs;
         public InputList<Inputs.SchemaParameterEnableConsoleOutputArgs> EnableConsoleOutputs

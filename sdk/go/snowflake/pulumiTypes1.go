@@ -1927,6 +1927,8 @@ type SchemaParameter struct {
 	Catalogs                                []SchemaParameterCatalog                                `pulumi:"catalogs"`
 	DataRetentionTimeInDays                 []SchemaParameterDataRetentionTimeInDay                 `pulumi:"dataRetentionTimeInDays"`
 	DefaultDdlCollations                    []SchemaParameterDefaultDdlCollation                    `pulumi:"defaultDdlCollations"`
+	DefaultNotebookComputePoolCpus          []SchemaParameterDefaultNotebookComputePoolCpus         `pulumi:"defaultNotebookComputePoolCpus"`
+	DefaultNotebookComputePoolGpus          []SchemaParameterDefaultNotebookComputePoolGpus         `pulumi:"defaultNotebookComputePoolGpus"`
 	EnableConsoleOutputs                    []SchemaParameterEnableConsoleOutput                    `pulumi:"enableConsoleOutputs"`
 	ExternalVolumes                         []SchemaParameterExternalVolume                         `pulumi:"externalVolumes"`
 	LogEventLevels                          []SchemaParameterLogEventLevel                          `pulumi:"logEventLevels"`
@@ -1959,6 +1961,8 @@ type SchemaParameterArgs struct {
 	Catalogs                                SchemaParameterCatalogArrayInput                                `pulumi:"catalogs"`
 	DataRetentionTimeInDays                 SchemaParameterDataRetentionTimeInDayArrayInput                 `pulumi:"dataRetentionTimeInDays"`
 	DefaultDdlCollations                    SchemaParameterDefaultDdlCollationArrayInput                    `pulumi:"defaultDdlCollations"`
+	DefaultNotebookComputePoolCpus          SchemaParameterDefaultNotebookComputePoolCpusArrayInput         `pulumi:"defaultNotebookComputePoolCpus"`
+	DefaultNotebookComputePoolGpus          SchemaParameterDefaultNotebookComputePoolGpusArrayInput         `pulumi:"defaultNotebookComputePoolGpus"`
 	EnableConsoleOutputs                    SchemaParameterEnableConsoleOutputArrayInput                    `pulumi:"enableConsoleOutputs"`
 	ExternalVolumes                         SchemaParameterExternalVolumeArrayInput                         `pulumi:"externalVolumes"`
 	LogEventLevels                          SchemaParameterLogEventLevelArrayInput                          `pulumi:"logEventLevels"`
@@ -2037,6 +2041,18 @@ func (o SchemaParameterOutput) DataRetentionTimeInDays() SchemaParameterDataRete
 
 func (o SchemaParameterOutput) DefaultDdlCollations() SchemaParameterDefaultDdlCollationArrayOutput {
 	return o.ApplyT(func(v SchemaParameter) []SchemaParameterDefaultDdlCollation { return v.DefaultDdlCollations }).(SchemaParameterDefaultDdlCollationArrayOutput)
+}
+
+func (o SchemaParameterOutput) DefaultNotebookComputePoolCpus() SchemaParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return o.ApplyT(func(v SchemaParameter) []SchemaParameterDefaultNotebookComputePoolCpus {
+		return v.DefaultNotebookComputePoolCpus
+	}).(SchemaParameterDefaultNotebookComputePoolCpusArrayOutput)
+}
+
+func (o SchemaParameterOutput) DefaultNotebookComputePoolGpus() SchemaParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return o.ApplyT(func(v SchemaParameter) []SchemaParameterDefaultNotebookComputePoolGpus {
+		return v.DefaultNotebookComputePoolGpus
+	}).(SchemaParameterDefaultNotebookComputePoolGpusArrayOutput)
 }
 
 func (o SchemaParameterOutput) EnableConsoleOutputs() SchemaParameterEnableConsoleOutputArrayOutput {
@@ -2483,6 +2499,242 @@ func (o SchemaParameterDefaultDdlCollationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterDefaultDdlCollation {
 		return vs[0].([]SchemaParameterDefaultDdlCollation)[vs[1].(int)]
 	}).(SchemaParameterDefaultDdlCollationOutput)
+}
+
+type SchemaParameterDefaultNotebookComputePoolCpus struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// SchemaParameterDefaultNotebookComputePoolCpusInput is an input type that accepts SchemaParameterDefaultNotebookComputePoolCpusArgs and SchemaParameterDefaultNotebookComputePoolCpusOutput values.
+// You can construct a concrete instance of `SchemaParameterDefaultNotebookComputePoolCpusInput` via:
+//
+//	SchemaParameterDefaultNotebookComputePoolCpusArgs{...}
+type SchemaParameterDefaultNotebookComputePoolCpusInput interface {
+	pulumi.Input
+
+	ToSchemaParameterDefaultNotebookComputePoolCpusOutput() SchemaParameterDefaultNotebookComputePoolCpusOutput
+	ToSchemaParameterDefaultNotebookComputePoolCpusOutputWithContext(context.Context) SchemaParameterDefaultNotebookComputePoolCpusOutput
+}
+
+type SchemaParameterDefaultNotebookComputePoolCpusArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SchemaParameterDefaultNotebookComputePoolCpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (i SchemaParameterDefaultNotebookComputePoolCpusArgs) ToSchemaParameterDefaultNotebookComputePoolCpusOutput() SchemaParameterDefaultNotebookComputePoolCpusOutput {
+	return i.ToSchemaParameterDefaultNotebookComputePoolCpusOutputWithContext(context.Background())
+}
+
+func (i SchemaParameterDefaultNotebookComputePoolCpusArgs) ToSchemaParameterDefaultNotebookComputePoolCpusOutputWithContext(ctx context.Context) SchemaParameterDefaultNotebookComputePoolCpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterDefaultNotebookComputePoolCpusOutput)
+}
+
+// SchemaParameterDefaultNotebookComputePoolCpusArrayInput is an input type that accepts SchemaParameterDefaultNotebookComputePoolCpusArray and SchemaParameterDefaultNotebookComputePoolCpusArrayOutput values.
+// You can construct a concrete instance of `SchemaParameterDefaultNotebookComputePoolCpusArrayInput` via:
+//
+//	SchemaParameterDefaultNotebookComputePoolCpusArray{ SchemaParameterDefaultNotebookComputePoolCpusArgs{...} }
+type SchemaParameterDefaultNotebookComputePoolCpusArrayInput interface {
+	pulumi.Input
+
+	ToSchemaParameterDefaultNotebookComputePoolCpusArrayOutput() SchemaParameterDefaultNotebookComputePoolCpusArrayOutput
+	ToSchemaParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(context.Context) SchemaParameterDefaultNotebookComputePoolCpusArrayOutput
+}
+
+type SchemaParameterDefaultNotebookComputePoolCpusArray []SchemaParameterDefaultNotebookComputePoolCpusInput
+
+func (SchemaParameterDefaultNotebookComputePoolCpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (i SchemaParameterDefaultNotebookComputePoolCpusArray) ToSchemaParameterDefaultNotebookComputePoolCpusArrayOutput() SchemaParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return i.ToSchemaParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(context.Background())
+}
+
+func (i SchemaParameterDefaultNotebookComputePoolCpusArray) ToSchemaParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(ctx context.Context) SchemaParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterDefaultNotebookComputePoolCpusArrayOutput)
+}
+
+type SchemaParameterDefaultNotebookComputePoolCpusOutput struct{ *pulumi.OutputState }
+
+func (SchemaParameterDefaultNotebookComputePoolCpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolCpusOutput) ToSchemaParameterDefaultNotebookComputePoolCpusOutput() SchemaParameterDefaultNotebookComputePoolCpusOutput {
+	return o
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolCpusOutput) ToSchemaParameterDefaultNotebookComputePoolCpusOutputWithContext(ctx context.Context) SchemaParameterDefaultNotebookComputePoolCpusOutput {
+	return o
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolCpusOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaParameterDefaultNotebookComputePoolCpus) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolCpusOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaParameterDefaultNotebookComputePoolCpus) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolCpusOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaParameterDefaultNotebookComputePoolCpus) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolCpusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaParameterDefaultNotebookComputePoolCpus) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolCpusOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaParameterDefaultNotebookComputePoolCpus) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SchemaParameterDefaultNotebookComputePoolCpusArrayOutput struct{ *pulumi.OutputState }
+
+func (SchemaParameterDefaultNotebookComputePoolCpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolCpusArrayOutput) ToSchemaParameterDefaultNotebookComputePoolCpusArrayOutput() SchemaParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return o
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolCpusArrayOutput) ToSchemaParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(ctx context.Context) SchemaParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return o
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolCpusArrayOutput) Index(i pulumi.IntInput) SchemaParameterDefaultNotebookComputePoolCpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterDefaultNotebookComputePoolCpus {
+		return vs[0].([]SchemaParameterDefaultNotebookComputePoolCpus)[vs[1].(int)]
+	}).(SchemaParameterDefaultNotebookComputePoolCpusOutput)
+}
+
+type SchemaParameterDefaultNotebookComputePoolGpus struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// SchemaParameterDefaultNotebookComputePoolGpusInput is an input type that accepts SchemaParameterDefaultNotebookComputePoolGpusArgs and SchemaParameterDefaultNotebookComputePoolGpusOutput values.
+// You can construct a concrete instance of `SchemaParameterDefaultNotebookComputePoolGpusInput` via:
+//
+//	SchemaParameterDefaultNotebookComputePoolGpusArgs{...}
+type SchemaParameterDefaultNotebookComputePoolGpusInput interface {
+	pulumi.Input
+
+	ToSchemaParameterDefaultNotebookComputePoolGpusOutput() SchemaParameterDefaultNotebookComputePoolGpusOutput
+	ToSchemaParameterDefaultNotebookComputePoolGpusOutputWithContext(context.Context) SchemaParameterDefaultNotebookComputePoolGpusOutput
+}
+
+type SchemaParameterDefaultNotebookComputePoolGpusArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (SchemaParameterDefaultNotebookComputePoolGpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (i SchemaParameterDefaultNotebookComputePoolGpusArgs) ToSchemaParameterDefaultNotebookComputePoolGpusOutput() SchemaParameterDefaultNotebookComputePoolGpusOutput {
+	return i.ToSchemaParameterDefaultNotebookComputePoolGpusOutputWithContext(context.Background())
+}
+
+func (i SchemaParameterDefaultNotebookComputePoolGpusArgs) ToSchemaParameterDefaultNotebookComputePoolGpusOutputWithContext(ctx context.Context) SchemaParameterDefaultNotebookComputePoolGpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterDefaultNotebookComputePoolGpusOutput)
+}
+
+// SchemaParameterDefaultNotebookComputePoolGpusArrayInput is an input type that accepts SchemaParameterDefaultNotebookComputePoolGpusArray and SchemaParameterDefaultNotebookComputePoolGpusArrayOutput values.
+// You can construct a concrete instance of `SchemaParameterDefaultNotebookComputePoolGpusArrayInput` via:
+//
+//	SchemaParameterDefaultNotebookComputePoolGpusArray{ SchemaParameterDefaultNotebookComputePoolGpusArgs{...} }
+type SchemaParameterDefaultNotebookComputePoolGpusArrayInput interface {
+	pulumi.Input
+
+	ToSchemaParameterDefaultNotebookComputePoolGpusArrayOutput() SchemaParameterDefaultNotebookComputePoolGpusArrayOutput
+	ToSchemaParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(context.Context) SchemaParameterDefaultNotebookComputePoolGpusArrayOutput
+}
+
+type SchemaParameterDefaultNotebookComputePoolGpusArray []SchemaParameterDefaultNotebookComputePoolGpusInput
+
+func (SchemaParameterDefaultNotebookComputePoolGpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (i SchemaParameterDefaultNotebookComputePoolGpusArray) ToSchemaParameterDefaultNotebookComputePoolGpusArrayOutput() SchemaParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return i.ToSchemaParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(context.Background())
+}
+
+func (i SchemaParameterDefaultNotebookComputePoolGpusArray) ToSchemaParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(ctx context.Context) SchemaParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SchemaParameterDefaultNotebookComputePoolGpusArrayOutput)
+}
+
+type SchemaParameterDefaultNotebookComputePoolGpusOutput struct{ *pulumi.OutputState }
+
+func (SchemaParameterDefaultNotebookComputePoolGpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SchemaParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolGpusOutput) ToSchemaParameterDefaultNotebookComputePoolGpusOutput() SchemaParameterDefaultNotebookComputePoolGpusOutput {
+	return o
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolGpusOutput) ToSchemaParameterDefaultNotebookComputePoolGpusOutputWithContext(ctx context.Context) SchemaParameterDefaultNotebookComputePoolGpusOutput {
+	return o
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolGpusOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaParameterDefaultNotebookComputePoolGpus) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolGpusOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaParameterDefaultNotebookComputePoolGpus) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolGpusOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaParameterDefaultNotebookComputePoolGpus) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolGpusOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaParameterDefaultNotebookComputePoolGpus) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolGpusOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SchemaParameterDefaultNotebookComputePoolGpus) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type SchemaParameterDefaultNotebookComputePoolGpusArrayOutput struct{ *pulumi.OutputState }
+
+func (SchemaParameterDefaultNotebookComputePoolGpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SchemaParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolGpusArrayOutput) ToSchemaParameterDefaultNotebookComputePoolGpusArrayOutput() SchemaParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return o
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolGpusArrayOutput) ToSchemaParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(ctx context.Context) SchemaParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return o
+}
+
+func (o SchemaParameterDefaultNotebookComputePoolGpusArrayOutput) Index(i pulumi.IntInput) SchemaParameterDefaultNotebookComputePoolGpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SchemaParameterDefaultNotebookComputePoolGpus {
+		return vs[0].([]SchemaParameterDefaultNotebookComputePoolGpus)[vs[1].(int)]
+	}).(SchemaParameterDefaultNotebookComputePoolGpusOutput)
 }
 
 type SchemaParameterEnableConsoleOutput struct {
@@ -8906,6 +9158,220 @@ func (o ServiceFromSpecificationTemplateUsingArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceFromSpecificationTemplateUsing {
 		return vs[0].([]ServiceFromSpecificationTemplateUsing)[vs[1].(int)]
 	}).(ServiceFromSpecificationTemplateUsingOutput)
+}
+
+type ServiceParameter struct {
+	ServiceCallerTokenValiditySecs []ServiceParameterServiceCallerTokenValiditySec `pulumi:"serviceCallerTokenValiditySecs"`
+}
+
+// ServiceParameterInput is an input type that accepts ServiceParameterArgs and ServiceParameterOutput values.
+// You can construct a concrete instance of `ServiceParameterInput` via:
+//
+//	ServiceParameterArgs{...}
+type ServiceParameterInput interface {
+	pulumi.Input
+
+	ToServiceParameterOutput() ServiceParameterOutput
+	ToServiceParameterOutputWithContext(context.Context) ServiceParameterOutput
+}
+
+type ServiceParameterArgs struct {
+	ServiceCallerTokenValiditySecs ServiceParameterServiceCallerTokenValiditySecArrayInput `pulumi:"serviceCallerTokenValiditySecs"`
+}
+
+func (ServiceParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceParameter)(nil)).Elem()
+}
+
+func (i ServiceParameterArgs) ToServiceParameterOutput() ServiceParameterOutput {
+	return i.ToServiceParameterOutputWithContext(context.Background())
+}
+
+func (i ServiceParameterArgs) ToServiceParameterOutputWithContext(ctx context.Context) ServiceParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceParameterOutput)
+}
+
+// ServiceParameterArrayInput is an input type that accepts ServiceParameterArray and ServiceParameterArrayOutput values.
+// You can construct a concrete instance of `ServiceParameterArrayInput` via:
+//
+//	ServiceParameterArray{ ServiceParameterArgs{...} }
+type ServiceParameterArrayInput interface {
+	pulumi.Input
+
+	ToServiceParameterArrayOutput() ServiceParameterArrayOutput
+	ToServiceParameterArrayOutputWithContext(context.Context) ServiceParameterArrayOutput
+}
+
+type ServiceParameterArray []ServiceParameterInput
+
+func (ServiceParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceParameter)(nil)).Elem()
+}
+
+func (i ServiceParameterArray) ToServiceParameterArrayOutput() ServiceParameterArrayOutput {
+	return i.ToServiceParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceParameterArray) ToServiceParameterArrayOutputWithContext(ctx context.Context) ServiceParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceParameterArrayOutput)
+}
+
+type ServiceParameterOutput struct{ *pulumi.OutputState }
+
+func (ServiceParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceParameter)(nil)).Elem()
+}
+
+func (o ServiceParameterOutput) ToServiceParameterOutput() ServiceParameterOutput {
+	return o
+}
+
+func (o ServiceParameterOutput) ToServiceParameterOutputWithContext(ctx context.Context) ServiceParameterOutput {
+	return o
+}
+
+func (o ServiceParameterOutput) ServiceCallerTokenValiditySecs() ServiceParameterServiceCallerTokenValiditySecArrayOutput {
+	return o.ApplyT(func(v ServiceParameter) []ServiceParameterServiceCallerTokenValiditySec {
+		return v.ServiceCallerTokenValiditySecs
+	}).(ServiceParameterServiceCallerTokenValiditySecArrayOutput)
+}
+
+type ServiceParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceParameter)(nil)).Elem()
+}
+
+func (o ServiceParameterArrayOutput) ToServiceParameterArrayOutput() ServiceParameterArrayOutput {
+	return o
+}
+
+func (o ServiceParameterArrayOutput) ToServiceParameterArrayOutputWithContext(ctx context.Context) ServiceParameterArrayOutput {
+	return o
+}
+
+func (o ServiceParameterArrayOutput) Index(i pulumi.IntInput) ServiceParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceParameter {
+		return vs[0].([]ServiceParameter)[vs[1].(int)]
+	}).(ServiceParameterOutput)
+}
+
+type ServiceParameterServiceCallerTokenValiditySec struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// ServiceParameterServiceCallerTokenValiditySecInput is an input type that accepts ServiceParameterServiceCallerTokenValiditySecArgs and ServiceParameterServiceCallerTokenValiditySecOutput values.
+// You can construct a concrete instance of `ServiceParameterServiceCallerTokenValiditySecInput` via:
+//
+//	ServiceParameterServiceCallerTokenValiditySecArgs{...}
+type ServiceParameterServiceCallerTokenValiditySecInput interface {
+	pulumi.Input
+
+	ToServiceParameterServiceCallerTokenValiditySecOutput() ServiceParameterServiceCallerTokenValiditySecOutput
+	ToServiceParameterServiceCallerTokenValiditySecOutputWithContext(context.Context) ServiceParameterServiceCallerTokenValiditySecOutput
+}
+
+type ServiceParameterServiceCallerTokenValiditySecArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ServiceParameterServiceCallerTokenValiditySecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceParameterServiceCallerTokenValiditySec)(nil)).Elem()
+}
+
+func (i ServiceParameterServiceCallerTokenValiditySecArgs) ToServiceParameterServiceCallerTokenValiditySecOutput() ServiceParameterServiceCallerTokenValiditySecOutput {
+	return i.ToServiceParameterServiceCallerTokenValiditySecOutputWithContext(context.Background())
+}
+
+func (i ServiceParameterServiceCallerTokenValiditySecArgs) ToServiceParameterServiceCallerTokenValiditySecOutputWithContext(ctx context.Context) ServiceParameterServiceCallerTokenValiditySecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceParameterServiceCallerTokenValiditySecOutput)
+}
+
+// ServiceParameterServiceCallerTokenValiditySecArrayInput is an input type that accepts ServiceParameterServiceCallerTokenValiditySecArray and ServiceParameterServiceCallerTokenValiditySecArrayOutput values.
+// You can construct a concrete instance of `ServiceParameterServiceCallerTokenValiditySecArrayInput` via:
+//
+//	ServiceParameterServiceCallerTokenValiditySecArray{ ServiceParameterServiceCallerTokenValiditySecArgs{...} }
+type ServiceParameterServiceCallerTokenValiditySecArrayInput interface {
+	pulumi.Input
+
+	ToServiceParameterServiceCallerTokenValiditySecArrayOutput() ServiceParameterServiceCallerTokenValiditySecArrayOutput
+	ToServiceParameterServiceCallerTokenValiditySecArrayOutputWithContext(context.Context) ServiceParameterServiceCallerTokenValiditySecArrayOutput
+}
+
+type ServiceParameterServiceCallerTokenValiditySecArray []ServiceParameterServiceCallerTokenValiditySecInput
+
+func (ServiceParameterServiceCallerTokenValiditySecArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceParameterServiceCallerTokenValiditySec)(nil)).Elem()
+}
+
+func (i ServiceParameterServiceCallerTokenValiditySecArray) ToServiceParameterServiceCallerTokenValiditySecArrayOutput() ServiceParameterServiceCallerTokenValiditySecArrayOutput {
+	return i.ToServiceParameterServiceCallerTokenValiditySecArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceParameterServiceCallerTokenValiditySecArray) ToServiceParameterServiceCallerTokenValiditySecArrayOutputWithContext(ctx context.Context) ServiceParameterServiceCallerTokenValiditySecArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceParameterServiceCallerTokenValiditySecArrayOutput)
+}
+
+type ServiceParameterServiceCallerTokenValiditySecOutput struct{ *pulumi.OutputState }
+
+func (ServiceParameterServiceCallerTokenValiditySecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceParameterServiceCallerTokenValiditySec)(nil)).Elem()
+}
+
+func (o ServiceParameterServiceCallerTokenValiditySecOutput) ToServiceParameterServiceCallerTokenValiditySecOutput() ServiceParameterServiceCallerTokenValiditySecOutput {
+	return o
+}
+
+func (o ServiceParameterServiceCallerTokenValiditySecOutput) ToServiceParameterServiceCallerTokenValiditySecOutputWithContext(ctx context.Context) ServiceParameterServiceCallerTokenValiditySecOutput {
+	return o
+}
+
+func (o ServiceParameterServiceCallerTokenValiditySecOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceParameterServiceCallerTokenValiditySec) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceParameterServiceCallerTokenValiditySecOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceParameterServiceCallerTokenValiditySec) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceParameterServiceCallerTokenValiditySecOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceParameterServiceCallerTokenValiditySec) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceParameterServiceCallerTokenValiditySecOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceParameterServiceCallerTokenValiditySec) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceParameterServiceCallerTokenValiditySecOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceParameterServiceCallerTokenValiditySec) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ServiceParameterServiceCallerTokenValiditySecArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceParameterServiceCallerTokenValiditySecArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceParameterServiceCallerTokenValiditySec)(nil)).Elem()
+}
+
+func (o ServiceParameterServiceCallerTokenValiditySecArrayOutput) ToServiceParameterServiceCallerTokenValiditySecArrayOutput() ServiceParameterServiceCallerTokenValiditySecArrayOutput {
+	return o
+}
+
+func (o ServiceParameterServiceCallerTokenValiditySecArrayOutput) ToServiceParameterServiceCallerTokenValiditySecArrayOutputWithContext(ctx context.Context) ServiceParameterServiceCallerTokenValiditySecArrayOutput {
+	return o
+}
+
+func (o ServiceParameterServiceCallerTokenValiditySecArrayOutput) Index(i pulumi.IntInput) ServiceParameterServiceCallerTokenValiditySecOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceParameterServiceCallerTokenValiditySec {
+		return vs[0].([]ServiceParameterServiceCallerTokenValiditySec)[vs[1].(int)]
+	}).(ServiceParameterServiceCallerTokenValiditySecOutput)
 }
 
 type ServiceShowOutput struct {
@@ -18203,15 +18669,16 @@ func (o SessionPolicyDescribeOutputArrayOutput) Index(i pulumi.IntInput) Session
 }
 
 type SessionPolicyShowOutput struct {
-	Comment       *string `pulumi:"comment"`
-	CreatedOn     *string `pulumi:"createdOn"`
-	DatabaseName  *string `pulumi:"databaseName"`
-	Kind          *string `pulumi:"kind"`
-	Name          *string `pulumi:"name"`
-	Options       *string `pulumi:"options"`
-	Owner         *string `pulumi:"owner"`
-	OwnerRoleType *string `pulumi:"ownerRoleType"`
-	SchemaName    *string `pulumi:"schemaName"`
+	Comment       *string  `pulumi:"comment"`
+	CreatedOn     *string  `pulumi:"createdOn"`
+	DatabaseName  *string  `pulumi:"databaseName"`
+	Kind          *string  `pulumi:"kind"`
+	Name          *string  `pulumi:"name"`
+	Options       *string  `pulumi:"options"`
+	Owner         *string  `pulumi:"owner"`
+	OwnerRoleType *string  `pulumi:"ownerRoleType"`
+	SchemaName    *string  `pulumi:"schemaName"`
+	TargetScopes  []string `pulumi:"targetScopes"`
 }
 
 // SessionPolicyShowOutputInput is an input type that accepts SessionPolicyShowOutputArgs and SessionPolicyShowOutputOutput values.
@@ -18226,15 +18693,16 @@ type SessionPolicyShowOutputInput interface {
 }
 
 type SessionPolicyShowOutputArgs struct {
-	Comment       pulumi.StringPtrInput `pulumi:"comment"`
-	CreatedOn     pulumi.StringPtrInput `pulumi:"createdOn"`
-	DatabaseName  pulumi.StringPtrInput `pulumi:"databaseName"`
-	Kind          pulumi.StringPtrInput `pulumi:"kind"`
-	Name          pulumi.StringPtrInput `pulumi:"name"`
-	Options       pulumi.StringPtrInput `pulumi:"options"`
-	Owner         pulumi.StringPtrInput `pulumi:"owner"`
-	OwnerRoleType pulumi.StringPtrInput `pulumi:"ownerRoleType"`
-	SchemaName    pulumi.StringPtrInput `pulumi:"schemaName"`
+	Comment       pulumi.StringPtrInput   `pulumi:"comment"`
+	CreatedOn     pulumi.StringPtrInput   `pulumi:"createdOn"`
+	DatabaseName  pulumi.StringPtrInput   `pulumi:"databaseName"`
+	Kind          pulumi.StringPtrInput   `pulumi:"kind"`
+	Name          pulumi.StringPtrInput   `pulumi:"name"`
+	Options       pulumi.StringPtrInput   `pulumi:"options"`
+	Owner         pulumi.StringPtrInput   `pulumi:"owner"`
+	OwnerRoleType pulumi.StringPtrInput   `pulumi:"ownerRoleType"`
+	SchemaName    pulumi.StringPtrInput   `pulumi:"schemaName"`
+	TargetScopes  pulumi.StringArrayInput `pulumi:"targetScopes"`
 }
 
 func (SessionPolicyShowOutputArgs) ElementType() reflect.Type {
@@ -18322,6 +18790,10 @@ func (o SessionPolicyShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
 
 func (o SessionPolicyShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SessionPolicyShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o SessionPolicyShowOutputOutput) TargetScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SessionPolicyShowOutput) []string { return v.TargetScopes }).(pulumi.StringArrayOutput)
 }
 
 type SessionPolicyShowOutputArrayOutput struct{ *pulumi.OutputState }
@@ -18586,9 +19058,11 @@ func (o StageExternalAzureDescribeOutputArrayOutput) Index(i pulumi.IntInput) St
 }
 
 type StageExternalAzureDescribeOutputDirectoryTable struct {
-	AutoRefresh     *bool   `pulumi:"autoRefresh"`
-	Enable          *bool   `pulumi:"enable"`
-	LastRefreshedOn *string `pulumi:"lastRefreshedOn"`
+	AutoRefresh                  *bool   `pulumi:"autoRefresh"`
+	AwsSnsTopic                  *string `pulumi:"awsSnsTopic"`
+	DirectoryNotificationChannel *string `pulumi:"directoryNotificationChannel"`
+	Enable                       *bool   `pulumi:"enable"`
+	LastRefreshedOn              *string `pulumi:"lastRefreshedOn"`
 }
 
 // StageExternalAzureDescribeOutputDirectoryTableInput is an input type that accepts StageExternalAzureDescribeOutputDirectoryTableArgs and StageExternalAzureDescribeOutputDirectoryTableOutput values.
@@ -18603,9 +19077,11 @@ type StageExternalAzureDescribeOutputDirectoryTableInput interface {
 }
 
 type StageExternalAzureDescribeOutputDirectoryTableArgs struct {
-	AutoRefresh     pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
-	Enable          pulumi.BoolPtrInput   `pulumi:"enable"`
-	LastRefreshedOn pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
+	AutoRefresh                  pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
+	AwsSnsTopic                  pulumi.StringPtrInput `pulumi:"awsSnsTopic"`
+	DirectoryNotificationChannel pulumi.StringPtrInput `pulumi:"directoryNotificationChannel"`
+	Enable                       pulumi.BoolPtrInput   `pulumi:"enable"`
+	LastRefreshedOn              pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
 }
 
 func (StageExternalAzureDescribeOutputDirectoryTableArgs) ElementType() reflect.Type {
@@ -18661,6 +19137,14 @@ func (o StageExternalAzureDescribeOutputDirectoryTableOutput) ToStageExternalAzu
 
 func (o StageExternalAzureDescribeOutputDirectoryTableOutput) AutoRefresh() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageExternalAzureDescribeOutputDirectoryTable) *bool { return v.AutoRefresh }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageExternalAzureDescribeOutputDirectoryTableOutput) AwsSnsTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageExternalAzureDescribeOutputDirectoryTable) *string { return v.AwsSnsTopic }).(pulumi.StringPtrOutput)
+}
+
+func (o StageExternalAzureDescribeOutputDirectoryTableOutput) DirectoryNotificationChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageExternalAzureDescribeOutputDirectoryTable) *string { return v.DirectoryNotificationChannel }).(pulumi.StringPtrOutput)
 }
 
 func (o StageExternalAzureDescribeOutputDirectoryTableOutput) Enable() pulumi.BoolPtrOutput {
@@ -22731,9 +23215,11 @@ func (o StageExternalGcsDescribeOutputArrayOutput) Index(i pulumi.IntInput) Stag
 }
 
 type StageExternalGcsDescribeOutputDirectoryTable struct {
-	AutoRefresh     *bool   `pulumi:"autoRefresh"`
-	Enable          *bool   `pulumi:"enable"`
-	LastRefreshedOn *string `pulumi:"lastRefreshedOn"`
+	AutoRefresh                  *bool   `pulumi:"autoRefresh"`
+	AwsSnsTopic                  *string `pulumi:"awsSnsTopic"`
+	DirectoryNotificationChannel *string `pulumi:"directoryNotificationChannel"`
+	Enable                       *bool   `pulumi:"enable"`
+	LastRefreshedOn              *string `pulumi:"lastRefreshedOn"`
 }
 
 // StageExternalGcsDescribeOutputDirectoryTableInput is an input type that accepts StageExternalGcsDescribeOutputDirectoryTableArgs and StageExternalGcsDescribeOutputDirectoryTableOutput values.
@@ -22748,9 +23234,11 @@ type StageExternalGcsDescribeOutputDirectoryTableInput interface {
 }
 
 type StageExternalGcsDescribeOutputDirectoryTableArgs struct {
-	AutoRefresh     pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
-	Enable          pulumi.BoolPtrInput   `pulumi:"enable"`
-	LastRefreshedOn pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
+	AutoRefresh                  pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
+	AwsSnsTopic                  pulumi.StringPtrInput `pulumi:"awsSnsTopic"`
+	DirectoryNotificationChannel pulumi.StringPtrInput `pulumi:"directoryNotificationChannel"`
+	Enable                       pulumi.BoolPtrInput   `pulumi:"enable"`
+	LastRefreshedOn              pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
 }
 
 func (StageExternalGcsDescribeOutputDirectoryTableArgs) ElementType() reflect.Type {
@@ -22806,6 +23294,14 @@ func (o StageExternalGcsDescribeOutputDirectoryTableOutput) ToStageExternalGcsDe
 
 func (o StageExternalGcsDescribeOutputDirectoryTableOutput) AutoRefresh() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageExternalGcsDescribeOutputDirectoryTable) *bool { return v.AutoRefresh }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageExternalGcsDescribeOutputDirectoryTableOutput) AwsSnsTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageExternalGcsDescribeOutputDirectoryTable) *string { return v.AwsSnsTopic }).(pulumi.StringPtrOutput)
+}
+
+func (o StageExternalGcsDescribeOutputDirectoryTableOutput) DirectoryNotificationChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageExternalGcsDescribeOutputDirectoryTable) *string { return v.DirectoryNotificationChannel }).(pulumi.StringPtrOutput)
 }
 
 func (o StageExternalGcsDescribeOutputDirectoryTableOutput) Enable() pulumi.BoolPtrOutput {
@@ -27040,9 +27536,11 @@ func (o StageExternalS3CompatibleDescribeOutputArrayOutput) Index(i pulumi.IntIn
 }
 
 type StageExternalS3CompatibleDescribeOutputDirectoryTable struct {
-	AutoRefresh     *bool   `pulumi:"autoRefresh"`
-	Enable          *bool   `pulumi:"enable"`
-	LastRefreshedOn *string `pulumi:"lastRefreshedOn"`
+	AutoRefresh                  *bool   `pulumi:"autoRefresh"`
+	AwsSnsTopic                  *string `pulumi:"awsSnsTopic"`
+	DirectoryNotificationChannel *string `pulumi:"directoryNotificationChannel"`
+	Enable                       *bool   `pulumi:"enable"`
+	LastRefreshedOn              *string `pulumi:"lastRefreshedOn"`
 }
 
 // StageExternalS3CompatibleDescribeOutputDirectoryTableInput is an input type that accepts StageExternalS3CompatibleDescribeOutputDirectoryTableArgs and StageExternalS3CompatibleDescribeOutputDirectoryTableOutput values.
@@ -27057,9 +27555,11 @@ type StageExternalS3CompatibleDescribeOutputDirectoryTableInput interface {
 }
 
 type StageExternalS3CompatibleDescribeOutputDirectoryTableArgs struct {
-	AutoRefresh     pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
-	Enable          pulumi.BoolPtrInput   `pulumi:"enable"`
-	LastRefreshedOn pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
+	AutoRefresh                  pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
+	AwsSnsTopic                  pulumi.StringPtrInput `pulumi:"awsSnsTopic"`
+	DirectoryNotificationChannel pulumi.StringPtrInput `pulumi:"directoryNotificationChannel"`
+	Enable                       pulumi.BoolPtrInput   `pulumi:"enable"`
+	LastRefreshedOn              pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
 }
 
 func (StageExternalS3CompatibleDescribeOutputDirectoryTableArgs) ElementType() reflect.Type {
@@ -27115,6 +27615,16 @@ func (o StageExternalS3CompatibleDescribeOutputDirectoryTableOutput) ToStageExte
 
 func (o StageExternalS3CompatibleDescribeOutputDirectoryTableOutput) AutoRefresh() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageExternalS3CompatibleDescribeOutputDirectoryTable) *bool { return v.AutoRefresh }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageExternalS3CompatibleDescribeOutputDirectoryTableOutput) AwsSnsTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageExternalS3CompatibleDescribeOutputDirectoryTable) *string { return v.AwsSnsTopic }).(pulumi.StringPtrOutput)
+}
+
+func (o StageExternalS3CompatibleDescribeOutputDirectoryTableOutput) DirectoryNotificationChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageExternalS3CompatibleDescribeOutputDirectoryTable) *string {
+		return v.DirectoryNotificationChannel
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o StageExternalS3CompatibleDescribeOutputDirectoryTableOutput) Enable() pulumi.BoolPtrOutput {
@@ -31063,9 +31573,11 @@ func (o StageExternalS3DescribeOutputArrayOutput) Index(i pulumi.IntInput) Stage
 }
 
 type StageExternalS3DescribeOutputDirectoryTable struct {
-	AutoRefresh     *bool   `pulumi:"autoRefresh"`
-	Enable          *bool   `pulumi:"enable"`
-	LastRefreshedOn *string `pulumi:"lastRefreshedOn"`
+	AutoRefresh                  *bool   `pulumi:"autoRefresh"`
+	AwsSnsTopic                  *string `pulumi:"awsSnsTopic"`
+	DirectoryNotificationChannel *string `pulumi:"directoryNotificationChannel"`
+	Enable                       *bool   `pulumi:"enable"`
+	LastRefreshedOn              *string `pulumi:"lastRefreshedOn"`
 }
 
 // StageExternalS3DescribeOutputDirectoryTableInput is an input type that accepts StageExternalS3DescribeOutputDirectoryTableArgs and StageExternalS3DescribeOutputDirectoryTableOutput values.
@@ -31080,9 +31592,11 @@ type StageExternalS3DescribeOutputDirectoryTableInput interface {
 }
 
 type StageExternalS3DescribeOutputDirectoryTableArgs struct {
-	AutoRefresh     pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
-	Enable          pulumi.BoolPtrInput   `pulumi:"enable"`
-	LastRefreshedOn pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
+	AutoRefresh                  pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
+	AwsSnsTopic                  pulumi.StringPtrInput `pulumi:"awsSnsTopic"`
+	DirectoryNotificationChannel pulumi.StringPtrInput `pulumi:"directoryNotificationChannel"`
+	Enable                       pulumi.BoolPtrInput   `pulumi:"enable"`
+	LastRefreshedOn              pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
 }
 
 func (StageExternalS3DescribeOutputDirectoryTableArgs) ElementType() reflect.Type {
@@ -31138,6 +31652,14 @@ func (o StageExternalS3DescribeOutputDirectoryTableOutput) ToStageExternalS3Desc
 
 func (o StageExternalS3DescribeOutputDirectoryTableOutput) AutoRefresh() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageExternalS3DescribeOutputDirectoryTable) *bool { return v.AutoRefresh }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageExternalS3DescribeOutputDirectoryTableOutput) AwsSnsTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageExternalS3DescribeOutputDirectoryTable) *string { return v.AwsSnsTopic }).(pulumi.StringPtrOutput)
+}
+
+func (o StageExternalS3DescribeOutputDirectoryTableOutput) DirectoryNotificationChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageExternalS3DescribeOutputDirectoryTable) *string { return v.DirectoryNotificationChannel }).(pulumi.StringPtrOutput)
 }
 
 func (o StageExternalS3DescribeOutputDirectoryTableOutput) Enable() pulumi.BoolPtrOutput {
@@ -35693,9 +36215,11 @@ func (o StageInternalDescribeOutputArrayOutput) Index(i pulumi.IntInput) StageIn
 }
 
 type StageInternalDescribeOutputDirectoryTable struct {
-	AutoRefresh     *bool   `pulumi:"autoRefresh"`
-	Enable          *bool   `pulumi:"enable"`
-	LastRefreshedOn *string `pulumi:"lastRefreshedOn"`
+	AutoRefresh                  *bool   `pulumi:"autoRefresh"`
+	AwsSnsTopic                  *string `pulumi:"awsSnsTopic"`
+	DirectoryNotificationChannel *string `pulumi:"directoryNotificationChannel"`
+	Enable                       *bool   `pulumi:"enable"`
+	LastRefreshedOn              *string `pulumi:"lastRefreshedOn"`
 }
 
 // StageInternalDescribeOutputDirectoryTableInput is an input type that accepts StageInternalDescribeOutputDirectoryTableArgs and StageInternalDescribeOutputDirectoryTableOutput values.
@@ -35710,9 +36234,11 @@ type StageInternalDescribeOutputDirectoryTableInput interface {
 }
 
 type StageInternalDescribeOutputDirectoryTableArgs struct {
-	AutoRefresh     pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
-	Enable          pulumi.BoolPtrInput   `pulumi:"enable"`
-	LastRefreshedOn pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
+	AutoRefresh                  pulumi.BoolPtrInput   `pulumi:"autoRefresh"`
+	AwsSnsTopic                  pulumi.StringPtrInput `pulumi:"awsSnsTopic"`
+	DirectoryNotificationChannel pulumi.StringPtrInput `pulumi:"directoryNotificationChannel"`
+	Enable                       pulumi.BoolPtrInput   `pulumi:"enable"`
+	LastRefreshedOn              pulumi.StringPtrInput `pulumi:"lastRefreshedOn"`
 }
 
 func (StageInternalDescribeOutputDirectoryTableArgs) ElementType() reflect.Type {
@@ -35768,6 +36294,14 @@ func (o StageInternalDescribeOutputDirectoryTableOutput) ToStageInternalDescribe
 
 func (o StageInternalDescribeOutputDirectoryTableOutput) AutoRefresh() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v StageInternalDescribeOutputDirectoryTable) *bool { return v.AutoRefresh }).(pulumi.BoolPtrOutput)
+}
+
+func (o StageInternalDescribeOutputDirectoryTableOutput) AwsSnsTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageInternalDescribeOutputDirectoryTable) *string { return v.AwsSnsTopic }).(pulumi.StringPtrOutput)
+}
+
+func (o StageInternalDescribeOutputDirectoryTableOutput) DirectoryNotificationChannel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StageInternalDescribeOutputDirectoryTable) *string { return v.DirectoryNotificationChannel }).(pulumi.StringPtrOutput)
 }
 
 func (o StageInternalDescribeOutputDirectoryTableOutput) Enable() pulumi.BoolPtrOutput {
@@ -54948,6 +55482,7 @@ type TaskShowOutput struct {
 	DatabaseName              *string                                  `pulumi:"databaseName"`
 	Definition                *string                                  `pulumi:"definition"`
 	ErrorIntegration          *string                                  `pulumi:"errorIntegration"`
+	ExecuteAsUser             *string                                  `pulumi:"executeAsUser"`
 	Id                        *string                                  `pulumi:"id"`
 	LastCommittedOn           *string                                  `pulumi:"lastCommittedOn"`
 	LastSuspendedOn           *string                                  `pulumi:"lastSuspendedOn"`
@@ -54985,6 +55520,7 @@ type TaskShowOutputArgs struct {
 	DatabaseName              pulumi.StringPtrInput                            `pulumi:"databaseName"`
 	Definition                pulumi.StringPtrInput                            `pulumi:"definition"`
 	ErrorIntegration          pulumi.StringPtrInput                            `pulumi:"errorIntegration"`
+	ExecuteAsUser             pulumi.StringPtrInput                            `pulumi:"executeAsUser"`
 	Id                        pulumi.StringPtrInput                            `pulumi:"id"`
 	LastCommittedOn           pulumi.StringPtrInput                            `pulumi:"lastCommittedOn"`
 	LastSuspendedOn           pulumi.StringPtrInput                            `pulumi:"lastSuspendedOn"`
@@ -55086,6 +55622,10 @@ func (o TaskShowOutputOutput) Definition() pulumi.StringPtrOutput {
 
 func (o TaskShowOutputOutput) ErrorIntegration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskShowOutput) *string { return v.ErrorIntegration }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) ExecuteAsUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.ExecuteAsUser }).(pulumi.StringPtrOutput)
 }
 
 func (o TaskShowOutputOutput) Id() pulumi.StringPtrOutput {
@@ -67071,6 +67611,8 @@ func (o GetAccountRolesAccountRoleShowOutputArrayOutput) Index(i pulumi.IntInput
 }
 
 type GetAccountsAccount struct {
+	// Holds the output of SHOW PARAMETERS IN ACCOUNT for the connected account.
+	Parameters []GetAccountsAccountParameter `pulumi:"parameters"`
 	// Holds the output of SHOW ACCOUNTS.
 	ShowOutputs []GetAccountsAccountShowOutput `pulumi:"showOutputs"`
 }
@@ -67087,6 +67629,8 @@ type GetAccountsAccountInput interface {
 }
 
 type GetAccountsAccountArgs struct {
+	// Holds the output of SHOW PARAMETERS IN ACCOUNT for the connected account.
+	Parameters GetAccountsAccountParameterArrayInput `pulumi:"parameters"`
 	// Holds the output of SHOW ACCOUNTS.
 	ShowOutputs GetAccountsAccountShowOutputArrayInput `pulumi:"showOutputs"`
 }
@@ -67142,6 +67686,11 @@ func (o GetAccountsAccountOutput) ToGetAccountsAccountOutputWithContext(ctx cont
 	return o
 }
 
+// Holds the output of SHOW PARAMETERS IN ACCOUNT for the connected account.
+func (o GetAccountsAccountOutput) Parameters() GetAccountsAccountParameterArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccount) []GetAccountsAccountParameter { return v.Parameters }).(GetAccountsAccountParameterArrayOutput)
+}
+
 // Holds the output of SHOW ACCOUNTS.
 func (o GetAccountsAccountOutput) ShowOutputs() GetAccountsAccountShowOutputArrayOutput {
 	return o.ApplyT(func(v GetAccountsAccount) []GetAccountsAccountShowOutput { return v.ShowOutputs }).(GetAccountsAccountShowOutputArrayOutput)
@@ -67167,5953 +67716,1217 @@ func (o GetAccountsAccountArrayOutput) Index(i pulumi.IntInput) GetAccountsAccou
 	}).(GetAccountsAccountOutput)
 }
 
-type GetAccountsAccountShowOutput struct {
-	AccountLocator                       string `pulumi:"accountLocator"`
-	AccountLocatorUrl                    string `pulumi:"accountLocatorUrl"`
-	AccountName                          string `pulumi:"accountName"`
-	AccountOldUrlLastUsed                string `pulumi:"accountOldUrlLastUsed"`
-	AccountOldUrlSavedOn                 string `pulumi:"accountOldUrlSavedOn"`
-	AccountUrl                           string `pulumi:"accountUrl"`
-	Comment                              string `pulumi:"comment"`
-	ConsumptionBillingEntityName         string `pulumi:"consumptionBillingEntityName"`
-	CreatedOn                            string `pulumi:"createdOn"`
-	DroppedOn                            string `pulumi:"droppedOn"`
-	Edition                              string `pulumi:"edition"`
-	IsEventsAccount                      bool   `pulumi:"isEventsAccount"`
-	IsOrgAdmin                           bool   `pulumi:"isOrgAdmin"`
-	IsOrganizationAccount                bool   `pulumi:"isOrganizationAccount"`
-	ManagedAccounts                      int    `pulumi:"managedAccounts"`
-	MarketplaceConsumerBillingEntityName string `pulumi:"marketplaceConsumerBillingEntityName"`
-	MarketplaceProviderBillingEntityName string `pulumi:"marketplaceProviderBillingEntityName"`
-	MovedOn                              string `pulumi:"movedOn"`
-	MovedToOrganization                  string `pulumi:"movedToOrganization"`
-	OldAccountUrl                        string `pulumi:"oldAccountUrl"`
-	OrganizationName                     string `pulumi:"organizationName"`
-	OrganizationOldUrl                   string `pulumi:"organizationOldUrl"`
-	OrganizationOldUrlLastUsed           string `pulumi:"organizationOldUrlLastUsed"`
-	OrganizationOldUrlSavedOn            string `pulumi:"organizationOldUrlSavedOn"`
-	OrganizationUrlExpirationOn          string `pulumi:"organizationUrlExpirationOn"`
-	RegionGroup                          string `pulumi:"regionGroup"`
-	RestoredOn                           string `pulumi:"restoredOn"`
-	ScheduledDeletionTime                string `pulumi:"scheduledDeletionTime"`
-	SnowflakeRegion                      string `pulumi:"snowflakeRegion"`
-}
-
-// GetAccountsAccountShowOutputInput is an input type that accepts GetAccountsAccountShowOutputArgs and GetAccountsAccountShowOutputOutput values.
-// You can construct a concrete instance of `GetAccountsAccountShowOutputInput` via:
-//
-//	GetAccountsAccountShowOutputArgs{...}
-type GetAccountsAccountShowOutputInput interface {
-	pulumi.Input
-
-	ToGetAccountsAccountShowOutputOutput() GetAccountsAccountShowOutputOutput
-	ToGetAccountsAccountShowOutputOutputWithContext(context.Context) GetAccountsAccountShowOutputOutput
-}
-
-type GetAccountsAccountShowOutputArgs struct {
-	AccountLocator                       pulumi.StringInput `pulumi:"accountLocator"`
-	AccountLocatorUrl                    pulumi.StringInput `pulumi:"accountLocatorUrl"`
-	AccountName                          pulumi.StringInput `pulumi:"accountName"`
-	AccountOldUrlLastUsed                pulumi.StringInput `pulumi:"accountOldUrlLastUsed"`
-	AccountOldUrlSavedOn                 pulumi.StringInput `pulumi:"accountOldUrlSavedOn"`
-	AccountUrl                           pulumi.StringInput `pulumi:"accountUrl"`
-	Comment                              pulumi.StringInput `pulumi:"comment"`
-	ConsumptionBillingEntityName         pulumi.StringInput `pulumi:"consumptionBillingEntityName"`
-	CreatedOn                            pulumi.StringInput `pulumi:"createdOn"`
-	DroppedOn                            pulumi.StringInput `pulumi:"droppedOn"`
-	Edition                              pulumi.StringInput `pulumi:"edition"`
-	IsEventsAccount                      pulumi.BoolInput   `pulumi:"isEventsAccount"`
-	IsOrgAdmin                           pulumi.BoolInput   `pulumi:"isOrgAdmin"`
-	IsOrganizationAccount                pulumi.BoolInput   `pulumi:"isOrganizationAccount"`
-	ManagedAccounts                      pulumi.IntInput    `pulumi:"managedAccounts"`
-	MarketplaceConsumerBillingEntityName pulumi.StringInput `pulumi:"marketplaceConsumerBillingEntityName"`
-	MarketplaceProviderBillingEntityName pulumi.StringInput `pulumi:"marketplaceProviderBillingEntityName"`
-	MovedOn                              pulumi.StringInput `pulumi:"movedOn"`
-	MovedToOrganization                  pulumi.StringInput `pulumi:"movedToOrganization"`
-	OldAccountUrl                        pulumi.StringInput `pulumi:"oldAccountUrl"`
-	OrganizationName                     pulumi.StringInput `pulumi:"organizationName"`
-	OrganizationOldUrl                   pulumi.StringInput `pulumi:"organizationOldUrl"`
-	OrganizationOldUrlLastUsed           pulumi.StringInput `pulumi:"organizationOldUrlLastUsed"`
-	OrganizationOldUrlSavedOn            pulumi.StringInput `pulumi:"organizationOldUrlSavedOn"`
-	OrganizationUrlExpirationOn          pulumi.StringInput `pulumi:"organizationUrlExpirationOn"`
-	RegionGroup                          pulumi.StringInput `pulumi:"regionGroup"`
-	RestoredOn                           pulumi.StringInput `pulumi:"restoredOn"`
-	ScheduledDeletionTime                pulumi.StringInput `pulumi:"scheduledDeletionTime"`
-	SnowflakeRegion                      pulumi.StringInput `pulumi:"snowflakeRegion"`
-}
-
-func (GetAccountsAccountShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAccountsAccountShowOutput)(nil)).Elem()
-}
-
-func (i GetAccountsAccountShowOutputArgs) ToGetAccountsAccountShowOutputOutput() GetAccountsAccountShowOutputOutput {
-	return i.ToGetAccountsAccountShowOutputOutputWithContext(context.Background())
-}
-
-func (i GetAccountsAccountShowOutputArgs) ToGetAccountsAccountShowOutputOutputWithContext(ctx context.Context) GetAccountsAccountShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountShowOutputOutput)
-}
-
-// GetAccountsAccountShowOutputArrayInput is an input type that accepts GetAccountsAccountShowOutputArray and GetAccountsAccountShowOutputArrayOutput values.
-// You can construct a concrete instance of `GetAccountsAccountShowOutputArrayInput` via:
-//
-//	GetAccountsAccountShowOutputArray{ GetAccountsAccountShowOutputArgs{...} }
-type GetAccountsAccountShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetAccountsAccountShowOutputArrayOutput() GetAccountsAccountShowOutputArrayOutput
-	ToGetAccountsAccountShowOutputArrayOutputWithContext(context.Context) GetAccountsAccountShowOutputArrayOutput
-}
-
-type GetAccountsAccountShowOutputArray []GetAccountsAccountShowOutputInput
-
-func (GetAccountsAccountShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAccountsAccountShowOutput)(nil)).Elem()
-}
-
-func (i GetAccountsAccountShowOutputArray) ToGetAccountsAccountShowOutputArrayOutput() GetAccountsAccountShowOutputArrayOutput {
-	return i.ToGetAccountsAccountShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetAccountsAccountShowOutputArray) ToGetAccountsAccountShowOutputArrayOutputWithContext(ctx context.Context) GetAccountsAccountShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountShowOutputArrayOutput)
-}
-
-type GetAccountsAccountShowOutputOutput struct{ *pulumi.OutputState }
-
-func (GetAccountsAccountShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAccountsAccountShowOutput)(nil)).Elem()
-}
-
-func (o GetAccountsAccountShowOutputOutput) ToGetAccountsAccountShowOutputOutput() GetAccountsAccountShowOutputOutput {
-	return o
-}
-
-func (o GetAccountsAccountShowOutputOutput) ToGetAccountsAccountShowOutputOutputWithContext(ctx context.Context) GetAccountsAccountShowOutputOutput {
-	return o
-}
-
-func (o GetAccountsAccountShowOutputOutput) AccountLocator() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.AccountLocator }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) AccountLocatorUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.AccountLocatorUrl }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.AccountName }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) AccountOldUrlLastUsed() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.AccountOldUrlLastUsed }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) AccountOldUrlSavedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.AccountOldUrlSavedOn }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) AccountUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.AccountUrl }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) ConsumptionBillingEntityName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.ConsumptionBillingEntityName }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) DroppedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.DroppedOn }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) Edition() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.Edition }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) IsEventsAccount() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) bool { return v.IsEventsAccount }).(pulumi.BoolOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) IsOrgAdmin() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) bool { return v.IsOrgAdmin }).(pulumi.BoolOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) IsOrganizationAccount() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) bool { return v.IsOrganizationAccount }).(pulumi.BoolOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) ManagedAccounts() pulumi.IntOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) int { return v.ManagedAccounts }).(pulumi.IntOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) MarketplaceConsumerBillingEntityName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.MarketplaceConsumerBillingEntityName }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) MarketplaceProviderBillingEntityName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.MarketplaceProviderBillingEntityName }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) MovedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.MovedOn }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) MovedToOrganization() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.MovedToOrganization }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) OldAccountUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.OldAccountUrl }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) OrganizationName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.OrganizationName }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) OrganizationOldUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.OrganizationOldUrl }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) OrganizationOldUrlLastUsed() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.OrganizationOldUrlLastUsed }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) OrganizationOldUrlSavedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.OrganizationOldUrlSavedOn }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) OrganizationUrlExpirationOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.OrganizationUrlExpirationOn }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) RegionGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.RegionGroup }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) RestoredOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.RestoredOn }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) ScheduledDeletionTime() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.ScheduledDeletionTime }).(pulumi.StringOutput)
-}
-
-func (o GetAccountsAccountShowOutputOutput) SnowflakeRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAccountsAccountShowOutput) string { return v.SnowflakeRegion }).(pulumi.StringOutput)
-}
-
-type GetAccountsAccountShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetAccountsAccountShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAccountsAccountShowOutput)(nil)).Elem()
-}
-
-func (o GetAccountsAccountShowOutputArrayOutput) ToGetAccountsAccountShowOutputArrayOutput() GetAccountsAccountShowOutputArrayOutput {
-	return o
-}
-
-func (o GetAccountsAccountShowOutputArrayOutput) ToGetAccountsAccountShowOutputArrayOutputWithContext(ctx context.Context) GetAccountsAccountShowOutputArrayOutput {
-	return o
-}
-
-func (o GetAccountsAccountShowOutputArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountShowOutput {
-		return vs[0].([]GetAccountsAccountShowOutput)[vs[1].(int)]
-	}).(GetAccountsAccountShowOutputOutput)
-}
-
-type GetAlertsAlert struct {
-	// The text of the SQL statement that should be executed when the alert is triggered.
-	Action string `pulumi:"action"`
-	// Comment for the alert.
-	Comment string `pulumi:"comment"`
-	// The text of the SQL statement that serves as the condition when the alert should be triggered.
-	Condition string `pulumi:"condition"`
-	// Database in which the alert is stored.
-	DatabaseName string `pulumi:"databaseName"`
-	// Name of the alert.
-	Name string `pulumi:"name"`
-	// Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
-	Owner string `pulumi:"owner"`
-	// Schema in which the alert is stored.
-	SchemaName string `pulumi:"schemaName"`
-}
-
-// GetAlertsAlertInput is an input type that accepts GetAlertsAlertArgs and GetAlertsAlertOutput values.
-// You can construct a concrete instance of `GetAlertsAlertInput` via:
-//
-//	GetAlertsAlertArgs{...}
-type GetAlertsAlertInput interface {
-	pulumi.Input
-
-	ToGetAlertsAlertOutput() GetAlertsAlertOutput
-	ToGetAlertsAlertOutputWithContext(context.Context) GetAlertsAlertOutput
-}
-
-type GetAlertsAlertArgs struct {
-	// The text of the SQL statement that should be executed when the alert is triggered.
-	Action pulumi.StringInput `pulumi:"action"`
-	// Comment for the alert.
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// The text of the SQL statement that serves as the condition when the alert should be triggered.
-	Condition pulumi.StringInput `pulumi:"condition"`
-	// Database in which the alert is stored.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Name of the alert.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
-	Owner pulumi.StringInput `pulumi:"owner"`
-	// Schema in which the alert is stored.
-	SchemaName pulumi.StringInput `pulumi:"schemaName"`
-}
-
-func (GetAlertsAlertArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAlertsAlert)(nil)).Elem()
-}
-
-func (i GetAlertsAlertArgs) ToGetAlertsAlertOutput() GetAlertsAlertOutput {
-	return i.ToGetAlertsAlertOutputWithContext(context.Background())
-}
-
-func (i GetAlertsAlertArgs) ToGetAlertsAlertOutputWithContext(ctx context.Context) GetAlertsAlertOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAlertsAlertOutput)
-}
-
-// GetAlertsAlertArrayInput is an input type that accepts GetAlertsAlertArray and GetAlertsAlertArrayOutput values.
-// You can construct a concrete instance of `GetAlertsAlertArrayInput` via:
-//
-//	GetAlertsAlertArray{ GetAlertsAlertArgs{...} }
-type GetAlertsAlertArrayInput interface {
-	pulumi.Input
-
-	ToGetAlertsAlertArrayOutput() GetAlertsAlertArrayOutput
-	ToGetAlertsAlertArrayOutputWithContext(context.Context) GetAlertsAlertArrayOutput
-}
-
-type GetAlertsAlertArray []GetAlertsAlertInput
-
-func (GetAlertsAlertArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAlertsAlert)(nil)).Elem()
-}
-
-func (i GetAlertsAlertArray) ToGetAlertsAlertArrayOutput() GetAlertsAlertArrayOutput {
-	return i.ToGetAlertsAlertArrayOutputWithContext(context.Background())
-}
-
-func (i GetAlertsAlertArray) ToGetAlertsAlertArrayOutputWithContext(ctx context.Context) GetAlertsAlertArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAlertsAlertArrayOutput)
-}
-
-type GetAlertsAlertOutput struct{ *pulumi.OutputState }
-
-func (GetAlertsAlertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAlertsAlert)(nil)).Elem()
-}
-
-func (o GetAlertsAlertOutput) ToGetAlertsAlertOutput() GetAlertsAlertOutput {
-	return o
-}
-
-func (o GetAlertsAlertOutput) ToGetAlertsAlertOutputWithContext(ctx context.Context) GetAlertsAlertOutput {
-	return o
-}
-
-// The text of the SQL statement that should be executed when the alert is triggered.
-func (o GetAlertsAlertOutput) Action() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertsAlert) string { return v.Action }).(pulumi.StringOutput)
-}
-
-// Comment for the alert.
-func (o GetAlertsAlertOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertsAlert) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-// The text of the SQL statement that serves as the condition when the alert should be triggered.
-func (o GetAlertsAlertOutput) Condition() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertsAlert) string { return v.Condition }).(pulumi.StringOutput)
-}
-
-// Database in which the alert is stored.
-func (o GetAlertsAlertOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertsAlert) string { return v.DatabaseName }).(pulumi.StringOutput)
-}
-
-// Name of the alert.
-func (o GetAlertsAlertOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertsAlert) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Role that owns the alert (i.e. has the OWNERSHIP privilege on the alert)
-func (o GetAlertsAlertOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertsAlert) string { return v.Owner }).(pulumi.StringOutput)
-}
-
-// Schema in which the alert is stored.
-func (o GetAlertsAlertOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAlertsAlert) string { return v.SchemaName }).(pulumi.StringOutput)
-}
-
-type GetAlertsAlertArrayOutput struct{ *pulumi.OutputState }
-
-func (GetAlertsAlertArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAlertsAlert)(nil)).Elem()
-}
-
-func (o GetAlertsAlertArrayOutput) ToGetAlertsAlertArrayOutput() GetAlertsAlertArrayOutput {
-	return o
-}
-
-func (o GetAlertsAlertArrayOutput) ToGetAlertsAlertArrayOutputWithContext(ctx context.Context) GetAlertsAlertArrayOutput {
-	return o
-}
-
-func (o GetAlertsAlertArrayOutput) Index(i pulumi.IntInput) GetAlertsAlertOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAlertsAlert {
-		return vs[0].([]GetAlertsAlert)[vs[1].(int)]
-	}).(GetAlertsAlertOutput)
-}
-
-type GetApiIntegrationsApiIntegration struct {
-	// Holds the output of DESCRIBE API INTEGRATION.
-	DescribeOutputs []GetApiIntegrationsApiIntegrationDescribeOutput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW API INTEGRATIONS.
-	ShowOutputs []GetApiIntegrationsApiIntegrationShowOutput `pulumi:"showOutputs"`
-}
-
-// GetApiIntegrationsApiIntegrationInput is an input type that accepts GetApiIntegrationsApiIntegrationArgs and GetApiIntegrationsApiIntegrationOutput values.
-// You can construct a concrete instance of `GetApiIntegrationsApiIntegrationInput` via:
-//
-//	GetApiIntegrationsApiIntegrationArgs{...}
-type GetApiIntegrationsApiIntegrationInput interface {
-	pulumi.Input
-
-	ToGetApiIntegrationsApiIntegrationOutput() GetApiIntegrationsApiIntegrationOutput
-	ToGetApiIntegrationsApiIntegrationOutputWithContext(context.Context) GetApiIntegrationsApiIntegrationOutput
-}
-
-type GetApiIntegrationsApiIntegrationArgs struct {
-	// Holds the output of DESCRIBE API INTEGRATION.
-	DescribeOutputs GetApiIntegrationsApiIntegrationDescribeOutputArrayInput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW API INTEGRATIONS.
-	ShowOutputs GetApiIntegrationsApiIntegrationShowOutputArrayInput `pulumi:"showOutputs"`
-}
-
-func (GetApiIntegrationsApiIntegrationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApiIntegrationsApiIntegration)(nil)).Elem()
-}
-
-func (i GetApiIntegrationsApiIntegrationArgs) ToGetApiIntegrationsApiIntegrationOutput() GetApiIntegrationsApiIntegrationOutput {
-	return i.ToGetApiIntegrationsApiIntegrationOutputWithContext(context.Background())
-}
-
-func (i GetApiIntegrationsApiIntegrationArgs) ToGetApiIntegrationsApiIntegrationOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApiIntegrationsApiIntegrationOutput)
-}
-
-// GetApiIntegrationsApiIntegrationArrayInput is an input type that accepts GetApiIntegrationsApiIntegrationArray and GetApiIntegrationsApiIntegrationArrayOutput values.
-// You can construct a concrete instance of `GetApiIntegrationsApiIntegrationArrayInput` via:
-//
-//	GetApiIntegrationsApiIntegrationArray{ GetApiIntegrationsApiIntegrationArgs{...} }
-type GetApiIntegrationsApiIntegrationArrayInput interface {
-	pulumi.Input
-
-	ToGetApiIntegrationsApiIntegrationArrayOutput() GetApiIntegrationsApiIntegrationArrayOutput
-	ToGetApiIntegrationsApiIntegrationArrayOutputWithContext(context.Context) GetApiIntegrationsApiIntegrationArrayOutput
-}
-
-type GetApiIntegrationsApiIntegrationArray []GetApiIntegrationsApiIntegrationInput
-
-func (GetApiIntegrationsApiIntegrationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApiIntegrationsApiIntegration)(nil)).Elem()
-}
-
-func (i GetApiIntegrationsApiIntegrationArray) ToGetApiIntegrationsApiIntegrationArrayOutput() GetApiIntegrationsApiIntegrationArrayOutput {
-	return i.ToGetApiIntegrationsApiIntegrationArrayOutputWithContext(context.Background())
-}
-
-func (i GetApiIntegrationsApiIntegrationArray) ToGetApiIntegrationsApiIntegrationArrayOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApiIntegrationsApiIntegrationArrayOutput)
-}
-
-type GetApiIntegrationsApiIntegrationOutput struct{ *pulumi.OutputState }
-
-func (GetApiIntegrationsApiIntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApiIntegrationsApiIntegration)(nil)).Elem()
-}
-
-func (o GetApiIntegrationsApiIntegrationOutput) ToGetApiIntegrationsApiIntegrationOutput() GetApiIntegrationsApiIntegrationOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationOutput) ToGetApiIntegrationsApiIntegrationOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationOutput {
-	return o
-}
-
-// Holds the output of DESCRIBE API INTEGRATION.
-func (o GetApiIntegrationsApiIntegrationOutput) DescribeOutputs() GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegration) []GetApiIntegrationsApiIntegrationDescribeOutput {
-		return v.DescribeOutputs
-	}).(GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput)
-}
-
-// Holds the output of SHOW API INTEGRATIONS.
-func (o GetApiIntegrationsApiIntegrationOutput) ShowOutputs() GetApiIntegrationsApiIntegrationShowOutputArrayOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegration) []GetApiIntegrationsApiIntegrationShowOutput {
-		return v.ShowOutputs
-	}).(GetApiIntegrationsApiIntegrationShowOutputArrayOutput)
-}
-
-type GetApiIntegrationsApiIntegrationArrayOutput struct{ *pulumi.OutputState }
-
-func (GetApiIntegrationsApiIntegrationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApiIntegrationsApiIntegration)(nil)).Elem()
-}
-
-func (o GetApiIntegrationsApiIntegrationArrayOutput) ToGetApiIntegrationsApiIntegrationArrayOutput() GetApiIntegrationsApiIntegrationArrayOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationArrayOutput) ToGetApiIntegrationsApiIntegrationArrayOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationArrayOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationArrayOutput) Index(i pulumi.IntInput) GetApiIntegrationsApiIntegrationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApiIntegrationsApiIntegration {
-		return vs[0].([]GetApiIntegrationsApiIntegration)[vs[1].(int)]
-	}).(GetApiIntegrationsApiIntegrationOutput)
-}
-
-type GetApiIntegrationsApiIntegrationDescribeOutput struct {
-	AllowedAuthenticationSecrets string   `pulumi:"allowedAuthenticationSecrets"`
-	AllowedPrefixes              []string `pulumi:"allowedPrefixes"`
-	ApiAwsExternalId             string   `pulumi:"apiAwsExternalId"`
-	ApiAwsIamUserArn             string   `pulumi:"apiAwsIamUserArn"`
-	ApiAwsRoleArn                string   `pulumi:"apiAwsRoleArn"`
-	ApiKey                       string   `pulumi:"apiKey"`
-	ApiProvider                  string   `pulumi:"apiProvider"`
-	AzureAdApplicationId         string   `pulumi:"azureAdApplicationId"`
-	AzureConsentUrl              string   `pulumi:"azureConsentUrl"`
-	AzureMultiTenantAppName      string   `pulumi:"azureMultiTenantAppName"`
-	AzureTenantId                string   `pulumi:"azureTenantId"`
-	BlockedPrefixes              []string `pulumi:"blockedPrefixes"`
-	Comment                      string   `pulumi:"comment"`
-	Enabled                      bool     `pulumi:"enabled"`
-	GoogleApiServiceAccount      string   `pulumi:"googleApiServiceAccount"`
-	GoogleAudience               string   `pulumi:"googleAudience"`
-	OauthAccessTokenValidity     int      `pulumi:"oauthAccessTokenValidity"`
-	OauthAllowedScopes           []string `pulumi:"oauthAllowedScopes"`
-	OauthAssertionIssuer         string   `pulumi:"oauthAssertionIssuer"`
-	OauthAuthorizationEndpoint   string   `pulumi:"oauthAuthorizationEndpoint"`
-	OauthClientAuthMethod        string   `pulumi:"oauthClientAuthMethod"`
-	OauthClientId                string   `pulumi:"oauthClientId"`
-	OauthGrant                   string   `pulumi:"oauthGrant"`
-	OauthRefreshTokenValidity    int      `pulumi:"oauthRefreshTokenValidity"`
-	OauthResourceUrl             string   `pulumi:"oauthResourceUrl"`
-	OauthTokenEndpoint           string   `pulumi:"oauthTokenEndpoint"`
-	OauthUsername                string   `pulumi:"oauthUsername"`
-	TlsTrustedCertificates       []string `pulumi:"tlsTrustedCertificates"`
-	UsePrivatelinkEndpoint       bool     `pulumi:"usePrivatelinkEndpoint"`
-	UserAuthType                 string   `pulumi:"userAuthType"`
-}
-
-// GetApiIntegrationsApiIntegrationDescribeOutputInput is an input type that accepts GetApiIntegrationsApiIntegrationDescribeOutputArgs and GetApiIntegrationsApiIntegrationDescribeOutputOutput values.
-// You can construct a concrete instance of `GetApiIntegrationsApiIntegrationDescribeOutputInput` via:
-//
-//	GetApiIntegrationsApiIntegrationDescribeOutputArgs{...}
-type GetApiIntegrationsApiIntegrationDescribeOutputInput interface {
-	pulumi.Input
-
-	ToGetApiIntegrationsApiIntegrationDescribeOutputOutput() GetApiIntegrationsApiIntegrationDescribeOutputOutput
-	ToGetApiIntegrationsApiIntegrationDescribeOutputOutputWithContext(context.Context) GetApiIntegrationsApiIntegrationDescribeOutputOutput
-}
-
-type GetApiIntegrationsApiIntegrationDescribeOutputArgs struct {
-	AllowedAuthenticationSecrets pulumi.StringInput      `pulumi:"allowedAuthenticationSecrets"`
-	AllowedPrefixes              pulumi.StringArrayInput `pulumi:"allowedPrefixes"`
-	ApiAwsExternalId             pulumi.StringInput      `pulumi:"apiAwsExternalId"`
-	ApiAwsIamUserArn             pulumi.StringInput      `pulumi:"apiAwsIamUserArn"`
-	ApiAwsRoleArn                pulumi.StringInput      `pulumi:"apiAwsRoleArn"`
-	ApiKey                       pulumi.StringInput      `pulumi:"apiKey"`
-	ApiProvider                  pulumi.StringInput      `pulumi:"apiProvider"`
-	AzureAdApplicationId         pulumi.StringInput      `pulumi:"azureAdApplicationId"`
-	AzureConsentUrl              pulumi.StringInput      `pulumi:"azureConsentUrl"`
-	AzureMultiTenantAppName      pulumi.StringInput      `pulumi:"azureMultiTenantAppName"`
-	AzureTenantId                pulumi.StringInput      `pulumi:"azureTenantId"`
-	BlockedPrefixes              pulumi.StringArrayInput `pulumi:"blockedPrefixes"`
-	Comment                      pulumi.StringInput      `pulumi:"comment"`
-	Enabled                      pulumi.BoolInput        `pulumi:"enabled"`
-	GoogleApiServiceAccount      pulumi.StringInput      `pulumi:"googleApiServiceAccount"`
-	GoogleAudience               pulumi.StringInput      `pulumi:"googleAudience"`
-	OauthAccessTokenValidity     pulumi.IntInput         `pulumi:"oauthAccessTokenValidity"`
-	OauthAllowedScopes           pulumi.StringArrayInput `pulumi:"oauthAllowedScopes"`
-	OauthAssertionIssuer         pulumi.StringInput      `pulumi:"oauthAssertionIssuer"`
-	OauthAuthorizationEndpoint   pulumi.StringInput      `pulumi:"oauthAuthorizationEndpoint"`
-	OauthClientAuthMethod        pulumi.StringInput      `pulumi:"oauthClientAuthMethod"`
-	OauthClientId                pulumi.StringInput      `pulumi:"oauthClientId"`
-	OauthGrant                   pulumi.StringInput      `pulumi:"oauthGrant"`
-	OauthRefreshTokenValidity    pulumi.IntInput         `pulumi:"oauthRefreshTokenValidity"`
-	OauthResourceUrl             pulumi.StringInput      `pulumi:"oauthResourceUrl"`
-	OauthTokenEndpoint           pulumi.StringInput      `pulumi:"oauthTokenEndpoint"`
-	OauthUsername                pulumi.StringInput      `pulumi:"oauthUsername"`
-	TlsTrustedCertificates       pulumi.StringArrayInput `pulumi:"tlsTrustedCertificates"`
-	UsePrivatelinkEndpoint       pulumi.BoolInput        `pulumi:"usePrivatelinkEndpoint"`
-	UserAuthType                 pulumi.StringInput      `pulumi:"userAuthType"`
-}
-
-func (GetApiIntegrationsApiIntegrationDescribeOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApiIntegrationsApiIntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (i GetApiIntegrationsApiIntegrationDescribeOutputArgs) ToGetApiIntegrationsApiIntegrationDescribeOutputOutput() GetApiIntegrationsApiIntegrationDescribeOutputOutput {
-	return i.ToGetApiIntegrationsApiIntegrationDescribeOutputOutputWithContext(context.Background())
-}
-
-func (i GetApiIntegrationsApiIntegrationDescribeOutputArgs) ToGetApiIntegrationsApiIntegrationDescribeOutputOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationDescribeOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApiIntegrationsApiIntegrationDescribeOutputOutput)
-}
-
-// GetApiIntegrationsApiIntegrationDescribeOutputArrayInput is an input type that accepts GetApiIntegrationsApiIntegrationDescribeOutputArray and GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput values.
-// You can construct a concrete instance of `GetApiIntegrationsApiIntegrationDescribeOutputArrayInput` via:
-//
-//	GetApiIntegrationsApiIntegrationDescribeOutputArray{ GetApiIntegrationsApiIntegrationDescribeOutputArgs{...} }
-type GetApiIntegrationsApiIntegrationDescribeOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetApiIntegrationsApiIntegrationDescribeOutputArrayOutput() GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput
-	ToGetApiIntegrationsApiIntegrationDescribeOutputArrayOutputWithContext(context.Context) GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput
-}
-
-type GetApiIntegrationsApiIntegrationDescribeOutputArray []GetApiIntegrationsApiIntegrationDescribeOutputInput
-
-func (GetApiIntegrationsApiIntegrationDescribeOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApiIntegrationsApiIntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (i GetApiIntegrationsApiIntegrationDescribeOutputArray) ToGetApiIntegrationsApiIntegrationDescribeOutputArrayOutput() GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput {
-	return i.ToGetApiIntegrationsApiIntegrationDescribeOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetApiIntegrationsApiIntegrationDescribeOutputArray) ToGetApiIntegrationsApiIntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput)
-}
-
-type GetApiIntegrationsApiIntegrationDescribeOutputOutput struct{ *pulumi.OutputState }
-
-func (GetApiIntegrationsApiIntegrationDescribeOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApiIntegrationsApiIntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) ToGetApiIntegrationsApiIntegrationDescribeOutputOutput() GetApiIntegrationsApiIntegrationDescribeOutputOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) ToGetApiIntegrationsApiIntegrationDescribeOutputOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationDescribeOutputOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) AllowedAuthenticationSecrets() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.AllowedAuthenticationSecrets }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) AllowedPrefixes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) []string { return v.AllowedPrefixes }).(pulumi.StringArrayOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) ApiAwsExternalId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.ApiAwsExternalId }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) ApiAwsIamUserArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.ApiAwsIamUserArn }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) ApiAwsRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.ApiAwsRoleArn }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) ApiKey() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.ApiKey }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) ApiProvider() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.ApiProvider }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) AzureAdApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.AzureAdApplicationId }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) AzureConsentUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.AzureConsentUrl }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) AzureMultiTenantAppName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.AzureMultiTenantAppName }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) AzureTenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.AzureTenantId }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) BlockedPrefixes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) []string { return v.BlockedPrefixes }).(pulumi.StringArrayOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) GoogleApiServiceAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.GoogleApiServiceAccount }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) GoogleAudience() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.GoogleAudience }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthAccessTokenValidity() pulumi.IntOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) int { return v.OauthAccessTokenValidity }).(pulumi.IntOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthAllowedScopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) []string { return v.OauthAllowedScopes }).(pulumi.StringArrayOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthAssertionIssuer() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.OauthAssertionIssuer }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthAuthorizationEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.OauthAuthorizationEndpoint }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthClientAuthMethod() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.OauthClientAuthMethod }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.OauthClientId }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthGrant() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.OauthGrant }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthRefreshTokenValidity() pulumi.IntOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) int { return v.OauthRefreshTokenValidity }).(pulumi.IntOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthResourceUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.OauthResourceUrl }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthTokenEndpoint() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.OauthTokenEndpoint }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) OauthUsername() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.OauthUsername }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) TlsTrustedCertificates() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) []string { return v.TlsTrustedCertificates }).(pulumi.StringArrayOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) UsePrivatelinkEndpoint() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) bool { return v.UsePrivatelinkEndpoint }).(pulumi.BoolOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputOutput) UserAuthType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationDescribeOutput) string { return v.UserAuthType }).(pulumi.StringOutput)
-}
-
-type GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApiIntegrationsApiIntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput) ToGetApiIntegrationsApiIntegrationDescribeOutputArrayOutput() GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput) ToGetApiIntegrationsApiIntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetApiIntegrationsApiIntegrationDescribeOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApiIntegrationsApiIntegrationDescribeOutput {
-		return vs[0].([]GetApiIntegrationsApiIntegrationDescribeOutput)[vs[1].(int)]
-	}).(GetApiIntegrationsApiIntegrationDescribeOutputOutput)
-}
-
-type GetApiIntegrationsApiIntegrationShowOutput struct {
-	ApiType   string `pulumi:"apiType"`
-	Category  string `pulumi:"category"`
-	Comment   string `pulumi:"comment"`
-	CreatedOn string `pulumi:"createdOn"`
-	Enabled   bool   `pulumi:"enabled"`
-	Name      string `pulumi:"name"`
-}
-
-// GetApiIntegrationsApiIntegrationShowOutputInput is an input type that accepts GetApiIntegrationsApiIntegrationShowOutputArgs and GetApiIntegrationsApiIntegrationShowOutputOutput values.
-// You can construct a concrete instance of `GetApiIntegrationsApiIntegrationShowOutputInput` via:
-//
-//	GetApiIntegrationsApiIntegrationShowOutputArgs{...}
-type GetApiIntegrationsApiIntegrationShowOutputInput interface {
-	pulumi.Input
-
-	ToGetApiIntegrationsApiIntegrationShowOutputOutput() GetApiIntegrationsApiIntegrationShowOutputOutput
-	ToGetApiIntegrationsApiIntegrationShowOutputOutputWithContext(context.Context) GetApiIntegrationsApiIntegrationShowOutputOutput
-}
-
-type GetApiIntegrationsApiIntegrationShowOutputArgs struct {
-	ApiType   pulumi.StringInput `pulumi:"apiType"`
-	Category  pulumi.StringInput `pulumi:"category"`
-	Comment   pulumi.StringInput `pulumi:"comment"`
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	Enabled   pulumi.BoolInput   `pulumi:"enabled"`
-	Name      pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetApiIntegrationsApiIntegrationShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApiIntegrationsApiIntegrationShowOutput)(nil)).Elem()
-}
-
-func (i GetApiIntegrationsApiIntegrationShowOutputArgs) ToGetApiIntegrationsApiIntegrationShowOutputOutput() GetApiIntegrationsApiIntegrationShowOutputOutput {
-	return i.ToGetApiIntegrationsApiIntegrationShowOutputOutputWithContext(context.Background())
-}
-
-func (i GetApiIntegrationsApiIntegrationShowOutputArgs) ToGetApiIntegrationsApiIntegrationShowOutputOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApiIntegrationsApiIntegrationShowOutputOutput)
-}
-
-// GetApiIntegrationsApiIntegrationShowOutputArrayInput is an input type that accepts GetApiIntegrationsApiIntegrationShowOutputArray and GetApiIntegrationsApiIntegrationShowOutputArrayOutput values.
-// You can construct a concrete instance of `GetApiIntegrationsApiIntegrationShowOutputArrayInput` via:
-//
-//	GetApiIntegrationsApiIntegrationShowOutputArray{ GetApiIntegrationsApiIntegrationShowOutputArgs{...} }
-type GetApiIntegrationsApiIntegrationShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetApiIntegrationsApiIntegrationShowOutputArrayOutput() GetApiIntegrationsApiIntegrationShowOutputArrayOutput
-	ToGetApiIntegrationsApiIntegrationShowOutputArrayOutputWithContext(context.Context) GetApiIntegrationsApiIntegrationShowOutputArrayOutput
-}
-
-type GetApiIntegrationsApiIntegrationShowOutputArray []GetApiIntegrationsApiIntegrationShowOutputInput
-
-func (GetApiIntegrationsApiIntegrationShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApiIntegrationsApiIntegrationShowOutput)(nil)).Elem()
-}
-
-func (i GetApiIntegrationsApiIntegrationShowOutputArray) ToGetApiIntegrationsApiIntegrationShowOutputArrayOutput() GetApiIntegrationsApiIntegrationShowOutputArrayOutput {
-	return i.ToGetApiIntegrationsApiIntegrationShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetApiIntegrationsApiIntegrationShowOutputArray) ToGetApiIntegrationsApiIntegrationShowOutputArrayOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApiIntegrationsApiIntegrationShowOutputArrayOutput)
-}
-
-type GetApiIntegrationsApiIntegrationShowOutputOutput struct{ *pulumi.OutputState }
-
-func (GetApiIntegrationsApiIntegrationShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApiIntegrationsApiIntegrationShowOutput)(nil)).Elem()
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputOutput) ToGetApiIntegrationsApiIntegrationShowOutputOutput() GetApiIntegrationsApiIntegrationShowOutputOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputOutput) ToGetApiIntegrationsApiIntegrationShowOutputOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationShowOutputOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputOutput) ApiType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationShowOutput) string { return v.ApiType }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationShowOutput) string { return v.Category }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationShowOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationShowOutput) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApiIntegrationsApiIntegrationShowOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetApiIntegrationsApiIntegrationShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetApiIntegrationsApiIntegrationShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApiIntegrationsApiIntegrationShowOutput)(nil)).Elem()
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputArrayOutput) ToGetApiIntegrationsApiIntegrationShowOutputArrayOutput() GetApiIntegrationsApiIntegrationShowOutputArrayOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputArrayOutput) ToGetApiIntegrationsApiIntegrationShowOutputArrayOutputWithContext(ctx context.Context) GetApiIntegrationsApiIntegrationShowOutputArrayOutput {
-	return o
-}
-
-func (o GetApiIntegrationsApiIntegrationShowOutputArrayOutput) Index(i pulumi.IntInput) GetApiIntegrationsApiIntegrationShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApiIntegrationsApiIntegrationShowOutput {
-		return vs[0].([]GetApiIntegrationsApiIntegrationShowOutput)[vs[1].(int)]
-	}).(GetApiIntegrationsApiIntegrationShowOutputOutput)
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicy struct {
-	// Holds the output of DESCRIBE AUTHENTICATION POLICY.
-	DescribeOutputs []GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW AUTHENTICATION POLICIES.
-	ShowOutputs []GetAuthenticationPoliciesAuthenticationPolicyShowOutput `pulumi:"showOutputs"`
-}
-
-// GetAuthenticationPoliciesAuthenticationPolicyInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyArgs and GetAuthenticationPoliciesAuthenticationPolicyOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyInput` via:
-//
-//	GetAuthenticationPoliciesAuthenticationPolicyArgs{...}
-type GetAuthenticationPoliciesAuthenticationPolicyInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesAuthenticationPolicyOutput() GetAuthenticationPoliciesAuthenticationPolicyOutput
-	ToGetAuthenticationPoliciesAuthenticationPolicyOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyOutput
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyArgs struct {
-	// Holds the output of DESCRIBE AUTHENTICATION POLICY.
-	DescribeOutputs GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayInput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW AUTHENTICATION POLICIES.
-	ShowOutputs GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayInput `pulumi:"showOutputs"`
-}
-
-func (GetAuthenticationPoliciesAuthenticationPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicy)(nil)).Elem()
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyArgs) ToGetAuthenticationPoliciesAuthenticationPolicyOutput() GetAuthenticationPoliciesAuthenticationPolicyOutput {
-	return i.ToGetAuthenticationPoliciesAuthenticationPolicyOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyArgs) ToGetAuthenticationPoliciesAuthenticationPolicyOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyOutput)
-}
-
-// GetAuthenticationPoliciesAuthenticationPolicyArrayInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyArray and GetAuthenticationPoliciesAuthenticationPolicyArrayOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyArrayInput` via:
-//
-//	GetAuthenticationPoliciesAuthenticationPolicyArray{ GetAuthenticationPoliciesAuthenticationPolicyArgs{...} }
-type GetAuthenticationPoliciesAuthenticationPolicyArrayInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyArrayOutput
-	ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyArrayOutput
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyArray []GetAuthenticationPoliciesAuthenticationPolicyInput
-
-func (GetAuthenticationPoliciesAuthenticationPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicy)(nil)).Elem()
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyArray) ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyArrayOutput {
-	return i.ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyArray) ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyArrayOutput)
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesAuthenticationPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicy)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyOutput) ToGetAuthenticationPoliciesAuthenticationPolicyOutput() GetAuthenticationPoliciesAuthenticationPolicyOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyOutput) ToGetAuthenticationPoliciesAuthenticationPolicyOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyOutput {
-	return o
-}
-
-// Holds the output of DESCRIBE AUTHENTICATION POLICY.
-func (o GetAuthenticationPoliciesAuthenticationPolicyOutput) DescribeOutputs() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicy) []GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
-		return v.DescribeOutputs
-	}).(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput)
-}
-
-// Holds the output of SHOW AUTHENTICATION POLICIES.
-func (o GetAuthenticationPoliciesAuthenticationPolicyOutput) ShowOutputs() GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicy) []GetAuthenticationPoliciesAuthenticationPolicyShowOutput {
-		return v.ShowOutputs
-	}).(GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput)
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyArrayOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesAuthenticationPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicy)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyArrayOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyArrayOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyArrayOutput) Index(i pulumi.IntInput) GetAuthenticationPoliciesAuthenticationPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAuthenticationPoliciesAuthenticationPolicy {
-		return vs[0].([]GetAuthenticationPoliciesAuthenticationPolicy)[vs[1].(int)]
-	}).(GetAuthenticationPoliciesAuthenticationPolicyOutput)
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput struct {
-	AuthenticationMethods  string `pulumi:"authenticationMethods"`
-	ClientPolicy           string `pulumi:"clientPolicy"`
-	ClientTypes            string `pulumi:"clientTypes"`
-	Comment                string `pulumi:"comment"`
-	MfaEnrollment          string `pulumi:"mfaEnrollment"`
-	MfaPolicy              string `pulumi:"mfaPolicy"`
-	Name                   string `pulumi:"name"`
-	Owner                  string `pulumi:"owner"`
-	PatPolicy              string `pulumi:"patPolicy"`
-	SecurityIntegrations   string `pulumi:"securityIntegrations"`
-	WorkloadIdentityPolicy string `pulumi:"workloadIdentityPolicy"`
-}
-
-// GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs and GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputInput` via:
-//
-//	GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs{...}
-type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput
-	ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs struct {
-	AuthenticationMethods  pulumi.StringInput `pulumi:"authenticationMethods"`
-	ClientPolicy           pulumi.StringInput `pulumi:"clientPolicy"`
-	ClientTypes            pulumi.StringInput `pulumi:"clientTypes"`
-	Comment                pulumi.StringInput `pulumi:"comment"`
-	MfaEnrollment          pulumi.StringInput `pulumi:"mfaEnrollment"`
-	MfaPolicy              pulumi.StringInput `pulumi:"mfaPolicy"`
-	Name                   pulumi.StringInput `pulumi:"name"`
-	Owner                  pulumi.StringInput `pulumi:"owner"`
-	PatPolicy              pulumi.StringInput `pulumi:"patPolicy"`
-	SecurityIntegrations   pulumi.StringInput `pulumi:"securityIntegrations"`
-	WorkloadIdentityPolicy pulumi.StringInput `pulumi:"workloadIdentityPolicy"`
-}
-
-func (GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput)(nil)).Elem()
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput {
-	return i.ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput)
-}
-
-// GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray and GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayInput` via:
-//
-//	GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray{ GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs{...} }
-type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput
-	ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray []GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputInput
-
-func (GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput)(nil)).Elem()
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput {
-	return i.ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput)
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) AuthenticationMethods() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string {
-		return v.AuthenticationMethods
-	}).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) ClientPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.ClientPolicy }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) ClientTypes() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.ClientTypes }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) MfaEnrollment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.MfaEnrollment }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) MfaPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.MfaPolicy }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.Owner }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) PatPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string { return v.PatPolicy }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) SecurityIntegrations() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string {
-		return v.SecurityIntegrations
-	}).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput) WorkloadIdentityPolicy() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput) string {
-		return v.WorkloadIdentityPolicy
-	}).(pulumi.StringOutput)
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput {
-		return vs[0].([]GetAuthenticationPoliciesAuthenticationPolicyDescribeOutput)[vs[1].(int)]
-	}).(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput)
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyShowOutput struct {
-	Comment       string `pulumi:"comment"`
-	CreatedOn     string `pulumi:"createdOn"`
-	DatabaseName  string `pulumi:"databaseName"`
-	Kind          string `pulumi:"kind"`
-	Name          string `pulumi:"name"`
-	Options       string `pulumi:"options"`
-	Owner         string `pulumi:"owner"`
-	OwnerRoleType string `pulumi:"ownerRoleType"`
-	SchemaName    string `pulumi:"schemaName"`
-}
-
-// GetAuthenticationPoliciesAuthenticationPolicyShowOutputInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs and GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyShowOutputInput` via:
-//
-//	GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs{...}
-type GetAuthenticationPoliciesAuthenticationPolicyShowOutputInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput
-	ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs struct {
-	Comment       pulumi.StringInput `pulumi:"comment"`
-	CreatedOn     pulumi.StringInput `pulumi:"createdOn"`
-	DatabaseName  pulumi.StringInput `pulumi:"databaseName"`
-	Kind          pulumi.StringInput `pulumi:"kind"`
-	Name          pulumi.StringInput `pulumi:"name"`
-	Options       pulumi.StringInput `pulumi:"options"`
-	Owner         pulumi.StringInput `pulumi:"owner"`
-	OwnerRoleType pulumi.StringInput `pulumi:"ownerRoleType"`
-	SchemaName    pulumi.StringInput `pulumi:"schemaName"`
-}
-
-func (GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyShowOutput)(nil)).Elem()
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput {
-	return i.ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput)
-}
-
-// GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayInput is an input type that accepts GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray and GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayInput` via:
-//
-//	GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray{ GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs{...} }
-type GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput
-	ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutputWithContext(context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray []GetAuthenticationPoliciesAuthenticationPolicyShowOutputInput
-
-func (GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicyShowOutput)(nil)).Elem()
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput {
-	return i.ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput)
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyShowOutput)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) Options() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.Options }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.Owner }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) OwnerRoleType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.OwnerRoleType }).(pulumi.StringOutput)
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesAuthenticationPolicyShowOutput) string { return v.SchemaName }).(pulumi.StringOutput)
-}
-
-type GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAuthenticationPoliciesAuthenticationPolicyShowOutput)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput() GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput) ToGetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutputWithContext(ctx context.Context) GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput) Index(i pulumi.IntInput) GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAuthenticationPoliciesAuthenticationPolicyShowOutput {
-		return vs[0].([]GetAuthenticationPoliciesAuthenticationPolicyShowOutput)[vs[1].(int)]
-	}).(GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput)
-}
-
-type GetAuthenticationPoliciesIn struct {
-	// Returns records for the entire account.
-	Account *bool `pulumi:"account"`
-	// Returns records for the specified application.
-	Application *string `pulumi:"application"`
-	// Returns records for the specified application package.
-	ApplicationPackage *string `pulumi:"applicationPackage"`
-	// Returns records for the current database in use or for a specified database.
-	Database *string `pulumi:"database"`
-	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
-	Schema *string `pulumi:"schema"`
-}
-
-// GetAuthenticationPoliciesInInput is an input type that accepts GetAuthenticationPoliciesInArgs and GetAuthenticationPoliciesInOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesInInput` via:
-//
-//	GetAuthenticationPoliciesInArgs{...}
-type GetAuthenticationPoliciesInInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesInOutput() GetAuthenticationPoliciesInOutput
-	ToGetAuthenticationPoliciesInOutputWithContext(context.Context) GetAuthenticationPoliciesInOutput
-}
-
-type GetAuthenticationPoliciesInArgs struct {
-	// Returns records for the entire account.
-	Account pulumi.BoolPtrInput `pulumi:"account"`
-	// Returns records for the specified application.
-	Application pulumi.StringPtrInput `pulumi:"application"`
-	// Returns records for the specified application package.
-	ApplicationPackage pulumi.StringPtrInput `pulumi:"applicationPackage"`
-	// Returns records for the current database in use or for a specified database.
-	Database pulumi.StringPtrInput `pulumi:"database"`
-	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
-	Schema pulumi.StringPtrInput `pulumi:"schema"`
-}
-
-func (GetAuthenticationPoliciesInArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesIn)(nil)).Elem()
-}
-
-func (i GetAuthenticationPoliciesInArgs) ToGetAuthenticationPoliciesInOutput() GetAuthenticationPoliciesInOutput {
-	return i.ToGetAuthenticationPoliciesInOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesInArgs) ToGetAuthenticationPoliciesInOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesInOutput)
-}
-
-func (i GetAuthenticationPoliciesInArgs) ToGetAuthenticationPoliciesInPtrOutput() GetAuthenticationPoliciesInPtrOutput {
-	return i.ToGetAuthenticationPoliciesInPtrOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesInArgs) ToGetAuthenticationPoliciesInPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesInOutput).ToGetAuthenticationPoliciesInPtrOutputWithContext(ctx)
-}
-
-// GetAuthenticationPoliciesInPtrInput is an input type that accepts GetAuthenticationPoliciesInArgs, GetAuthenticationPoliciesInPtr and GetAuthenticationPoliciesInPtrOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesInPtrInput` via:
-//
-//	        GetAuthenticationPoliciesInArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetAuthenticationPoliciesInPtrInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesInPtrOutput() GetAuthenticationPoliciesInPtrOutput
-	ToGetAuthenticationPoliciesInPtrOutputWithContext(context.Context) GetAuthenticationPoliciesInPtrOutput
-}
-
-type getAuthenticationPoliciesInPtrType GetAuthenticationPoliciesInArgs
-
-func GetAuthenticationPoliciesInPtr(v *GetAuthenticationPoliciesInArgs) GetAuthenticationPoliciesInPtrInput {
-	return (*getAuthenticationPoliciesInPtrType)(v)
-}
-
-func (*getAuthenticationPoliciesInPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetAuthenticationPoliciesIn)(nil)).Elem()
-}
-
-func (i *getAuthenticationPoliciesInPtrType) ToGetAuthenticationPoliciesInPtrOutput() GetAuthenticationPoliciesInPtrOutput {
-	return i.ToGetAuthenticationPoliciesInPtrOutputWithContext(context.Background())
-}
-
-func (i *getAuthenticationPoliciesInPtrType) ToGetAuthenticationPoliciesInPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesInPtrOutput)
-}
-
-type GetAuthenticationPoliciesInOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesInOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesIn)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesInOutput) ToGetAuthenticationPoliciesInOutput() GetAuthenticationPoliciesInOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesInOutput) ToGetAuthenticationPoliciesInOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesInOutput) ToGetAuthenticationPoliciesInPtrOutput() GetAuthenticationPoliciesInPtrOutput {
-	return o.ToGetAuthenticationPoliciesInPtrOutputWithContext(context.Background())
-}
-
-func (o GetAuthenticationPoliciesInOutput) ToGetAuthenticationPoliciesInPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAuthenticationPoliciesIn) *GetAuthenticationPoliciesIn {
-		return &v
-	}).(GetAuthenticationPoliciesInPtrOutput)
-}
-
-// Returns records for the entire account.
-func (o GetAuthenticationPoliciesInOutput) Account() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesIn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
-}
-
-// Returns records for the specified application.
-func (o GetAuthenticationPoliciesInOutput) Application() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesIn) *string { return v.Application }).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the specified application package.
-func (o GetAuthenticationPoliciesInOutput) ApplicationPackage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesIn) *string { return v.ApplicationPackage }).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the current database in use or for a specified database.
-func (o GetAuthenticationPoliciesInOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesIn) *string { return v.Database }).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the current schema in use or a specified schema. Use fully qualified name.
-func (o GetAuthenticationPoliciesInOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
-}
-
-type GetAuthenticationPoliciesInPtrOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesInPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetAuthenticationPoliciesIn)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesInPtrOutput) ToGetAuthenticationPoliciesInPtrOutput() GetAuthenticationPoliciesInPtrOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesInPtrOutput) ToGetAuthenticationPoliciesInPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesInPtrOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesInPtrOutput) Elem() GetAuthenticationPoliciesInOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) GetAuthenticationPoliciesIn {
-		if v != nil {
-			return *v
-		}
-		var ret GetAuthenticationPoliciesIn
-		return ret
-	}).(GetAuthenticationPoliciesInOutput)
-}
-
-// Returns records for the entire account.
-func (o GetAuthenticationPoliciesInPtrOutput) Account() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Account
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Returns records for the specified application.
-func (o GetAuthenticationPoliciesInPtrOutput) Application() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Application
-	}).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the specified application package.
-func (o GetAuthenticationPoliciesInPtrOutput) ApplicationPackage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationPackage
-	}).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the current database in use or for a specified database.
-func (o GetAuthenticationPoliciesInPtrOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Database
-	}).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the current schema in use or a specified schema. Use fully qualified name.
-func (o GetAuthenticationPoliciesInPtrOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesIn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Schema
-	}).(pulumi.StringPtrOutput)
-}
-
-type GetAuthenticationPoliciesLimit struct {
-	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-	From *string `pulumi:"from"`
-	// The maximum number of rows to return.
-	Rows int `pulumi:"rows"`
-}
-
-// GetAuthenticationPoliciesLimitInput is an input type that accepts GetAuthenticationPoliciesLimitArgs and GetAuthenticationPoliciesLimitOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesLimitInput` via:
-//
-//	GetAuthenticationPoliciesLimitArgs{...}
-type GetAuthenticationPoliciesLimitInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesLimitOutput() GetAuthenticationPoliciesLimitOutput
-	ToGetAuthenticationPoliciesLimitOutputWithContext(context.Context) GetAuthenticationPoliciesLimitOutput
-}
-
-type GetAuthenticationPoliciesLimitArgs struct {
-	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-	From pulumi.StringPtrInput `pulumi:"from"`
-	// The maximum number of rows to return.
-	Rows pulumi.IntInput `pulumi:"rows"`
-}
-
-func (GetAuthenticationPoliciesLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesLimit)(nil)).Elem()
-}
-
-func (i GetAuthenticationPoliciesLimitArgs) ToGetAuthenticationPoliciesLimitOutput() GetAuthenticationPoliciesLimitOutput {
-	return i.ToGetAuthenticationPoliciesLimitOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesLimitArgs) ToGetAuthenticationPoliciesLimitOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesLimitOutput)
-}
-
-func (i GetAuthenticationPoliciesLimitArgs) ToGetAuthenticationPoliciesLimitPtrOutput() GetAuthenticationPoliciesLimitPtrOutput {
-	return i.ToGetAuthenticationPoliciesLimitPtrOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesLimitArgs) ToGetAuthenticationPoliciesLimitPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesLimitOutput).ToGetAuthenticationPoliciesLimitPtrOutputWithContext(ctx)
-}
-
-// GetAuthenticationPoliciesLimitPtrInput is an input type that accepts GetAuthenticationPoliciesLimitArgs, GetAuthenticationPoliciesLimitPtr and GetAuthenticationPoliciesLimitPtrOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesLimitPtrInput` via:
-//
-//	        GetAuthenticationPoliciesLimitArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetAuthenticationPoliciesLimitPtrInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesLimitPtrOutput() GetAuthenticationPoliciesLimitPtrOutput
-	ToGetAuthenticationPoliciesLimitPtrOutputWithContext(context.Context) GetAuthenticationPoliciesLimitPtrOutput
-}
-
-type getAuthenticationPoliciesLimitPtrType GetAuthenticationPoliciesLimitArgs
-
-func GetAuthenticationPoliciesLimitPtr(v *GetAuthenticationPoliciesLimitArgs) GetAuthenticationPoliciesLimitPtrInput {
-	return (*getAuthenticationPoliciesLimitPtrType)(v)
-}
-
-func (*getAuthenticationPoliciesLimitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetAuthenticationPoliciesLimit)(nil)).Elem()
-}
-
-func (i *getAuthenticationPoliciesLimitPtrType) ToGetAuthenticationPoliciesLimitPtrOutput() GetAuthenticationPoliciesLimitPtrOutput {
-	return i.ToGetAuthenticationPoliciesLimitPtrOutputWithContext(context.Background())
-}
-
-func (i *getAuthenticationPoliciesLimitPtrType) ToGetAuthenticationPoliciesLimitPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesLimitPtrOutput)
-}
-
-type GetAuthenticationPoliciesLimitOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesLimit)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesLimitOutput) ToGetAuthenticationPoliciesLimitOutput() GetAuthenticationPoliciesLimitOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesLimitOutput) ToGetAuthenticationPoliciesLimitOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesLimitOutput) ToGetAuthenticationPoliciesLimitPtrOutput() GetAuthenticationPoliciesLimitPtrOutput {
-	return o.ToGetAuthenticationPoliciesLimitPtrOutputWithContext(context.Background())
-}
-
-func (o GetAuthenticationPoliciesLimitOutput) ToGetAuthenticationPoliciesLimitPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAuthenticationPoliciesLimit) *GetAuthenticationPoliciesLimit {
-		return &v
-	}).(GetAuthenticationPoliciesLimitPtrOutput)
-}
-
-// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-func (o GetAuthenticationPoliciesLimitOutput) From() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesLimit) *string { return v.From }).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of rows to return.
-func (o GetAuthenticationPoliciesLimitOutput) Rows() pulumi.IntOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesLimit) int { return v.Rows }).(pulumi.IntOutput)
-}
-
-type GetAuthenticationPoliciesLimitPtrOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesLimitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetAuthenticationPoliciesLimit)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesLimitPtrOutput) ToGetAuthenticationPoliciesLimitPtrOutput() GetAuthenticationPoliciesLimitPtrOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesLimitPtrOutput) ToGetAuthenticationPoliciesLimitPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesLimitPtrOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesLimitPtrOutput) Elem() GetAuthenticationPoliciesLimitOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesLimit) GetAuthenticationPoliciesLimit {
-		if v != nil {
-			return *v
-		}
-		var ret GetAuthenticationPoliciesLimit
-		return ret
-	}).(GetAuthenticationPoliciesLimitOutput)
-}
-
-// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-func (o GetAuthenticationPoliciesLimitPtrOutput) From() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesLimit) *string {
-		if v == nil {
-			return nil
-		}
-		return v.From
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of rows to return.
-func (o GetAuthenticationPoliciesLimitPtrOutput) Rows() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesLimit) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Rows
-	}).(pulumi.IntPtrOutput)
-}
-
-type GetAuthenticationPoliciesOn struct {
-	// Returns records for the entire account.
-	Account *bool `pulumi:"account"`
-	// Returns records for the specified user.
-	User *string `pulumi:"user"`
-}
-
-// GetAuthenticationPoliciesOnInput is an input type that accepts GetAuthenticationPoliciesOnArgs and GetAuthenticationPoliciesOnOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesOnInput` via:
-//
-//	GetAuthenticationPoliciesOnArgs{...}
-type GetAuthenticationPoliciesOnInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesOnOutput() GetAuthenticationPoliciesOnOutput
-	ToGetAuthenticationPoliciesOnOutputWithContext(context.Context) GetAuthenticationPoliciesOnOutput
-}
-
-type GetAuthenticationPoliciesOnArgs struct {
-	// Returns records for the entire account.
-	Account pulumi.BoolPtrInput `pulumi:"account"`
-	// Returns records for the specified user.
-	User pulumi.StringPtrInput `pulumi:"user"`
-}
-
-func (GetAuthenticationPoliciesOnArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesOn)(nil)).Elem()
-}
-
-func (i GetAuthenticationPoliciesOnArgs) ToGetAuthenticationPoliciesOnOutput() GetAuthenticationPoliciesOnOutput {
-	return i.ToGetAuthenticationPoliciesOnOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesOnArgs) ToGetAuthenticationPoliciesOnOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesOnOutput)
-}
-
-func (i GetAuthenticationPoliciesOnArgs) ToGetAuthenticationPoliciesOnPtrOutput() GetAuthenticationPoliciesOnPtrOutput {
-	return i.ToGetAuthenticationPoliciesOnPtrOutputWithContext(context.Background())
-}
-
-func (i GetAuthenticationPoliciesOnArgs) ToGetAuthenticationPoliciesOnPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesOnOutput).ToGetAuthenticationPoliciesOnPtrOutputWithContext(ctx)
-}
-
-// GetAuthenticationPoliciesOnPtrInput is an input type that accepts GetAuthenticationPoliciesOnArgs, GetAuthenticationPoliciesOnPtr and GetAuthenticationPoliciesOnPtrOutput values.
-// You can construct a concrete instance of `GetAuthenticationPoliciesOnPtrInput` via:
-//
-//	        GetAuthenticationPoliciesOnArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetAuthenticationPoliciesOnPtrInput interface {
-	pulumi.Input
-
-	ToGetAuthenticationPoliciesOnPtrOutput() GetAuthenticationPoliciesOnPtrOutput
-	ToGetAuthenticationPoliciesOnPtrOutputWithContext(context.Context) GetAuthenticationPoliciesOnPtrOutput
-}
-
-type getAuthenticationPoliciesOnPtrType GetAuthenticationPoliciesOnArgs
-
-func GetAuthenticationPoliciesOnPtr(v *GetAuthenticationPoliciesOnArgs) GetAuthenticationPoliciesOnPtrInput {
-	return (*getAuthenticationPoliciesOnPtrType)(v)
-}
-
-func (*getAuthenticationPoliciesOnPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetAuthenticationPoliciesOn)(nil)).Elem()
-}
-
-func (i *getAuthenticationPoliciesOnPtrType) ToGetAuthenticationPoliciesOnPtrOutput() GetAuthenticationPoliciesOnPtrOutput {
-	return i.ToGetAuthenticationPoliciesOnPtrOutputWithContext(context.Background())
-}
-
-func (i *getAuthenticationPoliciesOnPtrType) ToGetAuthenticationPoliciesOnPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAuthenticationPoliciesOnPtrOutput)
-}
-
-type GetAuthenticationPoliciesOnOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesOnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAuthenticationPoliciesOn)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesOnOutput) ToGetAuthenticationPoliciesOnOutput() GetAuthenticationPoliciesOnOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesOnOutput) ToGetAuthenticationPoliciesOnOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesOnOutput) ToGetAuthenticationPoliciesOnPtrOutput() GetAuthenticationPoliciesOnPtrOutput {
-	return o.ToGetAuthenticationPoliciesOnPtrOutputWithContext(context.Background())
-}
-
-func (o GetAuthenticationPoliciesOnOutput) ToGetAuthenticationPoliciesOnPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetAuthenticationPoliciesOn) *GetAuthenticationPoliciesOn {
-		return &v
-	}).(GetAuthenticationPoliciesOnPtrOutput)
-}
-
-// Returns records for the entire account.
-func (o GetAuthenticationPoliciesOnOutput) Account() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesOn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
-}
-
-// Returns records for the specified user.
-func (o GetAuthenticationPoliciesOnOutput) User() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetAuthenticationPoliciesOn) *string { return v.User }).(pulumi.StringPtrOutput)
-}
-
-type GetAuthenticationPoliciesOnPtrOutput struct{ *pulumi.OutputState }
-
-func (GetAuthenticationPoliciesOnPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetAuthenticationPoliciesOn)(nil)).Elem()
-}
-
-func (o GetAuthenticationPoliciesOnPtrOutput) ToGetAuthenticationPoliciesOnPtrOutput() GetAuthenticationPoliciesOnPtrOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesOnPtrOutput) ToGetAuthenticationPoliciesOnPtrOutputWithContext(ctx context.Context) GetAuthenticationPoliciesOnPtrOutput {
-	return o
-}
-
-func (o GetAuthenticationPoliciesOnPtrOutput) Elem() GetAuthenticationPoliciesOnOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesOn) GetAuthenticationPoliciesOn {
-		if v != nil {
-			return *v
-		}
-		var ret GetAuthenticationPoliciesOn
-		return ret
-	}).(GetAuthenticationPoliciesOnOutput)
-}
-
-// Returns records for the entire account.
-func (o GetAuthenticationPoliciesOnPtrOutput) Account() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesOn) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Account
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Returns records for the specified user.
-func (o GetAuthenticationPoliciesOnPtrOutput) User() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetAuthenticationPoliciesOn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.User
-	}).(pulumi.StringPtrOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegration struct {
-	// Holds the output of DESCRIBE CATALOG INTEGRATION.
-	DescribeOutputs []GetCatalogIntegrationsCatalogIntegrationDescribeOutput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW CATALOG INTEGRATIONS.
-	ShowOutputs []GetCatalogIntegrationsCatalogIntegrationShowOutput `pulumi:"showOutputs"`
-}
-
-// GetCatalogIntegrationsCatalogIntegrationInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationArgs and GetCatalogIntegrationsCatalogIntegrationOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationArgs{...}
-type GetCatalogIntegrationsCatalogIntegrationInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationOutput() GetCatalogIntegrationsCatalogIntegrationOutput
-	ToGetCatalogIntegrationsCatalogIntegrationOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationArgs struct {
-	// Holds the output of DESCRIBE CATALOG INTEGRATION.
-	DescribeOutputs GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayInput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW CATALOG INTEGRATIONS.
-	ShowOutputs GetCatalogIntegrationsCatalogIntegrationShowOutputArrayInput `pulumi:"showOutputs"`
-}
-
-func (GetCatalogIntegrationsCatalogIntegrationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegration)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationArgs) ToGetCatalogIntegrationsCatalogIntegrationOutput() GetCatalogIntegrationsCatalogIntegrationOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationArgs) ToGetCatalogIntegrationsCatalogIntegrationOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationOutput)
-}
-
-// GetCatalogIntegrationsCatalogIntegrationArrayInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationArray and GetCatalogIntegrationsCatalogIntegrationArrayOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationArrayInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationArray{ GetCatalogIntegrationsCatalogIntegrationArgs{...} }
-type GetCatalogIntegrationsCatalogIntegrationArrayInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationArrayOutput() GetCatalogIntegrationsCatalogIntegrationArrayOutput
-	ToGetCatalogIntegrationsCatalogIntegrationArrayOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationArrayOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationArray []GetCatalogIntegrationsCatalogIntegrationInput
-
-func (GetCatalogIntegrationsCatalogIntegrationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegration)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationArray) ToGetCatalogIntegrationsCatalogIntegrationArrayOutput() GetCatalogIntegrationsCatalogIntegrationArrayOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationArrayOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationArray) ToGetCatalogIntegrationsCatalogIntegrationArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationArrayOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegration)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationOutput) ToGetCatalogIntegrationsCatalogIntegrationOutput() GetCatalogIntegrationsCatalogIntegrationOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationOutput) ToGetCatalogIntegrationsCatalogIntegrationOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationOutput {
-	return o
-}
-
-// Holds the output of DESCRIBE CATALOG INTEGRATION.
-func (o GetCatalogIntegrationsCatalogIntegrationOutput) DescribeOutputs() GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegration) []GetCatalogIntegrationsCatalogIntegrationDescribeOutput {
-		return v.DescribeOutputs
-	}).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput)
-}
-
-// Holds the output of SHOW CATALOG INTEGRATIONS.
-func (o GetCatalogIntegrationsCatalogIntegrationOutput) ShowOutputs() GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegration) []GetCatalogIntegrationsCatalogIntegrationShowOutput {
-		return v.ShowOutputs
-	}).(GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegration)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationArrayOutput() GetCatalogIntegrationsCatalogIntegrationArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationsCatalogIntegrationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationsCatalogIntegration {
-		return vs[0].([]GetCatalogIntegrationsCatalogIntegration)[vs[1].(int)]
-	}).(GetCatalogIntegrationsCatalogIntegrationOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutput struct {
-	BearerRestAuthentications []GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication `pulumi:"bearerRestAuthentications"`
-	CatalogNamespace          string                                                                           `pulumi:"catalogNamespace"`
-	CatalogSource             string                                                                           `pulumi:"catalogSource"`
-	Comment                   string                                                                           `pulumi:"comment"`
-	Enabled                   bool                                                                             `pulumi:"enabled"`
-	GlueAwsExternalId         string                                                                           `pulumi:"glueAwsExternalId"`
-	GlueAwsIamUserArn         string                                                                           `pulumi:"glueAwsIamUserArn"`
-	GlueAwsRoleArn            string                                                                           `pulumi:"glueAwsRoleArn"`
-	GlueCatalogId             string                                                                           `pulumi:"glueCatalogId"`
-	GlueRegion                string                                                                           `pulumi:"glueRegion"`
-	Id                        string                                                                           `pulumi:"id"`
-	OauthRestAuthentications  []GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication  `pulumi:"oauthRestAuthentications"`
-	RefreshIntervalSeconds    int                                                                              `pulumi:"refreshIntervalSeconds"`
-	RestConfigs               []GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig               `pulumi:"restConfigs"`
-	Sigv4RestAuthentications  []GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication  `pulumi:"sigv4RestAuthentications"`
-	TableFormat               string                                                                           `pulumi:"tableFormat"`
-}
-
-// GetCatalogIntegrationsCatalogIntegrationDescribeOutputInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationDescribeOutputArgs and GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationDescribeOutputInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationDescribeOutputArgs{...}
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputArgs struct {
-	BearerRestAuthentications GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayInput `pulumi:"bearerRestAuthentications"`
-	CatalogNamespace          pulumi.StringInput                                                                       `pulumi:"catalogNamespace"`
-	CatalogSource             pulumi.StringInput                                                                       `pulumi:"catalogSource"`
-	Comment                   pulumi.StringInput                                                                       `pulumi:"comment"`
-	Enabled                   pulumi.BoolInput                                                                         `pulumi:"enabled"`
-	GlueAwsExternalId         pulumi.StringInput                                                                       `pulumi:"glueAwsExternalId"`
-	GlueAwsIamUserArn         pulumi.StringInput                                                                       `pulumi:"glueAwsIamUserArn"`
-	GlueAwsRoleArn            pulumi.StringInput                                                                       `pulumi:"glueAwsRoleArn"`
-	GlueCatalogId             pulumi.StringInput                                                                       `pulumi:"glueCatalogId"`
-	GlueRegion                pulumi.StringInput                                                                       `pulumi:"glueRegion"`
-	Id                        pulumi.StringInput                                                                       `pulumi:"id"`
-	OauthRestAuthentications  GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayInput  `pulumi:"oauthRestAuthentications"`
-	RefreshIntervalSeconds    pulumi.IntInput                                                                          `pulumi:"refreshIntervalSeconds"`
-	RestConfigs               GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayInput               `pulumi:"restConfigs"`
-	Sigv4RestAuthentications  GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayInput  `pulumi:"sigv4RestAuthentications"`
-	TableFormat               pulumi.StringInput                                                                       `pulumi:"tableFormat"`
-}
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputArgs) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputArgs) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput)
-}
-
-// GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationDescribeOutputArray and GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationDescribeOutputArray{ GetCatalogIntegrationsCatalogIntegrationDescribeOutputArgs{...} }
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputArray []GetCatalogIntegrationsCatalogIntegrationDescribeOutputInput
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputArray) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputArray) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) BearerRestAuthentications() GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) []GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication {
-		return v.BearerRestAuthentications
-	}).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) CatalogNamespace() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) string { return v.CatalogNamespace }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) CatalogSource() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) string { return v.CatalogSource }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) GlueAwsExternalId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) string { return v.GlueAwsExternalId }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) GlueAwsIamUserArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) string { return v.GlueAwsIamUserArn }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) GlueAwsRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) string { return v.GlueAwsRoleArn }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) GlueCatalogId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) string { return v.GlueCatalogId }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) GlueRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) string { return v.GlueRegion }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) OauthRestAuthentications() GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) []GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication {
-		return v.OauthRestAuthentications
-	}).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) RefreshIntervalSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) int { return v.RefreshIntervalSeconds }).(pulumi.IntOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) RestConfigs() GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) []GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig {
-		return v.RestConfigs
-	}).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) Sigv4RestAuthentications() GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) []GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication {
-		return v.Sigv4RestAuthentications
-	}).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput) TableFormat() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutput) string { return v.TableFormat }).(pulumi.StringOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationDescribeOutput)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationsCatalogIntegrationDescribeOutput {
-		return vs[0].([]GetCatalogIntegrationsCatalogIntegrationDescribeOutput)[vs[1].(int)]
-	}).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication struct {
-}
-
-// GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArgs and GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArgs{...}
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArgs struct {
-}
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArgs) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArgs) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput)
-}
-
-// GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArray and GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArray{ GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArgs{...} }
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArray []GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationInput
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArray) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArray) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput {
-	return o
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication {
-		return vs[0].([]GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthentication)[vs[1].(int)]
-	}).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication struct {
-	OauthAllowedScopes []string `pulumi:"oauthAllowedScopes"`
-	OauthClientId      string   `pulumi:"oauthClientId"`
-	OauthTokenUri      string   `pulumi:"oauthTokenUri"`
-}
-
-// GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArgs and GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArgs{...}
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArgs struct {
-	OauthAllowedScopes pulumi.StringArrayInput `pulumi:"oauthAllowedScopes"`
-	OauthClientId      pulumi.StringInput      `pulumi:"oauthClientId"`
-	OauthTokenUri      pulumi.StringInput      `pulumi:"oauthTokenUri"`
-}
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArgs) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArgs) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput)
-}
-
-// GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArray and GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArray{ GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArgs{...} }
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArray []GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationInput
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArray) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArray) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput) OauthAllowedScopes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication) []string {
-		return v.OauthAllowedScopes
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput) OauthClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication) string {
-		return v.OauthClientId
-	}).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput) OauthTokenUri() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication) string {
-		return v.OauthTokenUri
-	}).(pulumi.StringOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication {
-		return vs[0].([]GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthentication)[vs[1].(int)]
-	}).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig struct {
-	AccessDelegationMode string `pulumi:"accessDelegationMode"`
-	CatalogApiType       string `pulumi:"catalogApiType"`
-	CatalogName          string `pulumi:"catalogName"`
-	CatalogUri           string `pulumi:"catalogUri"`
-	Prefix               string `pulumi:"prefix"`
-}
-
-// GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArgs and GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArgs{...}
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArgs struct {
-	AccessDelegationMode pulumi.StringInput `pulumi:"accessDelegationMode"`
-	CatalogApiType       pulumi.StringInput `pulumi:"catalogApiType"`
-	CatalogName          pulumi.StringInput `pulumi:"catalogName"`
-	CatalogUri           pulumi.StringInput `pulumi:"catalogUri"`
-	Prefix               pulumi.StringInput `pulumi:"prefix"`
-}
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArgs) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArgs) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput)
-}
-
-// GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArray and GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArray{ GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArgs{...} }
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArray []GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigInput
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArray) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArray) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput) AccessDelegationMode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig) string {
-		return v.AccessDelegationMode
-	}).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput) CatalogApiType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig) string {
-		return v.CatalogApiType
-	}).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput) CatalogName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig) string { return v.CatalogName }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput) CatalogUri() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig) string { return v.CatalogUri }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput) Prefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig) string { return v.Prefix }).(pulumi.StringOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig {
-		return vs[0].([]GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfig)[vs[1].(int)]
-	}).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication struct {
-	Sigv4IamRole       string `pulumi:"sigv4IamRole"`
-	Sigv4SigningRegion string `pulumi:"sigv4SigningRegion"`
-}
-
-// GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArgs and GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArgs{...}
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArgs struct {
-	Sigv4IamRole       pulumi.StringInput `pulumi:"sigv4IamRole"`
-	Sigv4SigningRegion pulumi.StringInput `pulumi:"sigv4SigningRegion"`
-}
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArgs) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArgs) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput)
-}
-
-// GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArray and GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArray{ GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArgs{...} }
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput
-	ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArray []GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationInput
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArray) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArray) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput) Sigv4IamRole() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication) string {
-		return v.Sigv4IamRole
-	}).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput) Sigv4SigningRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication) string {
-		return v.Sigv4SigningRegion
-	}).(pulumi.StringOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput() GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication {
-		return vs[0].([]GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthentication)[vs[1].(int)]
-	}).(GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationShowOutput struct {
-	Category  string `pulumi:"category"`
-	Comment   string `pulumi:"comment"`
-	CreatedOn string `pulumi:"createdOn"`
-	Enabled   bool   `pulumi:"enabled"`
-	Name      string `pulumi:"name"`
-	Type      string `pulumi:"type"`
-}
-
-// GetCatalogIntegrationsCatalogIntegrationShowOutputInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationShowOutputArgs and GetCatalogIntegrationsCatalogIntegrationShowOutputOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationShowOutputInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationShowOutputArgs{...}
-type GetCatalogIntegrationsCatalogIntegrationShowOutputInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationShowOutputOutput() GetCatalogIntegrationsCatalogIntegrationShowOutputOutput
-	ToGetCatalogIntegrationsCatalogIntegrationShowOutputOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationShowOutputOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationShowOutputArgs struct {
-	Category  pulumi.StringInput `pulumi:"category"`
-	Comment   pulumi.StringInput `pulumi:"comment"`
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	Enabled   pulumi.BoolInput   `pulumi:"enabled"`
-	Name      pulumi.StringInput `pulumi:"name"`
-	Type      pulumi.StringInput `pulumi:"type"`
-}
-
-func (GetCatalogIntegrationsCatalogIntegrationShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationShowOutput)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationShowOutputArgs) ToGetCatalogIntegrationsCatalogIntegrationShowOutputOutput() GetCatalogIntegrationsCatalogIntegrationShowOutputOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationShowOutputOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationShowOutputArgs) ToGetCatalogIntegrationsCatalogIntegrationShowOutputOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationShowOutputOutput)
-}
-
-// GetCatalogIntegrationsCatalogIntegrationShowOutputArrayInput is an input type that accepts GetCatalogIntegrationsCatalogIntegrationShowOutputArray and GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput values.
-// You can construct a concrete instance of `GetCatalogIntegrationsCatalogIntegrationShowOutputArrayInput` via:
-//
-//	GetCatalogIntegrationsCatalogIntegrationShowOutputArray{ GetCatalogIntegrationsCatalogIntegrationShowOutputArgs{...} }
-type GetCatalogIntegrationsCatalogIntegrationShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput() GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput
-	ToGetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutputWithContext(context.Context) GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput
-}
-
-type GetCatalogIntegrationsCatalogIntegrationShowOutputArray []GetCatalogIntegrationsCatalogIntegrationShowOutputInput
-
-func (GetCatalogIntegrationsCatalogIntegrationShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationShowOutput)(nil)).Elem()
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationShowOutputArray) ToGetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput() GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput {
-	return i.ToGetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetCatalogIntegrationsCatalogIntegrationShowOutputArray) ToGetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationShowOutputOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationShowOutput)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputOutput) ToGetCatalogIntegrationsCatalogIntegrationShowOutputOutput() GetCatalogIntegrationsCatalogIntegrationShowOutputOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputOutput) ToGetCatalogIntegrationsCatalogIntegrationShowOutputOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationShowOutputOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputOutput) Category() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationShowOutput) string { return v.Category }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationShowOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationShowOutput) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationShowOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCatalogIntegrationsCatalogIntegrationShowOutput) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCatalogIntegrationsCatalogIntegrationShowOutput)(nil)).Elem()
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput() GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput) ToGetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutputWithContext(ctx context.Context) GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput {
-	return o
-}
-
-func (o GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput) Index(i pulumi.IntInput) GetCatalogIntegrationsCatalogIntegrationShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCatalogIntegrationsCatalogIntegrationShowOutput {
-		return vs[0].([]GetCatalogIntegrationsCatalogIntegrationShowOutput)[vs[1].(int)]
-	}).(GetCatalogIntegrationsCatalogIntegrationShowOutputOutput)
-}
-
-type GetComputePoolsComputePool struct {
-	// Holds the output of DESCRIBE COMPUTE POOL.
-	DescribeOutputs []GetComputePoolsComputePoolDescribeOutput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW COMPUTE POOLS.
-	ShowOutputs []GetComputePoolsComputePoolShowOutput `pulumi:"showOutputs"`
-}
-
-// GetComputePoolsComputePoolInput is an input type that accepts GetComputePoolsComputePoolArgs and GetComputePoolsComputePoolOutput values.
-// You can construct a concrete instance of `GetComputePoolsComputePoolInput` via:
-//
-//	GetComputePoolsComputePoolArgs{...}
-type GetComputePoolsComputePoolInput interface {
-	pulumi.Input
-
-	ToGetComputePoolsComputePoolOutput() GetComputePoolsComputePoolOutput
-	ToGetComputePoolsComputePoolOutputWithContext(context.Context) GetComputePoolsComputePoolOutput
-}
-
-type GetComputePoolsComputePoolArgs struct {
-	// Holds the output of DESCRIBE COMPUTE POOL.
-	DescribeOutputs GetComputePoolsComputePoolDescribeOutputArrayInput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW COMPUTE POOLS.
-	ShowOutputs GetComputePoolsComputePoolShowOutputArrayInput `pulumi:"showOutputs"`
-}
-
-func (GetComputePoolsComputePoolArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetComputePoolsComputePool)(nil)).Elem()
-}
-
-func (i GetComputePoolsComputePoolArgs) ToGetComputePoolsComputePoolOutput() GetComputePoolsComputePoolOutput {
-	return i.ToGetComputePoolsComputePoolOutputWithContext(context.Background())
-}
-
-func (i GetComputePoolsComputePoolArgs) ToGetComputePoolsComputePoolOutputWithContext(ctx context.Context) GetComputePoolsComputePoolOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetComputePoolsComputePoolOutput)
-}
-
-// GetComputePoolsComputePoolArrayInput is an input type that accepts GetComputePoolsComputePoolArray and GetComputePoolsComputePoolArrayOutput values.
-// You can construct a concrete instance of `GetComputePoolsComputePoolArrayInput` via:
-//
-//	GetComputePoolsComputePoolArray{ GetComputePoolsComputePoolArgs{...} }
-type GetComputePoolsComputePoolArrayInput interface {
-	pulumi.Input
-
-	ToGetComputePoolsComputePoolArrayOutput() GetComputePoolsComputePoolArrayOutput
-	ToGetComputePoolsComputePoolArrayOutputWithContext(context.Context) GetComputePoolsComputePoolArrayOutput
-}
-
-type GetComputePoolsComputePoolArray []GetComputePoolsComputePoolInput
-
-func (GetComputePoolsComputePoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetComputePoolsComputePool)(nil)).Elem()
-}
-
-func (i GetComputePoolsComputePoolArray) ToGetComputePoolsComputePoolArrayOutput() GetComputePoolsComputePoolArrayOutput {
-	return i.ToGetComputePoolsComputePoolArrayOutputWithContext(context.Background())
-}
-
-func (i GetComputePoolsComputePoolArray) ToGetComputePoolsComputePoolArrayOutputWithContext(ctx context.Context) GetComputePoolsComputePoolArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetComputePoolsComputePoolArrayOutput)
-}
-
-type GetComputePoolsComputePoolOutput struct{ *pulumi.OutputState }
-
-func (GetComputePoolsComputePoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetComputePoolsComputePool)(nil)).Elem()
-}
-
-func (o GetComputePoolsComputePoolOutput) ToGetComputePoolsComputePoolOutput() GetComputePoolsComputePoolOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolOutput) ToGetComputePoolsComputePoolOutputWithContext(ctx context.Context) GetComputePoolsComputePoolOutput {
-	return o
-}
-
-// Holds the output of DESCRIBE COMPUTE POOL.
-func (o GetComputePoolsComputePoolOutput) DescribeOutputs() GetComputePoolsComputePoolDescribeOutputArrayOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePool) []GetComputePoolsComputePoolDescribeOutput {
-		return v.DescribeOutputs
-	}).(GetComputePoolsComputePoolDescribeOutputArrayOutput)
-}
-
-// Holds the output of SHOW COMPUTE POOLS.
-func (o GetComputePoolsComputePoolOutput) ShowOutputs() GetComputePoolsComputePoolShowOutputArrayOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePool) []GetComputePoolsComputePoolShowOutput { return v.ShowOutputs }).(GetComputePoolsComputePoolShowOutputArrayOutput)
-}
-
-type GetComputePoolsComputePoolArrayOutput struct{ *pulumi.OutputState }
-
-func (GetComputePoolsComputePoolArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetComputePoolsComputePool)(nil)).Elem()
-}
-
-func (o GetComputePoolsComputePoolArrayOutput) ToGetComputePoolsComputePoolArrayOutput() GetComputePoolsComputePoolArrayOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolArrayOutput) ToGetComputePoolsComputePoolArrayOutputWithContext(ctx context.Context) GetComputePoolsComputePoolArrayOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolArrayOutput) Index(i pulumi.IntInput) GetComputePoolsComputePoolOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetComputePoolsComputePool {
-		return vs[0].([]GetComputePoolsComputePool)[vs[1].(int)]
-	}).(GetComputePoolsComputePoolOutput)
-}
-
-type GetComputePoolsComputePoolDescribeOutput struct {
-	ActiveNodes            int      `pulumi:"activeNodes"`
-	Application            string   `pulumi:"application"`
-	AutoResume             bool     `pulumi:"autoResume"`
-	AutoSuspendSecs        int      `pulumi:"autoSuspendSecs"`
-	BackupInstanceFamilies []string `pulumi:"backupInstanceFamilies"`
-	Comment                string   `pulumi:"comment"`
-	CreatedOn              string   `pulumi:"createdOn"`
-	ErrorCode              string   `pulumi:"errorCode"`
-	IdleNodes              int      `pulumi:"idleNodes"`
-	InstanceFamily         string   `pulumi:"instanceFamily"`
-	IsExclusive            bool     `pulumi:"isExclusive"`
-	MaxNodes               int      `pulumi:"maxNodes"`
-	MinNodes               int      `pulumi:"minNodes"`
-	Name                   string   `pulumi:"name"`
-	NumJobs                int      `pulumi:"numJobs"`
-	NumServices            int      `pulumi:"numServices"`
-	Owner                  string   `pulumi:"owner"`
-	ResumedOn              string   `pulumi:"resumedOn"`
-	State                  string   `pulumi:"state"`
-	StatusMessage          string   `pulumi:"statusMessage"`
-	TargetNodes            int      `pulumi:"targetNodes"`
-	UpdatedOn              string   `pulumi:"updatedOn"`
-}
-
-// GetComputePoolsComputePoolDescribeOutputInput is an input type that accepts GetComputePoolsComputePoolDescribeOutputArgs and GetComputePoolsComputePoolDescribeOutputOutput values.
-// You can construct a concrete instance of `GetComputePoolsComputePoolDescribeOutputInput` via:
-//
-//	GetComputePoolsComputePoolDescribeOutputArgs{...}
-type GetComputePoolsComputePoolDescribeOutputInput interface {
-	pulumi.Input
-
-	ToGetComputePoolsComputePoolDescribeOutputOutput() GetComputePoolsComputePoolDescribeOutputOutput
-	ToGetComputePoolsComputePoolDescribeOutputOutputWithContext(context.Context) GetComputePoolsComputePoolDescribeOutputOutput
-}
-
-type GetComputePoolsComputePoolDescribeOutputArgs struct {
-	ActiveNodes            pulumi.IntInput         `pulumi:"activeNodes"`
-	Application            pulumi.StringInput      `pulumi:"application"`
-	AutoResume             pulumi.BoolInput        `pulumi:"autoResume"`
-	AutoSuspendSecs        pulumi.IntInput         `pulumi:"autoSuspendSecs"`
-	BackupInstanceFamilies pulumi.StringArrayInput `pulumi:"backupInstanceFamilies"`
-	Comment                pulumi.StringInput      `pulumi:"comment"`
-	CreatedOn              pulumi.StringInput      `pulumi:"createdOn"`
-	ErrorCode              pulumi.StringInput      `pulumi:"errorCode"`
-	IdleNodes              pulumi.IntInput         `pulumi:"idleNodes"`
-	InstanceFamily         pulumi.StringInput      `pulumi:"instanceFamily"`
-	IsExclusive            pulumi.BoolInput        `pulumi:"isExclusive"`
-	MaxNodes               pulumi.IntInput         `pulumi:"maxNodes"`
-	MinNodes               pulumi.IntInput         `pulumi:"minNodes"`
-	Name                   pulumi.StringInput      `pulumi:"name"`
-	NumJobs                pulumi.IntInput         `pulumi:"numJobs"`
-	NumServices            pulumi.IntInput         `pulumi:"numServices"`
-	Owner                  pulumi.StringInput      `pulumi:"owner"`
-	ResumedOn              pulumi.StringInput      `pulumi:"resumedOn"`
-	State                  pulumi.StringInput      `pulumi:"state"`
-	StatusMessage          pulumi.StringInput      `pulumi:"statusMessage"`
-	TargetNodes            pulumi.IntInput         `pulumi:"targetNodes"`
-	UpdatedOn              pulumi.StringInput      `pulumi:"updatedOn"`
-}
-
-func (GetComputePoolsComputePoolDescribeOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetComputePoolsComputePoolDescribeOutput)(nil)).Elem()
-}
-
-func (i GetComputePoolsComputePoolDescribeOutputArgs) ToGetComputePoolsComputePoolDescribeOutputOutput() GetComputePoolsComputePoolDescribeOutputOutput {
-	return i.ToGetComputePoolsComputePoolDescribeOutputOutputWithContext(context.Background())
-}
-
-func (i GetComputePoolsComputePoolDescribeOutputArgs) ToGetComputePoolsComputePoolDescribeOutputOutputWithContext(ctx context.Context) GetComputePoolsComputePoolDescribeOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetComputePoolsComputePoolDescribeOutputOutput)
-}
-
-// GetComputePoolsComputePoolDescribeOutputArrayInput is an input type that accepts GetComputePoolsComputePoolDescribeOutputArray and GetComputePoolsComputePoolDescribeOutputArrayOutput values.
-// You can construct a concrete instance of `GetComputePoolsComputePoolDescribeOutputArrayInput` via:
-//
-//	GetComputePoolsComputePoolDescribeOutputArray{ GetComputePoolsComputePoolDescribeOutputArgs{...} }
-type GetComputePoolsComputePoolDescribeOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetComputePoolsComputePoolDescribeOutputArrayOutput() GetComputePoolsComputePoolDescribeOutputArrayOutput
-	ToGetComputePoolsComputePoolDescribeOutputArrayOutputWithContext(context.Context) GetComputePoolsComputePoolDescribeOutputArrayOutput
-}
-
-type GetComputePoolsComputePoolDescribeOutputArray []GetComputePoolsComputePoolDescribeOutputInput
-
-func (GetComputePoolsComputePoolDescribeOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetComputePoolsComputePoolDescribeOutput)(nil)).Elem()
-}
-
-func (i GetComputePoolsComputePoolDescribeOutputArray) ToGetComputePoolsComputePoolDescribeOutputArrayOutput() GetComputePoolsComputePoolDescribeOutputArrayOutput {
-	return i.ToGetComputePoolsComputePoolDescribeOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetComputePoolsComputePoolDescribeOutputArray) ToGetComputePoolsComputePoolDescribeOutputArrayOutputWithContext(ctx context.Context) GetComputePoolsComputePoolDescribeOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetComputePoolsComputePoolDescribeOutputArrayOutput)
-}
-
-type GetComputePoolsComputePoolDescribeOutputOutput struct{ *pulumi.OutputState }
-
-func (GetComputePoolsComputePoolDescribeOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetComputePoolsComputePoolDescribeOutput)(nil)).Elem()
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) ToGetComputePoolsComputePoolDescribeOutputOutput() GetComputePoolsComputePoolDescribeOutputOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) ToGetComputePoolsComputePoolDescribeOutputOutputWithContext(ctx context.Context) GetComputePoolsComputePoolDescribeOutputOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) ActiveNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) int { return v.ActiveNodes }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) Application() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.Application }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) AutoResume() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) bool { return v.AutoResume }).(pulumi.BoolOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) AutoSuspendSecs() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) int { return v.AutoSuspendSecs }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) BackupInstanceFamilies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) []string { return v.BackupInstanceFamilies }).(pulumi.StringArrayOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) ErrorCode() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.ErrorCode }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) IdleNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) int { return v.IdleNodes }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) InstanceFamily() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.InstanceFamily }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) IsExclusive() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) bool { return v.IsExclusive }).(pulumi.BoolOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) MaxNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) int { return v.MaxNodes }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) MinNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) int { return v.MinNodes }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) NumJobs() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) int { return v.NumJobs }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) NumServices() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) int { return v.NumServices }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.Owner }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) ResumedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.ResumedOn }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.State }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) StatusMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.StatusMessage }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) TargetNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) int { return v.TargetNodes }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputOutput) UpdatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolDescribeOutput) string { return v.UpdatedOn }).(pulumi.StringOutput)
-}
-
-type GetComputePoolsComputePoolDescribeOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetComputePoolsComputePoolDescribeOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetComputePoolsComputePoolDescribeOutput)(nil)).Elem()
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputArrayOutput) ToGetComputePoolsComputePoolDescribeOutputArrayOutput() GetComputePoolsComputePoolDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputArrayOutput) ToGetComputePoolsComputePoolDescribeOutputArrayOutputWithContext(ctx context.Context) GetComputePoolsComputePoolDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetComputePoolsComputePoolDescribeOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetComputePoolsComputePoolDescribeOutput {
-		return vs[0].([]GetComputePoolsComputePoolDescribeOutput)[vs[1].(int)]
-	}).(GetComputePoolsComputePoolDescribeOutputOutput)
-}
-
-type GetComputePoolsComputePoolShowOutput struct {
-	ActiveNodes            int      `pulumi:"activeNodes"`
-	Application            string   `pulumi:"application"`
-	AutoResume             bool     `pulumi:"autoResume"`
-	AutoSuspendSecs        int      `pulumi:"autoSuspendSecs"`
-	BackupInstanceFamilies []string `pulumi:"backupInstanceFamilies"`
-	Comment                string   `pulumi:"comment"`
-	CreatedOn              string   `pulumi:"createdOn"`
-	IdleNodes              int      `pulumi:"idleNodes"`
-	InstanceFamily         string   `pulumi:"instanceFamily"`
-	IsExclusive            bool     `pulumi:"isExclusive"`
-	MaxNodes               int      `pulumi:"maxNodes"`
-	MinNodes               int      `pulumi:"minNodes"`
-	Name                   string   `pulumi:"name"`
-	NumJobs                int      `pulumi:"numJobs"`
-	NumServices            int      `pulumi:"numServices"`
-	Owner                  string   `pulumi:"owner"`
-	ResumedOn              string   `pulumi:"resumedOn"`
-	State                  string   `pulumi:"state"`
-	TargetNodes            int      `pulumi:"targetNodes"`
-	UpdatedOn              string   `pulumi:"updatedOn"`
-}
-
-// GetComputePoolsComputePoolShowOutputInput is an input type that accepts GetComputePoolsComputePoolShowOutputArgs and GetComputePoolsComputePoolShowOutputOutput values.
-// You can construct a concrete instance of `GetComputePoolsComputePoolShowOutputInput` via:
-//
-//	GetComputePoolsComputePoolShowOutputArgs{...}
-type GetComputePoolsComputePoolShowOutputInput interface {
-	pulumi.Input
-
-	ToGetComputePoolsComputePoolShowOutputOutput() GetComputePoolsComputePoolShowOutputOutput
-	ToGetComputePoolsComputePoolShowOutputOutputWithContext(context.Context) GetComputePoolsComputePoolShowOutputOutput
-}
-
-type GetComputePoolsComputePoolShowOutputArgs struct {
-	ActiveNodes            pulumi.IntInput         `pulumi:"activeNodes"`
-	Application            pulumi.StringInput      `pulumi:"application"`
-	AutoResume             pulumi.BoolInput        `pulumi:"autoResume"`
-	AutoSuspendSecs        pulumi.IntInput         `pulumi:"autoSuspendSecs"`
-	BackupInstanceFamilies pulumi.StringArrayInput `pulumi:"backupInstanceFamilies"`
-	Comment                pulumi.StringInput      `pulumi:"comment"`
-	CreatedOn              pulumi.StringInput      `pulumi:"createdOn"`
-	IdleNodes              pulumi.IntInput         `pulumi:"idleNodes"`
-	InstanceFamily         pulumi.StringInput      `pulumi:"instanceFamily"`
-	IsExclusive            pulumi.BoolInput        `pulumi:"isExclusive"`
-	MaxNodes               pulumi.IntInput         `pulumi:"maxNodes"`
-	MinNodes               pulumi.IntInput         `pulumi:"minNodes"`
-	Name                   pulumi.StringInput      `pulumi:"name"`
-	NumJobs                pulumi.IntInput         `pulumi:"numJobs"`
-	NumServices            pulumi.IntInput         `pulumi:"numServices"`
-	Owner                  pulumi.StringInput      `pulumi:"owner"`
-	ResumedOn              pulumi.StringInput      `pulumi:"resumedOn"`
-	State                  pulumi.StringInput      `pulumi:"state"`
-	TargetNodes            pulumi.IntInput         `pulumi:"targetNodes"`
-	UpdatedOn              pulumi.StringInput      `pulumi:"updatedOn"`
-}
-
-func (GetComputePoolsComputePoolShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetComputePoolsComputePoolShowOutput)(nil)).Elem()
-}
-
-func (i GetComputePoolsComputePoolShowOutputArgs) ToGetComputePoolsComputePoolShowOutputOutput() GetComputePoolsComputePoolShowOutputOutput {
-	return i.ToGetComputePoolsComputePoolShowOutputOutputWithContext(context.Background())
-}
-
-func (i GetComputePoolsComputePoolShowOutputArgs) ToGetComputePoolsComputePoolShowOutputOutputWithContext(ctx context.Context) GetComputePoolsComputePoolShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetComputePoolsComputePoolShowOutputOutput)
-}
-
-// GetComputePoolsComputePoolShowOutputArrayInput is an input type that accepts GetComputePoolsComputePoolShowOutputArray and GetComputePoolsComputePoolShowOutputArrayOutput values.
-// You can construct a concrete instance of `GetComputePoolsComputePoolShowOutputArrayInput` via:
-//
-//	GetComputePoolsComputePoolShowOutputArray{ GetComputePoolsComputePoolShowOutputArgs{...} }
-type GetComputePoolsComputePoolShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetComputePoolsComputePoolShowOutputArrayOutput() GetComputePoolsComputePoolShowOutputArrayOutput
-	ToGetComputePoolsComputePoolShowOutputArrayOutputWithContext(context.Context) GetComputePoolsComputePoolShowOutputArrayOutput
-}
-
-type GetComputePoolsComputePoolShowOutputArray []GetComputePoolsComputePoolShowOutputInput
-
-func (GetComputePoolsComputePoolShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetComputePoolsComputePoolShowOutput)(nil)).Elem()
-}
-
-func (i GetComputePoolsComputePoolShowOutputArray) ToGetComputePoolsComputePoolShowOutputArrayOutput() GetComputePoolsComputePoolShowOutputArrayOutput {
-	return i.ToGetComputePoolsComputePoolShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetComputePoolsComputePoolShowOutputArray) ToGetComputePoolsComputePoolShowOutputArrayOutputWithContext(ctx context.Context) GetComputePoolsComputePoolShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetComputePoolsComputePoolShowOutputArrayOutput)
-}
-
-type GetComputePoolsComputePoolShowOutputOutput struct{ *pulumi.OutputState }
-
-func (GetComputePoolsComputePoolShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetComputePoolsComputePoolShowOutput)(nil)).Elem()
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) ToGetComputePoolsComputePoolShowOutputOutput() GetComputePoolsComputePoolShowOutputOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) ToGetComputePoolsComputePoolShowOutputOutputWithContext(ctx context.Context) GetComputePoolsComputePoolShowOutputOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) ActiveNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) int { return v.ActiveNodes }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) Application() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) string { return v.Application }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) AutoResume() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) bool { return v.AutoResume }).(pulumi.BoolOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) AutoSuspendSecs() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) int { return v.AutoSuspendSecs }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) BackupInstanceFamilies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) []string { return v.BackupInstanceFamilies }).(pulumi.StringArrayOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) IdleNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) int { return v.IdleNodes }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) InstanceFamily() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) string { return v.InstanceFamily }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) IsExclusive() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) bool { return v.IsExclusive }).(pulumi.BoolOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) MaxNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) int { return v.MaxNodes }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) MinNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) int { return v.MinNodes }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) NumJobs() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) int { return v.NumJobs }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) NumServices() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) int { return v.NumServices }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) string { return v.Owner }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) ResumedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) string { return v.ResumedOn }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) string { return v.State }).(pulumi.StringOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) TargetNodes() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) int { return v.TargetNodes }).(pulumi.IntOutput)
-}
-
-func (o GetComputePoolsComputePoolShowOutputOutput) UpdatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetComputePoolsComputePoolShowOutput) string { return v.UpdatedOn }).(pulumi.StringOutput)
-}
-
-type GetComputePoolsComputePoolShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetComputePoolsComputePoolShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetComputePoolsComputePoolShowOutput)(nil)).Elem()
-}
-
-func (o GetComputePoolsComputePoolShowOutputArrayOutput) ToGetComputePoolsComputePoolShowOutputArrayOutput() GetComputePoolsComputePoolShowOutputArrayOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolShowOutputArrayOutput) ToGetComputePoolsComputePoolShowOutputArrayOutputWithContext(ctx context.Context) GetComputePoolsComputePoolShowOutputArrayOutput {
-	return o
-}
-
-func (o GetComputePoolsComputePoolShowOutputArrayOutput) Index(i pulumi.IntInput) GetComputePoolsComputePoolShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetComputePoolsComputePoolShowOutput {
-		return vs[0].([]GetComputePoolsComputePoolShowOutput)[vs[1].(int)]
-	}).(GetComputePoolsComputePoolShowOutputOutput)
-}
-
-type GetComputePoolsLimit struct {
-	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-	From *string `pulumi:"from"`
-	// The maximum number of rows to return.
-	Rows int `pulumi:"rows"`
-}
-
-// GetComputePoolsLimitInput is an input type that accepts GetComputePoolsLimitArgs and GetComputePoolsLimitOutput values.
-// You can construct a concrete instance of `GetComputePoolsLimitInput` via:
-//
-//	GetComputePoolsLimitArgs{...}
-type GetComputePoolsLimitInput interface {
-	pulumi.Input
-
-	ToGetComputePoolsLimitOutput() GetComputePoolsLimitOutput
-	ToGetComputePoolsLimitOutputWithContext(context.Context) GetComputePoolsLimitOutput
-}
-
-type GetComputePoolsLimitArgs struct {
-	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-	From pulumi.StringPtrInput `pulumi:"from"`
-	// The maximum number of rows to return.
-	Rows pulumi.IntInput `pulumi:"rows"`
-}
-
-func (GetComputePoolsLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetComputePoolsLimit)(nil)).Elem()
-}
-
-func (i GetComputePoolsLimitArgs) ToGetComputePoolsLimitOutput() GetComputePoolsLimitOutput {
-	return i.ToGetComputePoolsLimitOutputWithContext(context.Background())
-}
-
-func (i GetComputePoolsLimitArgs) ToGetComputePoolsLimitOutputWithContext(ctx context.Context) GetComputePoolsLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetComputePoolsLimitOutput)
-}
-
-func (i GetComputePoolsLimitArgs) ToGetComputePoolsLimitPtrOutput() GetComputePoolsLimitPtrOutput {
-	return i.ToGetComputePoolsLimitPtrOutputWithContext(context.Background())
-}
-
-func (i GetComputePoolsLimitArgs) ToGetComputePoolsLimitPtrOutputWithContext(ctx context.Context) GetComputePoolsLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetComputePoolsLimitOutput).ToGetComputePoolsLimitPtrOutputWithContext(ctx)
-}
-
-// GetComputePoolsLimitPtrInput is an input type that accepts GetComputePoolsLimitArgs, GetComputePoolsLimitPtr and GetComputePoolsLimitPtrOutput values.
-// You can construct a concrete instance of `GetComputePoolsLimitPtrInput` via:
-//
-//	        GetComputePoolsLimitArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetComputePoolsLimitPtrInput interface {
-	pulumi.Input
-
-	ToGetComputePoolsLimitPtrOutput() GetComputePoolsLimitPtrOutput
-	ToGetComputePoolsLimitPtrOutputWithContext(context.Context) GetComputePoolsLimitPtrOutput
-}
-
-type getComputePoolsLimitPtrType GetComputePoolsLimitArgs
-
-func GetComputePoolsLimitPtr(v *GetComputePoolsLimitArgs) GetComputePoolsLimitPtrInput {
-	return (*getComputePoolsLimitPtrType)(v)
-}
-
-func (*getComputePoolsLimitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetComputePoolsLimit)(nil)).Elem()
-}
-
-func (i *getComputePoolsLimitPtrType) ToGetComputePoolsLimitPtrOutput() GetComputePoolsLimitPtrOutput {
-	return i.ToGetComputePoolsLimitPtrOutputWithContext(context.Background())
-}
-
-func (i *getComputePoolsLimitPtrType) ToGetComputePoolsLimitPtrOutputWithContext(ctx context.Context) GetComputePoolsLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetComputePoolsLimitPtrOutput)
-}
-
-type GetComputePoolsLimitOutput struct{ *pulumi.OutputState }
-
-func (GetComputePoolsLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetComputePoolsLimit)(nil)).Elem()
-}
-
-func (o GetComputePoolsLimitOutput) ToGetComputePoolsLimitOutput() GetComputePoolsLimitOutput {
-	return o
-}
-
-func (o GetComputePoolsLimitOutput) ToGetComputePoolsLimitOutputWithContext(ctx context.Context) GetComputePoolsLimitOutput {
-	return o
-}
-
-func (o GetComputePoolsLimitOutput) ToGetComputePoolsLimitPtrOutput() GetComputePoolsLimitPtrOutput {
-	return o.ToGetComputePoolsLimitPtrOutputWithContext(context.Background())
-}
-
-func (o GetComputePoolsLimitOutput) ToGetComputePoolsLimitPtrOutputWithContext(ctx context.Context) GetComputePoolsLimitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetComputePoolsLimit) *GetComputePoolsLimit {
-		return &v
-	}).(GetComputePoolsLimitPtrOutput)
-}
-
-// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-func (o GetComputePoolsLimitOutput) From() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetComputePoolsLimit) *string { return v.From }).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of rows to return.
-func (o GetComputePoolsLimitOutput) Rows() pulumi.IntOutput {
-	return o.ApplyT(func(v GetComputePoolsLimit) int { return v.Rows }).(pulumi.IntOutput)
-}
-
-type GetComputePoolsLimitPtrOutput struct{ *pulumi.OutputState }
-
-func (GetComputePoolsLimitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetComputePoolsLimit)(nil)).Elem()
-}
-
-func (o GetComputePoolsLimitPtrOutput) ToGetComputePoolsLimitPtrOutput() GetComputePoolsLimitPtrOutput {
-	return o
-}
-
-func (o GetComputePoolsLimitPtrOutput) ToGetComputePoolsLimitPtrOutputWithContext(ctx context.Context) GetComputePoolsLimitPtrOutput {
-	return o
-}
-
-func (o GetComputePoolsLimitPtrOutput) Elem() GetComputePoolsLimitOutput {
-	return o.ApplyT(func(v *GetComputePoolsLimit) GetComputePoolsLimit {
-		if v != nil {
-			return *v
-		}
-		var ret GetComputePoolsLimit
-		return ret
-	}).(GetComputePoolsLimitOutput)
-}
-
-// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-func (o GetComputePoolsLimitPtrOutput) From() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetComputePoolsLimit) *string {
-		if v == nil {
-			return nil
-		}
-		return v.From
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of rows to return.
-func (o GetComputePoolsLimitPtrOutput) Rows() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetComputePoolsLimit) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Rows
-	}).(pulumi.IntPtrOutput)
-}
-
-type GetConnectionsConnection struct {
-	// Holds the output of SHOW CONNECTIONS.
-	ShowOutputs []GetConnectionsConnectionShowOutput `pulumi:"showOutputs"`
-}
-
-// GetConnectionsConnectionInput is an input type that accepts GetConnectionsConnectionArgs and GetConnectionsConnectionOutput values.
-// You can construct a concrete instance of `GetConnectionsConnectionInput` via:
-//
-//	GetConnectionsConnectionArgs{...}
-type GetConnectionsConnectionInput interface {
-	pulumi.Input
-
-	ToGetConnectionsConnectionOutput() GetConnectionsConnectionOutput
-	ToGetConnectionsConnectionOutputWithContext(context.Context) GetConnectionsConnectionOutput
-}
-
-type GetConnectionsConnectionArgs struct {
-	// Holds the output of SHOW CONNECTIONS.
-	ShowOutputs GetConnectionsConnectionShowOutputArrayInput `pulumi:"showOutputs"`
-}
-
-func (GetConnectionsConnectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetConnectionsConnection)(nil)).Elem()
-}
-
-func (i GetConnectionsConnectionArgs) ToGetConnectionsConnectionOutput() GetConnectionsConnectionOutput {
-	return i.ToGetConnectionsConnectionOutputWithContext(context.Background())
-}
-
-func (i GetConnectionsConnectionArgs) ToGetConnectionsConnectionOutputWithContext(ctx context.Context) GetConnectionsConnectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionsConnectionOutput)
-}
-
-// GetConnectionsConnectionArrayInput is an input type that accepts GetConnectionsConnectionArray and GetConnectionsConnectionArrayOutput values.
-// You can construct a concrete instance of `GetConnectionsConnectionArrayInput` via:
-//
-//	GetConnectionsConnectionArray{ GetConnectionsConnectionArgs{...} }
-type GetConnectionsConnectionArrayInput interface {
-	pulumi.Input
-
-	ToGetConnectionsConnectionArrayOutput() GetConnectionsConnectionArrayOutput
-	ToGetConnectionsConnectionArrayOutputWithContext(context.Context) GetConnectionsConnectionArrayOutput
-}
-
-type GetConnectionsConnectionArray []GetConnectionsConnectionInput
-
-func (GetConnectionsConnectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetConnectionsConnection)(nil)).Elem()
-}
-
-func (i GetConnectionsConnectionArray) ToGetConnectionsConnectionArrayOutput() GetConnectionsConnectionArrayOutput {
-	return i.ToGetConnectionsConnectionArrayOutputWithContext(context.Background())
-}
-
-func (i GetConnectionsConnectionArray) ToGetConnectionsConnectionArrayOutputWithContext(ctx context.Context) GetConnectionsConnectionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionsConnectionArrayOutput)
-}
-
-type GetConnectionsConnectionOutput struct{ *pulumi.OutputState }
-
-func (GetConnectionsConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetConnectionsConnection)(nil)).Elem()
-}
-
-func (o GetConnectionsConnectionOutput) ToGetConnectionsConnectionOutput() GetConnectionsConnectionOutput {
-	return o
-}
-
-func (o GetConnectionsConnectionOutput) ToGetConnectionsConnectionOutputWithContext(ctx context.Context) GetConnectionsConnectionOutput {
-	return o
-}
-
-// Holds the output of SHOW CONNECTIONS.
-func (o GetConnectionsConnectionOutput) ShowOutputs() GetConnectionsConnectionShowOutputArrayOutput {
-	return o.ApplyT(func(v GetConnectionsConnection) []GetConnectionsConnectionShowOutput { return v.ShowOutputs }).(GetConnectionsConnectionShowOutputArrayOutput)
-}
-
-type GetConnectionsConnectionArrayOutput struct{ *pulumi.OutputState }
-
-func (GetConnectionsConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetConnectionsConnection)(nil)).Elem()
-}
-
-func (o GetConnectionsConnectionArrayOutput) ToGetConnectionsConnectionArrayOutput() GetConnectionsConnectionArrayOutput {
-	return o
-}
-
-func (o GetConnectionsConnectionArrayOutput) ToGetConnectionsConnectionArrayOutputWithContext(ctx context.Context) GetConnectionsConnectionArrayOutput {
-	return o
-}
-
-func (o GetConnectionsConnectionArrayOutput) Index(i pulumi.IntInput) GetConnectionsConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectionsConnection {
-		return vs[0].([]GetConnectionsConnection)[vs[1].(int)]
-	}).(GetConnectionsConnectionOutput)
-}
-
-type GetConnectionsConnectionShowOutput struct {
-	AccountLocator            string   `pulumi:"accountLocator"`
-	AccountName               string   `pulumi:"accountName"`
-	Comment                   string   `pulumi:"comment"`
-	ConnectionUrl             string   `pulumi:"connectionUrl"`
-	CreatedOn                 string   `pulumi:"createdOn"`
-	FailoverAllowedToAccounts []string `pulumi:"failoverAllowedToAccounts"`
-	IsPrimary                 bool     `pulumi:"isPrimary"`
-	Name                      string   `pulumi:"name"`
-	OrganizationName          string   `pulumi:"organizationName"`
-	Primary                   string   `pulumi:"primary"`
-	RegionGroup               string   `pulumi:"regionGroup"`
-	SnowflakeRegion           string   `pulumi:"snowflakeRegion"`
-}
-
-// GetConnectionsConnectionShowOutputInput is an input type that accepts GetConnectionsConnectionShowOutputArgs and GetConnectionsConnectionShowOutputOutput values.
-// You can construct a concrete instance of `GetConnectionsConnectionShowOutputInput` via:
-//
-//	GetConnectionsConnectionShowOutputArgs{...}
-type GetConnectionsConnectionShowOutputInput interface {
-	pulumi.Input
-
-	ToGetConnectionsConnectionShowOutputOutput() GetConnectionsConnectionShowOutputOutput
-	ToGetConnectionsConnectionShowOutputOutputWithContext(context.Context) GetConnectionsConnectionShowOutputOutput
-}
-
-type GetConnectionsConnectionShowOutputArgs struct {
-	AccountLocator            pulumi.StringInput      `pulumi:"accountLocator"`
-	AccountName               pulumi.StringInput      `pulumi:"accountName"`
-	Comment                   pulumi.StringInput      `pulumi:"comment"`
-	ConnectionUrl             pulumi.StringInput      `pulumi:"connectionUrl"`
-	CreatedOn                 pulumi.StringInput      `pulumi:"createdOn"`
-	FailoverAllowedToAccounts pulumi.StringArrayInput `pulumi:"failoverAllowedToAccounts"`
-	IsPrimary                 pulumi.BoolInput        `pulumi:"isPrimary"`
-	Name                      pulumi.StringInput      `pulumi:"name"`
-	OrganizationName          pulumi.StringInput      `pulumi:"organizationName"`
-	Primary                   pulumi.StringInput      `pulumi:"primary"`
-	RegionGroup               pulumi.StringInput      `pulumi:"regionGroup"`
-	SnowflakeRegion           pulumi.StringInput      `pulumi:"snowflakeRegion"`
-}
-
-func (GetConnectionsConnectionShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetConnectionsConnectionShowOutput)(nil)).Elem()
-}
-
-func (i GetConnectionsConnectionShowOutputArgs) ToGetConnectionsConnectionShowOutputOutput() GetConnectionsConnectionShowOutputOutput {
-	return i.ToGetConnectionsConnectionShowOutputOutputWithContext(context.Background())
-}
-
-func (i GetConnectionsConnectionShowOutputArgs) ToGetConnectionsConnectionShowOutputOutputWithContext(ctx context.Context) GetConnectionsConnectionShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionsConnectionShowOutputOutput)
-}
-
-// GetConnectionsConnectionShowOutputArrayInput is an input type that accepts GetConnectionsConnectionShowOutputArray and GetConnectionsConnectionShowOutputArrayOutput values.
-// You can construct a concrete instance of `GetConnectionsConnectionShowOutputArrayInput` via:
-//
-//	GetConnectionsConnectionShowOutputArray{ GetConnectionsConnectionShowOutputArgs{...} }
-type GetConnectionsConnectionShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetConnectionsConnectionShowOutputArrayOutput() GetConnectionsConnectionShowOutputArrayOutput
-	ToGetConnectionsConnectionShowOutputArrayOutputWithContext(context.Context) GetConnectionsConnectionShowOutputArrayOutput
-}
-
-type GetConnectionsConnectionShowOutputArray []GetConnectionsConnectionShowOutputInput
-
-func (GetConnectionsConnectionShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetConnectionsConnectionShowOutput)(nil)).Elem()
-}
-
-func (i GetConnectionsConnectionShowOutputArray) ToGetConnectionsConnectionShowOutputArrayOutput() GetConnectionsConnectionShowOutputArrayOutput {
-	return i.ToGetConnectionsConnectionShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetConnectionsConnectionShowOutputArray) ToGetConnectionsConnectionShowOutputArrayOutputWithContext(ctx context.Context) GetConnectionsConnectionShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionsConnectionShowOutputArrayOutput)
-}
-
-type GetConnectionsConnectionShowOutputOutput struct{ *pulumi.OutputState }
-
-func (GetConnectionsConnectionShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetConnectionsConnectionShowOutput)(nil)).Elem()
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) ToGetConnectionsConnectionShowOutputOutput() GetConnectionsConnectionShowOutputOutput {
-	return o
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) ToGetConnectionsConnectionShowOutputOutputWithContext(ctx context.Context) GetConnectionsConnectionShowOutputOutput {
-	return o
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) AccountLocator() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) string { return v.AccountLocator }).(pulumi.StringOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) AccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) string { return v.AccountName }).(pulumi.StringOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) ConnectionUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) string { return v.ConnectionUrl }).(pulumi.StringOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) FailoverAllowedToAccounts() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) []string { return v.FailoverAllowedToAccounts }).(pulumi.StringArrayOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) IsPrimary() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) bool { return v.IsPrimary }).(pulumi.BoolOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) OrganizationName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) string { return v.OrganizationName }).(pulumi.StringOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) Primary() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) string { return v.Primary }).(pulumi.StringOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) RegionGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) string { return v.RegionGroup }).(pulumi.StringOutput)
-}
-
-func (o GetConnectionsConnectionShowOutputOutput) SnowflakeRegion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConnectionsConnectionShowOutput) string { return v.SnowflakeRegion }).(pulumi.StringOutput)
-}
-
-type GetConnectionsConnectionShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetConnectionsConnectionShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetConnectionsConnectionShowOutput)(nil)).Elem()
-}
-
-func (o GetConnectionsConnectionShowOutputArrayOutput) ToGetConnectionsConnectionShowOutputArrayOutput() GetConnectionsConnectionShowOutputArrayOutput {
-	return o
-}
-
-func (o GetConnectionsConnectionShowOutputArrayOutput) ToGetConnectionsConnectionShowOutputArrayOutputWithContext(ctx context.Context) GetConnectionsConnectionShowOutputArrayOutput {
-	return o
-}
-
-func (o GetConnectionsConnectionShowOutputArrayOutput) Index(i pulumi.IntInput) GetConnectionsConnectionShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetConnectionsConnectionShowOutput {
-		return vs[0].([]GetConnectionsConnectionShowOutput)[vs[1].(int)]
-	}).(GetConnectionsConnectionShowOutputOutput)
-}
-
-type GetCortexAgentsCortexAgent struct {
-	// Holds the output of DESCRIBE AGENT.
-	DescribeOutputs []GetCortexAgentsCortexAgentDescribeOutput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW AGENTS.
-	ShowOutputs []GetCortexAgentsCortexAgentShowOutput `pulumi:"showOutputs"`
-}
-
-// GetCortexAgentsCortexAgentInput is an input type that accepts GetCortexAgentsCortexAgentArgs and GetCortexAgentsCortexAgentOutput values.
-// You can construct a concrete instance of `GetCortexAgentsCortexAgentInput` via:
-//
-//	GetCortexAgentsCortexAgentArgs{...}
-type GetCortexAgentsCortexAgentInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsCortexAgentOutput() GetCortexAgentsCortexAgentOutput
-	ToGetCortexAgentsCortexAgentOutputWithContext(context.Context) GetCortexAgentsCortexAgentOutput
-}
-
-type GetCortexAgentsCortexAgentArgs struct {
-	// Holds the output of DESCRIBE AGENT.
-	DescribeOutputs GetCortexAgentsCortexAgentDescribeOutputArrayInput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW AGENTS.
-	ShowOutputs GetCortexAgentsCortexAgentShowOutputArrayInput `pulumi:"showOutputs"`
-}
-
-func (GetCortexAgentsCortexAgentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsCortexAgent)(nil)).Elem()
-}
-
-func (i GetCortexAgentsCortexAgentArgs) ToGetCortexAgentsCortexAgentOutput() GetCortexAgentsCortexAgentOutput {
-	return i.ToGetCortexAgentsCortexAgentOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsCortexAgentArgs) ToGetCortexAgentsCortexAgentOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsCortexAgentOutput)
-}
-
-// GetCortexAgentsCortexAgentArrayInput is an input type that accepts GetCortexAgentsCortexAgentArray and GetCortexAgentsCortexAgentArrayOutput values.
-// You can construct a concrete instance of `GetCortexAgentsCortexAgentArrayInput` via:
-//
-//	GetCortexAgentsCortexAgentArray{ GetCortexAgentsCortexAgentArgs{...} }
-type GetCortexAgentsCortexAgentArrayInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsCortexAgentArrayOutput() GetCortexAgentsCortexAgentArrayOutput
-	ToGetCortexAgentsCortexAgentArrayOutputWithContext(context.Context) GetCortexAgentsCortexAgentArrayOutput
-}
-
-type GetCortexAgentsCortexAgentArray []GetCortexAgentsCortexAgentInput
-
-func (GetCortexAgentsCortexAgentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexAgentsCortexAgent)(nil)).Elem()
-}
-
-func (i GetCortexAgentsCortexAgentArray) ToGetCortexAgentsCortexAgentArrayOutput() GetCortexAgentsCortexAgentArrayOutput {
-	return i.ToGetCortexAgentsCortexAgentArrayOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsCortexAgentArray) ToGetCortexAgentsCortexAgentArrayOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsCortexAgentArrayOutput)
-}
-
-type GetCortexAgentsCortexAgentOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsCortexAgentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsCortexAgent)(nil)).Elem()
-}
-
-func (o GetCortexAgentsCortexAgentOutput) ToGetCortexAgentsCortexAgentOutput() GetCortexAgentsCortexAgentOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentOutput) ToGetCortexAgentsCortexAgentOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentOutput {
-	return o
-}
-
-// Holds the output of DESCRIBE AGENT.
-func (o GetCortexAgentsCortexAgentOutput) DescribeOutputs() GetCortexAgentsCortexAgentDescribeOutputArrayOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgent) []GetCortexAgentsCortexAgentDescribeOutput {
-		return v.DescribeOutputs
-	}).(GetCortexAgentsCortexAgentDescribeOutputArrayOutput)
-}
-
-// Holds the output of SHOW AGENTS.
-func (o GetCortexAgentsCortexAgentOutput) ShowOutputs() GetCortexAgentsCortexAgentShowOutputArrayOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgent) []GetCortexAgentsCortexAgentShowOutput { return v.ShowOutputs }).(GetCortexAgentsCortexAgentShowOutputArrayOutput)
-}
-
-type GetCortexAgentsCortexAgentArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsCortexAgentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexAgentsCortexAgent)(nil)).Elem()
-}
-
-func (o GetCortexAgentsCortexAgentArrayOutput) ToGetCortexAgentsCortexAgentArrayOutput() GetCortexAgentsCortexAgentArrayOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentArrayOutput) ToGetCortexAgentsCortexAgentArrayOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentArrayOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentArrayOutput) Index(i pulumi.IntInput) GetCortexAgentsCortexAgentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCortexAgentsCortexAgent {
-		return vs[0].([]GetCortexAgentsCortexAgent)[vs[1].(int)]
-	}).(GetCortexAgentsCortexAgentOutput)
-}
-
-type GetCortexAgentsCortexAgentDescribeOutput struct {
-	AgentSpec          string                                            `pulumi:"agentSpec"`
-	Aliases            string                                            `pulumi:"aliases"`
-	Comment            string                                            `pulumi:"comment"`
-	CreatedOn          string                                            `pulumi:"createdOn"`
-	DatabaseName       string                                            `pulumi:"databaseName"`
-	DefaultVersionName string                                            `pulumi:"defaultVersionName"`
-	Name               string                                            `pulumi:"name"`
-	Owner              string                                            `pulumi:"owner"`
-	Profiles           []GetCortexAgentsCortexAgentDescribeOutputProfile `pulumi:"profiles"`
-	SchemaName         string                                            `pulumi:"schemaName"`
-	Versions           string                                            `pulumi:"versions"`
-}
-
-// GetCortexAgentsCortexAgentDescribeOutputInput is an input type that accepts GetCortexAgentsCortexAgentDescribeOutputArgs and GetCortexAgentsCortexAgentDescribeOutputOutput values.
-// You can construct a concrete instance of `GetCortexAgentsCortexAgentDescribeOutputInput` via:
-//
-//	GetCortexAgentsCortexAgentDescribeOutputArgs{...}
-type GetCortexAgentsCortexAgentDescribeOutputInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsCortexAgentDescribeOutputOutput() GetCortexAgentsCortexAgentDescribeOutputOutput
-	ToGetCortexAgentsCortexAgentDescribeOutputOutputWithContext(context.Context) GetCortexAgentsCortexAgentDescribeOutputOutput
-}
-
-type GetCortexAgentsCortexAgentDescribeOutputArgs struct {
-	AgentSpec          pulumi.StringInput                                        `pulumi:"agentSpec"`
-	Aliases            pulumi.StringInput                                        `pulumi:"aliases"`
-	Comment            pulumi.StringInput                                        `pulumi:"comment"`
-	CreatedOn          pulumi.StringInput                                        `pulumi:"createdOn"`
-	DatabaseName       pulumi.StringInput                                        `pulumi:"databaseName"`
-	DefaultVersionName pulumi.StringInput                                        `pulumi:"defaultVersionName"`
-	Name               pulumi.StringInput                                        `pulumi:"name"`
-	Owner              pulumi.StringInput                                        `pulumi:"owner"`
-	Profiles           GetCortexAgentsCortexAgentDescribeOutputProfileArrayInput `pulumi:"profiles"`
-	SchemaName         pulumi.StringInput                                        `pulumi:"schemaName"`
-	Versions           pulumi.StringInput                                        `pulumi:"versions"`
-}
-
-func (GetCortexAgentsCortexAgentDescribeOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsCortexAgentDescribeOutput)(nil)).Elem()
-}
-
-func (i GetCortexAgentsCortexAgentDescribeOutputArgs) ToGetCortexAgentsCortexAgentDescribeOutputOutput() GetCortexAgentsCortexAgentDescribeOutputOutput {
-	return i.ToGetCortexAgentsCortexAgentDescribeOutputOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsCortexAgentDescribeOutputArgs) ToGetCortexAgentsCortexAgentDescribeOutputOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentDescribeOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsCortexAgentDescribeOutputOutput)
-}
-
-// GetCortexAgentsCortexAgentDescribeOutputArrayInput is an input type that accepts GetCortexAgentsCortexAgentDescribeOutputArray and GetCortexAgentsCortexAgentDescribeOutputArrayOutput values.
-// You can construct a concrete instance of `GetCortexAgentsCortexAgentDescribeOutputArrayInput` via:
-//
-//	GetCortexAgentsCortexAgentDescribeOutputArray{ GetCortexAgentsCortexAgentDescribeOutputArgs{...} }
-type GetCortexAgentsCortexAgentDescribeOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsCortexAgentDescribeOutputArrayOutput() GetCortexAgentsCortexAgentDescribeOutputArrayOutput
-	ToGetCortexAgentsCortexAgentDescribeOutputArrayOutputWithContext(context.Context) GetCortexAgentsCortexAgentDescribeOutputArrayOutput
-}
-
-type GetCortexAgentsCortexAgentDescribeOutputArray []GetCortexAgentsCortexAgentDescribeOutputInput
-
-func (GetCortexAgentsCortexAgentDescribeOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexAgentsCortexAgentDescribeOutput)(nil)).Elem()
-}
-
-func (i GetCortexAgentsCortexAgentDescribeOutputArray) ToGetCortexAgentsCortexAgentDescribeOutputArrayOutput() GetCortexAgentsCortexAgentDescribeOutputArrayOutput {
-	return i.ToGetCortexAgentsCortexAgentDescribeOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsCortexAgentDescribeOutputArray) ToGetCortexAgentsCortexAgentDescribeOutputArrayOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentDescribeOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsCortexAgentDescribeOutputArrayOutput)
-}
-
-type GetCortexAgentsCortexAgentDescribeOutputOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsCortexAgentDescribeOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsCortexAgentDescribeOutput)(nil)).Elem()
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) ToGetCortexAgentsCortexAgentDescribeOutputOutput() GetCortexAgentsCortexAgentDescribeOutputOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) ToGetCortexAgentsCortexAgentDescribeOutputOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentDescribeOutputOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) AgentSpec() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) string { return v.AgentSpec }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) Aliases() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) string { return v.Aliases }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) DefaultVersionName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) string { return v.DefaultVersionName }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) string { return v.Owner }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) Profiles() GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) []GetCortexAgentsCortexAgentDescribeOutputProfile {
-		return v.Profiles
-	}).(GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) string { return v.SchemaName }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputOutput) Versions() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutput) string { return v.Versions }).(pulumi.StringOutput)
-}
-
-type GetCortexAgentsCortexAgentDescribeOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsCortexAgentDescribeOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexAgentsCortexAgentDescribeOutput)(nil)).Elem()
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputArrayOutput) ToGetCortexAgentsCortexAgentDescribeOutputArrayOutput() GetCortexAgentsCortexAgentDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputArrayOutput) ToGetCortexAgentsCortexAgentDescribeOutputArrayOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetCortexAgentsCortexAgentDescribeOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCortexAgentsCortexAgentDescribeOutput {
-		return vs[0].([]GetCortexAgentsCortexAgentDescribeOutput)[vs[1].(int)]
-	}).(GetCortexAgentsCortexAgentDescribeOutputOutput)
-}
-
-type GetCortexAgentsCortexAgentDescribeOutputProfile struct {
-	Avatar      string `pulumi:"avatar"`
-	Color       string `pulumi:"color"`
-	DisplayName string `pulumi:"displayName"`
-}
-
-// GetCortexAgentsCortexAgentDescribeOutputProfileInput is an input type that accepts GetCortexAgentsCortexAgentDescribeOutputProfileArgs and GetCortexAgentsCortexAgentDescribeOutputProfileOutput values.
-// You can construct a concrete instance of `GetCortexAgentsCortexAgentDescribeOutputProfileInput` via:
-//
-//	GetCortexAgentsCortexAgentDescribeOutputProfileArgs{...}
-type GetCortexAgentsCortexAgentDescribeOutputProfileInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsCortexAgentDescribeOutputProfileOutput() GetCortexAgentsCortexAgentDescribeOutputProfileOutput
-	ToGetCortexAgentsCortexAgentDescribeOutputProfileOutputWithContext(context.Context) GetCortexAgentsCortexAgentDescribeOutputProfileOutput
-}
-
-type GetCortexAgentsCortexAgentDescribeOutputProfileArgs struct {
-	Avatar      pulumi.StringInput `pulumi:"avatar"`
-	Color       pulumi.StringInput `pulumi:"color"`
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-}
-
-func (GetCortexAgentsCortexAgentDescribeOutputProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsCortexAgentDescribeOutputProfile)(nil)).Elem()
-}
-
-func (i GetCortexAgentsCortexAgentDescribeOutputProfileArgs) ToGetCortexAgentsCortexAgentDescribeOutputProfileOutput() GetCortexAgentsCortexAgentDescribeOutputProfileOutput {
-	return i.ToGetCortexAgentsCortexAgentDescribeOutputProfileOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsCortexAgentDescribeOutputProfileArgs) ToGetCortexAgentsCortexAgentDescribeOutputProfileOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentDescribeOutputProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsCortexAgentDescribeOutputProfileOutput)
-}
-
-// GetCortexAgentsCortexAgentDescribeOutputProfileArrayInput is an input type that accepts GetCortexAgentsCortexAgentDescribeOutputProfileArray and GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput values.
-// You can construct a concrete instance of `GetCortexAgentsCortexAgentDescribeOutputProfileArrayInput` via:
-//
-//	GetCortexAgentsCortexAgentDescribeOutputProfileArray{ GetCortexAgentsCortexAgentDescribeOutputProfileArgs{...} }
-type GetCortexAgentsCortexAgentDescribeOutputProfileArrayInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput() GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput
-	ToGetCortexAgentsCortexAgentDescribeOutputProfileArrayOutputWithContext(context.Context) GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput
-}
-
-type GetCortexAgentsCortexAgentDescribeOutputProfileArray []GetCortexAgentsCortexAgentDescribeOutputProfileInput
-
-func (GetCortexAgentsCortexAgentDescribeOutputProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexAgentsCortexAgentDescribeOutputProfile)(nil)).Elem()
-}
-
-func (i GetCortexAgentsCortexAgentDescribeOutputProfileArray) ToGetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput() GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput {
-	return i.ToGetCortexAgentsCortexAgentDescribeOutputProfileArrayOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsCortexAgentDescribeOutputProfileArray) ToGetCortexAgentsCortexAgentDescribeOutputProfileArrayOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput)
-}
-
-type GetCortexAgentsCortexAgentDescribeOutputProfileOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsCortexAgentDescribeOutputProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsCortexAgentDescribeOutputProfile)(nil)).Elem()
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputProfileOutput) ToGetCortexAgentsCortexAgentDescribeOutputProfileOutput() GetCortexAgentsCortexAgentDescribeOutputProfileOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputProfileOutput) ToGetCortexAgentsCortexAgentDescribeOutputProfileOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentDescribeOutputProfileOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputProfileOutput) Avatar() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutputProfile) string { return v.Avatar }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputProfileOutput) Color() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutputProfile) string { return v.Color }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputProfileOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentDescribeOutputProfile) string { return v.DisplayName }).(pulumi.StringOutput)
-}
-
-type GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexAgentsCortexAgentDescribeOutputProfile)(nil)).Elem()
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput) ToGetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput() GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput) ToGetCortexAgentsCortexAgentDescribeOutputProfileArrayOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput) Index(i pulumi.IntInput) GetCortexAgentsCortexAgentDescribeOutputProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCortexAgentsCortexAgentDescribeOutputProfile {
-		return vs[0].([]GetCortexAgentsCortexAgentDescribeOutputProfile)[vs[1].(int)]
-	}).(GetCortexAgentsCortexAgentDescribeOutputProfileOutput)
-}
-
-type GetCortexAgentsCortexAgentShowOutput struct {
-	Comment      string                                        `pulumi:"comment"`
-	CreatedOn    string                                        `pulumi:"createdOn"`
-	DatabaseName string                                        `pulumi:"databaseName"`
-	Name         string                                        `pulumi:"name"`
-	Owner        string                                        `pulumi:"owner"`
-	Profiles     []GetCortexAgentsCortexAgentShowOutputProfile `pulumi:"profiles"`
-	SchemaName   string                                        `pulumi:"schemaName"`
-}
-
-// GetCortexAgentsCortexAgentShowOutputInput is an input type that accepts GetCortexAgentsCortexAgentShowOutputArgs and GetCortexAgentsCortexAgentShowOutputOutput values.
-// You can construct a concrete instance of `GetCortexAgentsCortexAgentShowOutputInput` via:
-//
-//	GetCortexAgentsCortexAgentShowOutputArgs{...}
-type GetCortexAgentsCortexAgentShowOutputInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsCortexAgentShowOutputOutput() GetCortexAgentsCortexAgentShowOutputOutput
-	ToGetCortexAgentsCortexAgentShowOutputOutputWithContext(context.Context) GetCortexAgentsCortexAgentShowOutputOutput
-}
-
-type GetCortexAgentsCortexAgentShowOutputArgs struct {
-	Comment      pulumi.StringInput                                    `pulumi:"comment"`
-	CreatedOn    pulumi.StringInput                                    `pulumi:"createdOn"`
-	DatabaseName pulumi.StringInput                                    `pulumi:"databaseName"`
-	Name         pulumi.StringInput                                    `pulumi:"name"`
-	Owner        pulumi.StringInput                                    `pulumi:"owner"`
-	Profiles     GetCortexAgentsCortexAgentShowOutputProfileArrayInput `pulumi:"profiles"`
-	SchemaName   pulumi.StringInput                                    `pulumi:"schemaName"`
-}
-
-func (GetCortexAgentsCortexAgentShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsCortexAgentShowOutput)(nil)).Elem()
-}
-
-func (i GetCortexAgentsCortexAgentShowOutputArgs) ToGetCortexAgentsCortexAgentShowOutputOutput() GetCortexAgentsCortexAgentShowOutputOutput {
-	return i.ToGetCortexAgentsCortexAgentShowOutputOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsCortexAgentShowOutputArgs) ToGetCortexAgentsCortexAgentShowOutputOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsCortexAgentShowOutputOutput)
-}
-
-// GetCortexAgentsCortexAgentShowOutputArrayInput is an input type that accepts GetCortexAgentsCortexAgentShowOutputArray and GetCortexAgentsCortexAgentShowOutputArrayOutput values.
-// You can construct a concrete instance of `GetCortexAgentsCortexAgentShowOutputArrayInput` via:
-//
-//	GetCortexAgentsCortexAgentShowOutputArray{ GetCortexAgentsCortexAgentShowOutputArgs{...} }
-type GetCortexAgentsCortexAgentShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsCortexAgentShowOutputArrayOutput() GetCortexAgentsCortexAgentShowOutputArrayOutput
-	ToGetCortexAgentsCortexAgentShowOutputArrayOutputWithContext(context.Context) GetCortexAgentsCortexAgentShowOutputArrayOutput
-}
-
-type GetCortexAgentsCortexAgentShowOutputArray []GetCortexAgentsCortexAgentShowOutputInput
-
-func (GetCortexAgentsCortexAgentShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexAgentsCortexAgentShowOutput)(nil)).Elem()
-}
-
-func (i GetCortexAgentsCortexAgentShowOutputArray) ToGetCortexAgentsCortexAgentShowOutputArrayOutput() GetCortexAgentsCortexAgentShowOutputArrayOutput {
-	return i.ToGetCortexAgentsCortexAgentShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsCortexAgentShowOutputArray) ToGetCortexAgentsCortexAgentShowOutputArrayOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsCortexAgentShowOutputArrayOutput)
-}
-
-type GetCortexAgentsCortexAgentShowOutputOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsCortexAgentShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsCortexAgentShowOutput)(nil)).Elem()
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputOutput) ToGetCortexAgentsCortexAgentShowOutputOutput() GetCortexAgentsCortexAgentShowOutputOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputOutput) ToGetCortexAgentsCortexAgentShowOutputOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentShowOutputOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentShowOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentShowOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentShowOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentShowOutput) string { return v.Owner }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputOutput) Profiles() GetCortexAgentsCortexAgentShowOutputProfileArrayOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentShowOutput) []GetCortexAgentsCortexAgentShowOutputProfile {
-		return v.Profiles
-	}).(GetCortexAgentsCortexAgentShowOutputProfileArrayOutput)
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentShowOutput) string { return v.SchemaName }).(pulumi.StringOutput)
-}
-
-type GetCortexAgentsCortexAgentShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsCortexAgentShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexAgentsCortexAgentShowOutput)(nil)).Elem()
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputArrayOutput) ToGetCortexAgentsCortexAgentShowOutputArrayOutput() GetCortexAgentsCortexAgentShowOutputArrayOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputArrayOutput) ToGetCortexAgentsCortexAgentShowOutputArrayOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentShowOutputArrayOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputArrayOutput) Index(i pulumi.IntInput) GetCortexAgentsCortexAgentShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCortexAgentsCortexAgentShowOutput {
-		return vs[0].([]GetCortexAgentsCortexAgentShowOutput)[vs[1].(int)]
-	}).(GetCortexAgentsCortexAgentShowOutputOutput)
-}
-
-type GetCortexAgentsCortexAgentShowOutputProfile struct {
-	Avatar      string `pulumi:"avatar"`
-	Color       string `pulumi:"color"`
-	DisplayName string `pulumi:"displayName"`
-}
-
-// GetCortexAgentsCortexAgentShowOutputProfileInput is an input type that accepts GetCortexAgentsCortexAgentShowOutputProfileArgs and GetCortexAgentsCortexAgentShowOutputProfileOutput values.
-// You can construct a concrete instance of `GetCortexAgentsCortexAgentShowOutputProfileInput` via:
-//
-//	GetCortexAgentsCortexAgentShowOutputProfileArgs{...}
-type GetCortexAgentsCortexAgentShowOutputProfileInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsCortexAgentShowOutputProfileOutput() GetCortexAgentsCortexAgentShowOutputProfileOutput
-	ToGetCortexAgentsCortexAgentShowOutputProfileOutputWithContext(context.Context) GetCortexAgentsCortexAgentShowOutputProfileOutput
-}
-
-type GetCortexAgentsCortexAgentShowOutputProfileArgs struct {
-	Avatar      pulumi.StringInput `pulumi:"avatar"`
-	Color       pulumi.StringInput `pulumi:"color"`
-	DisplayName pulumi.StringInput `pulumi:"displayName"`
-}
-
-func (GetCortexAgentsCortexAgentShowOutputProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsCortexAgentShowOutputProfile)(nil)).Elem()
-}
-
-func (i GetCortexAgentsCortexAgentShowOutputProfileArgs) ToGetCortexAgentsCortexAgentShowOutputProfileOutput() GetCortexAgentsCortexAgentShowOutputProfileOutput {
-	return i.ToGetCortexAgentsCortexAgentShowOutputProfileOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsCortexAgentShowOutputProfileArgs) ToGetCortexAgentsCortexAgentShowOutputProfileOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentShowOutputProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsCortexAgentShowOutputProfileOutput)
-}
-
-// GetCortexAgentsCortexAgentShowOutputProfileArrayInput is an input type that accepts GetCortexAgentsCortexAgentShowOutputProfileArray and GetCortexAgentsCortexAgentShowOutputProfileArrayOutput values.
-// You can construct a concrete instance of `GetCortexAgentsCortexAgentShowOutputProfileArrayInput` via:
-//
-//	GetCortexAgentsCortexAgentShowOutputProfileArray{ GetCortexAgentsCortexAgentShowOutputProfileArgs{...} }
-type GetCortexAgentsCortexAgentShowOutputProfileArrayInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsCortexAgentShowOutputProfileArrayOutput() GetCortexAgentsCortexAgentShowOutputProfileArrayOutput
-	ToGetCortexAgentsCortexAgentShowOutputProfileArrayOutputWithContext(context.Context) GetCortexAgentsCortexAgentShowOutputProfileArrayOutput
-}
-
-type GetCortexAgentsCortexAgentShowOutputProfileArray []GetCortexAgentsCortexAgentShowOutputProfileInput
-
-func (GetCortexAgentsCortexAgentShowOutputProfileArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexAgentsCortexAgentShowOutputProfile)(nil)).Elem()
-}
-
-func (i GetCortexAgentsCortexAgentShowOutputProfileArray) ToGetCortexAgentsCortexAgentShowOutputProfileArrayOutput() GetCortexAgentsCortexAgentShowOutputProfileArrayOutput {
-	return i.ToGetCortexAgentsCortexAgentShowOutputProfileArrayOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsCortexAgentShowOutputProfileArray) ToGetCortexAgentsCortexAgentShowOutputProfileArrayOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentShowOutputProfileArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsCortexAgentShowOutputProfileArrayOutput)
-}
-
-type GetCortexAgentsCortexAgentShowOutputProfileOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsCortexAgentShowOutputProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsCortexAgentShowOutputProfile)(nil)).Elem()
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputProfileOutput) ToGetCortexAgentsCortexAgentShowOutputProfileOutput() GetCortexAgentsCortexAgentShowOutputProfileOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputProfileOutput) ToGetCortexAgentsCortexAgentShowOutputProfileOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentShowOutputProfileOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputProfileOutput) Avatar() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentShowOutputProfile) string { return v.Avatar }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputProfileOutput) Color() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentShowOutputProfile) string { return v.Color }).(pulumi.StringOutput)
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputProfileOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexAgentsCortexAgentShowOutputProfile) string { return v.DisplayName }).(pulumi.StringOutput)
-}
-
-type GetCortexAgentsCortexAgentShowOutputProfileArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsCortexAgentShowOutputProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexAgentsCortexAgentShowOutputProfile)(nil)).Elem()
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputProfileArrayOutput) ToGetCortexAgentsCortexAgentShowOutputProfileArrayOutput() GetCortexAgentsCortexAgentShowOutputProfileArrayOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputProfileArrayOutput) ToGetCortexAgentsCortexAgentShowOutputProfileArrayOutputWithContext(ctx context.Context) GetCortexAgentsCortexAgentShowOutputProfileArrayOutput {
-	return o
-}
-
-func (o GetCortexAgentsCortexAgentShowOutputProfileArrayOutput) Index(i pulumi.IntInput) GetCortexAgentsCortexAgentShowOutputProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCortexAgentsCortexAgentShowOutputProfile {
-		return vs[0].([]GetCortexAgentsCortexAgentShowOutputProfile)[vs[1].(int)]
-	}).(GetCortexAgentsCortexAgentShowOutputProfileOutput)
-}
-
-type GetCortexAgentsIn struct {
-	// Returns records for the entire account.
-	Account *bool `pulumi:"account"`
-	// Returns records for the specified application.
-	Application *string `pulumi:"application"`
-	// Returns records for the specified application package.
-	ApplicationPackage *string `pulumi:"applicationPackage"`
-	// Returns records for the current database in use or for a specified database.
-	Database *string `pulumi:"database"`
-	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
-	Schema *string `pulumi:"schema"`
-}
-
-// GetCortexAgentsInInput is an input type that accepts GetCortexAgentsInArgs and GetCortexAgentsInOutput values.
-// You can construct a concrete instance of `GetCortexAgentsInInput` via:
-//
-//	GetCortexAgentsInArgs{...}
-type GetCortexAgentsInInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsInOutput() GetCortexAgentsInOutput
-	ToGetCortexAgentsInOutputWithContext(context.Context) GetCortexAgentsInOutput
-}
-
-type GetCortexAgentsInArgs struct {
-	// Returns records for the entire account.
-	Account pulumi.BoolPtrInput `pulumi:"account"`
-	// Returns records for the specified application.
-	Application pulumi.StringPtrInput `pulumi:"application"`
-	// Returns records for the specified application package.
-	ApplicationPackage pulumi.StringPtrInput `pulumi:"applicationPackage"`
-	// Returns records for the current database in use or for a specified database.
-	Database pulumi.StringPtrInput `pulumi:"database"`
-	// Returns records for the current schema in use or a specified schema. Use fully qualified name.
-	Schema pulumi.StringPtrInput `pulumi:"schema"`
-}
-
-func (GetCortexAgentsInArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsIn)(nil)).Elem()
-}
-
-func (i GetCortexAgentsInArgs) ToGetCortexAgentsInOutput() GetCortexAgentsInOutput {
-	return i.ToGetCortexAgentsInOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsInArgs) ToGetCortexAgentsInOutputWithContext(ctx context.Context) GetCortexAgentsInOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsInOutput)
-}
-
-func (i GetCortexAgentsInArgs) ToGetCortexAgentsInPtrOutput() GetCortexAgentsInPtrOutput {
-	return i.ToGetCortexAgentsInPtrOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsInArgs) ToGetCortexAgentsInPtrOutputWithContext(ctx context.Context) GetCortexAgentsInPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsInOutput).ToGetCortexAgentsInPtrOutputWithContext(ctx)
-}
-
-// GetCortexAgentsInPtrInput is an input type that accepts GetCortexAgentsInArgs, GetCortexAgentsInPtr and GetCortexAgentsInPtrOutput values.
-// You can construct a concrete instance of `GetCortexAgentsInPtrInput` via:
-//
-//	        GetCortexAgentsInArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetCortexAgentsInPtrInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsInPtrOutput() GetCortexAgentsInPtrOutput
-	ToGetCortexAgentsInPtrOutputWithContext(context.Context) GetCortexAgentsInPtrOutput
-}
-
-type getCortexAgentsInPtrType GetCortexAgentsInArgs
-
-func GetCortexAgentsInPtr(v *GetCortexAgentsInArgs) GetCortexAgentsInPtrInput {
-	return (*getCortexAgentsInPtrType)(v)
-}
-
-func (*getCortexAgentsInPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetCortexAgentsIn)(nil)).Elem()
-}
-
-func (i *getCortexAgentsInPtrType) ToGetCortexAgentsInPtrOutput() GetCortexAgentsInPtrOutput {
-	return i.ToGetCortexAgentsInPtrOutputWithContext(context.Background())
-}
-
-func (i *getCortexAgentsInPtrType) ToGetCortexAgentsInPtrOutputWithContext(ctx context.Context) GetCortexAgentsInPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsInPtrOutput)
-}
-
-type GetCortexAgentsInOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsInOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsIn)(nil)).Elem()
-}
-
-func (o GetCortexAgentsInOutput) ToGetCortexAgentsInOutput() GetCortexAgentsInOutput {
-	return o
-}
-
-func (o GetCortexAgentsInOutput) ToGetCortexAgentsInOutputWithContext(ctx context.Context) GetCortexAgentsInOutput {
-	return o
-}
-
-func (o GetCortexAgentsInOutput) ToGetCortexAgentsInPtrOutput() GetCortexAgentsInPtrOutput {
-	return o.ToGetCortexAgentsInPtrOutputWithContext(context.Background())
-}
-
-func (o GetCortexAgentsInOutput) ToGetCortexAgentsInPtrOutputWithContext(ctx context.Context) GetCortexAgentsInPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCortexAgentsIn) *GetCortexAgentsIn {
-		return &v
-	}).(GetCortexAgentsInPtrOutput)
-}
-
-// Returns records for the entire account.
-func (o GetCortexAgentsInOutput) Account() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetCortexAgentsIn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
-}
-
-// Returns records for the specified application.
-func (o GetCortexAgentsInOutput) Application() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetCortexAgentsIn) *string { return v.Application }).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the specified application package.
-func (o GetCortexAgentsInOutput) ApplicationPackage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetCortexAgentsIn) *string { return v.ApplicationPackage }).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the current database in use or for a specified database.
-func (o GetCortexAgentsInOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetCortexAgentsIn) *string { return v.Database }).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the current schema in use or a specified schema. Use fully qualified name.
-func (o GetCortexAgentsInOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetCortexAgentsIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
-}
-
-type GetCortexAgentsInPtrOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsInPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetCortexAgentsIn)(nil)).Elem()
-}
-
-func (o GetCortexAgentsInPtrOutput) ToGetCortexAgentsInPtrOutput() GetCortexAgentsInPtrOutput {
-	return o
-}
-
-func (o GetCortexAgentsInPtrOutput) ToGetCortexAgentsInPtrOutputWithContext(ctx context.Context) GetCortexAgentsInPtrOutput {
-	return o
-}
-
-func (o GetCortexAgentsInPtrOutput) Elem() GetCortexAgentsInOutput {
-	return o.ApplyT(func(v *GetCortexAgentsIn) GetCortexAgentsIn {
-		if v != nil {
-			return *v
-		}
-		var ret GetCortexAgentsIn
-		return ret
-	}).(GetCortexAgentsInOutput)
-}
-
-// Returns records for the entire account.
-func (o GetCortexAgentsInPtrOutput) Account() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetCortexAgentsIn) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Account
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Returns records for the specified application.
-func (o GetCortexAgentsInPtrOutput) Application() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetCortexAgentsIn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Application
-	}).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the specified application package.
-func (o GetCortexAgentsInPtrOutput) ApplicationPackage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetCortexAgentsIn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApplicationPackage
-	}).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the current database in use or for a specified database.
-func (o GetCortexAgentsInPtrOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetCortexAgentsIn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Database
-	}).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the current schema in use or a specified schema. Use fully qualified name.
-func (o GetCortexAgentsInPtrOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetCortexAgentsIn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Schema
-	}).(pulumi.StringPtrOutput)
-}
-
-type GetCortexAgentsLimit struct {
-	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-	From *string `pulumi:"from"`
-	// The maximum number of rows to return.
-	Rows int `pulumi:"rows"`
-}
-
-// GetCortexAgentsLimitInput is an input type that accepts GetCortexAgentsLimitArgs and GetCortexAgentsLimitOutput values.
-// You can construct a concrete instance of `GetCortexAgentsLimitInput` via:
-//
-//	GetCortexAgentsLimitArgs{...}
-type GetCortexAgentsLimitInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsLimitOutput() GetCortexAgentsLimitOutput
-	ToGetCortexAgentsLimitOutputWithContext(context.Context) GetCortexAgentsLimitOutput
-}
-
-type GetCortexAgentsLimitArgs struct {
-	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-	From pulumi.StringPtrInput `pulumi:"from"`
-	// The maximum number of rows to return.
-	Rows pulumi.IntInput `pulumi:"rows"`
-}
-
-func (GetCortexAgentsLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsLimit)(nil)).Elem()
-}
-
-func (i GetCortexAgentsLimitArgs) ToGetCortexAgentsLimitOutput() GetCortexAgentsLimitOutput {
-	return i.ToGetCortexAgentsLimitOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsLimitArgs) ToGetCortexAgentsLimitOutputWithContext(ctx context.Context) GetCortexAgentsLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsLimitOutput)
-}
-
-func (i GetCortexAgentsLimitArgs) ToGetCortexAgentsLimitPtrOutput() GetCortexAgentsLimitPtrOutput {
-	return i.ToGetCortexAgentsLimitPtrOutputWithContext(context.Background())
-}
-
-func (i GetCortexAgentsLimitArgs) ToGetCortexAgentsLimitPtrOutputWithContext(ctx context.Context) GetCortexAgentsLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsLimitOutput).ToGetCortexAgentsLimitPtrOutputWithContext(ctx)
-}
-
-// GetCortexAgentsLimitPtrInput is an input type that accepts GetCortexAgentsLimitArgs, GetCortexAgentsLimitPtr and GetCortexAgentsLimitPtrOutput values.
-// You can construct a concrete instance of `GetCortexAgentsLimitPtrInput` via:
-//
-//	        GetCortexAgentsLimitArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetCortexAgentsLimitPtrInput interface {
-	pulumi.Input
-
-	ToGetCortexAgentsLimitPtrOutput() GetCortexAgentsLimitPtrOutput
-	ToGetCortexAgentsLimitPtrOutputWithContext(context.Context) GetCortexAgentsLimitPtrOutput
-}
-
-type getCortexAgentsLimitPtrType GetCortexAgentsLimitArgs
-
-func GetCortexAgentsLimitPtr(v *GetCortexAgentsLimitArgs) GetCortexAgentsLimitPtrInput {
-	return (*getCortexAgentsLimitPtrType)(v)
-}
-
-func (*getCortexAgentsLimitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetCortexAgentsLimit)(nil)).Elem()
-}
-
-func (i *getCortexAgentsLimitPtrType) ToGetCortexAgentsLimitPtrOutput() GetCortexAgentsLimitPtrOutput {
-	return i.ToGetCortexAgentsLimitPtrOutputWithContext(context.Background())
-}
-
-func (i *getCortexAgentsLimitPtrType) ToGetCortexAgentsLimitPtrOutputWithContext(ctx context.Context) GetCortexAgentsLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexAgentsLimitPtrOutput)
-}
-
-type GetCortexAgentsLimitOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexAgentsLimit)(nil)).Elem()
-}
-
-func (o GetCortexAgentsLimitOutput) ToGetCortexAgentsLimitOutput() GetCortexAgentsLimitOutput {
-	return o
-}
-
-func (o GetCortexAgentsLimitOutput) ToGetCortexAgentsLimitOutputWithContext(ctx context.Context) GetCortexAgentsLimitOutput {
-	return o
-}
-
-func (o GetCortexAgentsLimitOutput) ToGetCortexAgentsLimitPtrOutput() GetCortexAgentsLimitPtrOutput {
-	return o.ToGetCortexAgentsLimitPtrOutputWithContext(context.Background())
-}
-
-func (o GetCortexAgentsLimitOutput) ToGetCortexAgentsLimitPtrOutputWithContext(ctx context.Context) GetCortexAgentsLimitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCortexAgentsLimit) *GetCortexAgentsLimit {
-		return &v
-	}).(GetCortexAgentsLimitPtrOutput)
-}
-
-// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-func (o GetCortexAgentsLimitOutput) From() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetCortexAgentsLimit) *string { return v.From }).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of rows to return.
-func (o GetCortexAgentsLimitOutput) Rows() pulumi.IntOutput {
-	return o.ApplyT(func(v GetCortexAgentsLimit) int { return v.Rows }).(pulumi.IntOutput)
-}
-
-type GetCortexAgentsLimitPtrOutput struct{ *pulumi.OutputState }
-
-func (GetCortexAgentsLimitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetCortexAgentsLimit)(nil)).Elem()
-}
-
-func (o GetCortexAgentsLimitPtrOutput) ToGetCortexAgentsLimitPtrOutput() GetCortexAgentsLimitPtrOutput {
-	return o
-}
-
-func (o GetCortexAgentsLimitPtrOutput) ToGetCortexAgentsLimitPtrOutputWithContext(ctx context.Context) GetCortexAgentsLimitPtrOutput {
-	return o
-}
-
-func (o GetCortexAgentsLimitPtrOutput) Elem() GetCortexAgentsLimitOutput {
-	return o.ApplyT(func(v *GetCortexAgentsLimit) GetCortexAgentsLimit {
-		if v != nil {
-			return *v
-		}
-		var ret GetCortexAgentsLimit
-		return ret
-	}).(GetCortexAgentsLimitOutput)
-}
-
-// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-func (o GetCortexAgentsLimitPtrOutput) From() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetCortexAgentsLimit) *string {
-		if v == nil {
-			return nil
-		}
-		return v.From
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of rows to return.
-func (o GetCortexAgentsLimitPtrOutput) Rows() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetCortexAgentsLimit) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Rows
-	}).(pulumi.IntPtrOutput)
-}
-
-type GetCortexSearchServicesCortexSearchService struct {
-	// Comment for the cortex search service.
-	Comment string `pulumi:"comment"`
-	// Date and time when the cortex search service was created.
-	CreatedOn string `pulumi:"createdOn"`
-	// Database in which the cortex search service is stored.
-	DatabaseName string `pulumi:"databaseName"`
-	// Name of the cortex search service.
-	Name string `pulumi:"name"`
-	// Schema in which the cortex search service is stored.
-	SchemaName string `pulumi:"schemaName"`
-}
-
-// GetCortexSearchServicesCortexSearchServiceInput is an input type that accepts GetCortexSearchServicesCortexSearchServiceArgs and GetCortexSearchServicesCortexSearchServiceOutput values.
-// You can construct a concrete instance of `GetCortexSearchServicesCortexSearchServiceInput` via:
-//
-//	GetCortexSearchServicesCortexSearchServiceArgs{...}
-type GetCortexSearchServicesCortexSearchServiceInput interface {
-	pulumi.Input
-
-	ToGetCortexSearchServicesCortexSearchServiceOutput() GetCortexSearchServicesCortexSearchServiceOutput
-	ToGetCortexSearchServicesCortexSearchServiceOutputWithContext(context.Context) GetCortexSearchServicesCortexSearchServiceOutput
-}
-
-type GetCortexSearchServicesCortexSearchServiceArgs struct {
-	// Comment for the cortex search service.
-	Comment pulumi.StringInput `pulumi:"comment"`
-	// Date and time when the cortex search service was created.
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	// Database in which the cortex search service is stored.
-	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Name of the cortex search service.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Schema in which the cortex search service is stored.
-	SchemaName pulumi.StringInput `pulumi:"schemaName"`
-}
-
-func (GetCortexSearchServicesCortexSearchServiceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexSearchServicesCortexSearchService)(nil)).Elem()
-}
-
-func (i GetCortexSearchServicesCortexSearchServiceArgs) ToGetCortexSearchServicesCortexSearchServiceOutput() GetCortexSearchServicesCortexSearchServiceOutput {
-	return i.ToGetCortexSearchServicesCortexSearchServiceOutputWithContext(context.Background())
-}
-
-func (i GetCortexSearchServicesCortexSearchServiceArgs) ToGetCortexSearchServicesCortexSearchServiceOutputWithContext(ctx context.Context) GetCortexSearchServicesCortexSearchServiceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexSearchServicesCortexSearchServiceOutput)
-}
-
-// GetCortexSearchServicesCortexSearchServiceArrayInput is an input type that accepts GetCortexSearchServicesCortexSearchServiceArray and GetCortexSearchServicesCortexSearchServiceArrayOutput values.
-// You can construct a concrete instance of `GetCortexSearchServicesCortexSearchServiceArrayInput` via:
-//
-//	GetCortexSearchServicesCortexSearchServiceArray{ GetCortexSearchServicesCortexSearchServiceArgs{...} }
-type GetCortexSearchServicesCortexSearchServiceArrayInput interface {
-	pulumi.Input
-
-	ToGetCortexSearchServicesCortexSearchServiceArrayOutput() GetCortexSearchServicesCortexSearchServiceArrayOutput
-	ToGetCortexSearchServicesCortexSearchServiceArrayOutputWithContext(context.Context) GetCortexSearchServicesCortexSearchServiceArrayOutput
-}
-
-type GetCortexSearchServicesCortexSearchServiceArray []GetCortexSearchServicesCortexSearchServiceInput
-
-func (GetCortexSearchServicesCortexSearchServiceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexSearchServicesCortexSearchService)(nil)).Elem()
-}
-
-func (i GetCortexSearchServicesCortexSearchServiceArray) ToGetCortexSearchServicesCortexSearchServiceArrayOutput() GetCortexSearchServicesCortexSearchServiceArrayOutput {
-	return i.ToGetCortexSearchServicesCortexSearchServiceArrayOutputWithContext(context.Background())
-}
-
-func (i GetCortexSearchServicesCortexSearchServiceArray) ToGetCortexSearchServicesCortexSearchServiceArrayOutputWithContext(ctx context.Context) GetCortexSearchServicesCortexSearchServiceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexSearchServicesCortexSearchServiceArrayOutput)
-}
-
-type GetCortexSearchServicesCortexSearchServiceOutput struct{ *pulumi.OutputState }
-
-func (GetCortexSearchServicesCortexSearchServiceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexSearchServicesCortexSearchService)(nil)).Elem()
-}
-
-func (o GetCortexSearchServicesCortexSearchServiceOutput) ToGetCortexSearchServicesCortexSearchServiceOutput() GetCortexSearchServicesCortexSearchServiceOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesCortexSearchServiceOutput) ToGetCortexSearchServicesCortexSearchServiceOutputWithContext(ctx context.Context) GetCortexSearchServicesCortexSearchServiceOutput {
-	return o
-}
-
-// Comment for the cortex search service.
-func (o GetCortexSearchServicesCortexSearchServiceOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexSearchServicesCortexSearchService) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-// Date and time when the cortex search service was created.
-func (o GetCortexSearchServicesCortexSearchServiceOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexSearchServicesCortexSearchService) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-// Database in which the cortex search service is stored.
-func (o GetCortexSearchServicesCortexSearchServiceOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexSearchServicesCortexSearchService) string { return v.DatabaseName }).(pulumi.StringOutput)
-}
-
-// Name of the cortex search service.
-func (o GetCortexSearchServicesCortexSearchServiceOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexSearchServicesCortexSearchService) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Schema in which the cortex search service is stored.
-func (o GetCortexSearchServicesCortexSearchServiceOutput) SchemaName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCortexSearchServicesCortexSearchService) string { return v.SchemaName }).(pulumi.StringOutput)
-}
-
-type GetCortexSearchServicesCortexSearchServiceArrayOutput struct{ *pulumi.OutputState }
-
-func (GetCortexSearchServicesCortexSearchServiceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCortexSearchServicesCortexSearchService)(nil)).Elem()
-}
-
-func (o GetCortexSearchServicesCortexSearchServiceArrayOutput) ToGetCortexSearchServicesCortexSearchServiceArrayOutput() GetCortexSearchServicesCortexSearchServiceArrayOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesCortexSearchServiceArrayOutput) ToGetCortexSearchServicesCortexSearchServiceArrayOutputWithContext(ctx context.Context) GetCortexSearchServicesCortexSearchServiceArrayOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesCortexSearchServiceArrayOutput) Index(i pulumi.IntInput) GetCortexSearchServicesCortexSearchServiceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCortexSearchServicesCortexSearchService {
-		return vs[0].([]GetCortexSearchServicesCortexSearchService)[vs[1].(int)]
-	}).(GetCortexSearchServicesCortexSearchServiceOutput)
-}
-
-type GetCortexSearchServicesIn struct {
-	// Returns records for the entire account.
-	Account *bool `pulumi:"account"`
-	// Returns records for the current database in use or for a specified database (db_name).
-	Database *string `pulumi:"database"`
-	// Returns records for the current schema in use or a specified schema (schema_name).
-	Schema *string `pulumi:"schema"`
-}
-
-// GetCortexSearchServicesInInput is an input type that accepts GetCortexSearchServicesInArgs and GetCortexSearchServicesInOutput values.
-// You can construct a concrete instance of `GetCortexSearchServicesInInput` via:
-//
-//	GetCortexSearchServicesInArgs{...}
-type GetCortexSearchServicesInInput interface {
-	pulumi.Input
-
-	ToGetCortexSearchServicesInOutput() GetCortexSearchServicesInOutput
-	ToGetCortexSearchServicesInOutputWithContext(context.Context) GetCortexSearchServicesInOutput
-}
-
-type GetCortexSearchServicesInArgs struct {
-	// Returns records for the entire account.
-	Account pulumi.BoolPtrInput `pulumi:"account"`
-	// Returns records for the current database in use or for a specified database (db_name).
-	Database pulumi.StringPtrInput `pulumi:"database"`
-	// Returns records for the current schema in use or a specified schema (schema_name).
-	Schema pulumi.StringPtrInput `pulumi:"schema"`
-}
-
-func (GetCortexSearchServicesInArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexSearchServicesIn)(nil)).Elem()
-}
-
-func (i GetCortexSearchServicesInArgs) ToGetCortexSearchServicesInOutput() GetCortexSearchServicesInOutput {
-	return i.ToGetCortexSearchServicesInOutputWithContext(context.Background())
-}
-
-func (i GetCortexSearchServicesInArgs) ToGetCortexSearchServicesInOutputWithContext(ctx context.Context) GetCortexSearchServicesInOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexSearchServicesInOutput)
-}
-
-func (i GetCortexSearchServicesInArgs) ToGetCortexSearchServicesInPtrOutput() GetCortexSearchServicesInPtrOutput {
-	return i.ToGetCortexSearchServicesInPtrOutputWithContext(context.Background())
-}
-
-func (i GetCortexSearchServicesInArgs) ToGetCortexSearchServicesInPtrOutputWithContext(ctx context.Context) GetCortexSearchServicesInPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexSearchServicesInOutput).ToGetCortexSearchServicesInPtrOutputWithContext(ctx)
-}
-
-// GetCortexSearchServicesInPtrInput is an input type that accepts GetCortexSearchServicesInArgs, GetCortexSearchServicesInPtr and GetCortexSearchServicesInPtrOutput values.
-// You can construct a concrete instance of `GetCortexSearchServicesInPtrInput` via:
-//
-//	        GetCortexSearchServicesInArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetCortexSearchServicesInPtrInput interface {
-	pulumi.Input
-
-	ToGetCortexSearchServicesInPtrOutput() GetCortexSearchServicesInPtrOutput
-	ToGetCortexSearchServicesInPtrOutputWithContext(context.Context) GetCortexSearchServicesInPtrOutput
-}
-
-type getCortexSearchServicesInPtrType GetCortexSearchServicesInArgs
-
-func GetCortexSearchServicesInPtr(v *GetCortexSearchServicesInArgs) GetCortexSearchServicesInPtrInput {
-	return (*getCortexSearchServicesInPtrType)(v)
-}
-
-func (*getCortexSearchServicesInPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetCortexSearchServicesIn)(nil)).Elem()
-}
-
-func (i *getCortexSearchServicesInPtrType) ToGetCortexSearchServicesInPtrOutput() GetCortexSearchServicesInPtrOutput {
-	return i.ToGetCortexSearchServicesInPtrOutputWithContext(context.Background())
-}
-
-func (i *getCortexSearchServicesInPtrType) ToGetCortexSearchServicesInPtrOutputWithContext(ctx context.Context) GetCortexSearchServicesInPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexSearchServicesInPtrOutput)
-}
-
-type GetCortexSearchServicesInOutput struct{ *pulumi.OutputState }
-
-func (GetCortexSearchServicesInOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexSearchServicesIn)(nil)).Elem()
-}
-
-func (o GetCortexSearchServicesInOutput) ToGetCortexSearchServicesInOutput() GetCortexSearchServicesInOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesInOutput) ToGetCortexSearchServicesInOutputWithContext(ctx context.Context) GetCortexSearchServicesInOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesInOutput) ToGetCortexSearchServicesInPtrOutput() GetCortexSearchServicesInPtrOutput {
-	return o.ToGetCortexSearchServicesInPtrOutputWithContext(context.Background())
-}
-
-func (o GetCortexSearchServicesInOutput) ToGetCortexSearchServicesInPtrOutputWithContext(ctx context.Context) GetCortexSearchServicesInPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCortexSearchServicesIn) *GetCortexSearchServicesIn {
-		return &v
-	}).(GetCortexSearchServicesInPtrOutput)
-}
-
-// Returns records for the entire account.
-func (o GetCortexSearchServicesInOutput) Account() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v GetCortexSearchServicesIn) *bool { return v.Account }).(pulumi.BoolPtrOutput)
-}
-
-// Returns records for the current database in use or for a specified database (db_name).
-func (o GetCortexSearchServicesInOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetCortexSearchServicesIn) *string { return v.Database }).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the current schema in use or a specified schema (schema_name).
-func (o GetCortexSearchServicesInOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetCortexSearchServicesIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
-}
-
-type GetCortexSearchServicesInPtrOutput struct{ *pulumi.OutputState }
-
-func (GetCortexSearchServicesInPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetCortexSearchServicesIn)(nil)).Elem()
-}
-
-func (o GetCortexSearchServicesInPtrOutput) ToGetCortexSearchServicesInPtrOutput() GetCortexSearchServicesInPtrOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesInPtrOutput) ToGetCortexSearchServicesInPtrOutputWithContext(ctx context.Context) GetCortexSearchServicesInPtrOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesInPtrOutput) Elem() GetCortexSearchServicesInOutput {
-	return o.ApplyT(func(v *GetCortexSearchServicesIn) GetCortexSearchServicesIn {
-		if v != nil {
-			return *v
-		}
-		var ret GetCortexSearchServicesIn
-		return ret
-	}).(GetCortexSearchServicesInOutput)
-}
-
-// Returns records for the entire account.
-func (o GetCortexSearchServicesInPtrOutput) Account() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *GetCortexSearchServicesIn) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Account
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Returns records for the current database in use or for a specified database (db_name).
-func (o GetCortexSearchServicesInPtrOutput) Database() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetCortexSearchServicesIn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Database
-	}).(pulumi.StringPtrOutput)
-}
-
-// Returns records for the current schema in use or a specified schema (schema_name).
-func (o GetCortexSearchServicesInPtrOutput) Schema() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetCortexSearchServicesIn) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Schema
-	}).(pulumi.StringPtrOutput)
-}
-
-type GetCortexSearchServicesLimit struct {
-	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-	From *string `pulumi:"from"`
-	// The maximum number of rows to return.
-	Rows int `pulumi:"rows"`
-}
-
-// GetCortexSearchServicesLimitInput is an input type that accepts GetCortexSearchServicesLimitArgs and GetCortexSearchServicesLimitOutput values.
-// You can construct a concrete instance of `GetCortexSearchServicesLimitInput` via:
-//
-//	GetCortexSearchServicesLimitArgs{...}
-type GetCortexSearchServicesLimitInput interface {
-	pulumi.Input
-
-	ToGetCortexSearchServicesLimitOutput() GetCortexSearchServicesLimitOutput
-	ToGetCortexSearchServicesLimitOutputWithContext(context.Context) GetCortexSearchServicesLimitOutput
-}
-
-type GetCortexSearchServicesLimitArgs struct {
-	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-	From pulumi.StringPtrInput `pulumi:"from"`
-	// The maximum number of rows to return.
-	Rows pulumi.IntInput `pulumi:"rows"`
-}
-
-func (GetCortexSearchServicesLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexSearchServicesLimit)(nil)).Elem()
-}
-
-func (i GetCortexSearchServicesLimitArgs) ToGetCortexSearchServicesLimitOutput() GetCortexSearchServicesLimitOutput {
-	return i.ToGetCortexSearchServicesLimitOutputWithContext(context.Background())
-}
-
-func (i GetCortexSearchServicesLimitArgs) ToGetCortexSearchServicesLimitOutputWithContext(ctx context.Context) GetCortexSearchServicesLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexSearchServicesLimitOutput)
-}
-
-func (i GetCortexSearchServicesLimitArgs) ToGetCortexSearchServicesLimitPtrOutput() GetCortexSearchServicesLimitPtrOutput {
-	return i.ToGetCortexSearchServicesLimitPtrOutputWithContext(context.Background())
-}
-
-func (i GetCortexSearchServicesLimitArgs) ToGetCortexSearchServicesLimitPtrOutputWithContext(ctx context.Context) GetCortexSearchServicesLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexSearchServicesLimitOutput).ToGetCortexSearchServicesLimitPtrOutputWithContext(ctx)
-}
-
-// GetCortexSearchServicesLimitPtrInput is an input type that accepts GetCortexSearchServicesLimitArgs, GetCortexSearchServicesLimitPtr and GetCortexSearchServicesLimitPtrOutput values.
-// You can construct a concrete instance of `GetCortexSearchServicesLimitPtrInput` via:
-//
-//	        GetCortexSearchServicesLimitArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetCortexSearchServicesLimitPtrInput interface {
-	pulumi.Input
-
-	ToGetCortexSearchServicesLimitPtrOutput() GetCortexSearchServicesLimitPtrOutput
-	ToGetCortexSearchServicesLimitPtrOutputWithContext(context.Context) GetCortexSearchServicesLimitPtrOutput
-}
-
-type getCortexSearchServicesLimitPtrType GetCortexSearchServicesLimitArgs
-
-func GetCortexSearchServicesLimitPtr(v *GetCortexSearchServicesLimitArgs) GetCortexSearchServicesLimitPtrInput {
-	return (*getCortexSearchServicesLimitPtrType)(v)
-}
-
-func (*getCortexSearchServicesLimitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetCortexSearchServicesLimit)(nil)).Elem()
-}
-
-func (i *getCortexSearchServicesLimitPtrType) ToGetCortexSearchServicesLimitPtrOutput() GetCortexSearchServicesLimitPtrOutput {
-	return i.ToGetCortexSearchServicesLimitPtrOutputWithContext(context.Background())
-}
-
-func (i *getCortexSearchServicesLimitPtrType) ToGetCortexSearchServicesLimitPtrOutputWithContext(ctx context.Context) GetCortexSearchServicesLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCortexSearchServicesLimitPtrOutput)
-}
-
-type GetCortexSearchServicesLimitOutput struct{ *pulumi.OutputState }
-
-func (GetCortexSearchServicesLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCortexSearchServicesLimit)(nil)).Elem()
-}
-
-func (o GetCortexSearchServicesLimitOutput) ToGetCortexSearchServicesLimitOutput() GetCortexSearchServicesLimitOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesLimitOutput) ToGetCortexSearchServicesLimitOutputWithContext(ctx context.Context) GetCortexSearchServicesLimitOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesLimitOutput) ToGetCortexSearchServicesLimitPtrOutput() GetCortexSearchServicesLimitPtrOutput {
-	return o.ToGetCortexSearchServicesLimitPtrOutputWithContext(context.Background())
-}
-
-func (o GetCortexSearchServicesLimitOutput) ToGetCortexSearchServicesLimitPtrOutputWithContext(ctx context.Context) GetCortexSearchServicesLimitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetCortexSearchServicesLimit) *GetCortexSearchServicesLimit {
-		return &v
-	}).(GetCortexSearchServicesLimitPtrOutput)
-}
-
-// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-func (o GetCortexSearchServicesLimitOutput) From() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetCortexSearchServicesLimit) *string { return v.From }).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of rows to return.
-func (o GetCortexSearchServicesLimitOutput) Rows() pulumi.IntOutput {
-	return o.ApplyT(func(v GetCortexSearchServicesLimit) int { return v.Rows }).(pulumi.IntOutput)
-}
-
-type GetCortexSearchServicesLimitPtrOutput struct{ *pulumi.OutputState }
-
-func (GetCortexSearchServicesLimitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetCortexSearchServicesLimit)(nil)).Elem()
-}
-
-func (o GetCortexSearchServicesLimitPtrOutput) ToGetCortexSearchServicesLimitPtrOutput() GetCortexSearchServicesLimitPtrOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesLimitPtrOutput) ToGetCortexSearchServicesLimitPtrOutputWithContext(ctx context.Context) GetCortexSearchServicesLimitPtrOutput {
-	return o
-}
-
-func (o GetCortexSearchServicesLimitPtrOutput) Elem() GetCortexSearchServicesLimitOutput {
-	return o.ApplyT(func(v *GetCortexSearchServicesLimit) GetCortexSearchServicesLimit {
-		if v != nil {
-			return *v
-		}
-		var ret GetCortexSearchServicesLimit
-		return ret
-	}).(GetCortexSearchServicesLimitOutput)
-}
-
-// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-func (o GetCortexSearchServicesLimitPtrOutput) From() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetCortexSearchServicesLimit) *string {
-		if v == nil {
-			return nil
-		}
-		return v.From
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of rows to return.
-func (o GetCortexSearchServicesLimitPtrOutput) Rows() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetCortexSearchServicesLimit) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Rows
-	}).(pulumi.IntPtrOutput)
-}
-
-type GetDatabaseRolesDatabaseRole struct {
-	// Holds the output of SHOW DATABASE ROLES.
-	ShowOutputs []GetDatabaseRolesDatabaseRoleShowOutput `pulumi:"showOutputs"`
-}
-
-// GetDatabaseRolesDatabaseRoleInput is an input type that accepts GetDatabaseRolesDatabaseRoleArgs and GetDatabaseRolesDatabaseRoleOutput values.
-// You can construct a concrete instance of `GetDatabaseRolesDatabaseRoleInput` via:
-//
-//	GetDatabaseRolesDatabaseRoleArgs{...}
-type GetDatabaseRolesDatabaseRoleInput interface {
-	pulumi.Input
-
-	ToGetDatabaseRolesDatabaseRoleOutput() GetDatabaseRolesDatabaseRoleOutput
-	ToGetDatabaseRolesDatabaseRoleOutputWithContext(context.Context) GetDatabaseRolesDatabaseRoleOutput
-}
-
-type GetDatabaseRolesDatabaseRoleArgs struct {
-	// Holds the output of SHOW DATABASE ROLES.
-	ShowOutputs GetDatabaseRolesDatabaseRoleShowOutputArrayInput `pulumi:"showOutputs"`
-}
-
-func (GetDatabaseRolesDatabaseRoleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabaseRolesDatabaseRole)(nil)).Elem()
-}
-
-func (i GetDatabaseRolesDatabaseRoleArgs) ToGetDatabaseRolesDatabaseRoleOutput() GetDatabaseRolesDatabaseRoleOutput {
-	return i.ToGetDatabaseRolesDatabaseRoleOutputWithContext(context.Background())
-}
-
-func (i GetDatabaseRolesDatabaseRoleArgs) ToGetDatabaseRolesDatabaseRoleOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseRolesDatabaseRoleOutput)
-}
-
-// GetDatabaseRolesDatabaseRoleArrayInput is an input type that accepts GetDatabaseRolesDatabaseRoleArray and GetDatabaseRolesDatabaseRoleArrayOutput values.
-// You can construct a concrete instance of `GetDatabaseRolesDatabaseRoleArrayInput` via:
-//
-//	GetDatabaseRolesDatabaseRoleArray{ GetDatabaseRolesDatabaseRoleArgs{...} }
-type GetDatabaseRolesDatabaseRoleArrayInput interface {
-	pulumi.Input
-
-	ToGetDatabaseRolesDatabaseRoleArrayOutput() GetDatabaseRolesDatabaseRoleArrayOutput
-	ToGetDatabaseRolesDatabaseRoleArrayOutputWithContext(context.Context) GetDatabaseRolesDatabaseRoleArrayOutput
-}
-
-type GetDatabaseRolesDatabaseRoleArray []GetDatabaseRolesDatabaseRoleInput
-
-func (GetDatabaseRolesDatabaseRoleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabaseRolesDatabaseRole)(nil)).Elem()
-}
-
-func (i GetDatabaseRolesDatabaseRoleArray) ToGetDatabaseRolesDatabaseRoleArrayOutput() GetDatabaseRolesDatabaseRoleArrayOutput {
-	return i.ToGetDatabaseRolesDatabaseRoleArrayOutputWithContext(context.Background())
-}
-
-func (i GetDatabaseRolesDatabaseRoleArray) ToGetDatabaseRolesDatabaseRoleArrayOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseRolesDatabaseRoleArrayOutput)
-}
-
-type GetDatabaseRolesDatabaseRoleOutput struct{ *pulumi.OutputState }
-
-func (GetDatabaseRolesDatabaseRoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabaseRolesDatabaseRole)(nil)).Elem()
-}
-
-func (o GetDatabaseRolesDatabaseRoleOutput) ToGetDatabaseRolesDatabaseRoleOutput() GetDatabaseRolesDatabaseRoleOutput {
-	return o
-}
-
-func (o GetDatabaseRolesDatabaseRoleOutput) ToGetDatabaseRolesDatabaseRoleOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleOutput {
-	return o
-}
-
-// Holds the output of SHOW DATABASE ROLES.
-func (o GetDatabaseRolesDatabaseRoleOutput) ShowOutputs() GetDatabaseRolesDatabaseRoleShowOutputArrayOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRole) []GetDatabaseRolesDatabaseRoleShowOutput { return v.ShowOutputs }).(GetDatabaseRolesDatabaseRoleShowOutputArrayOutput)
-}
-
-type GetDatabaseRolesDatabaseRoleArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDatabaseRolesDatabaseRoleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabaseRolesDatabaseRole)(nil)).Elem()
-}
-
-func (o GetDatabaseRolesDatabaseRoleArrayOutput) ToGetDatabaseRolesDatabaseRoleArrayOutput() GetDatabaseRolesDatabaseRoleArrayOutput {
-	return o
-}
-
-func (o GetDatabaseRolesDatabaseRoleArrayOutput) ToGetDatabaseRolesDatabaseRoleArrayOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleArrayOutput {
-	return o
-}
-
-func (o GetDatabaseRolesDatabaseRoleArrayOutput) Index(i pulumi.IntInput) GetDatabaseRolesDatabaseRoleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabaseRolesDatabaseRole {
-		return vs[0].([]GetDatabaseRolesDatabaseRole)[vs[1].(int)]
-	}).(GetDatabaseRolesDatabaseRoleOutput)
-}
-
-type GetDatabaseRolesDatabaseRoleShowOutput struct {
-	Comment                string `pulumi:"comment"`
-	CreatedOn              string `pulumi:"createdOn"`
-	DatabaseName           string `pulumi:"databaseName"`
-	GrantedDatabaseRoles   int    `pulumi:"grantedDatabaseRoles"`
-	GrantedToDatabaseRoles int    `pulumi:"grantedToDatabaseRoles"`
-	GrantedToRoles         int    `pulumi:"grantedToRoles"`
-	IsCurrent              bool   `pulumi:"isCurrent"`
-	IsDefault              bool   `pulumi:"isDefault"`
-	IsInherited            bool   `pulumi:"isInherited"`
-	Name                   string `pulumi:"name"`
-	Owner                  string `pulumi:"owner"`
-	OwnerRoleType          string `pulumi:"ownerRoleType"`
-}
-
-// GetDatabaseRolesDatabaseRoleShowOutputInput is an input type that accepts GetDatabaseRolesDatabaseRoleShowOutputArgs and GetDatabaseRolesDatabaseRoleShowOutputOutput values.
-// You can construct a concrete instance of `GetDatabaseRolesDatabaseRoleShowOutputInput` via:
-//
-//	GetDatabaseRolesDatabaseRoleShowOutputArgs{...}
-type GetDatabaseRolesDatabaseRoleShowOutputInput interface {
-	pulumi.Input
-
-	ToGetDatabaseRolesDatabaseRoleShowOutputOutput() GetDatabaseRolesDatabaseRoleShowOutputOutput
-	ToGetDatabaseRolesDatabaseRoleShowOutputOutputWithContext(context.Context) GetDatabaseRolesDatabaseRoleShowOutputOutput
-}
-
-type GetDatabaseRolesDatabaseRoleShowOutputArgs struct {
-	Comment                pulumi.StringInput `pulumi:"comment"`
-	CreatedOn              pulumi.StringInput `pulumi:"createdOn"`
-	DatabaseName           pulumi.StringInput `pulumi:"databaseName"`
-	GrantedDatabaseRoles   pulumi.IntInput    `pulumi:"grantedDatabaseRoles"`
-	GrantedToDatabaseRoles pulumi.IntInput    `pulumi:"grantedToDatabaseRoles"`
-	GrantedToRoles         pulumi.IntInput    `pulumi:"grantedToRoles"`
-	IsCurrent              pulumi.BoolInput   `pulumi:"isCurrent"`
-	IsDefault              pulumi.BoolInput   `pulumi:"isDefault"`
-	IsInherited            pulumi.BoolInput   `pulumi:"isInherited"`
-	Name                   pulumi.StringInput `pulumi:"name"`
-	Owner                  pulumi.StringInput `pulumi:"owner"`
-	OwnerRoleType          pulumi.StringInput `pulumi:"ownerRoleType"`
-}
-
-func (GetDatabaseRolesDatabaseRoleShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabaseRolesDatabaseRoleShowOutput)(nil)).Elem()
-}
-
-func (i GetDatabaseRolesDatabaseRoleShowOutputArgs) ToGetDatabaseRolesDatabaseRoleShowOutputOutput() GetDatabaseRolesDatabaseRoleShowOutputOutput {
-	return i.ToGetDatabaseRolesDatabaseRoleShowOutputOutputWithContext(context.Background())
-}
-
-func (i GetDatabaseRolesDatabaseRoleShowOutputArgs) ToGetDatabaseRolesDatabaseRoleShowOutputOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseRolesDatabaseRoleShowOutputOutput)
-}
-
-// GetDatabaseRolesDatabaseRoleShowOutputArrayInput is an input type that accepts GetDatabaseRolesDatabaseRoleShowOutputArray and GetDatabaseRolesDatabaseRoleShowOutputArrayOutput values.
-// You can construct a concrete instance of `GetDatabaseRolesDatabaseRoleShowOutputArrayInput` via:
-//
-//	GetDatabaseRolesDatabaseRoleShowOutputArray{ GetDatabaseRolesDatabaseRoleShowOutputArgs{...} }
-type GetDatabaseRolesDatabaseRoleShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetDatabaseRolesDatabaseRoleShowOutputArrayOutput() GetDatabaseRolesDatabaseRoleShowOutputArrayOutput
-	ToGetDatabaseRolesDatabaseRoleShowOutputArrayOutputWithContext(context.Context) GetDatabaseRolesDatabaseRoleShowOutputArrayOutput
-}
-
-type GetDatabaseRolesDatabaseRoleShowOutputArray []GetDatabaseRolesDatabaseRoleShowOutputInput
-
-func (GetDatabaseRolesDatabaseRoleShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabaseRolesDatabaseRoleShowOutput)(nil)).Elem()
-}
-
-func (i GetDatabaseRolesDatabaseRoleShowOutputArray) ToGetDatabaseRolesDatabaseRoleShowOutputArrayOutput() GetDatabaseRolesDatabaseRoleShowOutputArrayOutput {
-	return i.ToGetDatabaseRolesDatabaseRoleShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetDatabaseRolesDatabaseRoleShowOutputArray) ToGetDatabaseRolesDatabaseRoleShowOutputArrayOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseRolesDatabaseRoleShowOutputArrayOutput)
-}
-
-type GetDatabaseRolesDatabaseRoleShowOutputOutput struct{ *pulumi.OutputState }
-
-func (GetDatabaseRolesDatabaseRoleShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabaseRolesDatabaseRoleShowOutput)(nil)).Elem()
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) ToGetDatabaseRolesDatabaseRoleShowOutputOutput() GetDatabaseRolesDatabaseRoleShowOutputOutput {
-	return o
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) ToGetDatabaseRolesDatabaseRoleShowOutputOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleShowOutputOutput {
-	return o
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) Comment() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) string { return v.Comment }).(pulumi.StringOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) DatabaseName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) string { return v.DatabaseName }).(pulumi.StringOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) GrantedDatabaseRoles() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) int { return v.GrantedDatabaseRoles }).(pulumi.IntOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) GrantedToDatabaseRoles() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) int { return v.GrantedToDatabaseRoles }).(pulumi.IntOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) GrantedToRoles() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) int { return v.GrantedToRoles }).(pulumi.IntOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) IsCurrent() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) bool { return v.IsCurrent }).(pulumi.BoolOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) IsDefault() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) bool { return v.IsDefault }).(pulumi.BoolOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) IsInherited() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) bool { return v.IsInherited }).(pulumi.BoolOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) Owner() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) string { return v.Owner }).(pulumi.StringOutput)
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputOutput) OwnerRoleType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabaseRolesDatabaseRoleShowOutput) string { return v.OwnerRoleType }).(pulumi.StringOutput)
-}
-
-type GetDatabaseRolesDatabaseRoleShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDatabaseRolesDatabaseRoleShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabaseRolesDatabaseRoleShowOutput)(nil)).Elem()
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputArrayOutput) ToGetDatabaseRolesDatabaseRoleShowOutputArrayOutput() GetDatabaseRolesDatabaseRoleShowOutputArrayOutput {
-	return o
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputArrayOutput) ToGetDatabaseRolesDatabaseRoleShowOutputArrayOutputWithContext(ctx context.Context) GetDatabaseRolesDatabaseRoleShowOutputArrayOutput {
-	return o
-}
-
-func (o GetDatabaseRolesDatabaseRoleShowOutputArrayOutput) Index(i pulumi.IntInput) GetDatabaseRolesDatabaseRoleShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabaseRolesDatabaseRoleShowOutput {
-		return vs[0].([]GetDatabaseRolesDatabaseRoleShowOutput)[vs[1].(int)]
-	}).(GetDatabaseRolesDatabaseRoleShowOutputOutput)
-}
-
-type GetDatabaseRolesLimit struct {
-	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-	From *string `pulumi:"from"`
-	// The maximum number of rows to return.
-	Rows int `pulumi:"rows"`
-}
-
-// GetDatabaseRolesLimitInput is an input type that accepts GetDatabaseRolesLimitArgs and GetDatabaseRolesLimitOutput values.
-// You can construct a concrete instance of `GetDatabaseRolesLimitInput` via:
-//
-//	GetDatabaseRolesLimitArgs{...}
-type GetDatabaseRolesLimitInput interface {
-	pulumi.Input
-
-	ToGetDatabaseRolesLimitOutput() GetDatabaseRolesLimitOutput
-	ToGetDatabaseRolesLimitOutputWithContext(context.Context) GetDatabaseRolesLimitOutput
-}
-
-type GetDatabaseRolesLimitArgs struct {
-	// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-	From pulumi.StringPtrInput `pulumi:"from"`
-	// The maximum number of rows to return.
-	Rows pulumi.IntInput `pulumi:"rows"`
-}
-
-func (GetDatabaseRolesLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabaseRolesLimit)(nil)).Elem()
-}
-
-func (i GetDatabaseRolesLimitArgs) ToGetDatabaseRolesLimitOutput() GetDatabaseRolesLimitOutput {
-	return i.ToGetDatabaseRolesLimitOutputWithContext(context.Background())
-}
-
-func (i GetDatabaseRolesLimitArgs) ToGetDatabaseRolesLimitOutputWithContext(ctx context.Context) GetDatabaseRolesLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseRolesLimitOutput)
-}
-
-func (i GetDatabaseRolesLimitArgs) ToGetDatabaseRolesLimitPtrOutput() GetDatabaseRolesLimitPtrOutput {
-	return i.ToGetDatabaseRolesLimitPtrOutputWithContext(context.Background())
-}
-
-func (i GetDatabaseRolesLimitArgs) ToGetDatabaseRolesLimitPtrOutputWithContext(ctx context.Context) GetDatabaseRolesLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseRolesLimitOutput).ToGetDatabaseRolesLimitPtrOutputWithContext(ctx)
-}
-
-// GetDatabaseRolesLimitPtrInput is an input type that accepts GetDatabaseRolesLimitArgs, GetDatabaseRolesLimitPtr and GetDatabaseRolesLimitPtrOutput values.
-// You can construct a concrete instance of `GetDatabaseRolesLimitPtrInput` via:
-//
-//	        GetDatabaseRolesLimitArgs{...}
-//
-//	or:
-//
-//	        nil
-type GetDatabaseRolesLimitPtrInput interface {
-	pulumi.Input
-
-	ToGetDatabaseRolesLimitPtrOutput() GetDatabaseRolesLimitPtrOutput
-	ToGetDatabaseRolesLimitPtrOutputWithContext(context.Context) GetDatabaseRolesLimitPtrOutput
-}
-
-type getDatabaseRolesLimitPtrType GetDatabaseRolesLimitArgs
-
-func GetDatabaseRolesLimitPtr(v *GetDatabaseRolesLimitArgs) GetDatabaseRolesLimitPtrInput {
-	return (*getDatabaseRolesLimitPtrType)(v)
-}
-
-func (*getDatabaseRolesLimitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDatabaseRolesLimit)(nil)).Elem()
-}
-
-func (i *getDatabaseRolesLimitPtrType) ToGetDatabaseRolesLimitPtrOutput() GetDatabaseRolesLimitPtrOutput {
-	return i.ToGetDatabaseRolesLimitPtrOutputWithContext(context.Background())
-}
-
-func (i *getDatabaseRolesLimitPtrType) ToGetDatabaseRolesLimitPtrOutputWithContext(ctx context.Context) GetDatabaseRolesLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabaseRolesLimitPtrOutput)
-}
-
-type GetDatabaseRolesLimitOutput struct{ *pulumi.OutputState }
-
-func (GetDatabaseRolesLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabaseRolesLimit)(nil)).Elem()
-}
-
-func (o GetDatabaseRolesLimitOutput) ToGetDatabaseRolesLimitOutput() GetDatabaseRolesLimitOutput {
-	return o
-}
-
-func (o GetDatabaseRolesLimitOutput) ToGetDatabaseRolesLimitOutputWithContext(ctx context.Context) GetDatabaseRolesLimitOutput {
-	return o
-}
-
-func (o GetDatabaseRolesLimitOutput) ToGetDatabaseRolesLimitPtrOutput() GetDatabaseRolesLimitPtrOutput {
-	return o.ToGetDatabaseRolesLimitPtrOutputWithContext(context.Background())
-}
-
-func (o GetDatabaseRolesLimitOutput) ToGetDatabaseRolesLimitPtrOutputWithContext(ctx context.Context) GetDatabaseRolesLimitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetDatabaseRolesLimit) *GetDatabaseRolesLimit {
-		return &v
-	}).(GetDatabaseRolesLimitPtrOutput)
-}
-
-// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-func (o GetDatabaseRolesLimitOutput) From() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GetDatabaseRolesLimit) *string { return v.From }).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of rows to return.
-func (o GetDatabaseRolesLimitOutput) Rows() pulumi.IntOutput {
-	return o.ApplyT(func(v GetDatabaseRolesLimit) int { return v.Rows }).(pulumi.IntOutput)
-}
-
-type GetDatabaseRolesLimitPtrOutput struct{ *pulumi.OutputState }
-
-func (GetDatabaseRolesLimitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetDatabaseRolesLimit)(nil)).Elem()
-}
-
-func (o GetDatabaseRolesLimitPtrOutput) ToGetDatabaseRolesLimitPtrOutput() GetDatabaseRolesLimitPtrOutput {
-	return o
-}
-
-func (o GetDatabaseRolesLimitPtrOutput) ToGetDatabaseRolesLimitPtrOutputWithContext(ctx context.Context) GetDatabaseRolesLimitPtrOutput {
-	return o
-}
-
-func (o GetDatabaseRolesLimitPtrOutput) Elem() GetDatabaseRolesLimitOutput {
-	return o.ApplyT(func(v *GetDatabaseRolesLimit) GetDatabaseRolesLimit {
-		if v != nil {
-			return *v
-		}
-		var ret GetDatabaseRolesLimit
-		return ret
-	}).(GetDatabaseRolesLimitOutput)
-}
-
-// Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
-func (o GetDatabaseRolesLimitPtrOutput) From() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetDatabaseRolesLimit) *string {
-		if v == nil {
-			return nil
-		}
-		return v.From
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of rows to return.
-func (o GetDatabaseRolesLimitPtrOutput) Rows() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *GetDatabaseRolesLimit) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Rows
-	}).(pulumi.IntPtrOutput)
-}
-
-type GetDatabasesDatabase struct {
-	// Holds the output of DESCRIBE DATABASE.
-	DescribeOutputs []GetDatabasesDatabaseDescribeOutput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW PARAMETERS FOR DATABASE.
-	Parameters []GetDatabasesDatabaseParameter `pulumi:"parameters"`
-	// Holds the output of SHOW DATABASES.
-	ShowOutputs []GetDatabasesDatabaseShowOutput `pulumi:"showOutputs"`
-}
-
-// GetDatabasesDatabaseInput is an input type that accepts GetDatabasesDatabaseArgs and GetDatabasesDatabaseOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseInput` via:
-//
-//	GetDatabasesDatabaseArgs{...}
-type GetDatabasesDatabaseInput interface {
-	pulumi.Input
-
-	ToGetDatabasesDatabaseOutput() GetDatabasesDatabaseOutput
-	ToGetDatabasesDatabaseOutputWithContext(context.Context) GetDatabasesDatabaseOutput
-}
-
-type GetDatabasesDatabaseArgs struct {
-	// Holds the output of DESCRIBE DATABASE.
-	DescribeOutputs GetDatabasesDatabaseDescribeOutputArrayInput `pulumi:"describeOutputs"`
-	// Holds the output of SHOW PARAMETERS FOR DATABASE.
-	Parameters GetDatabasesDatabaseParameterArrayInput `pulumi:"parameters"`
-	// Holds the output of SHOW DATABASES.
-	ShowOutputs GetDatabasesDatabaseShowOutputArrayInput `pulumi:"showOutputs"`
-}
-
-func (GetDatabasesDatabaseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabase)(nil)).Elem()
-}
-
-func (i GetDatabasesDatabaseArgs) ToGetDatabasesDatabaseOutput() GetDatabasesDatabaseOutput {
-	return i.ToGetDatabasesDatabaseOutputWithContext(context.Background())
-}
-
-func (i GetDatabasesDatabaseArgs) ToGetDatabasesDatabaseOutputWithContext(ctx context.Context) GetDatabasesDatabaseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseOutput)
-}
-
-// GetDatabasesDatabaseArrayInput is an input type that accepts GetDatabasesDatabaseArray and GetDatabasesDatabaseArrayOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseArrayInput` via:
-//
-//	GetDatabasesDatabaseArray{ GetDatabasesDatabaseArgs{...} }
-type GetDatabasesDatabaseArrayInput interface {
-	pulumi.Input
-
-	ToGetDatabasesDatabaseArrayOutput() GetDatabasesDatabaseArrayOutput
-	ToGetDatabasesDatabaseArrayOutputWithContext(context.Context) GetDatabasesDatabaseArrayOutput
-}
-
-type GetDatabasesDatabaseArray []GetDatabasesDatabaseInput
-
-func (GetDatabasesDatabaseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabase)(nil)).Elem()
-}
-
-func (i GetDatabasesDatabaseArray) ToGetDatabasesDatabaseArrayOutput() GetDatabasesDatabaseArrayOutput {
-	return i.ToGetDatabasesDatabaseArrayOutputWithContext(context.Background())
-}
-
-func (i GetDatabasesDatabaseArray) ToGetDatabasesDatabaseArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseArrayOutput)
-}
-
-type GetDatabasesDatabaseOutput struct{ *pulumi.OutputState }
-
-func (GetDatabasesDatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabase)(nil)).Elem()
-}
-
-func (o GetDatabasesDatabaseOutput) ToGetDatabasesDatabaseOutput() GetDatabasesDatabaseOutput {
-	return o
-}
-
-func (o GetDatabasesDatabaseOutput) ToGetDatabasesDatabaseOutputWithContext(ctx context.Context) GetDatabasesDatabaseOutput {
-	return o
-}
-
-// Holds the output of DESCRIBE DATABASE.
-func (o GetDatabasesDatabaseOutput) DescribeOutputs() GetDatabasesDatabaseDescribeOutputArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabase) []GetDatabasesDatabaseDescribeOutput { return v.DescribeOutputs }).(GetDatabasesDatabaseDescribeOutputArrayOutput)
-}
-
-// Holds the output of SHOW PARAMETERS FOR DATABASE.
-func (o GetDatabasesDatabaseOutput) Parameters() GetDatabasesDatabaseParameterArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabase) []GetDatabasesDatabaseParameter { return v.Parameters }).(GetDatabasesDatabaseParameterArrayOutput)
-}
-
-// Holds the output of SHOW DATABASES.
-func (o GetDatabasesDatabaseOutput) ShowOutputs() GetDatabasesDatabaseShowOutputArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabase) []GetDatabasesDatabaseShowOutput { return v.ShowOutputs }).(GetDatabasesDatabaseShowOutputArrayOutput)
-}
-
-type GetDatabasesDatabaseArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDatabasesDatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabase)(nil)).Elem()
-}
-
-func (o GetDatabasesDatabaseArrayOutput) ToGetDatabasesDatabaseArrayOutput() GetDatabasesDatabaseArrayOutput {
-	return o
-}
-
-func (o GetDatabasesDatabaseArrayOutput) ToGetDatabasesDatabaseArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseArrayOutput {
-	return o
-}
-
-func (o GetDatabasesDatabaseArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabase {
-		return vs[0].([]GetDatabasesDatabase)[vs[1].(int)]
-	}).(GetDatabasesDatabaseOutput)
-}
-
-type GetDatabasesDatabaseDescribeOutput struct {
-	CreatedOn string `pulumi:"createdOn"`
-	Kind      string `pulumi:"kind"`
-	Name      string `pulumi:"name"`
-}
-
-// GetDatabasesDatabaseDescribeOutputInput is an input type that accepts GetDatabasesDatabaseDescribeOutputArgs and GetDatabasesDatabaseDescribeOutputOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseDescribeOutputInput` via:
-//
-//	GetDatabasesDatabaseDescribeOutputArgs{...}
-type GetDatabasesDatabaseDescribeOutputInput interface {
-	pulumi.Input
-
-	ToGetDatabasesDatabaseDescribeOutputOutput() GetDatabasesDatabaseDescribeOutputOutput
-	ToGetDatabasesDatabaseDescribeOutputOutputWithContext(context.Context) GetDatabasesDatabaseDescribeOutputOutput
-}
-
-type GetDatabasesDatabaseDescribeOutputArgs struct {
-	CreatedOn pulumi.StringInput `pulumi:"createdOn"`
-	Kind      pulumi.StringInput `pulumi:"kind"`
-	Name      pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetDatabasesDatabaseDescribeOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseDescribeOutput)(nil)).Elem()
-}
-
-func (i GetDatabasesDatabaseDescribeOutputArgs) ToGetDatabasesDatabaseDescribeOutputOutput() GetDatabasesDatabaseDescribeOutputOutput {
-	return i.ToGetDatabasesDatabaseDescribeOutputOutputWithContext(context.Background())
-}
-
-func (i GetDatabasesDatabaseDescribeOutputArgs) ToGetDatabasesDatabaseDescribeOutputOutputWithContext(ctx context.Context) GetDatabasesDatabaseDescribeOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseDescribeOutputOutput)
-}
-
-// GetDatabasesDatabaseDescribeOutputArrayInput is an input type that accepts GetDatabasesDatabaseDescribeOutputArray and GetDatabasesDatabaseDescribeOutputArrayOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseDescribeOutputArrayInput` via:
-//
-//	GetDatabasesDatabaseDescribeOutputArray{ GetDatabasesDatabaseDescribeOutputArgs{...} }
-type GetDatabasesDatabaseDescribeOutputArrayInput interface {
-	pulumi.Input
-
-	ToGetDatabasesDatabaseDescribeOutputArrayOutput() GetDatabasesDatabaseDescribeOutputArrayOutput
-	ToGetDatabasesDatabaseDescribeOutputArrayOutputWithContext(context.Context) GetDatabasesDatabaseDescribeOutputArrayOutput
-}
-
-type GetDatabasesDatabaseDescribeOutputArray []GetDatabasesDatabaseDescribeOutputInput
-
-func (GetDatabasesDatabaseDescribeOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseDescribeOutput)(nil)).Elem()
-}
-
-func (i GetDatabasesDatabaseDescribeOutputArray) ToGetDatabasesDatabaseDescribeOutputArrayOutput() GetDatabasesDatabaseDescribeOutputArrayOutput {
-	return i.ToGetDatabasesDatabaseDescribeOutputArrayOutputWithContext(context.Background())
-}
-
-func (i GetDatabasesDatabaseDescribeOutputArray) ToGetDatabasesDatabaseDescribeOutputArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseDescribeOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseDescribeOutputArrayOutput)
-}
-
-type GetDatabasesDatabaseDescribeOutputOutput struct{ *pulumi.OutputState }
-
-func (GetDatabasesDatabaseDescribeOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseDescribeOutput)(nil)).Elem()
-}
-
-func (o GetDatabasesDatabaseDescribeOutputOutput) ToGetDatabasesDatabaseDescribeOutputOutput() GetDatabasesDatabaseDescribeOutputOutput {
-	return o
-}
-
-func (o GetDatabasesDatabaseDescribeOutputOutput) ToGetDatabasesDatabaseDescribeOutputOutputWithContext(ctx context.Context) GetDatabasesDatabaseDescribeOutputOutput {
-	return o
-}
-
-func (o GetDatabasesDatabaseDescribeOutputOutput) CreatedOn() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseDescribeOutput) string { return v.CreatedOn }).(pulumi.StringOutput)
-}
-
-func (o GetDatabasesDatabaseDescribeOutputOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseDescribeOutput) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-func (o GetDatabasesDatabaseDescribeOutputOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseDescribeOutput) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetDatabasesDatabaseDescribeOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDatabasesDatabaseDescribeOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseDescribeOutput)(nil)).Elem()
-}
-
-func (o GetDatabasesDatabaseDescribeOutputArrayOutput) ToGetDatabasesDatabaseDescribeOutputArrayOutput() GetDatabasesDatabaseDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetDatabasesDatabaseDescribeOutputArrayOutput) ToGetDatabasesDatabaseDescribeOutputArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseDescribeOutputArrayOutput {
-	return o
-}
-
-func (o GetDatabasesDatabaseDescribeOutputArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseDescribeOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseDescribeOutput {
-		return vs[0].([]GetDatabasesDatabaseDescribeOutput)[vs[1].(int)]
-	}).(GetDatabasesDatabaseDescribeOutputOutput)
-}
-
-type GetDatabasesDatabaseParameter struct {
-	Catalogs                                []GetDatabasesDatabaseParameterCatalog                                `pulumi:"catalogs"`
-	DataRetentionTimeInDays                 []GetDatabasesDatabaseParameterDataRetentionTimeInDay                 `pulumi:"dataRetentionTimeInDays"`
-	DefaultDdlCollations                    []GetDatabasesDatabaseParameterDefaultDdlCollation                    `pulumi:"defaultDdlCollations"`
-	EnableConsoleOutputs                    []GetDatabasesDatabaseParameterEnableConsoleOutput                    `pulumi:"enableConsoleOutputs"`
-	ExternalVolumes                         []GetDatabasesDatabaseParameterExternalVolume                         `pulumi:"externalVolumes"`
-	LogEventLevels                          []GetDatabasesDatabaseParameterLogEventLevel                          `pulumi:"logEventLevels"`
-	LogLevels                               []GetDatabasesDatabaseParameterLogLevel                               `pulumi:"logLevels"`
-	MaxDataExtensionTimeInDays              []GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay              `pulumi:"maxDataExtensionTimeInDays"`
-	QuotedIdentifiersIgnoreCases            []GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase            `pulumi:"quotedIdentifiersIgnoreCases"`
-	ReplaceInvalidCharacters                []GetDatabasesDatabaseParameterReplaceInvalidCharacter                `pulumi:"replaceInvalidCharacters"`
-	StorageSerializationPolicies            []GetDatabasesDatabaseParameterStorageSerializationPolicy             `pulumi:"storageSerializationPolicies"`
-	SuspendTaskAfterNumFailures             []GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure             `pulumi:"suspendTaskAfterNumFailures"`
-	TaskAutoRetryAttempts                   []GetDatabasesDatabaseParameterTaskAutoRetryAttempt                   `pulumi:"taskAutoRetryAttempts"`
-	TraceLevels                             []GetDatabasesDatabaseParameterTraceLevel                             `pulumi:"traceLevels"`
-	UserTaskManagedInitialWarehouseSizes    []GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize    `pulumi:"userTaskManagedInitialWarehouseSizes"`
-	UserTaskMinimumTriggerIntervalInSeconds []GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
-	UserTaskTimeoutMs                       []GetDatabasesDatabaseParameterUserTaskTimeoutM                       `pulumi:"userTaskTimeoutMs"`
-}
-
-// GetDatabasesDatabaseParameterInput is an input type that accepts GetDatabasesDatabaseParameterArgs and GetDatabasesDatabaseParameterOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseParameterInput` via:
-//
-//	GetDatabasesDatabaseParameterArgs{...}
-type GetDatabasesDatabaseParameterInput interface {
-	pulumi.Input
-
-	ToGetDatabasesDatabaseParameterOutput() GetDatabasesDatabaseParameterOutput
-	ToGetDatabasesDatabaseParameterOutputWithContext(context.Context) GetDatabasesDatabaseParameterOutput
-}
-
-type GetDatabasesDatabaseParameterArgs struct {
-	Catalogs                                GetDatabasesDatabaseParameterCatalogArrayInput                                `pulumi:"catalogs"`
-	DataRetentionTimeInDays                 GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayInput                 `pulumi:"dataRetentionTimeInDays"`
-	DefaultDdlCollations                    GetDatabasesDatabaseParameterDefaultDdlCollationArrayInput                    `pulumi:"defaultDdlCollations"`
-	EnableConsoleOutputs                    GetDatabasesDatabaseParameterEnableConsoleOutputArrayInput                    `pulumi:"enableConsoleOutputs"`
-	ExternalVolumes                         GetDatabasesDatabaseParameterExternalVolumeArrayInput                         `pulumi:"externalVolumes"`
-	LogEventLevels                          GetDatabasesDatabaseParameterLogEventLevelArrayInput                          `pulumi:"logEventLevels"`
-	LogLevels                               GetDatabasesDatabaseParameterLogLevelArrayInput                               `pulumi:"logLevels"`
-	MaxDataExtensionTimeInDays              GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayInput              `pulumi:"maxDataExtensionTimeInDays"`
-	QuotedIdentifiersIgnoreCases            GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayInput            `pulumi:"quotedIdentifiersIgnoreCases"`
-	ReplaceInvalidCharacters                GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayInput                `pulumi:"replaceInvalidCharacters"`
-	StorageSerializationPolicies            GetDatabasesDatabaseParameterStorageSerializationPolicyArrayInput             `pulumi:"storageSerializationPolicies"`
-	SuspendTaskAfterNumFailures             GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayInput             `pulumi:"suspendTaskAfterNumFailures"`
-	TaskAutoRetryAttempts                   GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayInput                   `pulumi:"taskAutoRetryAttempts"`
-	TraceLevels                             GetDatabasesDatabaseParameterTraceLevelArrayInput                             `pulumi:"traceLevels"`
-	UserTaskManagedInitialWarehouseSizes    GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayInput    `pulumi:"userTaskManagedInitialWarehouseSizes"`
-	UserTaskMinimumTriggerIntervalInSeconds GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayInput `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
-	UserTaskTimeoutMs                       GetDatabasesDatabaseParameterUserTaskTimeoutMArrayInput                       `pulumi:"userTaskTimeoutMs"`
-}
-
-func (GetDatabasesDatabaseParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseParameter)(nil)).Elem()
-}
-
-func (i GetDatabasesDatabaseParameterArgs) ToGetDatabasesDatabaseParameterOutput() GetDatabasesDatabaseParameterOutput {
-	return i.ToGetDatabasesDatabaseParameterOutputWithContext(context.Background())
-}
-
-func (i GetDatabasesDatabaseParameterArgs) ToGetDatabasesDatabaseParameterOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterOutput)
-}
-
-// GetDatabasesDatabaseParameterArrayInput is an input type that accepts GetDatabasesDatabaseParameterArray and GetDatabasesDatabaseParameterArrayOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseParameterArrayInput` via:
-//
-//	GetDatabasesDatabaseParameterArray{ GetDatabasesDatabaseParameterArgs{...} }
-type GetDatabasesDatabaseParameterArrayInput interface {
-	pulumi.Input
-
-	ToGetDatabasesDatabaseParameterArrayOutput() GetDatabasesDatabaseParameterArrayOutput
-	ToGetDatabasesDatabaseParameterArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterArrayOutput
-}
-
-type GetDatabasesDatabaseParameterArray []GetDatabasesDatabaseParameterInput
-
-func (GetDatabasesDatabaseParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseParameter)(nil)).Elem()
-}
-
-func (i GetDatabasesDatabaseParameterArray) ToGetDatabasesDatabaseParameterArrayOutput() GetDatabasesDatabaseParameterArrayOutput {
-	return i.ToGetDatabasesDatabaseParameterArrayOutputWithContext(context.Background())
-}
-
-func (i GetDatabasesDatabaseParameterArray) ToGetDatabasesDatabaseParameterArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterArrayOutput)
-}
-
-type GetDatabasesDatabaseParameterOutput struct{ *pulumi.OutputState }
-
-func (GetDatabasesDatabaseParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseParameter)(nil)).Elem()
-}
-
-func (o GetDatabasesDatabaseParameterOutput) ToGetDatabasesDatabaseParameterOutput() GetDatabasesDatabaseParameterOutput {
-	return o
-}
-
-func (o GetDatabasesDatabaseParameterOutput) ToGetDatabasesDatabaseParameterOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterOutput {
-	return o
-}
-
-func (o GetDatabasesDatabaseParameterOutput) Catalogs() GetDatabasesDatabaseParameterCatalogArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterCatalog { return v.Catalogs }).(GetDatabasesDatabaseParameterCatalogArrayOutput)
-}
-
-func (o GetDatabasesDatabaseParameterOutput) DataRetentionTimeInDays() GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterDataRetentionTimeInDay {
+type GetAccountsAccountParameter struct {
+	AbortDetachedQueries                                      []GetAccountsAccountParameterAbortDetachedQuery                                       `pulumi:"abortDetachedQueries"`
+	ActivePythonProfilers                                     []GetAccountsAccountParameterActivePythonProfiler                                     `pulumi:"activePythonProfilers"`
+	AllowBindValuesAccesses                                   []GetAccountsAccountParameterAllowBindValuesAccess                                    `pulumi:"allowBindValuesAccesses"`
+	AllowClientMfaCachings                                    []GetAccountsAccountParameterAllowClientMfaCaching                                    `pulumi:"allowClientMfaCachings"`
+	AllowIdTokens                                             []GetAccountsAccountParameterAllowIdToken                                             `pulumi:"allowIdTokens"`
+	AllowedSpcsWorkloadTypes                                  []GetAccountsAccountParameterAllowedSpcsWorkloadType                                  `pulumi:"allowedSpcsWorkloadTypes"`
+	Autocommits                                               []GetAccountsAccountParameterAutocommit                                               `pulumi:"autocommits"`
+	BaseLocationPrefixes                                      []GetAccountsAccountParameterBaseLocationPrefix                                       `pulumi:"baseLocationPrefixes"`
+	BinaryInputFormats                                        []GetAccountsAccountParameterBinaryInputFormat                                        `pulumi:"binaryInputFormats"`
+	BinaryOutputFormats                                       []GetAccountsAccountParameterBinaryOutputFormat                                       `pulumi:"binaryOutputFormats"`
+	CatalogSyncs                                              []GetAccountsAccountParameterCatalogSync                                              `pulumi:"catalogSyncs"`
+	Catalogs                                                  []GetAccountsAccountParameterCatalog                                                  `pulumi:"catalogs"`
+	ClientEnableLogInfoStatementParameters                    []GetAccountsAccountParameterClientEnableLogInfoStatementParameter                    `pulumi:"clientEnableLogInfoStatementParameters"`
+	ClientEncryptionKeySizes                                  []GetAccountsAccountParameterClientEncryptionKeySize                                  `pulumi:"clientEncryptionKeySizes"`
+	ClientMemoryLimits                                        []GetAccountsAccountParameterClientMemoryLimit                                        `pulumi:"clientMemoryLimits"`
+	ClientMetadataRequestUseConnectionCtxes                   []GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx                    `pulumi:"clientMetadataRequestUseConnectionCtxes"`
+	ClientMetadataUseSessionDatabases                         []GetAccountsAccountParameterClientMetadataUseSessionDatabase                         `pulumi:"clientMetadataUseSessionDatabases"`
+	ClientPrefetchThreads                                     []GetAccountsAccountParameterClientPrefetchThread                                     `pulumi:"clientPrefetchThreads"`
+	ClientResultChunkSizes                                    []GetAccountsAccountParameterClientResultChunkSize                                    `pulumi:"clientResultChunkSizes"`
+	ClientResultColumnCaseInsensitives                        []GetAccountsAccountParameterClientResultColumnCaseInsensitive                        `pulumi:"clientResultColumnCaseInsensitives"`
+	ClientSessionKeepAliveHeartbeatFrequencies                []GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency                 `pulumi:"clientSessionKeepAliveHeartbeatFrequencies"`
+	ClientSessionKeepAlives                                   []GetAccountsAccountParameterClientSessionKeepAlife                                   `pulumi:"clientSessionKeepAlives"`
+	ClientTimestampTypeMappings                               []GetAccountsAccountParameterClientTimestampTypeMapping                               `pulumi:"clientTimestampTypeMappings"`
+	CortexCodeCliDailyEstCreditLimitPerUsers                  []GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser                  `pulumi:"cortexCodeCliDailyEstCreditLimitPerUsers"`
+	CortexCodeDesktopDailyEstCreditLimitPerUsers              []GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser              `pulumi:"cortexCodeDesktopDailyEstCreditLimitPerUsers"`
+	CortexCodeSnowsightDailyEstCreditLimitPerUsers            []GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser            `pulumi:"cortexCodeSnowsightDailyEstCreditLimitPerUsers"`
+	CortexEnabledCrossRegions                                 []GetAccountsAccountParameterCortexEnabledCrossRegion                                 `pulumi:"cortexEnabledCrossRegions"`
+	CortexModelsAllowlists                                    []GetAccountsAccountParameterCortexModelsAllowlist                                    `pulumi:"cortexModelsAllowlists"`
+	CsvTimestampFormats                                       []GetAccountsAccountParameterCsvTimestampFormat                                       `pulumi:"csvTimestampFormats"`
+	DataMetricSchedules                                       []GetAccountsAccountParameterDataMetricSchedule                                       `pulumi:"dataMetricSchedules"`
+	DataRetentionTimeInDays                                   []GetAccountsAccountParameterDataRetentionTimeInDay                                   `pulumi:"dataRetentionTimeInDays"`
+	DateInputFormats                                          []GetAccountsAccountParameterDateInputFormat                                          `pulumi:"dateInputFormats"`
+	DateOutputFormats                                         []GetAccountsAccountParameterDateOutputFormat                                         `pulumi:"dateOutputFormats"`
+	DefaultDbtVersions                                        []GetAccountsAccountParameterDefaultDbtVersion                                        `pulumi:"defaultDbtVersions"`
+	DefaultDdlCollations                                      []GetAccountsAccountParameterDefaultDdlCollation                                      `pulumi:"defaultDdlCollations"`
+	DefaultNotebookComputePoolCpus                            []GetAccountsAccountParameterDefaultNotebookComputePoolCpus                           `pulumi:"defaultNotebookComputePoolCpus"`
+	DefaultNotebookComputePoolGpus                            []GetAccountsAccountParameterDefaultNotebookComputePoolGpus                           `pulumi:"defaultNotebookComputePoolGpus"`
+	DefaultNullOrderings                                      []GetAccountsAccountParameterDefaultNullOrdering                                      `pulumi:"defaultNullOrderings"`
+	DefaultStreamlitComputePools                              []GetAccountsAccountParameterDefaultStreamlitComputePool                              `pulumi:"defaultStreamlitComputePools"`
+	DefaultStreamlitNotebookWarehouses                        []GetAccountsAccountParameterDefaultStreamlitNotebookWarehouse                        `pulumi:"defaultStreamlitNotebookWarehouses"`
+	DisableUiDownloadButtons                                  []GetAccountsAccountParameterDisableUiDownloadButton                                  `pulumi:"disableUiDownloadButtons"`
+	DisableUserPrivilegeGrants                                []GetAccountsAccountParameterDisableUserPrivilegeGrant                                `pulumi:"disableUserPrivilegeGrants"`
+	DisallowedSpcsWorkloadTypes                               []GetAccountsAccountParameterDisallowedSpcsWorkloadType                               `pulumi:"disallowedSpcsWorkloadTypes"`
+	EnableAutomaticSensitiveDataClassificationLogs            []GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLog            `pulumi:"enableAutomaticSensitiveDataClassificationLogs"`
+	EnableBudgetEventLoggings                                 []GetAccountsAccountParameterEnableBudgetEventLogging                                 `pulumi:"enableBudgetEventLoggings"`
+	EnableConsoleOutputs                                      []GetAccountsAccountParameterEnableConsoleOutput                                      `pulumi:"enableConsoleOutputs"`
+	EnableCortexAnalysts                                      []GetAccountsAccountParameterEnableCortexAnalyst                                      `pulumi:"enableCortexAnalysts"`
+	EnableDataCompactions                                     []GetAccountsAccountParameterEnableDataCompaction                                     `pulumi:"enableDataCompactions"`
+	EnableEgressCostOptimizers                                []GetAccountsAccountParameterEnableEgressCostOptimizer                                `pulumi:"enableEgressCostOptimizers"`
+	EnableGetDdlUseDataTypeAliases                            []GetAccountsAccountParameterEnableGetDdlUseDataTypeAlias                             `pulumi:"enableGetDdlUseDataTypeAliases"`
+	EnableIcebergMergeOnReads                                 []GetAccountsAccountParameterEnableIcebergMergeOnRead                                 `pulumi:"enableIcebergMergeOnReads"`
+	EnableIdentifierFirstLogins                               []GetAccountsAccountParameterEnableIdentifierFirstLogin                               `pulumi:"enableIdentifierFirstLogins"`
+	EnableInternalStagesPrivatelinks                          []GetAccountsAccountParameterEnableInternalStagesPrivatelink                          `pulumi:"enableInternalStagesPrivatelinks"`
+	EnableNotebookCreationInPersonalDbs                       []GetAccountsAccountParameterEnableNotebookCreationInPersonalDb                       `pulumi:"enableNotebookCreationInPersonalDbs"`
+	EnablePerAccountAppServicePrivatelinkUrls                 []GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrl                 `pulumi:"enablePerAccountAppServicePrivatelinkUrls"`
+	EnablePersonalDatabases                                   []GetAccountsAccountParameterEnablePersonalDatabase                                   `pulumi:"enablePersonalDatabases"`
+	EnableSpcsBlockStorageSnowflakeFullEncryptionEnforcements []GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcement `pulumi:"enableSpcsBlockStorageSnowflakeFullEncryptionEnforcements"`
+	EnableTagPropagationEventLoggings                         []GetAccountsAccountParameterEnableTagPropagationEventLogging                         `pulumi:"enableTagPropagationEventLoggings"`
+	EnableTriSecretAndRekeyOptOutForImageRepositories         []GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepository          `pulumi:"enableTriSecretAndRekeyOptOutForImageRepositories"`
+	EnableTriSecretAndRekeyOptOutForSpcsBlockStorages         []GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorage         `pulumi:"enableTriSecretAndRekeyOptOutForSpcsBlockStorages"`
+	EnableUnhandledExceptionsReportings                       []GetAccountsAccountParameterEnableUnhandledExceptionsReporting                       `pulumi:"enableUnhandledExceptionsReportings"`
+	EnableUnloadPhysicalTypeOptimizations                     []GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimization                     `pulumi:"enableUnloadPhysicalTypeOptimizations"`
+	EnableUnredactedQuerySyntaxErrors                         []GetAccountsAccountParameterEnableUnredactedQuerySyntaxError                         `pulumi:"enableUnredactedQuerySyntaxErrors"`
+	EnableUnredactedSecureObjectErrors                        []GetAccountsAccountParameterEnableUnredactedSecureObjectError                        `pulumi:"enableUnredactedSecureObjectErrors"`
+	EnforceNetworkRulesForInternalStages                      []GetAccountsAccountParameterEnforceNetworkRulesForInternalStage                      `pulumi:"enforceNetworkRulesForInternalStages"`
+	ErrorOnNondeterministicMerges                             []GetAccountsAccountParameterErrorOnNondeterministicMerge                             `pulumi:"errorOnNondeterministicMerges"`
+	ErrorOnNondeterministicUpdates                            []GetAccountsAccountParameterErrorOnNondeterministicUpdate                            `pulumi:"errorOnNondeterministicUpdates"`
+	EventTables                                               []GetAccountsAccountParameterEventTable                                               `pulumi:"eventTables"`
+	ExternalOauthAddPrivilegedRolesToBlockedLists             []GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedList             `pulumi:"externalOauthAddPrivilegedRolesToBlockedLists"`
+	ExternalVolumes                                           []GetAccountsAccountParameterExternalVolume                                           `pulumi:"externalVolumes"`
+	GeographyOutputFormats                                    []GetAccountsAccountParameterGeographyOutputFormat                                    `pulumi:"geographyOutputFormats"`
+	GeometryOutputFormats                                     []GetAccountsAccountParameterGeometryOutputFormat                                     `pulumi:"geometryOutputFormats"`
+	HybridTableLockTimeouts                                   []GetAccountsAccountParameterHybridTableLockTimeout                                   `pulumi:"hybridTableLockTimeouts"`
+	IcebergVersionDefaults                                    []GetAccountsAccountParameterIcebergVersionDefault                                    `pulumi:"icebergVersionDefaults"`
+	InitialReplicationSizeLimitInTbs                          []GetAccountsAccountParameterInitialReplicationSizeLimitInTb                          `pulumi:"initialReplicationSizeLimitInTbs"`
+	JdbcTreatDecimalAsInts                                    []GetAccountsAccountParameterJdbcTreatDecimalAsInt                                    `pulumi:"jdbcTreatDecimalAsInts"`
+	JdbcTreatTimestampNtzAsUtcs                               []GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtc                               `pulumi:"jdbcTreatTimestampNtzAsUtcs"`
+	JdbcUseSessionTimezones                                   []GetAccountsAccountParameterJdbcUseSessionTimezone                                   `pulumi:"jdbcUseSessionTimezones"`
+	JsTreatIntegerAsBigints                                   []GetAccountsAccountParameterJsTreatIntegerAsBigint                                   `pulumi:"jsTreatIntegerAsBigints"`
+	JsonIndents                                               []GetAccountsAccountParameterJsonIndent                                               `pulumi:"jsonIndents"`
+	ListingAutoFulfillmentReplicationRefreshSchedules         []GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshSchedule         `pulumi:"listingAutoFulfillmentReplicationRefreshSchedules"`
+	LockTimeouts                                              []GetAccountsAccountParameterLockTimeout                                              `pulumi:"lockTimeouts"`
+	LogEventLevels                                            []GetAccountsAccountParameterLogEventLevel                                            `pulumi:"logEventLevels"`
+	LogLevels                                                 []GetAccountsAccountParameterLogLevel                                                 `pulumi:"logLevels"`
+	MaxConcurrencyLevels                                      []GetAccountsAccountParameterMaxConcurrencyLevel                                      `pulumi:"maxConcurrencyLevels"`
+	MaxDataExtensionTimeInDays                                []GetAccountsAccountParameterMaxDataExtensionTimeInDay                                `pulumi:"maxDataExtensionTimeInDays"`
+	MetricLevels                                              []GetAccountsAccountParameterMetricLevel                                              `pulumi:"metricLevels"`
+	MinDataRetentionTimeInDays                                []GetAccountsAccountParameterMinDataRetentionTimeInDay                                `pulumi:"minDataRetentionTimeInDays"`
+	MultiStatementCounts                                      []GetAccountsAccountParameterMultiStatementCount                                      `pulumi:"multiStatementCounts"`
+	NetworkPolicies                                           []GetAccountsAccountParameterNetworkPolicy                                            `pulumi:"networkPolicies"`
+	NoorderSequenceAsDefaults                                 []GetAccountsAccountParameterNoorderSequenceAsDefault                                 `pulumi:"noorderSequenceAsDefaults"`
+	OauthAddPrivilegedRolesToBlockedLists                     []GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedList                     `pulumi:"oauthAddPrivilegedRolesToBlockedLists"`
+	OdbcTreatDecimalAsInts                                    []GetAccountsAccountParameterOdbcTreatDecimalAsInt                                    `pulumi:"odbcTreatDecimalAsInts"`
+	PeriodicDataRekeyings                                     []GetAccountsAccountParameterPeriodicDataRekeying                                     `pulumi:"periodicDataRekeyings"`
+	PipeExecutionPauseds                                      []GetAccountsAccountParameterPipeExecutionPaused                                      `pulumi:"pipeExecutionPauseds"`
+	PreventLoadFromInlineUrls                                 []GetAccountsAccountParameterPreventLoadFromInlineUrl                                 `pulumi:"preventLoadFromInlineUrls"`
+	PreventUnloadToInlineUrls                                 []GetAccountsAccountParameterPreventUnloadToInlineUrl                                 `pulumi:"preventUnloadToInlineUrls"`
+	PreventUnloadToInternalStages                             []GetAccountsAccountParameterPreventUnloadToInternalStage                             `pulumi:"preventUnloadToInternalStages"`
+	PythonProfilerModules                                     []GetAccountsAccountParameterPythonProfilerModule                                     `pulumi:"pythonProfilerModules"`
+	PythonProfilerTargetStages                                []GetAccountsAccountParameterPythonProfilerTargetStage                                `pulumi:"pythonProfilerTargetStages"`
+	QueryTags                                                 []GetAccountsAccountParameterQueryTag                                                 `pulumi:"queryTags"`
+	QuotedIdentifiersIgnoreCases                              []GetAccountsAccountParameterQuotedIdentifiersIgnoreCase                              `pulumi:"quotedIdentifiersIgnoreCases"`
+	ReadConsistencyModes                                      []GetAccountsAccountParameterReadConsistencyMode                                      `pulumi:"readConsistencyModes"`
+	ReplaceInvalidCharacters                                  []GetAccountsAccountParameterReplaceInvalidCharacter                                  `pulumi:"replaceInvalidCharacters"`
+	RequireStorageIntegrationForStageCreations                []GetAccountsAccountParameterRequireStorageIntegrationForStageCreation                `pulumi:"requireStorageIntegrationForStageCreations"`
+	RequireStorageIntegrationForStageOperations               []GetAccountsAccountParameterRequireStorageIntegrationForStageOperation               `pulumi:"requireStorageIntegrationForStageOperations"`
+	RowTimestampDefaults                                      []GetAccountsAccountParameterRowTimestampDefault                                      `pulumi:"rowTimestampDefaults"`
+	RowsPerResultsets                                         []GetAccountsAccountParameterRowsPerResultset                                         `pulumi:"rowsPerResultsets"`
+	S3StageVpceDnsNames                                       []GetAccountsAccountParameterS3StageVpceDnsName                                       `pulumi:"s3StageVpceDnsNames"`
+	SearchPaths                                               []GetAccountsAccountParameterSearchPath                                               `pulumi:"searchPaths"`
+	ServerlessTaskMaxStatementSizes                           []GetAccountsAccountParameterServerlessTaskMaxStatementSize                           `pulumi:"serverlessTaskMaxStatementSizes"`
+	ServerlessTaskMinStatementSizes                           []GetAccountsAccountParameterServerlessTaskMinStatementSize                           `pulumi:"serverlessTaskMinStatementSizes"`
+	ShareRestrictions                                         []GetAccountsAccountParameterShareRestriction                                         `pulumi:"shareRestrictions"`
+	SimulatedDataSharingConsumers                             []GetAccountsAccountParameterSimulatedDataSharingConsumer                             `pulumi:"simulatedDataSharingConsumers"`
+	SqlTraceQueryTexts                                        []GetAccountsAccountParameterSqlTraceQueryText                                        `pulumi:"sqlTraceQueryTexts"`
+	SsoLoginPages                                             []GetAccountsAccountParameterSsoLoginPage                                             `pulumi:"ssoLoginPages"`
+	StatementQueuedTimeoutInSeconds                           []GetAccountsAccountParameterStatementQueuedTimeoutInSecond                           `pulumi:"statementQueuedTimeoutInSeconds"`
+	StatementTimeoutInSeconds                                 []GetAccountsAccountParameterStatementTimeoutInSecond                                 `pulumi:"statementTimeoutInSeconds"`
+	StorageSerializationPolicies                              []GetAccountsAccountParameterStorageSerializationPolicy                               `pulumi:"storageSerializationPolicies"`
+	StrictJsonOutputs                                         []GetAccountsAccountParameterStrictJsonOutput                                         `pulumi:"strictJsonOutputs"`
+	SuspendTaskAfterNumFailures                               []GetAccountsAccountParameterSuspendTaskAfterNumFailure                               `pulumi:"suspendTaskAfterNumFailures"`
+	TaskAutoRetryAttempts                                     []GetAccountsAccountParameterTaskAutoRetryAttempt                                     `pulumi:"taskAutoRetryAttempts"`
+	TimeInputFormats                                          []GetAccountsAccountParameterTimeInputFormat                                          `pulumi:"timeInputFormats"`
+	TimeOutputFormats                                         []GetAccountsAccountParameterTimeOutputFormat                                         `pulumi:"timeOutputFormats"`
+	TimestampDayIsAlways24hs                                  []GetAccountsAccountParameterTimestampDayIsAlways24h                                  `pulumi:"timestampDayIsAlways24hs"`
+	TimestampInputFormats                                     []GetAccountsAccountParameterTimestampInputFormat                                     `pulumi:"timestampInputFormats"`
+	TimestampLtzOutputFormats                                 []GetAccountsAccountParameterTimestampLtzOutputFormat                                 `pulumi:"timestampLtzOutputFormats"`
+	TimestampNtzOutputFormats                                 []GetAccountsAccountParameterTimestampNtzOutputFormat                                 `pulumi:"timestampNtzOutputFormats"`
+	TimestampOutputFormats                                    []GetAccountsAccountParameterTimestampOutputFormat                                    `pulumi:"timestampOutputFormats"`
+	TimestampTypeMappings                                     []GetAccountsAccountParameterTimestampTypeMapping                                     `pulumi:"timestampTypeMappings"`
+	TimestampTzOutputFormats                                  []GetAccountsAccountParameterTimestampTzOutputFormat                                  `pulumi:"timestampTzOutputFormats"`
+	Timezones                                                 []GetAccountsAccountParameterTimezone                                                 `pulumi:"timezones"`
+	TraceLevels                                               []GetAccountsAccountParameterTraceLevel                                               `pulumi:"traceLevels"`
+	TransactionAbortOnErrors                                  []GetAccountsAccountParameterTransactionAbortOnError                                  `pulumi:"transactionAbortOnErrors"`
+	TransactionDefaultIsolationLevels                         []GetAccountsAccountParameterTransactionDefaultIsolationLevel                         `pulumi:"transactionDefaultIsolationLevels"`
+	TwoDigitCenturyStarts                                     []GetAccountsAccountParameterTwoDigitCenturyStart                                     `pulumi:"twoDigitCenturyStarts"`
+	UnsupportedDdlActions                                     []GetAccountsAccountParameterUnsupportedDdlAction                                     `pulumi:"unsupportedDdlActions"`
+	UseCachedResults                                          []GetAccountsAccountParameterUseCachedResult                                          `pulumi:"useCachedResults"`
+	UseWorkspacesForSqls                                      []GetAccountsAccountParameterUseWorkspacesForSql                                      `pulumi:"useWorkspacesForSqls"`
+	UserTaskManagedInitialWarehouseSizes                      []GetAccountsAccountParameterUserTaskManagedInitialWarehouseSize                      `pulumi:"userTaskManagedInitialWarehouseSizes"`
+	UserTaskMinimumTriggerIntervalInSeconds                   []GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecond                   `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
+	UserTaskTimeoutMs                                         []GetAccountsAccountParameterUserTaskTimeoutM                                         `pulumi:"userTaskTimeoutMs"`
+	WeekOfYearPolicies                                        []GetAccountsAccountParameterWeekOfYearPolicy                                         `pulumi:"weekOfYearPolicies"`
+	WeekStarts                                                []GetAccountsAccountParameterWeekStart                                                `pulumi:"weekStarts"`
+}
+
+// GetAccountsAccountParameterInput is an input type that accepts GetAccountsAccountParameterArgs and GetAccountsAccountParameterOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterInput` via:
+//
+//	GetAccountsAccountParameterArgs{...}
+type GetAccountsAccountParameterInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterOutput() GetAccountsAccountParameterOutput
+	ToGetAccountsAccountParameterOutputWithContext(context.Context) GetAccountsAccountParameterOutput
+}
+
+type GetAccountsAccountParameterArgs struct {
+	AbortDetachedQueries                                      GetAccountsAccountParameterAbortDetachedQueryArrayInput                                       `pulumi:"abortDetachedQueries"`
+	ActivePythonProfilers                                     GetAccountsAccountParameterActivePythonProfilerArrayInput                                     `pulumi:"activePythonProfilers"`
+	AllowBindValuesAccesses                                   GetAccountsAccountParameterAllowBindValuesAccessArrayInput                                    `pulumi:"allowBindValuesAccesses"`
+	AllowClientMfaCachings                                    GetAccountsAccountParameterAllowClientMfaCachingArrayInput                                    `pulumi:"allowClientMfaCachings"`
+	AllowIdTokens                                             GetAccountsAccountParameterAllowIdTokenArrayInput                                             `pulumi:"allowIdTokens"`
+	AllowedSpcsWorkloadTypes                                  GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayInput                                  `pulumi:"allowedSpcsWorkloadTypes"`
+	Autocommits                                               GetAccountsAccountParameterAutocommitArrayInput                                               `pulumi:"autocommits"`
+	BaseLocationPrefixes                                      GetAccountsAccountParameterBaseLocationPrefixArrayInput                                       `pulumi:"baseLocationPrefixes"`
+	BinaryInputFormats                                        GetAccountsAccountParameterBinaryInputFormatArrayInput                                        `pulumi:"binaryInputFormats"`
+	BinaryOutputFormats                                       GetAccountsAccountParameterBinaryOutputFormatArrayInput                                       `pulumi:"binaryOutputFormats"`
+	CatalogSyncs                                              GetAccountsAccountParameterCatalogSyncArrayInput                                              `pulumi:"catalogSyncs"`
+	Catalogs                                                  GetAccountsAccountParameterCatalogArrayInput                                                  `pulumi:"catalogs"`
+	ClientEnableLogInfoStatementParameters                    GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayInput                    `pulumi:"clientEnableLogInfoStatementParameters"`
+	ClientEncryptionKeySizes                                  GetAccountsAccountParameterClientEncryptionKeySizeArrayInput                                  `pulumi:"clientEncryptionKeySizes"`
+	ClientMemoryLimits                                        GetAccountsAccountParameterClientMemoryLimitArrayInput                                        `pulumi:"clientMemoryLimits"`
+	ClientMetadataRequestUseConnectionCtxes                   GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayInput                    `pulumi:"clientMetadataRequestUseConnectionCtxes"`
+	ClientMetadataUseSessionDatabases                         GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayInput                         `pulumi:"clientMetadataUseSessionDatabases"`
+	ClientPrefetchThreads                                     GetAccountsAccountParameterClientPrefetchThreadArrayInput                                     `pulumi:"clientPrefetchThreads"`
+	ClientResultChunkSizes                                    GetAccountsAccountParameterClientResultChunkSizeArrayInput                                    `pulumi:"clientResultChunkSizes"`
+	ClientResultColumnCaseInsensitives                        GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayInput                        `pulumi:"clientResultColumnCaseInsensitives"`
+	ClientSessionKeepAliveHeartbeatFrequencies                GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayInput                 `pulumi:"clientSessionKeepAliveHeartbeatFrequencies"`
+	ClientSessionKeepAlives                                   GetAccountsAccountParameterClientSessionKeepAlifeArrayInput                                   `pulumi:"clientSessionKeepAlives"`
+	ClientTimestampTypeMappings                               GetAccountsAccountParameterClientTimestampTypeMappingArrayInput                               `pulumi:"clientTimestampTypeMappings"`
+	CortexCodeCliDailyEstCreditLimitPerUsers                  GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayInput                  `pulumi:"cortexCodeCliDailyEstCreditLimitPerUsers"`
+	CortexCodeDesktopDailyEstCreditLimitPerUsers              GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayInput              `pulumi:"cortexCodeDesktopDailyEstCreditLimitPerUsers"`
+	CortexCodeSnowsightDailyEstCreditLimitPerUsers            GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayInput            `pulumi:"cortexCodeSnowsightDailyEstCreditLimitPerUsers"`
+	CortexEnabledCrossRegions                                 GetAccountsAccountParameterCortexEnabledCrossRegionArrayInput                                 `pulumi:"cortexEnabledCrossRegions"`
+	CortexModelsAllowlists                                    GetAccountsAccountParameterCortexModelsAllowlistArrayInput                                    `pulumi:"cortexModelsAllowlists"`
+	CsvTimestampFormats                                       GetAccountsAccountParameterCsvTimestampFormatArrayInput                                       `pulumi:"csvTimestampFormats"`
+	DataMetricSchedules                                       GetAccountsAccountParameterDataMetricScheduleArrayInput                                       `pulumi:"dataMetricSchedules"`
+	DataRetentionTimeInDays                                   GetAccountsAccountParameterDataRetentionTimeInDayArrayInput                                   `pulumi:"dataRetentionTimeInDays"`
+	DateInputFormats                                          GetAccountsAccountParameterDateInputFormatArrayInput                                          `pulumi:"dateInputFormats"`
+	DateOutputFormats                                         GetAccountsAccountParameterDateOutputFormatArrayInput                                         `pulumi:"dateOutputFormats"`
+	DefaultDbtVersions                                        GetAccountsAccountParameterDefaultDbtVersionArrayInput                                        `pulumi:"defaultDbtVersions"`
+	DefaultDdlCollations                                      GetAccountsAccountParameterDefaultDdlCollationArrayInput                                      `pulumi:"defaultDdlCollations"`
+	DefaultNotebookComputePoolCpus                            GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayInput                           `pulumi:"defaultNotebookComputePoolCpus"`
+	DefaultNotebookComputePoolGpus                            GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayInput                           `pulumi:"defaultNotebookComputePoolGpus"`
+	DefaultNullOrderings                                      GetAccountsAccountParameterDefaultNullOrderingArrayInput                                      `pulumi:"defaultNullOrderings"`
+	DefaultStreamlitComputePools                              GetAccountsAccountParameterDefaultStreamlitComputePoolArrayInput                              `pulumi:"defaultStreamlitComputePools"`
+	DefaultStreamlitNotebookWarehouses                        GetAccountsAccountParameterDefaultStreamlitNotebookWarehouseArrayInput                        `pulumi:"defaultStreamlitNotebookWarehouses"`
+	DisableUiDownloadButtons                                  GetAccountsAccountParameterDisableUiDownloadButtonArrayInput                                  `pulumi:"disableUiDownloadButtons"`
+	DisableUserPrivilegeGrants                                GetAccountsAccountParameterDisableUserPrivilegeGrantArrayInput                                `pulumi:"disableUserPrivilegeGrants"`
+	DisallowedSpcsWorkloadTypes                               GetAccountsAccountParameterDisallowedSpcsWorkloadTypeArrayInput                               `pulumi:"disallowedSpcsWorkloadTypes"`
+	EnableAutomaticSensitiveDataClassificationLogs            GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLogArrayInput            `pulumi:"enableAutomaticSensitiveDataClassificationLogs"`
+	EnableBudgetEventLoggings                                 GetAccountsAccountParameterEnableBudgetEventLoggingArrayInput                                 `pulumi:"enableBudgetEventLoggings"`
+	EnableConsoleOutputs                                      GetAccountsAccountParameterEnableConsoleOutputArrayInput                                      `pulumi:"enableConsoleOutputs"`
+	EnableCortexAnalysts                                      GetAccountsAccountParameterEnableCortexAnalystArrayInput                                      `pulumi:"enableCortexAnalysts"`
+	EnableDataCompactions                                     GetAccountsAccountParameterEnableDataCompactionArrayInput                                     `pulumi:"enableDataCompactions"`
+	EnableEgressCostOptimizers                                GetAccountsAccountParameterEnableEgressCostOptimizerArrayInput                                `pulumi:"enableEgressCostOptimizers"`
+	EnableGetDdlUseDataTypeAliases                            GetAccountsAccountParameterEnableGetDdlUseDataTypeAliasArrayInput                             `pulumi:"enableGetDdlUseDataTypeAliases"`
+	EnableIcebergMergeOnReads                                 GetAccountsAccountParameterEnableIcebergMergeOnReadArrayInput                                 `pulumi:"enableIcebergMergeOnReads"`
+	EnableIdentifierFirstLogins                               GetAccountsAccountParameterEnableIdentifierFirstLoginArrayInput                               `pulumi:"enableIdentifierFirstLogins"`
+	EnableInternalStagesPrivatelinks                          GetAccountsAccountParameterEnableInternalStagesPrivatelinkArrayInput                          `pulumi:"enableInternalStagesPrivatelinks"`
+	EnableNotebookCreationInPersonalDbs                       GetAccountsAccountParameterEnableNotebookCreationInPersonalDbArrayInput                       `pulumi:"enableNotebookCreationInPersonalDbs"`
+	EnablePerAccountAppServicePrivatelinkUrls                 GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrlArrayInput                 `pulumi:"enablePerAccountAppServicePrivatelinkUrls"`
+	EnablePersonalDatabases                                   GetAccountsAccountParameterEnablePersonalDatabaseArrayInput                                   `pulumi:"enablePersonalDatabases"`
+	EnableSpcsBlockStorageSnowflakeFullEncryptionEnforcements GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcementArrayInput `pulumi:"enableSpcsBlockStorageSnowflakeFullEncryptionEnforcements"`
+	EnableTagPropagationEventLoggings                         GetAccountsAccountParameterEnableTagPropagationEventLoggingArrayInput                         `pulumi:"enableTagPropagationEventLoggings"`
+	EnableTriSecretAndRekeyOptOutForImageRepositories         GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepositoryArrayInput          `pulumi:"enableTriSecretAndRekeyOptOutForImageRepositories"`
+	EnableTriSecretAndRekeyOptOutForSpcsBlockStorages         GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorageArrayInput         `pulumi:"enableTriSecretAndRekeyOptOutForSpcsBlockStorages"`
+	EnableUnhandledExceptionsReportings                       GetAccountsAccountParameterEnableUnhandledExceptionsReportingArrayInput                       `pulumi:"enableUnhandledExceptionsReportings"`
+	EnableUnloadPhysicalTypeOptimizations                     GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimizationArrayInput                     `pulumi:"enableUnloadPhysicalTypeOptimizations"`
+	EnableUnredactedQuerySyntaxErrors                         GetAccountsAccountParameterEnableUnredactedQuerySyntaxErrorArrayInput                         `pulumi:"enableUnredactedQuerySyntaxErrors"`
+	EnableUnredactedSecureObjectErrors                        GetAccountsAccountParameterEnableUnredactedSecureObjectErrorArrayInput                        `pulumi:"enableUnredactedSecureObjectErrors"`
+	EnforceNetworkRulesForInternalStages                      GetAccountsAccountParameterEnforceNetworkRulesForInternalStageArrayInput                      `pulumi:"enforceNetworkRulesForInternalStages"`
+	ErrorOnNondeterministicMerges                             GetAccountsAccountParameterErrorOnNondeterministicMergeArrayInput                             `pulumi:"errorOnNondeterministicMerges"`
+	ErrorOnNondeterministicUpdates                            GetAccountsAccountParameterErrorOnNondeterministicUpdateArrayInput                            `pulumi:"errorOnNondeterministicUpdates"`
+	EventTables                                               GetAccountsAccountParameterEventTableArrayInput                                               `pulumi:"eventTables"`
+	ExternalOauthAddPrivilegedRolesToBlockedLists             GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedListArrayInput             `pulumi:"externalOauthAddPrivilegedRolesToBlockedLists"`
+	ExternalVolumes                                           GetAccountsAccountParameterExternalVolumeArrayInput                                           `pulumi:"externalVolumes"`
+	GeographyOutputFormats                                    GetAccountsAccountParameterGeographyOutputFormatArrayInput                                    `pulumi:"geographyOutputFormats"`
+	GeometryOutputFormats                                     GetAccountsAccountParameterGeometryOutputFormatArrayInput                                     `pulumi:"geometryOutputFormats"`
+	HybridTableLockTimeouts                                   GetAccountsAccountParameterHybridTableLockTimeoutArrayInput                                   `pulumi:"hybridTableLockTimeouts"`
+	IcebergVersionDefaults                                    GetAccountsAccountParameterIcebergVersionDefaultArrayInput                                    `pulumi:"icebergVersionDefaults"`
+	InitialReplicationSizeLimitInTbs                          GetAccountsAccountParameterInitialReplicationSizeLimitInTbArrayInput                          `pulumi:"initialReplicationSizeLimitInTbs"`
+	JdbcTreatDecimalAsInts                                    GetAccountsAccountParameterJdbcTreatDecimalAsIntArrayInput                                    `pulumi:"jdbcTreatDecimalAsInts"`
+	JdbcTreatTimestampNtzAsUtcs                               GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtcArrayInput                               `pulumi:"jdbcTreatTimestampNtzAsUtcs"`
+	JdbcUseSessionTimezones                                   GetAccountsAccountParameterJdbcUseSessionTimezoneArrayInput                                   `pulumi:"jdbcUseSessionTimezones"`
+	JsTreatIntegerAsBigints                                   GetAccountsAccountParameterJsTreatIntegerAsBigintArrayInput                                   `pulumi:"jsTreatIntegerAsBigints"`
+	JsonIndents                                               GetAccountsAccountParameterJsonIndentArrayInput                                               `pulumi:"jsonIndents"`
+	ListingAutoFulfillmentReplicationRefreshSchedules         GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshScheduleArrayInput         `pulumi:"listingAutoFulfillmentReplicationRefreshSchedules"`
+	LockTimeouts                                              GetAccountsAccountParameterLockTimeoutArrayInput                                              `pulumi:"lockTimeouts"`
+	LogEventLevels                                            GetAccountsAccountParameterLogEventLevelArrayInput                                            `pulumi:"logEventLevels"`
+	LogLevels                                                 GetAccountsAccountParameterLogLevelArrayInput                                                 `pulumi:"logLevels"`
+	MaxConcurrencyLevels                                      GetAccountsAccountParameterMaxConcurrencyLevelArrayInput                                      `pulumi:"maxConcurrencyLevels"`
+	MaxDataExtensionTimeInDays                                GetAccountsAccountParameterMaxDataExtensionTimeInDayArrayInput                                `pulumi:"maxDataExtensionTimeInDays"`
+	MetricLevels                                              GetAccountsAccountParameterMetricLevelArrayInput                                              `pulumi:"metricLevels"`
+	MinDataRetentionTimeInDays                                GetAccountsAccountParameterMinDataRetentionTimeInDayArrayInput                                `pulumi:"minDataRetentionTimeInDays"`
+	MultiStatementCounts                                      GetAccountsAccountParameterMultiStatementCountArrayInput                                      `pulumi:"multiStatementCounts"`
+	NetworkPolicies                                           GetAccountsAccountParameterNetworkPolicyArrayInput                                            `pulumi:"networkPolicies"`
+	NoorderSequenceAsDefaults                                 GetAccountsAccountParameterNoorderSequenceAsDefaultArrayInput                                 `pulumi:"noorderSequenceAsDefaults"`
+	OauthAddPrivilegedRolesToBlockedLists                     GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedListArrayInput                     `pulumi:"oauthAddPrivilegedRolesToBlockedLists"`
+	OdbcTreatDecimalAsInts                                    GetAccountsAccountParameterOdbcTreatDecimalAsIntArrayInput                                    `pulumi:"odbcTreatDecimalAsInts"`
+	PeriodicDataRekeyings                                     GetAccountsAccountParameterPeriodicDataRekeyingArrayInput                                     `pulumi:"periodicDataRekeyings"`
+	PipeExecutionPauseds                                      GetAccountsAccountParameterPipeExecutionPausedArrayInput                                      `pulumi:"pipeExecutionPauseds"`
+	PreventLoadFromInlineUrls                                 GetAccountsAccountParameterPreventLoadFromInlineUrlArrayInput                                 `pulumi:"preventLoadFromInlineUrls"`
+	PreventUnloadToInlineUrls                                 GetAccountsAccountParameterPreventUnloadToInlineUrlArrayInput                                 `pulumi:"preventUnloadToInlineUrls"`
+	PreventUnloadToInternalStages                             GetAccountsAccountParameterPreventUnloadToInternalStageArrayInput                             `pulumi:"preventUnloadToInternalStages"`
+	PythonProfilerModules                                     GetAccountsAccountParameterPythonProfilerModuleArrayInput                                     `pulumi:"pythonProfilerModules"`
+	PythonProfilerTargetStages                                GetAccountsAccountParameterPythonProfilerTargetStageArrayInput                                `pulumi:"pythonProfilerTargetStages"`
+	QueryTags                                                 GetAccountsAccountParameterQueryTagArrayInput                                                 `pulumi:"queryTags"`
+	QuotedIdentifiersIgnoreCases                              GetAccountsAccountParameterQuotedIdentifiersIgnoreCaseArrayInput                              `pulumi:"quotedIdentifiersIgnoreCases"`
+	ReadConsistencyModes                                      GetAccountsAccountParameterReadConsistencyModeArrayInput                                      `pulumi:"readConsistencyModes"`
+	ReplaceInvalidCharacters                                  GetAccountsAccountParameterReplaceInvalidCharacterArrayInput                                  `pulumi:"replaceInvalidCharacters"`
+	RequireStorageIntegrationForStageCreations                GetAccountsAccountParameterRequireStorageIntegrationForStageCreationArrayInput                `pulumi:"requireStorageIntegrationForStageCreations"`
+	RequireStorageIntegrationForStageOperations               GetAccountsAccountParameterRequireStorageIntegrationForStageOperationArrayInput               `pulumi:"requireStorageIntegrationForStageOperations"`
+	RowTimestampDefaults                                      GetAccountsAccountParameterRowTimestampDefaultArrayInput                                      `pulumi:"rowTimestampDefaults"`
+	RowsPerResultsets                                         GetAccountsAccountParameterRowsPerResultsetArrayInput                                         `pulumi:"rowsPerResultsets"`
+	S3StageVpceDnsNames                                       GetAccountsAccountParameterS3StageVpceDnsNameArrayInput                                       `pulumi:"s3StageVpceDnsNames"`
+	SearchPaths                                               GetAccountsAccountParameterSearchPathArrayInput                                               `pulumi:"searchPaths"`
+	ServerlessTaskMaxStatementSizes                           GetAccountsAccountParameterServerlessTaskMaxStatementSizeArrayInput                           `pulumi:"serverlessTaskMaxStatementSizes"`
+	ServerlessTaskMinStatementSizes                           GetAccountsAccountParameterServerlessTaskMinStatementSizeArrayInput                           `pulumi:"serverlessTaskMinStatementSizes"`
+	ShareRestrictions                                         GetAccountsAccountParameterShareRestrictionArrayInput                                         `pulumi:"shareRestrictions"`
+	SimulatedDataSharingConsumers                             GetAccountsAccountParameterSimulatedDataSharingConsumerArrayInput                             `pulumi:"simulatedDataSharingConsumers"`
+	SqlTraceQueryTexts                                        GetAccountsAccountParameterSqlTraceQueryTextArrayInput                                        `pulumi:"sqlTraceQueryTexts"`
+	SsoLoginPages                                             GetAccountsAccountParameterSsoLoginPageArrayInput                                             `pulumi:"ssoLoginPages"`
+	StatementQueuedTimeoutInSeconds                           GetAccountsAccountParameterStatementQueuedTimeoutInSecondArrayInput                           `pulumi:"statementQueuedTimeoutInSeconds"`
+	StatementTimeoutInSeconds                                 GetAccountsAccountParameterStatementTimeoutInSecondArrayInput                                 `pulumi:"statementTimeoutInSeconds"`
+	StorageSerializationPolicies                              GetAccountsAccountParameterStorageSerializationPolicyArrayInput                               `pulumi:"storageSerializationPolicies"`
+	StrictJsonOutputs                                         GetAccountsAccountParameterStrictJsonOutputArrayInput                                         `pulumi:"strictJsonOutputs"`
+	SuspendTaskAfterNumFailures                               GetAccountsAccountParameterSuspendTaskAfterNumFailureArrayInput                               `pulumi:"suspendTaskAfterNumFailures"`
+	TaskAutoRetryAttempts                                     GetAccountsAccountParameterTaskAutoRetryAttemptArrayInput                                     `pulumi:"taskAutoRetryAttempts"`
+	TimeInputFormats                                          GetAccountsAccountParameterTimeInputFormatArrayInput                                          `pulumi:"timeInputFormats"`
+	TimeOutputFormats                                         GetAccountsAccountParameterTimeOutputFormatArrayInput                                         `pulumi:"timeOutputFormats"`
+	TimestampDayIsAlways24hs                                  GetAccountsAccountParameterTimestampDayIsAlways24hArrayInput                                  `pulumi:"timestampDayIsAlways24hs"`
+	TimestampInputFormats                                     GetAccountsAccountParameterTimestampInputFormatArrayInput                                     `pulumi:"timestampInputFormats"`
+	TimestampLtzOutputFormats                                 GetAccountsAccountParameterTimestampLtzOutputFormatArrayInput                                 `pulumi:"timestampLtzOutputFormats"`
+	TimestampNtzOutputFormats                                 GetAccountsAccountParameterTimestampNtzOutputFormatArrayInput                                 `pulumi:"timestampNtzOutputFormats"`
+	TimestampOutputFormats                                    GetAccountsAccountParameterTimestampOutputFormatArrayInput                                    `pulumi:"timestampOutputFormats"`
+	TimestampTypeMappings                                     GetAccountsAccountParameterTimestampTypeMappingArrayInput                                     `pulumi:"timestampTypeMappings"`
+	TimestampTzOutputFormats                                  GetAccountsAccountParameterTimestampTzOutputFormatArrayInput                                  `pulumi:"timestampTzOutputFormats"`
+	Timezones                                                 GetAccountsAccountParameterTimezoneArrayInput                                                 `pulumi:"timezones"`
+	TraceLevels                                               GetAccountsAccountParameterTraceLevelArrayInput                                               `pulumi:"traceLevels"`
+	TransactionAbortOnErrors                                  GetAccountsAccountParameterTransactionAbortOnErrorArrayInput                                  `pulumi:"transactionAbortOnErrors"`
+	TransactionDefaultIsolationLevels                         GetAccountsAccountParameterTransactionDefaultIsolationLevelArrayInput                         `pulumi:"transactionDefaultIsolationLevels"`
+	TwoDigitCenturyStarts                                     GetAccountsAccountParameterTwoDigitCenturyStartArrayInput                                     `pulumi:"twoDigitCenturyStarts"`
+	UnsupportedDdlActions                                     GetAccountsAccountParameterUnsupportedDdlActionArrayInput                                     `pulumi:"unsupportedDdlActions"`
+	UseCachedResults                                          GetAccountsAccountParameterUseCachedResultArrayInput                                          `pulumi:"useCachedResults"`
+	UseWorkspacesForSqls                                      GetAccountsAccountParameterUseWorkspacesForSqlArrayInput                                      `pulumi:"useWorkspacesForSqls"`
+	UserTaskManagedInitialWarehouseSizes                      GetAccountsAccountParameterUserTaskManagedInitialWarehouseSizeArrayInput                      `pulumi:"userTaskManagedInitialWarehouseSizes"`
+	UserTaskMinimumTriggerIntervalInSeconds                   GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecondArrayInput                   `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
+	UserTaskTimeoutMs                                         GetAccountsAccountParameterUserTaskTimeoutMArrayInput                                         `pulumi:"userTaskTimeoutMs"`
+	WeekOfYearPolicies                                        GetAccountsAccountParameterWeekOfYearPolicyArrayInput                                         `pulumi:"weekOfYearPolicies"`
+	WeekStarts                                                GetAccountsAccountParameterWeekStartArrayInput                                                `pulumi:"weekStarts"`
+}
+
+func (GetAccountsAccountParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameter)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterArgs) ToGetAccountsAccountParameterOutput() GetAccountsAccountParameterOutput {
+	return i.ToGetAccountsAccountParameterOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterArgs) ToGetAccountsAccountParameterOutputWithContext(ctx context.Context) GetAccountsAccountParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterOutput)
+}
+
+// GetAccountsAccountParameterArrayInput is an input type that accepts GetAccountsAccountParameterArray and GetAccountsAccountParameterArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterArrayInput` via:
+//
+//	GetAccountsAccountParameterArray{ GetAccountsAccountParameterArgs{...} }
+type GetAccountsAccountParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterArrayOutput() GetAccountsAccountParameterArrayOutput
+	ToGetAccountsAccountParameterArrayOutputWithContext(context.Context) GetAccountsAccountParameterArrayOutput
+}
+
+type GetAccountsAccountParameterArray []GetAccountsAccountParameterInput
+
+func (GetAccountsAccountParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameter)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterArray) ToGetAccountsAccountParameterArrayOutput() GetAccountsAccountParameterArrayOutput {
+	return i.ToGetAccountsAccountParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterArray) ToGetAccountsAccountParameterArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterArrayOutput)
+}
+
+type GetAccountsAccountParameterOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameter)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterOutput) ToGetAccountsAccountParameterOutput() GetAccountsAccountParameterOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterOutput) ToGetAccountsAccountParameterOutputWithContext(ctx context.Context) GetAccountsAccountParameterOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterOutput) AbortDetachedQueries() GetAccountsAccountParameterAbortDetachedQueryArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterAbortDetachedQuery {
+		return v.AbortDetachedQueries
+	}).(GetAccountsAccountParameterAbortDetachedQueryArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ActivePythonProfilers() GetAccountsAccountParameterActivePythonProfilerArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterActivePythonProfiler {
+		return v.ActivePythonProfilers
+	}).(GetAccountsAccountParameterActivePythonProfilerArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) AllowBindValuesAccesses() GetAccountsAccountParameterAllowBindValuesAccessArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterAllowBindValuesAccess {
+		return v.AllowBindValuesAccesses
+	}).(GetAccountsAccountParameterAllowBindValuesAccessArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) AllowClientMfaCachings() GetAccountsAccountParameterAllowClientMfaCachingArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterAllowClientMfaCaching {
+		return v.AllowClientMfaCachings
+	}).(GetAccountsAccountParameterAllowClientMfaCachingArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) AllowIdTokens() GetAccountsAccountParameterAllowIdTokenArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterAllowIdToken { return v.AllowIdTokens }).(GetAccountsAccountParameterAllowIdTokenArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) AllowedSpcsWorkloadTypes() GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterAllowedSpcsWorkloadType {
+		return v.AllowedSpcsWorkloadTypes
+	}).(GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) Autocommits() GetAccountsAccountParameterAutocommitArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterAutocommit { return v.Autocommits }).(GetAccountsAccountParameterAutocommitArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) BaseLocationPrefixes() GetAccountsAccountParameterBaseLocationPrefixArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterBaseLocationPrefix {
+		return v.BaseLocationPrefixes
+	}).(GetAccountsAccountParameterBaseLocationPrefixArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) BinaryInputFormats() GetAccountsAccountParameterBinaryInputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterBinaryInputFormat {
+		return v.BinaryInputFormats
+	}).(GetAccountsAccountParameterBinaryInputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) BinaryOutputFormats() GetAccountsAccountParameterBinaryOutputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterBinaryOutputFormat {
+		return v.BinaryOutputFormats
+	}).(GetAccountsAccountParameterBinaryOutputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) CatalogSyncs() GetAccountsAccountParameterCatalogSyncArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterCatalogSync { return v.CatalogSyncs }).(GetAccountsAccountParameterCatalogSyncArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) Catalogs() GetAccountsAccountParameterCatalogArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterCatalog { return v.Catalogs }).(GetAccountsAccountParameterCatalogArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientEnableLogInfoStatementParameters() GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientEnableLogInfoStatementParameter {
+		return v.ClientEnableLogInfoStatementParameters
+	}).(GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientEncryptionKeySizes() GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientEncryptionKeySize {
+		return v.ClientEncryptionKeySizes
+	}).(GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientMemoryLimits() GetAccountsAccountParameterClientMemoryLimitArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientMemoryLimit {
+		return v.ClientMemoryLimits
+	}).(GetAccountsAccountParameterClientMemoryLimitArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientMetadataRequestUseConnectionCtxes() GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx {
+		return v.ClientMetadataRequestUseConnectionCtxes
+	}).(GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientMetadataUseSessionDatabases() GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientMetadataUseSessionDatabase {
+		return v.ClientMetadataUseSessionDatabases
+	}).(GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientPrefetchThreads() GetAccountsAccountParameterClientPrefetchThreadArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientPrefetchThread {
+		return v.ClientPrefetchThreads
+	}).(GetAccountsAccountParameterClientPrefetchThreadArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientResultChunkSizes() GetAccountsAccountParameterClientResultChunkSizeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientResultChunkSize {
+		return v.ClientResultChunkSizes
+	}).(GetAccountsAccountParameterClientResultChunkSizeArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientResultColumnCaseInsensitives() GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientResultColumnCaseInsensitive {
+		return v.ClientResultColumnCaseInsensitives
+	}).(GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientSessionKeepAliveHeartbeatFrequencies() GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency {
+		return v.ClientSessionKeepAliveHeartbeatFrequencies
+	}).(GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientSessionKeepAlives() GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientSessionKeepAlife {
+		return v.ClientSessionKeepAlives
+	}).(GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ClientTimestampTypeMappings() GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterClientTimestampTypeMapping {
+		return v.ClientTimestampTypeMappings
+	}).(GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) CortexCodeCliDailyEstCreditLimitPerUsers() GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser {
+		return v.CortexCodeCliDailyEstCreditLimitPerUsers
+	}).(GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) CortexCodeDesktopDailyEstCreditLimitPerUsers() GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser {
+		return v.CortexCodeDesktopDailyEstCreditLimitPerUsers
+	}).(GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) CortexCodeSnowsightDailyEstCreditLimitPerUsers() GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser {
+		return v.CortexCodeSnowsightDailyEstCreditLimitPerUsers
+	}).(GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) CortexEnabledCrossRegions() GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterCortexEnabledCrossRegion {
+		return v.CortexEnabledCrossRegions
+	}).(GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) CortexModelsAllowlists() GetAccountsAccountParameterCortexModelsAllowlistArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterCortexModelsAllowlist {
+		return v.CortexModelsAllowlists
+	}).(GetAccountsAccountParameterCortexModelsAllowlistArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) CsvTimestampFormats() GetAccountsAccountParameterCsvTimestampFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterCsvTimestampFormat {
+		return v.CsvTimestampFormats
+	}).(GetAccountsAccountParameterCsvTimestampFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DataMetricSchedules() GetAccountsAccountParameterDataMetricScheduleArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDataMetricSchedule {
+		return v.DataMetricSchedules
+	}).(GetAccountsAccountParameterDataMetricScheduleArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DataRetentionTimeInDays() GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDataRetentionTimeInDay {
 		return v.DataRetentionTimeInDays
-	}).(GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput)
+	}).(GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) DefaultDdlCollations() GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterDefaultDdlCollation {
+func (o GetAccountsAccountParameterOutput) DateInputFormats() GetAccountsAccountParameterDateInputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDateInputFormat {
+		return v.DateInputFormats
+	}).(GetAccountsAccountParameterDateInputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DateOutputFormats() GetAccountsAccountParameterDateOutputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDateOutputFormat {
+		return v.DateOutputFormats
+	}).(GetAccountsAccountParameterDateOutputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DefaultDbtVersions() GetAccountsAccountParameterDefaultDbtVersionArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDefaultDbtVersion {
+		return v.DefaultDbtVersions
+	}).(GetAccountsAccountParameterDefaultDbtVersionArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DefaultDdlCollations() GetAccountsAccountParameterDefaultDdlCollationArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDefaultDdlCollation {
 		return v.DefaultDdlCollations
-	}).(GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput)
+	}).(GetAccountsAccountParameterDefaultDdlCollationArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) EnableConsoleOutputs() GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterEnableConsoleOutput {
+func (o GetAccountsAccountParameterOutput) DefaultNotebookComputePoolCpus() GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDefaultNotebookComputePoolCpus {
+		return v.DefaultNotebookComputePoolCpus
+	}).(GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DefaultNotebookComputePoolGpus() GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDefaultNotebookComputePoolGpus {
+		return v.DefaultNotebookComputePoolGpus
+	}).(GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DefaultNullOrderings() GetAccountsAccountParameterDefaultNullOrderingArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDefaultNullOrdering {
+		return v.DefaultNullOrderings
+	}).(GetAccountsAccountParameterDefaultNullOrderingArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DefaultStreamlitComputePools() GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDefaultStreamlitComputePool {
+		return v.DefaultStreamlitComputePools
+	}).(GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DefaultStreamlitNotebookWarehouses() GetAccountsAccountParameterDefaultStreamlitNotebookWarehouseArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDefaultStreamlitNotebookWarehouse {
+		return v.DefaultStreamlitNotebookWarehouses
+	}).(GetAccountsAccountParameterDefaultStreamlitNotebookWarehouseArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DisableUiDownloadButtons() GetAccountsAccountParameterDisableUiDownloadButtonArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDisableUiDownloadButton {
+		return v.DisableUiDownloadButtons
+	}).(GetAccountsAccountParameterDisableUiDownloadButtonArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DisableUserPrivilegeGrants() GetAccountsAccountParameterDisableUserPrivilegeGrantArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDisableUserPrivilegeGrant {
+		return v.DisableUserPrivilegeGrants
+	}).(GetAccountsAccountParameterDisableUserPrivilegeGrantArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) DisallowedSpcsWorkloadTypes() GetAccountsAccountParameterDisallowedSpcsWorkloadTypeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterDisallowedSpcsWorkloadType {
+		return v.DisallowedSpcsWorkloadTypes
+	}).(GetAccountsAccountParameterDisallowedSpcsWorkloadTypeArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableAutomaticSensitiveDataClassificationLogs() GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLogArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLog {
+		return v.EnableAutomaticSensitiveDataClassificationLogs
+	}).(GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLogArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableBudgetEventLoggings() GetAccountsAccountParameterEnableBudgetEventLoggingArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableBudgetEventLogging {
+		return v.EnableBudgetEventLoggings
+	}).(GetAccountsAccountParameterEnableBudgetEventLoggingArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableConsoleOutputs() GetAccountsAccountParameterEnableConsoleOutputArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableConsoleOutput {
 		return v.EnableConsoleOutputs
-	}).(GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput)
+	}).(GetAccountsAccountParameterEnableConsoleOutputArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) ExternalVolumes() GetDatabasesDatabaseParameterExternalVolumeArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterExternalVolume {
+func (o GetAccountsAccountParameterOutput) EnableCortexAnalysts() GetAccountsAccountParameterEnableCortexAnalystArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableCortexAnalyst {
+		return v.EnableCortexAnalysts
+	}).(GetAccountsAccountParameterEnableCortexAnalystArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableDataCompactions() GetAccountsAccountParameterEnableDataCompactionArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableDataCompaction {
+		return v.EnableDataCompactions
+	}).(GetAccountsAccountParameterEnableDataCompactionArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableEgressCostOptimizers() GetAccountsAccountParameterEnableEgressCostOptimizerArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableEgressCostOptimizer {
+		return v.EnableEgressCostOptimizers
+	}).(GetAccountsAccountParameterEnableEgressCostOptimizerArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableGetDdlUseDataTypeAliases() GetAccountsAccountParameterEnableGetDdlUseDataTypeAliasArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableGetDdlUseDataTypeAlias {
+		return v.EnableGetDdlUseDataTypeAliases
+	}).(GetAccountsAccountParameterEnableGetDdlUseDataTypeAliasArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableIcebergMergeOnReads() GetAccountsAccountParameterEnableIcebergMergeOnReadArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableIcebergMergeOnRead {
+		return v.EnableIcebergMergeOnReads
+	}).(GetAccountsAccountParameterEnableIcebergMergeOnReadArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableIdentifierFirstLogins() GetAccountsAccountParameterEnableIdentifierFirstLoginArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableIdentifierFirstLogin {
+		return v.EnableIdentifierFirstLogins
+	}).(GetAccountsAccountParameterEnableIdentifierFirstLoginArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableInternalStagesPrivatelinks() GetAccountsAccountParameterEnableInternalStagesPrivatelinkArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableInternalStagesPrivatelink {
+		return v.EnableInternalStagesPrivatelinks
+	}).(GetAccountsAccountParameterEnableInternalStagesPrivatelinkArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableNotebookCreationInPersonalDbs() GetAccountsAccountParameterEnableNotebookCreationInPersonalDbArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableNotebookCreationInPersonalDb {
+		return v.EnableNotebookCreationInPersonalDbs
+	}).(GetAccountsAccountParameterEnableNotebookCreationInPersonalDbArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnablePerAccountAppServicePrivatelinkUrls() GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrlArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrl {
+		return v.EnablePerAccountAppServicePrivatelinkUrls
+	}).(GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrlArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnablePersonalDatabases() GetAccountsAccountParameterEnablePersonalDatabaseArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnablePersonalDatabase {
+		return v.EnablePersonalDatabases
+	}).(GetAccountsAccountParameterEnablePersonalDatabaseArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableSpcsBlockStorageSnowflakeFullEncryptionEnforcements() GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcementArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcement {
+		return v.EnableSpcsBlockStorageSnowflakeFullEncryptionEnforcements
+	}).(GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcementArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableTagPropagationEventLoggings() GetAccountsAccountParameterEnableTagPropagationEventLoggingArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableTagPropagationEventLogging {
+		return v.EnableTagPropagationEventLoggings
+	}).(GetAccountsAccountParameterEnableTagPropagationEventLoggingArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableTriSecretAndRekeyOptOutForImageRepositories() GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepositoryArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepository {
+		return v.EnableTriSecretAndRekeyOptOutForImageRepositories
+	}).(GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepositoryArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableTriSecretAndRekeyOptOutForSpcsBlockStorages() GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorageArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorage {
+		return v.EnableTriSecretAndRekeyOptOutForSpcsBlockStorages
+	}).(GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorageArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableUnhandledExceptionsReportings() GetAccountsAccountParameterEnableUnhandledExceptionsReportingArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableUnhandledExceptionsReporting {
+		return v.EnableUnhandledExceptionsReportings
+	}).(GetAccountsAccountParameterEnableUnhandledExceptionsReportingArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableUnloadPhysicalTypeOptimizations() GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimizationArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimization {
+		return v.EnableUnloadPhysicalTypeOptimizations
+	}).(GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimizationArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableUnredactedQuerySyntaxErrors() GetAccountsAccountParameterEnableUnredactedQuerySyntaxErrorArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableUnredactedQuerySyntaxError {
+		return v.EnableUnredactedQuerySyntaxErrors
+	}).(GetAccountsAccountParameterEnableUnredactedQuerySyntaxErrorArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnableUnredactedSecureObjectErrors() GetAccountsAccountParameterEnableUnredactedSecureObjectErrorArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnableUnredactedSecureObjectError {
+		return v.EnableUnredactedSecureObjectErrors
+	}).(GetAccountsAccountParameterEnableUnredactedSecureObjectErrorArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EnforceNetworkRulesForInternalStages() GetAccountsAccountParameterEnforceNetworkRulesForInternalStageArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEnforceNetworkRulesForInternalStage {
+		return v.EnforceNetworkRulesForInternalStages
+	}).(GetAccountsAccountParameterEnforceNetworkRulesForInternalStageArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ErrorOnNondeterministicMerges() GetAccountsAccountParameterErrorOnNondeterministicMergeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterErrorOnNondeterministicMerge {
+		return v.ErrorOnNondeterministicMerges
+	}).(GetAccountsAccountParameterErrorOnNondeterministicMergeArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ErrorOnNondeterministicUpdates() GetAccountsAccountParameterErrorOnNondeterministicUpdateArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterErrorOnNondeterministicUpdate {
+		return v.ErrorOnNondeterministicUpdates
+	}).(GetAccountsAccountParameterErrorOnNondeterministicUpdateArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) EventTables() GetAccountsAccountParameterEventTableArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterEventTable { return v.EventTables }).(GetAccountsAccountParameterEventTableArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ExternalOauthAddPrivilegedRolesToBlockedLists() GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedListArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedList {
+		return v.ExternalOauthAddPrivilegedRolesToBlockedLists
+	}).(GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedListArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ExternalVolumes() GetAccountsAccountParameterExternalVolumeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterExternalVolume {
 		return v.ExternalVolumes
-	}).(GetDatabasesDatabaseParameterExternalVolumeArrayOutput)
+	}).(GetAccountsAccountParameterExternalVolumeArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) LogEventLevels() GetDatabasesDatabaseParameterLogEventLevelArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterLogEventLevel {
+func (o GetAccountsAccountParameterOutput) GeographyOutputFormats() GetAccountsAccountParameterGeographyOutputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterGeographyOutputFormat {
+		return v.GeographyOutputFormats
+	}).(GetAccountsAccountParameterGeographyOutputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) GeometryOutputFormats() GetAccountsAccountParameterGeometryOutputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterGeometryOutputFormat {
+		return v.GeometryOutputFormats
+	}).(GetAccountsAccountParameterGeometryOutputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) HybridTableLockTimeouts() GetAccountsAccountParameterHybridTableLockTimeoutArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterHybridTableLockTimeout {
+		return v.HybridTableLockTimeouts
+	}).(GetAccountsAccountParameterHybridTableLockTimeoutArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) IcebergVersionDefaults() GetAccountsAccountParameterIcebergVersionDefaultArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterIcebergVersionDefault {
+		return v.IcebergVersionDefaults
+	}).(GetAccountsAccountParameterIcebergVersionDefaultArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) InitialReplicationSizeLimitInTbs() GetAccountsAccountParameterInitialReplicationSizeLimitInTbArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterInitialReplicationSizeLimitInTb {
+		return v.InitialReplicationSizeLimitInTbs
+	}).(GetAccountsAccountParameterInitialReplicationSizeLimitInTbArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) JdbcTreatDecimalAsInts() GetAccountsAccountParameterJdbcTreatDecimalAsIntArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterJdbcTreatDecimalAsInt {
+		return v.JdbcTreatDecimalAsInts
+	}).(GetAccountsAccountParameterJdbcTreatDecimalAsIntArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) JdbcTreatTimestampNtzAsUtcs() GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtcArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtc {
+		return v.JdbcTreatTimestampNtzAsUtcs
+	}).(GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtcArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) JdbcUseSessionTimezones() GetAccountsAccountParameterJdbcUseSessionTimezoneArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterJdbcUseSessionTimezone {
+		return v.JdbcUseSessionTimezones
+	}).(GetAccountsAccountParameterJdbcUseSessionTimezoneArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) JsTreatIntegerAsBigints() GetAccountsAccountParameterJsTreatIntegerAsBigintArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterJsTreatIntegerAsBigint {
+		return v.JsTreatIntegerAsBigints
+	}).(GetAccountsAccountParameterJsTreatIntegerAsBigintArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) JsonIndents() GetAccountsAccountParameterJsonIndentArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterJsonIndent { return v.JsonIndents }).(GetAccountsAccountParameterJsonIndentArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ListingAutoFulfillmentReplicationRefreshSchedules() GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshScheduleArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshSchedule {
+		return v.ListingAutoFulfillmentReplicationRefreshSchedules
+	}).(GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshScheduleArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) LockTimeouts() GetAccountsAccountParameterLockTimeoutArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterLockTimeout { return v.LockTimeouts }).(GetAccountsAccountParameterLockTimeoutArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) LogEventLevels() GetAccountsAccountParameterLogEventLevelArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterLogEventLevel {
 		return v.LogEventLevels
-	}).(GetDatabasesDatabaseParameterLogEventLevelArrayOutput)
+	}).(GetAccountsAccountParameterLogEventLevelArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) LogLevels() GetDatabasesDatabaseParameterLogLevelArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterLogLevel { return v.LogLevels }).(GetDatabasesDatabaseParameterLogLevelArrayOutput)
+func (o GetAccountsAccountParameterOutput) LogLevels() GetAccountsAccountParameterLogLevelArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterLogLevel { return v.LogLevels }).(GetAccountsAccountParameterLogLevelArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) MaxDataExtensionTimeInDays() GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterMaxDataExtensionTimeInDay {
+func (o GetAccountsAccountParameterOutput) MaxConcurrencyLevels() GetAccountsAccountParameterMaxConcurrencyLevelArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterMaxConcurrencyLevel {
+		return v.MaxConcurrencyLevels
+	}).(GetAccountsAccountParameterMaxConcurrencyLevelArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) MaxDataExtensionTimeInDays() GetAccountsAccountParameterMaxDataExtensionTimeInDayArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterMaxDataExtensionTimeInDay {
 		return v.MaxDataExtensionTimeInDays
-	}).(GetDatabasesDatabaseParameterMaxDataExtensionTimeInDayArrayOutput)
+	}).(GetAccountsAccountParameterMaxDataExtensionTimeInDayArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) QuotedIdentifiersIgnoreCases() GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCase {
+func (o GetAccountsAccountParameterOutput) MetricLevels() GetAccountsAccountParameterMetricLevelArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterMetricLevel { return v.MetricLevels }).(GetAccountsAccountParameterMetricLevelArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) MinDataRetentionTimeInDays() GetAccountsAccountParameterMinDataRetentionTimeInDayArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterMinDataRetentionTimeInDay {
+		return v.MinDataRetentionTimeInDays
+	}).(GetAccountsAccountParameterMinDataRetentionTimeInDayArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) MultiStatementCounts() GetAccountsAccountParameterMultiStatementCountArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterMultiStatementCount {
+		return v.MultiStatementCounts
+	}).(GetAccountsAccountParameterMultiStatementCountArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) NetworkPolicies() GetAccountsAccountParameterNetworkPolicyArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterNetworkPolicy {
+		return v.NetworkPolicies
+	}).(GetAccountsAccountParameterNetworkPolicyArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) NoorderSequenceAsDefaults() GetAccountsAccountParameterNoorderSequenceAsDefaultArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterNoorderSequenceAsDefault {
+		return v.NoorderSequenceAsDefaults
+	}).(GetAccountsAccountParameterNoorderSequenceAsDefaultArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) OauthAddPrivilegedRolesToBlockedLists() GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedListArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedList {
+		return v.OauthAddPrivilegedRolesToBlockedLists
+	}).(GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedListArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) OdbcTreatDecimalAsInts() GetAccountsAccountParameterOdbcTreatDecimalAsIntArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterOdbcTreatDecimalAsInt {
+		return v.OdbcTreatDecimalAsInts
+	}).(GetAccountsAccountParameterOdbcTreatDecimalAsIntArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) PeriodicDataRekeyings() GetAccountsAccountParameterPeriodicDataRekeyingArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterPeriodicDataRekeying {
+		return v.PeriodicDataRekeyings
+	}).(GetAccountsAccountParameterPeriodicDataRekeyingArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) PipeExecutionPauseds() GetAccountsAccountParameterPipeExecutionPausedArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterPipeExecutionPaused {
+		return v.PipeExecutionPauseds
+	}).(GetAccountsAccountParameterPipeExecutionPausedArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) PreventLoadFromInlineUrls() GetAccountsAccountParameterPreventLoadFromInlineUrlArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterPreventLoadFromInlineUrl {
+		return v.PreventLoadFromInlineUrls
+	}).(GetAccountsAccountParameterPreventLoadFromInlineUrlArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) PreventUnloadToInlineUrls() GetAccountsAccountParameterPreventUnloadToInlineUrlArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterPreventUnloadToInlineUrl {
+		return v.PreventUnloadToInlineUrls
+	}).(GetAccountsAccountParameterPreventUnloadToInlineUrlArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) PreventUnloadToInternalStages() GetAccountsAccountParameterPreventUnloadToInternalStageArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterPreventUnloadToInternalStage {
+		return v.PreventUnloadToInternalStages
+	}).(GetAccountsAccountParameterPreventUnloadToInternalStageArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) PythonProfilerModules() GetAccountsAccountParameterPythonProfilerModuleArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterPythonProfilerModule {
+		return v.PythonProfilerModules
+	}).(GetAccountsAccountParameterPythonProfilerModuleArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) PythonProfilerTargetStages() GetAccountsAccountParameterPythonProfilerTargetStageArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterPythonProfilerTargetStage {
+		return v.PythonProfilerTargetStages
+	}).(GetAccountsAccountParameterPythonProfilerTargetStageArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) QueryTags() GetAccountsAccountParameterQueryTagArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterQueryTag { return v.QueryTags }).(GetAccountsAccountParameterQueryTagArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) QuotedIdentifiersIgnoreCases() GetAccountsAccountParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterQuotedIdentifiersIgnoreCase {
 		return v.QuotedIdentifiersIgnoreCases
-	}).(GetDatabasesDatabaseParameterQuotedIdentifiersIgnoreCaseArrayOutput)
+	}).(GetAccountsAccountParameterQuotedIdentifiersIgnoreCaseArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) ReplaceInvalidCharacters() GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterReplaceInvalidCharacter {
+func (o GetAccountsAccountParameterOutput) ReadConsistencyModes() GetAccountsAccountParameterReadConsistencyModeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterReadConsistencyMode {
+		return v.ReadConsistencyModes
+	}).(GetAccountsAccountParameterReadConsistencyModeArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ReplaceInvalidCharacters() GetAccountsAccountParameterReplaceInvalidCharacterArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterReplaceInvalidCharacter {
 		return v.ReplaceInvalidCharacters
-	}).(GetDatabasesDatabaseParameterReplaceInvalidCharacterArrayOutput)
+	}).(GetAccountsAccountParameterReplaceInvalidCharacterArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) StorageSerializationPolicies() GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterStorageSerializationPolicy {
+func (o GetAccountsAccountParameterOutput) RequireStorageIntegrationForStageCreations() GetAccountsAccountParameterRequireStorageIntegrationForStageCreationArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterRequireStorageIntegrationForStageCreation {
+		return v.RequireStorageIntegrationForStageCreations
+	}).(GetAccountsAccountParameterRequireStorageIntegrationForStageCreationArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) RequireStorageIntegrationForStageOperations() GetAccountsAccountParameterRequireStorageIntegrationForStageOperationArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterRequireStorageIntegrationForStageOperation {
+		return v.RequireStorageIntegrationForStageOperations
+	}).(GetAccountsAccountParameterRequireStorageIntegrationForStageOperationArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) RowTimestampDefaults() GetAccountsAccountParameterRowTimestampDefaultArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterRowTimestampDefault {
+		return v.RowTimestampDefaults
+	}).(GetAccountsAccountParameterRowTimestampDefaultArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) RowsPerResultsets() GetAccountsAccountParameterRowsPerResultsetArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterRowsPerResultset {
+		return v.RowsPerResultsets
+	}).(GetAccountsAccountParameterRowsPerResultsetArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) S3StageVpceDnsNames() GetAccountsAccountParameterS3StageVpceDnsNameArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterS3StageVpceDnsName {
+		return v.S3StageVpceDnsNames
+	}).(GetAccountsAccountParameterS3StageVpceDnsNameArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) SearchPaths() GetAccountsAccountParameterSearchPathArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterSearchPath { return v.SearchPaths }).(GetAccountsAccountParameterSearchPathArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ServerlessTaskMaxStatementSizes() GetAccountsAccountParameterServerlessTaskMaxStatementSizeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterServerlessTaskMaxStatementSize {
+		return v.ServerlessTaskMaxStatementSizes
+	}).(GetAccountsAccountParameterServerlessTaskMaxStatementSizeArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ServerlessTaskMinStatementSizes() GetAccountsAccountParameterServerlessTaskMinStatementSizeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterServerlessTaskMinStatementSize {
+		return v.ServerlessTaskMinStatementSizes
+	}).(GetAccountsAccountParameterServerlessTaskMinStatementSizeArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) ShareRestrictions() GetAccountsAccountParameterShareRestrictionArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterShareRestriction {
+		return v.ShareRestrictions
+	}).(GetAccountsAccountParameterShareRestrictionArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) SimulatedDataSharingConsumers() GetAccountsAccountParameterSimulatedDataSharingConsumerArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterSimulatedDataSharingConsumer {
+		return v.SimulatedDataSharingConsumers
+	}).(GetAccountsAccountParameterSimulatedDataSharingConsumerArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) SqlTraceQueryTexts() GetAccountsAccountParameterSqlTraceQueryTextArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterSqlTraceQueryText {
+		return v.SqlTraceQueryTexts
+	}).(GetAccountsAccountParameterSqlTraceQueryTextArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) SsoLoginPages() GetAccountsAccountParameterSsoLoginPageArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterSsoLoginPage { return v.SsoLoginPages }).(GetAccountsAccountParameterSsoLoginPageArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) StatementQueuedTimeoutInSeconds() GetAccountsAccountParameterStatementQueuedTimeoutInSecondArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterStatementQueuedTimeoutInSecond {
+		return v.StatementQueuedTimeoutInSeconds
+	}).(GetAccountsAccountParameterStatementQueuedTimeoutInSecondArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) StatementTimeoutInSeconds() GetAccountsAccountParameterStatementTimeoutInSecondArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterStatementTimeoutInSecond {
+		return v.StatementTimeoutInSeconds
+	}).(GetAccountsAccountParameterStatementTimeoutInSecondArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) StorageSerializationPolicies() GetAccountsAccountParameterStorageSerializationPolicyArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterStorageSerializationPolicy {
 		return v.StorageSerializationPolicies
-	}).(GetDatabasesDatabaseParameterStorageSerializationPolicyArrayOutput)
+	}).(GetAccountsAccountParameterStorageSerializationPolicyArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) SuspendTaskAfterNumFailures() GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterSuspendTaskAfterNumFailure {
+func (o GetAccountsAccountParameterOutput) StrictJsonOutputs() GetAccountsAccountParameterStrictJsonOutputArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterStrictJsonOutput {
+		return v.StrictJsonOutputs
+	}).(GetAccountsAccountParameterStrictJsonOutputArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) SuspendTaskAfterNumFailures() GetAccountsAccountParameterSuspendTaskAfterNumFailureArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterSuspendTaskAfterNumFailure {
 		return v.SuspendTaskAfterNumFailures
-	}).(GetDatabasesDatabaseParameterSuspendTaskAfterNumFailureArrayOutput)
+	}).(GetAccountsAccountParameterSuspendTaskAfterNumFailureArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) TaskAutoRetryAttempts() GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterTaskAutoRetryAttempt {
+func (o GetAccountsAccountParameterOutput) TaskAutoRetryAttempts() GetAccountsAccountParameterTaskAutoRetryAttemptArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTaskAutoRetryAttempt {
 		return v.TaskAutoRetryAttempts
-	}).(GetDatabasesDatabaseParameterTaskAutoRetryAttemptArrayOutput)
+	}).(GetAccountsAccountParameterTaskAutoRetryAttemptArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) TraceLevels() GetDatabasesDatabaseParameterTraceLevelArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterTraceLevel { return v.TraceLevels }).(GetDatabasesDatabaseParameterTraceLevelArrayOutput)
+func (o GetAccountsAccountParameterOutput) TimeInputFormats() GetAccountsAccountParameterTimeInputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTimeInputFormat {
+		return v.TimeInputFormats
+	}).(GetAccountsAccountParameterTimeInputFormatArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) UserTaskManagedInitialWarehouseSizes() GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSize {
+func (o GetAccountsAccountParameterOutput) TimeOutputFormats() GetAccountsAccountParameterTimeOutputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTimeOutputFormat {
+		return v.TimeOutputFormats
+	}).(GetAccountsAccountParameterTimeOutputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TimestampDayIsAlways24hs() GetAccountsAccountParameterTimestampDayIsAlways24hArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTimestampDayIsAlways24h {
+		return v.TimestampDayIsAlways24hs
+	}).(GetAccountsAccountParameterTimestampDayIsAlways24hArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TimestampInputFormats() GetAccountsAccountParameterTimestampInputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTimestampInputFormat {
+		return v.TimestampInputFormats
+	}).(GetAccountsAccountParameterTimestampInputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TimestampLtzOutputFormats() GetAccountsAccountParameterTimestampLtzOutputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTimestampLtzOutputFormat {
+		return v.TimestampLtzOutputFormats
+	}).(GetAccountsAccountParameterTimestampLtzOutputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TimestampNtzOutputFormats() GetAccountsAccountParameterTimestampNtzOutputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTimestampNtzOutputFormat {
+		return v.TimestampNtzOutputFormats
+	}).(GetAccountsAccountParameterTimestampNtzOutputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TimestampOutputFormats() GetAccountsAccountParameterTimestampOutputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTimestampOutputFormat {
+		return v.TimestampOutputFormats
+	}).(GetAccountsAccountParameterTimestampOutputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TimestampTypeMappings() GetAccountsAccountParameterTimestampTypeMappingArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTimestampTypeMapping {
+		return v.TimestampTypeMappings
+	}).(GetAccountsAccountParameterTimestampTypeMappingArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TimestampTzOutputFormats() GetAccountsAccountParameterTimestampTzOutputFormatArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTimestampTzOutputFormat {
+		return v.TimestampTzOutputFormats
+	}).(GetAccountsAccountParameterTimestampTzOutputFormatArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) Timezones() GetAccountsAccountParameterTimezoneArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTimezone { return v.Timezones }).(GetAccountsAccountParameterTimezoneArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TraceLevels() GetAccountsAccountParameterTraceLevelArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTraceLevel { return v.TraceLevels }).(GetAccountsAccountParameterTraceLevelArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TransactionAbortOnErrors() GetAccountsAccountParameterTransactionAbortOnErrorArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTransactionAbortOnError {
+		return v.TransactionAbortOnErrors
+	}).(GetAccountsAccountParameterTransactionAbortOnErrorArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TransactionDefaultIsolationLevels() GetAccountsAccountParameterTransactionDefaultIsolationLevelArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTransactionDefaultIsolationLevel {
+		return v.TransactionDefaultIsolationLevels
+	}).(GetAccountsAccountParameterTransactionDefaultIsolationLevelArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) TwoDigitCenturyStarts() GetAccountsAccountParameterTwoDigitCenturyStartArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterTwoDigitCenturyStart {
+		return v.TwoDigitCenturyStarts
+	}).(GetAccountsAccountParameterTwoDigitCenturyStartArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) UnsupportedDdlActions() GetAccountsAccountParameterUnsupportedDdlActionArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterUnsupportedDdlAction {
+		return v.UnsupportedDdlActions
+	}).(GetAccountsAccountParameterUnsupportedDdlActionArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) UseCachedResults() GetAccountsAccountParameterUseCachedResultArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterUseCachedResult {
+		return v.UseCachedResults
+	}).(GetAccountsAccountParameterUseCachedResultArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) UseWorkspacesForSqls() GetAccountsAccountParameterUseWorkspacesForSqlArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterUseWorkspacesForSql {
+		return v.UseWorkspacesForSqls
+	}).(GetAccountsAccountParameterUseWorkspacesForSqlArrayOutput)
+}
+
+func (o GetAccountsAccountParameterOutput) UserTaskManagedInitialWarehouseSizes() GetAccountsAccountParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterUserTaskManagedInitialWarehouseSize {
 		return v.UserTaskManagedInitialWarehouseSizes
-	}).(GetDatabasesDatabaseParameterUserTaskManagedInitialWarehouseSizeArrayOutput)
+	}).(GetAccountsAccountParameterUserTaskManagedInitialWarehouseSizeArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) UserTaskMinimumTriggerIntervalInSeconds() GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecond {
+func (o GetAccountsAccountParameterOutput) UserTaskMinimumTriggerIntervalInSeconds() GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecond {
 		return v.UserTaskMinimumTriggerIntervalInSeconds
-	}).(GetDatabasesDatabaseParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput)
+	}).(GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterOutput) UserTaskTimeoutMs() GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameter) []GetDatabasesDatabaseParameterUserTaskTimeoutM {
+func (o GetAccountsAccountParameterOutput) UserTaskTimeoutMs() GetAccountsAccountParameterUserTaskTimeoutMArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterUserTaskTimeoutM {
 		return v.UserTaskTimeoutMs
-	}).(GetDatabasesDatabaseParameterUserTaskTimeoutMArrayOutput)
+	}).(GetAccountsAccountParameterUserTaskTimeoutMArrayOutput)
 }
 
-type GetDatabasesDatabaseParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDatabasesDatabaseParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseParameter)(nil)).Elem()
+func (o GetAccountsAccountParameterOutput) WeekOfYearPolicies() GetAccountsAccountParameterWeekOfYearPolicyArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterWeekOfYearPolicy {
+		return v.WeekOfYearPolicies
+	}).(GetAccountsAccountParameterWeekOfYearPolicyArrayOutput)
 }
 
-func (o GetDatabasesDatabaseParameterArrayOutput) ToGetDatabasesDatabaseParameterArrayOutput() GetDatabasesDatabaseParameterArrayOutput {
+func (o GetAccountsAccountParameterOutput) WeekStarts() GetAccountsAccountParameterWeekStartArrayOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameter) []GetAccountsAccountParameterWeekStart { return v.WeekStarts }).(GetAccountsAccountParameterWeekStartArrayOutput)
+}
+
+type GetAccountsAccountParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameter)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterArrayOutput) ToGetAccountsAccountParameterArrayOutput() GetAccountsAccountParameterArrayOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterArrayOutput) ToGetDatabasesDatabaseParameterArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterArrayOutput {
+func (o GetAccountsAccountParameterArrayOutput) ToGetAccountsAccountParameterArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterArrayOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameter {
-		return vs[0].([]GetDatabasesDatabaseParameter)[vs[1].(int)]
-	}).(GetDatabasesDatabaseParameterOutput)
+func (o GetAccountsAccountParameterArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameter {
+		return vs[0].([]GetAccountsAccountParameter)[vs[1].(int)]
+	}).(GetAccountsAccountParameterOutput)
 }
 
-type GetDatabasesDatabaseParameterCatalog struct {
+type GetAccountsAccountParameterAbortDetachedQuery struct {
 	Default     string `pulumi:"default"`
 	Description string `pulumi:"description"`
 	Key         string `pulumi:"key"`
@@ -73121,18 +68934,18 @@ type GetDatabasesDatabaseParameterCatalog struct {
 	Value       string `pulumi:"value"`
 }
 
-// GetDatabasesDatabaseParameterCatalogInput is an input type that accepts GetDatabasesDatabaseParameterCatalogArgs and GetDatabasesDatabaseParameterCatalogOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseParameterCatalogInput` via:
+// GetAccountsAccountParameterAbortDetachedQueryInput is an input type that accepts GetAccountsAccountParameterAbortDetachedQueryArgs and GetAccountsAccountParameterAbortDetachedQueryOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAbortDetachedQueryInput` via:
 //
-//	GetDatabasesDatabaseParameterCatalogArgs{...}
-type GetDatabasesDatabaseParameterCatalogInput interface {
+//	GetAccountsAccountParameterAbortDetachedQueryArgs{...}
+type GetAccountsAccountParameterAbortDetachedQueryInput interface {
 	pulumi.Input
 
-	ToGetDatabasesDatabaseParameterCatalogOutput() GetDatabasesDatabaseParameterCatalogOutput
-	ToGetDatabasesDatabaseParameterCatalogOutputWithContext(context.Context) GetDatabasesDatabaseParameterCatalogOutput
+	ToGetAccountsAccountParameterAbortDetachedQueryOutput() GetAccountsAccountParameterAbortDetachedQueryOutput
+	ToGetAccountsAccountParameterAbortDetachedQueryOutputWithContext(context.Context) GetAccountsAccountParameterAbortDetachedQueryOutput
 }
 
-type GetDatabasesDatabaseParameterCatalogArgs struct {
+type GetAccountsAccountParameterAbortDetachedQueryArgs struct {
 	Default     pulumi.StringInput `pulumi:"default"`
 	Description pulumi.StringInput `pulumi:"description"`
 	Key         pulumi.StringInput `pulumi:"key"`
@@ -73140,98 +68953,98 @@ type GetDatabasesDatabaseParameterCatalogArgs struct {
 	Value       pulumi.StringInput `pulumi:"value"`
 }
 
-func (GetDatabasesDatabaseParameterCatalogArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseParameterCatalog)(nil)).Elem()
+func (GetAccountsAccountParameterAbortDetachedQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAbortDetachedQuery)(nil)).Elem()
 }
 
-func (i GetDatabasesDatabaseParameterCatalogArgs) ToGetDatabasesDatabaseParameterCatalogOutput() GetDatabasesDatabaseParameterCatalogOutput {
-	return i.ToGetDatabasesDatabaseParameterCatalogOutputWithContext(context.Background())
+func (i GetAccountsAccountParameterAbortDetachedQueryArgs) ToGetAccountsAccountParameterAbortDetachedQueryOutput() GetAccountsAccountParameterAbortDetachedQueryOutput {
+	return i.ToGetAccountsAccountParameterAbortDetachedQueryOutputWithContext(context.Background())
 }
 
-func (i GetDatabasesDatabaseParameterCatalogArgs) ToGetDatabasesDatabaseParameterCatalogOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterCatalogOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterCatalogOutput)
+func (i GetAccountsAccountParameterAbortDetachedQueryArgs) ToGetAccountsAccountParameterAbortDetachedQueryOutputWithContext(ctx context.Context) GetAccountsAccountParameterAbortDetachedQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAbortDetachedQueryOutput)
 }
 
-// GetDatabasesDatabaseParameterCatalogArrayInput is an input type that accepts GetDatabasesDatabaseParameterCatalogArray and GetDatabasesDatabaseParameterCatalogArrayOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseParameterCatalogArrayInput` via:
+// GetAccountsAccountParameterAbortDetachedQueryArrayInput is an input type that accepts GetAccountsAccountParameterAbortDetachedQueryArray and GetAccountsAccountParameterAbortDetachedQueryArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAbortDetachedQueryArrayInput` via:
 //
-//	GetDatabasesDatabaseParameterCatalogArray{ GetDatabasesDatabaseParameterCatalogArgs{...} }
-type GetDatabasesDatabaseParameterCatalogArrayInput interface {
+//	GetAccountsAccountParameterAbortDetachedQueryArray{ GetAccountsAccountParameterAbortDetachedQueryArgs{...} }
+type GetAccountsAccountParameterAbortDetachedQueryArrayInput interface {
 	pulumi.Input
 
-	ToGetDatabasesDatabaseParameterCatalogArrayOutput() GetDatabasesDatabaseParameterCatalogArrayOutput
-	ToGetDatabasesDatabaseParameterCatalogArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterCatalogArrayOutput
+	ToGetAccountsAccountParameterAbortDetachedQueryArrayOutput() GetAccountsAccountParameterAbortDetachedQueryArrayOutput
+	ToGetAccountsAccountParameterAbortDetachedQueryArrayOutputWithContext(context.Context) GetAccountsAccountParameterAbortDetachedQueryArrayOutput
 }
 
-type GetDatabasesDatabaseParameterCatalogArray []GetDatabasesDatabaseParameterCatalogInput
+type GetAccountsAccountParameterAbortDetachedQueryArray []GetAccountsAccountParameterAbortDetachedQueryInput
 
-func (GetDatabasesDatabaseParameterCatalogArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterCatalog)(nil)).Elem()
+func (GetAccountsAccountParameterAbortDetachedQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAbortDetachedQuery)(nil)).Elem()
 }
 
-func (i GetDatabasesDatabaseParameterCatalogArray) ToGetDatabasesDatabaseParameterCatalogArrayOutput() GetDatabasesDatabaseParameterCatalogArrayOutput {
-	return i.ToGetDatabasesDatabaseParameterCatalogArrayOutputWithContext(context.Background())
+func (i GetAccountsAccountParameterAbortDetachedQueryArray) ToGetAccountsAccountParameterAbortDetachedQueryArrayOutput() GetAccountsAccountParameterAbortDetachedQueryArrayOutput {
+	return i.ToGetAccountsAccountParameterAbortDetachedQueryArrayOutputWithContext(context.Background())
 }
 
-func (i GetDatabasesDatabaseParameterCatalogArray) ToGetDatabasesDatabaseParameterCatalogArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterCatalogArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterCatalogArrayOutput)
+func (i GetAccountsAccountParameterAbortDetachedQueryArray) ToGetAccountsAccountParameterAbortDetachedQueryArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAbortDetachedQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAbortDetachedQueryArrayOutput)
 }
 
-type GetDatabasesDatabaseParameterCatalogOutput struct{ *pulumi.OutputState }
+type GetAccountsAccountParameterAbortDetachedQueryOutput struct{ *pulumi.OutputState }
 
-func (GetDatabasesDatabaseParameterCatalogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseParameterCatalog)(nil)).Elem()
+func (GetAccountsAccountParameterAbortDetachedQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAbortDetachedQuery)(nil)).Elem()
 }
 
-func (o GetDatabasesDatabaseParameterCatalogOutput) ToGetDatabasesDatabaseParameterCatalogOutput() GetDatabasesDatabaseParameterCatalogOutput {
+func (o GetAccountsAccountParameterAbortDetachedQueryOutput) ToGetAccountsAccountParameterAbortDetachedQueryOutput() GetAccountsAccountParameterAbortDetachedQueryOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterCatalogOutput) ToGetDatabasesDatabaseParameterCatalogOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterCatalogOutput {
+func (o GetAccountsAccountParameterAbortDetachedQueryOutput) ToGetAccountsAccountParameterAbortDetachedQueryOutputWithContext(ctx context.Context) GetAccountsAccountParameterAbortDetachedQueryOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterCatalogOutput) Default() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterCatalog) string { return v.Default }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAbortDetachedQueryOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAbortDetachedQuery) string { return v.Default }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterCatalogOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterCatalog) string { return v.Description }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAbortDetachedQueryOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAbortDetachedQuery) string { return v.Description }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterCatalogOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterCatalog) string { return v.Key }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAbortDetachedQueryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAbortDetachedQuery) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterCatalogOutput) Level() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterCatalog) string { return v.Level }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAbortDetachedQueryOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAbortDetachedQuery) string { return v.Level }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterCatalogOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterCatalog) string { return v.Value }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAbortDetachedQueryOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAbortDetachedQuery) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetDatabasesDatabaseParameterCatalogArrayOutput struct{ *pulumi.OutputState }
+type GetAccountsAccountParameterAbortDetachedQueryArrayOutput struct{ *pulumi.OutputState }
 
-func (GetDatabasesDatabaseParameterCatalogArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterCatalog)(nil)).Elem()
+func (GetAccountsAccountParameterAbortDetachedQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAbortDetachedQuery)(nil)).Elem()
 }
 
-func (o GetDatabasesDatabaseParameterCatalogArrayOutput) ToGetDatabasesDatabaseParameterCatalogArrayOutput() GetDatabasesDatabaseParameterCatalogArrayOutput {
+func (o GetAccountsAccountParameterAbortDetachedQueryArrayOutput) ToGetAccountsAccountParameterAbortDetachedQueryArrayOutput() GetAccountsAccountParameterAbortDetachedQueryArrayOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterCatalogArrayOutput) ToGetDatabasesDatabaseParameterCatalogArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterCatalogArrayOutput {
+func (o GetAccountsAccountParameterAbortDetachedQueryArrayOutput) ToGetAccountsAccountParameterAbortDetachedQueryArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAbortDetachedQueryArrayOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterCatalogArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterCatalogOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterCatalog {
-		return vs[0].([]GetDatabasesDatabaseParameterCatalog)[vs[1].(int)]
-	}).(GetDatabasesDatabaseParameterCatalogOutput)
+func (o GetAccountsAccountParameterAbortDetachedQueryArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterAbortDetachedQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterAbortDetachedQuery {
+		return vs[0].([]GetAccountsAccountParameterAbortDetachedQuery)[vs[1].(int)]
+	}).(GetAccountsAccountParameterAbortDetachedQueryOutput)
 }
 
-type GetDatabasesDatabaseParameterDataRetentionTimeInDay struct {
+type GetAccountsAccountParameterActivePythonProfiler struct {
 	Default     string `pulumi:"default"`
 	Description string `pulumi:"description"`
 	Key         string `pulumi:"key"`
@@ -73239,18 +69052,18 @@ type GetDatabasesDatabaseParameterDataRetentionTimeInDay struct {
 	Value       string `pulumi:"value"`
 }
 
-// GetDatabasesDatabaseParameterDataRetentionTimeInDayInput is an input type that accepts GetDatabasesDatabaseParameterDataRetentionTimeInDayArgs and GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseParameterDataRetentionTimeInDayInput` via:
+// GetAccountsAccountParameterActivePythonProfilerInput is an input type that accepts GetAccountsAccountParameterActivePythonProfilerArgs and GetAccountsAccountParameterActivePythonProfilerOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterActivePythonProfilerInput` via:
 //
-//	GetDatabasesDatabaseParameterDataRetentionTimeInDayArgs{...}
-type GetDatabasesDatabaseParameterDataRetentionTimeInDayInput interface {
+//	GetAccountsAccountParameterActivePythonProfilerArgs{...}
+type GetAccountsAccountParameterActivePythonProfilerInput interface {
 	pulumi.Input
 
-	ToGetDatabasesDatabaseParameterDataRetentionTimeInDayOutput() GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput
-	ToGetDatabasesDatabaseParameterDataRetentionTimeInDayOutputWithContext(context.Context) GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput
+	ToGetAccountsAccountParameterActivePythonProfilerOutput() GetAccountsAccountParameterActivePythonProfilerOutput
+	ToGetAccountsAccountParameterActivePythonProfilerOutputWithContext(context.Context) GetAccountsAccountParameterActivePythonProfilerOutput
 }
 
-type GetDatabasesDatabaseParameterDataRetentionTimeInDayArgs struct {
+type GetAccountsAccountParameterActivePythonProfilerArgs struct {
 	Default     pulumi.StringInput `pulumi:"default"`
 	Description pulumi.StringInput `pulumi:"description"`
 	Key         pulumi.StringInput `pulumi:"key"`
@@ -73258,98 +69071,98 @@ type GetDatabasesDatabaseParameterDataRetentionTimeInDayArgs struct {
 	Value       pulumi.StringInput `pulumi:"value"`
 }
 
-func (GetDatabasesDatabaseParameterDataRetentionTimeInDayArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseParameterDataRetentionTimeInDay)(nil)).Elem()
+func (GetAccountsAccountParameterActivePythonProfilerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterActivePythonProfiler)(nil)).Elem()
 }
 
-func (i GetDatabasesDatabaseParameterDataRetentionTimeInDayArgs) ToGetDatabasesDatabaseParameterDataRetentionTimeInDayOutput() GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput {
-	return i.ToGetDatabasesDatabaseParameterDataRetentionTimeInDayOutputWithContext(context.Background())
+func (i GetAccountsAccountParameterActivePythonProfilerArgs) ToGetAccountsAccountParameterActivePythonProfilerOutput() GetAccountsAccountParameterActivePythonProfilerOutput {
+	return i.ToGetAccountsAccountParameterActivePythonProfilerOutputWithContext(context.Background())
 }
 
-func (i GetDatabasesDatabaseParameterDataRetentionTimeInDayArgs) ToGetDatabasesDatabaseParameterDataRetentionTimeInDayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput)
+func (i GetAccountsAccountParameterActivePythonProfilerArgs) ToGetAccountsAccountParameterActivePythonProfilerOutputWithContext(ctx context.Context) GetAccountsAccountParameterActivePythonProfilerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterActivePythonProfilerOutput)
 }
 
-// GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayInput is an input type that accepts GetDatabasesDatabaseParameterDataRetentionTimeInDayArray and GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayInput` via:
+// GetAccountsAccountParameterActivePythonProfilerArrayInput is an input type that accepts GetAccountsAccountParameterActivePythonProfilerArray and GetAccountsAccountParameterActivePythonProfilerArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterActivePythonProfilerArrayInput` via:
 //
-//	GetDatabasesDatabaseParameterDataRetentionTimeInDayArray{ GetDatabasesDatabaseParameterDataRetentionTimeInDayArgs{...} }
-type GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayInput interface {
+//	GetAccountsAccountParameterActivePythonProfilerArray{ GetAccountsAccountParameterActivePythonProfilerArgs{...} }
+type GetAccountsAccountParameterActivePythonProfilerArrayInput interface {
 	pulumi.Input
 
-	ToGetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput() GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput
-	ToGetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput
+	ToGetAccountsAccountParameterActivePythonProfilerArrayOutput() GetAccountsAccountParameterActivePythonProfilerArrayOutput
+	ToGetAccountsAccountParameterActivePythonProfilerArrayOutputWithContext(context.Context) GetAccountsAccountParameterActivePythonProfilerArrayOutput
 }
 
-type GetDatabasesDatabaseParameterDataRetentionTimeInDayArray []GetDatabasesDatabaseParameterDataRetentionTimeInDayInput
+type GetAccountsAccountParameterActivePythonProfilerArray []GetAccountsAccountParameterActivePythonProfilerInput
 
-func (GetDatabasesDatabaseParameterDataRetentionTimeInDayArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterDataRetentionTimeInDay)(nil)).Elem()
+func (GetAccountsAccountParameterActivePythonProfilerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterActivePythonProfiler)(nil)).Elem()
 }
 
-func (i GetDatabasesDatabaseParameterDataRetentionTimeInDayArray) ToGetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput() GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput {
-	return i.ToGetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutputWithContext(context.Background())
+func (i GetAccountsAccountParameterActivePythonProfilerArray) ToGetAccountsAccountParameterActivePythonProfilerArrayOutput() GetAccountsAccountParameterActivePythonProfilerArrayOutput {
+	return i.ToGetAccountsAccountParameterActivePythonProfilerArrayOutputWithContext(context.Background())
 }
 
-func (i GetDatabasesDatabaseParameterDataRetentionTimeInDayArray) ToGetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput)
+func (i GetAccountsAccountParameterActivePythonProfilerArray) ToGetAccountsAccountParameterActivePythonProfilerArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterActivePythonProfilerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterActivePythonProfilerArrayOutput)
 }
 
-type GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput struct{ *pulumi.OutputState }
+type GetAccountsAccountParameterActivePythonProfilerOutput struct{ *pulumi.OutputState }
 
-func (GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseParameterDataRetentionTimeInDay)(nil)).Elem()
+func (GetAccountsAccountParameterActivePythonProfilerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterActivePythonProfiler)(nil)).Elem()
 }
 
-func (o GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput) ToGetDatabasesDatabaseParameterDataRetentionTimeInDayOutput() GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput {
+func (o GetAccountsAccountParameterActivePythonProfilerOutput) ToGetAccountsAccountParameterActivePythonProfilerOutput() GetAccountsAccountParameterActivePythonProfilerOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput) ToGetDatabasesDatabaseParameterDataRetentionTimeInDayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput {
+func (o GetAccountsAccountParameterActivePythonProfilerOutput) ToGetAccountsAccountParameterActivePythonProfilerOutputWithContext(ctx context.Context) GetAccountsAccountParameterActivePythonProfilerOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput) Default() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterDataRetentionTimeInDay) string { return v.Default }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterActivePythonProfilerOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterActivePythonProfiler) string { return v.Default }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterDataRetentionTimeInDay) string { return v.Description }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterActivePythonProfilerOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterActivePythonProfiler) string { return v.Description }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterDataRetentionTimeInDay) string { return v.Key }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterActivePythonProfilerOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterActivePythonProfiler) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput) Level() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterDataRetentionTimeInDay) string { return v.Level }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterActivePythonProfilerOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterActivePythonProfiler) string { return v.Level }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterDataRetentionTimeInDay) string { return v.Value }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterActivePythonProfilerOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterActivePythonProfiler) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput struct{ *pulumi.OutputState }
+type GetAccountsAccountParameterActivePythonProfilerArrayOutput struct{ *pulumi.OutputState }
 
-func (GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterDataRetentionTimeInDay)(nil)).Elem()
+func (GetAccountsAccountParameterActivePythonProfilerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterActivePythonProfiler)(nil)).Elem()
 }
 
-func (o GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput) ToGetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput() GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput {
+func (o GetAccountsAccountParameterActivePythonProfilerArrayOutput) ToGetAccountsAccountParameterActivePythonProfilerArrayOutput() GetAccountsAccountParameterActivePythonProfilerArrayOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput) ToGetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput {
+func (o GetAccountsAccountParameterActivePythonProfilerArrayOutput) ToGetAccountsAccountParameterActivePythonProfilerArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterActivePythonProfilerArrayOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterDataRetentionTimeInDay {
-		return vs[0].([]GetDatabasesDatabaseParameterDataRetentionTimeInDay)[vs[1].(int)]
-	}).(GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput)
+func (o GetAccountsAccountParameterActivePythonProfilerArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterActivePythonProfilerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterActivePythonProfiler {
+		return vs[0].([]GetAccountsAccountParameterActivePythonProfiler)[vs[1].(int)]
+	}).(GetAccountsAccountParameterActivePythonProfilerOutput)
 }
 
-type GetDatabasesDatabaseParameterDefaultDdlCollation struct {
+type GetAccountsAccountParameterAllowBindValuesAccess struct {
 	Default     string `pulumi:"default"`
 	Description string `pulumi:"description"`
 	Key         string `pulumi:"key"`
@@ -73357,18 +69170,18 @@ type GetDatabasesDatabaseParameterDefaultDdlCollation struct {
 	Value       string `pulumi:"value"`
 }
 
-// GetDatabasesDatabaseParameterDefaultDdlCollationInput is an input type that accepts GetDatabasesDatabaseParameterDefaultDdlCollationArgs and GetDatabasesDatabaseParameterDefaultDdlCollationOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseParameterDefaultDdlCollationInput` via:
+// GetAccountsAccountParameterAllowBindValuesAccessInput is an input type that accepts GetAccountsAccountParameterAllowBindValuesAccessArgs and GetAccountsAccountParameterAllowBindValuesAccessOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAllowBindValuesAccessInput` via:
 //
-//	GetDatabasesDatabaseParameterDefaultDdlCollationArgs{...}
-type GetDatabasesDatabaseParameterDefaultDdlCollationInput interface {
+//	GetAccountsAccountParameterAllowBindValuesAccessArgs{...}
+type GetAccountsAccountParameterAllowBindValuesAccessInput interface {
 	pulumi.Input
 
-	ToGetDatabasesDatabaseParameterDefaultDdlCollationOutput() GetDatabasesDatabaseParameterDefaultDdlCollationOutput
-	ToGetDatabasesDatabaseParameterDefaultDdlCollationOutputWithContext(context.Context) GetDatabasesDatabaseParameterDefaultDdlCollationOutput
+	ToGetAccountsAccountParameterAllowBindValuesAccessOutput() GetAccountsAccountParameterAllowBindValuesAccessOutput
+	ToGetAccountsAccountParameterAllowBindValuesAccessOutputWithContext(context.Context) GetAccountsAccountParameterAllowBindValuesAccessOutput
 }
 
-type GetDatabasesDatabaseParameterDefaultDdlCollationArgs struct {
+type GetAccountsAccountParameterAllowBindValuesAccessArgs struct {
 	Default     pulumi.StringInput `pulumi:"default"`
 	Description pulumi.StringInput `pulumi:"description"`
 	Key         pulumi.StringInput `pulumi:"key"`
@@ -73376,98 +69189,98 @@ type GetDatabasesDatabaseParameterDefaultDdlCollationArgs struct {
 	Value       pulumi.StringInput `pulumi:"value"`
 }
 
-func (GetDatabasesDatabaseParameterDefaultDdlCollationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseParameterDefaultDdlCollation)(nil)).Elem()
+func (GetAccountsAccountParameterAllowBindValuesAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAllowBindValuesAccess)(nil)).Elem()
 }
 
-func (i GetDatabasesDatabaseParameterDefaultDdlCollationArgs) ToGetDatabasesDatabaseParameterDefaultDdlCollationOutput() GetDatabasesDatabaseParameterDefaultDdlCollationOutput {
-	return i.ToGetDatabasesDatabaseParameterDefaultDdlCollationOutputWithContext(context.Background())
+func (i GetAccountsAccountParameterAllowBindValuesAccessArgs) ToGetAccountsAccountParameterAllowBindValuesAccessOutput() GetAccountsAccountParameterAllowBindValuesAccessOutput {
+	return i.ToGetAccountsAccountParameterAllowBindValuesAccessOutputWithContext(context.Background())
 }
 
-func (i GetDatabasesDatabaseParameterDefaultDdlCollationArgs) ToGetDatabasesDatabaseParameterDefaultDdlCollationOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterDefaultDdlCollationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterDefaultDdlCollationOutput)
+func (i GetAccountsAccountParameterAllowBindValuesAccessArgs) ToGetAccountsAccountParameterAllowBindValuesAccessOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowBindValuesAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAllowBindValuesAccessOutput)
 }
 
-// GetDatabasesDatabaseParameterDefaultDdlCollationArrayInput is an input type that accepts GetDatabasesDatabaseParameterDefaultDdlCollationArray and GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseParameterDefaultDdlCollationArrayInput` via:
+// GetAccountsAccountParameterAllowBindValuesAccessArrayInput is an input type that accepts GetAccountsAccountParameterAllowBindValuesAccessArray and GetAccountsAccountParameterAllowBindValuesAccessArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAllowBindValuesAccessArrayInput` via:
 //
-//	GetDatabasesDatabaseParameterDefaultDdlCollationArray{ GetDatabasesDatabaseParameterDefaultDdlCollationArgs{...} }
-type GetDatabasesDatabaseParameterDefaultDdlCollationArrayInput interface {
+//	GetAccountsAccountParameterAllowBindValuesAccessArray{ GetAccountsAccountParameterAllowBindValuesAccessArgs{...} }
+type GetAccountsAccountParameterAllowBindValuesAccessArrayInput interface {
 	pulumi.Input
 
-	ToGetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput() GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput
-	ToGetDatabasesDatabaseParameterDefaultDdlCollationArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput
+	ToGetAccountsAccountParameterAllowBindValuesAccessArrayOutput() GetAccountsAccountParameterAllowBindValuesAccessArrayOutput
+	ToGetAccountsAccountParameterAllowBindValuesAccessArrayOutputWithContext(context.Context) GetAccountsAccountParameterAllowBindValuesAccessArrayOutput
 }
 
-type GetDatabasesDatabaseParameterDefaultDdlCollationArray []GetDatabasesDatabaseParameterDefaultDdlCollationInput
+type GetAccountsAccountParameterAllowBindValuesAccessArray []GetAccountsAccountParameterAllowBindValuesAccessInput
 
-func (GetDatabasesDatabaseParameterDefaultDdlCollationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterDefaultDdlCollation)(nil)).Elem()
+func (GetAccountsAccountParameterAllowBindValuesAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAllowBindValuesAccess)(nil)).Elem()
 }
 
-func (i GetDatabasesDatabaseParameterDefaultDdlCollationArray) ToGetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput() GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput {
-	return i.ToGetDatabasesDatabaseParameterDefaultDdlCollationArrayOutputWithContext(context.Background())
+func (i GetAccountsAccountParameterAllowBindValuesAccessArray) ToGetAccountsAccountParameterAllowBindValuesAccessArrayOutput() GetAccountsAccountParameterAllowBindValuesAccessArrayOutput {
+	return i.ToGetAccountsAccountParameterAllowBindValuesAccessArrayOutputWithContext(context.Background())
 }
 
-func (i GetDatabasesDatabaseParameterDefaultDdlCollationArray) ToGetDatabasesDatabaseParameterDefaultDdlCollationArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput)
+func (i GetAccountsAccountParameterAllowBindValuesAccessArray) ToGetAccountsAccountParameterAllowBindValuesAccessArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowBindValuesAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAllowBindValuesAccessArrayOutput)
 }
 
-type GetDatabasesDatabaseParameterDefaultDdlCollationOutput struct{ *pulumi.OutputState }
+type GetAccountsAccountParameterAllowBindValuesAccessOutput struct{ *pulumi.OutputState }
 
-func (GetDatabasesDatabaseParameterDefaultDdlCollationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseParameterDefaultDdlCollation)(nil)).Elem()
+func (GetAccountsAccountParameterAllowBindValuesAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAllowBindValuesAccess)(nil)).Elem()
 }
 
-func (o GetDatabasesDatabaseParameterDefaultDdlCollationOutput) ToGetDatabasesDatabaseParameterDefaultDdlCollationOutput() GetDatabasesDatabaseParameterDefaultDdlCollationOutput {
+func (o GetAccountsAccountParameterAllowBindValuesAccessOutput) ToGetAccountsAccountParameterAllowBindValuesAccessOutput() GetAccountsAccountParameterAllowBindValuesAccessOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterDefaultDdlCollationOutput) ToGetDatabasesDatabaseParameterDefaultDdlCollationOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterDefaultDdlCollationOutput {
+func (o GetAccountsAccountParameterAllowBindValuesAccessOutput) ToGetAccountsAccountParameterAllowBindValuesAccessOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowBindValuesAccessOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterDefaultDdlCollationOutput) Default() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterDefaultDdlCollation) string { return v.Default }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAllowBindValuesAccessOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowBindValuesAccess) string { return v.Default }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterDefaultDdlCollationOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterDefaultDdlCollation) string { return v.Description }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAllowBindValuesAccessOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowBindValuesAccess) string { return v.Description }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterDefaultDdlCollationOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterDefaultDdlCollation) string { return v.Key }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAllowBindValuesAccessOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowBindValuesAccess) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterDefaultDdlCollationOutput) Level() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterDefaultDdlCollation) string { return v.Level }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAllowBindValuesAccessOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowBindValuesAccess) string { return v.Level }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterDefaultDdlCollationOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterDefaultDdlCollation) string { return v.Value }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAllowBindValuesAccessOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowBindValuesAccess) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput struct{ *pulumi.OutputState }
+type GetAccountsAccountParameterAllowBindValuesAccessArrayOutput struct{ *pulumi.OutputState }
 
-func (GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterDefaultDdlCollation)(nil)).Elem()
+func (GetAccountsAccountParameterAllowBindValuesAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAllowBindValuesAccess)(nil)).Elem()
 }
 
-func (o GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput) ToGetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput() GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput {
+func (o GetAccountsAccountParameterAllowBindValuesAccessArrayOutput) ToGetAccountsAccountParameterAllowBindValuesAccessArrayOutput() GetAccountsAccountParameterAllowBindValuesAccessArrayOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput) ToGetDatabasesDatabaseParameterDefaultDdlCollationArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput {
+func (o GetAccountsAccountParameterAllowBindValuesAccessArrayOutput) ToGetAccountsAccountParameterAllowBindValuesAccessArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowBindValuesAccessArrayOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterDefaultDdlCollationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterDefaultDdlCollation {
-		return vs[0].([]GetDatabasesDatabaseParameterDefaultDdlCollation)[vs[1].(int)]
-	}).(GetDatabasesDatabaseParameterDefaultDdlCollationOutput)
+func (o GetAccountsAccountParameterAllowBindValuesAccessArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterAllowBindValuesAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterAllowBindValuesAccess {
+		return vs[0].([]GetAccountsAccountParameterAllowBindValuesAccess)[vs[1].(int)]
+	}).(GetAccountsAccountParameterAllowBindValuesAccessOutput)
 }
 
-type GetDatabasesDatabaseParameterEnableConsoleOutput struct {
+type GetAccountsAccountParameterAllowClientMfaCaching struct {
 	Default     string `pulumi:"default"`
 	Description string `pulumi:"description"`
 	Key         string `pulumi:"key"`
@@ -73475,18 +69288,18 @@ type GetDatabasesDatabaseParameterEnableConsoleOutput struct {
 	Value       string `pulumi:"value"`
 }
 
-// GetDatabasesDatabaseParameterEnableConsoleOutputInput is an input type that accepts GetDatabasesDatabaseParameterEnableConsoleOutputArgs and GetDatabasesDatabaseParameterEnableConsoleOutputOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseParameterEnableConsoleOutputInput` via:
+// GetAccountsAccountParameterAllowClientMfaCachingInput is an input type that accepts GetAccountsAccountParameterAllowClientMfaCachingArgs and GetAccountsAccountParameterAllowClientMfaCachingOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAllowClientMfaCachingInput` via:
 //
-//	GetDatabasesDatabaseParameterEnableConsoleOutputArgs{...}
-type GetDatabasesDatabaseParameterEnableConsoleOutputInput interface {
+//	GetAccountsAccountParameterAllowClientMfaCachingArgs{...}
+type GetAccountsAccountParameterAllowClientMfaCachingInput interface {
 	pulumi.Input
 
-	ToGetDatabasesDatabaseParameterEnableConsoleOutputOutput() GetDatabasesDatabaseParameterEnableConsoleOutputOutput
-	ToGetDatabasesDatabaseParameterEnableConsoleOutputOutputWithContext(context.Context) GetDatabasesDatabaseParameterEnableConsoleOutputOutput
+	ToGetAccountsAccountParameterAllowClientMfaCachingOutput() GetAccountsAccountParameterAllowClientMfaCachingOutput
+	ToGetAccountsAccountParameterAllowClientMfaCachingOutputWithContext(context.Context) GetAccountsAccountParameterAllowClientMfaCachingOutput
 }
 
-type GetDatabasesDatabaseParameterEnableConsoleOutputArgs struct {
+type GetAccountsAccountParameterAllowClientMfaCachingArgs struct {
 	Default     pulumi.StringInput `pulumi:"default"`
 	Description pulumi.StringInput `pulumi:"description"`
 	Key         pulumi.StringInput `pulumi:"key"`
@@ -73494,95 +69307,4241 @@ type GetDatabasesDatabaseParameterEnableConsoleOutputArgs struct {
 	Value       pulumi.StringInput `pulumi:"value"`
 }
 
-func (GetDatabasesDatabaseParameterEnableConsoleOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseParameterEnableConsoleOutput)(nil)).Elem()
+func (GetAccountsAccountParameterAllowClientMfaCachingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAllowClientMfaCaching)(nil)).Elem()
 }
 
-func (i GetDatabasesDatabaseParameterEnableConsoleOutputArgs) ToGetDatabasesDatabaseParameterEnableConsoleOutputOutput() GetDatabasesDatabaseParameterEnableConsoleOutputOutput {
-	return i.ToGetDatabasesDatabaseParameterEnableConsoleOutputOutputWithContext(context.Background())
+func (i GetAccountsAccountParameterAllowClientMfaCachingArgs) ToGetAccountsAccountParameterAllowClientMfaCachingOutput() GetAccountsAccountParameterAllowClientMfaCachingOutput {
+	return i.ToGetAccountsAccountParameterAllowClientMfaCachingOutputWithContext(context.Background())
 }
 
-func (i GetDatabasesDatabaseParameterEnableConsoleOutputArgs) ToGetDatabasesDatabaseParameterEnableConsoleOutputOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterEnableConsoleOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterEnableConsoleOutputOutput)
+func (i GetAccountsAccountParameterAllowClientMfaCachingArgs) ToGetAccountsAccountParameterAllowClientMfaCachingOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowClientMfaCachingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAllowClientMfaCachingOutput)
 }
 
-// GetDatabasesDatabaseParameterEnableConsoleOutputArrayInput is an input type that accepts GetDatabasesDatabaseParameterEnableConsoleOutputArray and GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput values.
-// You can construct a concrete instance of `GetDatabasesDatabaseParameterEnableConsoleOutputArrayInput` via:
+// GetAccountsAccountParameterAllowClientMfaCachingArrayInput is an input type that accepts GetAccountsAccountParameterAllowClientMfaCachingArray and GetAccountsAccountParameterAllowClientMfaCachingArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAllowClientMfaCachingArrayInput` via:
 //
-//	GetDatabasesDatabaseParameterEnableConsoleOutputArray{ GetDatabasesDatabaseParameterEnableConsoleOutputArgs{...} }
-type GetDatabasesDatabaseParameterEnableConsoleOutputArrayInput interface {
+//	GetAccountsAccountParameterAllowClientMfaCachingArray{ GetAccountsAccountParameterAllowClientMfaCachingArgs{...} }
+type GetAccountsAccountParameterAllowClientMfaCachingArrayInput interface {
 	pulumi.Input
 
-	ToGetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput() GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput
-	ToGetDatabasesDatabaseParameterEnableConsoleOutputArrayOutputWithContext(context.Context) GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput
+	ToGetAccountsAccountParameterAllowClientMfaCachingArrayOutput() GetAccountsAccountParameterAllowClientMfaCachingArrayOutput
+	ToGetAccountsAccountParameterAllowClientMfaCachingArrayOutputWithContext(context.Context) GetAccountsAccountParameterAllowClientMfaCachingArrayOutput
 }
 
-type GetDatabasesDatabaseParameterEnableConsoleOutputArray []GetDatabasesDatabaseParameterEnableConsoleOutputInput
+type GetAccountsAccountParameterAllowClientMfaCachingArray []GetAccountsAccountParameterAllowClientMfaCachingInput
 
-func (GetDatabasesDatabaseParameterEnableConsoleOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterEnableConsoleOutput)(nil)).Elem()
+func (GetAccountsAccountParameterAllowClientMfaCachingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAllowClientMfaCaching)(nil)).Elem()
 }
 
-func (i GetDatabasesDatabaseParameterEnableConsoleOutputArray) ToGetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput() GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput {
-	return i.ToGetDatabasesDatabaseParameterEnableConsoleOutputArrayOutputWithContext(context.Background())
+func (i GetAccountsAccountParameterAllowClientMfaCachingArray) ToGetAccountsAccountParameterAllowClientMfaCachingArrayOutput() GetAccountsAccountParameterAllowClientMfaCachingArrayOutput {
+	return i.ToGetAccountsAccountParameterAllowClientMfaCachingArrayOutputWithContext(context.Background())
 }
 
-func (i GetDatabasesDatabaseParameterEnableConsoleOutputArray) ToGetDatabasesDatabaseParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput)
+func (i GetAccountsAccountParameterAllowClientMfaCachingArray) ToGetAccountsAccountParameterAllowClientMfaCachingArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowClientMfaCachingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAllowClientMfaCachingArrayOutput)
 }
 
-type GetDatabasesDatabaseParameterEnableConsoleOutputOutput struct{ *pulumi.OutputState }
+type GetAccountsAccountParameterAllowClientMfaCachingOutput struct{ *pulumi.OutputState }
 
-func (GetDatabasesDatabaseParameterEnableConsoleOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDatabasesDatabaseParameterEnableConsoleOutput)(nil)).Elem()
+func (GetAccountsAccountParameterAllowClientMfaCachingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAllowClientMfaCaching)(nil)).Elem()
 }
 
-func (o GetDatabasesDatabaseParameterEnableConsoleOutputOutput) ToGetDatabasesDatabaseParameterEnableConsoleOutputOutput() GetDatabasesDatabaseParameterEnableConsoleOutputOutput {
+func (o GetAccountsAccountParameterAllowClientMfaCachingOutput) ToGetAccountsAccountParameterAllowClientMfaCachingOutput() GetAccountsAccountParameterAllowClientMfaCachingOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterEnableConsoleOutputOutput) ToGetDatabasesDatabaseParameterEnableConsoleOutputOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterEnableConsoleOutputOutput {
+func (o GetAccountsAccountParameterAllowClientMfaCachingOutput) ToGetAccountsAccountParameterAllowClientMfaCachingOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowClientMfaCachingOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterEnableConsoleOutputOutput) Default() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterEnableConsoleOutput) string { return v.Default }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAllowClientMfaCachingOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowClientMfaCaching) string { return v.Default }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterEnableConsoleOutputOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterEnableConsoleOutput) string { return v.Description }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAllowClientMfaCachingOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowClientMfaCaching) string { return v.Description }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterEnableConsoleOutputOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterEnableConsoleOutput) string { return v.Key }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAllowClientMfaCachingOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowClientMfaCaching) string { return v.Key }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterEnableConsoleOutputOutput) Level() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterEnableConsoleOutput) string { return v.Level }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAllowClientMfaCachingOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowClientMfaCaching) string { return v.Level }).(pulumi.StringOutput)
 }
 
-func (o GetDatabasesDatabaseParameterEnableConsoleOutputOutput) Value() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDatabasesDatabaseParameterEnableConsoleOutput) string { return v.Value }).(pulumi.StringOutput)
+func (o GetAccountsAccountParameterAllowClientMfaCachingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowClientMfaCaching) string { return v.Value }).(pulumi.StringOutput)
 }
 
-type GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput struct{ *pulumi.OutputState }
+type GetAccountsAccountParameterAllowClientMfaCachingArrayOutput struct{ *pulumi.OutputState }
 
-func (GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDatabasesDatabaseParameterEnableConsoleOutput)(nil)).Elem()
+func (GetAccountsAccountParameterAllowClientMfaCachingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAllowClientMfaCaching)(nil)).Elem()
 }
 
-func (o GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput) ToGetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput() GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput {
+func (o GetAccountsAccountParameterAllowClientMfaCachingArrayOutput) ToGetAccountsAccountParameterAllowClientMfaCachingArrayOutput() GetAccountsAccountParameterAllowClientMfaCachingArrayOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput) ToGetDatabasesDatabaseParameterEnableConsoleOutputArrayOutputWithContext(ctx context.Context) GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput {
+func (o GetAccountsAccountParameterAllowClientMfaCachingArrayOutput) ToGetAccountsAccountParameterAllowClientMfaCachingArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowClientMfaCachingArrayOutput {
 	return o
 }
 
-func (o GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput) Index(i pulumi.IntInput) GetDatabasesDatabaseParameterEnableConsoleOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDatabasesDatabaseParameterEnableConsoleOutput {
-		return vs[0].([]GetDatabasesDatabaseParameterEnableConsoleOutput)[vs[1].(int)]
-	}).(GetDatabasesDatabaseParameterEnableConsoleOutputOutput)
+func (o GetAccountsAccountParameterAllowClientMfaCachingArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterAllowClientMfaCachingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterAllowClientMfaCaching {
+		return vs[0].([]GetAccountsAccountParameterAllowClientMfaCaching)[vs[1].(int)]
+	}).(GetAccountsAccountParameterAllowClientMfaCachingOutput)
+}
+
+type GetAccountsAccountParameterAllowIdToken struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterAllowIdTokenInput is an input type that accepts GetAccountsAccountParameterAllowIdTokenArgs and GetAccountsAccountParameterAllowIdTokenOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAllowIdTokenInput` via:
+//
+//	GetAccountsAccountParameterAllowIdTokenArgs{...}
+type GetAccountsAccountParameterAllowIdTokenInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterAllowIdTokenOutput() GetAccountsAccountParameterAllowIdTokenOutput
+	ToGetAccountsAccountParameterAllowIdTokenOutputWithContext(context.Context) GetAccountsAccountParameterAllowIdTokenOutput
+}
+
+type GetAccountsAccountParameterAllowIdTokenArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterAllowIdTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAllowIdToken)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterAllowIdTokenArgs) ToGetAccountsAccountParameterAllowIdTokenOutput() GetAccountsAccountParameterAllowIdTokenOutput {
+	return i.ToGetAccountsAccountParameterAllowIdTokenOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterAllowIdTokenArgs) ToGetAccountsAccountParameterAllowIdTokenOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowIdTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAllowIdTokenOutput)
+}
+
+// GetAccountsAccountParameterAllowIdTokenArrayInput is an input type that accepts GetAccountsAccountParameterAllowIdTokenArray and GetAccountsAccountParameterAllowIdTokenArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAllowIdTokenArrayInput` via:
+//
+//	GetAccountsAccountParameterAllowIdTokenArray{ GetAccountsAccountParameterAllowIdTokenArgs{...} }
+type GetAccountsAccountParameterAllowIdTokenArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterAllowIdTokenArrayOutput() GetAccountsAccountParameterAllowIdTokenArrayOutput
+	ToGetAccountsAccountParameterAllowIdTokenArrayOutputWithContext(context.Context) GetAccountsAccountParameterAllowIdTokenArrayOutput
+}
+
+type GetAccountsAccountParameterAllowIdTokenArray []GetAccountsAccountParameterAllowIdTokenInput
+
+func (GetAccountsAccountParameterAllowIdTokenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAllowIdToken)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterAllowIdTokenArray) ToGetAccountsAccountParameterAllowIdTokenArrayOutput() GetAccountsAccountParameterAllowIdTokenArrayOutput {
+	return i.ToGetAccountsAccountParameterAllowIdTokenArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterAllowIdTokenArray) ToGetAccountsAccountParameterAllowIdTokenArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowIdTokenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAllowIdTokenArrayOutput)
+}
+
+type GetAccountsAccountParameterAllowIdTokenOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterAllowIdTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAllowIdToken)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterAllowIdTokenOutput) ToGetAccountsAccountParameterAllowIdTokenOutput() GetAccountsAccountParameterAllowIdTokenOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAllowIdTokenOutput) ToGetAccountsAccountParameterAllowIdTokenOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowIdTokenOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAllowIdTokenOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowIdToken) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAllowIdTokenOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowIdToken) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAllowIdTokenOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowIdToken) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAllowIdTokenOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowIdToken) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAllowIdTokenOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowIdToken) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterAllowIdTokenArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterAllowIdTokenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAllowIdToken)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterAllowIdTokenArrayOutput) ToGetAccountsAccountParameterAllowIdTokenArrayOutput() GetAccountsAccountParameterAllowIdTokenArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAllowIdTokenArrayOutput) ToGetAccountsAccountParameterAllowIdTokenArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowIdTokenArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAllowIdTokenArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterAllowIdTokenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterAllowIdToken {
+		return vs[0].([]GetAccountsAccountParameterAllowIdToken)[vs[1].(int)]
+	}).(GetAccountsAccountParameterAllowIdTokenOutput)
+}
+
+type GetAccountsAccountParameterAllowedSpcsWorkloadType struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterAllowedSpcsWorkloadTypeInput is an input type that accepts GetAccountsAccountParameterAllowedSpcsWorkloadTypeArgs and GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAllowedSpcsWorkloadTypeInput` via:
+//
+//	GetAccountsAccountParameterAllowedSpcsWorkloadTypeArgs{...}
+type GetAccountsAccountParameterAllowedSpcsWorkloadTypeInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput() GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput
+	ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeOutputWithContext(context.Context) GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput
+}
+
+type GetAccountsAccountParameterAllowedSpcsWorkloadTypeArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterAllowedSpcsWorkloadTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAllowedSpcsWorkloadType)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterAllowedSpcsWorkloadTypeArgs) ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput() GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput {
+	return i.ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterAllowedSpcsWorkloadTypeArgs) ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput)
+}
+
+// GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayInput is an input type that accepts GetAccountsAccountParameterAllowedSpcsWorkloadTypeArray and GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayInput` via:
+//
+//	GetAccountsAccountParameterAllowedSpcsWorkloadTypeArray{ GetAccountsAccountParameterAllowedSpcsWorkloadTypeArgs{...} }
+type GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput() GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput
+	ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutputWithContext(context.Context) GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput
+}
+
+type GetAccountsAccountParameterAllowedSpcsWorkloadTypeArray []GetAccountsAccountParameterAllowedSpcsWorkloadTypeInput
+
+func (GetAccountsAccountParameterAllowedSpcsWorkloadTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAllowedSpcsWorkloadType)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterAllowedSpcsWorkloadTypeArray) ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput() GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput {
+	return i.ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterAllowedSpcsWorkloadTypeArray) ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput)
+}
+
+type GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAllowedSpcsWorkloadType)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput) ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput() GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput) ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowedSpcsWorkloadType) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowedSpcsWorkloadType) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowedSpcsWorkloadType) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowedSpcsWorkloadType) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAllowedSpcsWorkloadType) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAllowedSpcsWorkloadType)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput) ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput() GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput) ToGetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterAllowedSpcsWorkloadType {
+		return vs[0].([]GetAccountsAccountParameterAllowedSpcsWorkloadType)[vs[1].(int)]
+	}).(GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput)
+}
+
+type GetAccountsAccountParameterAutocommit struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterAutocommitInput is an input type that accepts GetAccountsAccountParameterAutocommitArgs and GetAccountsAccountParameterAutocommitOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAutocommitInput` via:
+//
+//	GetAccountsAccountParameterAutocommitArgs{...}
+type GetAccountsAccountParameterAutocommitInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterAutocommitOutput() GetAccountsAccountParameterAutocommitOutput
+	ToGetAccountsAccountParameterAutocommitOutputWithContext(context.Context) GetAccountsAccountParameterAutocommitOutput
+}
+
+type GetAccountsAccountParameterAutocommitArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterAutocommitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAutocommit)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterAutocommitArgs) ToGetAccountsAccountParameterAutocommitOutput() GetAccountsAccountParameterAutocommitOutput {
+	return i.ToGetAccountsAccountParameterAutocommitOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterAutocommitArgs) ToGetAccountsAccountParameterAutocommitOutputWithContext(ctx context.Context) GetAccountsAccountParameterAutocommitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAutocommitOutput)
+}
+
+// GetAccountsAccountParameterAutocommitArrayInput is an input type that accepts GetAccountsAccountParameterAutocommitArray and GetAccountsAccountParameterAutocommitArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterAutocommitArrayInput` via:
+//
+//	GetAccountsAccountParameterAutocommitArray{ GetAccountsAccountParameterAutocommitArgs{...} }
+type GetAccountsAccountParameterAutocommitArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterAutocommitArrayOutput() GetAccountsAccountParameterAutocommitArrayOutput
+	ToGetAccountsAccountParameterAutocommitArrayOutputWithContext(context.Context) GetAccountsAccountParameterAutocommitArrayOutput
+}
+
+type GetAccountsAccountParameterAutocommitArray []GetAccountsAccountParameterAutocommitInput
+
+func (GetAccountsAccountParameterAutocommitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAutocommit)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterAutocommitArray) ToGetAccountsAccountParameterAutocommitArrayOutput() GetAccountsAccountParameterAutocommitArrayOutput {
+	return i.ToGetAccountsAccountParameterAutocommitArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterAutocommitArray) ToGetAccountsAccountParameterAutocommitArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAutocommitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterAutocommitArrayOutput)
+}
+
+type GetAccountsAccountParameterAutocommitOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterAutocommitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterAutocommit)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterAutocommitOutput) ToGetAccountsAccountParameterAutocommitOutput() GetAccountsAccountParameterAutocommitOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAutocommitOutput) ToGetAccountsAccountParameterAutocommitOutputWithContext(ctx context.Context) GetAccountsAccountParameterAutocommitOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAutocommitOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAutocommit) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAutocommitOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAutocommit) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAutocommitOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAutocommit) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAutocommitOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAutocommit) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterAutocommitOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterAutocommit) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterAutocommitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterAutocommitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterAutocommit)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterAutocommitArrayOutput) ToGetAccountsAccountParameterAutocommitArrayOutput() GetAccountsAccountParameterAutocommitArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAutocommitArrayOutput) ToGetAccountsAccountParameterAutocommitArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterAutocommitArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterAutocommitArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterAutocommitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterAutocommit {
+		return vs[0].([]GetAccountsAccountParameterAutocommit)[vs[1].(int)]
+	}).(GetAccountsAccountParameterAutocommitOutput)
+}
+
+type GetAccountsAccountParameterBaseLocationPrefix struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterBaseLocationPrefixInput is an input type that accepts GetAccountsAccountParameterBaseLocationPrefixArgs and GetAccountsAccountParameterBaseLocationPrefixOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterBaseLocationPrefixInput` via:
+//
+//	GetAccountsAccountParameterBaseLocationPrefixArgs{...}
+type GetAccountsAccountParameterBaseLocationPrefixInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterBaseLocationPrefixOutput() GetAccountsAccountParameterBaseLocationPrefixOutput
+	ToGetAccountsAccountParameterBaseLocationPrefixOutputWithContext(context.Context) GetAccountsAccountParameterBaseLocationPrefixOutput
+}
+
+type GetAccountsAccountParameterBaseLocationPrefixArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterBaseLocationPrefixArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterBaseLocationPrefix)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterBaseLocationPrefixArgs) ToGetAccountsAccountParameterBaseLocationPrefixOutput() GetAccountsAccountParameterBaseLocationPrefixOutput {
+	return i.ToGetAccountsAccountParameterBaseLocationPrefixOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterBaseLocationPrefixArgs) ToGetAccountsAccountParameterBaseLocationPrefixOutputWithContext(ctx context.Context) GetAccountsAccountParameterBaseLocationPrefixOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterBaseLocationPrefixOutput)
+}
+
+// GetAccountsAccountParameterBaseLocationPrefixArrayInput is an input type that accepts GetAccountsAccountParameterBaseLocationPrefixArray and GetAccountsAccountParameterBaseLocationPrefixArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterBaseLocationPrefixArrayInput` via:
+//
+//	GetAccountsAccountParameterBaseLocationPrefixArray{ GetAccountsAccountParameterBaseLocationPrefixArgs{...} }
+type GetAccountsAccountParameterBaseLocationPrefixArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterBaseLocationPrefixArrayOutput() GetAccountsAccountParameterBaseLocationPrefixArrayOutput
+	ToGetAccountsAccountParameterBaseLocationPrefixArrayOutputWithContext(context.Context) GetAccountsAccountParameterBaseLocationPrefixArrayOutput
+}
+
+type GetAccountsAccountParameterBaseLocationPrefixArray []GetAccountsAccountParameterBaseLocationPrefixInput
+
+func (GetAccountsAccountParameterBaseLocationPrefixArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterBaseLocationPrefix)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterBaseLocationPrefixArray) ToGetAccountsAccountParameterBaseLocationPrefixArrayOutput() GetAccountsAccountParameterBaseLocationPrefixArrayOutput {
+	return i.ToGetAccountsAccountParameterBaseLocationPrefixArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterBaseLocationPrefixArray) ToGetAccountsAccountParameterBaseLocationPrefixArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterBaseLocationPrefixArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterBaseLocationPrefixArrayOutput)
+}
+
+type GetAccountsAccountParameterBaseLocationPrefixOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterBaseLocationPrefixOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterBaseLocationPrefix)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterBaseLocationPrefixOutput) ToGetAccountsAccountParameterBaseLocationPrefixOutput() GetAccountsAccountParameterBaseLocationPrefixOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBaseLocationPrefixOutput) ToGetAccountsAccountParameterBaseLocationPrefixOutputWithContext(ctx context.Context) GetAccountsAccountParameterBaseLocationPrefixOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBaseLocationPrefixOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBaseLocationPrefix) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBaseLocationPrefixOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBaseLocationPrefix) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBaseLocationPrefixOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBaseLocationPrefix) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBaseLocationPrefixOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBaseLocationPrefix) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBaseLocationPrefixOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBaseLocationPrefix) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterBaseLocationPrefixArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterBaseLocationPrefixArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterBaseLocationPrefix)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterBaseLocationPrefixArrayOutput) ToGetAccountsAccountParameterBaseLocationPrefixArrayOutput() GetAccountsAccountParameterBaseLocationPrefixArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBaseLocationPrefixArrayOutput) ToGetAccountsAccountParameterBaseLocationPrefixArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterBaseLocationPrefixArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBaseLocationPrefixArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterBaseLocationPrefixOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterBaseLocationPrefix {
+		return vs[0].([]GetAccountsAccountParameterBaseLocationPrefix)[vs[1].(int)]
+	}).(GetAccountsAccountParameterBaseLocationPrefixOutput)
+}
+
+type GetAccountsAccountParameterBinaryInputFormat struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterBinaryInputFormatInput is an input type that accepts GetAccountsAccountParameterBinaryInputFormatArgs and GetAccountsAccountParameterBinaryInputFormatOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterBinaryInputFormatInput` via:
+//
+//	GetAccountsAccountParameterBinaryInputFormatArgs{...}
+type GetAccountsAccountParameterBinaryInputFormatInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterBinaryInputFormatOutput() GetAccountsAccountParameterBinaryInputFormatOutput
+	ToGetAccountsAccountParameterBinaryInputFormatOutputWithContext(context.Context) GetAccountsAccountParameterBinaryInputFormatOutput
+}
+
+type GetAccountsAccountParameterBinaryInputFormatArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterBinaryInputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterBinaryInputFormat)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterBinaryInputFormatArgs) ToGetAccountsAccountParameterBinaryInputFormatOutput() GetAccountsAccountParameterBinaryInputFormatOutput {
+	return i.ToGetAccountsAccountParameterBinaryInputFormatOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterBinaryInputFormatArgs) ToGetAccountsAccountParameterBinaryInputFormatOutputWithContext(ctx context.Context) GetAccountsAccountParameterBinaryInputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterBinaryInputFormatOutput)
+}
+
+// GetAccountsAccountParameterBinaryInputFormatArrayInput is an input type that accepts GetAccountsAccountParameterBinaryInputFormatArray and GetAccountsAccountParameterBinaryInputFormatArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterBinaryInputFormatArrayInput` via:
+//
+//	GetAccountsAccountParameterBinaryInputFormatArray{ GetAccountsAccountParameterBinaryInputFormatArgs{...} }
+type GetAccountsAccountParameterBinaryInputFormatArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterBinaryInputFormatArrayOutput() GetAccountsAccountParameterBinaryInputFormatArrayOutput
+	ToGetAccountsAccountParameterBinaryInputFormatArrayOutputWithContext(context.Context) GetAccountsAccountParameterBinaryInputFormatArrayOutput
+}
+
+type GetAccountsAccountParameterBinaryInputFormatArray []GetAccountsAccountParameterBinaryInputFormatInput
+
+func (GetAccountsAccountParameterBinaryInputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterBinaryInputFormat)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterBinaryInputFormatArray) ToGetAccountsAccountParameterBinaryInputFormatArrayOutput() GetAccountsAccountParameterBinaryInputFormatArrayOutput {
+	return i.ToGetAccountsAccountParameterBinaryInputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterBinaryInputFormatArray) ToGetAccountsAccountParameterBinaryInputFormatArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterBinaryInputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterBinaryInputFormatArrayOutput)
+}
+
+type GetAccountsAccountParameterBinaryInputFormatOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterBinaryInputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterBinaryInputFormat)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterBinaryInputFormatOutput) ToGetAccountsAccountParameterBinaryInputFormatOutput() GetAccountsAccountParameterBinaryInputFormatOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBinaryInputFormatOutput) ToGetAccountsAccountParameterBinaryInputFormatOutputWithContext(ctx context.Context) GetAccountsAccountParameterBinaryInputFormatOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBinaryInputFormatOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBinaryInputFormat) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBinaryInputFormatOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBinaryInputFormat) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBinaryInputFormatOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBinaryInputFormat) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBinaryInputFormatOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBinaryInputFormat) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBinaryInputFormatOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBinaryInputFormat) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterBinaryInputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterBinaryInputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterBinaryInputFormat)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterBinaryInputFormatArrayOutput) ToGetAccountsAccountParameterBinaryInputFormatArrayOutput() GetAccountsAccountParameterBinaryInputFormatArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBinaryInputFormatArrayOutput) ToGetAccountsAccountParameterBinaryInputFormatArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterBinaryInputFormatArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBinaryInputFormatArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterBinaryInputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterBinaryInputFormat {
+		return vs[0].([]GetAccountsAccountParameterBinaryInputFormat)[vs[1].(int)]
+	}).(GetAccountsAccountParameterBinaryInputFormatOutput)
+}
+
+type GetAccountsAccountParameterBinaryOutputFormat struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterBinaryOutputFormatInput is an input type that accepts GetAccountsAccountParameterBinaryOutputFormatArgs and GetAccountsAccountParameterBinaryOutputFormatOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterBinaryOutputFormatInput` via:
+//
+//	GetAccountsAccountParameterBinaryOutputFormatArgs{...}
+type GetAccountsAccountParameterBinaryOutputFormatInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterBinaryOutputFormatOutput() GetAccountsAccountParameterBinaryOutputFormatOutput
+	ToGetAccountsAccountParameterBinaryOutputFormatOutputWithContext(context.Context) GetAccountsAccountParameterBinaryOutputFormatOutput
+}
+
+type GetAccountsAccountParameterBinaryOutputFormatArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterBinaryOutputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterBinaryOutputFormat)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterBinaryOutputFormatArgs) ToGetAccountsAccountParameterBinaryOutputFormatOutput() GetAccountsAccountParameterBinaryOutputFormatOutput {
+	return i.ToGetAccountsAccountParameterBinaryOutputFormatOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterBinaryOutputFormatArgs) ToGetAccountsAccountParameterBinaryOutputFormatOutputWithContext(ctx context.Context) GetAccountsAccountParameterBinaryOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterBinaryOutputFormatOutput)
+}
+
+// GetAccountsAccountParameterBinaryOutputFormatArrayInput is an input type that accepts GetAccountsAccountParameterBinaryOutputFormatArray and GetAccountsAccountParameterBinaryOutputFormatArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterBinaryOutputFormatArrayInput` via:
+//
+//	GetAccountsAccountParameterBinaryOutputFormatArray{ GetAccountsAccountParameterBinaryOutputFormatArgs{...} }
+type GetAccountsAccountParameterBinaryOutputFormatArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterBinaryOutputFormatArrayOutput() GetAccountsAccountParameterBinaryOutputFormatArrayOutput
+	ToGetAccountsAccountParameterBinaryOutputFormatArrayOutputWithContext(context.Context) GetAccountsAccountParameterBinaryOutputFormatArrayOutput
+}
+
+type GetAccountsAccountParameterBinaryOutputFormatArray []GetAccountsAccountParameterBinaryOutputFormatInput
+
+func (GetAccountsAccountParameterBinaryOutputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterBinaryOutputFormat)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterBinaryOutputFormatArray) ToGetAccountsAccountParameterBinaryOutputFormatArrayOutput() GetAccountsAccountParameterBinaryOutputFormatArrayOutput {
+	return i.ToGetAccountsAccountParameterBinaryOutputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterBinaryOutputFormatArray) ToGetAccountsAccountParameterBinaryOutputFormatArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterBinaryOutputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterBinaryOutputFormatArrayOutput)
+}
+
+type GetAccountsAccountParameterBinaryOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterBinaryOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterBinaryOutputFormat)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterBinaryOutputFormatOutput) ToGetAccountsAccountParameterBinaryOutputFormatOutput() GetAccountsAccountParameterBinaryOutputFormatOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBinaryOutputFormatOutput) ToGetAccountsAccountParameterBinaryOutputFormatOutputWithContext(ctx context.Context) GetAccountsAccountParameterBinaryOutputFormatOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBinaryOutputFormatOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBinaryOutputFormat) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBinaryOutputFormatOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBinaryOutputFormat) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBinaryOutputFormatOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBinaryOutputFormat) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBinaryOutputFormatOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBinaryOutputFormat) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterBinaryOutputFormatOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterBinaryOutputFormat) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterBinaryOutputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterBinaryOutputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterBinaryOutputFormat)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterBinaryOutputFormatArrayOutput) ToGetAccountsAccountParameterBinaryOutputFormatArrayOutput() GetAccountsAccountParameterBinaryOutputFormatArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBinaryOutputFormatArrayOutput) ToGetAccountsAccountParameterBinaryOutputFormatArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterBinaryOutputFormatArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterBinaryOutputFormatArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterBinaryOutputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterBinaryOutputFormat {
+		return vs[0].([]GetAccountsAccountParameterBinaryOutputFormat)[vs[1].(int)]
+	}).(GetAccountsAccountParameterBinaryOutputFormatOutput)
+}
+
+type GetAccountsAccountParameterCatalog struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterCatalogInput is an input type that accepts GetAccountsAccountParameterCatalogArgs and GetAccountsAccountParameterCatalogOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCatalogInput` via:
+//
+//	GetAccountsAccountParameterCatalogArgs{...}
+type GetAccountsAccountParameterCatalogInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCatalogOutput() GetAccountsAccountParameterCatalogOutput
+	ToGetAccountsAccountParameterCatalogOutputWithContext(context.Context) GetAccountsAccountParameterCatalogOutput
+}
+
+type GetAccountsAccountParameterCatalogArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterCatalogArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCatalog)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCatalogArgs) ToGetAccountsAccountParameterCatalogOutput() GetAccountsAccountParameterCatalogOutput {
+	return i.ToGetAccountsAccountParameterCatalogOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCatalogArgs) ToGetAccountsAccountParameterCatalogOutputWithContext(ctx context.Context) GetAccountsAccountParameterCatalogOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCatalogOutput)
+}
+
+// GetAccountsAccountParameterCatalogArrayInput is an input type that accepts GetAccountsAccountParameterCatalogArray and GetAccountsAccountParameterCatalogArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCatalogArrayInput` via:
+//
+//	GetAccountsAccountParameterCatalogArray{ GetAccountsAccountParameterCatalogArgs{...} }
+type GetAccountsAccountParameterCatalogArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCatalogArrayOutput() GetAccountsAccountParameterCatalogArrayOutput
+	ToGetAccountsAccountParameterCatalogArrayOutputWithContext(context.Context) GetAccountsAccountParameterCatalogArrayOutput
+}
+
+type GetAccountsAccountParameterCatalogArray []GetAccountsAccountParameterCatalogInput
+
+func (GetAccountsAccountParameterCatalogArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCatalog)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCatalogArray) ToGetAccountsAccountParameterCatalogArrayOutput() GetAccountsAccountParameterCatalogArrayOutput {
+	return i.ToGetAccountsAccountParameterCatalogArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCatalogArray) ToGetAccountsAccountParameterCatalogArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCatalogArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCatalogArrayOutput)
+}
+
+type GetAccountsAccountParameterCatalogOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCatalogOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCatalog)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCatalogOutput) ToGetAccountsAccountParameterCatalogOutput() GetAccountsAccountParameterCatalogOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCatalogOutput) ToGetAccountsAccountParameterCatalogOutputWithContext(ctx context.Context) GetAccountsAccountParameterCatalogOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCatalogOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCatalog) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCatalogOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCatalog) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCatalogOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCatalog) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCatalogOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCatalog) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCatalogOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCatalog) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterCatalogArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCatalogArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCatalog)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCatalogArrayOutput) ToGetAccountsAccountParameterCatalogArrayOutput() GetAccountsAccountParameterCatalogArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCatalogArrayOutput) ToGetAccountsAccountParameterCatalogArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCatalogArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCatalogArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterCatalogOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterCatalog {
+		return vs[0].([]GetAccountsAccountParameterCatalog)[vs[1].(int)]
+	}).(GetAccountsAccountParameterCatalogOutput)
+}
+
+type GetAccountsAccountParameterCatalogSync struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterCatalogSyncInput is an input type that accepts GetAccountsAccountParameterCatalogSyncArgs and GetAccountsAccountParameterCatalogSyncOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCatalogSyncInput` via:
+//
+//	GetAccountsAccountParameterCatalogSyncArgs{...}
+type GetAccountsAccountParameterCatalogSyncInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCatalogSyncOutput() GetAccountsAccountParameterCatalogSyncOutput
+	ToGetAccountsAccountParameterCatalogSyncOutputWithContext(context.Context) GetAccountsAccountParameterCatalogSyncOutput
+}
+
+type GetAccountsAccountParameterCatalogSyncArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterCatalogSyncArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCatalogSync)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCatalogSyncArgs) ToGetAccountsAccountParameterCatalogSyncOutput() GetAccountsAccountParameterCatalogSyncOutput {
+	return i.ToGetAccountsAccountParameterCatalogSyncOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCatalogSyncArgs) ToGetAccountsAccountParameterCatalogSyncOutputWithContext(ctx context.Context) GetAccountsAccountParameterCatalogSyncOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCatalogSyncOutput)
+}
+
+// GetAccountsAccountParameterCatalogSyncArrayInput is an input type that accepts GetAccountsAccountParameterCatalogSyncArray and GetAccountsAccountParameterCatalogSyncArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCatalogSyncArrayInput` via:
+//
+//	GetAccountsAccountParameterCatalogSyncArray{ GetAccountsAccountParameterCatalogSyncArgs{...} }
+type GetAccountsAccountParameterCatalogSyncArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCatalogSyncArrayOutput() GetAccountsAccountParameterCatalogSyncArrayOutput
+	ToGetAccountsAccountParameterCatalogSyncArrayOutputWithContext(context.Context) GetAccountsAccountParameterCatalogSyncArrayOutput
+}
+
+type GetAccountsAccountParameterCatalogSyncArray []GetAccountsAccountParameterCatalogSyncInput
+
+func (GetAccountsAccountParameterCatalogSyncArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCatalogSync)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCatalogSyncArray) ToGetAccountsAccountParameterCatalogSyncArrayOutput() GetAccountsAccountParameterCatalogSyncArrayOutput {
+	return i.ToGetAccountsAccountParameterCatalogSyncArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCatalogSyncArray) ToGetAccountsAccountParameterCatalogSyncArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCatalogSyncArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCatalogSyncArrayOutput)
+}
+
+type GetAccountsAccountParameterCatalogSyncOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCatalogSyncOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCatalogSync)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCatalogSyncOutput) ToGetAccountsAccountParameterCatalogSyncOutput() GetAccountsAccountParameterCatalogSyncOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCatalogSyncOutput) ToGetAccountsAccountParameterCatalogSyncOutputWithContext(ctx context.Context) GetAccountsAccountParameterCatalogSyncOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCatalogSyncOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCatalogSync) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCatalogSyncOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCatalogSync) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCatalogSyncOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCatalogSync) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCatalogSyncOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCatalogSync) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCatalogSyncOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCatalogSync) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterCatalogSyncArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCatalogSyncArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCatalogSync)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCatalogSyncArrayOutput) ToGetAccountsAccountParameterCatalogSyncArrayOutput() GetAccountsAccountParameterCatalogSyncArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCatalogSyncArrayOutput) ToGetAccountsAccountParameterCatalogSyncArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCatalogSyncArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCatalogSyncArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterCatalogSyncOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterCatalogSync {
+		return vs[0].([]GetAccountsAccountParameterCatalogSync)[vs[1].(int)]
+	}).(GetAccountsAccountParameterCatalogSyncOutput)
+}
+
+type GetAccountsAccountParameterClientEnableLogInfoStatementParameter struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientEnableLogInfoStatementParameterInput is an input type that accepts GetAccountsAccountParameterClientEnableLogInfoStatementParameterArgs and GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientEnableLogInfoStatementParameterInput` via:
+//
+//	GetAccountsAccountParameterClientEnableLogInfoStatementParameterArgs{...}
+type GetAccountsAccountParameterClientEnableLogInfoStatementParameterInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput() GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput
+	ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterOutputWithContext(context.Context) GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput
+}
+
+type GetAccountsAccountParameterClientEnableLogInfoStatementParameterArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientEnableLogInfoStatementParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientEnableLogInfoStatementParameter)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientEnableLogInfoStatementParameterArgs) ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput() GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput {
+	return i.ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientEnableLogInfoStatementParameterArgs) ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput)
+}
+
+// GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayInput is an input type that accepts GetAccountsAccountParameterClientEnableLogInfoStatementParameterArray and GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayInput` via:
+//
+//	GetAccountsAccountParameterClientEnableLogInfoStatementParameterArray{ GetAccountsAccountParameterClientEnableLogInfoStatementParameterArgs{...} }
+type GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput() GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput
+	ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput
+}
+
+type GetAccountsAccountParameterClientEnableLogInfoStatementParameterArray []GetAccountsAccountParameterClientEnableLogInfoStatementParameterInput
+
+func (GetAccountsAccountParameterClientEnableLogInfoStatementParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientEnableLogInfoStatementParameter)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientEnableLogInfoStatementParameterArray) ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput() GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput {
+	return i.ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientEnableLogInfoStatementParameterArray) ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput)
+}
+
+type GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientEnableLogInfoStatementParameter)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput) ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput() GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput) ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientEnableLogInfoStatementParameter) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientEnableLogInfoStatementParameter) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientEnableLogInfoStatementParameter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientEnableLogInfoStatementParameter) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientEnableLogInfoStatementParameter) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientEnableLogInfoStatementParameter)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput) ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput() GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput) ToGetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientEnableLogInfoStatementParameter {
+		return vs[0].([]GetAccountsAccountParameterClientEnableLogInfoStatementParameter)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput)
+}
+
+type GetAccountsAccountParameterClientEncryptionKeySize struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientEncryptionKeySizeInput is an input type that accepts GetAccountsAccountParameterClientEncryptionKeySizeArgs and GetAccountsAccountParameterClientEncryptionKeySizeOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientEncryptionKeySizeInput` via:
+//
+//	GetAccountsAccountParameterClientEncryptionKeySizeArgs{...}
+type GetAccountsAccountParameterClientEncryptionKeySizeInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientEncryptionKeySizeOutput() GetAccountsAccountParameterClientEncryptionKeySizeOutput
+	ToGetAccountsAccountParameterClientEncryptionKeySizeOutputWithContext(context.Context) GetAccountsAccountParameterClientEncryptionKeySizeOutput
+}
+
+type GetAccountsAccountParameterClientEncryptionKeySizeArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientEncryptionKeySizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientEncryptionKeySize)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientEncryptionKeySizeArgs) ToGetAccountsAccountParameterClientEncryptionKeySizeOutput() GetAccountsAccountParameterClientEncryptionKeySizeOutput {
+	return i.ToGetAccountsAccountParameterClientEncryptionKeySizeOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientEncryptionKeySizeArgs) ToGetAccountsAccountParameterClientEncryptionKeySizeOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientEncryptionKeySizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientEncryptionKeySizeOutput)
+}
+
+// GetAccountsAccountParameterClientEncryptionKeySizeArrayInput is an input type that accepts GetAccountsAccountParameterClientEncryptionKeySizeArray and GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientEncryptionKeySizeArrayInput` via:
+//
+//	GetAccountsAccountParameterClientEncryptionKeySizeArray{ GetAccountsAccountParameterClientEncryptionKeySizeArgs{...} }
+type GetAccountsAccountParameterClientEncryptionKeySizeArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientEncryptionKeySizeArrayOutput() GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput
+	ToGetAccountsAccountParameterClientEncryptionKeySizeArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput
+}
+
+type GetAccountsAccountParameterClientEncryptionKeySizeArray []GetAccountsAccountParameterClientEncryptionKeySizeInput
+
+func (GetAccountsAccountParameterClientEncryptionKeySizeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientEncryptionKeySize)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientEncryptionKeySizeArray) ToGetAccountsAccountParameterClientEncryptionKeySizeArrayOutput() GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput {
+	return i.ToGetAccountsAccountParameterClientEncryptionKeySizeArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientEncryptionKeySizeArray) ToGetAccountsAccountParameterClientEncryptionKeySizeArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput)
+}
+
+type GetAccountsAccountParameterClientEncryptionKeySizeOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientEncryptionKeySizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientEncryptionKeySize)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientEncryptionKeySizeOutput) ToGetAccountsAccountParameterClientEncryptionKeySizeOutput() GetAccountsAccountParameterClientEncryptionKeySizeOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientEncryptionKeySizeOutput) ToGetAccountsAccountParameterClientEncryptionKeySizeOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientEncryptionKeySizeOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientEncryptionKeySizeOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientEncryptionKeySize) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientEncryptionKeySizeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientEncryptionKeySize) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientEncryptionKeySizeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientEncryptionKeySize) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientEncryptionKeySizeOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientEncryptionKeySize) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientEncryptionKeySizeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientEncryptionKeySize) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientEncryptionKeySize)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput) ToGetAccountsAccountParameterClientEncryptionKeySizeArrayOutput() GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput) ToGetAccountsAccountParameterClientEncryptionKeySizeArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientEncryptionKeySizeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientEncryptionKeySize {
+		return vs[0].([]GetAccountsAccountParameterClientEncryptionKeySize)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientEncryptionKeySizeOutput)
+}
+
+type GetAccountsAccountParameterClientMemoryLimit struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientMemoryLimitInput is an input type that accepts GetAccountsAccountParameterClientMemoryLimitArgs and GetAccountsAccountParameterClientMemoryLimitOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientMemoryLimitInput` via:
+//
+//	GetAccountsAccountParameterClientMemoryLimitArgs{...}
+type GetAccountsAccountParameterClientMemoryLimitInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientMemoryLimitOutput() GetAccountsAccountParameterClientMemoryLimitOutput
+	ToGetAccountsAccountParameterClientMemoryLimitOutputWithContext(context.Context) GetAccountsAccountParameterClientMemoryLimitOutput
+}
+
+type GetAccountsAccountParameterClientMemoryLimitArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientMemoryLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientMemoryLimit)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientMemoryLimitArgs) ToGetAccountsAccountParameterClientMemoryLimitOutput() GetAccountsAccountParameterClientMemoryLimitOutput {
+	return i.ToGetAccountsAccountParameterClientMemoryLimitOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientMemoryLimitArgs) ToGetAccountsAccountParameterClientMemoryLimitOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMemoryLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientMemoryLimitOutput)
+}
+
+// GetAccountsAccountParameterClientMemoryLimitArrayInput is an input type that accepts GetAccountsAccountParameterClientMemoryLimitArray and GetAccountsAccountParameterClientMemoryLimitArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientMemoryLimitArrayInput` via:
+//
+//	GetAccountsAccountParameterClientMemoryLimitArray{ GetAccountsAccountParameterClientMemoryLimitArgs{...} }
+type GetAccountsAccountParameterClientMemoryLimitArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientMemoryLimitArrayOutput() GetAccountsAccountParameterClientMemoryLimitArrayOutput
+	ToGetAccountsAccountParameterClientMemoryLimitArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientMemoryLimitArrayOutput
+}
+
+type GetAccountsAccountParameterClientMemoryLimitArray []GetAccountsAccountParameterClientMemoryLimitInput
+
+func (GetAccountsAccountParameterClientMemoryLimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientMemoryLimit)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientMemoryLimitArray) ToGetAccountsAccountParameterClientMemoryLimitArrayOutput() GetAccountsAccountParameterClientMemoryLimitArrayOutput {
+	return i.ToGetAccountsAccountParameterClientMemoryLimitArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientMemoryLimitArray) ToGetAccountsAccountParameterClientMemoryLimitArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMemoryLimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientMemoryLimitArrayOutput)
+}
+
+type GetAccountsAccountParameterClientMemoryLimitOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientMemoryLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientMemoryLimit)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientMemoryLimitOutput) ToGetAccountsAccountParameterClientMemoryLimitOutput() GetAccountsAccountParameterClientMemoryLimitOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMemoryLimitOutput) ToGetAccountsAccountParameterClientMemoryLimitOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMemoryLimitOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMemoryLimitOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMemoryLimit) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMemoryLimitOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMemoryLimit) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMemoryLimitOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMemoryLimit) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMemoryLimitOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMemoryLimit) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMemoryLimitOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMemoryLimit) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientMemoryLimitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientMemoryLimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientMemoryLimit)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientMemoryLimitArrayOutput) ToGetAccountsAccountParameterClientMemoryLimitArrayOutput() GetAccountsAccountParameterClientMemoryLimitArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMemoryLimitArrayOutput) ToGetAccountsAccountParameterClientMemoryLimitArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMemoryLimitArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMemoryLimitArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientMemoryLimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientMemoryLimit {
+		return vs[0].([]GetAccountsAccountParameterClientMemoryLimit)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientMemoryLimitOutput)
+}
+
+type GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxInput is an input type that accepts GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArgs and GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxInput` via:
+//
+//	GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArgs{...}
+type GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput() GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput
+	ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutputWithContext(context.Context) GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput
+}
+
+type GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArgs) ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput() GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput {
+	return i.ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArgs) ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput)
+}
+
+// GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayInput is an input type that accepts GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArray and GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayInput` via:
+//
+//	GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArray{ GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArgs{...} }
+type GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput() GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput
+	ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput
+}
+
+type GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArray []GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxInput
+
+func (GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArray) ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput() GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput {
+	return i.ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArray) ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput)
+}
+
+type GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput) ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput() GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput) ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput) ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput() GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput) ToGetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx {
+		return vs[0].([]GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput)
+}
+
+type GetAccountsAccountParameterClientMetadataUseSessionDatabase struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientMetadataUseSessionDatabaseInput is an input type that accepts GetAccountsAccountParameterClientMetadataUseSessionDatabaseArgs and GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientMetadataUseSessionDatabaseInput` via:
+//
+//	GetAccountsAccountParameterClientMetadataUseSessionDatabaseArgs{...}
+type GetAccountsAccountParameterClientMetadataUseSessionDatabaseInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput() GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput
+	ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseOutputWithContext(context.Context) GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput
+}
+
+type GetAccountsAccountParameterClientMetadataUseSessionDatabaseArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientMetadataUseSessionDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientMetadataUseSessionDatabase)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientMetadataUseSessionDatabaseArgs) ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput() GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput {
+	return i.ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientMetadataUseSessionDatabaseArgs) ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput)
+}
+
+// GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayInput is an input type that accepts GetAccountsAccountParameterClientMetadataUseSessionDatabaseArray and GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayInput` via:
+//
+//	GetAccountsAccountParameterClientMetadataUseSessionDatabaseArray{ GetAccountsAccountParameterClientMetadataUseSessionDatabaseArgs{...} }
+type GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput() GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput
+	ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput
+}
+
+type GetAccountsAccountParameterClientMetadataUseSessionDatabaseArray []GetAccountsAccountParameterClientMetadataUseSessionDatabaseInput
+
+func (GetAccountsAccountParameterClientMetadataUseSessionDatabaseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientMetadataUseSessionDatabase)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientMetadataUseSessionDatabaseArray) ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput() GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput {
+	return i.ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientMetadataUseSessionDatabaseArray) ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput)
+}
+
+type GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientMetadataUseSessionDatabase)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput) ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput() GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput) ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMetadataUseSessionDatabase) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMetadataUseSessionDatabase) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMetadataUseSessionDatabase) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMetadataUseSessionDatabase) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientMetadataUseSessionDatabase) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientMetadataUseSessionDatabase)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput) ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput() GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput) ToGetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientMetadataUseSessionDatabase {
+		return vs[0].([]GetAccountsAccountParameterClientMetadataUseSessionDatabase)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput)
+}
+
+type GetAccountsAccountParameterClientPrefetchThread struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientPrefetchThreadInput is an input type that accepts GetAccountsAccountParameterClientPrefetchThreadArgs and GetAccountsAccountParameterClientPrefetchThreadOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientPrefetchThreadInput` via:
+//
+//	GetAccountsAccountParameterClientPrefetchThreadArgs{...}
+type GetAccountsAccountParameterClientPrefetchThreadInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientPrefetchThreadOutput() GetAccountsAccountParameterClientPrefetchThreadOutput
+	ToGetAccountsAccountParameterClientPrefetchThreadOutputWithContext(context.Context) GetAccountsAccountParameterClientPrefetchThreadOutput
+}
+
+type GetAccountsAccountParameterClientPrefetchThreadArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientPrefetchThreadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientPrefetchThread)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientPrefetchThreadArgs) ToGetAccountsAccountParameterClientPrefetchThreadOutput() GetAccountsAccountParameterClientPrefetchThreadOutput {
+	return i.ToGetAccountsAccountParameterClientPrefetchThreadOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientPrefetchThreadArgs) ToGetAccountsAccountParameterClientPrefetchThreadOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientPrefetchThreadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientPrefetchThreadOutput)
+}
+
+// GetAccountsAccountParameterClientPrefetchThreadArrayInput is an input type that accepts GetAccountsAccountParameterClientPrefetchThreadArray and GetAccountsAccountParameterClientPrefetchThreadArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientPrefetchThreadArrayInput` via:
+//
+//	GetAccountsAccountParameterClientPrefetchThreadArray{ GetAccountsAccountParameterClientPrefetchThreadArgs{...} }
+type GetAccountsAccountParameterClientPrefetchThreadArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientPrefetchThreadArrayOutput() GetAccountsAccountParameterClientPrefetchThreadArrayOutput
+	ToGetAccountsAccountParameterClientPrefetchThreadArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientPrefetchThreadArrayOutput
+}
+
+type GetAccountsAccountParameterClientPrefetchThreadArray []GetAccountsAccountParameterClientPrefetchThreadInput
+
+func (GetAccountsAccountParameterClientPrefetchThreadArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientPrefetchThread)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientPrefetchThreadArray) ToGetAccountsAccountParameterClientPrefetchThreadArrayOutput() GetAccountsAccountParameterClientPrefetchThreadArrayOutput {
+	return i.ToGetAccountsAccountParameterClientPrefetchThreadArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientPrefetchThreadArray) ToGetAccountsAccountParameterClientPrefetchThreadArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientPrefetchThreadArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientPrefetchThreadArrayOutput)
+}
+
+type GetAccountsAccountParameterClientPrefetchThreadOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientPrefetchThreadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientPrefetchThread)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientPrefetchThreadOutput) ToGetAccountsAccountParameterClientPrefetchThreadOutput() GetAccountsAccountParameterClientPrefetchThreadOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientPrefetchThreadOutput) ToGetAccountsAccountParameterClientPrefetchThreadOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientPrefetchThreadOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientPrefetchThreadOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientPrefetchThread) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientPrefetchThreadOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientPrefetchThread) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientPrefetchThreadOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientPrefetchThread) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientPrefetchThreadOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientPrefetchThread) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientPrefetchThreadOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientPrefetchThread) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientPrefetchThreadArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientPrefetchThreadArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientPrefetchThread)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientPrefetchThreadArrayOutput) ToGetAccountsAccountParameterClientPrefetchThreadArrayOutput() GetAccountsAccountParameterClientPrefetchThreadArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientPrefetchThreadArrayOutput) ToGetAccountsAccountParameterClientPrefetchThreadArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientPrefetchThreadArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientPrefetchThreadArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientPrefetchThreadOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientPrefetchThread {
+		return vs[0].([]GetAccountsAccountParameterClientPrefetchThread)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientPrefetchThreadOutput)
+}
+
+type GetAccountsAccountParameterClientResultChunkSize struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientResultChunkSizeInput is an input type that accepts GetAccountsAccountParameterClientResultChunkSizeArgs and GetAccountsAccountParameterClientResultChunkSizeOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientResultChunkSizeInput` via:
+//
+//	GetAccountsAccountParameterClientResultChunkSizeArgs{...}
+type GetAccountsAccountParameterClientResultChunkSizeInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientResultChunkSizeOutput() GetAccountsAccountParameterClientResultChunkSizeOutput
+	ToGetAccountsAccountParameterClientResultChunkSizeOutputWithContext(context.Context) GetAccountsAccountParameterClientResultChunkSizeOutput
+}
+
+type GetAccountsAccountParameterClientResultChunkSizeArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientResultChunkSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientResultChunkSize)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientResultChunkSizeArgs) ToGetAccountsAccountParameterClientResultChunkSizeOutput() GetAccountsAccountParameterClientResultChunkSizeOutput {
+	return i.ToGetAccountsAccountParameterClientResultChunkSizeOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientResultChunkSizeArgs) ToGetAccountsAccountParameterClientResultChunkSizeOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientResultChunkSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientResultChunkSizeOutput)
+}
+
+// GetAccountsAccountParameterClientResultChunkSizeArrayInput is an input type that accepts GetAccountsAccountParameterClientResultChunkSizeArray and GetAccountsAccountParameterClientResultChunkSizeArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientResultChunkSizeArrayInput` via:
+//
+//	GetAccountsAccountParameterClientResultChunkSizeArray{ GetAccountsAccountParameterClientResultChunkSizeArgs{...} }
+type GetAccountsAccountParameterClientResultChunkSizeArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientResultChunkSizeArrayOutput() GetAccountsAccountParameterClientResultChunkSizeArrayOutput
+	ToGetAccountsAccountParameterClientResultChunkSizeArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientResultChunkSizeArrayOutput
+}
+
+type GetAccountsAccountParameterClientResultChunkSizeArray []GetAccountsAccountParameterClientResultChunkSizeInput
+
+func (GetAccountsAccountParameterClientResultChunkSizeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientResultChunkSize)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientResultChunkSizeArray) ToGetAccountsAccountParameterClientResultChunkSizeArrayOutput() GetAccountsAccountParameterClientResultChunkSizeArrayOutput {
+	return i.ToGetAccountsAccountParameterClientResultChunkSizeArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientResultChunkSizeArray) ToGetAccountsAccountParameterClientResultChunkSizeArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientResultChunkSizeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientResultChunkSizeArrayOutput)
+}
+
+type GetAccountsAccountParameterClientResultChunkSizeOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientResultChunkSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientResultChunkSize)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientResultChunkSizeOutput) ToGetAccountsAccountParameterClientResultChunkSizeOutput() GetAccountsAccountParameterClientResultChunkSizeOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientResultChunkSizeOutput) ToGetAccountsAccountParameterClientResultChunkSizeOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientResultChunkSizeOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientResultChunkSizeOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientResultChunkSize) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientResultChunkSizeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientResultChunkSize) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientResultChunkSizeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientResultChunkSize) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientResultChunkSizeOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientResultChunkSize) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientResultChunkSizeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientResultChunkSize) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientResultChunkSizeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientResultChunkSizeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientResultChunkSize)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientResultChunkSizeArrayOutput) ToGetAccountsAccountParameterClientResultChunkSizeArrayOutput() GetAccountsAccountParameterClientResultChunkSizeArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientResultChunkSizeArrayOutput) ToGetAccountsAccountParameterClientResultChunkSizeArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientResultChunkSizeArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientResultChunkSizeArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientResultChunkSizeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientResultChunkSize {
+		return vs[0].([]GetAccountsAccountParameterClientResultChunkSize)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientResultChunkSizeOutput)
+}
+
+type GetAccountsAccountParameterClientResultColumnCaseInsensitive struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientResultColumnCaseInsensitiveInput is an input type that accepts GetAccountsAccountParameterClientResultColumnCaseInsensitiveArgs and GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientResultColumnCaseInsensitiveInput` via:
+//
+//	GetAccountsAccountParameterClientResultColumnCaseInsensitiveArgs{...}
+type GetAccountsAccountParameterClientResultColumnCaseInsensitiveInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput() GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput
+	ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveOutputWithContext(context.Context) GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput
+}
+
+type GetAccountsAccountParameterClientResultColumnCaseInsensitiveArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientResultColumnCaseInsensitiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientResultColumnCaseInsensitive)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientResultColumnCaseInsensitiveArgs) ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput() GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput {
+	return i.ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientResultColumnCaseInsensitiveArgs) ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput)
+}
+
+// GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayInput is an input type that accepts GetAccountsAccountParameterClientResultColumnCaseInsensitiveArray and GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayInput` via:
+//
+//	GetAccountsAccountParameterClientResultColumnCaseInsensitiveArray{ GetAccountsAccountParameterClientResultColumnCaseInsensitiveArgs{...} }
+type GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput() GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput
+	ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput
+}
+
+type GetAccountsAccountParameterClientResultColumnCaseInsensitiveArray []GetAccountsAccountParameterClientResultColumnCaseInsensitiveInput
+
+func (GetAccountsAccountParameterClientResultColumnCaseInsensitiveArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientResultColumnCaseInsensitive)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientResultColumnCaseInsensitiveArray) ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput() GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput {
+	return i.ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientResultColumnCaseInsensitiveArray) ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput)
+}
+
+type GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientResultColumnCaseInsensitive)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput) ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput() GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput) ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientResultColumnCaseInsensitive) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientResultColumnCaseInsensitive) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientResultColumnCaseInsensitive) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientResultColumnCaseInsensitive) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientResultColumnCaseInsensitive) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientResultColumnCaseInsensitive)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput) ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput() GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput) ToGetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientResultColumnCaseInsensitive {
+		return vs[0].([]GetAccountsAccountParameterClientResultColumnCaseInsensitive)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput)
+}
+
+type GetAccountsAccountParameterClientSessionKeepAlife struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientSessionKeepAlifeInput is an input type that accepts GetAccountsAccountParameterClientSessionKeepAlifeArgs and GetAccountsAccountParameterClientSessionKeepAlifeOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientSessionKeepAlifeInput` via:
+//
+//	GetAccountsAccountParameterClientSessionKeepAlifeArgs{...}
+type GetAccountsAccountParameterClientSessionKeepAlifeInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientSessionKeepAlifeOutput() GetAccountsAccountParameterClientSessionKeepAlifeOutput
+	ToGetAccountsAccountParameterClientSessionKeepAlifeOutputWithContext(context.Context) GetAccountsAccountParameterClientSessionKeepAlifeOutput
+}
+
+type GetAccountsAccountParameterClientSessionKeepAlifeArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientSessionKeepAlifeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientSessionKeepAlife)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientSessionKeepAlifeArgs) ToGetAccountsAccountParameterClientSessionKeepAlifeOutput() GetAccountsAccountParameterClientSessionKeepAlifeOutput {
+	return i.ToGetAccountsAccountParameterClientSessionKeepAlifeOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientSessionKeepAlifeArgs) ToGetAccountsAccountParameterClientSessionKeepAlifeOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientSessionKeepAlifeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientSessionKeepAlifeOutput)
+}
+
+// GetAccountsAccountParameterClientSessionKeepAlifeArrayInput is an input type that accepts GetAccountsAccountParameterClientSessionKeepAlifeArray and GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientSessionKeepAlifeArrayInput` via:
+//
+//	GetAccountsAccountParameterClientSessionKeepAlifeArray{ GetAccountsAccountParameterClientSessionKeepAlifeArgs{...} }
+type GetAccountsAccountParameterClientSessionKeepAlifeArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientSessionKeepAlifeArrayOutput() GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput
+	ToGetAccountsAccountParameterClientSessionKeepAlifeArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput
+}
+
+type GetAccountsAccountParameterClientSessionKeepAlifeArray []GetAccountsAccountParameterClientSessionKeepAlifeInput
+
+func (GetAccountsAccountParameterClientSessionKeepAlifeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientSessionKeepAlife)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientSessionKeepAlifeArray) ToGetAccountsAccountParameterClientSessionKeepAlifeArrayOutput() GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput {
+	return i.ToGetAccountsAccountParameterClientSessionKeepAlifeArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientSessionKeepAlifeArray) ToGetAccountsAccountParameterClientSessionKeepAlifeArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput)
+}
+
+type GetAccountsAccountParameterClientSessionKeepAlifeOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientSessionKeepAlifeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientSessionKeepAlife)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAlifeOutput) ToGetAccountsAccountParameterClientSessionKeepAlifeOutput() GetAccountsAccountParameterClientSessionKeepAlifeOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAlifeOutput) ToGetAccountsAccountParameterClientSessionKeepAlifeOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientSessionKeepAlifeOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAlifeOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientSessionKeepAlife) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAlifeOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientSessionKeepAlife) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAlifeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientSessionKeepAlife) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAlifeOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientSessionKeepAlife) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAlifeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientSessionKeepAlife) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientSessionKeepAlife)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput) ToGetAccountsAccountParameterClientSessionKeepAlifeArrayOutput() GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput) ToGetAccountsAccountParameterClientSessionKeepAlifeArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientSessionKeepAlifeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientSessionKeepAlife {
+		return vs[0].([]GetAccountsAccountParameterClientSessionKeepAlife)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientSessionKeepAlifeOutput)
+}
+
+type GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyInput is an input type that accepts GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArgs and GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyInput` via:
+//
+//	GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArgs{...}
+type GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput() GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput
+	ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutputWithContext(context.Context) GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput
+}
+
+type GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArgs) ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput() GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput {
+	return i.ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArgs) ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput)
+}
+
+// GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayInput is an input type that accepts GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArray and GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayInput` via:
+//
+//	GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArray{ GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArgs{...} }
+type GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput() GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput
+	ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput
+}
+
+type GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArray []GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyInput
+
+func (GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArray) ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput() GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput {
+	return i.ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArray) ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput)
+}
+
+type GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput) ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput() GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput) ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency) string {
+		return v.Description
+	}).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput) ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput() GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput) ToGetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency {
+		return vs[0].([]GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput)
+}
+
+type GetAccountsAccountParameterClientTimestampTypeMapping struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterClientTimestampTypeMappingInput is an input type that accepts GetAccountsAccountParameterClientTimestampTypeMappingArgs and GetAccountsAccountParameterClientTimestampTypeMappingOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientTimestampTypeMappingInput` via:
+//
+//	GetAccountsAccountParameterClientTimestampTypeMappingArgs{...}
+type GetAccountsAccountParameterClientTimestampTypeMappingInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientTimestampTypeMappingOutput() GetAccountsAccountParameterClientTimestampTypeMappingOutput
+	ToGetAccountsAccountParameterClientTimestampTypeMappingOutputWithContext(context.Context) GetAccountsAccountParameterClientTimestampTypeMappingOutput
+}
+
+type GetAccountsAccountParameterClientTimestampTypeMappingArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterClientTimestampTypeMappingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientTimestampTypeMapping)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientTimestampTypeMappingArgs) ToGetAccountsAccountParameterClientTimestampTypeMappingOutput() GetAccountsAccountParameterClientTimestampTypeMappingOutput {
+	return i.ToGetAccountsAccountParameterClientTimestampTypeMappingOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientTimestampTypeMappingArgs) ToGetAccountsAccountParameterClientTimestampTypeMappingOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientTimestampTypeMappingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientTimestampTypeMappingOutput)
+}
+
+// GetAccountsAccountParameterClientTimestampTypeMappingArrayInput is an input type that accepts GetAccountsAccountParameterClientTimestampTypeMappingArray and GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterClientTimestampTypeMappingArrayInput` via:
+//
+//	GetAccountsAccountParameterClientTimestampTypeMappingArray{ GetAccountsAccountParameterClientTimestampTypeMappingArgs{...} }
+type GetAccountsAccountParameterClientTimestampTypeMappingArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterClientTimestampTypeMappingArrayOutput() GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput
+	ToGetAccountsAccountParameterClientTimestampTypeMappingArrayOutputWithContext(context.Context) GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput
+}
+
+type GetAccountsAccountParameterClientTimestampTypeMappingArray []GetAccountsAccountParameterClientTimestampTypeMappingInput
+
+func (GetAccountsAccountParameterClientTimestampTypeMappingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientTimestampTypeMapping)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterClientTimestampTypeMappingArray) ToGetAccountsAccountParameterClientTimestampTypeMappingArrayOutput() GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput {
+	return i.ToGetAccountsAccountParameterClientTimestampTypeMappingArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterClientTimestampTypeMappingArray) ToGetAccountsAccountParameterClientTimestampTypeMappingArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput)
+}
+
+type GetAccountsAccountParameterClientTimestampTypeMappingOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientTimestampTypeMappingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterClientTimestampTypeMapping)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientTimestampTypeMappingOutput) ToGetAccountsAccountParameterClientTimestampTypeMappingOutput() GetAccountsAccountParameterClientTimestampTypeMappingOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientTimestampTypeMappingOutput) ToGetAccountsAccountParameterClientTimestampTypeMappingOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientTimestampTypeMappingOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientTimestampTypeMappingOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientTimestampTypeMapping) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientTimestampTypeMappingOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientTimestampTypeMapping) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientTimestampTypeMappingOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientTimestampTypeMapping) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientTimestampTypeMappingOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientTimestampTypeMapping) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterClientTimestampTypeMappingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterClientTimestampTypeMapping) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterClientTimestampTypeMapping)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput) ToGetAccountsAccountParameterClientTimestampTypeMappingArrayOutput() GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput) ToGetAccountsAccountParameterClientTimestampTypeMappingArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterClientTimestampTypeMappingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterClientTimestampTypeMapping {
+		return vs[0].([]GetAccountsAccountParameterClientTimestampTypeMapping)[vs[1].(int)]
+	}).(GetAccountsAccountParameterClientTimestampTypeMappingOutput)
+}
+
+type GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserInput is an input type that accepts GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArgs and GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserInput` via:
+//
+//	GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArgs{...}
+type GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput() GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput
+	ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutputWithContext(context.Context) GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput
+}
+
+type GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArgs) ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput() GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput {
+	return i.ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArgs) ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput)
+}
+
+// GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayInput is an input type that accepts GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArray and GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayInput` via:
+//
+//	GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArray{ GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArgs{...} }
+type GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput() GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput
+	ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutputWithContext(context.Context) GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput
+}
+
+type GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArray []GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserInput
+
+func (GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArray) ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput() GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput {
+	return i.ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArray) ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput)
+}
+
+type GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput) ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput() GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput) ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser) string {
+		return v.Description
+	}).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput) ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput() GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput) ToGetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser {
+		return vs[0].([]GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser)[vs[1].(int)]
+	}).(GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput)
+}
+
+type GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserInput is an input type that accepts GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArgs and GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserInput` via:
+//
+//	GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArgs{...}
+type GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput() GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput
+	ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutputWithContext(context.Context) GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput
+}
+
+type GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArgs) ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput() GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput {
+	return i.ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArgs) ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput)
+}
+
+// GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayInput is an input type that accepts GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArray and GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayInput` via:
+//
+//	GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArray{ GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArgs{...} }
+type GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput() GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput
+	ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutputWithContext(context.Context) GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput
+}
+
+type GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArray []GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserInput
+
+func (GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArray) ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput() GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput {
+	return i.ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArray) ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput)
+}
+
+type GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput) ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput() GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput) ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser) string {
+		return v.Default
+	}).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser) string {
+		return v.Description
+	}).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput) ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput() GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput) ToGetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser {
+		return vs[0].([]GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser)[vs[1].(int)]
+	}).(GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput)
+}
+
+type GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserInput is an input type that accepts GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArgs and GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserInput` via:
+//
+//	GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArgs{...}
+type GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput() GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput
+	ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutputWithContext(context.Context) GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput
+}
+
+type GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArgs) ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput() GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput {
+	return i.ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArgs) ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput)
+}
+
+// GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayInput is an input type that accepts GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArray and GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayInput` via:
+//
+//	GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArray{ GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArgs{...} }
+type GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput() GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput
+	ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutputWithContext(context.Context) GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput
+}
+
+type GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArray []GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserInput
+
+func (GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArray) ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput() GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput {
+	return i.ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArray) ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput)
+}
+
+type GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput) ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput() GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput) ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser) string {
+		return v.Default
+	}).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser) string {
+		return v.Description
+	}).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser) string {
+		return v.Level
+	}).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput) ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput() GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput) ToGetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser {
+		return vs[0].([]GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser)[vs[1].(int)]
+	}).(GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput)
+}
+
+type GetAccountsAccountParameterCortexEnabledCrossRegion struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterCortexEnabledCrossRegionInput is an input type that accepts GetAccountsAccountParameterCortexEnabledCrossRegionArgs and GetAccountsAccountParameterCortexEnabledCrossRegionOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCortexEnabledCrossRegionInput` via:
+//
+//	GetAccountsAccountParameterCortexEnabledCrossRegionArgs{...}
+type GetAccountsAccountParameterCortexEnabledCrossRegionInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCortexEnabledCrossRegionOutput() GetAccountsAccountParameterCortexEnabledCrossRegionOutput
+	ToGetAccountsAccountParameterCortexEnabledCrossRegionOutputWithContext(context.Context) GetAccountsAccountParameterCortexEnabledCrossRegionOutput
+}
+
+type GetAccountsAccountParameterCortexEnabledCrossRegionArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterCortexEnabledCrossRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCortexEnabledCrossRegion)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCortexEnabledCrossRegionArgs) ToGetAccountsAccountParameterCortexEnabledCrossRegionOutput() GetAccountsAccountParameterCortexEnabledCrossRegionOutput {
+	return i.ToGetAccountsAccountParameterCortexEnabledCrossRegionOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCortexEnabledCrossRegionArgs) ToGetAccountsAccountParameterCortexEnabledCrossRegionOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexEnabledCrossRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCortexEnabledCrossRegionOutput)
+}
+
+// GetAccountsAccountParameterCortexEnabledCrossRegionArrayInput is an input type that accepts GetAccountsAccountParameterCortexEnabledCrossRegionArray and GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCortexEnabledCrossRegionArrayInput` via:
+//
+//	GetAccountsAccountParameterCortexEnabledCrossRegionArray{ GetAccountsAccountParameterCortexEnabledCrossRegionArgs{...} }
+type GetAccountsAccountParameterCortexEnabledCrossRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput() GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput
+	ToGetAccountsAccountParameterCortexEnabledCrossRegionArrayOutputWithContext(context.Context) GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput
+}
+
+type GetAccountsAccountParameterCortexEnabledCrossRegionArray []GetAccountsAccountParameterCortexEnabledCrossRegionInput
+
+func (GetAccountsAccountParameterCortexEnabledCrossRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCortexEnabledCrossRegion)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCortexEnabledCrossRegionArray) ToGetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput() GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput {
+	return i.ToGetAccountsAccountParameterCortexEnabledCrossRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCortexEnabledCrossRegionArray) ToGetAccountsAccountParameterCortexEnabledCrossRegionArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput)
+}
+
+type GetAccountsAccountParameterCortexEnabledCrossRegionOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCortexEnabledCrossRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCortexEnabledCrossRegion)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCortexEnabledCrossRegionOutput) ToGetAccountsAccountParameterCortexEnabledCrossRegionOutput() GetAccountsAccountParameterCortexEnabledCrossRegionOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexEnabledCrossRegionOutput) ToGetAccountsAccountParameterCortexEnabledCrossRegionOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexEnabledCrossRegionOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexEnabledCrossRegionOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexEnabledCrossRegion) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexEnabledCrossRegionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexEnabledCrossRegion) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexEnabledCrossRegionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexEnabledCrossRegion) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexEnabledCrossRegionOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexEnabledCrossRegion) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexEnabledCrossRegionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexEnabledCrossRegion) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCortexEnabledCrossRegion)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput) ToGetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput() GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput) ToGetAccountsAccountParameterCortexEnabledCrossRegionArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterCortexEnabledCrossRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterCortexEnabledCrossRegion {
+		return vs[0].([]GetAccountsAccountParameterCortexEnabledCrossRegion)[vs[1].(int)]
+	}).(GetAccountsAccountParameterCortexEnabledCrossRegionOutput)
+}
+
+type GetAccountsAccountParameterCortexModelsAllowlist struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterCortexModelsAllowlistInput is an input type that accepts GetAccountsAccountParameterCortexModelsAllowlistArgs and GetAccountsAccountParameterCortexModelsAllowlistOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCortexModelsAllowlistInput` via:
+//
+//	GetAccountsAccountParameterCortexModelsAllowlistArgs{...}
+type GetAccountsAccountParameterCortexModelsAllowlistInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCortexModelsAllowlistOutput() GetAccountsAccountParameterCortexModelsAllowlistOutput
+	ToGetAccountsAccountParameterCortexModelsAllowlistOutputWithContext(context.Context) GetAccountsAccountParameterCortexModelsAllowlistOutput
+}
+
+type GetAccountsAccountParameterCortexModelsAllowlistArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterCortexModelsAllowlistArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCortexModelsAllowlist)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCortexModelsAllowlistArgs) ToGetAccountsAccountParameterCortexModelsAllowlistOutput() GetAccountsAccountParameterCortexModelsAllowlistOutput {
+	return i.ToGetAccountsAccountParameterCortexModelsAllowlistOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCortexModelsAllowlistArgs) ToGetAccountsAccountParameterCortexModelsAllowlistOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexModelsAllowlistOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCortexModelsAllowlistOutput)
+}
+
+// GetAccountsAccountParameterCortexModelsAllowlistArrayInput is an input type that accepts GetAccountsAccountParameterCortexModelsAllowlistArray and GetAccountsAccountParameterCortexModelsAllowlistArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCortexModelsAllowlistArrayInput` via:
+//
+//	GetAccountsAccountParameterCortexModelsAllowlistArray{ GetAccountsAccountParameterCortexModelsAllowlistArgs{...} }
+type GetAccountsAccountParameterCortexModelsAllowlistArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCortexModelsAllowlistArrayOutput() GetAccountsAccountParameterCortexModelsAllowlistArrayOutput
+	ToGetAccountsAccountParameterCortexModelsAllowlistArrayOutputWithContext(context.Context) GetAccountsAccountParameterCortexModelsAllowlistArrayOutput
+}
+
+type GetAccountsAccountParameterCortexModelsAllowlistArray []GetAccountsAccountParameterCortexModelsAllowlistInput
+
+func (GetAccountsAccountParameterCortexModelsAllowlistArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCortexModelsAllowlist)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCortexModelsAllowlistArray) ToGetAccountsAccountParameterCortexModelsAllowlistArrayOutput() GetAccountsAccountParameterCortexModelsAllowlistArrayOutput {
+	return i.ToGetAccountsAccountParameterCortexModelsAllowlistArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCortexModelsAllowlistArray) ToGetAccountsAccountParameterCortexModelsAllowlistArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexModelsAllowlistArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCortexModelsAllowlistArrayOutput)
+}
+
+type GetAccountsAccountParameterCortexModelsAllowlistOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCortexModelsAllowlistOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCortexModelsAllowlist)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCortexModelsAllowlistOutput) ToGetAccountsAccountParameterCortexModelsAllowlistOutput() GetAccountsAccountParameterCortexModelsAllowlistOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexModelsAllowlistOutput) ToGetAccountsAccountParameterCortexModelsAllowlistOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexModelsAllowlistOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexModelsAllowlistOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexModelsAllowlist) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexModelsAllowlistOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexModelsAllowlist) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexModelsAllowlistOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexModelsAllowlist) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexModelsAllowlistOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexModelsAllowlist) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCortexModelsAllowlistOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCortexModelsAllowlist) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterCortexModelsAllowlistArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCortexModelsAllowlistArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCortexModelsAllowlist)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCortexModelsAllowlistArrayOutput) ToGetAccountsAccountParameterCortexModelsAllowlistArrayOutput() GetAccountsAccountParameterCortexModelsAllowlistArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexModelsAllowlistArrayOutput) ToGetAccountsAccountParameterCortexModelsAllowlistArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCortexModelsAllowlistArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCortexModelsAllowlistArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterCortexModelsAllowlistOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterCortexModelsAllowlist {
+		return vs[0].([]GetAccountsAccountParameterCortexModelsAllowlist)[vs[1].(int)]
+	}).(GetAccountsAccountParameterCortexModelsAllowlistOutput)
+}
+
+type GetAccountsAccountParameterCsvTimestampFormat struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterCsvTimestampFormatInput is an input type that accepts GetAccountsAccountParameterCsvTimestampFormatArgs and GetAccountsAccountParameterCsvTimestampFormatOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCsvTimestampFormatInput` via:
+//
+//	GetAccountsAccountParameterCsvTimestampFormatArgs{...}
+type GetAccountsAccountParameterCsvTimestampFormatInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCsvTimestampFormatOutput() GetAccountsAccountParameterCsvTimestampFormatOutput
+	ToGetAccountsAccountParameterCsvTimestampFormatOutputWithContext(context.Context) GetAccountsAccountParameterCsvTimestampFormatOutput
+}
+
+type GetAccountsAccountParameterCsvTimestampFormatArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterCsvTimestampFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCsvTimestampFormat)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCsvTimestampFormatArgs) ToGetAccountsAccountParameterCsvTimestampFormatOutput() GetAccountsAccountParameterCsvTimestampFormatOutput {
+	return i.ToGetAccountsAccountParameterCsvTimestampFormatOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCsvTimestampFormatArgs) ToGetAccountsAccountParameterCsvTimestampFormatOutputWithContext(ctx context.Context) GetAccountsAccountParameterCsvTimestampFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCsvTimestampFormatOutput)
+}
+
+// GetAccountsAccountParameterCsvTimestampFormatArrayInput is an input type that accepts GetAccountsAccountParameterCsvTimestampFormatArray and GetAccountsAccountParameterCsvTimestampFormatArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterCsvTimestampFormatArrayInput` via:
+//
+//	GetAccountsAccountParameterCsvTimestampFormatArray{ GetAccountsAccountParameterCsvTimestampFormatArgs{...} }
+type GetAccountsAccountParameterCsvTimestampFormatArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterCsvTimestampFormatArrayOutput() GetAccountsAccountParameterCsvTimestampFormatArrayOutput
+	ToGetAccountsAccountParameterCsvTimestampFormatArrayOutputWithContext(context.Context) GetAccountsAccountParameterCsvTimestampFormatArrayOutput
+}
+
+type GetAccountsAccountParameterCsvTimestampFormatArray []GetAccountsAccountParameterCsvTimestampFormatInput
+
+func (GetAccountsAccountParameterCsvTimestampFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCsvTimestampFormat)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterCsvTimestampFormatArray) ToGetAccountsAccountParameterCsvTimestampFormatArrayOutput() GetAccountsAccountParameterCsvTimestampFormatArrayOutput {
+	return i.ToGetAccountsAccountParameterCsvTimestampFormatArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterCsvTimestampFormatArray) ToGetAccountsAccountParameterCsvTimestampFormatArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCsvTimestampFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterCsvTimestampFormatArrayOutput)
+}
+
+type GetAccountsAccountParameterCsvTimestampFormatOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCsvTimestampFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterCsvTimestampFormat)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCsvTimestampFormatOutput) ToGetAccountsAccountParameterCsvTimestampFormatOutput() GetAccountsAccountParameterCsvTimestampFormatOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCsvTimestampFormatOutput) ToGetAccountsAccountParameterCsvTimestampFormatOutputWithContext(ctx context.Context) GetAccountsAccountParameterCsvTimestampFormatOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCsvTimestampFormatOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCsvTimestampFormat) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCsvTimestampFormatOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCsvTimestampFormat) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCsvTimestampFormatOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCsvTimestampFormat) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCsvTimestampFormatOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCsvTimestampFormat) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterCsvTimestampFormatOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterCsvTimestampFormat) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterCsvTimestampFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterCsvTimestampFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterCsvTimestampFormat)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterCsvTimestampFormatArrayOutput) ToGetAccountsAccountParameterCsvTimestampFormatArrayOutput() GetAccountsAccountParameterCsvTimestampFormatArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCsvTimestampFormatArrayOutput) ToGetAccountsAccountParameterCsvTimestampFormatArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterCsvTimestampFormatArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterCsvTimestampFormatArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterCsvTimestampFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterCsvTimestampFormat {
+		return vs[0].([]GetAccountsAccountParameterCsvTimestampFormat)[vs[1].(int)]
+	}).(GetAccountsAccountParameterCsvTimestampFormatOutput)
+}
+
+type GetAccountsAccountParameterDataMetricSchedule struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterDataMetricScheduleInput is an input type that accepts GetAccountsAccountParameterDataMetricScheduleArgs and GetAccountsAccountParameterDataMetricScheduleOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDataMetricScheduleInput` via:
+//
+//	GetAccountsAccountParameterDataMetricScheduleArgs{...}
+type GetAccountsAccountParameterDataMetricScheduleInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDataMetricScheduleOutput() GetAccountsAccountParameterDataMetricScheduleOutput
+	ToGetAccountsAccountParameterDataMetricScheduleOutputWithContext(context.Context) GetAccountsAccountParameterDataMetricScheduleOutput
+}
+
+type GetAccountsAccountParameterDataMetricScheduleArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterDataMetricScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDataMetricSchedule)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDataMetricScheduleArgs) ToGetAccountsAccountParameterDataMetricScheduleOutput() GetAccountsAccountParameterDataMetricScheduleOutput {
+	return i.ToGetAccountsAccountParameterDataMetricScheduleOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDataMetricScheduleArgs) ToGetAccountsAccountParameterDataMetricScheduleOutputWithContext(ctx context.Context) GetAccountsAccountParameterDataMetricScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDataMetricScheduleOutput)
+}
+
+// GetAccountsAccountParameterDataMetricScheduleArrayInput is an input type that accepts GetAccountsAccountParameterDataMetricScheduleArray and GetAccountsAccountParameterDataMetricScheduleArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDataMetricScheduleArrayInput` via:
+//
+//	GetAccountsAccountParameterDataMetricScheduleArray{ GetAccountsAccountParameterDataMetricScheduleArgs{...} }
+type GetAccountsAccountParameterDataMetricScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDataMetricScheduleArrayOutput() GetAccountsAccountParameterDataMetricScheduleArrayOutput
+	ToGetAccountsAccountParameterDataMetricScheduleArrayOutputWithContext(context.Context) GetAccountsAccountParameterDataMetricScheduleArrayOutput
+}
+
+type GetAccountsAccountParameterDataMetricScheduleArray []GetAccountsAccountParameterDataMetricScheduleInput
+
+func (GetAccountsAccountParameterDataMetricScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDataMetricSchedule)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDataMetricScheduleArray) ToGetAccountsAccountParameterDataMetricScheduleArrayOutput() GetAccountsAccountParameterDataMetricScheduleArrayOutput {
+	return i.ToGetAccountsAccountParameterDataMetricScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDataMetricScheduleArray) ToGetAccountsAccountParameterDataMetricScheduleArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDataMetricScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDataMetricScheduleArrayOutput)
+}
+
+type GetAccountsAccountParameterDataMetricScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDataMetricScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDataMetricSchedule)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDataMetricScheduleOutput) ToGetAccountsAccountParameterDataMetricScheduleOutput() GetAccountsAccountParameterDataMetricScheduleOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDataMetricScheduleOutput) ToGetAccountsAccountParameterDataMetricScheduleOutputWithContext(ctx context.Context) GetAccountsAccountParameterDataMetricScheduleOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDataMetricScheduleOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDataMetricSchedule) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDataMetricScheduleOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDataMetricSchedule) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDataMetricScheduleOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDataMetricSchedule) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDataMetricScheduleOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDataMetricSchedule) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDataMetricScheduleOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDataMetricSchedule) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterDataMetricScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDataMetricScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDataMetricSchedule)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDataMetricScheduleArrayOutput) ToGetAccountsAccountParameterDataMetricScheduleArrayOutput() GetAccountsAccountParameterDataMetricScheduleArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDataMetricScheduleArrayOutput) ToGetAccountsAccountParameterDataMetricScheduleArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDataMetricScheduleArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDataMetricScheduleArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterDataMetricScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterDataMetricSchedule {
+		return vs[0].([]GetAccountsAccountParameterDataMetricSchedule)[vs[1].(int)]
+	}).(GetAccountsAccountParameterDataMetricScheduleOutput)
+}
+
+type GetAccountsAccountParameterDataRetentionTimeInDay struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterDataRetentionTimeInDayInput is an input type that accepts GetAccountsAccountParameterDataRetentionTimeInDayArgs and GetAccountsAccountParameterDataRetentionTimeInDayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDataRetentionTimeInDayInput` via:
+//
+//	GetAccountsAccountParameterDataRetentionTimeInDayArgs{...}
+type GetAccountsAccountParameterDataRetentionTimeInDayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDataRetentionTimeInDayOutput() GetAccountsAccountParameterDataRetentionTimeInDayOutput
+	ToGetAccountsAccountParameterDataRetentionTimeInDayOutputWithContext(context.Context) GetAccountsAccountParameterDataRetentionTimeInDayOutput
+}
+
+type GetAccountsAccountParameterDataRetentionTimeInDayArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterDataRetentionTimeInDayArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDataRetentionTimeInDayArgs) ToGetAccountsAccountParameterDataRetentionTimeInDayOutput() GetAccountsAccountParameterDataRetentionTimeInDayOutput {
+	return i.ToGetAccountsAccountParameterDataRetentionTimeInDayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDataRetentionTimeInDayArgs) ToGetAccountsAccountParameterDataRetentionTimeInDayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDataRetentionTimeInDayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDataRetentionTimeInDayOutput)
+}
+
+// GetAccountsAccountParameterDataRetentionTimeInDayArrayInput is an input type that accepts GetAccountsAccountParameterDataRetentionTimeInDayArray and GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDataRetentionTimeInDayArrayInput` via:
+//
+//	GetAccountsAccountParameterDataRetentionTimeInDayArray{ GetAccountsAccountParameterDataRetentionTimeInDayArgs{...} }
+type GetAccountsAccountParameterDataRetentionTimeInDayArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDataRetentionTimeInDayArrayOutput() GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput
+	ToGetAccountsAccountParameterDataRetentionTimeInDayArrayOutputWithContext(context.Context) GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput
+}
+
+type GetAccountsAccountParameterDataRetentionTimeInDayArray []GetAccountsAccountParameterDataRetentionTimeInDayInput
+
+func (GetAccountsAccountParameterDataRetentionTimeInDayArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDataRetentionTimeInDayArray) ToGetAccountsAccountParameterDataRetentionTimeInDayArrayOutput() GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput {
+	return i.ToGetAccountsAccountParameterDataRetentionTimeInDayArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDataRetentionTimeInDayArray) ToGetAccountsAccountParameterDataRetentionTimeInDayArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput)
+}
+
+type GetAccountsAccountParameterDataRetentionTimeInDayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDataRetentionTimeInDayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDataRetentionTimeInDayOutput) ToGetAccountsAccountParameterDataRetentionTimeInDayOutput() GetAccountsAccountParameterDataRetentionTimeInDayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDataRetentionTimeInDayOutput) ToGetAccountsAccountParameterDataRetentionTimeInDayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDataRetentionTimeInDayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDataRetentionTimeInDayOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDataRetentionTimeInDay) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDataRetentionTimeInDayOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDataRetentionTimeInDay) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDataRetentionTimeInDayOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDataRetentionTimeInDay) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDataRetentionTimeInDayOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDataRetentionTimeInDay) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDataRetentionTimeInDayOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDataRetentionTimeInDay) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDataRetentionTimeInDay)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput) ToGetAccountsAccountParameterDataRetentionTimeInDayArrayOutput() GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput) ToGetAccountsAccountParameterDataRetentionTimeInDayArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterDataRetentionTimeInDayOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterDataRetentionTimeInDay {
+		return vs[0].([]GetAccountsAccountParameterDataRetentionTimeInDay)[vs[1].(int)]
+	}).(GetAccountsAccountParameterDataRetentionTimeInDayOutput)
+}
+
+type GetAccountsAccountParameterDateInputFormat struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterDateInputFormatInput is an input type that accepts GetAccountsAccountParameterDateInputFormatArgs and GetAccountsAccountParameterDateInputFormatOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDateInputFormatInput` via:
+//
+//	GetAccountsAccountParameterDateInputFormatArgs{...}
+type GetAccountsAccountParameterDateInputFormatInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDateInputFormatOutput() GetAccountsAccountParameterDateInputFormatOutput
+	ToGetAccountsAccountParameterDateInputFormatOutputWithContext(context.Context) GetAccountsAccountParameterDateInputFormatOutput
+}
+
+type GetAccountsAccountParameterDateInputFormatArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterDateInputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDateInputFormat)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDateInputFormatArgs) ToGetAccountsAccountParameterDateInputFormatOutput() GetAccountsAccountParameterDateInputFormatOutput {
+	return i.ToGetAccountsAccountParameterDateInputFormatOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDateInputFormatArgs) ToGetAccountsAccountParameterDateInputFormatOutputWithContext(ctx context.Context) GetAccountsAccountParameterDateInputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDateInputFormatOutput)
+}
+
+// GetAccountsAccountParameterDateInputFormatArrayInput is an input type that accepts GetAccountsAccountParameterDateInputFormatArray and GetAccountsAccountParameterDateInputFormatArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDateInputFormatArrayInput` via:
+//
+//	GetAccountsAccountParameterDateInputFormatArray{ GetAccountsAccountParameterDateInputFormatArgs{...} }
+type GetAccountsAccountParameterDateInputFormatArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDateInputFormatArrayOutput() GetAccountsAccountParameterDateInputFormatArrayOutput
+	ToGetAccountsAccountParameterDateInputFormatArrayOutputWithContext(context.Context) GetAccountsAccountParameterDateInputFormatArrayOutput
+}
+
+type GetAccountsAccountParameterDateInputFormatArray []GetAccountsAccountParameterDateInputFormatInput
+
+func (GetAccountsAccountParameterDateInputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDateInputFormat)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDateInputFormatArray) ToGetAccountsAccountParameterDateInputFormatArrayOutput() GetAccountsAccountParameterDateInputFormatArrayOutput {
+	return i.ToGetAccountsAccountParameterDateInputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDateInputFormatArray) ToGetAccountsAccountParameterDateInputFormatArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDateInputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDateInputFormatArrayOutput)
+}
+
+type GetAccountsAccountParameterDateInputFormatOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDateInputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDateInputFormat)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDateInputFormatOutput) ToGetAccountsAccountParameterDateInputFormatOutput() GetAccountsAccountParameterDateInputFormatOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDateInputFormatOutput) ToGetAccountsAccountParameterDateInputFormatOutputWithContext(ctx context.Context) GetAccountsAccountParameterDateInputFormatOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDateInputFormatOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDateInputFormat) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDateInputFormatOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDateInputFormat) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDateInputFormatOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDateInputFormat) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDateInputFormatOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDateInputFormat) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDateInputFormatOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDateInputFormat) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterDateInputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDateInputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDateInputFormat)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDateInputFormatArrayOutput) ToGetAccountsAccountParameterDateInputFormatArrayOutput() GetAccountsAccountParameterDateInputFormatArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDateInputFormatArrayOutput) ToGetAccountsAccountParameterDateInputFormatArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDateInputFormatArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDateInputFormatArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterDateInputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterDateInputFormat {
+		return vs[0].([]GetAccountsAccountParameterDateInputFormat)[vs[1].(int)]
+	}).(GetAccountsAccountParameterDateInputFormatOutput)
+}
+
+type GetAccountsAccountParameterDateOutputFormat struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterDateOutputFormatInput is an input type that accepts GetAccountsAccountParameterDateOutputFormatArgs and GetAccountsAccountParameterDateOutputFormatOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDateOutputFormatInput` via:
+//
+//	GetAccountsAccountParameterDateOutputFormatArgs{...}
+type GetAccountsAccountParameterDateOutputFormatInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDateOutputFormatOutput() GetAccountsAccountParameterDateOutputFormatOutput
+	ToGetAccountsAccountParameterDateOutputFormatOutputWithContext(context.Context) GetAccountsAccountParameterDateOutputFormatOutput
+}
+
+type GetAccountsAccountParameterDateOutputFormatArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterDateOutputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDateOutputFormat)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDateOutputFormatArgs) ToGetAccountsAccountParameterDateOutputFormatOutput() GetAccountsAccountParameterDateOutputFormatOutput {
+	return i.ToGetAccountsAccountParameterDateOutputFormatOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDateOutputFormatArgs) ToGetAccountsAccountParameterDateOutputFormatOutputWithContext(ctx context.Context) GetAccountsAccountParameterDateOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDateOutputFormatOutput)
+}
+
+// GetAccountsAccountParameterDateOutputFormatArrayInput is an input type that accepts GetAccountsAccountParameterDateOutputFormatArray and GetAccountsAccountParameterDateOutputFormatArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDateOutputFormatArrayInput` via:
+//
+//	GetAccountsAccountParameterDateOutputFormatArray{ GetAccountsAccountParameterDateOutputFormatArgs{...} }
+type GetAccountsAccountParameterDateOutputFormatArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDateOutputFormatArrayOutput() GetAccountsAccountParameterDateOutputFormatArrayOutput
+	ToGetAccountsAccountParameterDateOutputFormatArrayOutputWithContext(context.Context) GetAccountsAccountParameterDateOutputFormatArrayOutput
+}
+
+type GetAccountsAccountParameterDateOutputFormatArray []GetAccountsAccountParameterDateOutputFormatInput
+
+func (GetAccountsAccountParameterDateOutputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDateOutputFormat)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDateOutputFormatArray) ToGetAccountsAccountParameterDateOutputFormatArrayOutput() GetAccountsAccountParameterDateOutputFormatArrayOutput {
+	return i.ToGetAccountsAccountParameterDateOutputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDateOutputFormatArray) ToGetAccountsAccountParameterDateOutputFormatArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDateOutputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDateOutputFormatArrayOutput)
+}
+
+type GetAccountsAccountParameterDateOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDateOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDateOutputFormat)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDateOutputFormatOutput) ToGetAccountsAccountParameterDateOutputFormatOutput() GetAccountsAccountParameterDateOutputFormatOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDateOutputFormatOutput) ToGetAccountsAccountParameterDateOutputFormatOutputWithContext(ctx context.Context) GetAccountsAccountParameterDateOutputFormatOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDateOutputFormatOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDateOutputFormat) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDateOutputFormatOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDateOutputFormat) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDateOutputFormatOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDateOutputFormat) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDateOutputFormatOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDateOutputFormat) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDateOutputFormatOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDateOutputFormat) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterDateOutputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDateOutputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDateOutputFormat)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDateOutputFormatArrayOutput) ToGetAccountsAccountParameterDateOutputFormatArrayOutput() GetAccountsAccountParameterDateOutputFormatArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDateOutputFormatArrayOutput) ToGetAccountsAccountParameterDateOutputFormatArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDateOutputFormatArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDateOutputFormatArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterDateOutputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterDateOutputFormat {
+		return vs[0].([]GetAccountsAccountParameterDateOutputFormat)[vs[1].(int)]
+	}).(GetAccountsAccountParameterDateOutputFormatOutput)
+}
+
+type GetAccountsAccountParameterDefaultDbtVersion struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterDefaultDbtVersionInput is an input type that accepts GetAccountsAccountParameterDefaultDbtVersionArgs and GetAccountsAccountParameterDefaultDbtVersionOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultDbtVersionInput` via:
+//
+//	GetAccountsAccountParameterDefaultDbtVersionArgs{...}
+type GetAccountsAccountParameterDefaultDbtVersionInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultDbtVersionOutput() GetAccountsAccountParameterDefaultDbtVersionOutput
+	ToGetAccountsAccountParameterDefaultDbtVersionOutputWithContext(context.Context) GetAccountsAccountParameterDefaultDbtVersionOutput
+}
+
+type GetAccountsAccountParameterDefaultDbtVersionArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterDefaultDbtVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultDbtVersion)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultDbtVersionArgs) ToGetAccountsAccountParameterDefaultDbtVersionOutput() GetAccountsAccountParameterDefaultDbtVersionOutput {
+	return i.ToGetAccountsAccountParameterDefaultDbtVersionOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultDbtVersionArgs) ToGetAccountsAccountParameterDefaultDbtVersionOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultDbtVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultDbtVersionOutput)
+}
+
+// GetAccountsAccountParameterDefaultDbtVersionArrayInput is an input type that accepts GetAccountsAccountParameterDefaultDbtVersionArray and GetAccountsAccountParameterDefaultDbtVersionArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultDbtVersionArrayInput` via:
+//
+//	GetAccountsAccountParameterDefaultDbtVersionArray{ GetAccountsAccountParameterDefaultDbtVersionArgs{...} }
+type GetAccountsAccountParameterDefaultDbtVersionArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultDbtVersionArrayOutput() GetAccountsAccountParameterDefaultDbtVersionArrayOutput
+	ToGetAccountsAccountParameterDefaultDbtVersionArrayOutputWithContext(context.Context) GetAccountsAccountParameterDefaultDbtVersionArrayOutput
+}
+
+type GetAccountsAccountParameterDefaultDbtVersionArray []GetAccountsAccountParameterDefaultDbtVersionInput
+
+func (GetAccountsAccountParameterDefaultDbtVersionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultDbtVersion)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultDbtVersionArray) ToGetAccountsAccountParameterDefaultDbtVersionArrayOutput() GetAccountsAccountParameterDefaultDbtVersionArrayOutput {
+	return i.ToGetAccountsAccountParameterDefaultDbtVersionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultDbtVersionArray) ToGetAccountsAccountParameterDefaultDbtVersionArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultDbtVersionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultDbtVersionArrayOutput)
+}
+
+type GetAccountsAccountParameterDefaultDbtVersionOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultDbtVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultDbtVersion)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultDbtVersionOutput) ToGetAccountsAccountParameterDefaultDbtVersionOutput() GetAccountsAccountParameterDefaultDbtVersionOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultDbtVersionOutput) ToGetAccountsAccountParameterDefaultDbtVersionOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultDbtVersionOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultDbtVersionOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultDbtVersion) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultDbtVersionOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultDbtVersion) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultDbtVersionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultDbtVersion) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultDbtVersionOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultDbtVersion) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultDbtVersionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultDbtVersion) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterDefaultDbtVersionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultDbtVersionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultDbtVersion)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultDbtVersionArrayOutput) ToGetAccountsAccountParameterDefaultDbtVersionArrayOutput() GetAccountsAccountParameterDefaultDbtVersionArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultDbtVersionArrayOutput) ToGetAccountsAccountParameterDefaultDbtVersionArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultDbtVersionArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultDbtVersionArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterDefaultDbtVersionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterDefaultDbtVersion {
+		return vs[0].([]GetAccountsAccountParameterDefaultDbtVersion)[vs[1].(int)]
+	}).(GetAccountsAccountParameterDefaultDbtVersionOutput)
+}
+
+type GetAccountsAccountParameterDefaultDdlCollation struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterDefaultDdlCollationInput is an input type that accepts GetAccountsAccountParameterDefaultDdlCollationArgs and GetAccountsAccountParameterDefaultDdlCollationOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultDdlCollationInput` via:
+//
+//	GetAccountsAccountParameterDefaultDdlCollationArgs{...}
+type GetAccountsAccountParameterDefaultDdlCollationInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultDdlCollationOutput() GetAccountsAccountParameterDefaultDdlCollationOutput
+	ToGetAccountsAccountParameterDefaultDdlCollationOutputWithContext(context.Context) GetAccountsAccountParameterDefaultDdlCollationOutput
+}
+
+type GetAccountsAccountParameterDefaultDdlCollationArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterDefaultDdlCollationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultDdlCollation)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultDdlCollationArgs) ToGetAccountsAccountParameterDefaultDdlCollationOutput() GetAccountsAccountParameterDefaultDdlCollationOutput {
+	return i.ToGetAccountsAccountParameterDefaultDdlCollationOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultDdlCollationArgs) ToGetAccountsAccountParameterDefaultDdlCollationOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultDdlCollationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultDdlCollationOutput)
+}
+
+// GetAccountsAccountParameterDefaultDdlCollationArrayInput is an input type that accepts GetAccountsAccountParameterDefaultDdlCollationArray and GetAccountsAccountParameterDefaultDdlCollationArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultDdlCollationArrayInput` via:
+//
+//	GetAccountsAccountParameterDefaultDdlCollationArray{ GetAccountsAccountParameterDefaultDdlCollationArgs{...} }
+type GetAccountsAccountParameterDefaultDdlCollationArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultDdlCollationArrayOutput() GetAccountsAccountParameterDefaultDdlCollationArrayOutput
+	ToGetAccountsAccountParameterDefaultDdlCollationArrayOutputWithContext(context.Context) GetAccountsAccountParameterDefaultDdlCollationArrayOutput
+}
+
+type GetAccountsAccountParameterDefaultDdlCollationArray []GetAccountsAccountParameterDefaultDdlCollationInput
+
+func (GetAccountsAccountParameterDefaultDdlCollationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultDdlCollation)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultDdlCollationArray) ToGetAccountsAccountParameterDefaultDdlCollationArrayOutput() GetAccountsAccountParameterDefaultDdlCollationArrayOutput {
+	return i.ToGetAccountsAccountParameterDefaultDdlCollationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultDdlCollationArray) ToGetAccountsAccountParameterDefaultDdlCollationArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultDdlCollationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultDdlCollationArrayOutput)
+}
+
+type GetAccountsAccountParameterDefaultDdlCollationOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultDdlCollationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultDdlCollation)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultDdlCollationOutput) ToGetAccountsAccountParameterDefaultDdlCollationOutput() GetAccountsAccountParameterDefaultDdlCollationOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultDdlCollationOutput) ToGetAccountsAccountParameterDefaultDdlCollationOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultDdlCollationOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultDdlCollationOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultDdlCollation) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultDdlCollationOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultDdlCollation) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultDdlCollationOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultDdlCollation) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultDdlCollationOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultDdlCollation) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultDdlCollationOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultDdlCollation) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterDefaultDdlCollationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultDdlCollationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultDdlCollation)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultDdlCollationArrayOutput) ToGetAccountsAccountParameterDefaultDdlCollationArrayOutput() GetAccountsAccountParameterDefaultDdlCollationArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultDdlCollationArrayOutput) ToGetAccountsAccountParameterDefaultDdlCollationArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultDdlCollationArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultDdlCollationArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterDefaultDdlCollationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterDefaultDdlCollation {
+		return vs[0].([]GetAccountsAccountParameterDefaultDdlCollation)[vs[1].(int)]
+	}).(GetAccountsAccountParameterDefaultDdlCollationOutput)
+}
+
+type GetAccountsAccountParameterDefaultNotebookComputePoolCpus struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterDefaultNotebookComputePoolCpusInput is an input type that accepts GetAccountsAccountParameterDefaultNotebookComputePoolCpusArgs and GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultNotebookComputePoolCpusInput` via:
+//
+//	GetAccountsAccountParameterDefaultNotebookComputePoolCpusArgs{...}
+type GetAccountsAccountParameterDefaultNotebookComputePoolCpusInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput() GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput
+	ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusOutputWithContext(context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput
+}
+
+type GetAccountsAccountParameterDefaultNotebookComputePoolCpusArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterDefaultNotebookComputePoolCpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultNotebookComputePoolCpusArgs) ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput() GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput {
+	return i.ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultNotebookComputePoolCpusArgs) ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput)
+}
+
+// GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayInput is an input type that accepts GetAccountsAccountParameterDefaultNotebookComputePoolCpusArray and GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayInput` via:
+//
+//	GetAccountsAccountParameterDefaultNotebookComputePoolCpusArray{ GetAccountsAccountParameterDefaultNotebookComputePoolCpusArgs{...} }
+type GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput() GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput
+	ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput
+}
+
+type GetAccountsAccountParameterDefaultNotebookComputePoolCpusArray []GetAccountsAccountParameterDefaultNotebookComputePoolCpusInput
+
+func (GetAccountsAccountParameterDefaultNotebookComputePoolCpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultNotebookComputePoolCpusArray) ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput() GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return i.ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultNotebookComputePoolCpusArray) ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput)
+}
+
+type GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput) ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput() GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput) ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNotebookComputePoolCpus) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNotebookComputePoolCpus) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNotebookComputePoolCpus) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNotebookComputePoolCpus) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNotebookComputePoolCpus) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultNotebookComputePoolCpus)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput) ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput() GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput) ToGetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterDefaultNotebookComputePoolCpus {
+		return vs[0].([]GetAccountsAccountParameterDefaultNotebookComputePoolCpus)[vs[1].(int)]
+	}).(GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput)
+}
+
+type GetAccountsAccountParameterDefaultNotebookComputePoolGpus struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterDefaultNotebookComputePoolGpusInput is an input type that accepts GetAccountsAccountParameterDefaultNotebookComputePoolGpusArgs and GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultNotebookComputePoolGpusInput` via:
+//
+//	GetAccountsAccountParameterDefaultNotebookComputePoolGpusArgs{...}
+type GetAccountsAccountParameterDefaultNotebookComputePoolGpusInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput() GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput
+	ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusOutputWithContext(context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput
+}
+
+type GetAccountsAccountParameterDefaultNotebookComputePoolGpusArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterDefaultNotebookComputePoolGpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultNotebookComputePoolGpusArgs) ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput() GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput {
+	return i.ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultNotebookComputePoolGpusArgs) ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput)
+}
+
+// GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayInput is an input type that accepts GetAccountsAccountParameterDefaultNotebookComputePoolGpusArray and GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayInput` via:
+//
+//	GetAccountsAccountParameterDefaultNotebookComputePoolGpusArray{ GetAccountsAccountParameterDefaultNotebookComputePoolGpusArgs{...} }
+type GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput() GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput
+	ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput
+}
+
+type GetAccountsAccountParameterDefaultNotebookComputePoolGpusArray []GetAccountsAccountParameterDefaultNotebookComputePoolGpusInput
+
+func (GetAccountsAccountParameterDefaultNotebookComputePoolGpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultNotebookComputePoolGpusArray) ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput() GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return i.ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultNotebookComputePoolGpusArray) ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput)
+}
+
+type GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput) ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput() GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput) ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNotebookComputePoolGpus) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNotebookComputePoolGpus) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNotebookComputePoolGpus) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNotebookComputePoolGpus) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNotebookComputePoolGpus) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultNotebookComputePoolGpus)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput) ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput() GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput) ToGetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterDefaultNotebookComputePoolGpus {
+		return vs[0].([]GetAccountsAccountParameterDefaultNotebookComputePoolGpus)[vs[1].(int)]
+	}).(GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput)
+}
+
+type GetAccountsAccountParameterDefaultNullOrdering struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterDefaultNullOrderingInput is an input type that accepts GetAccountsAccountParameterDefaultNullOrderingArgs and GetAccountsAccountParameterDefaultNullOrderingOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultNullOrderingInput` via:
+//
+//	GetAccountsAccountParameterDefaultNullOrderingArgs{...}
+type GetAccountsAccountParameterDefaultNullOrderingInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultNullOrderingOutput() GetAccountsAccountParameterDefaultNullOrderingOutput
+	ToGetAccountsAccountParameterDefaultNullOrderingOutputWithContext(context.Context) GetAccountsAccountParameterDefaultNullOrderingOutput
+}
+
+type GetAccountsAccountParameterDefaultNullOrderingArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterDefaultNullOrderingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultNullOrdering)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultNullOrderingArgs) ToGetAccountsAccountParameterDefaultNullOrderingOutput() GetAccountsAccountParameterDefaultNullOrderingOutput {
+	return i.ToGetAccountsAccountParameterDefaultNullOrderingOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultNullOrderingArgs) ToGetAccountsAccountParameterDefaultNullOrderingOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNullOrderingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultNullOrderingOutput)
+}
+
+// GetAccountsAccountParameterDefaultNullOrderingArrayInput is an input type that accepts GetAccountsAccountParameterDefaultNullOrderingArray and GetAccountsAccountParameterDefaultNullOrderingArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultNullOrderingArrayInput` via:
+//
+//	GetAccountsAccountParameterDefaultNullOrderingArray{ GetAccountsAccountParameterDefaultNullOrderingArgs{...} }
+type GetAccountsAccountParameterDefaultNullOrderingArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultNullOrderingArrayOutput() GetAccountsAccountParameterDefaultNullOrderingArrayOutput
+	ToGetAccountsAccountParameterDefaultNullOrderingArrayOutputWithContext(context.Context) GetAccountsAccountParameterDefaultNullOrderingArrayOutput
+}
+
+type GetAccountsAccountParameterDefaultNullOrderingArray []GetAccountsAccountParameterDefaultNullOrderingInput
+
+func (GetAccountsAccountParameterDefaultNullOrderingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultNullOrdering)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultNullOrderingArray) ToGetAccountsAccountParameterDefaultNullOrderingArrayOutput() GetAccountsAccountParameterDefaultNullOrderingArrayOutput {
+	return i.ToGetAccountsAccountParameterDefaultNullOrderingArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultNullOrderingArray) ToGetAccountsAccountParameterDefaultNullOrderingArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNullOrderingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultNullOrderingArrayOutput)
+}
+
+type GetAccountsAccountParameterDefaultNullOrderingOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultNullOrderingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultNullOrdering)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultNullOrderingOutput) ToGetAccountsAccountParameterDefaultNullOrderingOutput() GetAccountsAccountParameterDefaultNullOrderingOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNullOrderingOutput) ToGetAccountsAccountParameterDefaultNullOrderingOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNullOrderingOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNullOrderingOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNullOrdering) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNullOrderingOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNullOrdering) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNullOrderingOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNullOrdering) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNullOrderingOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNullOrdering) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultNullOrderingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultNullOrdering) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterDefaultNullOrderingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultNullOrderingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultNullOrdering)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultNullOrderingArrayOutput) ToGetAccountsAccountParameterDefaultNullOrderingArrayOutput() GetAccountsAccountParameterDefaultNullOrderingArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNullOrderingArrayOutput) ToGetAccountsAccountParameterDefaultNullOrderingArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultNullOrderingArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultNullOrderingArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterDefaultNullOrderingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterDefaultNullOrdering {
+		return vs[0].([]GetAccountsAccountParameterDefaultNullOrdering)[vs[1].(int)]
+	}).(GetAccountsAccountParameterDefaultNullOrderingOutput)
+}
+
+type GetAccountsAccountParameterDefaultStreamlitComputePool struct {
+	Default     string `pulumi:"default"`
+	Description string `pulumi:"description"`
+	Key         string `pulumi:"key"`
+	Level       string `pulumi:"level"`
+	Value       string `pulumi:"value"`
+}
+
+// GetAccountsAccountParameterDefaultStreamlitComputePoolInput is an input type that accepts GetAccountsAccountParameterDefaultStreamlitComputePoolArgs and GetAccountsAccountParameterDefaultStreamlitComputePoolOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultStreamlitComputePoolInput` via:
+//
+//	GetAccountsAccountParameterDefaultStreamlitComputePoolArgs{...}
+type GetAccountsAccountParameterDefaultStreamlitComputePoolInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultStreamlitComputePoolOutput() GetAccountsAccountParameterDefaultStreamlitComputePoolOutput
+	ToGetAccountsAccountParameterDefaultStreamlitComputePoolOutputWithContext(context.Context) GetAccountsAccountParameterDefaultStreamlitComputePoolOutput
+}
+
+type GetAccountsAccountParameterDefaultStreamlitComputePoolArgs struct {
+	Default     pulumi.StringInput `pulumi:"default"`
+	Description pulumi.StringInput `pulumi:"description"`
+	Key         pulumi.StringInput `pulumi:"key"`
+	Level       pulumi.StringInput `pulumi:"level"`
+	Value       pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetAccountsAccountParameterDefaultStreamlitComputePoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultStreamlitComputePool)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultStreamlitComputePoolArgs) ToGetAccountsAccountParameterDefaultStreamlitComputePoolOutput() GetAccountsAccountParameterDefaultStreamlitComputePoolOutput {
+	return i.ToGetAccountsAccountParameterDefaultStreamlitComputePoolOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultStreamlitComputePoolArgs) ToGetAccountsAccountParameterDefaultStreamlitComputePoolOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultStreamlitComputePoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultStreamlitComputePoolOutput)
+}
+
+// GetAccountsAccountParameterDefaultStreamlitComputePoolArrayInput is an input type that accepts GetAccountsAccountParameterDefaultStreamlitComputePoolArray and GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput values.
+// You can construct a concrete instance of `GetAccountsAccountParameterDefaultStreamlitComputePoolArrayInput` via:
+//
+//	GetAccountsAccountParameterDefaultStreamlitComputePoolArray{ GetAccountsAccountParameterDefaultStreamlitComputePoolArgs{...} }
+type GetAccountsAccountParameterDefaultStreamlitComputePoolArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput() GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput
+	ToGetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutputWithContext(context.Context) GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput
+}
+
+type GetAccountsAccountParameterDefaultStreamlitComputePoolArray []GetAccountsAccountParameterDefaultStreamlitComputePoolInput
+
+func (GetAccountsAccountParameterDefaultStreamlitComputePoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultStreamlitComputePool)(nil)).Elem()
+}
+
+func (i GetAccountsAccountParameterDefaultStreamlitComputePoolArray) ToGetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput() GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput {
+	return i.ToGetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountsAccountParameterDefaultStreamlitComputePoolArray) ToGetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput)
+}
+
+type GetAccountsAccountParameterDefaultStreamlitComputePoolOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultStreamlitComputePoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountsAccountParameterDefaultStreamlitComputePool)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultStreamlitComputePoolOutput) ToGetAccountsAccountParameterDefaultStreamlitComputePoolOutput() GetAccountsAccountParameterDefaultStreamlitComputePoolOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultStreamlitComputePoolOutput) ToGetAccountsAccountParameterDefaultStreamlitComputePoolOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultStreamlitComputePoolOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultStreamlitComputePoolOutput) Default() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultStreamlitComputePool) string { return v.Default }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultStreamlitComputePoolOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultStreamlitComputePool) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultStreamlitComputePoolOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultStreamlitComputePool) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultStreamlitComputePoolOutput) Level() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultStreamlitComputePool) string { return v.Level }).(pulumi.StringOutput)
+}
+
+func (o GetAccountsAccountParameterDefaultStreamlitComputePoolOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountsAccountParameterDefaultStreamlitComputePool) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountsAccountParameterDefaultStreamlitComputePool)(nil)).Elem()
+}
+
+func (o GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput) ToGetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput() GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput) ToGetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutputWithContext(ctx context.Context) GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput {
+	return o
+}
+
+func (o GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput) Index(i pulumi.IntInput) GetAccountsAccountParameterDefaultStreamlitComputePoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountsAccountParameterDefaultStreamlitComputePool {
+		return vs[0].([]GetAccountsAccountParameterDefaultStreamlitComputePool)[vs[1].(int)]
+	}).(GetAccountsAccountParameterDefaultStreamlitComputePoolOutput)
 }
 
 func init() {
@@ -73628,6 +73587,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDataRetentionTimeInDayArrayInput)(nil)).Elem(), SchemaParameterDataRetentionTimeInDayArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDefaultDdlCollationInput)(nil)).Elem(), SchemaParameterDefaultDdlCollationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDefaultDdlCollationArrayInput)(nil)).Elem(), SchemaParameterDefaultDdlCollationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDefaultNotebookComputePoolCpusInput)(nil)).Elem(), SchemaParameterDefaultNotebookComputePoolCpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDefaultNotebookComputePoolCpusArrayInput)(nil)).Elem(), SchemaParameterDefaultNotebookComputePoolCpusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDefaultNotebookComputePoolGpusInput)(nil)).Elem(), SchemaParameterDefaultNotebookComputePoolGpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterDefaultNotebookComputePoolGpusArrayInput)(nil)).Elem(), SchemaParameterDefaultNotebookComputePoolGpusArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterEnableConsoleOutputInput)(nil)).Elem(), SchemaParameterEnableConsoleOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterEnableConsoleOutputArrayInput)(nil)).Elem(), SchemaParameterEnableConsoleOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaParameterExternalVolumeInput)(nil)).Elem(), SchemaParameterExternalVolumeArgs{})
@@ -73722,6 +73685,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFromSpecificationTemplatePtrInput)(nil)).Elem(), ServiceFromSpecificationTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFromSpecificationTemplateUsingInput)(nil)).Elem(), ServiceFromSpecificationTemplateUsingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFromSpecificationTemplateUsingArrayInput)(nil)).Elem(), ServiceFromSpecificationTemplateUsingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceParameterInput)(nil)).Elem(), ServiceParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceParameterArrayInput)(nil)).Elem(), ServiceParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceParameterServiceCallerTokenValiditySecInput)(nil)).Elem(), ServiceParameterServiceCallerTokenValiditySecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceParameterServiceCallerTokenValiditySecArrayInput)(nil)).Elem(), ServiceParameterServiceCallerTokenValiditySecArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceShowOutputInput)(nil)).Elem(), ServiceShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceShowOutputArrayInput)(nil)).Elem(), ServiceShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUserDefaultWorkloadIdentityInput)(nil)).Elem(), ServiceUserDefaultWorkloadIdentityArgs{})
@@ -74496,94 +74463,86 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountRolesAccountRoleShowOutputArrayInput)(nil)).Elem(), GetAccountRolesAccountRoleShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountInput)(nil)).Elem(), GetAccountsAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountArrayInput)(nil)).Elem(), GetAccountsAccountArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountShowOutputInput)(nil)).Elem(), GetAccountsAccountShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountShowOutputArrayInput)(nil)).Elem(), GetAccountsAccountShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertsAlertInput)(nil)).Elem(), GetAlertsAlertArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAlertsAlertArrayInput)(nil)).Elem(), GetAlertsAlertArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApiIntegrationsApiIntegrationInput)(nil)).Elem(), GetApiIntegrationsApiIntegrationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApiIntegrationsApiIntegrationArrayInput)(nil)).Elem(), GetApiIntegrationsApiIntegrationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApiIntegrationsApiIntegrationDescribeOutputInput)(nil)).Elem(), GetApiIntegrationsApiIntegrationDescribeOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApiIntegrationsApiIntegrationDescribeOutputArrayInput)(nil)).Elem(), GetApiIntegrationsApiIntegrationDescribeOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApiIntegrationsApiIntegrationShowOutputInput)(nil)).Elem(), GetApiIntegrationsApiIntegrationShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApiIntegrationsApiIntegrationShowOutputArrayInput)(nil)).Elem(), GetApiIntegrationsApiIntegrationShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyArrayInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyShowOutputInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayInput)(nil)).Elem(), GetAuthenticationPoliciesAuthenticationPolicyShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesInInput)(nil)).Elem(), GetAuthenticationPoliciesInArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesInPtrInput)(nil)).Elem(), GetAuthenticationPoliciesInArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesLimitInput)(nil)).Elem(), GetAuthenticationPoliciesLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesLimitPtrInput)(nil)).Elem(), GetAuthenticationPoliciesLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesOnInput)(nil)).Elem(), GetAuthenticationPoliciesOnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAuthenticationPoliciesOnPtrInput)(nil)).Elem(), GetAuthenticationPoliciesOnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationArrayInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationDescribeOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationDescribeOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationShowOutputInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCatalogIntegrationsCatalogIntegrationShowOutputArrayInput)(nil)).Elem(), GetCatalogIntegrationsCatalogIntegrationShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsComputePoolInput)(nil)).Elem(), GetComputePoolsComputePoolArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsComputePoolArrayInput)(nil)).Elem(), GetComputePoolsComputePoolArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsComputePoolDescribeOutputInput)(nil)).Elem(), GetComputePoolsComputePoolDescribeOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsComputePoolDescribeOutputArrayInput)(nil)).Elem(), GetComputePoolsComputePoolDescribeOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsComputePoolShowOutputInput)(nil)).Elem(), GetComputePoolsComputePoolShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsComputePoolShowOutputArrayInput)(nil)).Elem(), GetComputePoolsComputePoolShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsLimitInput)(nil)).Elem(), GetComputePoolsLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetComputePoolsLimitPtrInput)(nil)).Elem(), GetComputePoolsLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionsConnectionInput)(nil)).Elem(), GetConnectionsConnectionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionsConnectionArrayInput)(nil)).Elem(), GetConnectionsConnectionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionsConnectionShowOutputInput)(nil)).Elem(), GetConnectionsConnectionShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionsConnectionShowOutputArrayInput)(nil)).Elem(), GetConnectionsConnectionShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsCortexAgentInput)(nil)).Elem(), GetCortexAgentsCortexAgentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsCortexAgentArrayInput)(nil)).Elem(), GetCortexAgentsCortexAgentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsCortexAgentDescribeOutputInput)(nil)).Elem(), GetCortexAgentsCortexAgentDescribeOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsCortexAgentDescribeOutputArrayInput)(nil)).Elem(), GetCortexAgentsCortexAgentDescribeOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsCortexAgentDescribeOutputProfileInput)(nil)).Elem(), GetCortexAgentsCortexAgentDescribeOutputProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsCortexAgentDescribeOutputProfileArrayInput)(nil)).Elem(), GetCortexAgentsCortexAgentDescribeOutputProfileArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsCortexAgentShowOutputInput)(nil)).Elem(), GetCortexAgentsCortexAgentShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsCortexAgentShowOutputArrayInput)(nil)).Elem(), GetCortexAgentsCortexAgentShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsCortexAgentShowOutputProfileInput)(nil)).Elem(), GetCortexAgentsCortexAgentShowOutputProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsCortexAgentShowOutputProfileArrayInput)(nil)).Elem(), GetCortexAgentsCortexAgentShowOutputProfileArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsInInput)(nil)).Elem(), GetCortexAgentsInArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsInPtrInput)(nil)).Elem(), GetCortexAgentsInArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsLimitInput)(nil)).Elem(), GetCortexAgentsLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexAgentsLimitPtrInput)(nil)).Elem(), GetCortexAgentsLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexSearchServicesCortexSearchServiceInput)(nil)).Elem(), GetCortexSearchServicesCortexSearchServiceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexSearchServicesCortexSearchServiceArrayInput)(nil)).Elem(), GetCortexSearchServicesCortexSearchServiceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexSearchServicesInInput)(nil)).Elem(), GetCortexSearchServicesInArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexSearchServicesInPtrInput)(nil)).Elem(), GetCortexSearchServicesInArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexSearchServicesLimitInput)(nil)).Elem(), GetCortexSearchServicesLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCortexSearchServicesLimitPtrInput)(nil)).Elem(), GetCortexSearchServicesLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseRolesDatabaseRoleInput)(nil)).Elem(), GetDatabaseRolesDatabaseRoleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseRolesDatabaseRoleArrayInput)(nil)).Elem(), GetDatabaseRolesDatabaseRoleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseRolesDatabaseRoleShowOutputInput)(nil)).Elem(), GetDatabaseRolesDatabaseRoleShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseRolesDatabaseRoleShowOutputArrayInput)(nil)).Elem(), GetDatabaseRolesDatabaseRoleShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseRolesLimitInput)(nil)).Elem(), GetDatabaseRolesLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabaseRolesLimitPtrInput)(nil)).Elem(), GetDatabaseRolesLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseInput)(nil)).Elem(), GetDatabasesDatabaseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseArrayInput)(nil)).Elem(), GetDatabasesDatabaseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseDescribeOutputInput)(nil)).Elem(), GetDatabasesDatabaseDescribeOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseDescribeOutputArrayInput)(nil)).Elem(), GetDatabasesDatabaseDescribeOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterInput)(nil)).Elem(), GetDatabasesDatabaseParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterCatalogInput)(nil)).Elem(), GetDatabasesDatabaseParameterCatalogArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterCatalogArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterCatalogArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterDataRetentionTimeInDayInput)(nil)).Elem(), GetDatabasesDatabaseParameterDataRetentionTimeInDayArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterDataRetentionTimeInDayArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterDefaultDdlCollationInput)(nil)).Elem(), GetDatabasesDatabaseParameterDefaultDdlCollationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterDefaultDdlCollationArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterDefaultDdlCollationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterEnableConsoleOutputInput)(nil)).Elem(), GetDatabasesDatabaseParameterEnableConsoleOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDatabasesDatabaseParameterEnableConsoleOutputArrayInput)(nil)).Elem(), GetDatabasesDatabaseParameterEnableConsoleOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterInput)(nil)).Elem(), GetAccountsAccountParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterArrayInput)(nil)).Elem(), GetAccountsAccountParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAbortDetachedQueryInput)(nil)).Elem(), GetAccountsAccountParameterAbortDetachedQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAbortDetachedQueryArrayInput)(nil)).Elem(), GetAccountsAccountParameterAbortDetachedQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterActivePythonProfilerInput)(nil)).Elem(), GetAccountsAccountParameterActivePythonProfilerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterActivePythonProfilerArrayInput)(nil)).Elem(), GetAccountsAccountParameterActivePythonProfilerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAllowBindValuesAccessInput)(nil)).Elem(), GetAccountsAccountParameterAllowBindValuesAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAllowBindValuesAccessArrayInput)(nil)).Elem(), GetAccountsAccountParameterAllowBindValuesAccessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAllowClientMfaCachingInput)(nil)).Elem(), GetAccountsAccountParameterAllowClientMfaCachingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAllowClientMfaCachingArrayInput)(nil)).Elem(), GetAccountsAccountParameterAllowClientMfaCachingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAllowIdTokenInput)(nil)).Elem(), GetAccountsAccountParameterAllowIdTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAllowIdTokenArrayInput)(nil)).Elem(), GetAccountsAccountParameterAllowIdTokenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAllowedSpcsWorkloadTypeInput)(nil)).Elem(), GetAccountsAccountParameterAllowedSpcsWorkloadTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayInput)(nil)).Elem(), GetAccountsAccountParameterAllowedSpcsWorkloadTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAutocommitInput)(nil)).Elem(), GetAccountsAccountParameterAutocommitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterAutocommitArrayInput)(nil)).Elem(), GetAccountsAccountParameterAutocommitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterBaseLocationPrefixInput)(nil)).Elem(), GetAccountsAccountParameterBaseLocationPrefixArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterBaseLocationPrefixArrayInput)(nil)).Elem(), GetAccountsAccountParameterBaseLocationPrefixArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterBinaryInputFormatInput)(nil)).Elem(), GetAccountsAccountParameterBinaryInputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterBinaryInputFormatArrayInput)(nil)).Elem(), GetAccountsAccountParameterBinaryInputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterBinaryOutputFormatInput)(nil)).Elem(), GetAccountsAccountParameterBinaryOutputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterBinaryOutputFormatArrayInput)(nil)).Elem(), GetAccountsAccountParameterBinaryOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCatalogInput)(nil)).Elem(), GetAccountsAccountParameterCatalogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCatalogArrayInput)(nil)).Elem(), GetAccountsAccountParameterCatalogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCatalogSyncInput)(nil)).Elem(), GetAccountsAccountParameterCatalogSyncArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCatalogSyncArrayInput)(nil)).Elem(), GetAccountsAccountParameterCatalogSyncArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientEnableLogInfoStatementParameterInput)(nil)).Elem(), GetAccountsAccountParameterClientEnableLogInfoStatementParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientEnableLogInfoStatementParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientEncryptionKeySizeInput)(nil)).Elem(), GetAccountsAccountParameterClientEncryptionKeySizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientEncryptionKeySizeArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientEncryptionKeySizeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientMemoryLimitInput)(nil)).Elem(), GetAccountsAccountParameterClientMemoryLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientMemoryLimitArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientMemoryLimitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxInput)(nil)).Elem(), GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientMetadataUseSessionDatabaseInput)(nil)).Elem(), GetAccountsAccountParameterClientMetadataUseSessionDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientMetadataUseSessionDatabaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientPrefetchThreadInput)(nil)).Elem(), GetAccountsAccountParameterClientPrefetchThreadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientPrefetchThreadArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientPrefetchThreadArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientResultChunkSizeInput)(nil)).Elem(), GetAccountsAccountParameterClientResultChunkSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientResultChunkSizeArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientResultChunkSizeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientResultColumnCaseInsensitiveInput)(nil)).Elem(), GetAccountsAccountParameterClientResultColumnCaseInsensitiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientResultColumnCaseInsensitiveArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientSessionKeepAlifeInput)(nil)).Elem(), GetAccountsAccountParameterClientSessionKeepAlifeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientSessionKeepAlifeArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientSessionKeepAlifeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyInput)(nil)).Elem(), GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientTimestampTypeMappingInput)(nil)).Elem(), GetAccountsAccountParameterClientTimestampTypeMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterClientTimestampTypeMappingArrayInput)(nil)).Elem(), GetAccountsAccountParameterClientTimestampTypeMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserInput)(nil)).Elem(), GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayInput)(nil)).Elem(), GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserInput)(nil)).Elem(), GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayInput)(nil)).Elem(), GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserInput)(nil)).Elem(), GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayInput)(nil)).Elem(), GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCortexEnabledCrossRegionInput)(nil)).Elem(), GetAccountsAccountParameterCortexEnabledCrossRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCortexEnabledCrossRegionArrayInput)(nil)).Elem(), GetAccountsAccountParameterCortexEnabledCrossRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCortexModelsAllowlistInput)(nil)).Elem(), GetAccountsAccountParameterCortexModelsAllowlistArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCortexModelsAllowlistArrayInput)(nil)).Elem(), GetAccountsAccountParameterCortexModelsAllowlistArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCsvTimestampFormatInput)(nil)).Elem(), GetAccountsAccountParameterCsvTimestampFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterCsvTimestampFormatArrayInput)(nil)).Elem(), GetAccountsAccountParameterCsvTimestampFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDataMetricScheduleInput)(nil)).Elem(), GetAccountsAccountParameterDataMetricScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDataMetricScheduleArrayInput)(nil)).Elem(), GetAccountsAccountParameterDataMetricScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDataRetentionTimeInDayInput)(nil)).Elem(), GetAccountsAccountParameterDataRetentionTimeInDayArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDataRetentionTimeInDayArrayInput)(nil)).Elem(), GetAccountsAccountParameterDataRetentionTimeInDayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDateInputFormatInput)(nil)).Elem(), GetAccountsAccountParameterDateInputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDateInputFormatArrayInput)(nil)).Elem(), GetAccountsAccountParameterDateInputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDateOutputFormatInput)(nil)).Elem(), GetAccountsAccountParameterDateOutputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDateOutputFormatArrayInput)(nil)).Elem(), GetAccountsAccountParameterDateOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultDbtVersionInput)(nil)).Elem(), GetAccountsAccountParameterDefaultDbtVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultDbtVersionArrayInput)(nil)).Elem(), GetAccountsAccountParameterDefaultDbtVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultDdlCollationInput)(nil)).Elem(), GetAccountsAccountParameterDefaultDdlCollationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultDdlCollationArrayInput)(nil)).Elem(), GetAccountsAccountParameterDefaultDdlCollationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultNotebookComputePoolCpusInput)(nil)).Elem(), GetAccountsAccountParameterDefaultNotebookComputePoolCpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayInput)(nil)).Elem(), GetAccountsAccountParameterDefaultNotebookComputePoolCpusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultNotebookComputePoolGpusInput)(nil)).Elem(), GetAccountsAccountParameterDefaultNotebookComputePoolGpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayInput)(nil)).Elem(), GetAccountsAccountParameterDefaultNotebookComputePoolGpusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultNullOrderingInput)(nil)).Elem(), GetAccountsAccountParameterDefaultNullOrderingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultNullOrderingArrayInput)(nil)).Elem(), GetAccountsAccountParameterDefaultNullOrderingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultStreamlitComputePoolInput)(nil)).Elem(), GetAccountsAccountParameterDefaultStreamlitComputePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountsAccountParameterDefaultStreamlitComputePoolArrayInput)(nil)).Elem(), GetAccountsAccountParameterDefaultStreamlitComputePoolArray{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputCommentOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputCommentArrayOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2DigestMethodsUsedOutput{})
@@ -74626,6 +74585,10 @@ func init() {
 	pulumi.RegisterOutputType(SchemaParameterDataRetentionTimeInDayArrayOutput{})
 	pulumi.RegisterOutputType(SchemaParameterDefaultDdlCollationOutput{})
 	pulumi.RegisterOutputType(SchemaParameterDefaultDdlCollationArrayOutput{})
+	pulumi.RegisterOutputType(SchemaParameterDefaultNotebookComputePoolCpusOutput{})
+	pulumi.RegisterOutputType(SchemaParameterDefaultNotebookComputePoolCpusArrayOutput{})
+	pulumi.RegisterOutputType(SchemaParameterDefaultNotebookComputePoolGpusOutput{})
+	pulumi.RegisterOutputType(SchemaParameterDefaultNotebookComputePoolGpusArrayOutput{})
 	pulumi.RegisterOutputType(SchemaParameterEnableConsoleOutputOutput{})
 	pulumi.RegisterOutputType(SchemaParameterEnableConsoleOutputArrayOutput{})
 	pulumi.RegisterOutputType(SchemaParameterExternalVolumeOutput{})
@@ -74720,6 +74683,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceFromSpecificationTemplatePtrOutput{})
 	pulumi.RegisterOutputType(ServiceFromSpecificationTemplateUsingOutput{})
 	pulumi.RegisterOutputType(ServiceFromSpecificationTemplateUsingArrayOutput{})
+	pulumi.RegisterOutputType(ServiceParameterOutput{})
+	pulumi.RegisterOutputType(ServiceParameterArrayOutput{})
+	pulumi.RegisterOutputType(ServiceParameterServiceCallerTokenValiditySecOutput{})
+	pulumi.RegisterOutputType(ServiceParameterServiceCallerTokenValiditySecArrayOutput{})
 	pulumi.RegisterOutputType(ServiceShowOutputOutput{})
 	pulumi.RegisterOutputType(ServiceShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ServiceUserDefaultWorkloadIdentityOutput{})
@@ -75494,92 +75461,84 @@ func init() {
 	pulumi.RegisterOutputType(GetAccountRolesAccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(GetAccountsAccountOutput{})
 	pulumi.RegisterOutputType(GetAccountsAccountArrayOutput{})
-	pulumi.RegisterOutputType(GetAccountsAccountShowOutputOutput{})
-	pulumi.RegisterOutputType(GetAccountsAccountShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetAlertsAlertOutput{})
-	pulumi.RegisterOutputType(GetAlertsAlertArrayOutput{})
-	pulumi.RegisterOutputType(GetApiIntegrationsApiIntegrationOutput{})
-	pulumi.RegisterOutputType(GetApiIntegrationsApiIntegrationArrayOutput{})
-	pulumi.RegisterOutputType(GetApiIntegrationsApiIntegrationDescribeOutputOutput{})
-	pulumi.RegisterOutputType(GetApiIntegrationsApiIntegrationDescribeOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetApiIntegrationsApiIntegrationShowOutputOutput{})
-	pulumi.RegisterOutputType(GetApiIntegrationsApiIntegrationShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyArrayOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyDescribeOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyShowOutputOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesAuthenticationPolicyShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesInOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesInPtrOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesLimitOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesLimitPtrOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesOnOutput{})
-	pulumi.RegisterOutputType(GetAuthenticationPoliciesOnPtrOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationArrayOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationDescribeOutputOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationDescribeOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationDescribeOutputBearerRestAuthenticationArrayOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationDescribeOutputOauthRestAuthenticationArrayOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationDescribeOutputRestConfigArrayOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationDescribeOutputSigv4RestAuthenticationArrayOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationShowOutputOutput{})
-	pulumi.RegisterOutputType(GetCatalogIntegrationsCatalogIntegrationShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetComputePoolsComputePoolOutput{})
-	pulumi.RegisterOutputType(GetComputePoolsComputePoolArrayOutput{})
-	pulumi.RegisterOutputType(GetComputePoolsComputePoolDescribeOutputOutput{})
-	pulumi.RegisterOutputType(GetComputePoolsComputePoolDescribeOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetComputePoolsComputePoolShowOutputOutput{})
-	pulumi.RegisterOutputType(GetComputePoolsComputePoolShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetComputePoolsLimitOutput{})
-	pulumi.RegisterOutputType(GetComputePoolsLimitPtrOutput{})
-	pulumi.RegisterOutputType(GetConnectionsConnectionOutput{})
-	pulumi.RegisterOutputType(GetConnectionsConnectionArrayOutput{})
-	pulumi.RegisterOutputType(GetConnectionsConnectionShowOutputOutput{})
-	pulumi.RegisterOutputType(GetConnectionsConnectionShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsCortexAgentOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsCortexAgentArrayOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsCortexAgentDescribeOutputOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsCortexAgentDescribeOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsCortexAgentDescribeOutputProfileOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsCortexAgentDescribeOutputProfileArrayOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsCortexAgentShowOutputOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsCortexAgentShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsCortexAgentShowOutputProfileOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsCortexAgentShowOutputProfileArrayOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsInOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsInPtrOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsLimitOutput{})
-	pulumi.RegisterOutputType(GetCortexAgentsLimitPtrOutput{})
-	pulumi.RegisterOutputType(GetCortexSearchServicesCortexSearchServiceOutput{})
-	pulumi.RegisterOutputType(GetCortexSearchServicesCortexSearchServiceArrayOutput{})
-	pulumi.RegisterOutputType(GetCortexSearchServicesInOutput{})
-	pulumi.RegisterOutputType(GetCortexSearchServicesInPtrOutput{})
-	pulumi.RegisterOutputType(GetCortexSearchServicesLimitOutput{})
-	pulumi.RegisterOutputType(GetCortexSearchServicesLimitPtrOutput{})
-	pulumi.RegisterOutputType(GetDatabaseRolesDatabaseRoleOutput{})
-	pulumi.RegisterOutputType(GetDatabaseRolesDatabaseRoleArrayOutput{})
-	pulumi.RegisterOutputType(GetDatabaseRolesDatabaseRoleShowOutputOutput{})
-	pulumi.RegisterOutputType(GetDatabaseRolesDatabaseRoleShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetDatabaseRolesLimitOutput{})
-	pulumi.RegisterOutputType(GetDatabaseRolesLimitPtrOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseArrayOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseDescribeOutputOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseDescribeOutputArrayOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterArrayOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterCatalogOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterCatalogArrayOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterDataRetentionTimeInDayOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterDataRetentionTimeInDayArrayOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterDefaultDdlCollationOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterDefaultDdlCollationArrayOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterEnableConsoleOutputOutput{})
-	pulumi.RegisterOutputType(GetDatabasesDatabaseParameterEnableConsoleOutputArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAbortDetachedQueryOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAbortDetachedQueryArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterActivePythonProfilerOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterActivePythonProfilerArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAllowBindValuesAccessOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAllowBindValuesAccessArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAllowClientMfaCachingOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAllowClientMfaCachingArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAllowIdTokenOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAllowIdTokenArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAllowedSpcsWorkloadTypeOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAllowedSpcsWorkloadTypeArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAutocommitOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterAutocommitArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterBaseLocationPrefixOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterBaseLocationPrefixArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterBinaryInputFormatOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterBinaryInputFormatArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterBinaryOutputFormatOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterBinaryOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCatalogOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCatalogArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCatalogSyncOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCatalogSyncArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientEnableLogInfoStatementParameterOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientEnableLogInfoStatementParameterArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientEncryptionKeySizeOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientEncryptionKeySizeArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientMemoryLimitOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientMemoryLimitArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientMetadataRequestUseConnectionCtxArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientMetadataUseSessionDatabaseOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientMetadataUseSessionDatabaseArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientPrefetchThreadOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientPrefetchThreadArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientResultChunkSizeOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientResultChunkSizeArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientResultColumnCaseInsensitiveOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientResultColumnCaseInsensitiveArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientSessionKeepAlifeOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientSessionKeepAlifeArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientTimestampTypeMappingOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterClientTimestampTypeMappingArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUserArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUserArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUserArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCortexEnabledCrossRegionOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCortexEnabledCrossRegionArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCortexModelsAllowlistOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCortexModelsAllowlistArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCsvTimestampFormatOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterCsvTimestampFormatArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDataMetricScheduleOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDataMetricScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDataRetentionTimeInDayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDataRetentionTimeInDayArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDateInputFormatOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDateInputFormatArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDateOutputFormatOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDateOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultDbtVersionOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultDbtVersionArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultDdlCollationOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultDdlCollationArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultNotebookComputePoolCpusOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultNotebookComputePoolCpusArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultNotebookComputePoolGpusOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultNotebookComputePoolGpusArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultNullOrderingOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultNullOrderingArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultStreamlitComputePoolOutput{})
+	pulumi.RegisterOutputType(GetAccountsAccountParameterDefaultStreamlitComputePoolArrayOutput{})
 }

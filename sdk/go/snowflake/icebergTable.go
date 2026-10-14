@@ -278,9 +278,9 @@ type IcebergTable struct {
 	AggregationPolicy IcebergTableAggregationPolicyPtrOutput `pulumi:"aggregationPolicy"`
 	// The path to a directory where Snowflake can write data and metadata files for the Iceberg table. Specify a relative path from the table's `EXTERNAL_VOLUME` location.
 	BaseLocation pulumi.StringPtrOutput `pulumi:"baseLocation"`
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringOutput `pulumi:"catalog"`
-	// Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+	// Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
 	CatalogSync pulumi.StringOutput `pulumi:"catalogSync"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable change tracking on the Iceberg table. Cannot be changed after creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ChangeTracking pulumi.StringPtrOutput `pulumi:"changeTracking"`
@@ -292,19 +292,19 @@ type IcebergTable struct {
 	Columns IcebergTableColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the Iceberg table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 	DataRetentionTimeInDays pulumi.IntOutput `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
 	DescribeOutputs IcebergTableDescribeOutputArrayOutput `pulumi:"describeOutputs"`
-	// Specifies whether automatic background data compaction is enabled for the Iceberg table. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+	// Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
 	EnableDataCompaction pulumi.BoolOutput `pulumi:"enableDataCompaction"`
-	// Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+	// Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
 	EnableIcebergMergeOnRead pulumi.BoolOutput `pulumi:"enableIcebergMergeOnRead"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether error logging is enabled for the Iceberg table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ErrorLogging pulumi.StringPtrOutput `pulumi:"errorLogging"`
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringOutput `pulumi:"externalVolume"`
 	// Defines a table-level FOREIGN KEY constraint.
 	ForeignKeyConstraints IcebergTableForeignKeyConstraintArrayOutput `pulumi:"foreignKeyConstraints"`
@@ -312,7 +312,7 @@ type IcebergTable struct {
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the Iceberg table format version.
 	IcebergVersion pulumi.IntPtrOutput `pulumi:"icebergVersion"`
-	// Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntOutput `pulumi:"maxDataExtensionTimeInDays"`
 	// Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -330,9 +330,9 @@ type IcebergTable struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
 	ShowOutputs IcebergTableShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 	StorageSerializationPolicy pulumi.StringOutput `pulumi:"storageSerializationPolicy"`
-	// Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+	// Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
 	TargetFileSize pulumi.StringOutput `pulumi:"targetFileSize"`
 	// Defines a table-level UNIQUE constraint.
 	UniqueConstraints IcebergTableUniqueConstraintArrayOutput `pulumi:"uniqueConstraints"`
@@ -381,9 +381,9 @@ type icebergTableState struct {
 	AggregationPolicy *IcebergTableAggregationPolicy `pulumi:"aggregationPolicy"`
 	// The path to a directory where Snowflake can write data and metadata files for the Iceberg table. Specify a relative path from the table's `EXTERNAL_VOLUME` location.
 	BaseLocation *string `pulumi:"baseLocation"`
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`
-	// Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+	// Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
 	CatalogSync *string `pulumi:"catalogSync"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable change tracking on the Iceberg table. Cannot be changed after creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ChangeTracking *string `pulumi:"changeTracking"`
@@ -395,19 +395,19 @@ type icebergTableState struct {
 	Columns []IcebergTableColumn `pulumi:"columns"`
 	// Specifies a comment for the Iceberg table.
 	Comment *string `pulumi:"comment"`
-	// Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
 	DescribeOutputs []IcebergTableDescribeOutput `pulumi:"describeOutputs"`
-	// Specifies whether automatic background data compaction is enabled for the Iceberg table. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+	// Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
 	EnableDataCompaction *bool `pulumi:"enableDataCompaction"`
-	// Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+	// Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
 	EnableIcebergMergeOnRead *bool `pulumi:"enableIcebergMergeOnRead"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether error logging is enabled for the Iceberg table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ErrorLogging *string `pulumi:"errorLogging"`
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume *string `pulumi:"externalVolume"`
 	// Defines a table-level FOREIGN KEY constraint.
 	ForeignKeyConstraints []IcebergTableForeignKeyConstraint `pulumi:"foreignKeyConstraints"`
@@ -415,7 +415,7 @@ type icebergTableState struct {
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the Iceberg table format version.
 	IcebergVersion *int `pulumi:"icebergVersion"`
-	// Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays *int `pulumi:"maxDataExtensionTimeInDays"`
 	// Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
@@ -433,9 +433,9 @@ type icebergTableState struct {
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
 	ShowOutputs []IcebergTableShowOutput `pulumi:"showOutputs"`
-	// Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 	StorageSerializationPolicy *string `pulumi:"storageSerializationPolicy"`
-	// Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+	// Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
 	TargetFileSize *string `pulumi:"targetFileSize"`
 	// Defines a table-level UNIQUE constraint.
 	UniqueConstraints []IcebergTableUniqueConstraint `pulumi:"uniqueConstraints"`
@@ -446,9 +446,9 @@ type IcebergTableState struct {
 	AggregationPolicy IcebergTableAggregationPolicyPtrInput
 	// The path to a directory where Snowflake can write data and metadata files for the Iceberg table. Specify a relative path from the table's `EXTERNAL_VOLUME` location.
 	BaseLocation pulumi.StringPtrInput
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringPtrInput
-	// Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+	// Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
 	CatalogSync pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable change tracking on the Iceberg table. Cannot be changed after creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ChangeTracking pulumi.StringPtrInput
@@ -460,19 +460,19 @@ type IcebergTableState struct {
 	Columns IcebergTableColumnArrayInput
 	// Specifies a comment for the Iceberg table.
 	Comment pulumi.StringPtrInput
-	// Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
 	DescribeOutputs IcebergTableDescribeOutputArrayInput
-	// Specifies whether automatic background data compaction is enabled for the Iceberg table. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+	// Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
 	EnableDataCompaction pulumi.BoolPtrInput
-	// Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+	// Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
 	EnableIcebergMergeOnRead pulumi.BoolPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether error logging is enabled for the Iceberg table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ErrorLogging pulumi.StringPtrInput
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringPtrInput
 	// Defines a table-level FOREIGN KEY constraint.
 	ForeignKeyConstraints IcebergTableForeignKeyConstraintArrayInput
@@ -480,7 +480,7 @@ type IcebergTableState struct {
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the Iceberg table format version.
 	IcebergVersion pulumi.IntPtrInput
-	// Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntPtrInput
 	// Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
@@ -498,9 +498,9 @@ type IcebergTableState struct {
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
 	ShowOutputs IcebergTableShowOutputArrayInput
-	// Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 	StorageSerializationPolicy pulumi.StringPtrInput
-	// Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+	// Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
 	TargetFileSize pulumi.StringPtrInput
 	// Defines a table-level UNIQUE constraint.
 	UniqueConstraints IcebergTableUniqueConstraintArrayInput
@@ -515,9 +515,9 @@ type icebergTableArgs struct {
 	AggregationPolicy *IcebergTableAggregationPolicy `pulumi:"aggregationPolicy"`
 	// The path to a directory where Snowflake can write data and metadata files for the Iceberg table. Specify a relative path from the table's `EXTERNAL_VOLUME` location.
 	BaseLocation *string `pulumi:"baseLocation"`
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`
-	// Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+	// Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
 	CatalogSync *string `pulumi:"catalogSync"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable change tracking on the Iceberg table. Cannot be changed after creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ChangeTracking *string `pulumi:"changeTracking"`
@@ -529,23 +529,23 @@ type icebergTableArgs struct {
 	Columns []IcebergTableColumn `pulumi:"columns"`
 	// Specifies a comment for the Iceberg table.
 	Comment *string `pulumi:"comment"`
-	// Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Specifies whether automatic background data compaction is enabled for the Iceberg table. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+	// Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
 	EnableDataCompaction *bool `pulumi:"enableDataCompaction"`
-	// Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+	// Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
 	EnableIcebergMergeOnRead *bool `pulumi:"enableIcebergMergeOnRead"`
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether error logging is enabled for the Iceberg table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ErrorLogging *string `pulumi:"errorLogging"`
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume *string `pulumi:"externalVolume"`
 	// Defines a table-level FOREIGN KEY constraint.
 	ForeignKeyConstraints []IcebergTableForeignKeyConstraint `pulumi:"foreignKeyConstraints"`
 	// Specifies the Iceberg table format version.
 	IcebergVersion *int `pulumi:"icebergVersion"`
-	// Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays *int `pulumi:"maxDataExtensionTimeInDays"`
 	// Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
@@ -559,9 +559,9 @@ type icebergTableArgs struct {
 	RowAccessPolicy *IcebergTableRowAccessPolicy `pulumi:"rowAccessPolicy"`
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
-	// Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 	StorageSerializationPolicy *string `pulumi:"storageSerializationPolicy"`
-	// Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+	// Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
 	TargetFileSize *string `pulumi:"targetFileSize"`
 	// Defines a table-level UNIQUE constraint.
 	UniqueConstraints []IcebergTableUniqueConstraint `pulumi:"uniqueConstraints"`
@@ -573,9 +573,9 @@ type IcebergTableArgs struct {
 	AggregationPolicy IcebergTableAggregationPolicyPtrInput
 	// The path to a directory where Snowflake can write data and metadata files for the Iceberg table. Specify a relative path from the table's `EXTERNAL_VOLUME` location.
 	BaseLocation pulumi.StringPtrInput
-	// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringPtrInput
-	// Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+	// Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
 	CatalogSync pulumi.StringPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable change tracking on the Iceberg table. Cannot be changed after creation. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ChangeTracking pulumi.StringPtrInput
@@ -587,23 +587,23 @@ type IcebergTableArgs struct {
 	Columns IcebergTableColumnArrayInput
 	// Specifies a comment for the Iceberg table.
 	Comment pulumi.StringPtrInput
-	// Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Specifies whether automatic background data compaction is enabled for the Iceberg table. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+	// Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
 	EnableDataCompaction pulumi.BoolPtrInput
-	// Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+	// Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
 	EnableIcebergMergeOnRead pulumi.BoolPtrInput
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether error logging is enabled for the Iceberg table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	ErrorLogging pulumi.StringPtrInput
-	// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+	// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringPtrInput
 	// Defines a table-level FOREIGN KEY constraint.
 	ForeignKeyConstraints IcebergTableForeignKeyConstraintArrayInput
 	// Specifies the Iceberg table format version.
 	IcebergVersion pulumi.IntPtrInput
-	// Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntPtrInput
 	// Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
@@ -617,9 +617,9 @@ type IcebergTableArgs struct {
 	RowAccessPolicy IcebergTableRowAccessPolicyPtrInput
 	// The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
-	// Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 	StorageSerializationPolicy pulumi.StringPtrInput
-	// Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+	// Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
 	TargetFileSize pulumi.StringPtrInput
 	// Defines a table-level UNIQUE constraint.
 	UniqueConstraints IcebergTableUniqueConstraintArrayInput
@@ -722,12 +722,12 @@ func (o IcebergTableOutput) BaseLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.StringPtrOutput { return v.BaseLocation }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 func (o IcebergTableOutput) Catalog() pulumi.StringOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.StringOutput { return v.Catalog }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+// Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
 func (o IcebergTableOutput) CatalogSync() pulumi.StringOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.StringOutput { return v.CatalogSync }).(pulumi.StringOutput)
 }
@@ -757,7 +757,7 @@ func (o IcebergTableOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 func (o IcebergTableOutput) DataRetentionTimeInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.IntOutput { return v.DataRetentionTimeInDays }).(pulumi.IntOutput)
 }
@@ -772,12 +772,12 @@ func (o IcebergTableOutput) DescribeOutputs() IcebergTableDescribeOutputArrayOut
 	return o.ApplyT(func(v *IcebergTable) IcebergTableDescribeOutputArrayOutput { return v.DescribeOutputs }).(IcebergTableDescribeOutputArrayOutput)
 }
 
-// Specifies whether automatic background data compaction is enabled for the Iceberg table. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+// Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
 func (o IcebergTableOutput) EnableDataCompaction() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.BoolOutput { return v.EnableDataCompaction }).(pulumi.BoolOutput)
 }
 
-// Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+// Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
 func (o IcebergTableOutput) EnableIcebergMergeOnRead() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.BoolOutput { return v.EnableIcebergMergeOnRead }).(pulumi.BoolOutput)
 }
@@ -787,7 +787,7 @@ func (o IcebergTableOutput) ErrorLogging() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.StringPtrOutput { return v.ErrorLogging }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 func (o IcebergTableOutput) ExternalVolume() pulumi.StringOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.StringOutput { return v.ExternalVolume }).(pulumi.StringOutput)
 }
@@ -807,7 +807,7 @@ func (o IcebergTableOutput) IcebergVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.IntPtrOutput { return v.IcebergVersion }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
 func (o IcebergTableOutput) MaxDataExtensionTimeInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.IntOutput { return v.MaxDataExtensionTimeInDays }).(pulumi.IntOutput)
 }
@@ -852,12 +852,12 @@ func (o IcebergTableOutput) ShowOutputs() IcebergTableShowOutputArrayOutput {
 	return o.ApplyT(func(v *IcebergTable) IcebergTableShowOutputArrayOutput { return v.ShowOutputs }).(IcebergTableShowOutputArrayOutput)
 }
 
-// Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 func (o IcebergTableOutput) StorageSerializationPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.StringOutput { return v.StorageSerializationPolicy }).(pulumi.StringOutput)
 }
 
-// Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+// Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
 func (o IcebergTableOutput) TargetFileSize() pulumi.StringOutput {
 	return o.ApplyT(func(v *IcebergTable) pulumi.StringOutput { return v.TargetFileSize }).(pulumi.StringOutput)
 }

@@ -15,6 +15,12 @@ namespace Pulumi.Snowflake.Inputs
         [Input("autoRefresh")]
         public Input<bool>? AutoRefresh { get; set; }
 
+        [Input("awsSnsTopic")]
+        public Input<string>? AwsSnsTopic { get; set; }
+
+        [Input("directoryNotificationChannel")]
+        public Input<string>? DirectoryNotificationChannel { get; set; }
+
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 

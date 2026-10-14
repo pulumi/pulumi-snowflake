@@ -105,13 +105,13 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.WarehouseAdaptiveShowOutput>> ShowOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        /// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         /// </summary>
         [Output("statementQueuedTimeoutInSeconds")]
         public Output<int> StatementQueuedTimeoutInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+        /// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         /// </summary>
         [Output("statementTimeoutInSeconds")]
         public Output<int> StatementTimeoutInSeconds { get; private set; } = null!;
@@ -199,13 +199,13 @@ namespace Pulumi.Snowflake
         public Input<string>? ResourceMonitor { get; set; }
 
         /// <summary>
-        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        /// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         /// </summary>
         [Input("statementQueuedTimeoutInSeconds")]
         public Input<int>? StatementQueuedTimeoutInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+        /// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         /// </summary>
         [Input("statementTimeoutInSeconds")]
         public Input<int>? StatementTimeoutInSeconds { get; set; }
@@ -279,13 +279,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        /// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         /// </summary>
         [Input("statementQueuedTimeoutInSeconds")]
         public Input<int>? StatementQueuedTimeoutInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+        /// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         /// </summary>
         [Input("statementTimeoutInSeconds")]
         public Input<int>? StatementTimeoutInSeconds { get; set; }

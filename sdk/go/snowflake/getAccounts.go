@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+// Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
 func GetAccounts(ctx *pulumi.Context, args *GetAccountsArgs, opts ...pulumi.InvokeOption) (*GetAccountsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccountsResult
@@ -28,6 +28,8 @@ type GetAccountsArgs struct {
 	Like *string `pulumi:"like"`
 	// Includes dropped accounts that have not yet been deleted.
 	WithHistory *bool `pulumi:"withHistory"`
+	// (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account's row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+	WithParameters *bool `pulumi:"withParameters"`
 }
 
 // A collection of values returned by getAccounts.
@@ -40,6 +42,8 @@ type GetAccountsResult struct {
 	Like *string `pulumi:"like"`
 	// Includes dropped accounts that have not yet been deleted.
 	WithHistory *bool `pulumi:"withHistory"`
+	// (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account's row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+	WithParameters *bool `pulumi:"withParameters"`
 }
 
 func GetAccountsOutput(ctx *pulumi.Context, args GetAccountsOutputArgs, opts ...pulumi.InvokeOption) GetAccountsResultOutput {
@@ -53,6 +57,8 @@ type GetAccountsOutputArgs struct {
 	Like pulumi.StringPtrInput `pulumi:"like"`
 	// Includes dropped accounts that have not yet been deleted.
 	WithHistory pulumi.BoolPtrInput `pulumi:"withHistory"`
+	// (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account's row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+	WithParameters pulumi.BoolPtrInput `pulumi:"withParameters"`
 }
 
 func (GetAccountsOutputArgs) ElementType() reflect.Type {
@@ -92,6 +98,11 @@ func (o GetAccountsResultOutput) Like() pulumi.StringPtrOutput {
 // Includes dropped accounts that have not yet been deleted.
 func (o GetAccountsResultOutput) WithHistory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetAccountsResult) *bool { return v.WithHistory }).(pulumi.BoolPtrOutput)
+}
+
+// (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account's row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+func (o GetAccountsResultOutput) WithParameters() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAccountsResult) *bool { return v.WithParameters }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

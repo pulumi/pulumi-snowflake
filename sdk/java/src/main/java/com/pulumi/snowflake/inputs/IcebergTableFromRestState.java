@@ -36,14 +36,14 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+     * The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     @Import(name="catalog")
     private @Nullable Output<String> catalog;
 
     /**
-     * @return Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+     * @return The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     public Optional<Output<String>> catalog() {
@@ -126,14 +126,14 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+     * Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
      * 
      */
     @Import(name="enableIcebergMergeOnRead")
     private @Nullable Output<Boolean> enableIcebergMergeOnRead;
 
     /**
-     * @return Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+     * @return Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
      * 
      */
     public Optional<Output<Boolean>> enableIcebergMergeOnRead() {
@@ -141,14 +141,14 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+     * The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     @Import(name="externalVolume")
     private @Nullable Output<String> externalVolume;
 
     /**
-     * @return Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+     * @return The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     public Optional<Output<String>> externalVolume() {
@@ -171,14 +171,14 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+     * Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
      * 
      */
     @Import(name="icebergMergeOnReadBehavior")
     private @Nullable Output<String> icebergMergeOnReadBehavior;
 
     /**
-     * @return Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+     * @return Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
      * 
      */
     public Optional<Output<String>> icebergMergeOnReadBehavior() {
@@ -231,14 +231,14 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     @Import(name="replaceInvalidCharacters")
     private @Nullable Output<Boolean> replaceInvalidCharacters;
 
     /**
-     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     public Optional<Output<Boolean>> replaceInvalidCharacters() {
@@ -276,14 +276,14 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      * 
      */
     @Import(name="storageSerializationPolicy")
     private @Nullable Output<String> storageSerializationPolicy;
 
     /**
-     * @return Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+     * @return The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      * 
      */
     public Optional<Output<String>> storageSerializationPolicy() {
@@ -291,14 +291,14 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies the target file size (in bytes) used when writing the Iceberg table&#39;s Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+     * Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
      * 
      */
     @Import(name="targetFileSize")
     private @Nullable Output<String> targetFileSize;
 
     /**
-     * @return Specifies the target file size (in bytes) used when writing the Iceberg table&#39;s Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+     * @return Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
      * 
      */
     public Optional<Output<String>> targetFileSize() {
@@ -369,7 +369,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param catalog Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+         * @param catalog The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param catalog Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+         * @param catalog The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enableIcebergMergeOnRead Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+         * @param enableIcebergMergeOnRead Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
          * 
          * @return builder
          * 
@@ -516,7 +516,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param enableIcebergMergeOnRead Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+         * @param enableIcebergMergeOnRead Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param externalVolume Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+         * @param externalVolume The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param externalVolume Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+         * @param externalVolume The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param icebergMergeOnReadBehavior Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+         * @param icebergMergeOnReadBehavior Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
          * 
          * @return builder
          * 
@@ -579,7 +579,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param icebergMergeOnReadBehavior Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+         * @param icebergMergeOnReadBehavior Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
          * 
          * @return builder
          * 
@@ -673,7 +673,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
          * 
          * @return builder
          * 
@@ -735,7 +735,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param storageSerializationPolicy Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param storageSerializationPolicy Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
          * 
          * @return builder
          * 
@@ -756,7 +756,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targetFileSize Specifies the target file size (in bytes) used when writing the Iceberg table&#39;s Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+         * @param targetFileSize Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class IcebergTableFromRestState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param targetFileSize Specifies the target file size (in bytes) used when writing the Iceberg table&#39;s Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+         * @param targetFileSize Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
          * 
          * @return builder
          * 

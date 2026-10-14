@@ -157,6 +157,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IcebergTableFromRest{}
 	case "snowflake:index/imageRepository:ImageRepository":
 		r = &ImageRepository{}
+	case "snowflake:index/intelligenceCortexAgentAttachment:IntelligenceCortexAgentAttachment":
+		r = &IntelligenceCortexAgentAttachment{}
 	case "snowflake:index/jobService:JobService":
 		r = &JobService{}
 	case "snowflake:index/legacyServiceUser:LegacyServiceUser":
@@ -684,6 +686,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/imageRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/intelligenceCortexAgentAttachment",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

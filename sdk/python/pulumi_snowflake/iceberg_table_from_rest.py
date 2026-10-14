@@ -43,17 +43,17 @@ class IcebergTableFromRestArgs:
         :param pulumi.Input[_builtins.str] database: The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] auto_refresh: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the external catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] catalog: Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        :param pulumi.Input[_builtins.str] catalog: The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the namespace (or database) in the external catalog that the table belongs to. If not specified, the catalog integration's default namespace is used.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Iceberg table.
-        :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
-        :param pulumi.Input[_builtins.str] external_volume: Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
-        :param pulumi.Input[_builtins.str] iceberg_merge_on_read_behavior: Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+        :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+        :param pulumi.Input[_builtins.str] external_volume: The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[_builtins.str] iceberg_merge_on_read_behavior: Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] path_layout: Specifies the storage layout for the Iceberg table's Parquet files. Valid values are: [FLAT HIERARCHICAL]. Cannot be changed after creation. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[_builtins.str] storage_serialization_policy: Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+        :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[_builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         """
         pulumi.set(__self__, "catalog_table_name", catalog_table_name)
         pulumi.set(__self__, "database", database)
@@ -135,7 +135,7 @@ class IcebergTableFromRestArgs:
     @pulumi.getter
     def catalog(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
@@ -171,7 +171,7 @@ class IcebergTableFromRestArgs:
     @pulumi.getter(name="enableIcebergMergeOnRead")
     def enable_iceberg_merge_on_read(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+        Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
         """
         return pulumi.get(self, "enable_iceberg_merge_on_read")
 
@@ -183,7 +183,7 @@ class IcebergTableFromRestArgs:
     @pulumi.getter(name="externalVolume")
     def external_volume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
@@ -195,7 +195,7 @@ class IcebergTableFromRestArgs:
     @pulumi.getter(name="icebergMergeOnReadBehavior")
     def iceberg_merge_on_read_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+        Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
         """
         return pulumi.get(self, "iceberg_merge_on_read_behavior")
 
@@ -231,7 +231,7 @@ class IcebergTableFromRestArgs:
     @pulumi.getter(name="replaceInvalidCharacters")
     def replace_invalid_characters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
@@ -243,7 +243,7 @@ class IcebergTableFromRestArgs:
     @pulumi.getter(name="storageSerializationPolicy")
     def storage_serialization_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
@@ -255,7 +255,7 @@ class IcebergTableFromRestArgs:
     @pulumi.getter(name="targetFileSize")
     def target_file_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+        Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         """
         return pulumi.get(self, "target_file_size")
 
@@ -290,24 +290,24 @@ class _IcebergTableFromRestState:
         Input properties used for looking up and filtering IcebergTableFromRest resources.
 
         :param pulumi.Input[_builtins.str] auto_refresh: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the external catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] catalog: Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        :param pulumi.Input[_builtins.str] catalog: The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the namespace (or database) in the external catalog that the table belongs to. If not specified, the catalog integration's default namespace is used.
         :param pulumi.Input[_builtins.str] catalog_table_name: Specifies the name of the table as it appears in the external catalog.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Iceberg table.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['IcebergTableFromRestDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
-        :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
-        :param pulumi.Input[_builtins.str] external_volume: Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+        :param pulumi.Input[_builtins.str] external_volume: The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] iceberg_merge_on_read_behavior: Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+        :param pulumi.Input[_builtins.str] iceberg_merge_on_read_behavior: Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['IcebergTableFromRestParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
         :param pulumi.Input[_builtins.str] path_layout: Specifies the storage layout for the Iceberg table's Parquet files. Valid values are: [FLAT HIERARCHICAL]. Cannot be changed after creation. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['IcebergTableFromRestShowOutputArgs']]] show_outputs: Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
-        :param pulumi.Input[_builtins.str] storage_serialization_policy: Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+        :param pulumi.Input[_builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         """
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
@@ -364,7 +364,7 @@ class _IcebergTableFromRestState:
     @pulumi.getter
     def catalog(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
@@ -436,7 +436,7 @@ class _IcebergTableFromRestState:
     @pulumi.getter(name="enableIcebergMergeOnRead")
     def enable_iceberg_merge_on_read(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+        Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
         """
         return pulumi.get(self, "enable_iceberg_merge_on_read")
 
@@ -448,7 +448,7 @@ class _IcebergTableFromRestState:
     @pulumi.getter(name="externalVolume")
     def external_volume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
@@ -472,7 +472,7 @@ class _IcebergTableFromRestState:
     @pulumi.getter(name="icebergMergeOnReadBehavior")
     def iceberg_merge_on_read_behavior(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+        Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
         """
         return pulumi.get(self, "iceberg_merge_on_read_behavior")
 
@@ -520,7 +520,7 @@ class _IcebergTableFromRestState:
     @pulumi.getter(name="replaceInvalidCharacters")
     def replace_invalid_characters(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
@@ -556,7 +556,7 @@ class _IcebergTableFromRestState:
     @pulumi.getter(name="storageSerializationPolicy")
     def storage_serialization_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
@@ -568,7 +568,7 @@ class _IcebergTableFromRestState:
     @pulumi.getter(name="targetFileSize")
     def target_file_size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+        Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         """
         return pulumi.get(self, "target_file_size")
 
@@ -654,20 +654,20 @@ class IcebergTableFromRest(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_refresh: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the external catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] catalog: Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        :param pulumi.Input[_builtins.str] catalog: The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the namespace (or database) in the external catalog that the table belongs to. If not specified, the catalog integration's default namespace is used.
         :param pulumi.Input[_builtins.str] catalog_table_name: Specifies the name of the table as it appears in the external catalog.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Iceberg table.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
-        :param pulumi.Input[_builtins.str] external_volume: Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
-        :param pulumi.Input[_builtins.str] iceberg_merge_on_read_behavior: Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+        :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+        :param pulumi.Input[_builtins.str] external_volume: The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[_builtins.str] iceberg_merge_on_read_behavior: Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] path_layout: Specifies the storage layout for the Iceberg table's Parquet files. Valid values are: [FLAT HIERARCHICAL]. Cannot be changed after creation. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[_builtins.str] storage_serialization_policy: Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+        :param pulumi.Input[_builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         """
         ...
     @overload
@@ -828,24 +828,24 @@ class IcebergTableFromRest(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auto_refresh: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the external catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[_builtins.str] catalog: Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        :param pulumi.Input[_builtins.str] catalog: The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[_builtins.str] catalog_namespace: Specifies the namespace (or database) in the external catalog that the table belongs to. If not specified, the catalog integration's default namespace is used.
         :param pulumi.Input[_builtins.str] catalog_table_name: Specifies the name of the table as it appears in the external catalog.
         :param pulumi.Input[_builtins.str] comment: Specifies a comment for the Iceberg table.
         :param pulumi.Input[_builtins.str] database: The database in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromRestDescribeOutputArgs', 'IcebergTableFromRestDescribeOutputArgsDict', 'outputs.IcebergTableFromRestDescribeOutput']]]] describe_outputs: Outputs the result of `DESCRIBE ICEBERG TABLE` for the given Iceberg table.
-        :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
-        :param pulumi.Input[_builtins.str] external_volume: Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        :param pulumi.Input[_builtins.bool] enable_iceberg_merge_on_read: Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+        :param pulumi.Input[_builtins.str] external_volume: The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         :param pulumi.Input[_builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[_builtins.str] iceberg_merge_on_read_behavior: Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+        :param pulumi.Input[_builtins.str] iceberg_merge_on_read_behavior: Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the Iceberg table; must be unique for the schema in which the Iceberg table is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromRestParameterArgs', 'IcebergTableFromRestParameterArgsDict', 'outputs.IcebergTableFromRestParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN ICEBERG TABLE` for the given Iceberg table.
         :param pulumi.Input[_builtins.str] path_layout: Specifies the storage layout for the Iceberg table's Parquet files. Valid values are: [FLAT HIERARCHICAL]. Cannot be changed after creation. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
-        :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[_builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the Iceberg table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['IcebergTableFromRestShowOutputArgs', 'IcebergTableFromRestShowOutputArgsDict', 'outputs.IcebergTableFromRestShowOutput']]]] show_outputs: Outputs the result of `SHOW ICEBERG TABLES` for the given Iceberg table. Note that this value will be only recomputed whenever values of fields affecting the output change.
-        :param pulumi.Input[_builtins.str] storage_serialization_policy: Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+        :param pulumi.Input[_builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[_builtins.str] target_file_size: Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -884,7 +884,7 @@ class IcebergTableFromRest(pulumi.CustomResource):
     @pulumi.getter
     def catalog(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
@@ -932,7 +932,7 @@ class IcebergTableFromRest(pulumi.CustomResource):
     @pulumi.getter(name="enableIcebergMergeOnRead")
     def enable_iceberg_merge_on_read(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+        Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
         """
         return pulumi.get(self, "enable_iceberg_merge_on_read")
 
@@ -940,7 +940,7 @@ class IcebergTableFromRest(pulumi.CustomResource):
     @pulumi.getter(name="externalVolume")
     def external_volume(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
@@ -956,7 +956,7 @@ class IcebergTableFromRest(pulumi.CustomResource):
     @pulumi.getter(name="icebergMergeOnReadBehavior")
     def iceberg_merge_on_read_behavior(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the merge-on-read behavior for the Iceberg table. Valid values are: [AUTO ENABLED DISABLED]. Cannot be changed after creation. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
+        Specifies the merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. Valid values are (case-insensitive): `AUTO` | `ENABLED` | `DISABLED`. For more information, check [ICEBERG*MERGE*ON*READ*BEHAVIOR docs](https://docs.snowflake.com/en/sql-reference/parameters#iceberg-merge-on-read-behavior).
         """
         return pulumi.get(self, "iceberg_merge_on_read_behavior")
 
@@ -988,7 +988,7 @@ class IcebergTableFromRest(pulumi.CustomResource):
     @pulumi.getter(name="replaceInvalidCharacters")
     def replace_invalid_characters(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (`�`) in query results for an Iceberg table. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
@@ -1012,7 +1012,7 @@ class IcebergTableFromRest(pulumi.CustomResource):
     @pulumi.getter(name="storageSerializationPolicy")
     def storage_serialization_policy(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
@@ -1020,7 +1020,7 @@ class IcebergTableFromRest(pulumi.CustomResource):
     @pulumi.getter(name="targetFileSize")
     def target_file_size(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+        Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         """
         return pulumi.get(self, "target_file_size")
 

@@ -198,14 +198,14 @@ public class HybridTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
      * 
      */
     @Export(name="dataRetentionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> dataRetentionTimeInDays;
 
     /**
-     * @return Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+     * @return Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
      * 
      */
     public Output<Integer> dataRetentionTimeInDays() {

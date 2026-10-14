@@ -5,6 +5,7 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GetAccountsAccountParameter;
 import com.pulumi.snowflake.outputs.GetAccountsAccountShowOutput;
 import java.util.List;
 import java.util.Objects;
@@ -12,12 +13,24 @@ import java.util.Objects;
 @CustomType
 public final class GetAccountsAccount {
     /**
+     * @return Holds the output of SHOW PARAMETERS IN ACCOUNT for the connected account.
+     * 
+     */
+    private List<GetAccountsAccountParameter> parameters;
+    /**
      * @return Holds the output of SHOW ACCOUNTS.
      * 
      */
     private List<GetAccountsAccountShowOutput> showOutputs;
 
     private GetAccountsAccount() {}
+    /**
+     * @return Holds the output of SHOW PARAMETERS IN ACCOUNT for the connected account.
+     * 
+     */
+    public List<GetAccountsAccountParameter> parameters() {
+        return this.parameters;
+    }
     /**
      * @return Holds the output of SHOW ACCOUNTS.
      * 
@@ -35,13 +48,26 @@ public final class GetAccountsAccount {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetAccountsAccountParameter> parameters;
         private List<GetAccountsAccountShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetAccountsAccount defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.parameters = defaults.parameters;
     	      this.showOutputs = defaults.showOutputs;
         }
 
+        @CustomType.Setter
+        public Builder parameters(List<GetAccountsAccountParameter> parameters) {
+            if (parameters == null) {
+              throw new MissingRequiredPropertyException("GetAccountsAccount", "parameters");
+            }
+            this.parameters = parameters;
+            return this;
+        }
+        public Builder parameters(GetAccountsAccountParameter... parameters) {
+            return parameters(List.of(parameters));
+        }
         @CustomType.Setter
         public Builder showOutputs(List<GetAccountsAccountShowOutput> showOutputs) {
             if (showOutputs == null) {
@@ -55,6 +81,7 @@ public final class GetAccountsAccount {
         }
         public GetAccountsAccount build() {
             final var _resultValue = new GetAccountsAccount();
+            _resultValue.parameters = parameters;
             _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }

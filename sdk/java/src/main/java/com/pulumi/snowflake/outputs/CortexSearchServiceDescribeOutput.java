@@ -21,12 +21,16 @@ public final class CortexSearchServiceDescribeOutput {
     private @Nullable String databaseName;
     private @Nullable String definition;
     private @Nullable String embeddingModel;
+    private @Nullable Integer fullIndexBuildIntervalDays;
     private @Nullable String indexingError;
     private @Nullable String indexingState;
     private @Nullable String name;
+    private @Nullable List<String> primaryKeyColumns;
     private @Nullable String schemaName;
+    private @Nullable Integer scoringProfileCount;
     private @Nullable String searchColumn;
     private @Nullable String serviceQueryUrl;
+    private @Nullable String servingState;
     private @Nullable Integer sourceDataNumRows;
     private @Nullable String targetLag;
     private @Nullable String warehouse;
@@ -56,6 +60,9 @@ public final class CortexSearchServiceDescribeOutput {
     public Optional<String> embeddingModel() {
         return Optional.ofNullable(this.embeddingModel);
     }
+    public Optional<Integer> fullIndexBuildIntervalDays() {
+        return Optional.ofNullable(this.fullIndexBuildIntervalDays);
+    }
     public Optional<String> indexingError() {
         return Optional.ofNullable(this.indexingError);
     }
@@ -65,14 +72,23 @@ public final class CortexSearchServiceDescribeOutput {
     public Optional<String> name() {
         return Optional.ofNullable(this.name);
     }
+    public List<String> primaryKeyColumns() {
+        return this.primaryKeyColumns == null ? List.of() : this.primaryKeyColumns;
+    }
     public Optional<String> schemaName() {
         return Optional.ofNullable(this.schemaName);
+    }
+    public Optional<Integer> scoringProfileCount() {
+        return Optional.ofNullable(this.scoringProfileCount);
     }
     public Optional<String> searchColumn() {
         return Optional.ofNullable(this.searchColumn);
     }
     public Optional<String> serviceQueryUrl() {
         return Optional.ofNullable(this.serviceQueryUrl);
+    }
+    public Optional<String> servingState() {
+        return Optional.ofNullable(this.servingState);
     }
     public Optional<Integer> sourceDataNumRows() {
         return Optional.ofNullable(this.sourceDataNumRows);
@@ -101,12 +117,16 @@ public final class CortexSearchServiceDescribeOutput {
         private @Nullable String databaseName;
         private @Nullable String definition;
         private @Nullable String embeddingModel;
+        private @Nullable Integer fullIndexBuildIntervalDays;
         private @Nullable String indexingError;
         private @Nullable String indexingState;
         private @Nullable String name;
+        private @Nullable List<String> primaryKeyColumns;
         private @Nullable String schemaName;
+        private @Nullable Integer scoringProfileCount;
         private @Nullable String searchColumn;
         private @Nullable String serviceQueryUrl;
+        private @Nullable String servingState;
         private @Nullable Integer sourceDataNumRows;
         private @Nullable String targetLag;
         private @Nullable String warehouse;
@@ -121,12 +141,16 @@ public final class CortexSearchServiceDescribeOutput {
     	      this.databaseName = defaults.databaseName;
     	      this.definition = defaults.definition;
     	      this.embeddingModel = defaults.embeddingModel;
+    	      this.fullIndexBuildIntervalDays = defaults.fullIndexBuildIntervalDays;
     	      this.indexingError = defaults.indexingError;
     	      this.indexingState = defaults.indexingState;
     	      this.name = defaults.name;
+    	      this.primaryKeyColumns = defaults.primaryKeyColumns;
     	      this.schemaName = defaults.schemaName;
+    	      this.scoringProfileCount = defaults.scoringProfileCount;
     	      this.searchColumn = defaults.searchColumn;
     	      this.serviceQueryUrl = defaults.serviceQueryUrl;
+    	      this.servingState = defaults.servingState;
     	      this.sourceDataNumRows = defaults.sourceDataNumRows;
     	      this.targetLag = defaults.targetLag;
     	      this.warehouse = defaults.warehouse;
@@ -187,6 +211,12 @@ public final class CortexSearchServiceDescribeOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder fullIndexBuildIntervalDays(@Nullable Integer fullIndexBuildIntervalDays) {
+
+            this.fullIndexBuildIntervalDays = fullIndexBuildIntervalDays;
+            return this;
+        }
+        @CustomType.Setter
         public Builder indexingError(@Nullable String indexingError) {
 
             this.indexingError = indexingError;
@@ -205,9 +235,24 @@ public final class CortexSearchServiceDescribeOutput {
             return this;
         }
         @CustomType.Setter
+        public Builder primaryKeyColumns(@Nullable List<String> primaryKeyColumns) {
+
+            this.primaryKeyColumns = primaryKeyColumns;
+            return this;
+        }
+        public Builder primaryKeyColumns(String... primaryKeyColumns) {
+            return primaryKeyColumns(List.of(primaryKeyColumns));
+        }
+        @CustomType.Setter
         public Builder schemaName(@Nullable String schemaName) {
 
             this.schemaName = schemaName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder scoringProfileCount(@Nullable Integer scoringProfileCount) {
+
+            this.scoringProfileCount = scoringProfileCount;
             return this;
         }
         @CustomType.Setter
@@ -220,6 +265,12 @@ public final class CortexSearchServiceDescribeOutput {
         public Builder serviceQueryUrl(@Nullable String serviceQueryUrl) {
 
             this.serviceQueryUrl = serviceQueryUrl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder servingState(@Nullable String servingState) {
+
+            this.servingState = servingState;
             return this;
         }
         @CustomType.Setter
@@ -250,12 +301,16 @@ public final class CortexSearchServiceDescribeOutput {
             _resultValue.databaseName = databaseName;
             _resultValue.definition = definition;
             _resultValue.embeddingModel = embeddingModel;
+            _resultValue.fullIndexBuildIntervalDays = fullIndexBuildIntervalDays;
             _resultValue.indexingError = indexingError;
             _resultValue.indexingState = indexingState;
             _resultValue.name = name;
+            _resultValue.primaryKeyColumns = primaryKeyColumns;
             _resultValue.schemaName = schemaName;
+            _resultValue.scoringProfileCount = scoringProfileCount;
             _resultValue.searchColumn = searchColumn;
             _resultValue.serviceQueryUrl = serviceQueryUrl;
+            _resultValue.servingState = servingState;
             _resultValue.sourceDataNumRows = sourceDataNumRows;
             _resultValue.targetLag = targetLag;
             _resultValue.warehouse = warehouse;

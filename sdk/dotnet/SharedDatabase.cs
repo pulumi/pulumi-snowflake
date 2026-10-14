@@ -28,7 +28,7 @@ namespace Pulumi.Snowflake
     public partial class SharedDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        /// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         /// </summary>
         [Output("catalog")]
         public Output<string> Catalog { get; private set; } = null!;
@@ -40,31 +40,31 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        /// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification). For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
         /// </summary>
         [Output("defaultDdlCollation")]
         public Output<string> DefaultDdlCollation { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
         /// </summary>
         [Output("defaultNotebookComputePoolCpu")]
         public Output<string> DefaultNotebookComputePoolCpu { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
         /// </summary>
         [Output("defaultNotebookComputePoolGpu")]
         public Output<string> DefaultNotebookComputePoolGpu { get; private set; } = null!;
 
         /// <summary>
-        /// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+        /// If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         /// </summary>
         [Output("enableConsoleOutput")]
         public Output<bool> EnableConsoleOutput { get; private set; } = null!;
 
         /// <summary>
-        /// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        /// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         /// </summary>
         [Output("externalVolume")]
         public Output<string> ExternalVolume { get; private set; } = null!;
@@ -82,13 +82,13 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         /// </summary>
         [Output("logEventLevel")]
         public Output<string> LogEventLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Output("logLevel")]
         public Output<string> LogLevel { get; private set; } = null!;
@@ -100,55 +100,55 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Output("quotedIdentifiersIgnoreCase")]
         public Output<bool> QuotedIdentifiersIgnoreCase { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         /// </summary>
         [Output("replaceInvalidCharacters")]
         public Output<bool> ReplaceInvalidCharacters { get; private set; } = null!;
 
         /// <summary>
-        /// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        /// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         /// </summary>
         [Output("storageSerializationPolicy")]
         public Output<string> StorageSerializationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        /// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         /// </summary>
         [Output("suspendTaskAfterNumFailures")]
         public Output<int> SuspendTaskAfterNumFailures { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        /// Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         /// </summary>
         [Output("taskAutoRetryAttempts")]
         public Output<int> TaskAutoRetryAttempts { get; private set; } = null!;
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        /// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Output("traceLevel")]
         public Output<string> TraceLevel { get; private set; } = null!;
 
         /// <summary>
-        /// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Output("userTaskManagedInitialWarehouseSize")]
         public Output<string> UserTaskManagedInitialWarehouseSize { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum amount of time between Triggered Task executions in seconds.
+        /// Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         /// </summary>
         [Output("userTaskMinimumTriggerIntervalInSeconds")]
         public Output<int> UserTaskMinimumTriggerIntervalInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        /// User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         /// </summary>
         [Output("userTaskTimeoutMs")]
         public Output<int> UserTaskTimeoutMs { get; private set; } = null!;
@@ -200,7 +200,7 @@ namespace Pulumi.Snowflake
     public sealed class SharedDatabaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        /// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         /// </summary>
         [Input("catalog")]
         public Input<string>? Catalog { get; set; }
@@ -212,31 +212,31 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        /// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification). For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
         /// </summary>
         [Input("defaultDdlCollation")]
         public Input<string>? DefaultDdlCollation { get; set; }
 
         /// <summary>
-        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
         /// </summary>
         [Input("defaultNotebookComputePoolCpu")]
         public Input<string>? DefaultNotebookComputePoolCpu { get; set; }
 
         /// <summary>
-        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
         /// </summary>
         [Input("defaultNotebookComputePoolGpu")]
         public Input<string>? DefaultNotebookComputePoolGpu { get; set; }
 
         /// <summary>
-        /// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+        /// If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         /// </summary>
         [Input("enableConsoleOutput")]
         public Input<bool>? EnableConsoleOutput { get; set; }
 
         /// <summary>
-        /// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        /// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         /// </summary>
         [Input("externalVolume")]
         public Input<string>? ExternalVolume { get; set; }
@@ -248,13 +248,13 @@ namespace Pulumi.Snowflake
         public Input<string> FromShare { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         /// </summary>
         [Input("logEventLevel")]
         public Input<string>? LogEventLevel { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
@@ -266,55 +266,55 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Input("quotedIdentifiersIgnoreCase")]
         public Input<bool>? QuotedIdentifiersIgnoreCase { get; set; }
 
         /// <summary>
-        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         /// </summary>
         [Input("replaceInvalidCharacters")]
         public Input<bool>? ReplaceInvalidCharacters { get; set; }
 
         /// <summary>
-        /// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        /// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         /// </summary>
         [Input("storageSerializationPolicy")]
         public Input<string>? StorageSerializationPolicy { get; set; }
 
         /// <summary>
-        /// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        /// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         /// </summary>
         [Input("suspendTaskAfterNumFailures")]
         public Input<int>? SuspendTaskAfterNumFailures { get; set; }
 
         /// <summary>
-        /// Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        /// Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         /// </summary>
         [Input("taskAutoRetryAttempts")]
         public Input<int>? TaskAutoRetryAttempts { get; set; }
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        /// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Input("traceLevel")]
         public Input<string>? TraceLevel { get; set; }
 
         /// <summary>
-        /// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Input("userTaskManagedInitialWarehouseSize")]
         public Input<string>? UserTaskManagedInitialWarehouseSize { get; set; }
 
         /// <summary>
-        /// Minimum amount of time between Triggered Task executions in seconds.
+        /// Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         /// </summary>
         [Input("userTaskMinimumTriggerIntervalInSeconds")]
         public Input<int>? UserTaskMinimumTriggerIntervalInSeconds { get; set; }
 
         /// <summary>
-        /// User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        /// User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         /// </summary>
         [Input("userTaskTimeoutMs")]
         public Input<int>? UserTaskTimeoutMs { get; set; }
@@ -328,7 +328,7 @@ namespace Pulumi.Snowflake
     public sealed class SharedDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        /// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         /// </summary>
         [Input("catalog")]
         public Input<string>? Catalog { get; set; }
@@ -340,31 +340,31 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        /// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification). For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
         /// </summary>
         [Input("defaultDdlCollation")]
         public Input<string>? DefaultDdlCollation { get; set; }
 
         /// <summary>
-        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+        /// Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
         /// </summary>
         [Input("defaultNotebookComputePoolCpu")]
         public Input<string>? DefaultNotebookComputePoolCpu { get; set; }
 
         /// <summary>
-        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+        /// Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
         /// </summary>
         [Input("defaultNotebookComputePoolGpu")]
         public Input<string>? DefaultNotebookComputePoolGpu { get; set; }
 
         /// <summary>
-        /// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+        /// If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         /// </summary>
         [Input("enableConsoleOutput")]
         public Input<bool>? EnableConsoleOutput { get; set; }
 
         /// <summary>
-        /// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        /// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         /// </summary>
         [Input("externalVolume")]
         public Input<string>? ExternalVolume { get; set; }
@@ -382,13 +382,13 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+        /// Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
         /// </summary>
         [Input("logEventLevel")]
         public Input<string>? LogEventLevel { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
@@ -400,55 +400,55 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Input("quotedIdentifiersIgnoreCase")]
         public Input<bool>? QuotedIdentifiersIgnoreCase { get; set; }
 
         /// <summary>
-        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        /// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         /// </summary>
         [Input("replaceInvalidCharacters")]
         public Input<bool>? ReplaceInvalidCharacters { get; set; }
 
         /// <summary>
-        /// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        /// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         /// </summary>
         [Input("storageSerializationPolicy")]
         public Input<string>? StorageSerializationPolicy { get; set; }
 
         /// <summary>
-        /// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        /// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         /// </summary>
         [Input("suspendTaskAfterNumFailures")]
         public Input<int>? SuspendTaskAfterNumFailures { get; set; }
 
         /// <summary>
-        /// Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        /// Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         /// </summary>
         [Input("taskAutoRetryAttempts")]
         public Input<int>? TaskAutoRetryAttempts { get; set; }
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        /// Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Input("traceLevel")]
         public Input<string>? TraceLevel { get; set; }
 
         /// <summary>
-        /// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Input("userTaskManagedInitialWarehouseSize")]
         public Input<string>? UserTaskManagedInitialWarehouseSize { get; set; }
 
         /// <summary>
-        /// Minimum amount of time between Triggered Task executions in seconds.
+        /// Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         /// </summary>
         [Input("userTaskMinimumTriggerIntervalInSeconds")]
         public Input<int>? UserTaskMinimumTriggerIntervalInSeconds { get; set; }
 
         /// <summary>
-        /// User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        /// User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         /// </summary>
         [Input("userTaskTimeoutMs")]
         public Input<int>? UserTaskTimeoutMs { get; set; }

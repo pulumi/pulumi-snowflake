@@ -100,11 +100,11 @@ export class WarehouseAdaptive extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly showOutputs: pulumi.Output<outputs.WarehouseAdaptiveShowOutput[]>;
     /**
-     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+     * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      */
     declare public readonly statementQueuedTimeoutInSeconds: pulumi.Output<number>;
     /**
-     * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+     * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      */
     declare public readonly statementTimeoutInSeconds: pulumi.Output<number>;
     /**
@@ -192,11 +192,11 @@ export interface WarehouseAdaptiveState {
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.WarehouseAdaptiveShowOutput>[] | undefined>;
     /**
-     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+     * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      */
     statementQueuedTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
-     * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+     * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      */
     statementTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
@@ -230,11 +230,11 @@ export interface WarehouseAdaptiveArgs {
      */
     resourceMonitor?: pulumi.Input<string | undefined>;
     /**
-     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+     * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      */
     statementQueuedTimeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
-     * Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+     * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      */
     statementTimeoutInSeconds?: pulumi.Input<number | undefined>;
 }

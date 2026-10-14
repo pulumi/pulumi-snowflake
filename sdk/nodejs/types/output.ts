@@ -628,6 +628,7 @@ export interface AuthenticationPolicyShowOutput {
     owner: string;
     ownerRoleType: string;
     schemaName: string;
+    targetScopes: string[];
 }
 
 export interface AuthenticationPolicyWorkloadIdentityPolicy {
@@ -980,12 +981,16 @@ export interface CortexSearchServiceDescribeOutput {
     databaseName: string;
     definition: string;
     embeddingModel: string;
+    fullIndexBuildIntervalDays: number;
     indexingError: string;
     indexingState: string;
     name: string;
+    primaryKeyColumns: string[];
     schemaName: string;
+    scoringProfileCount: number;
     searchColumn: string;
     serviceQueryUrl: string;
+    servingState: string;
     sourceDataNumRows: number;
     targetLag: string;
     warehouse: string;
@@ -1577,6 +1582,7 @@ export interface FileFormatParquetShowOutput {
 export interface FileFormatXmlDescribeOutput {
     compression: string;
     disableAutoConvert: boolean;
+    disableSnowflakeData: boolean;
     id: string;
     ignoreUtf8Errors: boolean;
     preserveSpace: boolean;
@@ -2139,9 +2145,1312 @@ export interface GetAccountRolesAccountRoleShowOutput {
 
 export interface GetAccountsAccount {
     /**
+     * Holds the output of SHOW PARAMETERS IN ACCOUNT for the connected account.
+     */
+    parameters: outputs.GetAccountsAccountParameter[];
+    /**
      * Holds the output of SHOW ACCOUNTS.
      */
     showOutputs: outputs.GetAccountsAccountShowOutput[];
+}
+
+export interface GetAccountsAccountParameter {
+    abortDetachedQueries: outputs.GetAccountsAccountParameterAbortDetachedQuery[];
+    activePythonProfilers: outputs.GetAccountsAccountParameterActivePythonProfiler[];
+    allowBindValuesAccesses: outputs.GetAccountsAccountParameterAllowBindValuesAccess[];
+    allowClientMfaCachings: outputs.GetAccountsAccountParameterAllowClientMfaCaching[];
+    allowIdTokens: outputs.GetAccountsAccountParameterAllowIdToken[];
+    allowedSpcsWorkloadTypes: outputs.GetAccountsAccountParameterAllowedSpcsWorkloadType[];
+    autocommits: outputs.GetAccountsAccountParameterAutocommit[];
+    baseLocationPrefixes: outputs.GetAccountsAccountParameterBaseLocationPrefix[];
+    binaryInputFormats: outputs.GetAccountsAccountParameterBinaryInputFormat[];
+    binaryOutputFormats: outputs.GetAccountsAccountParameterBinaryOutputFormat[];
+    catalogSyncs: outputs.GetAccountsAccountParameterCatalogSync[];
+    catalogs: outputs.GetAccountsAccountParameterCatalog[];
+    clientEnableLogInfoStatementParameters: outputs.GetAccountsAccountParameterClientEnableLogInfoStatementParameter[];
+    clientEncryptionKeySizes: outputs.GetAccountsAccountParameterClientEncryptionKeySize[];
+    clientMemoryLimits: outputs.GetAccountsAccountParameterClientMemoryLimit[];
+    clientMetadataRequestUseConnectionCtxes: outputs.GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx[];
+    clientMetadataUseSessionDatabases: outputs.GetAccountsAccountParameterClientMetadataUseSessionDatabase[];
+    clientPrefetchThreads: outputs.GetAccountsAccountParameterClientPrefetchThread[];
+    clientResultChunkSizes: outputs.GetAccountsAccountParameterClientResultChunkSize[];
+    clientResultColumnCaseInsensitives: outputs.GetAccountsAccountParameterClientResultColumnCaseInsensitive[];
+    clientSessionKeepAliveHeartbeatFrequencies: outputs.GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency[];
+    clientSessionKeepAlives: outputs.GetAccountsAccountParameterClientSessionKeepAlife[];
+    clientTimestampTypeMappings: outputs.GetAccountsAccountParameterClientTimestampTypeMapping[];
+    cortexCodeCliDailyEstCreditLimitPerUsers: outputs.GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser[];
+    cortexCodeDesktopDailyEstCreditLimitPerUsers: outputs.GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser[];
+    cortexCodeSnowsightDailyEstCreditLimitPerUsers: outputs.GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser[];
+    cortexEnabledCrossRegions: outputs.GetAccountsAccountParameterCortexEnabledCrossRegion[];
+    cortexModelsAllowlists: outputs.GetAccountsAccountParameterCortexModelsAllowlist[];
+    csvTimestampFormats: outputs.GetAccountsAccountParameterCsvTimestampFormat[];
+    dataMetricSchedules: outputs.GetAccountsAccountParameterDataMetricSchedule[];
+    dataRetentionTimeInDays: outputs.GetAccountsAccountParameterDataRetentionTimeInDay[];
+    dateInputFormats: outputs.GetAccountsAccountParameterDateInputFormat[];
+    dateOutputFormats: outputs.GetAccountsAccountParameterDateOutputFormat[];
+    defaultDbtVersions: outputs.GetAccountsAccountParameterDefaultDbtVersion[];
+    defaultDdlCollations: outputs.GetAccountsAccountParameterDefaultDdlCollation[];
+    defaultNotebookComputePoolCpus: outputs.GetAccountsAccountParameterDefaultNotebookComputePoolCpus[];
+    defaultNotebookComputePoolGpus: outputs.GetAccountsAccountParameterDefaultNotebookComputePoolGpus[];
+    defaultNullOrderings: outputs.GetAccountsAccountParameterDefaultNullOrdering[];
+    defaultStreamlitComputePools: outputs.GetAccountsAccountParameterDefaultStreamlitComputePool[];
+    defaultStreamlitNotebookWarehouses: outputs.GetAccountsAccountParameterDefaultStreamlitNotebookWarehouse[];
+    disableUiDownloadButtons: outputs.GetAccountsAccountParameterDisableUiDownloadButton[];
+    disableUserPrivilegeGrants: outputs.GetAccountsAccountParameterDisableUserPrivilegeGrant[];
+    disallowedSpcsWorkloadTypes: outputs.GetAccountsAccountParameterDisallowedSpcsWorkloadType[];
+    enableAutomaticSensitiveDataClassificationLogs: outputs.GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLog[];
+    enableBudgetEventLoggings: outputs.GetAccountsAccountParameterEnableBudgetEventLogging[];
+    enableConsoleOutputs: outputs.GetAccountsAccountParameterEnableConsoleOutput[];
+    enableCortexAnalysts: outputs.GetAccountsAccountParameterEnableCortexAnalyst[];
+    enableDataCompactions: outputs.GetAccountsAccountParameterEnableDataCompaction[];
+    enableEgressCostOptimizers: outputs.GetAccountsAccountParameterEnableEgressCostOptimizer[];
+    enableGetDdlUseDataTypeAliases: outputs.GetAccountsAccountParameterEnableGetDdlUseDataTypeAlias[];
+    enableIcebergMergeOnReads: outputs.GetAccountsAccountParameterEnableIcebergMergeOnRead[];
+    enableIdentifierFirstLogins: outputs.GetAccountsAccountParameterEnableIdentifierFirstLogin[];
+    enableInternalStagesPrivatelinks: outputs.GetAccountsAccountParameterEnableInternalStagesPrivatelink[];
+    enableNotebookCreationInPersonalDbs: outputs.GetAccountsAccountParameterEnableNotebookCreationInPersonalDb[];
+    enablePerAccountAppServicePrivatelinkUrls: outputs.GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrl[];
+    enablePersonalDatabases: outputs.GetAccountsAccountParameterEnablePersonalDatabase[];
+    enableSpcsBlockStorageSnowflakeFullEncryptionEnforcements: outputs.GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcement[];
+    enableTagPropagationEventLoggings: outputs.GetAccountsAccountParameterEnableTagPropagationEventLogging[];
+    enableTriSecretAndRekeyOptOutForImageRepositories: outputs.GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepository[];
+    enableTriSecretAndRekeyOptOutForSpcsBlockStorages: outputs.GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorage[];
+    enableUnhandledExceptionsReportings: outputs.GetAccountsAccountParameterEnableUnhandledExceptionsReporting[];
+    enableUnloadPhysicalTypeOptimizations: outputs.GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimization[];
+    enableUnredactedQuerySyntaxErrors: outputs.GetAccountsAccountParameterEnableUnredactedQuerySyntaxError[];
+    enableUnredactedSecureObjectErrors: outputs.GetAccountsAccountParameterEnableUnredactedSecureObjectError[];
+    enforceNetworkRulesForInternalStages: outputs.GetAccountsAccountParameterEnforceNetworkRulesForInternalStage[];
+    errorOnNondeterministicMerges: outputs.GetAccountsAccountParameterErrorOnNondeterministicMerge[];
+    errorOnNondeterministicUpdates: outputs.GetAccountsAccountParameterErrorOnNondeterministicUpdate[];
+    eventTables: outputs.GetAccountsAccountParameterEventTable[];
+    externalOauthAddPrivilegedRolesToBlockedLists: outputs.GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedList[];
+    externalVolumes: outputs.GetAccountsAccountParameterExternalVolume[];
+    geographyOutputFormats: outputs.GetAccountsAccountParameterGeographyOutputFormat[];
+    geometryOutputFormats: outputs.GetAccountsAccountParameterGeometryOutputFormat[];
+    hybridTableLockTimeouts: outputs.GetAccountsAccountParameterHybridTableLockTimeout[];
+    icebergVersionDefaults: outputs.GetAccountsAccountParameterIcebergVersionDefault[];
+    initialReplicationSizeLimitInTbs: outputs.GetAccountsAccountParameterInitialReplicationSizeLimitInTb[];
+    jdbcTreatDecimalAsInts: outputs.GetAccountsAccountParameterJdbcTreatDecimalAsInt[];
+    jdbcTreatTimestampNtzAsUtcs: outputs.GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtc[];
+    jdbcUseSessionTimezones: outputs.GetAccountsAccountParameterJdbcUseSessionTimezone[];
+    jsTreatIntegerAsBigints: outputs.GetAccountsAccountParameterJsTreatIntegerAsBigint[];
+    jsonIndents: outputs.GetAccountsAccountParameterJsonIndent[];
+    listingAutoFulfillmentReplicationRefreshSchedules: outputs.GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshSchedule[];
+    lockTimeouts: outputs.GetAccountsAccountParameterLockTimeout[];
+    logEventLevels: outputs.GetAccountsAccountParameterLogEventLevel[];
+    logLevels: outputs.GetAccountsAccountParameterLogLevel[];
+    maxConcurrencyLevels: outputs.GetAccountsAccountParameterMaxConcurrencyLevel[];
+    maxDataExtensionTimeInDays: outputs.GetAccountsAccountParameterMaxDataExtensionTimeInDay[];
+    metricLevels: outputs.GetAccountsAccountParameterMetricLevel[];
+    minDataRetentionTimeInDays: outputs.GetAccountsAccountParameterMinDataRetentionTimeInDay[];
+    multiStatementCounts: outputs.GetAccountsAccountParameterMultiStatementCount[];
+    networkPolicies: outputs.GetAccountsAccountParameterNetworkPolicy[];
+    noorderSequenceAsDefaults: outputs.GetAccountsAccountParameterNoorderSequenceAsDefault[];
+    oauthAddPrivilegedRolesToBlockedLists: outputs.GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedList[];
+    odbcTreatDecimalAsInts: outputs.GetAccountsAccountParameterOdbcTreatDecimalAsInt[];
+    periodicDataRekeyings: outputs.GetAccountsAccountParameterPeriodicDataRekeying[];
+    pipeExecutionPauseds: outputs.GetAccountsAccountParameterPipeExecutionPaused[];
+    preventLoadFromInlineUrls: outputs.GetAccountsAccountParameterPreventLoadFromInlineUrl[];
+    preventUnloadToInlineUrls: outputs.GetAccountsAccountParameterPreventUnloadToInlineUrl[];
+    preventUnloadToInternalStages: outputs.GetAccountsAccountParameterPreventUnloadToInternalStage[];
+    pythonProfilerModules: outputs.GetAccountsAccountParameterPythonProfilerModule[];
+    pythonProfilerTargetStages: outputs.GetAccountsAccountParameterPythonProfilerTargetStage[];
+    queryTags: outputs.GetAccountsAccountParameterQueryTag[];
+    quotedIdentifiersIgnoreCases: outputs.GetAccountsAccountParameterQuotedIdentifiersIgnoreCase[];
+    readConsistencyModes: outputs.GetAccountsAccountParameterReadConsistencyMode[];
+    replaceInvalidCharacters: outputs.GetAccountsAccountParameterReplaceInvalidCharacter[];
+    requireStorageIntegrationForStageCreations: outputs.GetAccountsAccountParameterRequireStorageIntegrationForStageCreation[];
+    requireStorageIntegrationForStageOperations: outputs.GetAccountsAccountParameterRequireStorageIntegrationForStageOperation[];
+    rowTimestampDefaults: outputs.GetAccountsAccountParameterRowTimestampDefault[];
+    rowsPerResultsets: outputs.GetAccountsAccountParameterRowsPerResultset[];
+    s3StageVpceDnsNames: outputs.GetAccountsAccountParameterS3StageVpceDnsName[];
+    searchPaths: outputs.GetAccountsAccountParameterSearchPath[];
+    serverlessTaskMaxStatementSizes: outputs.GetAccountsAccountParameterServerlessTaskMaxStatementSize[];
+    serverlessTaskMinStatementSizes: outputs.GetAccountsAccountParameterServerlessTaskMinStatementSize[];
+    shareRestrictions: outputs.GetAccountsAccountParameterShareRestriction[];
+    simulatedDataSharingConsumers: outputs.GetAccountsAccountParameterSimulatedDataSharingConsumer[];
+    sqlTraceQueryTexts: outputs.GetAccountsAccountParameterSqlTraceQueryText[];
+    ssoLoginPages: outputs.GetAccountsAccountParameterSsoLoginPage[];
+    statementQueuedTimeoutInSeconds: outputs.GetAccountsAccountParameterStatementQueuedTimeoutInSecond[];
+    statementTimeoutInSeconds: outputs.GetAccountsAccountParameterStatementTimeoutInSecond[];
+    storageSerializationPolicies: outputs.GetAccountsAccountParameterStorageSerializationPolicy[];
+    strictJsonOutputs: outputs.GetAccountsAccountParameterStrictJsonOutput[];
+    suspendTaskAfterNumFailures: outputs.GetAccountsAccountParameterSuspendTaskAfterNumFailure[];
+    taskAutoRetryAttempts: outputs.GetAccountsAccountParameterTaskAutoRetryAttempt[];
+    timeInputFormats: outputs.GetAccountsAccountParameterTimeInputFormat[];
+    timeOutputFormats: outputs.GetAccountsAccountParameterTimeOutputFormat[];
+    timestampDayIsAlways24hs: outputs.GetAccountsAccountParameterTimestampDayIsAlways24h[];
+    timestampInputFormats: outputs.GetAccountsAccountParameterTimestampInputFormat[];
+    timestampLtzOutputFormats: outputs.GetAccountsAccountParameterTimestampLtzOutputFormat[];
+    timestampNtzOutputFormats: outputs.GetAccountsAccountParameterTimestampNtzOutputFormat[];
+    timestampOutputFormats: outputs.GetAccountsAccountParameterTimestampOutputFormat[];
+    timestampTypeMappings: outputs.GetAccountsAccountParameterTimestampTypeMapping[];
+    timestampTzOutputFormats: outputs.GetAccountsAccountParameterTimestampTzOutputFormat[];
+    timezones: outputs.GetAccountsAccountParameterTimezone[];
+    traceLevels: outputs.GetAccountsAccountParameterTraceLevel[];
+    transactionAbortOnErrors: outputs.GetAccountsAccountParameterTransactionAbortOnError[];
+    transactionDefaultIsolationLevels: outputs.GetAccountsAccountParameterTransactionDefaultIsolationLevel[];
+    twoDigitCenturyStarts: outputs.GetAccountsAccountParameterTwoDigitCenturyStart[];
+    unsupportedDdlActions: outputs.GetAccountsAccountParameterUnsupportedDdlAction[];
+    useCachedResults: outputs.GetAccountsAccountParameterUseCachedResult[];
+    useWorkspacesForSqls: outputs.GetAccountsAccountParameterUseWorkspacesForSql[];
+    userTaskManagedInitialWarehouseSizes: outputs.GetAccountsAccountParameterUserTaskManagedInitialWarehouseSize[];
+    userTaskMinimumTriggerIntervalInSeconds: outputs.GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecond[];
+    userTaskTimeoutMs: outputs.GetAccountsAccountParameterUserTaskTimeoutM[];
+    weekOfYearPolicies: outputs.GetAccountsAccountParameterWeekOfYearPolicy[];
+    weekStarts: outputs.GetAccountsAccountParameterWeekStart[];
+}
+
+export interface GetAccountsAccountParameterAbortDetachedQuery {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterActivePythonProfiler {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterAllowBindValuesAccess {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterAllowClientMfaCaching {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterAllowIdToken {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterAllowedSpcsWorkloadType {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterAutocommit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterBaseLocationPrefix {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterBinaryInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterBinaryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterCatalog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterCatalogSync {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientEnableLogInfoStatementParameter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientEncryptionKeySize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientMemoryLimit {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientMetadataRequestUseConnectionCtx {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientMetadataUseSessionDatabase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientPrefetchThread {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientResultChunkSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientResultColumnCaseInsensitive {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientSessionKeepAlife {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientSessionKeepAliveHeartbeatFrequency {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterClientTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterCortexCodeCliDailyEstCreditLimitPerUser {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterCortexCodeDesktopDailyEstCreditLimitPerUser {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterCortexCodeSnowsightDailyEstCreditLimitPerUser {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterCortexEnabledCrossRegion {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterCortexModelsAllowlist {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterCsvTimestampFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDataMetricSchedule {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDateInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDateOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDefaultDbtVersion {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDefaultDdlCollation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDefaultNotebookComputePoolCpus {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDefaultNotebookComputePoolGpus {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDefaultNullOrdering {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDefaultStreamlitComputePool {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDefaultStreamlitNotebookWarehouse {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDisableUiDownloadButton {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDisableUserPrivilegeGrant {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterDisallowedSpcsWorkloadType {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableAutomaticSensitiveDataClassificationLog {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableBudgetEventLogging {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableCortexAnalyst {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableDataCompaction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableEgressCostOptimizer {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableGetDdlUseDataTypeAlias {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableIcebergMergeOnRead {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableIdentifierFirstLogin {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableInternalStagesPrivatelink {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableNotebookCreationInPersonalDb {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnablePerAccountAppServicePrivatelinkUrl {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnablePersonalDatabase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableSpcsBlockStorageSnowflakeFullEncryptionEnforcement {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableTagPropagationEventLogging {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForImageRepository {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableTriSecretAndRekeyOptOutForSpcsBlockStorage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableUnhandledExceptionsReporting {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableUnloadPhysicalTypeOptimization {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableUnredactedQuerySyntaxError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnableUnredactedSecureObjectError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEnforceNetworkRulesForInternalStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterErrorOnNondeterministicMerge {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterErrorOnNondeterministicUpdate {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterEventTable {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterExternalOauthAddPrivilegedRolesToBlockedList {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterExternalVolume {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterGeographyOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterGeometryOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterHybridTableLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterIcebergVersionDefault {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterInitialReplicationSizeLimitInTb {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterJdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterJdbcTreatTimestampNtzAsUtc {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterJdbcUseSessionTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterJsTreatIntegerAsBigint {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterJsonIndent {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterListingAutoFulfillmentReplicationRefreshSchedule {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterLockTimeout {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterLogEventLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterMaxConcurrencyLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterMaxDataExtensionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterMinDataRetentionTimeInDay {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterMultiStatementCount {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterNetworkPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterNoorderSequenceAsDefault {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterOauthAddPrivilegedRolesToBlockedList {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterOdbcTreatDecimalAsInt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterPeriodicDataRekeying {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterPipeExecutionPaused {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterPreventLoadFromInlineUrl {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterPreventUnloadToInlineUrl {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterPreventUnloadToInternalStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterPythonProfilerModule {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterPythonProfilerTargetStage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterQueryTag {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterQuotedIdentifiersIgnoreCase {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterReadConsistencyMode {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterReplaceInvalidCharacter {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterRequireStorageIntegrationForStageCreation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterRequireStorageIntegrationForStageOperation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterRowTimestampDefault {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterRowsPerResultset {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterS3StageVpceDnsName {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterSearchPath {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterServerlessTaskMaxStatementSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterServerlessTaskMinStatementSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterShareRestriction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterSimulatedDataSharingConsumer {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterSqlTraceQueryText {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterSsoLoginPage {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterStatementQueuedTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterStatementTimeoutInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterStorageSerializationPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterStrictJsonOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterSuspendTaskAfterNumFailure {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTaskAutoRetryAttempt {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTimeInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTimeOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTimestampDayIsAlways24h {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTimestampInputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTimestampLtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTimestampNtzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTimestampOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTimestampTypeMapping {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTimestampTzOutputFormat {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTimezone {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTransactionAbortOnError {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTransactionDefaultIsolationLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterTwoDigitCenturyStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterUnsupportedDdlAction {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterUseCachedResult {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterUseWorkspacesForSql {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterUserTaskManagedInitialWarehouseSize {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterUserTaskMinimumTriggerIntervalInSecond {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterUserTaskTimeoutM {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterWeekOfYearPolicy {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetAccountsAccountParameterWeekStart {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
 }
 
 export interface GetAccountsAccountShowOutput {
@@ -2295,6 +3604,7 @@ export interface GetAuthenticationPoliciesAuthenticationPolicyShowOutput {
     owner: string;
     ownerRoleType: string;
     schemaName: string;
+    targetScopes: string[];
 }
 
 export interface GetAuthenticationPoliciesIn {
@@ -2683,6 +3993,8 @@ export interface GetDatabasesDatabaseParameter {
     catalogs: outputs.GetDatabasesDatabaseParameterCatalog[];
     dataRetentionTimeInDays: outputs.GetDatabasesDatabaseParameterDataRetentionTimeInDay[];
     defaultDdlCollations: outputs.GetDatabasesDatabaseParameterDefaultDdlCollation[];
+    defaultNotebookComputePoolCpus: outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpus[];
+    defaultNotebookComputePoolGpus: outputs.GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpus[];
     enableConsoleOutputs: outputs.GetDatabasesDatabaseParameterEnableConsoleOutput[];
     externalVolumes: outputs.GetDatabasesDatabaseParameterExternalVolume[];
     logEventLevels: outputs.GetDatabasesDatabaseParameterLogEventLevel[];
@@ -2716,6 +4028,22 @@ export interface GetDatabasesDatabaseParameterDataRetentionTimeInDay {
 }
 
 export interface GetDatabasesDatabaseParameterDefaultDdlCollation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterDefaultNotebookComputePoolCpus {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetDatabasesDatabaseParameterDefaultNotebookComputePoolGpus {
     default: string;
     description: string;
     key: string;
@@ -3175,6 +4503,7 @@ export interface GetFileFormatsFileFormatDescribeOutput {
     compression: string;
     dateFormat: string;
     disableAutoConvert: boolean;
+    disableSnowflakeData: boolean;
     emptyFieldAsNull: boolean;
     enableOctal: boolean;
     encoding: string;
@@ -4707,6 +6036,8 @@ export interface GetSchemasSchemaParameter {
     catalogs: outputs.GetSchemasSchemaParameterCatalog[];
     dataRetentionTimeInDays: outputs.GetSchemasSchemaParameterDataRetentionTimeInDay[];
     defaultDdlCollations: outputs.GetSchemasSchemaParameterDefaultDdlCollation[];
+    defaultNotebookComputePoolCpus: outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolCpus[];
+    defaultNotebookComputePoolGpus: outputs.GetSchemasSchemaParameterDefaultNotebookComputePoolGpus[];
     enableConsoleOutputs: outputs.GetSchemasSchemaParameterEnableConsoleOutput[];
     externalVolumes: outputs.GetSchemasSchemaParameterExternalVolume[];
     logEventLevels: outputs.GetSchemasSchemaParameterLogEventLevel[];
@@ -4741,6 +6072,22 @@ export interface GetSchemasSchemaParameterDataRetentionTimeInDay {
 }
 
 export interface GetSchemasSchemaParameterDefaultDdlCollation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterDefaultNotebookComputePoolCpus {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface GetSchemasSchemaParameterDefaultNotebookComputePoolGpus {
     default: string;
     description: string;
     key: string;
@@ -5622,6 +6969,7 @@ export interface GetSessionPoliciesSessionPolicyShowOutput {
     owner: string;
     ownerRoleType: string;
     schemaName: string;
+    targetScopes: string[];
 }
 
 export interface GetSharesShare {
@@ -5690,6 +7038,8 @@ export interface GetStagesStageDescribeOutput {
 
 export interface GetStagesStageDescribeOutputDirectoryTable {
     autoRefresh: boolean;
+    awsSnsTopic: string;
+    directoryNotificationChannel: string;
     enable: boolean;
     lastRefreshedOn: string;
 }
@@ -6789,6 +8139,7 @@ export interface GetTasksTaskShowOutput {
     databaseName: string;
     definition: string;
     errorIntegration: string;
+    executeAsUser: string;
     id: string;
     lastCommittedOn: string;
     lastSuspendedOn: string;
@@ -6892,7 +8243,9 @@ export interface GetUsersUserDescribeOutput {
     rsaPublicKey: string;
     rsaPublicKey2: string;
     rsaPublicKey2Fp: string;
+    rsaPublicKey2LastSetTime: string;
     rsaPublicKeyFp: string;
+    rsaPublicKeyLastSetTime: string;
     snowflakeLock: boolean;
     snowflakeSupport: boolean;
     type: string;
@@ -7684,7 +9037,7 @@ export interface GrantOwnershipOnAll {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -7699,14 +9052,14 @@ export interface GrantOwnershipOnFuture {
      */
     inSchema?: string;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: string;
 }
 
 export interface GrantPrivilegesToAccountRoleOnAccountObject {
     /**
-     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      */
     inherited?: outputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited;
     /**
@@ -7721,7 +9074,7 @@ export interface GrantPrivilegesToAccountRoleOnAccountObject {
 
 export interface GrantPrivilegesToAccountRoleOnAccountObjectInherited {
     /**
-     * The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+     * The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -7736,7 +9089,7 @@ export interface GrantPrivilegesToAccountRoleOnSchema {
      */
     futureSchemasInDatabase?: string;
     /**
-     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      */
     inherited?: outputs.GrantPrivilegesToAccountRoleOnSchemaInherited;
     /**
@@ -7766,7 +9119,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     future?: outputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture;
     /**
-     * Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      */
     inherited?: outputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited;
     /**
@@ -7783,7 +9136,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -7792,7 +9145,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -7811,7 +9164,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectInherited {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -7826,7 +9179,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchema {
      */
     futureSchemasInDatabase?: string;
     /**
-     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      */
     inherited?: string;
     /**
@@ -7845,7 +9198,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     future?: outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture;
     /**
-     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      */
     inherited?: outputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited;
     /**
@@ -7868,7 +9221,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -7883,7 +9236,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -7898,7 +9251,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: string;
 }
@@ -11186,6 +12539,8 @@ export interface SchemaParameter {
     catalogs: outputs.SchemaParameterCatalog[];
     dataRetentionTimeInDays: outputs.SchemaParameterDataRetentionTimeInDay[];
     defaultDdlCollations: outputs.SchemaParameterDefaultDdlCollation[];
+    defaultNotebookComputePoolCpus: outputs.SchemaParameterDefaultNotebookComputePoolCpus[];
+    defaultNotebookComputePoolGpus: outputs.SchemaParameterDefaultNotebookComputePoolGpus[];
     enableConsoleOutputs: outputs.SchemaParameterEnableConsoleOutput[];
     externalVolumes: outputs.SchemaParameterExternalVolume[];
     logEventLevels: outputs.SchemaParameterLogEventLevel[];
@@ -11220,6 +12575,22 @@ export interface SchemaParameterDataRetentionTimeInDay {
 }
 
 export interface SchemaParameterDefaultDdlCollation {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterDefaultNotebookComputePoolCpus {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface SchemaParameterDefaultNotebookComputePoolGpus {
     default: string;
     description: string;
     key: string;
@@ -11814,6 +13185,18 @@ export interface ServiceFromSpecificationTemplateUsing {
     /**
      * The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
+    value: string;
+}
+
+export interface ServiceParameter {
+    serviceCallerTokenValiditySecs: outputs.ServiceParameterServiceCallerTokenValiditySec[];
+}
+
+export interface ServiceParameterServiceCallerTokenValiditySec {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
     value: string;
 }
 
@@ -12528,6 +13911,7 @@ export interface SessionPolicyShowOutput {
     owner: string;
     ownerRoleType: string;
     schemaName: string;
+    targetScopes: string[];
 }
 
 export interface StageExternalAzureCredentials {
@@ -12544,6 +13928,8 @@ export interface StageExternalAzureDescribeOutput {
 
 export interface StageExternalAzureDescribeOutputDirectoryTable {
     autoRefresh: boolean;
+    awsSnsTopic: string;
+    directoryNotificationChannel: string;
     enable: boolean;
     lastRefreshedOn: string;
 }
@@ -12993,6 +14379,8 @@ export interface StageExternalGcsDescribeOutput {
 
 export interface StageExternalGcsDescribeOutputDirectoryTable {
     autoRefresh: boolean;
+    awsSnsTopic: string;
+    directoryNotificationChannel: string;
     enable: boolean;
     lastRefreshedOn: string;
 }
@@ -13454,6 +14842,8 @@ export interface StageExternalS3CompatibleDescribeOutput {
 
 export interface StageExternalS3CompatibleDescribeOutputDirectoryTable {
     autoRefresh: boolean;
+    awsSnsTopic: string;
+    directoryNotificationChannel: string;
     enable: boolean;
     lastRefreshedOn: string;
 }
@@ -13903,6 +15293,8 @@ export interface StageExternalS3DescribeOutput {
 
 export interface StageExternalS3DescribeOutputDirectoryTable {
     autoRefresh: boolean;
+    awsSnsTopic: string;
+    directoryNotificationChannel: string;
     enable: boolean;
     lastRefreshedOn: string;
 }
@@ -14379,6 +15771,8 @@ export interface StageInternalDescribeOutput {
 
 export interface StageInternalDescribeOutputDirectoryTable {
     autoRefresh: boolean;
+    awsSnsTopic: string;
+    directoryNotificationChannel: string;
     enable: boolean;
     lastRefreshedOn: string;
 }
@@ -16054,6 +17448,7 @@ export interface TaskShowOutput {
     databaseName: string;
     definition: string;
     errorIntegration: string;
+    executeAsUser: string;
     id: string;
     lastCommittedOn: string;
     lastSuspendedOn: string;

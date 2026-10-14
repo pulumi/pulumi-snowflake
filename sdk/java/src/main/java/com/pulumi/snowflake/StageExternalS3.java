@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** This resource is meant only for S3 stages, not S3-compatible stages. For S3-compatible stages, use the `snowflake.StageExternalS3Compatible` resource instead. Do not use this resource with `s3compat://` URLs.
  * 
- * &gt; **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect. See the migration guide for details.
+ * &gt; **Note** Importing this resource sets boolean fields that use the special `&#34;default&#34;` value to `&#34;default&#34;` instead of the Snowflake-reported value, avoiding persistent diffs. This is the `IMPORT_BOOLEAN_DEFAULT` experiment, which is enabled by default. Opt out by listing it in `experimentalFeaturesDisabled`. See the migration guide for details.
  * 
  * Resource used to manage external S3 stages. For more information, check [external stage documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stage#external-stage-parameters-externalstageparams).
  * 

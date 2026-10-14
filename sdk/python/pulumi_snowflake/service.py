@@ -34,7 +34,8 @@ class ServiceArgs:
                  min_instances: pulumi.Input[Optional[_builtins.int]] = None,
                  min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None):
+                 query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_caller_token_validity_secs: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -52,6 +53,7 @@ class ServiceArgs:
         :param pulumi.Input[_builtins.int] min_ready_instances: Indicates the minimum service instances that must be ready for Snowflake to consider the service is ready to process requests.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] query_warehouse: Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.int] service_caller_token_validity_secs: Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
         """
         pulumi.set(__self__, "compute_pool", compute_pool)
         pulumi.set(__self__, "database", database)
@@ -78,6 +80,8 @@ class ServiceArgs:
             pulumi.set(__self__, "name", name)
         if query_warehouse is not None:
             pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if service_caller_token_validity_secs is not None:
+            pulumi.set(__self__, "service_caller_token_validity_secs", service_caller_token_validity_secs)
 
     @_builtins.property
     @pulumi.getter(name="computePool")
@@ -247,6 +251,18 @@ class ServiceArgs:
     def query_warehouse(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "query_warehouse", value)
 
+    @_builtins.property
+    @pulumi.getter(name="serviceCallerTokenValiditySecs")
+    def service_caller_token_validity_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+        """
+        return pulumi.get(self, "service_caller_token_validity_secs")
+
+    @service_caller_token_validity_secs.setter
+    def service_caller_token_validity_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "service_caller_token_validity_secs", value)
+
 
 @pulumi.input_type
 class _ServiceState:
@@ -265,8 +281,10 @@ class _ServiceState:
                  min_instances: pulumi.Input[Optional[_builtins.int]] = None,
                  min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceParameterArgs']]]] = None,
                  query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_caller_token_validity_secs: pulumi.Input[Optional[_builtins.int]] = None,
                  service_type: pulumi.Input[Optional[_builtins.str]] = None,
                  show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceShowOutputArgs']]]] = None):
         """
@@ -286,8 +304,10 @@ class _ServiceState:
         :param pulumi.Input[_builtins.int] min_instances: Specifies the minimum number of service instances to run.
         :param pulumi.Input[_builtins.int] min_ready_instances: Indicates the minimum service instances that must be ready for Snowflake to consider the service is ready to process requests.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
         :param pulumi.Input[_builtins.str] query_warehouse: Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.int] service_caller_token_validity_secs: Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
         :param pulumi.Input[_builtins.str] service_type: Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SERVICES` for the given service.
         """
@@ -319,10 +339,14 @@ class _ServiceState:
             pulumi.set(__self__, "min_ready_instances", min_ready_instances)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
         if query_warehouse is not None:
             pulumi.set(__self__, "query_warehouse", query_warehouse)
         if schema is not None:
             pulumi.set(__self__, "schema", schema)
+        if service_caller_token_validity_secs is not None:
+            pulumi.set(__self__, "service_caller_token_validity_secs", service_caller_token_validity_secs)
         if service_type is not None:
             pulumi.set(__self__, "service_type", service_type)
         if show_outputs is not None:
@@ -497,6 +521,18 @@ class _ServiceState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceParameterArgs']]]]:
+        """
+        Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @_builtins.property
     @pulumi.getter(name="queryWarehouse")
     def query_warehouse(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -519,6 +555,18 @@ class _ServiceState:
     @schema.setter
     def schema(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceCallerTokenValiditySecs")
+    def service_caller_token_validity_secs(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+        """
+        return pulumi.get(self, "service_caller_token_validity_secs")
+
+    @service_caller_token_validity_secs.setter
+    def service_caller_token_validity_secs(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "service_caller_token_validity_secs", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceType")
@@ -565,6 +613,7 @@ class Service(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_caller_token_validity_secs: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
         > **Note** Managing service state is limited. It is handled by `auto_suspend_secs`, and `auto_resume` fields. The provider does not support managing the state of services in Snowflake with `ALTER ... SUSPEND` and `ALTER ... RESUME`. See [Suspending a service documentation](https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-services#suspending-a-service) for more details.
@@ -596,6 +645,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] query_warehouse: Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.int] service_caller_token_validity_secs: Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
         """
         ...
     @overload
@@ -646,6 +696,7 @@ class Service(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
                  schema: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_caller_token_validity_secs: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -675,8 +726,10 @@ class Service(pulumi.CustomResource):
             if schema is None and not opts.urn:
                 raise TypeError("Missing required property 'schema'")
             __props__.__dict__["schema"] = schema
+            __props__.__dict__["service_caller_token_validity_secs"] = service_caller_token_validity_secs
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
+            __props__.__dict__["parameters"] = None
             __props__.__dict__["service_type"] = None
             __props__.__dict__["show_outputs"] = None
         super(Service, __self__).__init__(
@@ -703,8 +756,10 @@ class Service(pulumi.CustomResource):
             min_instances: pulumi.Input[Optional[_builtins.int]] = None,
             min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceParameterArgs', 'ServiceParameterArgsDict', 'outputs.ServiceParameter']]]]] = None,
             query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
             schema: pulumi.Input[Optional[_builtins.str]] = None,
+            service_caller_token_validity_secs: pulumi.Input[Optional[_builtins.int]] = None,
             service_type: pulumi.Input[Optional[_builtins.str]] = None,
             show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceShowOutputArgs', 'ServiceShowOutputArgsDict', 'outputs.ServiceShowOutput']]]]] = None) -> 'Service':
         """
@@ -728,8 +783,10 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] min_instances: Specifies the minimum number of service instances to run.
         :param pulumi.Input[_builtins.int] min_ready_instances: Indicates the minimum service instances that must be ready for Snowflake to consider the service is ready to process requests.
         :param pulumi.Input[_builtins.str] name: Specifies the identifier for the service; must be unique for the schema in which the service is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceParameterArgs', 'ServiceParameterArgsDict', 'outputs.ServiceParameter']]]] parameters: Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
         :param pulumi.Input[_builtins.str] query_warehouse: Warehouse to use if a service container connects to Snowflake to execute a query but does not explicitly specify a warehouse to use. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[_builtins.str] schema: The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[_builtins.int] service_caller_token_validity_secs: Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
         :param pulumi.Input[_builtins.str] service_type: Specifies a type for the service. This field is used for checking external changes and recreating the resources if needed.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceShowOutputArgs', 'ServiceShowOutputArgsDict', 'outputs.ServiceShowOutput']]]] show_outputs: Outputs the result of `SHOW SERVICES` for the given service.
         """
@@ -751,8 +808,10 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["min_instances"] = min_instances
         __props__.__dict__["min_ready_instances"] = min_ready_instances
         __props__.__dict__["name"] = name
+        __props__.__dict__["parameters"] = parameters
         __props__.__dict__["query_warehouse"] = query_warehouse
         __props__.__dict__["schema"] = schema
+        __props__.__dict__["service_caller_token_validity_secs"] = service_caller_token_validity_secs
         __props__.__dict__["service_type"] = service_type
         __props__.__dict__["show_outputs"] = show_outputs
         return Service(resource_name, opts=opts, __props__=__props__)
@@ -870,6 +929,14 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Output[Sequence['outputs.ServiceParameter']]:
+        """
+        Outputs the result of `SHOW PARAMETERS IN SERVICE` for the given service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @_builtins.property
     @pulumi.getter(name="queryWarehouse")
     def query_warehouse(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -884,6 +951,14 @@ class Service(pulumi.CustomResource):
         The schema in which to create the service. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceCallerTokenValiditySecs")
+    def service_caller_token_validity_secs(self) -> pulumi.Output[_builtins.int]:
+        """
+        Controls how long a caller's rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+        """
+        return pulumi.get(self, "service_caller_token_validity_secs")
 
     @_builtins.property
     @pulumi.getter(name="serviceType")

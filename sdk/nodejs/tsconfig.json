@@ -160,6 +160,7 @@
         "icebergTableFromRest.ts",
         "imageRepository.ts",
         "index.ts",
+        "intelligenceCortexAgentAttachment.ts",
         "jobService.ts",
         "legacyServiceUser.ts",
         "listing.ts",

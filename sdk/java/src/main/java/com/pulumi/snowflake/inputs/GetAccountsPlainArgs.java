@@ -45,11 +45,27 @@ public final class GetAccountsPlainArgs extends com.pulumi.resources.InvokeArgs 
         return Optional.ofNullable(this.withHistory);
     }
 
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account&#39;s row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+     * 
+     */
+    @Import(name="withParameters")
+    private @Nullable Boolean withParameters;
+
+    /**
+     * @return (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account&#39;s row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withParameters() {
+        return Optional.ofNullable(this.withParameters);
+    }
+
     private GetAccountsPlainArgs() {}
 
     private GetAccountsPlainArgs(GetAccountsPlainArgs $) {
         this.like = $.like;
         this.withHistory = $.withHistory;
+        this.withParameters = $.withParameters;
     }
 
     public static Builder builder() {
@@ -89,6 +105,17 @@ public final class GetAccountsPlainArgs extends com.pulumi.resources.InvokeArgs 
          */
         public Builder withHistory(@Nullable Boolean withHistory) {
             $.withHistory = withHistory;
+            return this;
+        }
+
+        /**
+         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account&#39;s row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withParameters(@Nullable Boolean withParameters) {
+            $.withParameters = withParameters;
             return this;
         }
 

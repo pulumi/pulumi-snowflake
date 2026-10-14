@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.SchemaParameterCatalogArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterDataRetentionTimeInDayArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterDefaultDdlCollationArgs;
+import com.pulumi.snowflake.inputs.SchemaParameterDefaultNotebookComputePoolCpusArgs;
+import com.pulumi.snowflake.inputs.SchemaParameterDefaultNotebookComputePoolGpusArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterEnableConsoleOutputArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterExternalVolumeArgs;
 import com.pulumi.snowflake.inputs.SchemaParameterLogEventLevelArgs;
@@ -52,6 +54,20 @@ public final class SchemaParameterArgs extends com.pulumi.resources.ResourceArgs
 
     public Optional<Output<List<SchemaParameterDefaultDdlCollationArgs>>> defaultDdlCollations() {
         return Optional.ofNullable(this.defaultDdlCollations);
+    }
+
+    @Import(name="defaultNotebookComputePoolCpus")
+    private @Nullable Output<List<SchemaParameterDefaultNotebookComputePoolCpusArgs>> defaultNotebookComputePoolCpus;
+
+    public Optional<Output<List<SchemaParameterDefaultNotebookComputePoolCpusArgs>>> defaultNotebookComputePoolCpus() {
+        return Optional.ofNullable(this.defaultNotebookComputePoolCpus);
+    }
+
+    @Import(name="defaultNotebookComputePoolGpus")
+    private @Nullable Output<List<SchemaParameterDefaultNotebookComputePoolGpusArgs>> defaultNotebookComputePoolGpus;
+
+    public Optional<Output<List<SchemaParameterDefaultNotebookComputePoolGpusArgs>>> defaultNotebookComputePoolGpus() {
+        return Optional.ofNullable(this.defaultNotebookComputePoolGpus);
     }
 
     @Import(name="enableConsoleOutputs")
@@ -165,6 +181,8 @@ public final class SchemaParameterArgs extends com.pulumi.resources.ResourceArgs
         this.catalogs = $.catalogs;
         this.dataRetentionTimeInDays = $.dataRetentionTimeInDays;
         this.defaultDdlCollations = $.defaultDdlCollations;
+        this.defaultNotebookComputePoolCpus = $.defaultNotebookComputePoolCpus;
+        this.defaultNotebookComputePoolGpus = $.defaultNotebookComputePoolGpus;
         this.enableConsoleOutputs = $.enableConsoleOutputs;
         this.externalVolumes = $.externalVolumes;
         this.logEventLevels = $.logEventLevels;
@@ -237,6 +255,32 @@ public final class SchemaParameterArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder defaultDdlCollations(SchemaParameterDefaultDdlCollationArgs... defaultDdlCollations) {
             return defaultDdlCollations(List.of(defaultDdlCollations));
+        }
+
+        public Builder defaultNotebookComputePoolCpus(@Nullable Output<List<SchemaParameterDefaultNotebookComputePoolCpusArgs>> defaultNotebookComputePoolCpus) {
+            $.defaultNotebookComputePoolCpus = defaultNotebookComputePoolCpus;
+            return this;
+        }
+
+        public Builder defaultNotebookComputePoolCpus(List<SchemaParameterDefaultNotebookComputePoolCpusArgs> defaultNotebookComputePoolCpus) {
+            return defaultNotebookComputePoolCpus(Output.of(defaultNotebookComputePoolCpus));
+        }
+
+        public Builder defaultNotebookComputePoolCpus(SchemaParameterDefaultNotebookComputePoolCpusArgs... defaultNotebookComputePoolCpus) {
+            return defaultNotebookComputePoolCpus(List.of(defaultNotebookComputePoolCpus));
+        }
+
+        public Builder defaultNotebookComputePoolGpus(@Nullable Output<List<SchemaParameterDefaultNotebookComputePoolGpusArgs>> defaultNotebookComputePoolGpus) {
+            $.defaultNotebookComputePoolGpus = defaultNotebookComputePoolGpus;
+            return this;
+        }
+
+        public Builder defaultNotebookComputePoolGpus(List<SchemaParameterDefaultNotebookComputePoolGpusArgs> defaultNotebookComputePoolGpus) {
+            return defaultNotebookComputePoolGpus(Output.of(defaultNotebookComputePoolGpus));
+        }
+
+        public Builder defaultNotebookComputePoolGpus(SchemaParameterDefaultNotebookComputePoolGpusArgs... defaultNotebookComputePoolGpus) {
+            return defaultNotebookComputePoolGpus(List.of(defaultNotebookComputePoolGpus));
         }
 
         public Builder enableConsoleOutputs(@Nullable Output<List<SchemaParameterEnableConsoleOutputArgs>> enableConsoleOutputs) {

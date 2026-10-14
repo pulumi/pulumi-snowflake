@@ -16,6 +16,8 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.SchemaParameterCatalog> Catalogs;
         public readonly ImmutableArray<Outputs.SchemaParameterDataRetentionTimeInDay> DataRetentionTimeInDays;
         public readonly ImmutableArray<Outputs.SchemaParameterDefaultDdlCollation> DefaultDdlCollations;
+        public readonly ImmutableArray<Outputs.SchemaParameterDefaultNotebookComputePoolCpus> DefaultNotebookComputePoolCpus;
+        public readonly ImmutableArray<Outputs.SchemaParameterDefaultNotebookComputePoolGpus> DefaultNotebookComputePoolGpus;
         public readonly ImmutableArray<Outputs.SchemaParameterEnableConsoleOutput> EnableConsoleOutputs;
         public readonly ImmutableArray<Outputs.SchemaParameterExternalVolume> ExternalVolumes;
         public readonly ImmutableArray<Outputs.SchemaParameterLogEventLevel> LogEventLevels;
@@ -39,6 +41,10 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.SchemaParameterDataRetentionTimeInDay> dataRetentionTimeInDays,
 
             ImmutableArray<Outputs.SchemaParameterDefaultDdlCollation> defaultDdlCollations,
+
+            ImmutableArray<Outputs.SchemaParameterDefaultNotebookComputePoolCpus> defaultNotebookComputePoolCpus,
+
+            ImmutableArray<Outputs.SchemaParameterDefaultNotebookComputePoolGpus> defaultNotebookComputePoolGpus,
 
             ImmutableArray<Outputs.SchemaParameterEnableConsoleOutput> enableConsoleOutputs,
 
@@ -73,6 +79,8 @@ namespace Pulumi.Snowflake.Outputs
             Catalogs = catalogs;
             DataRetentionTimeInDays = dataRetentionTimeInDays;
             DefaultDdlCollations = defaultDdlCollations;
+            DefaultNotebookComputePoolCpus = defaultNotebookComputePoolCpus;
+            DefaultNotebookComputePoolGpus = defaultNotebookComputePoolGpus;
             EnableConsoleOutputs = enableConsoleOutputs;
             ExternalVolumes = externalVolumes;
             LogEventLevels = logEventLevels;

@@ -425,7 +425,7 @@ class StageExternalS3Compatible(pulumi.CustomResource):
 
         > **Note** This resource is meant only for S3-compatible stages, not S3 stages. For S3 stages, use the `StageExternalS3` resource instead. Do not use this resource with `s3://` URLs.
 
-        > **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect. See the migration guide for details.
+        > **Note** Importing this resource sets boolean fields that use the special `"default"` value to `"default"` instead of the Snowflake-reported value, avoiding persistent diffs. This is the `IMPORT_BOOLEAN_DEFAULT` experiment, which is enabled by default. Opt out by listing it in `experimental_features_disabled`. See the migration guide for details.
 
         Resource used to manage external S3-compatible stages. For more information, check [external stage documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stage#external-stage-parameters-externalstageparams).
 
@@ -647,7 +647,7 @@ class StageExternalS3Compatible(pulumi.CustomResource):
 
         > **Note** This resource is meant only for S3-compatible stages, not S3 stages. For S3 stages, use the `StageExternalS3` resource instead. Do not use this resource with `s3://` URLs.
 
-        > **Note** If you experience persistent diffs after importing this resource, enable the `IMPORT_BOOLEAN_DEFAULT` experimental feature and reimport the resource for the fix to take effect. See the migration guide for details.
+        > **Note** Importing this resource sets boolean fields that use the special `"default"` value to `"default"` instead of the Snowflake-reported value, avoiding persistent diffs. This is the `IMPORT_BOOLEAN_DEFAULT` experiment, which is enabled by default. Opt out by listing it in `experimental_features_disabled`. See the migration guide for details.
 
         Resource used to manage external S3-compatible stages. For more information, check [external stage documentation](https://docs.snowflake.com/en/sql-reference/sql/create-stage#external-stage-parameters-externalstageparams).
 

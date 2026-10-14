@@ -172,7 +172,7 @@ type HybridTable struct {
 	Columns HybridTableColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the hybrid table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 	DataRetentionTimeInDays pulumi.IntOutput `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
@@ -246,7 +246,7 @@ type hybridTableState struct {
 	Columns []HybridTableColumn `pulumi:"columns"`
 	// Specifies a comment for the hybrid table.
 	Comment *string `pulumi:"comment"`
-	// Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
@@ -279,7 +279,7 @@ type HybridTableState struct {
 	Columns HybridTableColumnArrayInput
 	// Specifies a comment for the hybrid table.
 	Comment pulumi.StringPtrInput
-	// Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// The database in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
@@ -316,7 +316,7 @@ type hybridTableArgs struct {
 	Columns []HybridTableColumn `pulumi:"columns"`
 	// Specifies a comment for the hybrid table.
 	Comment *string `pulumi:"comment"`
-	// Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
@@ -342,7 +342,7 @@ type HybridTableArgs struct {
 	Columns HybridTableColumnArrayInput
 	// Specifies a comment for the hybrid table.
 	Comment pulumi.StringPtrInput
-	// Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// The database in which to create the hybrid table. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
@@ -459,7 +459,7 @@ func (o HybridTableOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HybridTable) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the retention period for the hybrid table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the hybrid table. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
 func (o HybridTableOutput) DataRetentionTimeInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *HybridTable) pulumi.IntOutput { return v.DataRetentionTimeInDays }).(pulumi.IntOutput)
 }

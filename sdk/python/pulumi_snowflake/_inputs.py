@@ -1057,6 +1057,10 @@ __all__ = [
     'SchemaParameterDataRetentionTimeInDayArgsDict',
     'SchemaParameterDefaultDdlCollationArgs',
     'SchemaParameterDefaultDdlCollationArgsDict',
+    'SchemaParameterDefaultNotebookComputePoolCpusArgs',
+    'SchemaParameterDefaultNotebookComputePoolCpusArgsDict',
+    'SchemaParameterDefaultNotebookComputePoolGpusArgs',
+    'SchemaParameterDefaultNotebookComputePoolGpusArgsDict',
     'SchemaParameterEnableConsoleOutputArgs',
     'SchemaParameterEnableConsoleOutputArgsDict',
     'SchemaParameterExternalVolumeArgs',
@@ -1153,6 +1157,10 @@ __all__ = [
     'ServiceFromSpecificationTemplateArgsDict',
     'ServiceFromSpecificationTemplateUsingArgs',
     'ServiceFromSpecificationTemplateUsingArgsDict',
+    'ServiceParameterArgs',
+    'ServiceParameterArgsDict',
+    'ServiceParameterServiceCallerTokenValiditySecArgs',
+    'ServiceParameterServiceCallerTokenValiditySecArgsDict',
     'ServiceShowOutputArgs',
     'ServiceShowOutputArgsDict',
     'ServiceUserDefaultWorkloadIdentityArgs',
@@ -7584,6 +7592,7 @@ class AuthenticationPolicyShowOutputArgsDict(TypedDict):
     owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class AuthenticationPolicyShowOutputArgs:
@@ -7596,7 +7605,8 @@ class AuthenticationPolicyShowOutputArgs:
                  options: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_role_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
@@ -7615,6 +7625,8 @@ class AuthenticationPolicyShowOutputArgs:
             pulumi.set(__self__, "owner_role_type", owner_role_type)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
+        if target_scopes is not None:
+            pulumi.set(__self__, "target_scopes", target_scopes)
 
     @_builtins.property
     @pulumi.getter
@@ -7696,6 +7708,15 @@ class AuthenticationPolicyShowOutputArgs:
     @schema_name.setter
     def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetScopes")
+    def target_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "target_scopes")
+
+    @target_scopes.setter
+    def target_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "target_scopes", value)
 
 
 class AuthenticationPolicyWorkloadIdentityPolicyArgsDict(TypedDict):
@@ -10355,12 +10376,16 @@ class CortexSearchServiceDescribeOutputArgsDict(TypedDict):
     database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     definition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     embedding_model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    full_index_build_interval_days: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     indexing_error: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     indexing_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    primary_key_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    scoring_profile_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     search_column: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     service_query_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    serving_state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     source_data_num_rows: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     target_lag: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     warehouse: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -10376,12 +10401,16 @@ class CortexSearchServiceDescribeOutputArgs:
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  definition: pulumi.Input[Optional[_builtins.str]] = None,
                  embedding_model: pulumi.Input[Optional[_builtins.str]] = None,
+                 full_index_build_interval_days: pulumi.Input[Optional[_builtins.int]] = None,
                  indexing_error: pulumi.Input[Optional[_builtins.str]] = None,
                  indexing_state: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary_key_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 scoring_profile_count: pulumi.Input[Optional[_builtins.int]] = None,
                  search_column: pulumi.Input[Optional[_builtins.str]] = None,
                  service_query_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 serving_state: pulumi.Input[Optional[_builtins.str]] = None,
                  source_data_num_rows: pulumi.Input[Optional[_builtins.int]] = None,
                  target_lag: pulumi.Input[Optional[_builtins.str]] = None,
                  warehouse: pulumi.Input[Optional[_builtins.str]] = None):
@@ -10401,18 +10430,26 @@ class CortexSearchServiceDescribeOutputArgs:
             pulumi.set(__self__, "definition", definition)
         if embedding_model is not None:
             pulumi.set(__self__, "embedding_model", embedding_model)
+        if full_index_build_interval_days is not None:
+            pulumi.set(__self__, "full_index_build_interval_days", full_index_build_interval_days)
         if indexing_error is not None:
             pulumi.set(__self__, "indexing_error", indexing_error)
         if indexing_state is not None:
             pulumi.set(__self__, "indexing_state", indexing_state)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if primary_key_columns is not None:
+            pulumi.set(__self__, "primary_key_columns", primary_key_columns)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
+        if scoring_profile_count is not None:
+            pulumi.set(__self__, "scoring_profile_count", scoring_profile_count)
         if search_column is not None:
             pulumi.set(__self__, "search_column", search_column)
         if service_query_url is not None:
             pulumi.set(__self__, "service_query_url", service_query_url)
+        if serving_state is not None:
+            pulumi.set(__self__, "serving_state", serving_state)
         if source_data_num_rows is not None:
             pulumi.set(__self__, "source_data_num_rows", source_data_num_rows)
         if target_lag is not None:
@@ -10493,6 +10530,15 @@ class CortexSearchServiceDescribeOutputArgs:
         pulumi.set(self, "embedding_model", value)
 
     @_builtins.property
+    @pulumi.getter(name="fullIndexBuildIntervalDays")
+    def full_index_build_interval_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "full_index_build_interval_days")
+
+    @full_index_build_interval_days.setter
+    def full_index_build_interval_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "full_index_build_interval_days", value)
+
+    @_builtins.property
     @pulumi.getter(name="indexingError")
     def indexing_error(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "indexing_error")
@@ -10520,6 +10566,15 @@ class CortexSearchServiceDescribeOutputArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="primaryKeyColumns")
+    def primary_key_columns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "primary_key_columns")
+
+    @primary_key_columns.setter
+    def primary_key_columns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "primary_key_columns", value)
+
+    @_builtins.property
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "schema_name")
@@ -10527,6 +10582,15 @@ class CortexSearchServiceDescribeOutputArgs:
     @schema_name.setter
     def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scoringProfileCount")
+    def scoring_profile_count(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "scoring_profile_count")
+
+    @scoring_profile_count.setter
+    def scoring_profile_count(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "scoring_profile_count", value)
 
     @_builtins.property
     @pulumi.getter(name="searchColumn")
@@ -10545,6 +10609,15 @@ class CortexSearchServiceDescribeOutputArgs:
     @service_query_url.setter
     def service_query_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_query_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="servingState")
+    def serving_state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "serving_state")
+
+    @serving_state.setter
+    def serving_state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "serving_state", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDataNumRows")
@@ -15187,6 +15260,7 @@ class FileFormatParquetShowOutputArgs:
 class FileFormatXmlDescribeOutputArgsDict(TypedDict):
     compression: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     disable_auto_convert: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    disable_snowflake_data: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     ignore_utf8_errors: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     preserve_space: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
@@ -15200,6 +15274,7 @@ class FileFormatXmlDescribeOutputArgs:
     def __init__(__self__, *,
                  compression: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_auto_convert: pulumi.Input[Optional[_builtins.bool]] = None,
+                 disable_snowflake_data: pulumi.Input[Optional[_builtins.bool]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  ignore_utf8_errors: pulumi.Input[Optional[_builtins.bool]] = None,
                  preserve_space: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -15211,6 +15286,8 @@ class FileFormatXmlDescribeOutputArgs:
             pulumi.set(__self__, "compression", compression)
         if disable_auto_convert is not None:
             pulumi.set(__self__, "disable_auto_convert", disable_auto_convert)
+        if disable_snowflake_data is not None:
+            pulumi.set(__self__, "disable_snowflake_data", disable_snowflake_data)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ignore_utf8_errors is not None:
@@ -15243,6 +15320,15 @@ class FileFormatXmlDescribeOutputArgs:
     @disable_auto_convert.setter
     def disable_auto_convert(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disable_auto_convert", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disableSnowflakeData")
+    def disable_snowflake_data(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "disable_snowflake_data")
+
+    @disable_snowflake_data.setter
+    def disable_snowflake_data(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "disable_snowflake_data", value)
 
     @_builtins.property
     @pulumi.getter
@@ -20030,7 +20116,7 @@ class GrantOwnershipOnArgs:
 class GrantOwnershipOnAllArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+    Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20048,7 +20134,7 @@ class GrantOwnershipOnAllArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -20062,7 +20148,7 @@ class GrantOwnershipOnAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+        Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20098,7 +20184,7 @@ class GrantOwnershipOnAllArgs:
 class GrantOwnershipOnFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+    Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20116,7 +20202,7 @@ class GrantOwnershipOnFutureArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param pulumi.Input[_builtins.str] object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database. For more information about this resource, see docs.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
@@ -20130,7 +20216,7 @@ class GrantOwnershipOnFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+        Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20166,7 +20252,7 @@ class GrantOwnershipOnFutureArgs:
 class GrantPrivilegesToAccountRoleOnAccountObjectArgsDict(TypedDict):
     inherited: NotRequired[pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgsDict']]]
     """
-    Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+    Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
     """
     object_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20184,7 +20270,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
                  object_name: pulumi.Input[Optional[_builtins.str]] = None,
                  object_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
         :param pulumi.Input[_builtins.str] object_type: The object type of the account object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USER` | `RESOURCE MONITOR` | `WAREHOUSE` | `COMPUTE POOL` | `DATABASE` | `INTEGRATION` | `CONNECTION` | `FAILOVER GROUP` | `REPLICATION GROUP` | `EXTERNAL VOLUME` | `SNOWFLAKE INTELLIGENCE`. Snowflake validates the type at apply time.
         """
@@ -20199,7 +20285,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
     @pulumi.getter
     def inherited(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs']]:
         """
-        Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -20235,7 +20321,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectArgs:
 class GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+    The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
     """
 
 @pulumi.input_type
@@ -20243,7 +20329,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs:
     def __init__(__self__, *,
                  object_type_plural: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
 
@@ -20251,7 +20337,7 @@ class GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+        The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20271,7 +20357,7 @@ class GrantPrivilegesToAccountRoleOnSchemaArgsDict(TypedDict):
     """
     inherited: NotRequired[pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaInheritedArgsDict']]]
     """
-    Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+    Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
     """
     schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20288,7 +20374,7 @@ class GrantPrivilegesToAccountRoleOnSchemaArgs:
         """
         :param pulumi.Input[_builtins.str] all_schemas_in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] future_schemas_in_database: The fully qualified name of the database.
-        :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         :param pulumi.Input[_builtins.str] schema_name: The fully qualified name of the schema.
         """
         if all_schemas_in_database is not None:
@@ -20328,7 +20414,7 @@ class GrantPrivilegesToAccountRoleOnSchemaArgs:
     @pulumi.getter
     def inherited(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaInheritedArgs']]:
         """
-        Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -20409,7 +20495,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict(TypedDict):
     """
     inherited: NotRequired[pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgsDict']]]
     """
-    Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+    Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
     """
     object_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20431,7 +20517,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
         """
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
-        :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
         :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
         """
@@ -20474,7 +20560,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
     @pulumi.getter
     def inherited(self) -> pulumi.Input[Optional['GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs']]:
         """
-        Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -20510,7 +20596,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectArgs:
 class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     in_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -20522,7 +20608,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -20534,7 +20620,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20564,7 +20650,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs:
 class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     in_schema: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -20576,7 +20662,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -20588,7 +20674,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20618,7 +20704,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
 class GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+    The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
     """
     in_account: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -20641,7 +20727,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         :param pulumi.Input[_builtins.bool] in_account: If true, the inherited privilege will be granted on all objects of the given type in the account.
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database in which the inherited privilege will be granted on all objects of the given type.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
@@ -20658,7 +20744,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20714,7 +20800,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaArgsDict(TypedDict):
     """
     inherited: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+    Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
     """
     schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20731,7 +20817,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaArgs:
         """
         :param pulumi.Input[_builtins.str] all_schemas_in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] future_schemas_in_database: The fully qualified name of the database.
-        :param pulumi.Input[_builtins.str] inherited: Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        :param pulumi.Input[_builtins.str] inherited: Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         :param pulumi.Input[_builtins.str] schema_name: The fully qualified name of the schema.
         """
         if all_schemas_in_database is not None:
@@ -20771,7 +20857,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaArgs:
     @pulumi.getter
     def inherited(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -20803,7 +20889,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict(TypedDict):
     """
     inherited: NotRequired[pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgsDict']]]
     """
-    Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+    Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
     """
     object_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20825,7 +20911,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
         """
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs'] all: Configures the privilege to be granted on all objects in either a database or schema.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs'] future: Configures the privilege to be granted on future objects in either a database or schema.
-        :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs'] inherited: Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         :param pulumi.Input[_builtins.str] object_name: The fully qualified name of the object on which privileges will be granted.
         :param pulumi.Input[_builtins.str] object_type: The object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENT` | `AGGREGATION POLICY` | `ALERT` | `AUTHENTICATION POLICY` | `CORTEX SEARCH SERVICE` | `DATA METRIC FUNCTION` | `DATASET` | `DBT PROJECT` | `DYNAMIC TABLE` | `EVENT TABLE` | `EXPERIMENT` | `EXTERNAL TABLE` | `FILE FORMAT` | `FUNCTION` | `GATEWAY` | `GIT REPOSITORY` | `HYBRID TABLE` | `IMAGE REPOSITORY` | `ICEBERG TABLE` | `INTERACTIVE TABLE` | `JOIN POLICY` | `MASKING POLICY` | `MATERIALIZED VIEW` | `MCP SERVER` | `MODEL` | `MODEL MONITOR` | `NETWORK RULE` | `NOTEBOOK` | `NOTEBOOK PROJECT` | `ONLINE FEATURE TABLE` | `PACKAGES POLICY` | `PASSWORD POLICY` | `PIPE` | `PRIVACY POLICY` | `PROCEDURE` | `PROJECTION POLICY` | `ROW ACCESS POLICY` | `SECRET` | `SEMANTIC VIEW` | `SERVICE` | `SESSION POLICY` | `SEQUENCE` | `SNAPSHOT` | `SNAPSHOT POLICY` | `SNAPSHOT SET` | `STAGE` | `STORAGE LIFECYCLE POLICY` | `STREAM` | `STREAMLIT` | `TABLE` | `TAG` | `TASK` | `VIEW` | `WORKSPACE`. Snowflake validates the type at apply time.
         """
@@ -20868,7 +20954,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
     @pulumi.getter
     def inherited(self) -> pulumi.Input[Optional['GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs']]:
         """
-        Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimental_features_enabled` field.
+        Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimental_features_disabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
         """
         return pulumi.get(self, "inherited")
 
@@ -20904,7 +20990,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs:
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20922,7 +21008,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -20936,7 +21022,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -20972,7 +21058,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs:
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20990,7 +21076,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -21004,7 +21090,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -21040,7 +21126,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
 class GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgsDict(TypedDict):
     object_type_plural: pulumi.Input[_builtins.str]
     """
-    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+    The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
     """
     in_database: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -21058,7 +21144,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs:
                  in_database: pulumi.Input[Optional[_builtins.str]] = None,
                  in_schema: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        :param pulumi.Input[_builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         :param pulumi.Input[_builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[_builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -21072,7 +21158,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[_builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+        The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -49178,6 +49264,8 @@ class SchemaParameterArgsDict(TypedDict):
     catalogs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterCatalogArgsDict']]]]]
     data_retention_time_in_days: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDataRetentionTimeInDayArgsDict']]]]]
     default_ddl_collations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultDdlCollationArgsDict']]]]]
+    default_notebook_compute_pool_cpus: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultNotebookComputePoolCpusArgsDict']]]]]
+    default_notebook_compute_pool_gpus: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultNotebookComputePoolGpusArgsDict']]]]]
     enable_console_outputs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterEnableConsoleOutputArgsDict']]]]]
     external_volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterExternalVolumeArgsDict']]]]]
     log_event_levels: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterLogEventLevelArgsDict']]]]]
@@ -49200,6 +49288,8 @@ class SchemaParameterArgs:
                  catalogs: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterCatalogArgs']]]] = None,
                  data_retention_time_in_days: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDataRetentionTimeInDayArgs']]]] = None,
                  default_ddl_collations: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultDdlCollationArgs']]]] = None,
+                 default_notebook_compute_pool_cpus: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultNotebookComputePoolCpusArgs']]]] = None,
+                 default_notebook_compute_pool_gpus: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultNotebookComputePoolGpusArgs']]]] = None,
                  enable_console_outputs: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterEnableConsoleOutputArgs']]]] = None,
                  external_volumes: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterExternalVolumeArgs']]]] = None,
                  log_event_levels: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterLogEventLevelArgs']]]] = None,
@@ -49221,6 +49311,10 @@ class SchemaParameterArgs:
             pulumi.set(__self__, "data_retention_time_in_days", data_retention_time_in_days)
         if default_ddl_collations is not None:
             pulumi.set(__self__, "default_ddl_collations", default_ddl_collations)
+        if default_notebook_compute_pool_cpus is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_cpus", default_notebook_compute_pool_cpus)
+        if default_notebook_compute_pool_gpus is not None:
+            pulumi.set(__self__, "default_notebook_compute_pool_gpus", default_notebook_compute_pool_gpus)
         if enable_console_outputs is not None:
             pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
         if external_volumes is not None:
@@ -49278,6 +49372,24 @@ class SchemaParameterArgs:
     @default_ddl_collations.setter
     def default_ddl_collations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultDdlCollationArgs']]]]):
         pulumi.set(self, "default_ddl_collations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolCpus")
+    def default_notebook_compute_pool_cpus(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultNotebookComputePoolCpusArgs']]]]:
+        return pulumi.get(self, "default_notebook_compute_pool_cpus")
+
+    @default_notebook_compute_pool_cpus.setter
+    def default_notebook_compute_pool_cpus(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultNotebookComputePoolCpusArgs']]]]):
+        pulumi.set(self, "default_notebook_compute_pool_cpus", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNotebookComputePoolGpus")
+    def default_notebook_compute_pool_gpus(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultNotebookComputePoolGpusArgs']]]]:
+        return pulumi.get(self, "default_notebook_compute_pool_gpus")
+
+    @default_notebook_compute_pool_gpus.setter
+    def default_notebook_compute_pool_gpus(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SchemaParameterDefaultNotebookComputePoolGpusArgs']]]]):
+        pulumi.set(self, "default_notebook_compute_pool_gpus", value)
 
     @_builtins.property
     @pulumi.getter(name="enableConsoleOutputs")
@@ -49568,6 +49680,150 @@ class SchemaParameterDefaultDdlCollationArgsDict(TypedDict):
 
 @pulumi.input_type
 class SchemaParameterDefaultDdlCollationArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class SchemaParameterDefaultNotebookComputePoolCpusArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class SchemaParameterDefaultNotebookComputePoolCpusArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+class SchemaParameterDefaultNotebookComputePoolGpusArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class SchemaParameterDefaultNotebookComputePoolGpusArgs:
     def __init__(__self__, *,
                  default: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -54204,6 +54460,98 @@ class ServiceFromSpecificationTemplateUsingArgs:
 
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class ServiceParameterArgsDict(TypedDict):
+    service_caller_token_validity_secs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceParameterServiceCallerTokenValiditySecArgsDict']]]]]
+
+@pulumi.input_type
+class ServiceParameterArgs:
+    def __init__(__self__, *,
+                 service_caller_token_validity_secs: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceParameterServiceCallerTokenValiditySecArgs']]]] = None):
+        if service_caller_token_validity_secs is not None:
+            pulumi.set(__self__, "service_caller_token_validity_secs", service_caller_token_validity_secs)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceCallerTokenValiditySecs")
+    def service_caller_token_validity_secs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ServiceParameterServiceCallerTokenValiditySecArgs']]]]:
+        return pulumi.get(self, "service_caller_token_validity_secs")
+
+    @service_caller_token_validity_secs.setter
+    def service_caller_token_validity_secs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceParameterServiceCallerTokenValiditySecArgs']]]]):
+        pulumi.set(self, "service_caller_token_validity_secs", value)
+
+
+class ServiceParameterServiceCallerTokenValiditySecArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ServiceParameterServiceCallerTokenValiditySecArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 level: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
@@ -60522,6 +60870,7 @@ class SessionPolicyShowOutputArgsDict(TypedDict):
     owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     owner_role_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     schema_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target_scopes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class SessionPolicyShowOutputArgs:
@@ -60534,7 +60883,8 @@ class SessionPolicyShowOutputArgs:
                  options: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_role_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if created_on is not None:
@@ -60553,6 +60903,8 @@ class SessionPolicyShowOutputArgs:
             pulumi.set(__self__, "owner_role_type", owner_role_type)
         if schema_name is not None:
             pulumi.set(__self__, "schema_name", schema_name)
+        if target_scopes is not None:
+            pulumi.set(__self__, "target_scopes", target_scopes)
 
     @_builtins.property
     @pulumi.getter
@@ -60635,6 +60987,15 @@ class SessionPolicyShowOutputArgs:
     def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="targetScopes")
+    def target_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "target_scopes")
+
+    @target_scopes.setter
+    def target_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "target_scopes", value)
+
 
 class StageExternalAzureCredentialsArgsDict(TypedDict):
     azure_sas_token: pulumi.Input[_builtins.str]
@@ -60699,6 +61060,8 @@ class StageExternalAzureDescribeOutputArgs:
 
 class StageExternalAzureDescribeOutputDirectoryTableArgsDict(TypedDict):
     auto_refresh: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    aws_sns_topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    directory_notification_channel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     last_refreshed_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -60706,10 +61069,16 @@ class StageExternalAzureDescribeOutputDirectoryTableArgsDict(TypedDict):
 class StageExternalAzureDescribeOutputDirectoryTableArgs:
     def __init__(__self__, *,
                  auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
                  last_refreshed_on: pulumi.Input[Optional[_builtins.str]] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        if directory_notification_channel is not None:
+            pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if last_refreshed_on is not None:
@@ -60723,6 +61092,24 @@ class StageExternalAzureDescribeOutputDirectoryTableArgs:
     @auto_refresh.setter
     def auto_refresh(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_refresh", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @aws_sns_topic.setter
+    def aws_sns_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aws_sns_topic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "directory_notification_channel")
+
+    @directory_notification_channel.setter
+    def directory_notification_channel(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "directory_notification_channel", value)
 
     @_builtins.property
     @pulumi.getter
@@ -63548,6 +63935,8 @@ class StageExternalGcsDescribeOutputArgs:
 
 class StageExternalGcsDescribeOutputDirectoryTableArgsDict(TypedDict):
     auto_refresh: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    aws_sns_topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    directory_notification_channel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     last_refreshed_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -63555,10 +63944,16 @@ class StageExternalGcsDescribeOutputDirectoryTableArgsDict(TypedDict):
 class StageExternalGcsDescribeOutputDirectoryTableArgs:
     def __init__(__self__, *,
                  auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
                  last_refreshed_on: pulumi.Input[Optional[_builtins.str]] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        if directory_notification_channel is not None:
+            pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if last_refreshed_on is not None:
@@ -63572,6 +63967,24 @@ class StageExternalGcsDescribeOutputDirectoryTableArgs:
     @auto_refresh.setter
     def auto_refresh(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_refresh", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @aws_sns_topic.setter
+    def aws_sns_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aws_sns_topic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "directory_notification_channel")
+
+    @directory_notification_channel.setter
+    def directory_notification_channel(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "directory_notification_channel", value)
 
     @_builtins.property
     @pulumi.getter
@@ -66458,6 +66871,8 @@ class StageExternalS3CompatibleDescribeOutputArgs:
 
 class StageExternalS3CompatibleDescribeOutputDirectoryTableArgsDict(TypedDict):
     auto_refresh: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    aws_sns_topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    directory_notification_channel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     last_refreshed_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -66465,10 +66880,16 @@ class StageExternalS3CompatibleDescribeOutputDirectoryTableArgsDict(TypedDict):
 class StageExternalS3CompatibleDescribeOutputDirectoryTableArgs:
     def __init__(__self__, *,
                  auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
                  last_refreshed_on: pulumi.Input[Optional[_builtins.str]] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        if directory_notification_channel is not None:
+            pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if last_refreshed_on is not None:
@@ -66482,6 +66903,24 @@ class StageExternalS3CompatibleDescribeOutputDirectoryTableArgs:
     @auto_refresh.setter
     def auto_refresh(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_refresh", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @aws_sns_topic.setter
+    def aws_sns_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aws_sns_topic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "directory_notification_channel")
+
+    @directory_notification_channel.setter
+    def directory_notification_channel(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "directory_notification_channel", value)
 
     @_builtins.property
     @pulumi.getter
@@ -69336,6 +69775,8 @@ class StageExternalS3DescribeOutputArgs:
 
 class StageExternalS3DescribeOutputDirectoryTableArgsDict(TypedDict):
     auto_refresh: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    aws_sns_topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    directory_notification_channel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     last_refreshed_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -69343,10 +69784,16 @@ class StageExternalS3DescribeOutputDirectoryTableArgsDict(TypedDict):
 class StageExternalS3DescribeOutputDirectoryTableArgs:
     def __init__(__self__, *,
                  auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
                  last_refreshed_on: pulumi.Input[Optional[_builtins.str]] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        if directory_notification_channel is not None:
+            pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if last_refreshed_on is not None:
@@ -69360,6 +69807,24 @@ class StageExternalS3DescribeOutputDirectoryTableArgs:
     @auto_refresh.setter
     def auto_refresh(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_refresh", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @aws_sns_topic.setter
+    def aws_sns_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aws_sns_topic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "directory_notification_channel")
+
+    @directory_notification_channel.setter
+    def directory_notification_channel(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "directory_notification_channel", value)
 
     @_builtins.property
     @pulumi.getter
@@ -72316,6 +72781,8 @@ class StageInternalDescribeOutputArgs:
 
 class StageInternalDescribeOutputDirectoryTableArgsDict(TypedDict):
     auto_refresh: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    aws_sns_topic: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    directory_notification_channel: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     last_refreshed_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
@@ -72323,10 +72790,16 @@ class StageInternalDescribeOutputDirectoryTableArgsDict(TypedDict):
 class StageInternalDescribeOutputDirectoryTableArgs:
     def __init__(__self__, *,
                  auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+                 aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+                 directory_notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
                  last_refreshed_on: pulumi.Input[Optional[_builtins.str]] = None):
         if auto_refresh is not None:
             pulumi.set(__self__, "auto_refresh", auto_refresh)
+        if aws_sns_topic is not None:
+            pulumi.set(__self__, "aws_sns_topic", aws_sns_topic)
+        if directory_notification_channel is not None:
+            pulumi.set(__self__, "directory_notification_channel", directory_notification_channel)
         if enable is not None:
             pulumi.set(__self__, "enable", enable)
         if last_refreshed_on is not None:
@@ -72340,6 +72813,24 @@ class StageInternalDescribeOutputDirectoryTableArgs:
     @auto_refresh.setter
     def auto_refresh(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_refresh", value)
+
+    @_builtins.property
+    @pulumi.getter(name="awsSnsTopic")
+    def aws_sns_topic(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "aws_sns_topic")
+
+    @aws_sns_topic.setter
+    def aws_sns_topic(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aws_sns_topic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="directoryNotificationChannel")
+    def directory_notification_channel(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "directory_notification_channel")
+
+    @directory_notification_channel.setter
+    def directory_notification_channel(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "directory_notification_channel", value)
 
     @_builtins.property
     @pulumi.getter
@@ -85558,6 +86049,7 @@ class TaskShowOutputArgsDict(TypedDict):
     database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     definition: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     error_integration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    execute_as_user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     last_committed_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     last_suspended_on: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -85585,6 +86077,7 @@ class TaskShowOutputArgs:
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  definition: pulumi.Input[Optional[_builtins.str]] = None,
                  error_integration: pulumi.Input[Optional[_builtins.str]] = None,
+                 execute_as_user: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  last_committed_on: pulumi.Input[Optional[_builtins.str]] = None,
                  last_suspended_on: pulumi.Input[Optional[_builtins.str]] = None,
@@ -85617,6 +86110,8 @@ class TaskShowOutputArgs:
             pulumi.set(__self__, "definition", definition)
         if error_integration is not None:
             pulumi.set(__self__, "error_integration", error_integration)
+        if execute_as_user is not None:
+            pulumi.set(__self__, "execute_as_user", execute_as_user)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if last_committed_on is not None:
@@ -85726,6 +86221,15 @@ class TaskShowOutputArgs:
     @error_integration.setter
     def error_integration(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error_integration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="executeAsUser")
+    def execute_as_user(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "execute_as_user")
+
+    @execute_as_user.setter
+    def execute_as_user(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "execute_as_user", value)
 
     @_builtins.property
     @pulumi.getter

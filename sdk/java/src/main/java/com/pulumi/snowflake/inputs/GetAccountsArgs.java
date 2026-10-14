@@ -46,11 +46,27 @@ public final class GetAccountsArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.withHistory);
     }
 
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account&#39;s row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+     * 
+     */
+    @Import(name="withParameters")
+    private @Nullable Output<Boolean> withParameters;
+
+    /**
+     * @return (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account&#39;s row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> withParameters() {
+        return Optional.ofNullable(this.withParameters);
+    }
+
     private GetAccountsArgs() {}
 
     private GetAccountsArgs(GetAccountsArgs $) {
         this.like = $.like;
         this.withHistory = $.withHistory;
+        this.withParameters = $.withParameters;
     }
 
     public static Builder builder() {
@@ -111,6 +127,27 @@ public final class GetAccountsArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder withHistory(Boolean withHistory) {
             return withHistory(Output.of(withHistory));
+        }
+
+        /**
+         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account&#39;s row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withParameters(@Nullable Output<Boolean> withParameters) {
+            $.withParameters = withParameters;
+            return this;
+        }
+
+        /**
+         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS IN ACCOUNT once, for the connected account, and saves the output on that account&#39;s row only. Other listed accounts stay empty because Snowflake cannot show parameters for another organization account; the call is not repeated or skipped per row. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withParameters(Boolean withParameters) {
+            return withParameters(Output.of(withParameters));
         }
 
         public GetAccountsArgs build() {

@@ -123,9 +123,17 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     declare public readonly objectTypes: pulumi.Output<string[] | undefined>;
     /**
+     * (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+     */
+    declare public readonly optimizedRefresh: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the schedule for refreshing secondary failover groups.
      */
     declare public readonly replicationSchedule: pulumi.Output<outputs.FailoverGroupReplicationSchedule | undefined>;
+    /**
+     * (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+     */
+    declare public readonly rpoAssurance: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a FailoverGroup resource with the given unique name, arguments, and options.
@@ -149,7 +157,9 @@ export class FailoverGroup extends pulumi.CustomResource {
             resourceInputs["ignoreEditionCheck"] = state?.ignoreEditionCheck;
             resourceInputs["name"] = state?.name;
             resourceInputs["objectTypes"] = state?.objectTypes;
+            resourceInputs["optimizedRefresh"] = state?.optimizedRefresh;
             resourceInputs["replicationSchedule"] = state?.replicationSchedule;
+            resourceInputs["rpoAssurance"] = state?.rpoAssurance;
         } else {
             const args = argsOrState as FailoverGroupArgs | undefined;
             resourceInputs["allowedAccounts"] = args?.allowedAccounts;
@@ -160,7 +170,9 @@ export class FailoverGroup extends pulumi.CustomResource {
             resourceInputs["ignoreEditionCheck"] = args?.ignoreEditionCheck;
             resourceInputs["name"] = args?.name;
             resourceInputs["objectTypes"] = args?.objectTypes;
+            resourceInputs["optimizedRefresh"] = args?.optimizedRefresh;
             resourceInputs["replicationSchedule"] = args?.replicationSchedule;
+            resourceInputs["rpoAssurance"] = args?.rpoAssurance;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -209,9 +221,17 @@ export interface FailoverGroupState {
      */
     objectTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
+     * (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+     */
+    optimizedRefresh?: pulumi.Input<boolean | undefined>;
+    /**
      * Specifies the schedule for refreshing secondary failover groups.
      */
     replicationSchedule?: pulumi.Input<inputs.FailoverGroupReplicationSchedule | undefined>;
+    /**
+     * (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+     */
+    rpoAssurance?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -251,7 +271,15 @@ export interface FailoverGroupArgs {
      */
     objectTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
+     * (Default: `false`) Specifies whether the failover group uses Optimized Refresh. Can be set on the primary failover group only. When true, a replication*schedule with an interval of 6 hours or less is required (Snowflake recommends 10 MINUTE or less). Do not set when rpo*assurance is true. Default: false.
+     */
+    optimizedRefresh?: pulumi.Input<boolean | undefined>;
+    /**
      * Specifies the schedule for refreshing secondary failover groups.
      */
     replicationSchedule?: pulumi.Input<inputs.FailoverGroupReplicationSchedule | undefined>;
+    /**
+     * (Default: `false`) Specifies whether the failover group uses RPO Assurance. Can be set on the primary failover group only. Cannot be set with replication*schedule (unset the schedule first). Enables Optimized Refresh automatically; do not also set optimized*refresh. Default: false.
+     */
+    rpoAssurance?: pulumi.Input<boolean | undefined>;
 }

@@ -97,7 +97,7 @@ namespace Pulumi.Snowflake
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+        /// Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         /// </summary>
         [Output("eventTable")]
         public Output<string> EventTable { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Snowflake
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+        /// Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         /// </summary>
         [Input("eventTable")]
         public Input<string>? EventTable { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.Snowflake
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// Fully qualified name of an event table the deployment logs to. For more information, check [EVENT_TABLE documentation](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
+        /// Specifies the name of the event table for logging messages from stored procedures and UDFs contained by the object with which the event table is associated. Associating an event table with a database is available in [Enterprise Edition or higher](https://docs.snowflake.com/en/user-guide/intro-editions). For more information, check [EVENT_TABLE docs](https://docs.snowflake.com/en/sql-reference/parameters#event-table).
         /// </summary>
         [Input("eventTable")]
         public Input<string>? EventTable { get; set; }

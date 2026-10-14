@@ -230,6 +230,21 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         return this.schema;
     }
 
+    /**
+     * Controls how long a caller&#39;s rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+     * 
+     */
+    @Import(name="serviceCallerTokenValiditySecs")
+    private @Nullable Output<Integer> serviceCallerTokenValiditySecs;
+
+    /**
+     * @return Controls how long a caller&#39;s rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+     * 
+     */
+    public Optional<Output<Integer>> serviceCallerTokenValiditySecs() {
+        return Optional.ofNullable(this.serviceCallerTokenValiditySecs);
+    }
+
     private ServiceArgs() {}
 
     private ServiceArgs(ServiceArgs $) {
@@ -247,6 +262,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         this.name = $.name;
         this.queryWarehouse = $.queryWarehouse;
         this.schema = $.schema;
+        this.serviceCallerTokenValiditySecs = $.serviceCallerTokenValiditySecs;
     }
 
     public static Builder builder() {
@@ -569,6 +585,27 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
+        }
+
+        /**
+         * @param serviceCallerTokenValiditySecs Controls how long a caller&#39;s rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceCallerTokenValiditySecs(@Nullable Output<Integer> serviceCallerTokenValiditySecs) {
+            $.serviceCallerTokenValiditySecs = serviceCallerTokenValiditySecs;
+            return this;
+        }
+
+        /**
+         * @param serviceCallerTokenValiditySecs Controls how long a caller&#39;s rights login token is valid for Snowpark Container Services. For more information, check [SERVICE*CALLER*TOKEN*VALIDITY*SECS docs](https://docs.snowflake.com/en/sql-reference/parameters#service-caller-token-validity-secs).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceCallerTokenValiditySecs(Integer serviceCallerTokenValiditySecs) {
+            return serviceCallerTokenValiditySecs(Output.of(serviceCallerTokenValiditySecs));
         }
 
         public ServiceArgs build() {

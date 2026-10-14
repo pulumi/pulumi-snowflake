@@ -8568,15 +8568,16 @@ func (o AuthenticationPolicyPatPolicyPtrOutput) RequireRoleRestrictionForService
 }
 
 type AuthenticationPolicyShowOutput struct {
-	Comment       *string `pulumi:"comment"`
-	CreatedOn     *string `pulumi:"createdOn"`
-	DatabaseName  *string `pulumi:"databaseName"`
-	Kind          *string `pulumi:"kind"`
-	Name          *string `pulumi:"name"`
-	Options       *string `pulumi:"options"`
-	Owner         *string `pulumi:"owner"`
-	OwnerRoleType *string `pulumi:"ownerRoleType"`
-	SchemaName    *string `pulumi:"schemaName"`
+	Comment       *string  `pulumi:"comment"`
+	CreatedOn     *string  `pulumi:"createdOn"`
+	DatabaseName  *string  `pulumi:"databaseName"`
+	Kind          *string  `pulumi:"kind"`
+	Name          *string  `pulumi:"name"`
+	Options       *string  `pulumi:"options"`
+	Owner         *string  `pulumi:"owner"`
+	OwnerRoleType *string  `pulumi:"ownerRoleType"`
+	SchemaName    *string  `pulumi:"schemaName"`
+	TargetScopes  []string `pulumi:"targetScopes"`
 }
 
 // AuthenticationPolicyShowOutputInput is an input type that accepts AuthenticationPolicyShowOutputArgs and AuthenticationPolicyShowOutputOutput values.
@@ -8591,15 +8592,16 @@ type AuthenticationPolicyShowOutputInput interface {
 }
 
 type AuthenticationPolicyShowOutputArgs struct {
-	Comment       pulumi.StringPtrInput `pulumi:"comment"`
-	CreatedOn     pulumi.StringPtrInput `pulumi:"createdOn"`
-	DatabaseName  pulumi.StringPtrInput `pulumi:"databaseName"`
-	Kind          pulumi.StringPtrInput `pulumi:"kind"`
-	Name          pulumi.StringPtrInput `pulumi:"name"`
-	Options       pulumi.StringPtrInput `pulumi:"options"`
-	Owner         pulumi.StringPtrInput `pulumi:"owner"`
-	OwnerRoleType pulumi.StringPtrInput `pulumi:"ownerRoleType"`
-	SchemaName    pulumi.StringPtrInput `pulumi:"schemaName"`
+	Comment       pulumi.StringPtrInput   `pulumi:"comment"`
+	CreatedOn     pulumi.StringPtrInput   `pulumi:"createdOn"`
+	DatabaseName  pulumi.StringPtrInput   `pulumi:"databaseName"`
+	Kind          pulumi.StringPtrInput   `pulumi:"kind"`
+	Name          pulumi.StringPtrInput   `pulumi:"name"`
+	Options       pulumi.StringPtrInput   `pulumi:"options"`
+	Owner         pulumi.StringPtrInput   `pulumi:"owner"`
+	OwnerRoleType pulumi.StringPtrInput   `pulumi:"ownerRoleType"`
+	SchemaName    pulumi.StringPtrInput   `pulumi:"schemaName"`
+	TargetScopes  pulumi.StringArrayInput `pulumi:"targetScopes"`
 }
 
 func (AuthenticationPolicyShowOutputArgs) ElementType() reflect.Type {
@@ -8687,6 +8689,10 @@ func (o AuthenticationPolicyShowOutputOutput) OwnerRoleType() pulumi.StringPtrOu
 
 func (o AuthenticationPolicyShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthenticationPolicyShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o AuthenticationPolicyShowOutputOutput) TargetScopes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AuthenticationPolicyShowOutput) []string { return v.TargetScopes }).(pulumi.StringArrayOutput)
 }
 
 type AuthenticationPolicyShowOutputArrayOutput struct{ *pulumi.OutputState }
@@ -12840,23 +12846,27 @@ func (o CortexAgentShowOutputProfileArrayOutput) Index(i pulumi.IntInput) Cortex
 }
 
 type CortexSearchServiceDescribeOutput struct {
-	AttributeColumns  []string `pulumi:"attributeColumns"`
-	Columns           []string `pulumi:"columns"`
-	Comment           *string  `pulumi:"comment"`
-	CreatedOn         *string  `pulumi:"createdOn"`
-	DataTimestamp     *string  `pulumi:"dataTimestamp"`
-	DatabaseName      *string  `pulumi:"databaseName"`
-	Definition        *string  `pulumi:"definition"`
-	EmbeddingModel    *string  `pulumi:"embeddingModel"`
-	IndexingError     *string  `pulumi:"indexingError"`
-	IndexingState     *string  `pulumi:"indexingState"`
-	Name              *string  `pulumi:"name"`
-	SchemaName        *string  `pulumi:"schemaName"`
-	SearchColumn      *string  `pulumi:"searchColumn"`
-	ServiceQueryUrl   *string  `pulumi:"serviceQueryUrl"`
-	SourceDataNumRows *int     `pulumi:"sourceDataNumRows"`
-	TargetLag         *string  `pulumi:"targetLag"`
-	Warehouse         *string  `pulumi:"warehouse"`
+	AttributeColumns           []string `pulumi:"attributeColumns"`
+	Columns                    []string `pulumi:"columns"`
+	Comment                    *string  `pulumi:"comment"`
+	CreatedOn                  *string  `pulumi:"createdOn"`
+	DataTimestamp              *string  `pulumi:"dataTimestamp"`
+	DatabaseName               *string  `pulumi:"databaseName"`
+	Definition                 *string  `pulumi:"definition"`
+	EmbeddingModel             *string  `pulumi:"embeddingModel"`
+	FullIndexBuildIntervalDays *int     `pulumi:"fullIndexBuildIntervalDays"`
+	IndexingError              *string  `pulumi:"indexingError"`
+	IndexingState              *string  `pulumi:"indexingState"`
+	Name                       *string  `pulumi:"name"`
+	PrimaryKeyColumns          []string `pulumi:"primaryKeyColumns"`
+	SchemaName                 *string  `pulumi:"schemaName"`
+	ScoringProfileCount        *int     `pulumi:"scoringProfileCount"`
+	SearchColumn               *string  `pulumi:"searchColumn"`
+	ServiceQueryUrl            *string  `pulumi:"serviceQueryUrl"`
+	ServingState               *string  `pulumi:"servingState"`
+	SourceDataNumRows          *int     `pulumi:"sourceDataNumRows"`
+	TargetLag                  *string  `pulumi:"targetLag"`
+	Warehouse                  *string  `pulumi:"warehouse"`
 }
 
 // CortexSearchServiceDescribeOutputInput is an input type that accepts CortexSearchServiceDescribeOutputArgs and CortexSearchServiceDescribeOutputOutput values.
@@ -12871,23 +12881,27 @@ type CortexSearchServiceDescribeOutputInput interface {
 }
 
 type CortexSearchServiceDescribeOutputArgs struct {
-	AttributeColumns  pulumi.StringArrayInput `pulumi:"attributeColumns"`
-	Columns           pulumi.StringArrayInput `pulumi:"columns"`
-	Comment           pulumi.StringPtrInput   `pulumi:"comment"`
-	CreatedOn         pulumi.StringPtrInput   `pulumi:"createdOn"`
-	DataTimestamp     pulumi.StringPtrInput   `pulumi:"dataTimestamp"`
-	DatabaseName      pulumi.StringPtrInput   `pulumi:"databaseName"`
-	Definition        pulumi.StringPtrInput   `pulumi:"definition"`
-	EmbeddingModel    pulumi.StringPtrInput   `pulumi:"embeddingModel"`
-	IndexingError     pulumi.StringPtrInput   `pulumi:"indexingError"`
-	IndexingState     pulumi.StringPtrInput   `pulumi:"indexingState"`
-	Name              pulumi.StringPtrInput   `pulumi:"name"`
-	SchemaName        pulumi.StringPtrInput   `pulumi:"schemaName"`
-	SearchColumn      pulumi.StringPtrInput   `pulumi:"searchColumn"`
-	ServiceQueryUrl   pulumi.StringPtrInput   `pulumi:"serviceQueryUrl"`
-	SourceDataNumRows pulumi.IntPtrInput      `pulumi:"sourceDataNumRows"`
-	TargetLag         pulumi.StringPtrInput   `pulumi:"targetLag"`
-	Warehouse         pulumi.StringPtrInput   `pulumi:"warehouse"`
+	AttributeColumns           pulumi.StringArrayInput `pulumi:"attributeColumns"`
+	Columns                    pulumi.StringArrayInput `pulumi:"columns"`
+	Comment                    pulumi.StringPtrInput   `pulumi:"comment"`
+	CreatedOn                  pulumi.StringPtrInput   `pulumi:"createdOn"`
+	DataTimestamp              pulumi.StringPtrInput   `pulumi:"dataTimestamp"`
+	DatabaseName               pulumi.StringPtrInput   `pulumi:"databaseName"`
+	Definition                 pulumi.StringPtrInput   `pulumi:"definition"`
+	EmbeddingModel             pulumi.StringPtrInput   `pulumi:"embeddingModel"`
+	FullIndexBuildIntervalDays pulumi.IntPtrInput      `pulumi:"fullIndexBuildIntervalDays"`
+	IndexingError              pulumi.StringPtrInput   `pulumi:"indexingError"`
+	IndexingState              pulumi.StringPtrInput   `pulumi:"indexingState"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	PrimaryKeyColumns          pulumi.StringArrayInput `pulumi:"primaryKeyColumns"`
+	SchemaName                 pulumi.StringPtrInput   `pulumi:"schemaName"`
+	ScoringProfileCount        pulumi.IntPtrInput      `pulumi:"scoringProfileCount"`
+	SearchColumn               pulumi.StringPtrInput   `pulumi:"searchColumn"`
+	ServiceQueryUrl            pulumi.StringPtrInput   `pulumi:"serviceQueryUrl"`
+	ServingState               pulumi.StringPtrInput   `pulumi:"servingState"`
+	SourceDataNumRows          pulumi.IntPtrInput      `pulumi:"sourceDataNumRows"`
+	TargetLag                  pulumi.StringPtrInput   `pulumi:"targetLag"`
+	Warehouse                  pulumi.StringPtrInput   `pulumi:"warehouse"`
 }
 
 func (CortexSearchServiceDescribeOutputArgs) ElementType() reflect.Type {
@@ -12973,6 +12987,10 @@ func (o CortexSearchServiceDescribeOutputOutput) EmbeddingModel() pulumi.StringP
 	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.EmbeddingModel }).(pulumi.StringPtrOutput)
 }
 
+func (o CortexSearchServiceDescribeOutputOutput) FullIndexBuildIntervalDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *int { return v.FullIndexBuildIntervalDays }).(pulumi.IntPtrOutput)
+}
+
 func (o CortexSearchServiceDescribeOutputOutput) IndexingError() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.IndexingError }).(pulumi.StringPtrOutput)
 }
@@ -12985,8 +13003,16 @@ func (o CortexSearchServiceDescribeOutputOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+func (o CortexSearchServiceDescribeOutputOutput) PrimaryKeyColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) []string { return v.PrimaryKeyColumns }).(pulumi.StringArrayOutput)
+}
+
 func (o CortexSearchServiceDescribeOutputOutput) SchemaName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) ScoringProfileCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *int { return v.ScoringProfileCount }).(pulumi.IntPtrOutput)
 }
 
 func (o CortexSearchServiceDescribeOutputOutput) SearchColumn() pulumi.StringPtrOutput {
@@ -12995,6 +13021,10 @@ func (o CortexSearchServiceDescribeOutputOutput) SearchColumn() pulumi.StringPtr
 
 func (o CortexSearchServiceDescribeOutputOutput) ServiceQueryUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.ServiceQueryUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) ServingState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.ServingState }).(pulumi.StringPtrOutput)
 }
 
 func (o CortexSearchServiceDescribeOutputOutput) SourceDataNumRows() pulumi.IntPtrOutput {
@@ -19934,6 +19964,7 @@ func (o FileFormatParquetShowOutputArrayOutput) Index(i pulumi.IntInput) FileFor
 type FileFormatXmlDescribeOutput struct {
 	Compression              *string `pulumi:"compression"`
 	DisableAutoConvert       *bool   `pulumi:"disableAutoConvert"`
+	DisableSnowflakeData     *bool   `pulumi:"disableSnowflakeData"`
 	Id                       *string `pulumi:"id"`
 	IgnoreUtf8Errors         *bool   `pulumi:"ignoreUtf8Errors"`
 	PreserveSpace            *bool   `pulumi:"preserveSpace"`
@@ -19957,6 +19988,7 @@ type FileFormatXmlDescribeOutputInput interface {
 type FileFormatXmlDescribeOutputArgs struct {
 	Compression              pulumi.StringPtrInput `pulumi:"compression"`
 	DisableAutoConvert       pulumi.BoolPtrInput   `pulumi:"disableAutoConvert"`
+	DisableSnowflakeData     pulumi.BoolPtrInput   `pulumi:"disableSnowflakeData"`
 	Id                       pulumi.StringPtrInput `pulumi:"id"`
 	IgnoreUtf8Errors         pulumi.BoolPtrInput   `pulumi:"ignoreUtf8Errors"`
 	PreserveSpace            pulumi.BoolPtrInput   `pulumi:"preserveSpace"`
@@ -20023,6 +20055,10 @@ func (o FileFormatXmlDescribeOutputOutput) Compression() pulumi.StringPtrOutput 
 
 func (o FileFormatXmlDescribeOutputOutput) DisableAutoConvert() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FileFormatXmlDescribeOutput) *bool { return v.DisableAutoConvert }).(pulumi.BoolPtrOutput)
+}
+
+func (o FileFormatXmlDescribeOutputOutput) DisableSnowflakeData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FileFormatXmlDescribeOutput) *bool { return v.DisableSnowflakeData }).(pulumi.BoolPtrOutput)
 }
 
 func (o FileFormatXmlDescribeOutputOutput) Id() pulumi.StringPtrOutput {
@@ -26835,7 +26871,7 @@ type GrantOwnershipOnAll struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema *string `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -26855,7 +26891,7 @@ type GrantOwnershipOnAllArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -26946,7 +26982,7 @@ func (o GrantOwnershipOnAllOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantOwnershipOnAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 func (o GrantOwnershipOnAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantOwnershipOnAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -26995,7 +27031,7 @@ func (o GrantOwnershipOnAllPtrOutput) InSchema() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 func (o GrantOwnershipOnAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnershipOnAll) *string {
 		if v == nil {
@@ -27010,7 +27046,7 @@ type GrantOwnershipOnFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema *string `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -27030,7 +27066,7 @@ type GrantOwnershipOnFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema. For more information about this resource, see docs.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -27121,7 +27157,7 @@ func (o GrantOwnershipOnFutureOutput) InSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantOwnershipOnFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 func (o GrantOwnershipOnFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantOwnershipOnFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -27170,7 +27206,7 @@ func (o GrantOwnershipOnFuturePtrOutput) InSchema() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+// Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
 func (o GrantOwnershipOnFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnershipOnFuture) *string {
 		if v == nil {
@@ -27181,7 +27217,7 @@ func (o GrantOwnershipOnFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutp
 }
 
 type GrantPrivilegesToAccountRoleOnAccountObject struct {
-	// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+	// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 	Inherited *GrantPrivilegesToAccountRoleOnAccountObjectInherited `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
@@ -27201,7 +27237,7 @@ type GrantPrivilegesToAccountRoleOnAccountObjectInput interface {
 }
 
 type GrantPrivilegesToAccountRoleOnAccountObjectArgs struct {
-	// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+	// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 	Inherited GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
@@ -27286,7 +27322,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) ToGrantPrivilegesToAc
 	}).(GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnAccountObjectOutput) Inherited() GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnAccountObject) *GrantPrivilegesToAccountRoleOnAccountObjectInherited {
 		return v.Inherited
@@ -27327,7 +27363,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) Elem() GrantPrivil
 	}).(GrantPrivilegesToAccountRoleOnAccountObjectOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+// Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) Inherited() GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnAccountObject) *GrantPrivilegesToAccountRoleOnAccountObjectInherited {
 		if v == nil {
@@ -27358,7 +27394,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput) ObjectType() pulum
 }
 
 type GrantPrivilegesToAccountRoleOnAccountObjectInherited struct {
-	// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+	// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -27374,7 +27410,7 @@ type GrantPrivilegesToAccountRoleOnAccountObjectInheritedInput interface {
 }
 
 type GrantPrivilegesToAccountRoleOnAccountObjectInheritedArgs struct {
-	// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+	// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -27455,7 +27491,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectInheritedOutput) ToGrantPrivi
 	}).(GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrOutput)
 }
 
-// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToAccountRoleOnAccountObjectInheritedOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnAccountObjectInherited) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -27484,7 +27520,7 @@ func (o GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrOutput) Elem() Gr
 	}).(GrantPrivilegesToAccountRoleOnAccountObjectInheritedOutput)
 }
 
-// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+// The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToAccountRoleOnAccountObjectInheritedPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnAccountObjectInherited) *string {
 		if v == nil {
@@ -27499,7 +27535,7 @@ type GrantPrivilegesToAccountRoleOnSchema struct {
 	AllSchemasInDatabase *string `pulumi:"allSchemasInDatabase"`
 	// The fully qualified name of the database.
 	FutureSchemasInDatabase *string `pulumi:"futureSchemasInDatabase"`
-	// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+	// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 	Inherited *GrantPrivilegesToAccountRoleOnSchemaInherited `pulumi:"inherited"`
 	// The fully qualified name of the schema.
 	SchemaName *string `pulumi:"schemaName"`
@@ -27521,7 +27557,7 @@ type GrantPrivilegesToAccountRoleOnSchemaArgs struct {
 	AllSchemasInDatabase pulumi.StringPtrInput `pulumi:"allSchemasInDatabase"`
 	// The fully qualified name of the database.
 	FutureSchemasInDatabase pulumi.StringPtrInput `pulumi:"futureSchemasInDatabase"`
-	// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+	// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 	Inherited GrantPrivilegesToAccountRoleOnSchemaInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the schema.
 	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
@@ -27614,7 +27650,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaOutput) FutureSchemasInDatabase() pu
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchema) *string { return v.FutureSchemasInDatabase }).(pulumi.StringPtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnSchemaOutput) Inherited() GrantPrivilegesToAccountRoleOnSchemaInheritedPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchema) *GrantPrivilegesToAccountRoleOnSchemaInherited {
 		return v.Inherited
@@ -27670,7 +27706,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) FutureSchemasInDatabase()
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+// Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnSchemaPtrOutput) Inherited() GrantPrivilegesToAccountRoleOnSchemaInheritedPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchema) *GrantPrivilegesToAccountRoleOnSchemaInherited {
 		if v == nil {
@@ -27851,7 +27887,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObject struct {
 	All *GrantPrivilegesToAccountRoleOnSchemaObjectAll `pulumi:"all"`
 	// Configures the privilege to be granted on future objects in either a database or schema.
 	Future *GrantPrivilegesToAccountRoleOnSchemaObjectFuture `pulumi:"future"`
-	// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+	// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 	Inherited *GrantPrivilegesToAccountRoleOnSchemaObjectInherited `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
@@ -27875,7 +27911,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectArgs struct {
 	All GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrInput `pulumi:"all"`
 	// Configures the privilege to be granted on future objects in either a database or schema.
 	Future GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrInput `pulumi:"future"`
-	// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+	// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 	Inherited GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
@@ -27974,7 +28010,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) Future() GrantPrivileg
 	}).(GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectOutput) Inherited() GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObjectInherited {
 		return v.Inherited
@@ -28035,7 +28071,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) Future() GrantPrivi
 	}).(GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+// Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) Inherited() GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObject) *GrantPrivilegesToAccountRoleOnSchemaObjectInherited {
 		if v == nil {
@@ -28068,7 +28104,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput) ObjectType() pulumi
 type GrantPrivilegesToAccountRoleOnSchemaObjectAll struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	InSchema   *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -28086,7 +28122,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectAllInput interface {
 type GrantPrivilegesToAccountRoleOnSchemaObjectAllArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -28175,7 +28211,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) InSchema() pulumi.S
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -28222,7 +28258,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) InSchema() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -28235,7 +28271,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural
 type GrantPrivilegesToAccountRoleOnSchemaObjectFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	InSchema   *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -28253,7 +28289,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectFutureInput interface {
 type GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -28342,7 +28378,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) InSchema() pulum
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -28389,7 +28425,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) InSchema() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -28406,7 +28442,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectInherited struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -28428,7 +28464,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectInheritedArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema in which the inherited privilege will be granted on all objects of the given type.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -28524,7 +28560,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectInheritedOutput) InSchema() pu
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectInherited) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectInheritedOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectInherited) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -28583,7 +28619,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrOutput) InSchema()
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectInheritedPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectInherited) *string {
 		if v == nil {
@@ -28598,7 +28634,7 @@ type GrantPrivilegesToDatabaseRoleOnSchema struct {
 	AllSchemasInDatabase *string `pulumi:"allSchemasInDatabase"`
 	// The fully qualified name of the database.
 	FutureSchemasInDatabase *string `pulumi:"futureSchemasInDatabase"`
-	// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+	// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 	Inherited *string `pulumi:"inherited"`
 	// The fully qualified name of the schema.
 	SchemaName *string `pulumi:"schemaName"`
@@ -28620,7 +28656,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaArgs struct {
 	AllSchemasInDatabase pulumi.StringPtrInput `pulumi:"allSchemasInDatabase"`
 	// The fully qualified name of the database.
 	FutureSchemasInDatabase pulumi.StringPtrInput `pulumi:"futureSchemasInDatabase"`
-	// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+	// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 	Inherited pulumi.StringPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the schema.
 	SchemaName pulumi.StringPtrInput `pulumi:"schemaName"`
@@ -28713,7 +28749,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaOutput) FutureSchemasInDatabase() p
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchema) *string { return v.FutureSchemasInDatabase }).(pulumi.StringPtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaOutput) Inherited() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchema) *string { return v.Inherited }).(pulumi.StringPtrOutput)
 }
@@ -28767,7 +28803,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaPtrOutput) FutureSchemasInDatabase(
 	}).(pulumi.StringPtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+// Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaPtrOutput) Inherited() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchema) *string {
 		if v == nil {
@@ -28792,7 +28828,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObject struct {
 	All *GrantPrivilegesToDatabaseRoleOnSchemaObjectAll `pulumi:"all"`
 	// Configures the privilege to be granted on future objects in either a database or schema.
 	Future *GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture `pulumi:"future"`
-	// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+	// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 	Inherited *GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName *string `pulumi:"objectName"`
@@ -28816,7 +28852,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs struct {
 	All GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrInput `pulumi:"all"`
 	// Configures the privilege to be granted on future objects in either a database or schema.
 	Future GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrInput `pulumi:"future"`
-	// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+	// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 	Inherited GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrInput `pulumi:"inherited"`
 	// The fully qualified name of the object on which privileges will be granted.
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
@@ -28915,7 +28951,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectOutput) Future() GrantPrivile
 	}).(GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectOutput) Inherited() GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObject) *GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
 		return v.Inherited
@@ -28976,7 +29012,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrOutput) Future() GrantPriv
 	}).(GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput)
 }
 
-// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+// Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrOutput) Inherited() GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObject) *GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
 		if v == nil {
@@ -29011,7 +29047,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectAll struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -29031,7 +29067,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -29122,7 +29158,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllOutput) InSchema() pulumi.
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -29171,7 +29207,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) InSchema() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectAll) *string {
 		if v == nil {
@@ -29186,7 +29222,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -29206,7 +29242,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -29297,7 +29333,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) InSchema() pulu
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -29346,7 +29382,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) InSchema() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -29361,7 +29397,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -29381,7 +29417,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+	// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -29472,7 +29508,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedOutput) InSchema() p
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -29521,7 +29557,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrOutput) InSchema(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+// The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectInheritedPtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited) *string {
 		if v == nil {

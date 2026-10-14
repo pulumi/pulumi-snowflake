@@ -12,12 +12,20 @@ import java.util.Objects;
 @CustomType
 public final class GetStagesStageDescribeOutputDirectoryTable {
     private Boolean autoRefresh;
+    private String awsSnsTopic;
+    private String directoryNotificationChannel;
     private Boolean enable;
     private String lastRefreshedOn;
 
     private GetStagesStageDescribeOutputDirectoryTable() {}
     public Boolean autoRefresh() {
         return this.autoRefresh;
+    }
+    public String awsSnsTopic() {
+        return this.awsSnsTopic;
+    }
+    public String directoryNotificationChannel() {
+        return this.directoryNotificationChannel;
     }
     public Boolean enable() {
         return this.enable;
@@ -36,12 +44,16 @@ public final class GetStagesStageDescribeOutputDirectoryTable {
     @CustomType.Builder
     public static final class Builder {
         private Boolean autoRefresh;
+        private String awsSnsTopic;
+        private String directoryNotificationChannel;
         private Boolean enable;
         private String lastRefreshedOn;
         public Builder() {}
         public Builder(GetStagesStageDescribeOutputDirectoryTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoRefresh = defaults.autoRefresh;
+    	      this.awsSnsTopic = defaults.awsSnsTopic;
+    	      this.directoryNotificationChannel = defaults.directoryNotificationChannel;
     	      this.enable = defaults.enable;
     	      this.lastRefreshedOn = defaults.lastRefreshedOn;
         }
@@ -52,6 +64,22 @@ public final class GetStagesStageDescribeOutputDirectoryTable {
               throw new MissingRequiredPropertyException("GetStagesStageDescribeOutputDirectoryTable", "autoRefresh");
             }
             this.autoRefresh = autoRefresh;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder awsSnsTopic(String awsSnsTopic) {
+            if (awsSnsTopic == null) {
+              throw new MissingRequiredPropertyException("GetStagesStageDescribeOutputDirectoryTable", "awsSnsTopic");
+            }
+            this.awsSnsTopic = awsSnsTopic;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder directoryNotificationChannel(String directoryNotificationChannel) {
+            if (directoryNotificationChannel == null) {
+              throw new MissingRequiredPropertyException("GetStagesStageDescribeOutputDirectoryTable", "directoryNotificationChannel");
+            }
+            this.directoryNotificationChannel = directoryNotificationChannel;
             return this;
         }
         @CustomType.Setter
@@ -73,6 +101,8 @@ public final class GetStagesStageDescribeOutputDirectoryTable {
         public GetStagesStageDescribeOutputDirectoryTable build() {
             final var _resultValue = new GetStagesStageDescribeOutputDirectoryTable();
             _resultValue.autoRefresh = autoRefresh;
+            _resultValue.awsSnsTopic = awsSnsTopic;
+            _resultValue.directoryNotificationChannel = directoryNotificationChannel;
             _resultValue.enable = enable;
             _resultValue.lastRefreshedOn = lastRefreshedOn;
             return _resultValue;

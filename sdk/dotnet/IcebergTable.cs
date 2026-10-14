@@ -323,13 +323,13 @@ namespace Pulumi.Snowflake
         public Output<string?> BaseLocation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        /// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         /// </summary>
         [Output("catalog")]
         public Output<string> Catalog { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+        /// Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
         /// </summary>
         [Output("catalogSync")]
         public Output<string> CatalogSync { get; private set; } = null!;
@@ -365,7 +365,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         /// </summary>
         [Output("dataRetentionTimeInDays")]
         public Output<int> DataRetentionTimeInDays { get; private set; } = null!;
@@ -383,13 +383,13 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.IcebergTableDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether automatic background data compaction is enabled for the Iceberg table. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+        /// Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
         /// </summary>
         [Output("enableDataCompaction")]
         public Output<bool> EnableDataCompaction { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+        /// Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
         /// </summary>
         [Output("enableIcebergMergeOnRead")]
         public Output<bool> EnableIcebergMergeOnRead { get; private set; } = null!;
@@ -401,7 +401,7 @@ namespace Pulumi.Snowflake
         public Output<string?> ErrorLogging { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        /// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         /// </summary>
         [Output("externalVolume")]
         public Output<string> ExternalVolume { get; private set; } = null!;
@@ -425,7 +425,7 @@ namespace Pulumi.Snowflake
         public Output<int?> IcebergVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+        /// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
         /// </summary>
         [Output("maxDataExtensionTimeInDays")]
         public Output<int> MaxDataExtensionTimeInDays { get; private set; } = null!;
@@ -479,13 +479,13 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.IcebergTableShowOutput>> ShowOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        /// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         /// </summary>
         [Output("storageSerializationPolicy")]
         public Output<string> StorageSerializationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+        /// Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         /// </summary>
         [Output("targetFileSize")]
         public Output<string> TargetFileSize { get; private set; } = null!;
@@ -555,13 +555,13 @@ namespace Pulumi.Snowflake
         public Input<string>? BaseLocation { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        /// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         /// </summary>
         [Input("catalog")]
         public Input<string>? Catalog { get; set; }
 
         /// <summary>
-        /// Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+        /// Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
         /// </summary>
         [Input("catalogSync")]
         public Input<string>? CatalogSync { get; set; }
@@ -615,7 +615,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         /// </summary>
         [Input("dataRetentionTimeInDays")]
         public Input<int>? DataRetentionTimeInDays { get; set; }
@@ -627,13 +627,13 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether automatic background data compaction is enabled for the Iceberg table. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+        /// Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
         /// </summary>
         [Input("enableDataCompaction")]
         public Input<bool>? EnableDataCompaction { get; set; }
 
         /// <summary>
-        /// Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+        /// Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
         /// </summary>
         [Input("enableIcebergMergeOnRead")]
         public Input<bool>? EnableIcebergMergeOnRead { get; set; }
@@ -645,7 +645,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ErrorLogging { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        /// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         /// </summary>
         [Input("externalVolume")]
         public Input<string>? ExternalVolume { get; set; }
@@ -669,7 +669,7 @@ namespace Pulumi.Snowflake
         public Input<int>? IcebergVersion { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+        /// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
         /// </summary>
         [Input("maxDataExtensionTimeInDays")]
         public Input<int>? MaxDataExtensionTimeInDays { get; set; }
@@ -717,13 +717,13 @@ namespace Pulumi.Snowflake
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        /// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         /// </summary>
         [Input("storageSerializationPolicy")]
         public Input<string>? StorageSerializationPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+        /// Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         /// </summary>
         [Input("targetFileSize")]
         public Input<string>? TargetFileSize { get; set; }
@@ -761,13 +761,13 @@ namespace Pulumi.Snowflake
         public Input<string>? BaseLocation { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the catalog integration to use for the Iceberg table. If not specified, the account-level default is used.
+        /// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         /// </summary>
         [Input("catalog")]
         public Input<string>? Catalog { get; set; }
 
         /// <summary>
-        /// Specifies the name of the catalog integration that Snowflake uses to automatically synchronize the Iceberg table with an external catalog. For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
+        /// Specifies the name of your catalog integration for [Snowflake Open Catalog](https://other-docs.snowflake.com/en/opencatalog/overview). Snowflake syncs tables that use the specified catalog integration with your Snowflake Open Catalog account. For more information, see [Sync a Snowflake-managed table with Snowflake Open Catalog](https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog-sync). For more information, check [CATALOG_SYNC docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog-sync).
         /// </summary>
         [Input("catalogSync")]
         public Input<string>? CatalogSync { get; set; }
@@ -821,7 +821,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the retention period for the Iceberg table so that Time Travel actions can be performed on historical data. For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
+        /// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
         /// </summary>
         [Input("dataRetentionTimeInDays")]
         public Input<int>? DataRetentionTimeInDays { get; set; }
@@ -845,13 +845,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether automatic background data compaction is enabled for the Iceberg table. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
+        /// Specifies whether Snowflake should enable data compaction on Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*DATA*COMPACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-data-compaction).
         /// </summary>
         [Input("enableDataCompaction")]
         public Input<bool>? EnableDataCompaction { get; set; }
 
         /// <summary>
-        /// Specifies whether merge-on-read is enabled for the Iceberg table. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
+        /// Specifies whether to enable merge-on-read behavior for Snowflake-managed Apache Iceberg™ tables. For more information, check [ENABLE*ICEBERG*MERGE*ON*READ docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-iceberg-merge-on-read).
         /// </summary>
         [Input("enableIcebergMergeOnRead")]
         public Input<bool>? EnableIcebergMergeOnRead { get; set; }
@@ -863,7 +863,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ErrorLogging { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external volume where the Iceberg table stores its metadata files and data in Parquet format. If not specified, the account-level default is used.
+        /// The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         /// </summary>
         [Input("externalVolume")]
         public Input<string>? ExternalVolume { get; set; }
@@ -893,7 +893,7 @@ namespace Pulumi.Snowflake
         public Input<int>? IcebergVersion { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of days for which Snowflake can extend the data retention period for the Iceberg table to prevent streams on the table from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
+        /// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
         /// </summary>
         [Input("maxDataExtensionTimeInDays")]
         public Input<int>? MaxDataExtensionTimeInDays { get; set; }
@@ -965,13 +965,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the storage serialization policy for the Iceberg table. Valid values are: [COMPATIBLE OPTIMIZED]. Cannot be changed after creation. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        /// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         /// </summary>
         [Input("storageSerializationPolicy")]
         public Input<string>? StorageSerializationPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the target file size (in bytes) used when writing the Iceberg table's Parquet files. Valid values are: [AUTO 16MB 32MB 64MB 128MB]. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
+        /// Specifies the target file size for the Parquet data files generated for a Snowflake-managed Apache Iceberg™ table. Valid values are (case-insensitive): `AUTO` | `16MB` | `32MB` | `64MB` | `128MB`. For more information, check [TARGET*FILE*SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#target-file-size).
         /// </summary>
         [Input("targetFileSize")]
         public Input<string>? TargetFileSize { get; set; }

@@ -265,49 +265,49 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAccountRoles:getAccountRoles", TypeShape.of(GetAccountRolesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
      * 
      */
     public static Output<GetAccountsResult> getAccounts() {
         return getAccounts(GetAccountsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
      * 
      */
     public static CompletableFuture<GetAccountsResult> getAccountsPlain() {
         return getAccountsPlain(GetAccountsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
      * 
      */
     public static Output<GetAccountsResult> getAccounts(GetAccountsArgs args) {
         return getAccounts(args, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
      * 
      */
     public static CompletableFuture<GetAccountsResult> getAccountsPlain(GetAccountsPlainArgs args) {
         return getAccountsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
      * 
      */
     public static Output<GetAccountsResult> getAccounts(GetAccountsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
      * 
      */
     public static Output<GetAccountsResult> getAccounts(GetAccountsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW and SHOW PARAMETERS IN ACCOUNT (connected account only) are encapsulated in one output collection `accounts`.
      * 
      */
     public static CompletableFuture<GetAccountsResult> getAccountsPlain(GetAccountsPlainArgs args, InvokeOptions options) {

@@ -14,13 +14,21 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetAccountsAccountResult
     {
         /// <summary>
+        /// Holds the output of SHOW PARAMETERS IN ACCOUNT for the connected account.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetAccountsAccountParameterResult> Parameters;
+        /// <summary>
         /// Holds the output of SHOW ACCOUNTS.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountsAccountShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
-        private GetAccountsAccountResult(ImmutableArray<Outputs.GetAccountsAccountShowOutputResult> showOutputs)
+        private GetAccountsAccountResult(
+            ImmutableArray<Outputs.GetAccountsAccountParameterResult> parameters,
+
+            ImmutableArray<Outputs.GetAccountsAccountShowOutputResult> showOutputs)
         {
+            Parameters = parameters;
             ShowOutputs = showOutputs;
         }
     }

@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// > **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-//
 // > **Note** Creating interactive warehouse on Snowflake switches the session onto the new warehouse, same as creating any warehouse. The provider automatically restores the session to whichever warehouse (or lack of one) was active beforehand. If none was selected, Snowflake has no way to directly unset the current warehouse, so the provider may briefly create and drop a small helper warehouse (named with a `TF_TEMP_` prefix) to achieve the same effect - you may notice it appear and disappear in `SHOW WAREHOUSES` or query history.
 //
 // Resource used to manage interactive warehouse objects. Interactive warehouses are optimized for low-latency, high-concurrency queries against a defined set of tables. For more information, check [interactive warehouse documentation](https://docs.snowflake.com/en/user-guide/warehouses-interactive).
@@ -96,7 +94,7 @@ type WarehouseInteractive struct {
 	AutoSuspend pulumi.IntPtrOutput `pulumi:"autoSuspend"`
 	// Specifies a comment for the interactive warehouse.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the name of the fallback warehouse for the interactive warehouse. For more information about this resource, see docs.
+	// If not null, specifies the warehouse to use as a fallback for statements that timed out. For more information, check [FALLBACK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#fallback-warehouse).
 	FallbackWarehouse pulumi.StringOutput `pulumi:"fallbackWarehouse"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
@@ -104,7 +102,7 @@ type WarehouseInteractive struct {
 	InitiallySuspended pulumi.BoolPtrOutput `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the interactive warehouse.
 	MaxClusterCount pulumi.IntPtrOutput `pulumi:"maxClusterCount"`
-	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by an interactive warehouse.
+	// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 	MaxConcurrencyLevel pulumi.IntOutput `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrOutput `pulumi:"minClusterCount"`
@@ -116,9 +114,9 @@ type WarehouseInteractive struct {
 	ResourceMonitor pulumi.StringPtrOutput `pulumi:"resourceMonitor"`
 	// Outputs the result of `SHOW WAREHOUSES` for the given interactive warehouse.
 	ShowOutputs WarehouseInteractiveShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on an interactive warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntOutput `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntOutput `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the fully qualified names of the tables associated with the interactive warehouse. Changes are applied incrementally (ADD TABLES / DROP TABLES) rather than by full re-association.
 	Tables pulumi.StringArrayOutput `pulumi:"tables"`
@@ -164,7 +162,7 @@ type warehouseInteractiveState struct {
 	AutoSuspend *int `pulumi:"autoSuspend"`
 	// Specifies a comment for the interactive warehouse.
 	Comment *string `pulumi:"comment"`
-	// Specifies the name of the fallback warehouse for the interactive warehouse. For more information about this resource, see docs.
+	// If not null, specifies the warehouse to use as a fallback for statements that timed out. For more information, check [FALLBACK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#fallback-warehouse).
 	FallbackWarehouse *string `pulumi:"fallbackWarehouse"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
@@ -172,7 +170,7 @@ type warehouseInteractiveState struct {
 	InitiallySuspended *bool `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the interactive warehouse.
 	MaxClusterCount *int `pulumi:"maxClusterCount"`
-	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by an interactive warehouse.
+	// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int `pulumi:"minClusterCount"`
@@ -184,9 +182,9 @@ type warehouseInteractiveState struct {
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Outputs the result of `SHOW WAREHOUSES` for the given interactive warehouse.
 	ShowOutputs []WarehouseInteractiveShowOutput `pulumi:"showOutputs"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on an interactive warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the fully qualified names of the tables associated with the interactive warehouse. Changes are applied incrementally (ADD TABLES / DROP TABLES) rather than by full re-association.
 	Tables []string `pulumi:"tables"`
@@ -203,7 +201,7 @@ type WarehouseInteractiveState struct {
 	AutoSuspend pulumi.IntPtrInput
 	// Specifies a comment for the interactive warehouse.
 	Comment pulumi.StringPtrInput
-	// Specifies the name of the fallback warehouse for the interactive warehouse. For more information about this resource, see docs.
+	// If not null, specifies the warehouse to use as a fallback for statements that timed out. For more information, check [FALLBACK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#fallback-warehouse).
 	FallbackWarehouse pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
@@ -211,7 +209,7 @@ type WarehouseInteractiveState struct {
 	InitiallySuspended pulumi.BoolPtrInput
 	// Specifies the maximum number of server clusters for the interactive warehouse.
 	MaxClusterCount pulumi.IntPtrInput
-	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by an interactive warehouse.
+	// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
@@ -223,9 +221,9 @@ type WarehouseInteractiveState struct {
 	ResourceMonitor pulumi.StringPtrInput
 	// Outputs the result of `SHOW WAREHOUSES` for the given interactive warehouse.
 	ShowOutputs WarehouseInteractiveShowOutputArrayInput
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on an interactive warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the fully qualified names of the tables associated with the interactive warehouse. Changes are applied incrementally (ADD TABLES / DROP TABLES) rather than by full re-association.
 	Tables pulumi.StringArrayInput
@@ -246,13 +244,13 @@ type warehouseInteractiveArgs struct {
 	AutoSuspend *int `pulumi:"autoSuspend"`
 	// Specifies a comment for the interactive warehouse.
 	Comment *string `pulumi:"comment"`
-	// Specifies the name of the fallback warehouse for the interactive warehouse. For more information about this resource, see docs.
+	// If not null, specifies the warehouse to use as a fallback for statements that timed out. For more information, check [FALLBACK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#fallback-warehouse).
 	FallbackWarehouse *string `pulumi:"fallbackWarehouse"`
 	// Specifies whether the interactive warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended *bool `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the interactive warehouse.
 	MaxClusterCount *int `pulumi:"maxClusterCount"`
-	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by an interactive warehouse.
+	// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int `pulumi:"minClusterCount"`
@@ -260,9 +258,9 @@ type warehouseInteractiveArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the name of a resource monitor that is explicitly assigned to the interactive warehouse. For more information about this resource, see docs.
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on an interactive warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the fully qualified names of the tables associated with the interactive warehouse. Changes are applied incrementally (ADD TABLES / DROP TABLES) rather than by full re-association.
 	Tables []string `pulumi:"tables"`
@@ -278,13 +276,13 @@ type WarehouseInteractiveArgs struct {
 	AutoSuspend pulumi.IntPtrInput
 	// Specifies a comment for the interactive warehouse.
 	Comment pulumi.StringPtrInput
-	// Specifies the name of the fallback warehouse for the interactive warehouse. For more information about this resource, see docs.
+	// If not null, specifies the warehouse to use as a fallback for statements that timed out. For more information, check [FALLBACK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#fallback-warehouse).
 	FallbackWarehouse pulumi.StringPtrInput
 	// Specifies whether the interactive warehouse is created initially in the ‘Suspended’ state.
 	InitiallySuspended pulumi.BoolPtrInput
 	// Specifies the maximum number of server clusters for the interactive warehouse.
 	MaxClusterCount pulumi.IntPtrInput
-	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by an interactive warehouse.
+	// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the interactive warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
@@ -292,9 +290,9 @@ type WarehouseInteractiveArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the name of a resource monitor that is explicitly assigned to the interactive warehouse. For more information about this resource, see docs.
 	ResourceMonitor pulumi.StringPtrInput
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on an interactive warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the fully qualified names of the tables associated with the interactive warehouse. Changes are applied incrementally (ADD TABLES / DROP TABLES) rather than by full re-association.
 	Tables pulumi.StringArrayInput
@@ -404,7 +402,7 @@ func (o WarehouseInteractiveOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WarehouseInteractive) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the fallback warehouse for the interactive warehouse. For more information about this resource, see docs.
+// If not null, specifies the warehouse to use as a fallback for statements that timed out. For more information, check [FALLBACK_WAREHOUSE docs](https://docs.snowflake.com/en/sql-reference/parameters#fallback-warehouse).
 func (o WarehouseInteractiveOutput) FallbackWarehouse() pulumi.StringOutput {
 	return o.ApplyT(func(v *WarehouseInteractive) pulumi.StringOutput { return v.FallbackWarehouse }).(pulumi.StringOutput)
 }
@@ -424,7 +422,7 @@ func (o WarehouseInteractiveOutput) MaxClusterCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WarehouseInteractive) pulumi.IntPtrOutput { return v.MaxClusterCount }).(pulumi.IntPtrOutput)
 }
 
-// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by an interactive warehouse.
+// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 func (o WarehouseInteractiveOutput) MaxConcurrencyLevel() pulumi.IntOutput {
 	return o.ApplyT(func(v *WarehouseInteractive) pulumi.IntOutput { return v.MaxConcurrencyLevel }).(pulumi.IntOutput)
 }
@@ -454,12 +452,12 @@ func (o WarehouseInteractiveOutput) ShowOutputs() WarehouseInteractiveShowOutput
 	return o.ApplyT(func(v *WarehouseInteractive) WarehouseInteractiveShowOutputArrayOutput { return v.ShowOutputs }).(WarehouseInteractiveShowOutputArrayOutput)
 }
 
-// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on an interactive warehouse before it is canceled by the system.
+// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 func (o WarehouseInteractiveOutput) StatementQueuedTimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *WarehouseInteractive) pulumi.IntOutput { return v.StatementQueuedTimeoutInSeconds }).(pulumi.IntOutput)
 }
 
-// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system.
+// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 func (o WarehouseInteractiveOutput) StatementTimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *WarehouseInteractive) pulumi.IntOutput { return v.StatementTimeoutInSeconds }).(pulumi.IntOutput)
 }

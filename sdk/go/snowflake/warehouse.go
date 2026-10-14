@@ -42,7 +42,7 @@ type Warehouse struct {
 	InitiallySuspended pulumi.BoolPtrOutput `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the warehouse.
 	MaxClusterCount pulumi.IntPtrOutput `pulumi:"maxClusterCount"`
-	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+	// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 	MaxConcurrencyLevel pulumi.IntOutput `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrOutput `pulumi:"minClusterCount"`
@@ -60,9 +60,9 @@ type Warehouse struct {
 	ScalingPolicy pulumi.StringPtrOutput `pulumi:"scalingPolicy"`
 	// Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
 	ShowOutputs WarehouseShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntOutput `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntOutput `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
 	WarehouseSize pulumi.StringPtrOutput `pulumi:"warehouseSize"`
@@ -116,7 +116,7 @@ type warehouseState struct {
 	InitiallySuspended *bool `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the warehouse.
 	MaxClusterCount *int `pulumi:"maxClusterCount"`
-	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+	// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int `pulumi:"minClusterCount"`
@@ -134,9 +134,9 @@ type warehouseState struct {
 	ScalingPolicy *string `pulumi:"scalingPolicy"`
 	// Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
 	ShowOutputs []WarehouseShowOutput `pulumi:"showOutputs"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
 	WarehouseSize *string `pulumi:"warehouseSize"`
@@ -161,7 +161,7 @@ type WarehouseState struct {
 	InitiallySuspended pulumi.BoolPtrInput
 	// Specifies the maximum number of server clusters for the warehouse.
 	MaxClusterCount pulumi.IntPtrInput
-	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+	// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
@@ -179,9 +179,9 @@ type WarehouseState struct {
 	ScalingPolicy pulumi.StringPtrInput
 	// Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
 	ShowOutputs WarehouseShowOutputArrayInput
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
 	WarehouseSize pulumi.StringPtrInput
@@ -208,7 +208,7 @@ type warehouseArgs struct {
 	InitiallySuspended *bool `pulumi:"initiallySuspended"`
 	// Specifies the maximum number of server clusters for the warehouse.
 	MaxClusterCount *int `pulumi:"maxClusterCount"`
-	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+	// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 	MaxConcurrencyLevel *int `pulumi:"maxConcurrencyLevel"`
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount *int `pulumi:"minClusterCount"`
@@ -222,9 +222,9 @@ type warehouseArgs struct {
 	ResourceMonitor *string `pulumi:"resourceMonitor"`
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
 	ScalingPolicy *string `pulumi:"scalingPolicy"`
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
 	// Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
 	WarehouseSize *string `pulumi:"warehouseSize"`
@@ -248,7 +248,7 @@ type WarehouseArgs struct {
 	InitiallySuspended pulumi.BoolPtrInput
 	// Specifies the maximum number of server clusters for the warehouse.
 	MaxClusterCount pulumi.IntPtrInput
-	// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+	// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 	MaxConcurrencyLevel pulumi.IntPtrInput
 	// Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
 	MinClusterCount pulumi.IntPtrInput
@@ -262,9 +262,9 @@ type WarehouseArgs struct {
 	ResourceMonitor pulumi.StringPtrInput
 	// Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
 	ScalingPolicy pulumi.StringPtrInput
-	// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
-	// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntPtrInput
 	// Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
 	WarehouseSize pulumi.StringPtrInput
@@ -399,7 +399,7 @@ func (o WarehouseOutput) MaxClusterCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.IntPtrOutput { return v.MaxClusterCount }).(pulumi.IntPtrOutput)
 }
 
-// Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
+// Specifies the concurrency level for SQL statements (that is, queries and DML) executed by a warehouse. For more information, check [MAX*CONCURRENCY*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#max-concurrency-level).
 func (o WarehouseOutput) MaxConcurrencyLevel() pulumi.IntOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.IntOutput { return v.MaxConcurrencyLevel }).(pulumi.IntOutput)
 }
@@ -444,12 +444,12 @@ func (o WarehouseOutput) ShowOutputs() WarehouseShowOutputArrayOutput {
 	return o.ApplyT(func(v *Warehouse) WarehouseShowOutputArrayOutput { return v.ShowOutputs }).(WarehouseShowOutputArrayOutput)
 }
 
-// Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 func (o WarehouseOutput) StatementQueuedTimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.IntOutput { return v.StatementQueuedTimeoutInSeconds }).(pulumi.IntOutput)
 }
 
-// Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
+// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 func (o WarehouseOutput) StatementTimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *Warehouse) pulumi.IntOutput { return v.StatementTimeoutInSeconds }).(pulumi.IntOutput)
 }

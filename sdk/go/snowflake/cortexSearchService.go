@@ -99,6 +99,8 @@ type CortexSearchService struct {
 
 	// Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
 	Attributes pulumi.StringArrayOutput `pulumi:"attributes"`
+	// Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	AutoSuspend pulumi.IntPtrOutput `pulumi:"autoSuspend"`
 	// Specifies a comment for the Cortex search service.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Creation date for the given Cortex search service.
@@ -115,6 +117,8 @@ type CortexSearchService struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the column to use as the search column for the Cortex search service; must be a text value.
 	On pulumi.StringOutput `pulumi:"on"`
+	// Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+	PrimaryKeys pulumi.StringArrayOutput `pulumi:"primaryKeys"`
 	// Specifies the query to use to populate the Cortex search service.
 	Query pulumi.StringOutput `pulumi:"query"`
 	// The schema in which to create the Cortex search service.
@@ -175,6 +179,8 @@ func GetCortexSearchService(ctx *pulumi.Context,
 type cortexSearchServiceState struct {
 	// Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
 	Attributes []string `pulumi:"attributes"`
+	// Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	AutoSuspend *int `pulumi:"autoSuspend"`
 	// Specifies a comment for the Cortex search service.
 	Comment *string `pulumi:"comment"`
 	// Creation date for the given Cortex search service.
@@ -191,6 +197,8 @@ type cortexSearchServiceState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the column to use as the search column for the Cortex search service; must be a text value.
 	On *string `pulumi:"on"`
+	// Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+	PrimaryKeys []string `pulumi:"primaryKeys"`
 	// Specifies the query to use to populate the Cortex search service.
 	Query *string `pulumi:"query"`
 	// The schema in which to create the Cortex search service.
@@ -204,6 +212,8 @@ type cortexSearchServiceState struct {
 type CortexSearchServiceState struct {
 	// Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
 	Attributes pulumi.StringArrayInput
+	// Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	AutoSuspend pulumi.IntPtrInput
 	// Specifies a comment for the Cortex search service.
 	Comment pulumi.StringPtrInput
 	// Creation date for the given Cortex search service.
@@ -220,6 +230,8 @@ type CortexSearchServiceState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the column to use as the search column for the Cortex search service; must be a text value.
 	On pulumi.StringPtrInput
+	// Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+	PrimaryKeys pulumi.StringArrayInput
 	// Specifies the query to use to populate the Cortex search service.
 	Query pulumi.StringPtrInput
 	// The schema in which to create the Cortex search service.
@@ -237,6 +249,8 @@ func (CortexSearchServiceState) ElementType() reflect.Type {
 type cortexSearchServiceArgs struct {
 	// Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
 	Attributes []string `pulumi:"attributes"`
+	// Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	AutoSuspend *int `pulumi:"autoSuspend"`
 	// Specifies a comment for the Cortex search service.
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the Cortex search service.
@@ -247,6 +261,8 @@ type cortexSearchServiceArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the column to use as the search column for the Cortex search service; must be a text value.
 	On string `pulumi:"on"`
+	// Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+	PrimaryKeys []string `pulumi:"primaryKeys"`
 	// Specifies the query to use to populate the Cortex search service.
 	Query string `pulumi:"query"`
 	// The schema in which to create the Cortex search service.
@@ -261,6 +277,8 @@ type cortexSearchServiceArgs struct {
 type CortexSearchServiceArgs struct {
 	// Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
 	Attributes pulumi.StringArrayInput
+	// Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+	AutoSuspend pulumi.IntPtrInput
 	// Specifies a comment for the Cortex search service.
 	Comment pulumi.StringPtrInput
 	// The database in which to create the Cortex search service.
@@ -271,6 +289,8 @@ type CortexSearchServiceArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the column to use as the search column for the Cortex search service; must be a text value.
 	On pulumi.StringInput
+	// Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+	PrimaryKeys pulumi.StringArrayInput
 	// Specifies the query to use to populate the Cortex search service.
 	Query pulumi.StringInput
 	// The schema in which to create the Cortex search service.
@@ -373,6 +393,11 @@ func (o CortexSearchServiceOutput) Attributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CortexSearchService) pulumi.StringArrayOutput { return v.Attributes }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the number of seconds of inactivity after which the Cortex search service automatically suspends its serving compute, releasing the resources. Snowflake requires a minimum of 1800 (30 minutes). If unset, Snowflake defaults to no automatic suspension. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
+func (o CortexSearchServiceOutput) AutoSuspend() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CortexSearchService) pulumi.IntPtrOutput { return v.AutoSuspend }).(pulumi.IntPtrOutput)
+}
+
 // Specifies a comment for the Cortex search service.
 func (o CortexSearchServiceOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CortexSearchService) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
@@ -411,6 +436,11 @@ func (o CortexSearchServiceOutput) Name() pulumi.StringOutput {
 // Specifies the column to use as the search column for the Cortex search service; must be a text value.
 func (o CortexSearchServiceOutput) On() pulumi.StringOutput {
 	return o.ApplyT(func(v *CortexSearchService) pulumi.StringOutput { return v.On }).(pulumi.StringOutput)
+}
+
+// Specifies the column(s) in the base table that uniquely identify each row, used to enable optimized (incremental) refreshes when the underlying data changes. All primary key columns must use the TEXT data type.
+func (o CortexSearchServiceOutput) PrimaryKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CortexSearchService) pulumi.StringArrayOutput { return v.PrimaryKeys }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the query to use to populate the Cortex search service.

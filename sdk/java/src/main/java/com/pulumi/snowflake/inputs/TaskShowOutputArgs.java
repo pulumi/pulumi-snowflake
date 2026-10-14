@@ -82,6 +82,13 @@ public final class TaskShowOutputArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.errorIntegration);
     }
 
+    @Import(name="executeAsUser")
+    private @Nullable Output<String> executeAsUser;
+
+    public Optional<Output<String>> executeAsUser() {
+        return Optional.ofNullable(this.executeAsUser);
+    }
+
     @Import(name="id")
     private @Nullable Output<String> id;
 
@@ -192,6 +199,7 @@ public final class TaskShowOutputArgs extends com.pulumi.resources.ResourceArgs 
         this.databaseName = $.databaseName;
         this.definition = $.definition;
         this.errorIntegration = $.errorIntegration;
+        this.executeAsUser = $.executeAsUser;
         this.id = $.id;
         this.lastCommittedOn = $.lastCommittedOn;
         this.lastSuspendedOn = $.lastSuspendedOn;
@@ -305,6 +313,15 @@ public final class TaskShowOutputArgs extends com.pulumi.resources.ResourceArgs 
 
         public Builder errorIntegration(String errorIntegration) {
             return errorIntegration(Output.of(errorIntegration));
+        }
+
+        public Builder executeAsUser(@Nullable Output<String> executeAsUser) {
+            $.executeAsUser = executeAsUser;
+            return this;
+        }
+
+        public Builder executeAsUser(String executeAsUser) {
+            return executeAsUser(Output.of(executeAsUser));
         }
 
         public Builder id(@Nullable Output<String> id) {

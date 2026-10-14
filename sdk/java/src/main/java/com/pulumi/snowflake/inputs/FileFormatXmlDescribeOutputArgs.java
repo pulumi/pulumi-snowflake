@@ -30,6 +30,13 @@ public final class FileFormatXmlDescribeOutputArgs extends com.pulumi.resources.
         return Optional.ofNullable(this.disableAutoConvert);
     }
 
+    @Import(name="disableSnowflakeData")
+    private @Nullable Output<Boolean> disableSnowflakeData;
+
+    public Optional<Output<Boolean>> disableSnowflakeData() {
+        return Optional.ofNullable(this.disableSnowflakeData);
+    }
+
     @Import(name="id")
     private @Nullable Output<String> id;
 
@@ -84,6 +91,7 @@ public final class FileFormatXmlDescribeOutputArgs extends com.pulumi.resources.
     private FileFormatXmlDescribeOutputArgs(FileFormatXmlDescribeOutputArgs $) {
         this.compression = $.compression;
         this.disableAutoConvert = $.disableAutoConvert;
+        this.disableSnowflakeData = $.disableSnowflakeData;
         this.id = $.id;
         this.ignoreUtf8Errors = $.ignoreUtf8Errors;
         this.preserveSpace = $.preserveSpace;
@@ -127,6 +135,15 @@ public final class FileFormatXmlDescribeOutputArgs extends com.pulumi.resources.
 
         public Builder disableAutoConvert(Boolean disableAutoConvert) {
             return disableAutoConvert(Output.of(disableAutoConvert));
+        }
+
+        public Builder disableSnowflakeData(@Nullable Output<Boolean> disableSnowflakeData) {
+            $.disableSnowflakeData = disableSnowflakeData;
+            return this;
+        }
+
+        public Builder disableSnowflakeData(Boolean disableSnowflakeData) {
+            return disableSnowflakeData(Output.of(disableSnowflakeData));
         }
 
         public Builder id(@Nullable Output<String> id) {

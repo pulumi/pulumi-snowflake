@@ -15,6 +15,7 @@ namespace Pulumi.Snowflake.Outputs
     {
         public readonly string? Compression;
         public readonly bool? DisableAutoConvert;
+        public readonly bool? DisableSnowflakeData;
         public readonly string? Id;
         public readonly bool? IgnoreUtf8Errors;
         public readonly bool? PreserveSpace;
@@ -28,6 +29,8 @@ namespace Pulumi.Snowflake.Outputs
             string? compression,
 
             bool? disableAutoConvert,
+
+            bool? disableSnowflakeData,
 
             string? id,
 
@@ -45,6 +48,7 @@ namespace Pulumi.Snowflake.Outputs
         {
             Compression = compression;
             DisableAutoConvert = disableAutoConvert;
+            DisableSnowflakeData = disableSnowflakeData;
             Id = id;
             IgnoreUtf8Errors = ignoreUtf8Errors;
             PreserveSpace = preserveSpace;

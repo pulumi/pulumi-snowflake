@@ -525,7 +525,14 @@
                         "maxItemsOne": false
                     },
                     "show_output": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "target_scopes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "workload_identity_policy": {
                         "maxItemsOne": true,
@@ -742,9 +749,15 @@
                                 },
                                 "columns": {
                                     "maxItemsOne": false
+                                },
+                                "primary_key_columns": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
+                    },
+                    "primary_key": {
+                        "maxItemsOne": false
                     }
                 }
             },
@@ -1954,6 +1967,10 @@
                     }
                 }
             },
+            "snowflake_intelligence_cortex_agent_attachment": {
+                "current": "snowflake:index/intelligenceCortexAgentAttachment:IntelligenceCortexAgentAttachment",
+                "majorVersion": 2
+            },
             "snowflake_job_service": {
                 "current": "snowflake:index/jobService:JobService",
                 "majorVersion": 2,
@@ -3016,6 +3033,12 @@
                                 "default_ddl_collation": {
                                     "maxItemsOne": false
                                 },
+                                "default_notebook_compute_pool_cpu": {
+                                    "maxItemsOne": false
+                                },
+                                "default_notebook_compute_pool_gpu": {
+                                    "maxItemsOne": false
+                                },
                                 "enable_console_output": {
                                     "maxItemsOne": false
                                 },
@@ -3359,6 +3382,16 @@
                             }
                         }
                     },
+                    "parameters": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "service_caller_token_validity_secs": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "show_output": {
                         "maxItemsOne": false,
                         "elem": {
@@ -3628,7 +3661,14 @@
                         }
                     },
                     "show_output": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "target_scopes": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -5501,6 +5541,445 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "parameters": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "abort_detached_query": {
+                                                "maxItemsOne": false
+                                            },
+                                            "active_python_profiler": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allow_bind_values_access": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allow_client_mfa_caching": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allow_id_token": {
+                                                "maxItemsOne": false
+                                            },
+                                            "allowed_spcs_workload_types": {
+                                                "maxItemsOne": false
+                                            },
+                                            "autocommit": {
+                                                "maxItemsOne": false
+                                            },
+                                            "base_location_prefix": {
+                                                "maxItemsOne": false
+                                            },
+                                            "binary_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "binary_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "catalog": {
+                                                "maxItemsOne": false
+                                            },
+                                            "catalog_sync": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_enable_log_info_statement_parameters": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_encryption_key_size": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_memory_limit": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_metadata_request_use_connection_ctx": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_metadata_use_session_database": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_prefetch_threads": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_result_chunk_size": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_result_column_case_insensitive": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_session_keep_alive": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_session_keep_alive_heartbeat_frequency": {
+                                                "maxItemsOne": false
+                                            },
+                                            "client_timestamp_type_mapping": {
+                                                "maxItemsOne": false
+                                            },
+                                            "cortex_code_cli_daily_est_credit_limit_per_user": {
+                                                "maxItemsOne": false
+                                            },
+                                            "cortex_code_desktop_daily_est_credit_limit_per_user": {
+                                                "maxItemsOne": false
+                                            },
+                                            "cortex_code_snowsight_daily_est_credit_limit_per_user": {
+                                                "maxItemsOne": false
+                                            },
+                                            "cortex_enabled_cross_region": {
+                                                "maxItemsOne": false
+                                            },
+                                            "cortex_models_allowlist": {
+                                                "maxItemsOne": false
+                                            },
+                                            "csv_timestamp_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "data_metric_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "data_retention_time_in_days": {
+                                                "maxItemsOne": false
+                                            },
+                                            "date_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "date_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_dbt_version": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_ddl_collation": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_notebook_compute_pool_cpu": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_notebook_compute_pool_gpu": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_null_ordering": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_streamlit_compute_pool": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_streamlit_notebook_warehouse": {
+                                                "maxItemsOne": false
+                                            },
+                                            "disable_ui_download_button": {
+                                                "maxItemsOne": false
+                                            },
+                                            "disable_user_privilege_grants": {
+                                                "maxItemsOne": false
+                                            },
+                                            "disallowed_spcs_workload_types": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_automatic_sensitive_data_classification_log": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_budget_event_logging": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_console_output": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_cortex_analyst": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_data_compaction": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_egress_cost_optimizer": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_get_ddl_use_data_type_alias": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_iceberg_merge_on_read": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_identifier_first_login": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_internal_stages_privatelink": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_notebook_creation_in_personal_db": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_per_account_app_service_privatelink_url": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_personal_database": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_spcs_block_storage_snowflake_full_encryption_enforcement": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_tag_propagation_event_logging": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_tri_secret_and_rekey_opt_out_for_image_repository": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_tri_secret_and_rekey_opt_out_for_spcs_block_storage": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_unhandled_exceptions_reporting": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_unload_physical_type_optimization": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_unredacted_query_syntax_error": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enable_unredacted_secure_object_error": {
+                                                "maxItemsOne": false
+                                            },
+                                            "enforce_network_rules_for_internal_stages": {
+                                                "maxItemsOne": false
+                                            },
+                                            "error_on_nondeterministic_merge": {
+                                                "maxItemsOne": false
+                                            },
+                                            "error_on_nondeterministic_update": {
+                                                "maxItemsOne": false
+                                            },
+                                            "event_table": {
+                                                "maxItemsOne": false
+                                            },
+                                            "external_oauth_add_privileged_roles_to_blocked_list": {
+                                                "maxItemsOne": false
+                                            },
+                                            "external_volume": {
+                                                "maxItemsOne": false
+                                            },
+                                            "geography_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "geometry_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "hybrid_table_lock_timeout": {
+                                                "maxItemsOne": false
+                                            },
+                                            "iceberg_version_default": {
+                                                "maxItemsOne": false
+                                            },
+                                            "initial_replication_size_limit_in_tb": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jdbc_treat_decimal_as_int": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jdbc_treat_timestamp_ntz_as_utc": {
+                                                "maxItemsOne": false
+                                            },
+                                            "jdbc_use_session_timezone": {
+                                                "maxItemsOne": false
+                                            },
+                                            "js_treat_integer_as_bigint": {
+                                                "maxItemsOne": false
+                                            },
+                                            "json_indent": {
+                                                "maxItemsOne": false
+                                            },
+                                            "listing_auto_fulfillment_replication_refresh_schedule": {
+                                                "maxItemsOne": false
+                                            },
+                                            "lock_timeout": {
+                                                "maxItemsOne": false
+                                            },
+                                            "log_event_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "log_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "max_concurrency_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "max_data_extension_time_in_days": {
+                                                "maxItemsOne": false
+                                            },
+                                            "metric_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "min_data_retention_time_in_days": {
+                                                "maxItemsOne": false
+                                            },
+                                            "multi_statement_count": {
+                                                "maxItemsOne": false
+                                            },
+                                            "network_policy": {
+                                                "maxItemsOne": false
+                                            },
+                                            "noorder_sequence_as_default": {
+                                                "maxItemsOne": false
+                                            },
+                                            "oauth_add_privileged_roles_to_blocked_list": {
+                                                "maxItemsOne": false
+                                            },
+                                            "odbc_treat_decimal_as_int": {
+                                                "maxItemsOne": false
+                                            },
+                                            "periodic_data_rekeying": {
+                                                "maxItemsOne": false
+                                            },
+                                            "pipe_execution_paused": {
+                                                "maxItemsOne": false
+                                            },
+                                            "prevent_load_from_inline_url": {
+                                                "maxItemsOne": false
+                                            },
+                                            "prevent_unload_to_inline_url": {
+                                                "maxItemsOne": false
+                                            },
+                                            "prevent_unload_to_internal_stages": {
+                                                "maxItemsOne": false
+                                            },
+                                            "python_profiler_modules": {
+                                                "maxItemsOne": false
+                                            },
+                                            "python_profiler_target_stage": {
+                                                "maxItemsOne": false
+                                            },
+                                            "query_tag": {
+                                                "maxItemsOne": false
+                                            },
+                                            "quoted_identifiers_ignore_case": {
+                                                "maxItemsOne": false
+                                            },
+                                            "read_consistency_mode": {
+                                                "maxItemsOne": false
+                                            },
+                                            "replace_invalid_characters": {
+                                                "maxItemsOne": false
+                                            },
+                                            "require_storage_integration_for_stage_creation": {
+                                                "maxItemsOne": false
+                                            },
+                                            "require_storage_integration_for_stage_operation": {
+                                                "maxItemsOne": false
+                                            },
+                                            "row_timestamp_default": {
+                                                "maxItemsOne": false
+                                            },
+                                            "rows_per_resultset": {
+                                                "maxItemsOne": false
+                                            },
+                                            "s3_stage_vpce_dns_name": {
+                                                "maxItemsOne": false
+                                            },
+                                            "search_path": {
+                                                "maxItemsOne": false
+                                            },
+                                            "serverless_task_max_statement_size": {
+                                                "maxItemsOne": false
+                                            },
+                                            "serverless_task_min_statement_size": {
+                                                "maxItemsOne": false
+                                            },
+                                            "share_restrictions": {
+                                                "maxItemsOne": false
+                                            },
+                                            "simulated_data_sharing_consumer": {
+                                                "maxItemsOne": false
+                                            },
+                                            "sql_trace_query_text": {
+                                                "maxItemsOne": false
+                                            },
+                                            "sso_login_page": {
+                                                "maxItemsOne": false
+                                            },
+                                            "statement_queued_timeout_in_seconds": {
+                                                "maxItemsOne": false
+                                            },
+                                            "statement_timeout_in_seconds": {
+                                                "maxItemsOne": false
+                                            },
+                                            "storage_serialization_policy": {
+                                                "maxItemsOne": false
+                                            },
+                                            "strict_json_output": {
+                                                "maxItemsOne": false
+                                            },
+                                            "suspend_task_after_num_failures": {
+                                                "maxItemsOne": false
+                                            },
+                                            "task_auto_retry_attempts": {
+                                                "maxItemsOne": false
+                                            },
+                                            "time_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "time_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_day_is_always_24h": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_input_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_ltz_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_ntz_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_type_mapping": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timestamp_tz_output_format": {
+                                                "maxItemsOne": false
+                                            },
+                                            "timezone": {
+                                                "maxItemsOne": false
+                                            },
+                                            "trace_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "transaction_abort_on_error": {
+                                                "maxItemsOne": false
+                                            },
+                                            "transaction_default_isolation_level": {
+                                                "maxItemsOne": false
+                                            },
+                                            "two_digit_century_start": {
+                                                "maxItemsOne": false
+                                            },
+                                            "unsupported_ddl_action": {
+                                                "maxItemsOne": false
+                                            },
+                                            "use_cached_result": {
+                                                "maxItemsOne": false
+                                            },
+                                            "use_workspaces_for_sql": {
+                                                "maxItemsOne": false
+                                            },
+                                            "user_task_managed_initial_warehouse_size": {
+                                                "maxItemsOne": false
+                                            },
+                                            "user_task_minimum_trigger_interval_in_seconds": {
+                                                "maxItemsOne": false
+                                            },
+                                            "user_task_timeout_ms": {
+                                                "maxItemsOne": false
+                                            },
+                                            "week_of_year_policy": {
+                                                "maxItemsOne": false
+                                            },
+                                            "week_start": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
                                 "show_output": {
                                     "maxItemsOne": false
                                 }
@@ -5565,7 +6044,14 @@
                                     "maxItemsOne": false
                                 },
                                 "show_output": {
-                                    "maxItemsOne": false
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "target_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -5793,6 +6279,12 @@
                                                 "maxItemsOne": false
                                             },
                                             "default_ddl_collation": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_notebook_compute_pool_cpu": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_notebook_compute_pool_gpu": {
                                                 "maxItemsOne": false
                                             },
                                             "enable_console_output": {
@@ -6665,6 +7157,12 @@
                                             "default_ddl_collation": {
                                                 "maxItemsOne": false
                                             },
+                                            "default_notebook_compute_pool_cpu": {
+                                                "maxItemsOne": false
+                                            },
+                                            "default_notebook_compute_pool_gpu": {
+                                                "maxItemsOne": false
+                                            },
                                             "enable_console_output": {
                                                 "maxItemsOne": false
                                             },
@@ -7040,7 +7538,14 @@
                                     }
                                 },
                                 "show_output": {
-                                    "maxItemsOne": false
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "target_scopes": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }

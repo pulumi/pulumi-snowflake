@@ -24,6 +24,7 @@ public final class TaskShowOutput {
     private @Nullable String databaseName;
     private @Nullable String definition;
     private @Nullable String errorIntegration;
+    private @Nullable String executeAsUser;
     private @Nullable String id;
     private @Nullable String lastCommittedOn;
     private @Nullable String lastSuspendedOn;
@@ -66,6 +67,9 @@ public final class TaskShowOutput {
     }
     public Optional<String> errorIntegration() {
         return Optional.ofNullable(this.errorIntegration);
+    }
+    public Optional<String> executeAsUser() {
+        return Optional.ofNullable(this.executeAsUser);
     }
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
@@ -128,6 +132,7 @@ public final class TaskShowOutput {
         private @Nullable String databaseName;
         private @Nullable String definition;
         private @Nullable String errorIntegration;
+        private @Nullable String executeAsUser;
         private @Nullable String id;
         private @Nullable String lastCommittedOn;
         private @Nullable String lastSuspendedOn;
@@ -154,6 +159,7 @@ public final class TaskShowOutput {
     	      this.databaseName = defaults.databaseName;
     	      this.definition = defaults.definition;
     	      this.errorIntegration = defaults.errorIntegration;
+    	      this.executeAsUser = defaults.executeAsUser;
     	      this.id = defaults.id;
     	      this.lastCommittedOn = defaults.lastCommittedOn;
     	      this.lastSuspendedOn = defaults.lastSuspendedOn;
@@ -222,6 +228,12 @@ public final class TaskShowOutput {
         public Builder errorIntegration(@Nullable String errorIntegration) {
 
             this.errorIntegration = errorIntegration;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder executeAsUser(@Nullable String executeAsUser) {
+
+            this.executeAsUser = executeAsUser;
             return this;
         }
         @CustomType.Setter
@@ -328,6 +340,7 @@ public final class TaskShowOutput {
             _resultValue.databaseName = databaseName;
             _resultValue.definition = definition;
             _resultValue.errorIntegration = errorIntegration;
+            _resultValue.executeAsUser = executeAsUser;
             _resultValue.id = id;
             _resultValue.lastCommittedOn = lastCommittedOn;
             _resultValue.lastSuspendedOn = lastSuspendedOn;

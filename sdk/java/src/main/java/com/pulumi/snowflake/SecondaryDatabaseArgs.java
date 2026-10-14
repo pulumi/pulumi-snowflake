@@ -34,14 +34,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+     * The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     @Import(name="catalog")
     private @Nullable Output<String> catalog;
 
     /**
-     * @return The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+     * @return The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     public Optional<Output<String>> catalog() {
@@ -64,14 +64,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
      * 
      */
     @Import(name="dataRetentionTimeInDays")
     private @Nullable Output<Integer> dataRetentionTimeInDays;
 
     /**
-     * @return Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+     * @return Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
      * 
      */
     public Optional<Output<Integer>> dataRetentionTimeInDays() {
@@ -79,14 +79,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+     * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification). For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
      * 
      */
     @Import(name="defaultDdlCollation")
     private @Nullable Output<String> defaultDdlCollation;
 
     /**
-     * @return Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+     * @return Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification). For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
      * 
      */
     public Optional<Output<String>> defaultDdlCollation() {
@@ -94,14 +94,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     * Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
      * 
      */
     @Import(name="defaultNotebookComputePoolCpu")
     private @Nullable Output<String> defaultNotebookComputePoolCpu;
 
     /**
-     * @return Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+     * @return Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
      * 
      */
     public Optional<Output<String>> defaultNotebookComputePoolCpu() {
@@ -109,14 +109,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     * Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
      * 
      */
     @Import(name="defaultNotebookComputePoolGpu")
     private @Nullable Output<String> defaultNotebookComputePoolGpu;
 
     /**
-     * @return Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+     * @return Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
      * 
      */
     public Optional<Output<String>> defaultNotebookComputePoolGpu() {
@@ -124,14 +124,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+     * If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     @Import(name="enableConsoleOutput")
     private @Nullable Output<Boolean> enableConsoleOutput;
 
     /**
-     * @return If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+     * @return If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     public Optional<Output<Boolean>> enableConsoleOutput() {
@@ -139,14 +139,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+     * The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     @Import(name="externalVolume")
     private @Nullable Output<String> externalVolume;
 
     /**
-     * @return The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+     * @return The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     public Optional<Output<String>> externalVolume() {
@@ -169,14 +169,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+     * Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
      * 
      */
     @Import(name="logEventLevel")
     private @Nullable Output<String> logEventLevel;
 
     /**
-     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+     * @return Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
      * 
      */
     public Optional<Output<String>> logEventLevel() {
@@ -184,14 +184,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+     * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
     /**
-     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     public Optional<Output<String>> logLevel() {
@@ -199,14 +199,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+     * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
      * 
      */
     @Import(name="maxDataExtensionTimeInDays")
     private @Nullable Output<Integer> maxDataExtensionTimeInDays;
 
     /**
-     * @return Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+     * @return Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
      * 
      */
     public Optional<Output<Integer>> maxDataExtensionTimeInDays() {
@@ -229,14 +229,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     @Import(name="quotedIdentifiersIgnoreCase")
     private @Nullable Output<Boolean> quotedIdentifiersIgnoreCase;
 
     /**
-     * @return If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * @return If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     public Optional<Output<Boolean>> quotedIdentifiersIgnoreCase() {
@@ -244,14 +244,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     @Import(name="replaceInvalidCharacters")
     private @Nullable Output<Boolean> replaceInvalidCharacters;
 
     /**
-     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     public Optional<Output<Boolean>> replaceInvalidCharacters() {
@@ -259,14 +259,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      * 
      */
     @Import(name="storageSerializationPolicy")
     private @Nullable Output<String> storageSerializationPolicy;
 
     /**
-     * @return The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+     * @return The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      * 
      */
     public Optional<Output<String>> storageSerializationPolicy() {
@@ -274,14 +274,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      * 
      */
     @Import(name="suspendTaskAfterNumFailures")
     private @Nullable Output<Integer> suspendTaskAfterNumFailures;
 
     /**
-     * @return How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+     * @return How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      * 
      */
     public Optional<Output<Integer>> suspendTaskAfterNumFailures() {
@@ -289,14 +289,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+     * Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      * 
      */
     @Import(name="taskAutoRetryAttempts")
     private @Nullable Output<Integer> taskAutoRetryAttempts;
 
     /**
-     * @return Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+     * @return Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      * 
      */
     public Optional<Output<Integer>> taskAutoRetryAttempts() {
@@ -304,14 +304,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+     * Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     @Import(name="traceLevel")
     private @Nullable Output<String> traceLevel;
 
     /**
-     * @return Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+     * @return Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     public Optional<Output<String>> traceLevel() {
@@ -319,14 +319,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     @Import(name="userTaskManagedInitialWarehouseSize")
     private @Nullable Output<String> userTaskManagedInitialWarehouseSize;
 
     /**
-     * @return The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * @return The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     public Optional<Output<String>> userTaskManagedInitialWarehouseSize() {
@@ -334,14 +334,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Minimum amount of time between Triggered Task executions in seconds.
+     * Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
      * 
      */
     @Import(name="userTaskMinimumTriggerIntervalInSeconds")
     private @Nullable Output<Integer> userTaskMinimumTriggerIntervalInSeconds;
 
     /**
-     * @return Minimum amount of time between Triggered Task executions in seconds.
+     * @return Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
      * 
      */
     public Optional<Output<Integer>> userTaskMinimumTriggerIntervalInSeconds() {
@@ -349,14 +349,14 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+     * User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      * 
      */
     @Import(name="userTaskTimeoutMs")
     private @Nullable Output<Integer> userTaskTimeoutMs;
 
     /**
-     * @return User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+     * @return User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      * 
      */
     public Optional<Output<Integer>> userTaskTimeoutMs() {
@@ -431,7 +431,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param catalog The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+         * @param catalog The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param catalog The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+         * @param catalog The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
          * 
          * @return builder
          * 
@@ -473,7 +473,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataRetentionTimeInDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+         * @param dataRetentionTimeInDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
          * 
          * @return builder
          * 
@@ -484,7 +484,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param dataRetentionTimeInDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+         * @param dataRetentionTimeInDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel). For more information, check [DATA*RETENTION*TIME*IN*DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#data-retention-time-in-days).
          * 
          * @return builder
          * 
@@ -494,7 +494,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultDdlCollation Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+         * @param defaultDdlCollation Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification). For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
          * 
          * @return builder
          * 
@@ -505,7 +505,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultDdlCollation Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+         * @param defaultDdlCollation Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification). For more information, check [DEFAULT*DDL*COLLATION docs](https://docs.snowflake.com/en/sql-reference/parameters#default-ddl-collation).
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultNotebookComputePoolCpu Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+         * @param defaultNotebookComputePoolCpu Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
          * 
          * @return builder
          * 
@@ -526,7 +526,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultNotebookComputePoolCpu Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime.
+         * @param defaultNotebookComputePoolCpu Sets the preferred CPU compute pool used for Notebooks on CPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*CPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-cpu).
          * 
          * @return builder
          * 
@@ -536,7 +536,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultNotebookComputePoolGpu Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+         * @param defaultNotebookComputePoolGpu Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
          * 
          * @return builder
          * 
@@ -547,7 +547,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param defaultNotebookComputePoolGpu Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime.
+         * @param defaultNotebookComputePoolGpu Sets the preferred GPU compute pool used for Notebooks on GPU Container Runtime. For more information, check [DEFAULT*NOTEBOOK*COMPUTE*POOL*GPU docs](https://docs.snowflake.com/en/sql-reference/parameters#default-notebook-compute-pool-gpu).
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param enableConsoleOutput If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+         * @param enableConsoleOutput If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -568,7 +568,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param enableConsoleOutput If true, enables stdout/stderr fast path logging for anonymous stored procedures.
+         * @param enableConsoleOutput If true, enables stdout/stderr fast path logging for anonymous stored procedures. For more information, check [ENABLE*CONSOLE*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -578,7 +578,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param externalVolume The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+         * @param externalVolume The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param externalVolume The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+         * @param externalVolume The parameter that specifies the default external volume to use for Iceberg tables. For more information, check [EXTERNAL_VOLUME docs](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
          * 
          * @return builder
          * 
@@ -620,7 +620,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
          * 
          * @return builder
          * 
@@ -631,7 +631,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. For more information, see [LOG*EVENT*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#log_event_level). Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`.
+         * @param logEventLevel Specifies the severity level of log events (rows with record type EVENT) that should be ingested and made available in the active event table. Log events at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG*EVENT*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-event-level).
          * 
          * @return builder
          * 
@@ -641,7 +641,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -652,7 +652,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. Valid values are (case-insensitive): `TRACE` | `DEBUG` | `INFO` | `WARN` | `ERROR` | `FATAL` | `OFF`. For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -662,7 +662,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maxDataExtensionTimeInDays Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+         * @param maxDataExtensionTimeInDays Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
          * 
          * @return builder
          * 
@@ -673,7 +673,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param maxDataExtensionTimeInDays Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+         * @param maxDataExtensionTimeInDays Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For more information, check [MAX*DATA*EXTENSION*TIME*IN_DAYS docs](https://docs.snowflake.com/en/sql-reference/parameters#max-data-extension-time-in-days).
          * 
          * @return builder
          * 
@@ -704,7 +704,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param quotedIdentifiersIgnoreCase If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+         * @param quotedIdentifiersIgnoreCase If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
          * 
          * @return builder
          * 
@@ -715,7 +715,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param quotedIdentifiersIgnoreCase If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+         * @param quotedIdentifiersIgnoreCase If true, the case of quoted identifiers is ignored. For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
          * 
          * @return builder
          * 
@@ -725,7 +725,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
          * 
          * @return builder
          * 
@@ -736,7 +736,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, check [REPLACE*INVALID*CHARACTERS docs](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
          * 
          * @return builder
          * 
@@ -746,7 +746,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
          * 
          * @return builder
          * 
@@ -757,7 +757,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. Valid values are (case-insensitive): `COMPATIBLE` | `OPTIMIZED`. For more information, check [STORAGE*SERIALIZATION*POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
          * 
          * @return builder
          * 
@@ -767,7 +767,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param suspendTaskAfterNumFailures How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+         * @param suspendTaskAfterNumFailures How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
          * 
          * @return builder
          * 
@@ -778,7 +778,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param suspendTaskAfterNumFailures How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+         * @param suspendTaskAfterNumFailures How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
          * 
          * @return builder
          * 
@@ -788,7 +788,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param taskAutoRetryAttempts Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+         * @param taskAutoRetryAttempts Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
          * 
          * @return builder
          * 
@@ -799,7 +799,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param taskAutoRetryAttempts Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+         * @param taskAutoRetryAttempts Maximum automatic retries allowed for a user task. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
          * 
          * @return builder
          * 
@@ -809,7 +809,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param traceLevel Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+         * @param traceLevel Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 
@@ -820,7 +820,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param traceLevel Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+         * @param traceLevel Controls how trace events are ingested into the event table. Valid values are (case-insensitive): `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 
@@ -830,7 +830,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userTaskManagedInitialWarehouseSize The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+         * @param userTaskManagedInitialWarehouseSize The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
          * 
          * @return builder
          * 
@@ -841,7 +841,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userTaskManagedInitialWarehouseSize The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+         * @param userTaskManagedInitialWarehouseSize The initial size of warehouse to use for managed warehouses in the absence of history. Valid values are (case-insensitive): `XSMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `XXLARGE` | `XXXLARGE` | `X4LARGE` | `X5LARGE` | `X6LARGE`. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
          * 
          * @return builder
          * 
@@ -851,7 +851,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userTaskMinimumTriggerIntervalInSeconds Minimum amount of time between Triggered Task executions in seconds.
+         * @param userTaskMinimumTriggerIntervalInSeconds Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
          * 
          * @return builder
          * 
@@ -862,7 +862,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userTaskMinimumTriggerIntervalInSeconds Minimum amount of time between Triggered Task executions in seconds.
+         * @param userTaskMinimumTriggerIntervalInSeconds Minimum amount of time between Triggered Task executions in seconds. For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
          * 
          * @return builder
          * 
@@ -872,7 +872,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userTaskTimeoutMs User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+         * @param userTaskTimeoutMs User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
          * 
          * @return builder
          * 
@@ -883,7 +883,7 @@ public final class SecondaryDatabaseArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userTaskTimeoutMs User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+         * @param userTaskTimeoutMs User task execution timeout in milliseconds. For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
          * 
          * @return builder
          * 

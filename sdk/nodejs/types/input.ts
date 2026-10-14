@@ -628,6 +628,7 @@ export interface AuthenticationPolicyShowOutput {
     owner?: pulumi.Input<string | undefined>;
     ownerRoleType?: pulumi.Input<string | undefined>;
     schemaName?: pulumi.Input<string | undefined>;
+    targetScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface AuthenticationPolicyWorkloadIdentityPolicy {
@@ -980,12 +981,16 @@ export interface CortexSearchServiceDescribeOutput {
     databaseName?: pulumi.Input<string | undefined>;
     definition?: pulumi.Input<string | undefined>;
     embeddingModel?: pulumi.Input<string | undefined>;
+    fullIndexBuildIntervalDays?: pulumi.Input<number | undefined>;
     indexingError?: pulumi.Input<string | undefined>;
     indexingState?: pulumi.Input<string | undefined>;
     name?: pulumi.Input<string | undefined>;
+    primaryKeyColumns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     schemaName?: pulumi.Input<string | undefined>;
+    scoringProfileCount?: pulumi.Input<number | undefined>;
     searchColumn?: pulumi.Input<string | undefined>;
     serviceQueryUrl?: pulumi.Input<string | undefined>;
+    servingState?: pulumi.Input<string | undefined>;
     sourceDataNumRows?: pulumi.Input<number | undefined>;
     targetLag?: pulumi.Input<string | undefined>;
     warehouse?: pulumi.Input<string | undefined>;
@@ -1577,6 +1582,7 @@ export interface FileFormatParquetShowOutput {
 export interface FileFormatXmlDescribeOutput {
     compression?: pulumi.Input<string | undefined>;
     disableAutoConvert?: pulumi.Input<boolean | undefined>;
+    disableSnowflakeData?: pulumi.Input<boolean | undefined>;
     id?: pulumi.Input<string | undefined>;
     ignoreUtf8Errors?: pulumi.Input<boolean | undefined>;
     preserveSpace?: pulumi.Input<boolean | undefined>;
@@ -4201,7 +4207,7 @@ export interface GrantOwnershipOnAll {
      */
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -4216,14 +4222,14 @@ export interface GrantOwnershipOnFuture {
      */
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `COMPUTE POOLS` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATABASES` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `EXTERNAL VOLUMES` | `FAILOVER GROUPS` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `ICEBERG TABLES` | `IMAGE REPOSITORIES` | `INTEGRATIONS` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `NETWORK POLICIES` | `NETWORK RULES` | `PACKAGES POLICIES` | `PIPES` | `PROCEDURES` | `MASKING POLICIES` | `PASSWORD POLICIES` | `PROJECTION POLICIES` | `REPLICATION GROUPS` | `RESOURCE MONITORS` | `ROLES` | `ROW ACCESS POLICIES` | `SCHEMAS` | `SESSION POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SEQUENCES` | `STAGES` | `STREAMS` | `TABLES` | `TAGS` | `TASKS` | `USERS` | `VIEWS` | `WAREHOUSES` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * Specifies the type of object in plural form on which you are transferring ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
 
 export interface GrantPrivilegesToAccountRoleOnAccountObject {
     /**
-     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future account objects of a given type in the account. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      */
     inherited?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnAccountObjectInherited | undefined>;
     /**
@@ -4238,7 +4244,7 @@ export interface GrantPrivilegesToAccountRoleOnAccountObject {
 
 export interface GrantPrivilegesToAccountRoleOnAccountObjectInherited {
     /**
-     * The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `USERS` | `RESOURCE MONITORS` | `WAREHOUSES` | `COMPUTE POOLS` | `DATABASES` | `INTEGRATIONS` | `CONNECTIONS` | `FAILOVER GROUPS` | `REPLICATION GROUPS` | `EXTERNAL VOLUMES`. Snowflake validates the type at apply time.
+     * The plural object type of the account object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -4253,7 +4259,7 @@ export interface GrantPrivilegesToAccountRoleOnSchema {
      */
     futureSchemasInDatabase?: pulumi.Input<string | undefined>;
     /**
-     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future schemas in either the account or a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      */
     inherited?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaInherited | undefined>;
     /**
@@ -4283,7 +4289,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObject {
      */
     future?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectFuture | undefined>;
     /**
-     * Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in the account, a database, or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      */
     inherited?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObjectInherited | undefined>;
     /**
@@ -4300,7 +4306,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectAll {
     inDatabase?: pulumi.Input<string | undefined>;
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -4309,7 +4315,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: pulumi.Input<string | undefined>;
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -4328,7 +4334,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectInherited {
      */
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which an inherited privilege will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -4343,7 +4349,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchema {
      */
     futureSchemasInDatabase?: pulumi.Input<string | undefined>;
     /**
-     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future schemas in a database. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      */
     inherited?: pulumi.Input<string | undefined>;
     /**
@@ -4362,7 +4368,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObject {
      */
     future?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture | undefined>;
     /**
-     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field can be only used when `INHERITED_GRANTS` option is specified in provider block in the `experimentalFeaturesEnabled` field.
+     * Configures an inherited privilege to be granted on all current and future objects of a given type in a database or a schema. See [Inherited grants](https://docs.snowflake.com/en/user-guide/inherited-grants-using) for more details. This field is enabled by default as part of the `INHERITED_GRANTS` experimental feature. You can opt out by listing `INHERITED_GRANTS` in `experimentalFeaturesDisabled` in the provider block. This experiment will be removed in v2.23.0 or v2.24.0.
      */
     inherited?: pulumi.Input<inputs.GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited | undefined>;
     /**
@@ -4385,7 +4391,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectAll {
      */
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -4400,7 +4406,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SEQUENCES` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -4415,7 +4421,7 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectInherited {
      */
     inSchema?: pulumi.Input<string | undefined>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters). Known examples (case-insensitive): `AGENTS` | `AGGREGATION POLICIES` | `ALERTS` | `AUTHENTICATION POLICIES` | `CORTEX SEARCH SERVICES` | `DATA METRIC FUNCTIONS` | `DATASETS` | `DBT PROJECTS` | `DYNAMIC TABLES` | `EVENT TABLES` | `EXPERIMENTS` | `EXTERNAL TABLES` | `FILE FORMATS` | `FUNCTIONS` | `GIT REPOSITORIES` | `HYBRID TABLES` | `IMAGE REPOSITORIES` | `ICEBERG TABLES` | `INTERACTIVE TABLES` | `MASKING POLICIES` | `MATERIALIZED VIEWS` | `MCP SERVERS` | `MODELS` | `MODEL MONITORS` | `NETWORK RULES` | `NOTEBOOKS` | `ONLINE FEATURE TABLES` | `PACKAGES POLICIES` | `PASSWORD POLICIES` | `PIPES` | `PRIVACY POLICIES` | `PROCEDURES` | `PROJECTION POLICIES` | `ROW ACCESS POLICIES` | `SECRETS` | `SEMANTIC VIEWS` | `SERVICES` | `SESSION POLICIES` | `SEQUENCES` | `SNAPSHOTS` | `SNAPSHOT POLICIES` | `SNAPSHOT SETS` | `STAGES` | `STREAMS` | `STREAMLITS` | `TABLES` | `TAGS` | `TASKS` | `VIEWS` | `WORKSPACES`. Snowflake validates the type at apply time.
+     * The plural object type of the schema object on which privileges will be granted. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege#required-parameters).
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -7726,6 +7732,8 @@ export interface SchemaParameter {
     catalogs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterCatalog>[] | undefined>;
     dataRetentionTimeInDays?: pulumi.Input<pulumi.Input<inputs.SchemaParameterDataRetentionTimeInDay>[] | undefined>;
     defaultDdlCollations?: pulumi.Input<pulumi.Input<inputs.SchemaParameterDefaultDdlCollation>[] | undefined>;
+    defaultNotebookComputePoolCpus?: pulumi.Input<pulumi.Input<inputs.SchemaParameterDefaultNotebookComputePoolCpus>[] | undefined>;
+    defaultNotebookComputePoolGpus?: pulumi.Input<pulumi.Input<inputs.SchemaParameterDefaultNotebookComputePoolGpus>[] | undefined>;
     enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.SchemaParameterEnableConsoleOutput>[] | undefined>;
     externalVolumes?: pulumi.Input<pulumi.Input<inputs.SchemaParameterExternalVolume>[] | undefined>;
     logEventLevels?: pulumi.Input<pulumi.Input<inputs.SchemaParameterLogEventLevel>[] | undefined>;
@@ -7760,6 +7768,22 @@ export interface SchemaParameterDataRetentionTimeInDay {
 }
 
 export interface SchemaParameterDefaultDdlCollation {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface SchemaParameterDefaultNotebookComputePoolCpus {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
+}
+
+export interface SchemaParameterDefaultNotebookComputePoolGpus {
     default?: pulumi.Input<string | undefined>;
     description?: pulumi.Input<string | undefined>;
     key?: pulumi.Input<string | undefined>;
@@ -8355,6 +8379,18 @@ export interface ServiceFromSpecificationTemplateUsing {
      * The value to assign to the variable in the template. The value must either be alphanumeric or valid JSON. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. Using `$$` in this field is disallowed.
      */
     value: pulumi.Input<string>;
+}
+
+export interface ServiceParameter {
+    serviceCallerTokenValiditySecs?: pulumi.Input<pulumi.Input<inputs.ServiceParameterServiceCallerTokenValiditySec>[] | undefined>;
+}
+
+export interface ServiceParameterServiceCallerTokenValiditySec {
+    default?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string | undefined>;
+    key?: pulumi.Input<string | undefined>;
+    level?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string | undefined>;
 }
 
 export interface ServiceShowOutput {
@@ -9068,6 +9104,7 @@ export interface SessionPolicyShowOutput {
     owner?: pulumi.Input<string | undefined>;
     ownerRoleType?: pulumi.Input<string | undefined>;
     schemaName?: pulumi.Input<string | undefined>;
+    targetScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
 export interface StageExternalAzureCredentials {
@@ -9084,6 +9121,8 @@ export interface StageExternalAzureDescribeOutput {
 
 export interface StageExternalAzureDescribeOutputDirectoryTable {
     autoRefresh?: pulumi.Input<boolean | undefined>;
+    awsSnsTopic?: pulumi.Input<string | undefined>;
+    directoryNotificationChannel?: pulumi.Input<string | undefined>;
     enable?: pulumi.Input<boolean | undefined>;
     lastRefreshedOn?: pulumi.Input<string | undefined>;
 }
@@ -9533,6 +9572,8 @@ export interface StageExternalGcsDescribeOutput {
 
 export interface StageExternalGcsDescribeOutputDirectoryTable {
     autoRefresh?: pulumi.Input<boolean | undefined>;
+    awsSnsTopic?: pulumi.Input<string | undefined>;
+    directoryNotificationChannel?: pulumi.Input<string | undefined>;
     enable?: pulumi.Input<boolean | undefined>;
     lastRefreshedOn?: pulumi.Input<string | undefined>;
 }
@@ -9994,6 +10035,8 @@ export interface StageExternalS3CompatibleDescribeOutput {
 
 export interface StageExternalS3CompatibleDescribeOutputDirectoryTable {
     autoRefresh?: pulumi.Input<boolean | undefined>;
+    awsSnsTopic?: pulumi.Input<string | undefined>;
+    directoryNotificationChannel?: pulumi.Input<string | undefined>;
     enable?: pulumi.Input<boolean | undefined>;
     lastRefreshedOn?: pulumi.Input<string | undefined>;
 }
@@ -10443,6 +10486,8 @@ export interface StageExternalS3DescribeOutput {
 
 export interface StageExternalS3DescribeOutputDirectoryTable {
     autoRefresh?: pulumi.Input<boolean | undefined>;
+    awsSnsTopic?: pulumi.Input<string | undefined>;
+    directoryNotificationChannel?: pulumi.Input<string | undefined>;
     enable?: pulumi.Input<boolean | undefined>;
     lastRefreshedOn?: pulumi.Input<string | undefined>;
 }
@@ -10919,6 +10964,8 @@ export interface StageInternalDescribeOutput {
 
 export interface StageInternalDescribeOutputDirectoryTable {
     autoRefresh?: pulumi.Input<boolean | undefined>;
+    awsSnsTopic?: pulumi.Input<string | undefined>;
+    directoryNotificationChannel?: pulumi.Input<string | undefined>;
     enable?: pulumi.Input<boolean | undefined>;
     lastRefreshedOn?: pulumi.Input<string | undefined>;
 }
@@ -12594,6 +12641,7 @@ export interface TaskShowOutput {
     databaseName?: pulumi.Input<string | undefined>;
     definition?: pulumi.Input<string | undefined>;
     errorIntegration?: pulumi.Input<string | undefined>;
+    executeAsUser?: pulumi.Input<string | undefined>;
     id?: pulumi.Input<string | undefined>;
     lastCommittedOn?: pulumi.Input<string | undefined>;
     lastSuspendedOn?: pulumi.Input<string | undefined>;
