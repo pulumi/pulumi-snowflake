@@ -211,6 +211,12 @@ func (FileFormatXmlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileFormatXmlState)(nil)).Elem()
 }
 
+// FileFormatXmlExists checks whether an existing FileFormatXml resource with the given ID exists.
+func FileFormatXmlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileFormatXmlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/fileFormatXml:FileFormatXml", id, state, "", opts...)
+}
+
 type fileFormatXmlArgs struct {
 	// Specifies a comment for the file format.
 	Comment *string `pulumi:"comment"`

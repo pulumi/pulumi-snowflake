@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         //# Basic
  *         var test = new Database("test", DatabaseArgs.builder()
  *             .name("some_database")
@@ -87,15 +87,15 @@ import javax.annotation.Nullable;
  *             .on("SOME_TEXT")
  *             .targetLag("2 minutes")
  *             .warehouse("some_warehouse")
- *             .query("SELECT SOME_TEXT FROM \"some_database\".\"some_schema\".\"some_table\"")
+ *             .query("SELECT SOME_TEXT FROM }&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code ".}&#92;{@code "some_table}&#92;{@code "")
  *             .comment("some comment")
  *             .embeddingModel("snowflake-arctic-embed-m-v1.5")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testTable)
  *                 .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.

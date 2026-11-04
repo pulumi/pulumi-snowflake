@@ -193,6 +193,12 @@ func (WarehouseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*warehouseState)(nil)).Elem()
 }
 
+// WarehouseExists checks whether an existing Warehouse resource with the given ID exists.
+func WarehouseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WarehouseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/warehouse:Warehouse", id, state, "", opts...)
+}
+
 type warehouseArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoResume *string `pulumi:"autoResume"`

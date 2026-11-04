@@ -695,6 +695,38 @@ class CatalogIntegrationIcebergRest(pulumi.CustomResource):
         __props__.__dict__["sigv4_rest_authentication"] = sigv4_rest_authentication
         return CatalogIntegrationIcebergRest(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            bearer_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestBearerRestAuthenticationArgs', 'CatalogIntegrationIcebergRestBearerRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestBearerRestAuthentication']]] = None,
+            catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestDescribeOutputArgs', 'CatalogIntegrationIcebergRestDescribeOutputArgsDict', 'outputs.CatalogIntegrationIcebergRestDescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestOauthRestAuthenticationArgs', 'CatalogIntegrationIcebergRestOauthRestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestOauthRestAuthentication']]] = None,
+            refresh_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            rest_config: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestRestConfigArgs', 'CatalogIntegrationIcebergRestRestConfigArgsDict', 'outputs.CatalogIntegrationIcebergRestRestConfig']]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationIcebergRestShowOutputArgs', 'CatalogIntegrationIcebergRestShowOutputArgsDict', 'outputs.CatalogIntegrationIcebergRestShowOutput']]]]] = None,
+            sigv4_rest_authentication: pulumi.Input[Optional[Union['CatalogIntegrationIcebergRestSigv4RestAuthenticationArgs', 'CatalogIntegrationIcebergRestSigv4RestAuthenticationArgsDict', 'outputs.CatalogIntegrationIcebergRestSigv4RestAuthentication']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["bearerRestAuthentication"] = bearer_rest_authentication
+        __props__["catalogNamespace"] = catalog_namespace
+        __props__["catalogSource"] = catalog_source
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["oauthRestAuthentication"] = oauth_rest_authentication
+        __props__["refreshIntervalSeconds"] = refresh_interval_seconds
+        __props__["restConfig"] = rest_config
+        __props__["showOutputs"] = show_outputs
+        __props__["sigv4RestAuthentication"] = sigv4_rest_authentication
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/catalogIntegrationIcebergRest:CatalogIntegrationIcebergRest', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="bearerRestAuthentication")
     def bearer_rest_authentication(self) -> pulumi.Output[Optional['outputs.CatalogIntegrationIcebergRestBearerRestAuthentication']]:

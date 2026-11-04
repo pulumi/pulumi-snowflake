@@ -126,6 +126,12 @@ func (CortexAgentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cortexAgentState)(nil)).Elem()
 }
 
+// CortexAgentExists checks whether an existing CortexAgent resource with the given ID exists.
+func CortexAgentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CortexAgentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/cortexAgent:CortexAgent", id, state, "", opts...)
+}
+
 type cortexAgentArgs struct {
 	// Specifies a comment for the Cortex agent.
 	Comment *string `pulumi:"comment"`

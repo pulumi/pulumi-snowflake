@@ -324,6 +324,18 @@ class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
         __props__.__dict__["for_all_service_users"] = for_all_service_users
         return AccountAuthenticationPolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationPolicy"] = authentication_policy
+        __props__["forAllPersonUsers"] = for_all_person_users
+        __props__["forAllServiceUsers"] = for_all_service_users
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationPolicy")
     def authentication_policy(self) -> pulumi.Output[_builtins.str]:

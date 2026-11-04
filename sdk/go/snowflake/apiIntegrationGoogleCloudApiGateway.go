@@ -179,6 +179,12 @@ func (ApiIntegrationGoogleCloudApiGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationGoogleCloudApiGatewayState)(nil)).Elem()
 }
 
+// ApiIntegrationGoogleCloudApiGatewayExists checks whether an existing ApiIntegrationGoogleCloudApiGateway resource with the given ID exists.
+func ApiIntegrationGoogleCloudApiGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationGoogleCloudApiGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiIntegrationGoogleCloudApiGateway:ApiIntegrationGoogleCloudApiGateway", id, state, "", opts...)
+}
+
 type apiIntegrationGoogleCloudApiGatewayArgs struct {
 	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service and remote service endpoints and resources.
 	ApiAllowedPrefixes []string `pulumi:"apiAllowedPrefixes"`

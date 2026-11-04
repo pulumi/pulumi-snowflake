@@ -124,6 +124,12 @@ func (AccountRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountRoleState)(nil)).Elem()
 }
 
+// AccountRoleExists checks whether an existing AccountRole resource with the given ID exists.
+func AccountRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/accountRole:AccountRole", id, state, "", opts...)
+}
+
 type accountRoleArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.

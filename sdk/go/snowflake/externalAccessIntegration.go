@@ -218,6 +218,12 @@ func (ExternalAccessIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*externalAccessIntegrationState)(nil)).Elem()
 }
 
+// ExternalAccessIntegrationExists checks whether an existing ExternalAccessIntegration resource with the given ID exists.
+func ExternalAccessIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExternalAccessIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/externalAccessIntegration:ExternalAccessIntegration", id, state, "", opts...)
+}
+
 type externalAccessIntegrationArgs struct {
 	// Specifies allowed API authentication integrations for this integration. Exactly one of `none` or `integrations` must be set inside the block.
 	AllowedApiAuthenticationIntegrations *ExternalAccessIntegrationAllowedApiAuthenticationIntegrations `pulumi:"allowedApiAuthenticationIntegrations"`

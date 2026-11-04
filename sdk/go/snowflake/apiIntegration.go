@@ -241,6 +241,12 @@ func (ApiIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationState)(nil)).Elem()
 }
 
+// ApiIntegrationExists checks whether an existing ApiIntegration resource with the given ID exists.
+func ApiIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiIntegration:ApiIntegration", id, state, "", opts...)
+}
+
 type apiIntegrationArgs struct {
 	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
 	ApiAllowedPrefixes []string `pulumi:"apiAllowedPrefixes"`

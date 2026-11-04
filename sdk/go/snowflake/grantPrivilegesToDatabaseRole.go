@@ -118,6 +118,12 @@ func (GrantPrivilegesToDatabaseRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grantPrivilegesToDatabaseRoleState)(nil)).Elem()
 }
 
+// GrantPrivilegesToDatabaseRoleExists checks whether an existing GrantPrivilegesToDatabaseRole resource with the given ID exists.
+func GrantPrivilegesToDatabaseRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrantPrivilegesToDatabaseRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole", id, state, "", opts...)
+}
+
 type grantPrivilegesToDatabaseRoleArgs struct {
 	// (Default: `false`) Grant all privileges on the database role.
 	AllPrivileges *bool `pulumi:"allPrivileges"`

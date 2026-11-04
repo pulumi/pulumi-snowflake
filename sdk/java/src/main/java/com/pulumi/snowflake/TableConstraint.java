@@ -167,11 +167,10 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
     /**
      * Comment for the table constraint
      * 
-     * @deprecated
-     * Not used. Will be removed.
+     * @deprecated Not used. Will be removed.
      * 
      */
-    @Deprecated /* Not used. Will be removed. */
+    @Deprecated
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
@@ -281,14 +280,14 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rely);
     }
     /**
-     * Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
+     * Identifier for table to create constraint on. Format must follow: &#34;&#92;&#34;&amp;lt;db*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;schema*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;table*name&amp;gt;&#92;&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     @Export(name="tableId", refs={String.class}, tree="[0]")
     private Output<String> tableId;
 
     /**
-     * @return Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
+     * @return Identifier for table to create constraint on. Format must follow: &#34;&#92;&#34;&amp;lt;db*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;schema*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;table*name&amp;gt;&#92;&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     public Output<String> tableId() {

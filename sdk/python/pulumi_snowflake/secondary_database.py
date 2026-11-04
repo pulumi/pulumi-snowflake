@@ -1054,6 +1054,60 @@ class SecondaryDatabase(pulumi.CustomResource):
         __props__.__dict__["user_task_timeout_ms"] = user_task_timeout_ms
         return SecondaryDatabase(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            as_replica_of: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            default_ddl_collation: pulumi.Input[Optional[_builtins.str]] = None,
+            default_notebook_compute_pool_cpu: pulumi.Input[Optional[_builtins.str]] = None,
+            default_notebook_compute_pool_gpu: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_volume: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            is_transient: pulumi.Input[Optional[_builtins.bool]] = None,
+            log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
+            log_level: pulumi.Input[Optional[_builtins.str]] = None,
+            max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            quoted_identifiers_ignore_case: pulumi.Input[Optional[_builtins.bool]] = None,
+            replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+            storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            suspend_task_after_num_failures: pulumi.Input[Optional[_builtins.int]] = None,
+            task_auto_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
+            trace_level: pulumi.Input[Optional[_builtins.str]] = None,
+            user_task_managed_initial_warehouse_size: pulumi.Input[Optional[_builtins.str]] = None,
+            user_task_minimum_trigger_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            user_task_timeout_ms: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["asReplicaOf"] = as_replica_of
+        __props__["catalog"] = catalog
+        __props__["comment"] = comment
+        __props__["dataRetentionTimeInDays"] = data_retention_time_in_days
+        __props__["defaultDdlCollation"] = default_ddl_collation
+        __props__["defaultNotebookComputePoolCpu"] = default_notebook_compute_pool_cpu
+        __props__["defaultNotebookComputePoolGpu"] = default_notebook_compute_pool_gpu
+        __props__["enableConsoleOutput"] = enable_console_output
+        __props__["externalVolume"] = external_volume
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["isTransient"] = is_transient
+        __props__["logEventLevel"] = log_event_level
+        __props__["logLevel"] = log_level
+        __props__["maxDataExtensionTimeInDays"] = max_data_extension_time_in_days
+        __props__["name"] = name
+        __props__["quotedIdentifiersIgnoreCase"] = quoted_identifiers_ignore_case
+        __props__["replaceInvalidCharacters"] = replace_invalid_characters
+        __props__["storageSerializationPolicy"] = storage_serialization_policy
+        __props__["suspendTaskAfterNumFailures"] = suspend_task_after_num_failures
+        __props__["taskAutoRetryAttempts"] = task_auto_retry_attempts
+        __props__["traceLevel"] = trace_level
+        __props__["userTaskManagedInitialWarehouseSize"] = user_task_managed_initial_warehouse_size
+        __props__["userTaskMinimumTriggerIntervalInSeconds"] = user_task_minimum_trigger_interval_in_seconds
+        __props__["userTaskTimeoutMs"] = user_task_timeout_ms
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/secondaryDatabase:SecondaryDatabase', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="asReplicaOf")
     def as_replica_of(self) -> pulumi.Output[_builtins.str]:

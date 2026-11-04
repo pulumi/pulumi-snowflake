@@ -281,6 +281,20 @@ class Execute(pulumi.CustomResource):
         __props__.__dict__["revert"] = revert
         return Execute(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            execute: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            query_results: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
+            revert: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["execute"] = execute
+        __props__["query"] = query
+        __props__["queryResults"] = query_results
+        __props__["revert"] = revert
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/execute:Execute', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def execute(self) -> pulumi.Output[_builtins.str]:

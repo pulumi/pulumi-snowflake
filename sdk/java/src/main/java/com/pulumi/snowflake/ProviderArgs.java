@@ -84,22 +84,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
      * 
-     * @deprecated
-     * This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
+     * @deprecated This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
      * 
      */
-    @Deprecated /* This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. */
+    @Deprecated
     @Import(name="clientIp")
     private @Nullable Output<String> clientIp;
 
     /**
      * @return This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
      * 
-     * @deprecated
-     * This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
+     * @deprecated This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
      * 
      */
-    @Deprecated /* This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. */
+    @Deprecated
     public Optional<Output<String>> clientIp() {
         return Optional.ofNullable(this.clientIp);
     }
@@ -272,22 +270,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`. Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
      * 
-     * @deprecated
-     * This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`.
+     * @deprecated This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`.
      * 
      */
-    @Deprecated /* This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`. */
+    @Deprecated
     @Import(name="disableTelemetry", json=true)
     private @Nullable Output<Boolean> disableTelemetry;
 
     /**
      * @return This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`. Disables telemetry in the driver. Can also be sourced from the `DISABLE_TELEMETRY` environment variable.
      * 
-     * @deprecated
-     * This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`.
+     * @deprecated This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`.
      * 
      */
-    @Deprecated /* This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`. */
+    @Deprecated
     public Optional<Output<Boolean>> disableTelemetry() {
         return Optional.ofNullable(this.disableTelemetry);
     }
@@ -400,22 +396,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
      * 
-     * @deprecated
-     * This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver.
+     * @deprecated This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver.
      * 
      */
-    @Deprecated /* This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver. */
+    @Deprecated
     @Import(name="insecureMode", json=true)
     private @Nullable Output<Boolean> insecureMode;
 
     /**
      * @return This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver. If true, bypass the Online Certificate Status Protocol (OCSP) certificate revocation check. IMPORTANT: Change the default value for testing or emergency situations only. Can also be sourced from the `SNOWFLAKE_INSECURE_MODE` environment variable.
      * 
-     * @deprecated
-     * This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver.
+     * @deprecated This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver.
      * 
      */
-    @Deprecated /* This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver. */
+    @Deprecated
     public Optional<Output<Boolean>> insecureMode() {
         return Optional.ofNullable(this.insecureMode);
     }
@@ -766,14 +760,14 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `\n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+     * Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `&#92;n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
     @Import(name="privateKey")
     private @Nullable Output<String> privateKey;
 
     /**
-     * @return Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `\n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+     * @return Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `&#92;n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
     public Optional<Output<String>> privateKey() {
@@ -933,22 +927,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * This field is deprecated. It will be removed in the next major release. False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
      * 
-     * @deprecated
-     * This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag.
+     * @deprecated This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag.
      * 
      */
-    @Deprecated /* This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag. */
+    @Deprecated
     @Import(name="skipTomlFilePermissionVerification", json=true)
     private @Nullable Output<Boolean> skipTomlFilePermissionVerification;
 
     /**
      * @return This field is deprecated. It will be removed in the next major release. False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting the proper privileges - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
      * 
-     * @deprecated
-     * This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag.
+     * @deprecated This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag.
      * 
      */
-    @Deprecated /* This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag. */
+    @Deprecated
     public Optional<Output<Boolean>> skipTomlFilePermissionVerification() {
         return Optional.ofNullable(this.skipTomlFilePermissionVerification);
     }
@@ -1285,11 +1277,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
+         * @deprecated This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
          * 
          */
-        @Deprecated /* This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. */
+        @Deprecated
         public Builder clientIp(@Nullable Output<String> clientIp) {
             $.clientIp = clientIp;
             return this;
@@ -1300,11 +1291,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
+         * @deprecated This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
          * 
          */
-        @Deprecated /* This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. */
+        @Deprecated
         public Builder clientIp(String clientIp) {
             return clientIp(Output.of(clientIp));
         }
@@ -1545,11 +1535,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`.
+         * @deprecated This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`.
          * 
          */
-        @Deprecated /* This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`. */
+        @Deprecated
         public Builder disableTelemetry(@Nullable Output<Boolean> disableTelemetry) {
             $.disableTelemetry = disableTelemetry;
             return this;
@@ -1560,11 +1549,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`.
+         * @deprecated This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`.
          * 
          */
-        @Deprecated /* This field is deprecated. It will be removed in the next major release. Use `params` to set `CLIENT_TELEMETRY_ENABLED` session parameter instead. Setting this field adds `CLIENT_TELEMETRY_ENABLED` with value `false` to `params`. */
+        @Deprecated
         public Builder disableTelemetry(Boolean disableTelemetry) {
             return disableTelemetry(Output.of(disableTelemetry));
         }
@@ -1741,11 +1729,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver.
+         * @deprecated This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver.
          * 
          */
-        @Deprecated /* This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver. */
+        @Deprecated
         public Builder insecureMode(@Nullable Output<Boolean> insecureMode) {
             $.insecureMode = insecureMode;
             return this;
@@ -1756,11 +1743,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver.
+         * @deprecated This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver.
          * 
          */
-        @Deprecated /* This field is deprecated. It will be removed in the next major release. Use `disableOcspChecks` instead. Setting this field sets `disableOcspChecks` in the underlying driver. */
+        @Deprecated
         public Builder insecureMode(Boolean insecureMode) {
             return insecureMode(Output.of(insecureMode));
         }
@@ -2259,7 +2245,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `\n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+         * @param privateKey Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `&#92;n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
          * 
          * @return builder
          * 
@@ -2270,7 +2256,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param privateKey Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `\n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+         * @param privateKey Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `&#92;n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
          * 
          * @return builder
          * 
@@ -2494,11 +2480,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag.
+         * @deprecated This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag.
          * 
          */
-        @Deprecated /* This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag. */
+        @Deprecated
         public Builder skipTomlFilePermissionVerification(@Nullable Output<Boolean> skipTomlFilePermissionVerification) {
             $.skipTomlFilePermissionVerification = skipTomlFilePermissionVerification;
             return this;
@@ -2509,11 +2494,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag.
+         * @deprecated This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag.
          * 
          */
-        @Deprecated /* This field is deprecated. It will be removed in the next major release. Skipping TOML configuration file permission verification will be disallowed in the next major release. Make sure the TOML configuration file permissions are set correctly before removing this flag. */
+        @Deprecated
         public Builder skipTomlFilePermissionVerification(Boolean skipTomlFilePermissionVerification) {
             return skipTomlFilePermissionVerification(Output.of(skipTomlFilePermissionVerification));
         }

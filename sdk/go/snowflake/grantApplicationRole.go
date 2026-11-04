@@ -86,6 +86,12 @@ func (GrantApplicationRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grantApplicationRoleState)(nil)).Elem()
 }
 
+// GrantApplicationRoleExists checks whether an existing GrantApplicationRole resource with the given ID exists.
+func GrantApplicationRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrantApplicationRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/grantApplicationRole:GrantApplicationRole", id, state, "", opts...)
+}
+
 type grantApplicationRoleArgs struct {
 	// The fully qualified name of the application on which application role will be granted.
 	ApplicationName *string `pulumi:"applicationName"`

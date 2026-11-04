@@ -38,27 +38,27 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         //# Minimal
  *         var basic = new SecondaryConnection("basic", SecondaryConnectionArgs.builder()
  *             .name("connection_name")
- *             .asReplicaOf("\"<organization_name>\".\"<account_name>\".\"<connection_name>\"")
+ *             .asReplicaOf("}&#92;{@code "<organization_name>}&#92;{@code ".}&#92;{@code "<account_name>}&#92;{@code ".}&#92;{@code "<connection_name>}&#92;{@code "")
  *             .build());
  * 
  *         //# Complete (with every optional set)
  *         var complete = new SecondaryConnection("complete", SecondaryConnectionArgs.builder()
  *             .name("connection_name")
- *             .asReplicaOf("\"<organization_name>\".\"<account_name>\".\"<connection_name>\"")
+ *             .asReplicaOf("}&#92;{@code "<organization_name>}&#92;{@code ".}&#92;{@code "<account_name>}&#92;{@code ".}&#92;{@code "<connection_name>}&#92;{@code "")
  *             .comment("my complete secondary connection")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

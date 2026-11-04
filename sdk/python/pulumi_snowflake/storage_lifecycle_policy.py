@@ -580,6 +580,34 @@ class StorageLifecyclePolicy(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return StorageLifecyclePolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            archive_for_days: pulumi.Input[Optional[_builtins.int]] = None,
+            archive_tier: pulumi.Input[Optional[_builtins.str]] = None,
+            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyArgumentArgs', 'StorageLifecyclePolicyArgumentArgsDict', 'outputs.StorageLifecyclePolicyArgument']]]]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyDescribeOutputArgs', 'StorageLifecyclePolicyDescribeOutputArgsDict', 'outputs.StorageLifecyclePolicyDescribeOutput']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageLifecyclePolicyShowOutputArgs', 'StorageLifecyclePolicyShowOutputArgsDict', 'outputs.StorageLifecyclePolicyShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["archiveForDays"] = archive_for_days
+        __props__["archiveTier"] = archive_tier
+        __props__["arguments"] = arguments
+        __props__["body"] = body
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/storageLifecyclePolicy:StorageLifecyclePolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="archiveForDays")
     def archive_for_days(self) -> pulumi.Output[Optional[_builtins.int]]:

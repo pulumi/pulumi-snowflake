@@ -210,6 +210,12 @@ func (ComputePoolState) ElementType() reflect.Type {
 	return reflect.TypeOf((*computePoolState)(nil)).Elem()
 }
 
+// ComputePoolExists checks whether an existing ComputePool resource with the given ID exists.
+func ComputePoolExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ComputePoolState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/computePool:ComputePool", id, state, "", opts...)
+}
+
 type computePoolArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a compute pool when a service or job is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoResume *string `pulumi:"autoResume"`

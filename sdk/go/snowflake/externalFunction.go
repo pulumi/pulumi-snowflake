@@ -245,6 +245,12 @@ func (ExternalFunctionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*externalFunctionState)(nil)).Elem()
 }
 
+// ExternalFunctionExists checks whether an existing ExternalFunction resource with the given ID exists.
+func ExternalFunctionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExternalFunctionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/externalFunction:ExternalFunction", id, state, "", opts...)
+}
+
 type externalFunctionArgs struct {
 	// The name of the API integration object that should be used to authenticate the call to the proxy service.
 	ApiIntegration string `pulumi:"apiIntegration"`

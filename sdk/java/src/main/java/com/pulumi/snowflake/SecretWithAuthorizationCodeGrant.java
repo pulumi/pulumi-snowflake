@@ -128,14 +128,14 @@ public class SecretWithAuthorizationCodeGrant extends com.pulumi.resources.Custo
         return this.oauthRefreshToken;
     }
     /**
-     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &#92;n&#92;n
      * 
      */
     @Export(name="oauthRefreshTokenExpiryTime", refs={String.class}, tree="[0]")
     private Output<String> oauthRefreshTokenExpiryTime;
 
     /**
-     * @return Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+     * @return Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &#92;n&#92;n
      * 
      */
     public Output<String> oauthRefreshTokenExpiryTime() {

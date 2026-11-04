@@ -431,6 +431,28 @@ class Listing(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return Listing(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_package: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            manifest: pulumi.Input[Optional[Union['ListingManifestArgs', 'ListingManifestArgsDict', 'outputs.ListingManifest']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            publish: pulumi.Input[Optional[_builtins.str]] = None,
+            share: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListingShowOutputArgs', 'ListingShowOutputArgsDict', 'outputs.ListingShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationPackage"] = application_package
+        __props__["comment"] = comment
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["manifest"] = manifest
+        __props__["name"] = name
+        __props__["publish"] = publish
+        __props__["share"] = share
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/listing:Listing', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationPackage")
     def application_package(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -1672,6 +1672,74 @@ class IcebergTable(pulumi.CustomResource):
         __props__.__dict__["unique_constraints"] = unique_constraints
         return IcebergTable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aggregation_policy: pulumi.Input[Optional[Union['IcebergTableAggregationPolicyArgs', 'IcebergTableAggregationPolicyArgsDict', 'outputs.IcebergTableAggregationPolicy']]] = None,
+            base_location: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_sync: pulumi.Input[Optional[_builtins.str]] = None,
+            change_tracking: pulumi.Input[Optional[_builtins.str]] = None,
+            check_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableCheckConstraintArgs', 'IcebergTableCheckConstraintArgsDict', 'outputs.IcebergTableCheckConstraint']]]]] = None,
+            cluster_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableColumnArgs', 'IcebergTableColumnArgsDict', 'outputs.IcebergTableColumn']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableDescribeOutputArgs', 'IcebergTableDescribeOutputArgsDict', 'outputs.IcebergTableDescribeOutput']]]]] = None,
+            enable_data_compaction: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_iceberg_merge_on_read: pulumi.Input[Optional[_builtins.bool]] = None,
+            error_logging: pulumi.Input[Optional[_builtins.str]] = None,
+            external_volume: pulumi.Input[Optional[_builtins.str]] = None,
+            foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableForeignKeyConstraintArgs', 'IcebergTableForeignKeyConstraintArgsDict', 'outputs.IcebergTableForeignKeyConstraint']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            iceberg_version: pulumi.Input[Optional[_builtins.int]] = None,
+            max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableParameterArgs', 'IcebergTableParameterArgsDict', 'outputs.IcebergTableParameter']]]]] = None,
+            partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTablePartitionByArgs', 'IcebergTablePartitionByArgsDict', 'outputs.IcebergTablePartitionBy']]]]] = None,
+            path_layout: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key_constraint: pulumi.Input[Optional[Union['IcebergTablePrimaryKeyConstraintArgs', 'IcebergTablePrimaryKeyConstraintArgsDict', 'outputs.IcebergTablePrimaryKeyConstraint']]] = None,
+            row_access_policy: pulumi.Input[Optional[Union['IcebergTableRowAccessPolicyArgs', 'IcebergTableRowAccessPolicyArgsDict', 'outputs.IcebergTableRowAccessPolicy']]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableShowOutputArgs', 'IcebergTableShowOutputArgsDict', 'outputs.IcebergTableShowOutput']]]]] = None,
+            storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            target_file_size: pulumi.Input[Optional[_builtins.str]] = None,
+            unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableUniqueConstraintArgs', 'IcebergTableUniqueConstraintArgsDict', 'outputs.IcebergTableUniqueConstraint']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aggregationPolicy"] = aggregation_policy
+        __props__["baseLocation"] = base_location
+        __props__["catalog"] = catalog
+        __props__["catalogSync"] = catalog_sync
+        __props__["changeTracking"] = change_tracking
+        __props__["checkConstraints"] = check_constraints
+        __props__["clusterBies"] = cluster_bies
+        __props__["columns"] = columns
+        __props__["comment"] = comment
+        __props__["dataRetentionTimeInDays"] = data_retention_time_in_days
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enableDataCompaction"] = enable_data_compaction
+        __props__["enableIcebergMergeOnRead"] = enable_iceberg_merge_on_read
+        __props__["errorLogging"] = error_logging
+        __props__["externalVolume"] = external_volume
+        __props__["foreignKeyConstraints"] = foreign_key_constraints
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["icebergVersion"] = iceberg_version
+        __props__["maxDataExtensionTimeInDays"] = max_data_extension_time_in_days
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["partitionBies"] = partition_bies
+        __props__["pathLayout"] = path_layout
+        __props__["primaryKeyConstraint"] = primary_key_constraint
+        __props__["rowAccessPolicy"] = row_access_policy
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["storageSerializationPolicy"] = storage_serialization_policy
+        __props__["targetFileSize"] = target_file_size
+        __props__["uniqueConstraints"] = unique_constraints
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/icebergTable:IcebergTable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aggregationPolicy")
     def aggregation_policy(self) -> pulumi.Output[Optional['outputs.IcebergTableAggregationPolicy']]:

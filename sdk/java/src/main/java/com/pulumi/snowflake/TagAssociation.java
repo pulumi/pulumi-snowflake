@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var test = new Database("test", DatabaseArgs.builder()
  *             .name("database")
  *             .build());
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  * 
  *         var columnAssociation = new TagAssociation("columnAssociation", TagAssociationArgs.builder()
  *             .objectIdentifiers(StdFunctions.format(FormatArgs.builder()
- *                 .input("%s.\"column1\"")
+ *                 .input("%s.}&#92;{@code "column1}&#92;{@code "")
  *                 .args(testTable.fullyQualifiedName())
  *                 .build()).result())
  *             .objectType("COLUMN")
@@ -123,14 +123,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var accountAssociation = new TagAssociation("accountAssociation", TagAssociationArgs.builder()
- *             .objectIdentifiers("\"ORGANIZATION_NAME\".\"ACCOUNT_NAME\"")
+ *             .objectIdentifiers("}&#92;{@code "ORGANIZATION_NAME}&#92;{@code ".}&#92;{@code "ACCOUNT_NAME}&#92;{@code "")
  *             .objectType("ACCOUNT")
  *             .tagId(testTag.fullyQualifiedName())
  *             .tagValue("engineering")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.

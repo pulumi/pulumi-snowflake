@@ -19,7 +19,7 @@ public final class SemanticViewDimension {
      */
     private @Nullable String comment;
     /**
-     * @return Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+     * @return Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
      * 
      */
     private String qualifiedExpressionName;
@@ -43,7 +43,7 @@ public final class SemanticViewDimension {
         return Optional.ofNullable(this.comment);
     }
     /**
-     * @return Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+     * @return Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
      * 
      */
     public String qualifiedExpressionName() {

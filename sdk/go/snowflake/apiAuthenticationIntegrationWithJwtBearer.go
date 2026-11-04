@@ -172,6 +172,12 @@ func (ApiAuthenticationIntegrationWithJwtBearerState) ElementType() reflect.Type
 	return reflect.TypeOf((*apiAuthenticationIntegrationWithJwtBearerState)(nil)).Elem()
 }
 
+// ApiAuthenticationIntegrationWithJwtBearerExists checks whether an existing ApiAuthenticationIntegrationWithJwtBearer resource with the given ID exists.
+func ApiAuthenticationIntegrationWithJwtBearerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiAuthenticationIntegrationWithJwtBearerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer", id, state, "", opts...)
+}
+
 type apiAuthenticationIntegrationWithJwtBearerArgs struct {
 	// Specifies a comment for the integration.
 	Comment *string `pulumi:"comment"`

@@ -280,6 +280,12 @@ func (FileFormatJsonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileFormatJsonState)(nil)).Elem()
 }
 
+// FileFormatJsonExists checks whether an existing FileFormatJson resource with the given ID exists.
+func FileFormatJsonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileFormatJsonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/fileFormatJson:FileFormatJson", id, state, "", opts...)
+}
+
 type fileFormatJsonArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to allow duplicate object field names (only the last one will be preserved). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AllowDuplicate *string `pulumi:"allowDuplicate"`

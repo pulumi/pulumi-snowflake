@@ -198,6 +198,12 @@ func (SharedDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sharedDatabaseState)(nil)).Elem()
 }
 
+// SharedDatabaseExists checks whether an existing SharedDatabase resource with the given ID exists.
+func SharedDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SharedDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/sharedDatabase:SharedDatabase", id, state, "", opts...)
+}
+
 type sharedDatabaseArgs struct {
 	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`

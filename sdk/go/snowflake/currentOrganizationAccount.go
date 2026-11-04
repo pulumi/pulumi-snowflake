@@ -1132,6 +1132,12 @@ func (CurrentOrganizationAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*currentOrganizationAccountState)(nil)).Elem()
 }
 
+// CurrentOrganizationAccountExists checks whether an existing CurrentOrganizationAccount resource with the given ID exists.
+func CurrentOrganizationAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CurrentOrganizationAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount", id, state, "", opts...)
+}
+
 type currentOrganizationAccountArgs struct {
 	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
 	AbortDetachedQuery *bool `pulumi:"abortDetachedQuery"`

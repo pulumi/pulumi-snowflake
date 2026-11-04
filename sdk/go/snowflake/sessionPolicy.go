@@ -208,6 +208,12 @@ func (SessionPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sessionPolicyState)(nil)).Elem()
 }
 
+// SessionPolicyExists checks whether an existing SessionPolicy resource with the given ID exists.
+func SessionPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SessionPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/sessionPolicy:SessionPolicy", id, state, "", opts...)
+}
+
 type sessionPolicyArgs struct {
 	// Specifies the allowed secondary roles for a session policy, if any.
 	AllowedSecondaryRoles *SessionPolicyAllowedSecondaryRoles `pulumi:"allowedSecondaryRoles"`

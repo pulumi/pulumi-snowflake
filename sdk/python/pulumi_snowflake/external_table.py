@@ -842,6 +842,46 @@ class ExternalTable(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return ExternalTable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+            aws_sns_topic: pulumi.Input[Optional[_builtins.str]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict', 'outputs.ExternalTableColumn']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            file_format: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            location: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            partition_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            pattern: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_on_create: pulumi.Input[Optional[_builtins.bool]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            table_format: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict', 'outputs.ExternalTableTag']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoRefresh"] = auto_refresh
+        __props__["awsSnsTopic"] = aws_sns_topic
+        __props__["columns"] = columns
+        __props__["comment"] = comment
+        __props__["copyGrants"] = copy_grants
+        __props__["database"] = database
+        __props__["fileFormat"] = file_format
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["location"] = location
+        __props__["name"] = name
+        __props__["owner"] = owner
+        __props__["partitionBies"] = partition_bies
+        __props__["pattern"] = pattern
+        __props__["refreshOnCreate"] = refresh_on_create
+        __props__["schema"] = schema
+        __props__["tableFormat"] = table_format
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/externalTable:ExternalTable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> pulumi.Output[Optional[_builtins.bool]]:

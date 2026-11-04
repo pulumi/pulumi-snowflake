@@ -246,6 +246,12 @@ func (CortexSearchServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*cortexSearchServiceState)(nil)).Elem()
 }
 
+// CortexSearchServiceExists checks whether an existing CortexSearchService resource with the given ID exists.
+func CortexSearchServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CortexSearchServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/cortexSearchService:CortexSearchService", id, state, "", opts...)
+}
+
 type cortexSearchServiceArgs struct {
 	// Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
 	Attributes []string `pulumi:"attributes"`

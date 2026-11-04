@@ -762,6 +762,48 @@ class ApiIntegration(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         return ApiIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            api_aws_iam_user_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            api_aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_gcp_service_account: pulumi.Input[Optional[_builtins.str]] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            api_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_ad_application_id: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_consent_url: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_multi_tenant_app_name: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            google_audience: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiAllowedPrefixes"] = api_allowed_prefixes
+        __props__["apiAwsExternalId"] = api_aws_external_id
+        __props__["apiAwsIamUserArn"] = api_aws_iam_user_arn
+        __props__["apiAwsRoleArn"] = api_aws_role_arn
+        __props__["apiBlockedPrefixes"] = api_blocked_prefixes
+        __props__["apiGcpServiceAccount"] = api_gcp_service_account
+        __props__["apiKey"] = api_key
+        __props__["apiProvider"] = api_provider
+        __props__["azureAdApplicationId"] = azure_ad_application_id
+        __props__["azureConsentUrl"] = azure_consent_url
+        __props__["azureMultiTenantAppName"] = azure_multi_tenant_app_name
+        __props__["azureTenantId"] = azure_tenant_id
+        __props__["comment"] = comment
+        __props__["createdOn"] = created_on
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["googleAudience"] = google_audience
+        __props__["name"] = name
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/apiIntegration:ApiIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiAllowedPrefixes")
     def api_allowed_prefixes(self) -> pulumi.Output[Sequence[_builtins.str]]:

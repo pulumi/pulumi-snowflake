@@ -484,6 +484,12 @@ func (StageExternalS3State) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageExternalS3State)(nil)).Elem()
 }
 
+// StageExternalS3Exists checks whether an existing StageExternalS3 resource with the given ID exists.
+func StageExternalS3Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StageExternalS3State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/stageExternalS3:StageExternalS3", id, state, "", opts...)
+}
+
 type stageExternalS3Args struct {
 	// Specifies the ARN for an AWS S3 Access Point to use for data transfer.
 	AwsAccessPointArn *string `pulumi:"awsAccessPointArn"`

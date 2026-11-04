@@ -166,11 +166,10 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
     /**
      * (Default: `false`) Prevent overwriting a previous password policy with the same name.
      * 
-     * @deprecated
-     * This field is a noop and will be removed in a future version of the provider.
+     * @deprecated This field is a noop and will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This field is a noop and will be removed in a future version of the provider. */
+    @Deprecated
     @Export(name="ifNotExists", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ifNotExists;
 
@@ -338,11 +337,10 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
     /**
      * (Default: `false`) Whether to override a previous password policy with the same name.
      * 
-     * @deprecated
-     * This field is a noop and will be removed in a future version of the provider.
+     * @deprecated This field is a noop and will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This field is a noop and will be removed in a future version of the provider. */
+    @Deprecated
     @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> orReplace;
 

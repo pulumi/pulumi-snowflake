@@ -232,6 +232,12 @@ func (OpenflowRuntimeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*openflowRuntimeState)(nil)).Elem()
 }
 
+// OpenflowRuntimeExists checks whether an existing OpenflowRuntime resource with the given ID exists.
+func OpenflowRuntimeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpenflowRuntimeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/openflowRuntime:OpenflowRuntime", id, state, "", opts...)
+}
+
 type openflowRuntimeArgs struct {
 	// Specifies a comment for the Openflow runtime.
 	Comment *string `pulumi:"comment"`

@@ -431,6 +431,22 @@ class ObjectParameter(pulumi.CustomResource):
         __props__.__dict__["value"] = value
         return ObjectParameter(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            key: pulumi.Input[Optional[_builtins.str]] = None,
+            object_identifiers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict', 'outputs.ObjectParameterObjectIdentifier']]]]] = None,
+            object_type: pulumi.Input[Optional[_builtins.str]] = None,
+            on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+            value: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["key"] = key
+        __props__["objectIdentifiers"] = object_identifiers
+        __props__["objectType"] = object_type
+        __props__["onAccount"] = on_account
+        __props__["value"] = value
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/objectParameter:ObjectParameter', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def key(self) -> pulumi.Output[_builtins.str]:

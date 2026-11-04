@@ -823,6 +823,58 @@ class DynamicTable(pulumi.CustomResource):
         __props__.__dict__["warehouse"] = warehouse
         return DynamicTable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            automatic_clustering: pulumi.Input[Optional[_builtins.bool]] = None,
+            bytes: pulumi.Input[Optional[_builtins.int]] = None,
+            cluster_by: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            data_timestamp: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            initialize: pulumi.Input[Optional[_builtins.str]] = None,
+            is_clone: pulumi.Input[Optional[_builtins.bool]] = None,
+            is_replica: pulumi.Input[Optional[_builtins.bool]] = None,
+            last_suspended_on: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_mode_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            rows: pulumi.Input[Optional[_builtins.int]] = None,
+            scheduling_state: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            target_lag: pulumi.Input[Optional[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict', 'outputs.DynamicTableTargetLag']]] = None,
+            warehouse: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["automaticClustering"] = automatic_clustering
+        __props__["bytes"] = bytes
+        __props__["clusterBy"] = cluster_by
+        __props__["comment"] = comment
+        __props__["createdOn"] = created_on
+        __props__["dataTimestamp"] = data_timestamp
+        __props__["database"] = database
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["initialize"] = initialize
+        __props__["isClone"] = is_clone
+        __props__["isReplica"] = is_replica
+        __props__["lastSuspendedOn"] = last_suspended_on
+        __props__["name"] = name
+        __props__["orReplace"] = or_replace
+        __props__["owner"] = owner
+        __props__["query"] = query
+        __props__["refreshMode"] = refresh_mode
+        __props__["refreshModeReason"] = refresh_mode_reason
+        __props__["rows"] = rows
+        __props__["schedulingState"] = scheduling_state
+        __props__["schema"] = schema
+        __props__["targetLag"] = target_lag
+        __props__["warehouse"] = warehouse
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/dynamicTable:DynamicTable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="automaticClustering")
     def automatic_clustering(self) -> pulumi.Output[_builtins.bool]:

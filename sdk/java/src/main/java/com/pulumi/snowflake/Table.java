@@ -259,11 +259,10 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * Definitions of primary key constraint to create on table
      * 
-     * @deprecated
-     * Use snowflake.TableConstraint instead
+     * @deprecated Use snowflake.TableConstraint instead
      * 
      */
-    @Deprecated /* Use snowflake.TableConstraint instead */
+    @Deprecated
     @Export(name="primaryKey", refs={TablePrimaryKey.class}, tree="[0]")
     private Output</* @Nullable */ TablePrimaryKey> primaryKey;
 
@@ -291,11 +290,10 @@ public class Table extends com.pulumi.resources.CustomResource {
     /**
      * Definitions of a tag to associate with the resource.
      * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+    @Deprecated
     @Export(name="tags", refs={List.class,TableTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<TableTag>> tags;
 

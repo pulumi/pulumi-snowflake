@@ -590,6 +590,38 @@ class Streamlit(pulumi.CustomResource):
         __props__.__dict__["title"] = title
         return Streamlit(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict', 'outputs.StreamlitDescribeOutput']]]]] = None,
+            directory_location: pulumi.Input[Optional[_builtins.str]] = None,
+            external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            main_file: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict', 'outputs.StreamlitShowOutput']]]]] = None,
+            stage: pulumi.Input[Optional[_builtins.str]] = None,
+            title: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["directoryLocation"] = directory_location
+        __props__["externalAccessIntegrations"] = external_access_integrations
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["mainFile"] = main_file
+        __props__["name"] = name
+        __props__["queryWarehouse"] = query_warehouse
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["stage"] = stage
+        __props__["title"] = title
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/streamlit:Streamlit', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -311,6 +311,12 @@ func (HybridTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*hybridTableState)(nil)).Elem()
 }
 
+// HybridTableExists checks whether an existing HybridTable resource with the given ID exists.
+func HybridTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *HybridTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/hybridTable:HybridTable", id, state, "", opts...)
+}
+
 type hybridTableArgs struct {
 	// Definitions of a column to create in the hybrid table. Minimum one required.
 	Columns []HybridTableColumn `pulumi:"columns"`

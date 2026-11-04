@@ -183,6 +183,12 @@ func (ManagedAccountState) ElementType() reflect.Type {
 	return reflect.TypeOf((*managedAccountState)(nil)).Elem()
 }
 
+// ManagedAccountExists checks whether an existing ManagedAccount resource with the given ID exists.
+func ManagedAccountExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ManagedAccountState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/managedAccount:ManagedAccount", id, state, "", opts...)
+}
+
 type managedAccountArgs struct {
 	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
 	AdminName string `pulumi:"adminName"`

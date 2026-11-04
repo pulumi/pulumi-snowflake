@@ -810,6 +810,48 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return Account(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_name: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_user_type: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            consumption_billing_entity: pulumi.Input[Optional[_builtins.str]] = None,
+            edition: pulumi.Input[Optional[_builtins.str]] = None,
+            email: pulumi.Input[Optional[_builtins.str]] = None,
+            first_name: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            grace_period_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            is_org_admin: pulumi.Input[Optional[_builtins.str]] = None,
+            last_name: pulumi.Input[Optional[_builtins.str]] = None,
+            must_change_password: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            region_group: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccountShowOutputArgs', 'AccountShowOutputArgsDict', 'outputs.AccountShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminName"] = admin_name
+        __props__["adminPassword"] = admin_password
+        __props__["adminRsaPublicKey"] = admin_rsa_public_key
+        __props__["adminUserType"] = admin_user_type
+        __props__["comment"] = comment
+        __props__["consumptionBillingEntity"] = consumption_billing_entity
+        __props__["edition"] = edition
+        __props__["email"] = email
+        __props__["firstName"] = first_name
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["gracePeriodInDays"] = grace_period_in_days
+        __props__["isOrgAdmin"] = is_org_admin
+        __props__["lastName"] = last_name
+        __props__["mustChangePassword"] = must_change_password
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["regionGroup"] = region_group
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/account:Account', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminName")
     def admin_name(self) -> pulumi.Output[_builtins.str]:

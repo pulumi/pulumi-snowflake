@@ -621,6 +621,42 @@ class StreamOnTable(pulumi.CustomResource):
         __props__.__dict__["table"] = table
         return StreamOnTable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            append_only: pulumi.Input[Optional[_builtins.str]] = None,
+            at: pulumi.Input[Optional[Union['StreamOnTableAtArgs', 'StreamOnTableAtArgsDict', 'outputs.StreamOnTableAt']]] = None,
+            before: pulumi.Input[Optional[Union['StreamOnTableBeforeArgs', 'StreamOnTableBeforeArgsDict', 'outputs.StreamOnTableBefore']]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnTableDescribeOutputArgs', 'StreamOnTableDescribeOutputArgsDict', 'outputs.StreamOnTableDescribeOutput']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_initial_rows: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamOnTableShowOutputArgs', 'StreamOnTableShowOutputArgsDict', 'outputs.StreamOnTableShowOutput']]]]] = None,
+            stale: pulumi.Input[Optional[_builtins.bool]] = None,
+            stream_type: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["appendOnly"] = append_only
+        __props__["at"] = at
+        __props__["before"] = before
+        __props__["comment"] = comment
+        __props__["copyGrants"] = copy_grants
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["schema"] = schema
+        __props__["showInitialRows"] = show_initial_rows
+        __props__["showOutputs"] = show_outputs
+        __props__["stale"] = stale
+        __props__["streamType"] = stream_type
+        __props__["table"] = table
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/streamOnTable:StreamOnTable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="appendOnly")
     def append_only(self) -> pulumi.Output[Optional[_builtins.str]]:

@@ -321,6 +321,12 @@ func (FileFormatCsvState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileFormatCsvState)(nil)).Elem()
 }
 
+// FileFormatCsvExists checks whether an existing FileFormatCsv resource with the given ID exists.
+func FileFormatCsvExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileFormatCsvState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/fileFormatCsv:FileFormatCsv", id, state, "", opts...)
+}
+
 type fileFormatCsvArgs struct {
 	// Defines the encoding format for binary input or output. Valid values: `HEX` | `BASE64` | `UTF8`.
 	BinaryFormat *string `pulumi:"binaryFormat"`

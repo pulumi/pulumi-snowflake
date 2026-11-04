@@ -383,6 +383,12 @@ func (ProcedureJavaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*procedureJavaState)(nil)).Elem()
 }
 
+// ProcedureJavaExists checks whether an existing ProcedureJava resource with the given ID exists.
+func ProcedureJavaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProcedureJavaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/procedureJava:ProcedureJava", id, state, "", opts...)
+}
+
 type procedureJavaArgs struct {
 	// List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
 	Arguments []ProcedureJavaArgument `pulumi:"arguments"`

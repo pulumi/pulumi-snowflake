@@ -169,6 +169,12 @@ func (OpenflowDeploymentSnowflakeManagedState) ElementType() reflect.Type {
 	return reflect.TypeOf((*openflowDeploymentSnowflakeManagedState)(nil)).Elem()
 }
 
+// OpenflowDeploymentSnowflakeManagedExists checks whether an existing OpenflowDeploymentSnowflakeManaged resource with the given ID exists.
+func OpenflowDeploymentSnowflakeManagedExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpenflowDeploymentSnowflakeManagedState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/openflowDeploymentSnowflakeManaged:OpenflowDeploymentSnowflakeManaged", id, state, "", opts...)
+}
+
 type openflowDeploymentSnowflakeManagedArgs struct {
 	// Specifies a comment for the Openflow deployment.
 	Comment *string `pulumi:"comment"`

@@ -573,6 +573,36 @@ class CatalogIntegrationAwsGlue(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return CatalogIntegrationAwsGlue(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_source: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationAwsGlueDescribeOutputArgs', 'CatalogIntegrationAwsGlueDescribeOutputArgsDict', 'outputs.CatalogIntegrationAwsGlueDescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            glue_aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            glue_catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
+            glue_region: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            refresh_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CatalogIntegrationAwsGlueShowOutputArgs', 'CatalogIntegrationAwsGlueShowOutputArgsDict', 'outputs.CatalogIntegrationAwsGlueShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["catalogNamespace"] = catalog_namespace
+        __props__["catalogSource"] = catalog_source
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["glueAwsRoleArn"] = glue_aws_role_arn
+        __props__["glueCatalogId"] = glue_catalog_id
+        __props__["glueRegion"] = glue_region
+        __props__["name"] = name
+        __props__["refreshIntervalSeconds"] = refresh_interval_seconds
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/catalogIntegrationAwsGlue:CatalogIntegrationAwsGlue', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="catalogNamespace")
     def catalog_namespace(self) -> pulumi.Output[Optional[_builtins.str]]:

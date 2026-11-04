@@ -3749,12 +3749,12 @@ public final class SnowflakeFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         //#################################
      *         //## SHOW GRANTS ON ...
      *         //#################################
@@ -3776,7 +3776,7 @@ public final class SnowflakeFunctions {
      *         // database object (e.g. schema)
      *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .objectType("SCHEMA")
      *                 .build())
      *             .build());
@@ -3784,7 +3784,7 @@ public final class SnowflakeFunctions {
      *         // schema object (e.g. table)
      *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code ".}&#92;{@code "some_table}&#92;{@code "")
      *                 .objectType("TABLE")
      *                 .build())
      *             .build());
@@ -3799,7 +3799,7 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -3813,7 +3813,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -3836,14 +3836,14 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
      *         // database role
      *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -3871,7 +3871,7 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -3885,7 +3885,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -3906,12 +3906,12 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -3947,12 +3947,12 @@ public final class SnowflakeFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         //#################################
      *         //## SHOW GRANTS ON ...
      *         //#################################
@@ -3974,7 +3974,7 @@ public final class SnowflakeFunctions {
      *         // database object (e.g. schema)
      *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .objectType("SCHEMA")
      *                 .build())
      *             .build());
@@ -3982,7 +3982,7 @@ public final class SnowflakeFunctions {
      *         // schema object (e.g. table)
      *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code ".}&#92;{@code "some_table}&#92;{@code "")
      *                 .objectType("TABLE")
      *                 .build())
      *             .build());
@@ -3997,7 +3997,7 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4011,7 +4011,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4034,14 +4034,14 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
      *         // database role
      *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4069,7 +4069,7 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4083,7 +4083,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4104,12 +4104,12 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -4145,12 +4145,12 @@ public final class SnowflakeFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         //#################################
      *         //## SHOW GRANTS ON ...
      *         //#################################
@@ -4172,7 +4172,7 @@ public final class SnowflakeFunctions {
      *         // database object (e.g. schema)
      *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .objectType("SCHEMA")
      *                 .build())
      *             .build());
@@ -4180,7 +4180,7 @@ public final class SnowflakeFunctions {
      *         // schema object (e.g. table)
      *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code ".}&#92;{@code "some_table}&#92;{@code "")
      *                 .objectType("TABLE")
      *                 .build())
      *             .build());
@@ -4195,7 +4195,7 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4209,7 +4209,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4232,14 +4232,14 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
      *         // database role
      *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4267,7 +4267,7 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4281,7 +4281,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4302,12 +4302,12 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -4343,12 +4343,12 @@ public final class SnowflakeFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         //#################################
      *         //## SHOW GRANTS ON ...
      *         //#################################
@@ -4370,7 +4370,7 @@ public final class SnowflakeFunctions {
      *         // database object (e.g. schema)
      *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .objectType("SCHEMA")
      *                 .build())
      *             .build());
@@ -4378,7 +4378,7 @@ public final class SnowflakeFunctions {
      *         // schema object (e.g. table)
      *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code ".}&#92;{@code "some_table}&#92;{@code "")
      *                 .objectType("TABLE")
      *                 .build())
      *             .build());
@@ -4393,7 +4393,7 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4407,7 +4407,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4430,14 +4430,14 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
      *         // database role
      *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4465,7 +4465,7 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4479,7 +4479,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4500,12 +4500,12 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -4541,12 +4541,12 @@ public final class SnowflakeFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         //#################################
      *         //## SHOW GRANTS ON ...
      *         //#################################
@@ -4568,7 +4568,7 @@ public final class SnowflakeFunctions {
      *         // database object (e.g. schema)
      *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .objectType("SCHEMA")
      *                 .build())
      *             .build());
@@ -4576,7 +4576,7 @@ public final class SnowflakeFunctions {
      *         // schema object (e.g. table)
      *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code ".}&#92;{@code "some_table}&#92;{@code "")
      *                 .objectType("TABLE")
      *                 .build())
      *             .build());
@@ -4591,7 +4591,7 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4605,7 +4605,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4628,14 +4628,14 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
      *         // database role
      *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4663,7 +4663,7 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4677,7 +4677,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4698,12 +4698,12 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -4739,12 +4739,12 @@ public final class SnowflakeFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         //#################################
      *         //## SHOW GRANTS ON ...
      *         //#################################
@@ -4766,7 +4766,7 @@ public final class SnowflakeFunctions {
      *         // database object (e.g. schema)
      *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .objectType("SCHEMA")
      *                 .build())
      *             .build());
@@ -4774,7 +4774,7 @@ public final class SnowflakeFunctions {
      *         // schema object (e.g. table)
      *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code ".}&#92;{@code "some_table}&#92;{@code "")
      *                 .objectType("TABLE")
      *                 .build())
      *             .build());
@@ -4789,7 +4789,7 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4803,7 +4803,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4826,14 +4826,14 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
      *         // database role
      *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4861,7 +4861,7 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4875,7 +4875,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -4896,12 +4896,12 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 
@@ -4937,12 +4937,12 @@ public final class SnowflakeFunctions {
      * import java.nio.file.Files;
      * import java.nio.file.Paths;
      * 
-     * public class App {
-     *     public static void main(String[] args) {
+     * public class App }{{@code
+     *     public static void main(String[] args) }{{@code
      *         Pulumi.run(App::stack);
-     *     }
+     *     }}{@code
      * 
-     *     public static void stack(Context ctx) {
+     *     public static void stack(Context ctx) }{{@code
      *         //#################################
      *         //## SHOW GRANTS ON ...
      *         //#################################
@@ -4964,7 +4964,7 @@ public final class SnowflakeFunctions {
      *         // database object (e.g. schema)
      *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .objectType("SCHEMA")
      *                 .build())
      *             .build());
@@ -4972,7 +4972,7 @@ public final class SnowflakeFunctions {
      *         // schema object (e.g. table)
      *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
+     *                 .objectName("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code ".}&#92;{@code "some_table}&#92;{@code "")
      *                 .objectType("TABLE")
      *                 .build())
      *             .build());
@@ -4987,7 +4987,7 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -5001,7 +5001,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -5024,14 +5024,14 @@ public final class SnowflakeFunctions {
      *         // application role
      *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
+     *                 .applicationRole("}&#92;{@code "some_application}&#92;{@code ".}&#92;{@code "some_application_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
      *         // database role
      *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -5059,7 +5059,7 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -5073,7 +5073,7 @@ public final class SnowflakeFunctions {
      *         // database role
      *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
+     *                 .databaseRole("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_database_role}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
@@ -5094,12 +5094,12 @@ public final class SnowflakeFunctions {
      *         // schema
      *         final var exampleInheritedInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
      *             .inheritedGrantsIn(GetGrantsInheritedGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
+     *                 .schema("}&#92;{@code "some_database}&#92;{@code ".}&#92;{@code "some_schema}&#92;{@code "")
      *                 .build())
      *             .build());
      * 
-     *     }
-     * }
+     *     }}{@code
+     * }}{@code
      * }
      * </pre>
      * 

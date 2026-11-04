@@ -353,7 +353,7 @@ public final class Config {
         return Codegen.objectProp("previewFeaturesEnabled", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
- * Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `\n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+ * Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `&#92;n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
  * 
  */
     public Optional<String> privateKey() {

@@ -166,6 +166,12 @@ func (StreamOnTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamOnTableState)(nil)).Elem()
 }
 
+// StreamOnTableExists checks whether an existing StreamOnTable resource with the given ID exists.
+func StreamOnTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamOnTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/streamOnTable:StreamOnTable", id, state, "", opts...)
+}
+
 type streamOnTableArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly *string `pulumi:"appendOnly"`

@@ -872,6 +872,50 @@ class IcebergTableFromRest(pulumi.CustomResource):
         __props__.__dict__["target_file_size"] = target_file_size
         return IcebergTableFromRest(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_refresh: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+            catalog_table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromRestDescribeOutputArgs', 'IcebergTableFromRestDescribeOutputArgsDict', 'outputs.IcebergTableFromRestDescribeOutput']]]]] = None,
+            enable_iceberg_merge_on_read: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_volume: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            iceberg_merge_on_read_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromRestParameterArgs', 'IcebergTableFromRestParameterArgsDict', 'outputs.IcebergTableFromRestParameter']]]]] = None,
+            path_layout: pulumi.Input[Optional[_builtins.str]] = None,
+            replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IcebergTableFromRestShowOutputArgs', 'IcebergTableFromRestShowOutputArgsDict', 'outputs.IcebergTableFromRestShowOutput']]]]] = None,
+            storage_serialization_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            target_file_size: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoRefresh"] = auto_refresh
+        __props__["catalog"] = catalog
+        __props__["catalogNamespace"] = catalog_namespace
+        __props__["catalogTableName"] = catalog_table_name
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enableIcebergMergeOnRead"] = enable_iceberg_merge_on_read
+        __props__["externalVolume"] = external_volume
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["icebergMergeOnReadBehavior"] = iceberg_merge_on_read_behavior
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["pathLayout"] = path_layout
+        __props__["replaceInvalidCharacters"] = replace_invalid_characters
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["storageSerializationPolicy"] = storage_serialization_policy
+        __props__["targetFileSize"] = target_file_size
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/icebergTableFromRest:IcebergTableFromRest', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> pulumi.Output[Optional[_builtins.str]]:

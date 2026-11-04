@@ -124,14 +124,14 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
     }
 
     /**
-     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &#92;n&#92;n
      * 
      */
     @Import(name="oauthRefreshTokenExpiryTime")
     private @Nullable Output<String> oauthRefreshTokenExpiryTime;
 
     /**
-     * @return Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+     * @return Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &#92;n&#92;n
      * 
      */
     public Optional<Output<String>> oauthRefreshTokenExpiryTime() {
@@ -375,7 +375,7 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param oauthRefreshTokenExpiryTime Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+         * @param oauthRefreshTokenExpiryTime Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &#92;n&#92;n
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param oauthRefreshTokenExpiryTime Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+         * @param oauthRefreshTokenExpiryTime Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &#92;n&#92;n
          * 
          * @return builder
          * 

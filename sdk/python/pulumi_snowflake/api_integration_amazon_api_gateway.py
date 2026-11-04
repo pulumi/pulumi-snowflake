@@ -558,6 +558,34 @@ class ApiIntegrationAmazonApiGateway(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return ApiIntegrationAmazonApiGateway(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_key: pulumi.Input[Optional[_builtins.str]] = None,
+            api_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationAmazonApiGatewayDescribeOutputArgs', 'ApiIntegrationAmazonApiGatewayDescribeOutputArgsDict', 'outputs.ApiIntegrationAmazonApiGatewayDescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationAmazonApiGatewayShowOutputArgs', 'ApiIntegrationAmazonApiGatewayShowOutputArgsDict', 'outputs.ApiIntegrationAmazonApiGatewayShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiAllowedPrefixes"] = api_allowed_prefixes
+        __props__["apiAwsRoleArn"] = api_aws_role_arn
+        __props__["apiBlockedPrefixes"] = api_blocked_prefixes
+        __props__["apiKey"] = api_key
+        __props__["apiProvider"] = api_provider
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/apiIntegrationAmazonApiGateway:ApiIntegrationAmazonApiGateway', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiAllowedPrefixes")
     def api_allowed_prefixes(self) -> pulumi.Output[Sequence[_builtins.str]]:

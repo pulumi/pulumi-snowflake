@@ -237,6 +237,12 @@ func (WarehouseInteractiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*warehouseInteractiveState)(nil)).Elem()
 }
 
+// WarehouseInteractiveExists checks whether an existing WarehouseInteractive resource with the given ID exists.
+func WarehouseInteractiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WarehouseInteractiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/warehouseInteractive:WarehouseInteractive", id, state, "", opts...)
+}
+
 type warehouseInteractiveArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume an interactive warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoResume *string `pulumi:"autoResume"`

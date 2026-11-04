@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Basic interactive warehouse (only required fields)
  *         var basic = new WarehouseInteractive("basic", WarehouseInteractiveArgs.builder()
  *             .name("my_interactive_warehouse")
@@ -66,15 +66,15 @@ import javax.annotation.Nullable;
  *             .resourceMonitor(monitor.get("fullyQualifiedName"))
  *             .fallbackWarehouse(fallback.get("fullyQualifiedName"))
  *             .tables(            
- *                 "\"MY_DB\".\"MY_SCHEMA\".\"MY_TABLE_1\"",
- *                 "\"MY_DB\".\"MY_SCHEMA\".\"MY_TABLE_2\"")
+ *                 "}&#92;{@code "MY_DB}&#92;{@code ".}&#92;{@code "MY_SCHEMA}&#92;{@code ".}&#92;{@code "MY_TABLE_1}&#92;{@code "",
+ *                 "}&#92;{@code "MY_DB}&#92;{@code ".}&#92;{@code "MY_SCHEMA}&#92;{@code ".}&#92;{@code "MY_TABLE_2}&#92;{@code "")
  *             .maxConcurrencyLevel(8)
  *             .statementQueuedTimeoutInSeconds(30)
  *             .statementTimeoutInSeconds(5)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.

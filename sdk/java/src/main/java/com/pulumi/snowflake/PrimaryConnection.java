@@ -38,12 +38,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         //# Minimal
  *         var basic = new PrimaryConnection("basic", PrimaryConnectionArgs.builder()
  *             .name("connection_name")
@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  *         var complete = new PrimaryConnection("complete", PrimaryConnectionArgs.builder()
  *             .name("connection_name")
  *             .comment("my complete connection")
- *             .enableFailoverToAccounts("\"<secondary_account_organization_name>\".\"<secondary_account_name>\"")
+ *             .enableFailoverToAccounts("}&#92;{@code "<secondary_account_organization_name>}&#92;{@code ".}&#92;{@code "<secondary_account_name>}&#92;{@code "")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

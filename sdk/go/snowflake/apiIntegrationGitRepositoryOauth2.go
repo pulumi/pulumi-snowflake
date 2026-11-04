@@ -249,6 +249,12 @@ func (ApiIntegrationGitRepositoryOauth2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationGitRepositoryOauth2State)(nil)).Elem()
 }
 
+// ApiIntegrationGitRepositoryOauth2Exists checks whether an existing ApiIntegrationGitRepositoryOauth2 resource with the given ID exists.
+func ApiIntegrationGitRepositoryOauth2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationGitRepositoryOauth2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiIntegrationGitRepositoryOauth2:ApiIntegrationGitRepositoryOauth2", id, state, "", opts...)
+}
+
 type apiIntegrationGitRepositoryOauth2Args struct {
 	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service and remote service endpoints and resources.
 	ApiAllowedPrefixes []string `pulumi:"apiAllowedPrefixes"`

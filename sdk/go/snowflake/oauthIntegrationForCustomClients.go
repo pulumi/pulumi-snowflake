@@ -280,6 +280,12 @@ func (OauthIntegrationForCustomClientsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthIntegrationForCustomClientsState)(nil)).Elem()
 }
 
+// OauthIntegrationForCustomClientsExists checks whether an existing OauthIntegrationForCustomClients resource with the given ID exists.
+func OauthIntegrationForCustomClientsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OauthIntegrationForCustomClientsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients", id, state, "", opts...)
+}
+
 type oauthIntegrationForCustomClientsArgs struct {
 	// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
 	AllowedRolesLists []string `pulumi:"allowedRolesLists"`

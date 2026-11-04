@@ -33,14 +33,14 @@ public final class SemanticViewDimensionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+     * Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
      * 
      */
     @Import(name="qualifiedExpressionName", required=true)
     private Output<String> qualifiedExpressionName;
 
     /**
-     * @return Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+     * @return Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
      * 
      */
     public Output<String> qualifiedExpressionName() {
@@ -126,7 +126,7 @@ public final class SemanticViewDimensionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param qualifiedExpressionName Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+         * @param qualifiedExpressionName Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class SemanticViewDimensionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param qualifiedExpressionName Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+         * @param qualifiedExpressionName Specifies a qualified name for the dimension, including the table name and a unique identifier for the dimension: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
          * 
          * @return builder
          * 

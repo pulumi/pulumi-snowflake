@@ -309,6 +309,12 @@ func (FunctionPythonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionPythonState)(nil)).Elem()
 }
 
+// FunctionPythonExists checks whether an existing FunctionPython resource with the given ID exists.
+func FunctionPythonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionPythonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/functionPython:FunctionPython", id, state, "", opts...)
+}
+
 type functionPythonArgs struct {
 	// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 	Arguments []FunctionPythonArgument `pulumi:"arguments"`

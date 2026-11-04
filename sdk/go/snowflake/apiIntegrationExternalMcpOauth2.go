@@ -233,6 +233,12 @@ func (ApiIntegrationExternalMcpOauth2State) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationExternalMcpOauth2State)(nil)).Elem()
 }
 
+// ApiIntegrationExternalMcpOauth2Exists checks whether an existing ApiIntegrationExternalMcpOauth2 resource with the given ID exists.
+func ApiIntegrationExternalMcpOauth2Exists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationExternalMcpOauth2State, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiIntegrationExternalMcpOauth2:ApiIntegrationExternalMcpOauth2", id, state, "", opts...)
+}
+
 type apiIntegrationExternalMcpOauth2Args struct {
 	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service and remote service endpoints and resources.
 	ApiAllowedPrefixes []string `pulumi:"apiAllowedPrefixes"`

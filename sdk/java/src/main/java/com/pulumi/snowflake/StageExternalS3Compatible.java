@@ -63,12 +63,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // Basic resource with credentials
  *         var basic = new StageExternalS3Compatible("basic", StageExternalS3CompatibleArgs.builder()
  *             .name("my_s3_compatible_stage")
@@ -119,10 +119,10 @@ import javax.annotation.Nullable;
  *                     .timeFormat("AUTO")
  *                     .timestampFormat("AUTO")
  *                     .binaryFormat("HEX")
- *                     .escape("\\")
- *                     .escapeUnenclosedField("\\")
+ *                     .escape("}&#92;&#92;{@code ")
+ *                     .escapeUnenclosedField("}&#92;&#92;{@code ")
  *                     .trimSpace("false")
- *                     .fieldOptionallyEnclosedBy("\"")
+ *                     .fieldOptionallyEnclosedBy("}&#92;{@code "")
  *                     .nullIfs(                    
  *                         "NULL",
  *                         "")
@@ -255,8 +255,8 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

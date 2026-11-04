@@ -92,6 +92,12 @@ func (GrantDatabaseRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grantDatabaseRoleState)(nil)).Elem()
 }
 
+// GrantDatabaseRoleExists checks whether an existing GrantDatabaseRole resource with the given ID exists.
+func GrantDatabaseRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrantDatabaseRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/grantDatabaseRole:GrantDatabaseRole", id, state, "", opts...)
+}
+
 type grantDatabaseRoleArgs struct {
 	// The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
 	DatabaseRoleName string `pulumi:"databaseRoleName"`

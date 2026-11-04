@@ -196,6 +196,12 @@ func (FileFormatAvroState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileFormatAvroState)(nil)).Elem()
 }
 
+// FileFormatAvroExists checks whether an existing FileFormatAvro resource with the given ID exists.
+func FileFormatAvroExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileFormatAvroState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/fileFormatAvro:FileFormatAvro", id, state, "", opts...)
+}
+
 type fileFormatAvroArgs struct {
 	// Specifies a comment for the file format.
 	Comment *string `pulumi:"comment"`

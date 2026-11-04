@@ -134,6 +134,12 @@ func (IntelligenceCortexAgentAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*intelligenceCortexAgentAttachmentState)(nil)).Elem()
 }
 
+// IntelligenceCortexAgentAttachmentExists checks whether an existing IntelligenceCortexAgentAttachment resource with the given ID exists.
+func IntelligenceCortexAgentAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IntelligenceCortexAgentAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/intelligenceCortexAgentAttachment:IntelligenceCortexAgentAttachment", id, state, "", opts...)
+}
+
 type intelligenceCortexAgentAttachmentArgs struct {
 	// Fully qualified name of the Cortex agent to attach. Due to technical limitations (read more here), avoid using pipes (`|`).
 	CortexAgentName string `pulumi:"cortexAgentName"`

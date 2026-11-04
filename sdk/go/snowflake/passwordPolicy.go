@@ -258,6 +258,12 @@ func (PasswordPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*passwordPolicyState)(nil)).Elem()
 }
 
+// PasswordPolicyExists checks whether an existing PasswordPolicy resource with the given ID exists.
+func PasswordPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PasswordPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/passwordPolicy:PasswordPolicy", id, state, "", opts...)
+}
+
 type passwordPolicyArgs struct {
 	// Adds a comment or overwrites an existing comment for the password policy.
 	Comment *string `pulumi:"comment"`

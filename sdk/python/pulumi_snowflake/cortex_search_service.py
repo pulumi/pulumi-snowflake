@@ -744,6 +744,42 @@ class CortexSearchService(pulumi.CustomResource):
         __props__.__dict__["warehouse"] = warehouse
         return CortexSearchService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            attributes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            auto_suspend: pulumi.Input[Optional[_builtins.int]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CortexSearchServiceDescribeOutputArgs', 'CortexSearchServiceDescribeOutputArgsDict', 'outputs.CortexSearchServiceDescribeOutput']]]]] = None,
+            embedding_model: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            on: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            query: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            target_lag: pulumi.Input[Optional[_builtins.str]] = None,
+            warehouse: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["attributes"] = attributes
+        __props__["autoSuspend"] = auto_suspend
+        __props__["comment"] = comment
+        __props__["createdOn"] = created_on
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["embeddingModel"] = embedding_model
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["on"] = on
+        __props__["primaryKeys"] = primary_keys
+        __props__["query"] = query
+        __props__["schema"] = schema
+        __props__["targetLag"] = target_lag
+        __props__["warehouse"] = warehouse
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/cortexSearchService:CortexSearchService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

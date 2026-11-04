@@ -168,6 +168,12 @@ func (ApiIntegrationGitRepositoryGithubAppState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationGitRepositoryGithubAppState)(nil)).Elem()
 }
 
+// ApiIntegrationGitRepositoryGithubAppExists checks whether an existing ApiIntegrationGitRepositoryGithubApp resource with the given ID exists.
+func ApiIntegrationGitRepositoryGithubAppExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationGitRepositoryGithubAppState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiIntegrationGitRepositoryGithubApp:ApiIntegrationGitRepositoryGithubApp", id, state, "", opts...)
+}
+
 type apiIntegrationGitRepositoryGithubAppArgs struct {
 	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service and remote service endpoints and resources.
 	ApiAllowedPrefixes []string `pulumi:"apiAllowedPrefixes"`

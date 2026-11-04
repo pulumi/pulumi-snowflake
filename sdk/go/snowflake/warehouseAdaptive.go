@@ -172,6 +172,12 @@ func (WarehouseAdaptiveState) ElementType() reflect.Type {
 	return reflect.TypeOf((*warehouseAdaptiveState)(nil)).Elem()
 }
 
+// WarehouseAdaptiveExists checks whether an existing WarehouseAdaptive resource with the given ID exists.
+func WarehouseAdaptiveExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *WarehouseAdaptiveState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/warehouseAdaptive:WarehouseAdaptive", id, state, "", opts...)
+}
+
 type warehouseAdaptiveArgs struct {
 	// Specifies a comment for the adaptive warehouse.
 	Comment *string `pulumi:"comment"`

@@ -171,6 +171,12 @@ func (NetworkPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkPolicyState)(nil)).Elem()
 }
 
+// NetworkPolicyExists checks whether an existing NetworkPolicy resource with the given ID exists.
+func NetworkPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/networkPolicy:NetworkPolicy", id, state, "", opts...)
+}
+
 type networkPolicyArgs struct {
 	// Specifies one or more IPv4 addresses (CIDR notation) that are allowed access to your Snowflake account.
 	AllowedIpLists []string `pulumi:"allowedIpLists"`

@@ -436,6 +436,12 @@ func (StageExternalAzureState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageExternalAzureState)(nil)).Elem()
 }
 
+// StageExternalAzureExists checks whether an existing StageExternalAzure resource with the given ID exists.
+func StageExternalAzureExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StageExternalAzureState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/stageExternalAzure:StageExternalAzure", id, state, "", opts...)
+}
+
 type stageExternalAzureArgs struct {
 	// Specifies a comment for the stage.
 	Comment *string `pulumi:"comment"`

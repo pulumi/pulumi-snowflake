@@ -428,6 +428,12 @@ func (StageExternalGcsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageExternalGcsState)(nil)).Elem()
 }
 
+// StageExternalGcsExists checks whether an existing StageExternalGcs resource with the given ID exists.
+func StageExternalGcsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StageExternalGcsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/stageExternalGcs:StageExternalGcs", id, state, "", opts...)
+}
+
 type stageExternalGcsArgs struct {
 	// Specifies a comment for the stage.
 	Comment *string `pulumi:"comment"`

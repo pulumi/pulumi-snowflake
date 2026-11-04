@@ -24,7 +24,7 @@ public final class SemanticViewFact {
      */
     private @Nullable String isPrivate;
     /**
-     * @return Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+     * @return Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
      * 
      */
     private String qualifiedExpressionName;
@@ -55,7 +55,7 @@ public final class SemanticViewFact {
         return Optional.ofNullable(this.isPrivate);
     }
     /**
-     * @return Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+     * @return Specifies a qualified name for the fact, including the table name and a unique identifier for the fact: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
      * 
      */
     public String qualifiedExpressionName() {

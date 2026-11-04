@@ -205,6 +205,12 @@ func (OpenflowDeploymentByocState) ElementType() reflect.Type {
 	return reflect.TypeOf((*openflowDeploymentByocState)(nil)).Elem()
 }
 
+// OpenflowDeploymentByocExists checks whether an existing OpenflowDeploymentByoc resource with the given ID exists.
+func OpenflowDeploymentByocExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpenflowDeploymentByocState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/openflowDeploymentByoc:OpenflowDeploymentByoc", id, state, "", opts...)
+}
+
 type openflowDeploymentByocArgs struct {
 	// Specifies a comment for the Openflow deployment.
 	Comment *string `pulumi:"comment"`

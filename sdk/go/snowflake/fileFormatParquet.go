@@ -217,6 +217,12 @@ func (FileFormatParquetState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileFormatParquetState)(nil)).Elem()
 }
 
+// FileFormatParquetExists checks whether an existing FileFormatParquet resource with the given ID exists.
+func FileFormatParquetExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileFormatParquetState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/fileFormatParquet:FileFormatParquet", id, state, "", opts...)
+}
+
 type fileFormatParquetArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether to interpret columns with no defined logical data type as UTF-8 text. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	BinaryAsText *string `pulumi:"binaryAsText"`

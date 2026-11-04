@@ -192,6 +192,12 @@ func (TableStorageLifecyclePolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableStorageLifecyclePolicyAttachmentState)(nil)).Elem()
 }
 
+// TableStorageLifecyclePolicyAttachmentExists checks whether an existing TableStorageLifecyclePolicyAttachment resource with the given ID exists.
+func TableStorageLifecyclePolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableStorageLifecyclePolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/tableStorageLifecyclePolicyAttachment:TableStorageLifecyclePolicyAttachment", id, state, "", opts...)
+}
+
 type tableStorageLifecyclePolicyAttachmentArgs struct {
 	// List of the columns the storage lifecycle policy applies to.
 	Ons []string `pulumi:"ons"`

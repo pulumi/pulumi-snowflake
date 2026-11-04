@@ -39,11 +39,10 @@ public class Tag extends com.pulumi.resources.CustomResource {
     /**
      * Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
      * 
-     * @deprecated
-     * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
+     * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      * 
      */
-    @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
+    @Deprecated
     @Export(name="allowedValues", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedValues;
 

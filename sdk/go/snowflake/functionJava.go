@@ -302,6 +302,12 @@ func (FunctionJavaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionJavaState)(nil)).Elem()
 }
 
+// FunctionJavaExists checks whether an existing FunctionJava resource with the given ID exists.
+func FunctionJavaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionJavaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/functionJava:FunctionJava", id, state, "", opts...)
+}
+
 type functionJavaArgs struct {
 	// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 	Arguments []FunctionJavaArgument `pulumi:"arguments"`

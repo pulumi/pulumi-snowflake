@@ -816,6 +816,52 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return Service(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_suspend_secs: pulumi.Input[Optional[_builtins.int]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceDescribeOutputArgs', 'ServiceDescribeOutputArgsDict', 'outputs.ServiceDescribeOutput']]]]] = None,
+            external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            from_specification: pulumi.Input[Optional[Union['ServiceFromSpecificationArgs', 'ServiceFromSpecificationArgsDict', 'outputs.ServiceFromSpecification']]] = None,
+            from_specification_template: pulumi.Input[Optional[Union['ServiceFromSpecificationTemplateArgs', 'ServiceFromSpecificationTemplateArgsDict', 'outputs.ServiceFromSpecificationTemplate']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            max_instances: pulumi.Input[Optional[_builtins.int]] = None,
+            min_instances: pulumi.Input[Optional[_builtins.int]] = None,
+            min_ready_instances: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceParameterArgs', 'ServiceParameterArgsDict', 'outputs.ServiceParameter']]]]] = None,
+            query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            service_caller_token_validity_secs: pulumi.Input[Optional[_builtins.int]] = None,
+            service_type: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceShowOutputArgs', 'ServiceShowOutputArgsDict', 'outputs.ServiceShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoResume"] = auto_resume
+        __props__["autoSuspendSecs"] = auto_suspend_secs
+        __props__["comment"] = comment
+        __props__["computePool"] = compute_pool
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["externalAccessIntegrations"] = external_access_integrations
+        __props__["fromSpecification"] = from_specification
+        __props__["fromSpecificationTemplate"] = from_specification_template
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["maxInstances"] = max_instances
+        __props__["minInstances"] = min_instances
+        __props__["minReadyInstances"] = min_ready_instances
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["queryWarehouse"] = query_warehouse
+        __props__["schema"] = schema
+        __props__["serviceCallerTokenValiditySecs"] = service_caller_token_validity_secs
+        __props__["serviceType"] = service_type
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/service:Service', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoResume")
     def auto_resume(self) -> pulumi.Output[Optional[_builtins.str]]:

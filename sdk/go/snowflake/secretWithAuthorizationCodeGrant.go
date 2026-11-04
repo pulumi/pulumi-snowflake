@@ -151,6 +151,12 @@ func (SecretWithAuthorizationCodeGrantState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretWithAuthorizationCodeGrantState)(nil)).Elem()
 }
 
+// SecretWithAuthorizationCodeGrantExists checks whether an existing SecretWithAuthorizationCodeGrant resource with the given ID exists.
+func SecretWithAuthorizationCodeGrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecretWithAuthorizationCodeGrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/secretWithAuthorizationCodeGrant:SecretWithAuthorizationCodeGrant", id, state, "", opts...)
+}
+
 type secretWithAuthorizationCodeGrantArgs struct {
 	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
 	ApiAuthentication string `pulumi:"apiAuthentication"`

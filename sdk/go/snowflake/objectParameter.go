@@ -205,6 +205,12 @@ func (ObjectParameterState) ElementType() reflect.Type {
 	return reflect.TypeOf((*objectParameterState)(nil)).Elem()
 }
 
+// ObjectParameterExists checks whether an existing ObjectParameter resource with the given ID exists.
+func ObjectParameterExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ObjectParameterState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/objectParameter:ObjectParameter", id, state, "", opts...)
+}
+
 type objectParameterArgs struct {
 	// Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
 	Key string `pulumi:"key"`

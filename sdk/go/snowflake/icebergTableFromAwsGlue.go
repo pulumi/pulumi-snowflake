@@ -211,6 +211,12 @@ func (IcebergTableFromAwsGlueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*icebergTableFromAwsGlueState)(nil)).Elem()
 }
 
+// IcebergTableFromAwsGlueExists checks whether an existing IcebergTableFromAwsGlue resource with the given ID exists.
+func IcebergTableFromAwsGlueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IcebergTableFromAwsGlueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/icebergTableFromAwsGlue:IcebergTableFromAwsGlue", id, state, "", opts...)
+}
+
 type icebergTableFromAwsGlueArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the AWS Glue catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoRefresh *string `pulumi:"autoRefresh"`

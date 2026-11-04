@@ -158,6 +158,12 @@ func (StreamOnExternalTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamOnExternalTableState)(nil)).Elem()
 }
 
+// StreamOnExternalTableExists checks whether an existing StreamOnExternalTable resource with the given ID exists.
+func StreamOnExternalTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamOnExternalTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/streamOnExternalTable:StreamOnExternalTable", id, state, "", opts...)
+}
+
 type streamOnExternalTableArgs struct {
 	// This field specifies that the request is inclusive of any changes made by a statement or transaction with a timestamp equal to the specified parameter. Due to Snowflake limitations, the provider does not detect external changes on this field. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	At *StreamOnExternalTableAt `pulumi:"at"`

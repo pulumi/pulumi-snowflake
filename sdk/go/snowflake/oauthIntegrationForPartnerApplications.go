@@ -164,6 +164,12 @@ func (OauthIntegrationForPartnerApplicationsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*oauthIntegrationForPartnerApplicationsState)(nil)).Elem()
 }
 
+// OauthIntegrationForPartnerApplicationsExists checks whether an existing OauthIntegrationForPartnerApplications resource with the given ID exists.
+func OauthIntegrationForPartnerApplicationsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OauthIntegrationForPartnerApplicationsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications", id, state, "", opts...)
+}
+
 type oauthIntegrationForPartnerApplicationsArgs struct {
 	// A set of Snowflake roles that a user can explicitly consent to using after authenticating. Can only be set when oauth*use*secondary*roles is set to NONE. For more information about this resource, see docs.
 	AllowedRolesLists []string `pulumi:"allowedRolesLists"`

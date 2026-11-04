@@ -189,14 +189,14 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryption);
     }
     /**
-     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
+     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: &#92;n&#92;n1. with hardcoding value:&#92;n&#92;n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` &#92;n&#92;n2. from dynamic value:&#92;n&#92;n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` &#92;n&#92;n3. from expression:&#92;n&#92;n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
      * 
      */
     @Export(name="fileFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileFormat;
 
     /**
-     * @return Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
+     * @return Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: &#92;n&#92;n1. with hardcoding value:&#92;n&#92;n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` &#92;n&#92;n2. from dynamic value:&#92;n&#92;n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` &#92;n&#92;n3. from expression:&#92;n&#92;n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
      * 
      */
     public Output<Optional<String>> fileFormat() {
@@ -275,11 +275,10 @@ public class Stage extends com.pulumi.resources.CustomResource {
     /**
      * Definitions of a tag to associate with the resource.
      * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+    @Deprecated
     @Export(name="tags", refs={List.class,StageTag.class}, tree="[0,1]")
     private Output</* @Nullable */ List<StageTag>> tags;
 

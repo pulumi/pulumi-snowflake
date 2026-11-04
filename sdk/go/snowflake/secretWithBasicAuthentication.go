@@ -146,6 +146,12 @@ func (SecretWithBasicAuthenticationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretWithBasicAuthenticationState)(nil)).Elem()
 }
 
+// SecretWithBasicAuthenticationExists checks whether an existing SecretWithBasicAuthentication resource with the given ID exists.
+func SecretWithBasicAuthenticationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecretWithBasicAuthenticationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/secretWithBasicAuthentication:SecretWithBasicAuthentication", id, state, "", opts...)
+}
+
 type secretWithBasicAuthenticationArgs struct {
 	// Specifies a comment for the secret.
 	Comment *string `pulumi:"comment"`

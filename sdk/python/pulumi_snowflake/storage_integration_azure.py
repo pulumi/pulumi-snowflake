@@ -528,6 +528,32 @@ class StorageIntegrationAzure(pulumi.CustomResource):
         __props__.__dict__["use_privatelink_endpoint"] = use_privatelink_endpoint
         return StorageIntegrationAzure(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAzureDescribeOutputArgs', 'StorageIntegrationAzureDescribeOutputArgsDict', 'outputs.StorageIntegrationAzureDescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAzureShowOutputArgs', 'StorageIntegrationAzureShowOutputArgsDict', 'outputs.StorageIntegrationAzureShowOutput']]]]] = None,
+            storage_allowed_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_blocked_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["azureTenantId"] = azure_tenant_id
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["showOutputs"] = show_outputs
+        __props__["storageAllowedLocations"] = storage_allowed_locations
+        __props__["storageBlockedLocations"] = storage_blocked_locations
+        __props__["usePrivatelinkEndpoint"] = use_privatelink_endpoint
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/storageIntegrationAzure:StorageIntegrationAzure', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> pulumi.Output[_builtins.str]:

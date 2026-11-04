@@ -204,6 +204,12 @@ func (ApiIntegrationAzureApiManagementState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationAzureApiManagementState)(nil)).Elem()
 }
 
+// ApiIntegrationAzureApiManagementExists checks whether an existing ApiIntegrationAzureApiManagement resource with the given ID exists.
+func ApiIntegrationAzureApiManagementExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationAzureApiManagementState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiIntegrationAzureApiManagement:ApiIntegrationAzureApiManagement", id, state, "", opts...)
+}
+
 type apiIntegrationAzureApiManagementArgs struct {
 	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service and remote service endpoints and resources.
 	ApiAllowedPrefixes []string `pulumi:"apiAllowedPrefixes"`

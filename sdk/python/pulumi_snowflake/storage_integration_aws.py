@@ -654,6 +654,38 @@ class StorageIntegrationAws(pulumi.CustomResource):
         __props__.__dict__["use_privatelink_endpoint"] = use_privatelink_endpoint
         return StorageIntegrationAws(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAwsDescribeOutputArgs', 'StorageIntegrationAwsDescribeOutputArgsDict', 'outputs.StorageIntegrationAwsDescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StorageIntegrationAwsShowOutputArgs', 'StorageIntegrationAwsShowOutputArgsDict', 'outputs.StorageIntegrationAwsShowOutput']]]]] = None,
+            storage_allowed_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_aws_object_acl: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_aws_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_blocked_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["showOutputs"] = show_outputs
+        __props__["storageAllowedLocations"] = storage_allowed_locations
+        __props__["storageAwsExternalId"] = storage_aws_external_id
+        __props__["storageAwsObjectAcl"] = storage_aws_object_acl
+        __props__["storageAwsRoleArn"] = storage_aws_role_arn
+        __props__["storageBlockedLocations"] = storage_blocked_locations
+        __props__["storageProvider"] = storage_provider
+        __props__["usePrivatelinkEndpoint"] = use_privatelink_endpoint
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/storageIntegrationAws:StorageIntegrationAws', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:

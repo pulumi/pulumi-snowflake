@@ -219,6 +219,12 @@ func (SecondaryDatabaseState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secondaryDatabaseState)(nil)).Elem()
 }
 
+// SecondaryDatabaseExists checks whether an existing SecondaryDatabase resource with the given ID exists.
+func SecondaryDatabaseExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecondaryDatabaseState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/secondaryDatabase:SecondaryDatabase", id, state, "", opts...)
+}
+
 type secondaryDatabaseArgs struct {
 	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
 	AsReplicaOf string `pulumi:"asReplicaOf"`

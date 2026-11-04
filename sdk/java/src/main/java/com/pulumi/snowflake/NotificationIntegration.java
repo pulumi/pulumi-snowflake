@@ -164,11 +164,10 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * AWS SQS queue ARN for notification integration to connect to
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     @Export(name="awsSqsArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSqsArn;
 
@@ -182,11 +181,10 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * The external ID that Snowflake will use when assuming the AWS role
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     @Export(name="awsSqsExternalId", refs={String.class}, tree="[0]")
     private Output<String> awsSqsExternalId;
 
@@ -200,11 +198,10 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * The Snowflake user that will attempt to assume the AWS role.
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     @Export(name="awsSqsIamUserArn", refs={String.class}, tree="[0]")
     private Output<String> awsSqsIamUserArn;
 
@@ -218,11 +215,10 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * AWS IAM role ARN for notification integration to assume
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     @Export(name="awsSqsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsSqsRoleArn;
 
@@ -292,11 +288,10 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
      * 
-     * @deprecated
-     * Will be removed - it is added automatically on the SDK level.
+     * @deprecated Will be removed - it is added automatically on the SDK level.
      * 
      */
-    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
+    @Deprecated
     @Export(name="direction", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> direction;
 
@@ -400,11 +395,10 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     /**
      * (Default: `QUEUE`) A type of integration
      * 
-     * @deprecated
-     * Will be removed - it is added automatically on the SDK level.
+     * @deprecated Will be removed - it is added automatically on the SDK level.
      * 
      */
-    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
+    @Deprecated
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 

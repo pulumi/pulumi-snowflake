@@ -129,6 +129,12 @@ func (UserSessionPolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userSessionPolicyAttachmentState)(nil)).Elem()
 }
 
+// UserSessionPolicyAttachmentExists checks whether an existing UserSessionPolicyAttachment resource with the given ID exists.
+func UserSessionPolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserSessionPolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/userSessionPolicyAttachment:UserSessionPolicyAttachment", id, state, "", opts...)
+}
+
 type userSessionPolicyAttachmentArgs struct {
 	// Fully qualified name of the session policy. Due to technical limitations (read more here), avoid using pipes (`|`).
 	SessionPolicyName string `pulumi:"sessionPolicyName"`

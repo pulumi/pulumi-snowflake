@@ -150,6 +150,12 @@ func (PrimaryConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*primaryConnectionState)(nil)).Elem()
 }
 
+// PrimaryConnectionExists checks whether an existing PrimaryConnection resource with the given ID exists.
+func PrimaryConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PrimaryConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/primaryConnection:PrimaryConnection", id, state, "", opts...)
+}
+
 type primaryConnectionArgs struct {
 	// Specifies a comment for the connection.
 	Comment *string `pulumi:"comment"`

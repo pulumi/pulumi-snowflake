@@ -153,6 +153,12 @@ func (SecondaryConnectionState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secondaryConnectionState)(nil)).Elem()
 }
 
+// SecondaryConnectionExists checks whether an existing SecondaryConnection resource with the given ID exists.
+func SecondaryConnectionExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecondaryConnectionState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/secondaryConnection:SecondaryConnection", id, state, "", opts...)
+}
+
 type secondaryConnectionArgs struct {
 	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
 	AsReplicaOf string `pulumi:"asReplicaOf"`

@@ -324,6 +324,18 @@ class AccountSessionPolicyAttachment(pulumi.CustomResource):
         __props__.__dict__["session_policy_name"] = session_policy_name
         return AccountSessionPolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            for_all_person_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            for_all_service_users: pulumi.Input[Optional[_builtins.bool]] = None,
+            session_policy_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["forAllPersonUsers"] = for_all_person_users
+        __props__["forAllServiceUsers"] = for_all_service_users
+        __props__["sessionPolicyName"] = session_policy_name
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="forAllPersonUsers")
     def for_all_person_users(self) -> pulumi.Output[Optional[_builtins.bool]]:

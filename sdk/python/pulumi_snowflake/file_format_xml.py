@@ -695,6 +695,42 @@ class FileFormatXml(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return FileFormatXml(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compression: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatXmlDescribeOutputArgs', 'FileFormatXmlDescribeOutputArgsDict', 'outputs.FileFormatXmlDescribeOutput']]]]] = None,
+            disable_auto_convert: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_utf8_errors: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            preserve_space: pulumi.Input[Optional[_builtins.str]] = None,
+            replace_invalid_characters: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatXmlShowOutputArgs', 'FileFormatXmlShowOutputArgsDict', 'outputs.FileFormatXmlShowOutput']]]]] = None,
+            skip_byte_order_mark: pulumi.Input[Optional[_builtins.str]] = None,
+            strip_outer_element: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["compression"] = compression
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["disableAutoConvert"] = disable_auto_convert
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["ignoreUtf8Errors"] = ignore_utf8_errors
+        __props__["name"] = name
+        __props__["preserveSpace"] = preserve_space
+        __props__["replaceInvalidCharacters"] = replace_invalid_characters
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["skipByteOrderMark"] = skip_byte_order_mark
+        __props__["stripOuterElement"] = strip_outer_element
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/fileFormatXml:FileFormatXml', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:

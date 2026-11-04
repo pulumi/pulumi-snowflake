@@ -769,6 +769,44 @@ class ApiIntegrationGitRepositoryOauth2(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return ApiIntegrationGitRepositoryOauth2(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryOauth2DescribeOutputArgs', 'ApiIntegrationGitRepositoryOauth2DescribeOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryOauth2DescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_access_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+            oauth_allowed_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            oauth_authorization_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_secret: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+            oauth_token_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_username: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryOauth2ShowOutputArgs', 'ApiIntegrationGitRepositoryOauth2ShowOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryOauth2ShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiAllowedPrefixes"] = api_allowed_prefixes
+        __props__["apiBlockedPrefixes"] = api_blocked_prefixes
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["oauthAccessTokenValidity"] = oauth_access_token_validity
+        __props__["oauthAllowedScopes"] = oauth_allowed_scopes
+        __props__["oauthAuthorizationEndpoint"] = oauth_authorization_endpoint
+        __props__["oauthClientId"] = oauth_client_id
+        __props__["oauthClientSecret"] = oauth_client_secret
+        __props__["oauthRefreshTokenValidity"] = oauth_refresh_token_validity
+        __props__["oauthTokenEndpoint"] = oauth_token_endpoint
+        __props__["oauthUsername"] = oauth_username
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/apiIntegrationGitRepositoryOauth2:ApiIntegrationGitRepositoryOauth2', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiAllowedPrefixes")
     def api_allowed_prefixes(self) -> pulumi.Output[Sequence[_builtins.str]]:

@@ -755,6 +755,36 @@ class TableConstraint(pulumi.CustomResource):
         __props__.__dict__["validate"] = validate
         return TableConstraint(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            deferrable: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable: pulumi.Input[Optional[_builtins.bool]] = None,
+            enforced: pulumi.Input[Optional[_builtins.bool]] = None,
+            foreign_key_properties: pulumi.Input[Optional[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict', 'outputs.TableConstraintForeignKeyProperties']]] = None,
+            initially: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rely: pulumi.Input[Optional[_builtins.bool]] = None,
+            table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            validate: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["columns"] = columns
+        __props__["comment"] = comment
+        __props__["deferrable"] = deferrable
+        __props__["enable"] = enable
+        __props__["enforced"] = enforced
+        __props__["foreignKeyProperties"] = foreign_key_properties
+        __props__["initially"] = initially
+        __props__["name"] = name
+        __props__["rely"] = rely
+        __props__["tableId"] = table_id
+        __props__["type"] = type
+        __props__["validate"] = validate
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/tableConstraint:TableConstraint', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def columns(self) -> pulumi.Output[Sequence[_builtins.str]]:

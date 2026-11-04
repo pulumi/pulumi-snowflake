@@ -79,14 +79,14 @@ public final class SemanticViewTableArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies an identifier for the logical table. Example: `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;table_name&gt;\&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies an identifier for the logical table. Example: `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;table_name&gt;&#92;&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
-     * @return Specifies an identifier for the logical table. Example: `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;table_name&gt;\&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies an identifier for the logical table. Example: `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;table_name&gt;&#92;&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> tableName() {
@@ -242,7 +242,7 @@ public final class SemanticViewTableArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tableName Specifies an identifier for the logical table. Example: `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;table_name&gt;\&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param tableName Specifies an identifier for the logical table. Example: `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;table_name&gt;&#92;&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class SemanticViewTableArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tableName Specifies an identifier for the logical table. Example: `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;table_name&gt;\&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param tableName Specifies an identifier for the logical table. Example: `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;table_name&gt;&#92;&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

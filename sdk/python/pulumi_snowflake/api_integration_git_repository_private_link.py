@@ -647,6 +647,38 @@ class ApiIntegrationGitRepositoryPrivateLink(pulumi.CustomResource):
         __props__.__dict__["use_privatelink_endpoint"] = use_privatelink_endpoint
         return ApiIntegrationGitRepositoryPrivateLink(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            all_allowed_authentication_secrets: pulumi.Input[Optional[_builtins.bool]] = None,
+            allowed_authentication_secrets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_allowed_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            api_blocked_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryPrivateLinkDescribeOutputArgs', 'ApiIntegrationGitRepositoryPrivateLinkDescribeOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryPrivateLinkDescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            no_allowed_authentication_secrets: pulumi.Input[Optional[_builtins.bool]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApiIntegrationGitRepositoryPrivateLinkShowOutputArgs', 'ApiIntegrationGitRepositoryPrivateLinkShowOutputArgsDict', 'outputs.ApiIntegrationGitRepositoryPrivateLinkShowOutput']]]]] = None,
+            tls_trusted_certificates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            use_privatelink_endpoint: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allAllowedAuthenticationSecrets"] = all_allowed_authentication_secrets
+        __props__["allowedAuthenticationSecrets"] = allowed_authentication_secrets
+        __props__["apiAllowedPrefixes"] = api_allowed_prefixes
+        __props__["apiBlockedPrefixes"] = api_blocked_prefixes
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["noAllowedAuthenticationSecrets"] = no_allowed_authentication_secrets
+        __props__["showOutputs"] = show_outputs
+        __props__["tlsTrustedCertificates"] = tls_trusted_certificates
+        __props__["usePrivatelinkEndpoint"] = use_privatelink_endpoint
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/apiIntegrationGitRepositoryPrivateLink:ApiIntegrationGitRepositoryPrivateLink', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allAllowedAuthenticationSecrets")
     def all_allowed_authentication_secrets(self) -> pulumi.Output[Optional[_builtins.bool]]:

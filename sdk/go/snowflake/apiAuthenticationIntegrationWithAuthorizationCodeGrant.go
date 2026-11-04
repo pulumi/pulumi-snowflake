@@ -172,6 +172,12 @@ func (ApiAuthenticationIntegrationWithAuthorizationCodeGrantState) ElementType()
 	return reflect.TypeOf((*apiAuthenticationIntegrationWithAuthorizationCodeGrantState)(nil)).Elem()
 }
 
+// ApiAuthenticationIntegrationWithAuthorizationCodeGrantExists checks whether an existing ApiAuthenticationIntegrationWithAuthorizationCodeGrant resource with the given ID exists.
+func ApiAuthenticationIntegrationWithAuthorizationCodeGrantExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiAuthenticationIntegrationWithAuthorizationCodeGrantState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant", id, state, "", opts...)
+}
+
 type apiAuthenticationIntegrationWithAuthorizationCodeGrantArgs struct {
 	// Specifies a comment for the integration.
 	Comment *string `pulumi:"comment"`

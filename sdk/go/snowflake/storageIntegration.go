@@ -193,6 +193,12 @@ func (StorageIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageIntegrationState)(nil)).Elem()
 }
 
+// StorageIntegrationExists checks whether an existing StorageIntegration resource with the given ID exists.
+func StorageIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/storageIntegration:StorageIntegration", id, state, "", opts...)
+}
+
 type storageIntegrationArgs struct {
 	// (Default: ``) Specifies the ID for your Office 365 tenant that the allowed and blocked storage accounts belong to.
 	AzureTenantId *string `pulumi:"azureTenantId"`

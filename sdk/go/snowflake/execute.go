@@ -105,6 +105,12 @@ func (ExecuteState) ElementType() reflect.Type {
 	return reflect.TypeOf((*executeState)(nil)).Elem()
 }
 
+// ExecuteExists checks whether an existing Execute resource with the given ID exists.
+func ExecuteExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExecuteState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/execute:Execute", id, state, "", opts...)
+}
+
 type executeArgs struct {
 	// SQL statement to execute. Forces recreation of resource on change.
 	Execute string `pulumi:"execute"`

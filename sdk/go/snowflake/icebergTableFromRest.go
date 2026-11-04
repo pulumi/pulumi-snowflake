@@ -248,6 +248,12 @@ func (IcebergTableFromRestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*icebergTableFromRestState)(nil)).Elem()
 }
 
+// IcebergTableFromRestExists checks whether an existing IcebergTableFromRest resource with the given ID exists.
+func IcebergTableFromRestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IcebergTableFromRestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/icebergTableFromRest:IcebergTableFromRest", id, state, "", opts...)
+}
+
 type icebergTableFromRestArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should periodically refresh the Iceberg table metadata from the external catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoRefresh *string `pulumi:"autoRefresh"`

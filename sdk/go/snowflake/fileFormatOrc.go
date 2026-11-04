@@ -189,6 +189,12 @@ func (FileFormatOrcState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileFormatOrcState)(nil)).Elem()
 }
 
+// FileFormatOrcExists checks whether an existing FileFormatOrc resource with the given ID exists.
+func FileFormatOrcExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileFormatOrcState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/fileFormatOrc:FileFormatOrc", id, state, "", opts...)
+}
+
 type fileFormatOrcArgs struct {
 	// Specifies a comment for the file format.
 	Comment *string `pulumi:"comment"`

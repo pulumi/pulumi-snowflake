@@ -468,6 +468,30 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
         __props__.__dict__["with_grant_option"] = with_grant_option
         return GrantPrivilegesToDatabaseRole(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+            always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+            always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+            database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            on_database: pulumi.Input[Optional[_builtins.str]] = None,
+            on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchema']]] = None,
+            on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict', 'outputs.GrantPrivilegesToDatabaseRoleOnSchemaObject']]] = None,
+            privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allPrivileges"] = all_privileges
+        __props__["alwaysApply"] = always_apply
+        __props__["alwaysApplyTrigger"] = always_apply_trigger
+        __props__["databaseRoleName"] = database_role_name
+        __props__["onDatabase"] = on_database
+        __props__["onSchema"] = on_schema
+        __props__["onSchemaObject"] = on_schema_object
+        __props__["privileges"] = privileges
+        __props__["withGrantOption"] = with_grant_option
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allPrivileges")
     def all_privileges(self) -> pulumi.Output[Optional[_builtins.bool]]:

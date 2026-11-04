@@ -193,6 +193,12 @@ func (CatalogIntegrationAwsGlueState) ElementType() reflect.Type {
 	return reflect.TypeOf((*catalogIntegrationAwsGlueState)(nil)).Elem()
 }
 
+// CatalogIntegrationAwsGlueExists checks whether an existing CatalogIntegrationAwsGlue resource with the given ID exists.
+func CatalogIntegrationAwsGlueExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CatalogIntegrationAwsGlueState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/catalogIntegrationAwsGlue:CatalogIntegrationAwsGlue", id, state, "", opts...)
+}
+
 type catalogIntegrationAwsGlueArgs struct {
 	// Specifies the default AWS Glue Data Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace *string `pulumi:"catalogNamespace"`

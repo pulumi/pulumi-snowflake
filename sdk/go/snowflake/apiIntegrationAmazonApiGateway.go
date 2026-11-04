@@ -204,6 +204,12 @@ func (ApiIntegrationAmazonApiGatewayState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationAmazonApiGatewayState)(nil)).Elem()
 }
 
+// ApiIntegrationAmazonApiGatewayExists checks whether an existing ApiIntegrationAmazonApiGateway resource with the given ID exists.
+func ApiIntegrationAmazonApiGatewayExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationAmazonApiGatewayState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiIntegrationAmazonApiGateway:ApiIntegrationAmazonApiGateway", id, state, "", opts...)
+}
+
 type apiIntegrationAmazonApiGatewayArgs struct {
 	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service and remote service endpoints and resources.
 	ApiAllowedPrefixes []string `pulumi:"apiAllowedPrefixes"`

@@ -126,6 +126,12 @@ func (EmailNotificationIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*emailNotificationIntegrationState)(nil)).Elem()
 }
 
+// EmailNotificationIntegrationExists checks whether an existing EmailNotificationIntegration resource with the given ID exists.
+func EmailNotificationIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *EmailNotificationIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/emailNotificationIntegration:EmailNotificationIntegration", id, state, "", opts...)
+}
+
 type emailNotificationIntegrationArgs struct {
 	// List of email addresses that should receive notifications.
 	AllowedRecipients []string `pulumi:"allowedRecipients"`

@@ -78,6 +78,12 @@ func (UserPublicKeysState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userPublicKeysState)(nil)).Elem()
 }
 
+// UserPublicKeysExists checks whether an existing UserPublicKeys resource with the given ID exists.
+func UserPublicKeysExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserPublicKeysState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/userPublicKeys:UserPublicKeys", id, state, "", opts...)
+}
+
 type userPublicKeysArgs struct {
 	// Name of the user.
 	Name *string `pulumi:"name"`

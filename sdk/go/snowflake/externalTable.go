@@ -250,6 +250,12 @@ func (ExternalTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*externalTableState)(nil)).Elem()
 }
 
+// ExternalTableExists checks whether an existing ExternalTable resource with the given ID exists.
+func ExternalTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExternalTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/externalTable:ExternalTable", id, state, "", opts...)
+}
+
 type externalTableArgs struct {
 	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh *bool `pulumi:"autoRefresh"`

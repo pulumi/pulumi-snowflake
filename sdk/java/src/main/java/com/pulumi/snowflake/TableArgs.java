@@ -130,22 +130,20 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Definitions of primary key constraint to create on table
      * 
-     * @deprecated
-     * Use snowflake.TableConstraint instead
+     * @deprecated Use snowflake.TableConstraint instead
      * 
      */
-    @Deprecated /* Use snowflake.TableConstraint instead */
+    @Deprecated
     @Import(name="primaryKey")
     private @Nullable Output<TablePrimaryKeyArgs> primaryKey;
 
     /**
      * @return Definitions of primary key constraint to create on table
      * 
-     * @deprecated
-     * Use snowflake.TableConstraint instead
+     * @deprecated Use snowflake.TableConstraint instead
      * 
      */
-    @Deprecated /* Use snowflake.TableConstraint instead */
+    @Deprecated
     public Optional<Output<TablePrimaryKeyArgs>> primaryKey() {
         return Optional.ofNullable(this.primaryKey);
     }
@@ -168,22 +166,20 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Definitions of a tag to associate with the resource.
      * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+    @Deprecated
     @Import(name="tags")
     private @Nullable Output<List<TableTagArgs>> tags;
 
     /**
      * @return Definitions of a tag to associate with the resource.
      * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+    @Deprecated
     public Optional<Output<List<TableTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -393,11 +389,10 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use snowflake.TableConstraint instead
+         * @deprecated Use snowflake.TableConstraint instead
          * 
          */
-        @Deprecated /* Use snowflake.TableConstraint instead */
+        @Deprecated
         public Builder primaryKey(@Nullable Output<TablePrimaryKeyArgs> primaryKey) {
             $.primaryKey = primaryKey;
             return this;
@@ -408,11 +403,10 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use snowflake.TableConstraint instead
+         * @deprecated Use snowflake.TableConstraint instead
          * 
          */
-        @Deprecated /* Use snowflake.TableConstraint instead */
+        @Deprecated
         public Builder primaryKey(TablePrimaryKeyArgs primaryKey) {
             return primaryKey(Output.of(primaryKey));
         }
@@ -443,11 +437,10 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+        @Deprecated
         public Builder tags(@Nullable Output<List<TableTagArgs>> tags) {
             $.tags = tags;
             return this;
@@ -458,11 +451,10 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+        @Deprecated
         public Builder tags(List<TableTagArgs> tags) {
             return tags(Output.of(tags));
         }
@@ -472,11 +464,10 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+        @Deprecated
         public Builder tags(TableTagArgs... tags) {
             return tags(List.of(tags));
         }

@@ -124,6 +124,12 @@ func (NetworkPolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*networkPolicyAttachmentState)(nil)).Elem()
 }
 
+// NetworkPolicyAttachmentExists checks whether an existing NetworkPolicyAttachment resource with the given ID exists.
+func NetworkPolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NetworkPolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment", id, state, "", opts...)
+}
+
 type networkPolicyAttachmentArgs struct {
 	// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
 	NetworkPolicyName string `pulumi:"networkPolicyName"`

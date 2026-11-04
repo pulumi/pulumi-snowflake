@@ -356,6 +356,24 @@ class SecondaryConnection(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return SecondaryConnection(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            as_replica_of: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            is_primary: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecondaryConnectionShowOutputArgs', 'SecondaryConnectionShowOutputArgsDict', 'outputs.SecondaryConnectionShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["asReplicaOf"] = as_replica_of
+        __props__["comment"] = comment
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["isPrimary"] = is_primary
+        __props__["name"] = name
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/secondaryConnection:SecondaryConnection', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="asReplicaOf")
     def as_replica_of(self) -> pulumi.Output[_builtins.str]:

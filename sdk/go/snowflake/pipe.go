@@ -148,6 +148,12 @@ func (PipeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*pipeState)(nil)).Elem()
 }
 
+// PipeExists checks whether an existing Pipe resource with the given ID exists.
+func PipeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PipeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/pipe:Pipe", id, state, "", opts...)
+}
+
 type pipeArgs struct {
 	// (Default: `false`) Specifies a autoIngest param for the pipe.
 	AutoIngest *bool `pulumi:"autoIngest"`

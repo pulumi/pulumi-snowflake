@@ -466,6 +466,30 @@ class NetworkPolicy(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return NetworkPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocked_ip_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocked_network_rule_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkPolicyDescribeOutputArgs', 'NetworkPolicyDescribeOutputArgsDict', 'outputs.NetworkPolicyDescribeOutput']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkPolicyShowOutputArgs', 'NetworkPolicyShowOutputArgsDict', 'outputs.NetworkPolicyShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedIpLists"] = allowed_ip_lists
+        __props__["allowedNetworkRuleLists"] = allowed_network_rule_lists
+        __props__["blockedIpLists"] = blocked_ip_lists
+        __props__["blockedNetworkRuleLists"] = blocked_network_rule_lists
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/networkPolicy:NetworkPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedIpLists")
     def allowed_ip_lists(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
