@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note** Limit the use of special characters (`.`, `&#39;`, `/`, `&#34;`, `(`, `)`, `[`, `]`, `{`, `}`, ` `) in argument names, stage ids, and secret ids. It&#39;s best to limit to only alphanumeric and underscores. There is a lot of parsing of SHOW/DESCRIBE outputs involved and using special characters may limit the possibility to achieve the correct results.
  * 
- * &gt; **Note** Diff suppression for `import.stage_location` is currently not implemented. Make sure you are using the fully qualified stage name (with all the double quotes), e.g. `&#34;\&#34;database_name\&#34;.\&#34;schema_name\&#34;.\&#34;stage_name\&#34;&#34;`.
+ * &gt; **Note** Diff suppression for `import.stage_location` is currently not implemented. Make sure you are using the fully qualified stage name (with all the double quotes), e.g. `&#34;&#92;&#34;database_name&#92;&#34;.&#92;&#34;schema_name&#92;&#34;.&#92;&#34;stage_name&#92;&#34;&#34;`.
  * 
  * &gt; **Required warehouse** This resource may require active warehouse. Please, make sure you have either set a DEFAULT_WAREHOUSE for the user, or specified a warehouse in the provider configuration.
  * 

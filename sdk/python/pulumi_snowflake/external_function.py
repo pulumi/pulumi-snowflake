@@ -897,6 +897,50 @@ class ExternalFunction(pulumi.CustomResource):
         __props__.__dict__["url_of_proxy_and_resource"] = url_of_proxy_and_resource
         return ExternalFunction(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            api_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            args: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict', 'outputs.ExternalFunctionArg']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compression: pulumi.Input[Optional[_builtins.str]] = None,
+            context_headers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            headers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict', 'outputs.ExternalFunctionHeader']]]]] = None,
+            max_batch_rows: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            request_translator: pulumi.Input[Optional[_builtins.str]] = None,
+            response_translator: pulumi.Input[Optional[_builtins.str]] = None,
+            return_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            return_null_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
+            return_type: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            url_of_proxy_and_resource: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["apiIntegration"] = api_integration
+        __props__["args"] = args
+        __props__["comment"] = comment
+        __props__["compression"] = compression
+        __props__["contextHeaders"] = context_headers
+        __props__["createdOn"] = created_on
+        __props__["database"] = database
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["headers"] = headers
+        __props__["maxBatchRows"] = max_batch_rows
+        __props__["name"] = name
+        __props__["nullInputBehavior"] = null_input_behavior
+        __props__["requestTranslator"] = request_translator
+        __props__["responseTranslator"] = response_translator
+        __props__["returnBehavior"] = return_behavior
+        __props__["returnNullAllowed"] = return_null_allowed
+        __props__["returnType"] = return_type
+        __props__["schema"] = schema
+        __props__["urlOfProxyAndResource"] = url_of_proxy_and_resource
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/externalFunction:ExternalFunction', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="apiIntegration")
     def api_integration(self) -> pulumi.Output[_builtins.str]:

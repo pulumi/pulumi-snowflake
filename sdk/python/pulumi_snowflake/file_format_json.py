@@ -1076,6 +1076,60 @@ class FileFormatJson(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return FileFormatJson(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_duplicate: pulumi.Input[Optional[_builtins.str]] = None,
+            binary_format: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compression: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            date_format: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatJsonDescribeOutputArgs', 'FileFormatJsonDescribeOutputArgsDict', 'outputs.FileFormatJsonDescribeOutput']]]]] = None,
+            enable_octal: pulumi.Input[Optional[_builtins.str]] = None,
+            file_extension: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_utf8_errors: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_line: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            replace_invalid_characters: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatJsonShowOutputArgs', 'FileFormatJsonShowOutputArgsDict', 'outputs.FileFormatJsonShowOutput']]]]] = None,
+            skip_byte_order_mark: pulumi.Input[Optional[_builtins.str]] = None,
+            strip_null_values: pulumi.Input[Optional[_builtins.str]] = None,
+            strip_outer_array: pulumi.Input[Optional[_builtins.str]] = None,
+            time_format: pulumi.Input[Optional[_builtins.str]] = None,
+            timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
+            trim_space: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowDuplicate"] = allow_duplicate
+        __props__["binaryFormat"] = binary_format
+        __props__["comment"] = comment
+        __props__["compression"] = compression
+        __props__["database"] = database
+        __props__["dateFormat"] = date_format
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enableOctal"] = enable_octal
+        __props__["fileExtension"] = file_extension
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["ignoreUtf8Errors"] = ignore_utf8_errors
+        __props__["multiLine"] = multi_line
+        __props__["name"] = name
+        __props__["nullIfs"] = null_ifs
+        __props__["replaceInvalidCharacters"] = replace_invalid_characters
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["skipByteOrderMark"] = skip_byte_order_mark
+        __props__["stripNullValues"] = strip_null_values
+        __props__["stripOuterArray"] = strip_outer_array
+        __props__["timeFormat"] = time_format
+        __props__["timestampFormat"] = timestamp_format
+        __props__["trimSpace"] = trim_space
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/fileFormatJson:FileFormatJson', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowDuplicate")
     def allow_duplicate(self) -> pulumi.Output[Optional[_builtins.str]]:

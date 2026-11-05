@@ -204,6 +204,12 @@ func (ExternalOauthIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*externalOauthIntegrationState)(nil)).Elem()
 }
 
+// ExternalOauthIntegrationExists checks whether an existing ExternalOauthIntegration resource with the given ID exists.
+func ExternalOauthIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExternalOauthIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/externalOauthIntegration:ExternalOauthIntegration", id, state, "", opts...)
+}
+
 type externalOauthIntegrationArgs struct {
 	// Specifies a comment for the OAuth integration.
 	Comment *string `pulumi:"comment"`

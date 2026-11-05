@@ -251,6 +251,12 @@ func (UserProgrammaticAccessTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*userProgrammaticAccessTokenState)(nil)).Elem()
 }
 
+// UserProgrammaticAccessTokenExists checks whether an existing UserProgrammaticAccessToken resource with the given ID exists.
+func UserProgrammaticAccessTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *UserProgrammaticAccessTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/userProgrammaticAccessToken:UserProgrammaticAccessToken", id, state, "", opts...)
+}
+
 type userProgrammaticAccessTokenArgs struct {
 	// Descriptive comment about the programmatic access token.
 	Comment *string `pulumi:"comment"`

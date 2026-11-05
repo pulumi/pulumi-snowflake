@@ -1001,6 +1001,40 @@ class StageExternalGcs(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return StageExternalGcs(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalGcsDescribeOutputArgs', 'StageExternalGcsDescribeOutputArgsDict', 'outputs.StageExternalGcsDescribeOutput']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageExternalGcsDirectoryArgs', 'StageExternalGcsDirectoryArgsDict', 'outputs.StageExternalGcsDirectory']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageExternalGcsEncryptionArgs', 'StageExternalGcsEncryptionArgsDict', 'outputs.StageExternalGcsEncryption']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageExternalGcsFileFormatArgs', 'StageExternalGcsFileFormatArgsDict', 'outputs.StageExternalGcsFileFormat']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalGcsShowOutputArgs', 'StageExternalGcsShowOutputArgsDict', 'outputs.StageExternalGcsShowOutput']]]]] = None,
+            stage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cloud"] = cloud
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["directory"] = directory
+        __props__["encryption"] = encryption
+        __props__["fileFormat"] = file_format
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["stageType"] = stage_type
+        __props__["storageIntegration"] = storage_integration
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/stageExternalGcs:StageExternalGcs', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cloud(self) -> pulumi.Output[_builtins.str]:

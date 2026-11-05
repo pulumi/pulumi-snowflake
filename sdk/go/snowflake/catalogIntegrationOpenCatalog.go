@@ -209,6 +209,12 @@ func (CatalogIntegrationOpenCatalogState) ElementType() reflect.Type {
 	return reflect.TypeOf((*catalogIntegrationOpenCatalogState)(nil)).Elem()
 }
 
+// CatalogIntegrationOpenCatalogExists checks whether an existing CatalogIntegrationOpenCatalog resource with the given ID exists.
+func CatalogIntegrationOpenCatalogExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CatalogIntegrationOpenCatalogState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/catalogIntegrationOpenCatalog:CatalogIntegrationOpenCatalog", id, state, "", opts...)
+}
+
 type catalogIntegrationOpenCatalogArgs struct {
 	// Specifies the default Open Catalog namespace for all Iceberg tables that you associate with the catalog integration.
 	CatalogNamespace *string `pulumi:"catalogNamespace"`

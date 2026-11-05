@@ -285,6 +285,12 @@ func (Saml2IntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*saml2IntegrationState)(nil)).Elem()
 }
 
+// Saml2IntegrationExists checks whether an existing Saml2Integration resource with the given ID exists.
+func Saml2IntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *Saml2IntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/saml2Integration:Saml2Integration", id, state, "", opts...)
+}
+
 type saml2IntegrationArgs struct {
 	// A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
 	AllowedEmailPatterns []string `pulumi:"allowedEmailPatterns"`

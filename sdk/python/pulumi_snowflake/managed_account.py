@@ -485,6 +485,34 @@ class ManagedAccount(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return ManagedAccount(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            admin_name: pulumi.Input[Optional[_builtins.str]] = None,
+            admin_password: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            locator: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            region: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["adminName"] = admin_name
+        __props__["adminPassword"] = admin_password
+        __props__["cloud"] = cloud
+        __props__["comment"] = comment
+        __props__["createdOn"] = created_on
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["locator"] = locator
+        __props__["name"] = name
+        __props__["region"] = region
+        __props__["type"] = type
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/managedAccount:ManagedAccount', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="adminName")
     def admin_name(self) -> pulumi.Output[_builtins.str]:

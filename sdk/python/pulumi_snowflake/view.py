@@ -784,6 +784,48 @@ class View(pulumi.CustomResource):
         __props__.__dict__["statement"] = statement
         return View(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aggregation_policy: pulumi.Input[Optional[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict', 'outputs.ViewAggregationPolicy']]] = None,
+            change_tracking: pulumi.Input[Optional[_builtins.str]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict', 'outputs.ViewColumn']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_grants: pulumi.Input[Optional[_builtins.bool]] = None,
+            data_metric_functions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict', 'outputs.ViewDataMetricFunction']]]]] = None,
+            data_metric_schedule: pulumi.Input[Optional[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict', 'outputs.ViewDataMetricSchedule']]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewDescribeOutputArgs', 'ViewDescribeOutputArgsDict', 'outputs.ViewDescribeOutput']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            is_recursive: pulumi.Input[Optional[_builtins.str]] = None,
+            is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+            is_temporary: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            row_access_policy: pulumi.Input[Optional[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict', 'outputs.ViewRowAccessPolicy']]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ViewShowOutputArgs', 'ViewShowOutputArgsDict', 'outputs.ViewShowOutput']]]]] = None,
+            statement: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["aggregationPolicy"] = aggregation_policy
+        __props__["changeTracking"] = change_tracking
+        __props__["columns"] = columns
+        __props__["comment"] = comment
+        __props__["copyGrants"] = copy_grants
+        __props__["dataMetricFunctions"] = data_metric_functions
+        __props__["dataMetricSchedule"] = data_metric_schedule
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["isRecursive"] = is_recursive
+        __props__["isSecure"] = is_secure
+        __props__["isTemporary"] = is_temporary
+        __props__["name"] = name
+        __props__["rowAccessPolicy"] = row_access_policy
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["statement"] = statement
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/view:View', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="aggregationPolicy")
     def aggregation_policy(self) -> pulumi.Output[Optional['outputs.ViewAggregationPolicy']]:

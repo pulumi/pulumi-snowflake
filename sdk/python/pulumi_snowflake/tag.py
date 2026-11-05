@@ -572,6 +572,36 @@ class Tag(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return Tag(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            masking_policies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            no_allowed_values: pulumi.Input[Optional[_builtins.bool]] = None,
+            on_conflict: pulumi.Input[Optional[Union['TagOnConflictArgs', 'TagOnConflictArgsDict', 'outputs.TagOnConflict']]] = None,
+            ordered_allowed_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            propagate: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagShowOutputArgs', 'TagShowOutputArgsDict', 'outputs.TagShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedValues"] = allowed_values
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["maskingPolicies"] = masking_policies
+        __props__["name"] = name
+        __props__["noAllowedValues"] = no_allowed_values
+        __props__["onConflict"] = on_conflict
+        __props__["orderedAllowedValues"] = ordered_allowed_values
+        __props__["propagate"] = propagate
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/tag:Tag', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedValues")
     @_utilities.deprecated("""This field is deprecated and will be removed in the next major version. Use `ordered_allowed_values` instead.""")

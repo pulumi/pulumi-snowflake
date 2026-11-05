@@ -250,6 +250,12 @@ func (ProcedureSqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*procedureSqlState)(nil)).Elem()
 }
 
+// ProcedureSqlExists checks whether an existing ProcedureSql resource with the given ID exists.
+func ProcedureSqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProcedureSqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/procedureSql:ProcedureSql", id, state, "", opts...)
+}
+
 type procedureSqlArgs struct {
 	// List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
 	Arguments []ProcedureSqlArgument `pulumi:"arguments"`

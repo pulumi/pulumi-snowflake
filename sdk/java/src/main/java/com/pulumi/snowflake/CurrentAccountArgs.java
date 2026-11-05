@@ -648,14 +648,14 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
+     * Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT &#92;n&#92;n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
      * 
      */
     @Import(name="disableUserPrivilegeGrants")
     private @Nullable Output<Boolean> disableUserPrivilegeGrants;
 
     /**
-     * @return Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
+     * @return Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT &#92;n&#92;n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
      * 
      */
     public Optional<Output<Boolean>> disableUserPrivilegeGrants() {
@@ -1938,14 +1938,14 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *LTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      * 
      */
     @Import(name="timestampLtzOutputFormat")
     private @Nullable Output<String> timestampLtzOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * @return Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *LTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      * 
      */
     public Optional<Output<String>> timestampLtzOutputFormat() {
@@ -1998,14 +1998,14 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *TZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      * 
      */
     @Import(name="timestampTzOutputFormat")
     private @Nullable Output<String> timestampTzOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * @return Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *TZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      * 
      */
     public Optional<Output<String>> timestampTzOutputFormat() {
@@ -3259,7 +3259,7 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param disableUserPrivilegeGrants Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
+         * @param disableUserPrivilegeGrants Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT &#92;n&#92;n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
          * 
          * @return builder
          * 
@@ -3270,7 +3270,7 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param disableUserPrivilegeGrants Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
+         * @param disableUserPrivilegeGrants Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT &#92;n&#92;n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
          * 
          * @return builder
          * 
@@ -5065,7 +5065,7 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timestampLtzOutputFormat Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+         * @param timestampLtzOutputFormat Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *LTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
          * 
          * @return builder
          * 
@@ -5076,7 +5076,7 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timestampLtzOutputFormat Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+         * @param timestampLtzOutputFormat Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *LTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
          * 
          * @return builder
          * 
@@ -5149,7 +5149,7 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timestampTzOutputFormat Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+         * @param timestampTzOutputFormat Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *TZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
          * 
          * @return builder
          * 
@@ -5160,7 +5160,7 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param timestampTzOutputFormat Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+         * @param timestampTzOutputFormat Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *TZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
          * 
          * @return builder
          * 

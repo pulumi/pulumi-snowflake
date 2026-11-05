@@ -334,6 +334,12 @@ func (FileFormatState) ElementType() reflect.Type {
 	return reflect.TypeOf((*fileFormatState)(nil)).Elem()
 }
 
+// FileFormatExists checks whether an existing FileFormat resource with the given ID exists.
+func FileFormatExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FileFormatState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/fileFormat:FileFormat", id, state, "", opts...)
+}
+
 type fileFormatArgs struct {
 	// Boolean that specifies to allow duplicate object field names (only the last one will be preserved).
 	AllowDuplicate *bool `pulumi:"allowDuplicate"`

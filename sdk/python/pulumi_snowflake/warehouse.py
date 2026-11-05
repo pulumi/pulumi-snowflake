@@ -892,6 +892,54 @@ class Warehouse(pulumi.CustomResource):
         __props__.__dict__["warehouse_type"] = warehouse_type
         return Warehouse(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_resume: pulumi.Input[Optional[_builtins.str]] = None,
+            auto_suspend: pulumi.Input[Optional[_builtins.int]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_query_acceleration: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            generation: pulumi.Input[Optional[_builtins.str]] = None,
+            initially_suspended: pulumi.Input[Optional[_builtins.bool]] = None,
+            max_cluster_count: pulumi.Input[Optional[_builtins.int]] = None,
+            max_concurrency_level: pulumi.Input[Optional[_builtins.int]] = None,
+            min_cluster_count: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict', 'outputs.WarehouseParameter']]]]] = None,
+            query_acceleration_max_scale_factor: pulumi.Input[Optional[_builtins.int]] = None,
+            resource_constraint: pulumi.Input[Optional[_builtins.str]] = None,
+            resource_monitor: pulumi.Input[Optional[_builtins.str]] = None,
+            scaling_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WarehouseShowOutputArgs', 'WarehouseShowOutputArgsDict', 'outputs.WarehouseShowOutput']]]]] = None,
+            statement_queued_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            statement_timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+            warehouse_size: pulumi.Input[Optional[_builtins.str]] = None,
+            warehouse_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoResume"] = auto_resume
+        __props__["autoSuspend"] = auto_suspend
+        __props__["comment"] = comment
+        __props__["enableQueryAcceleration"] = enable_query_acceleration
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["generation"] = generation
+        __props__["initiallySuspended"] = initially_suspended
+        __props__["maxClusterCount"] = max_cluster_count
+        __props__["maxConcurrencyLevel"] = max_concurrency_level
+        __props__["minClusterCount"] = min_cluster_count
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["queryAccelerationMaxScaleFactor"] = query_acceleration_max_scale_factor
+        __props__["resourceConstraint"] = resource_constraint
+        __props__["resourceMonitor"] = resource_monitor
+        __props__["scalingPolicy"] = scaling_policy
+        __props__["showOutputs"] = show_outputs
+        __props__["statementQueuedTimeoutInSeconds"] = statement_queued_timeout_in_seconds
+        __props__["statementTimeoutInSeconds"] = statement_timeout_in_seconds
+        __props__["warehouseSize"] = warehouse_size
+        __props__["warehouseType"] = warehouse_type
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/warehouse:Warehouse', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoResume")
     def auto_resume(self) -> pulumi.Output[Optional[_builtins.str]]:

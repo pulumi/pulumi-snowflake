@@ -187,6 +187,12 @@ func (MaterializedViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*materializedViewState)(nil)).Elem()
 }
 
+// MaterializedViewExists checks whether an existing MaterializedView resource with the given ID exists.
+func MaterializedViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MaterializedViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/materializedView:MaterializedView", id, state, "", opts...)
+}
+
 type materializedViewArgs struct {
 	// Specifies a comment for the view.
 	Comment *string `pulumi:"comment"`

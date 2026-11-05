@@ -801,6 +801,44 @@ class AuthenticationPolicy(pulumi.CustomResource):
         __props__.__dict__["workload_identity_policy"] = workload_identity_policy
         return AuthenticationPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            client_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticationPolicyClientPolicyArgs', 'AuthenticationPolicyClientPolicyArgsDict', 'outputs.AuthenticationPolicyClientPolicy']]]]] = None,
+            client_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticationPolicyDescribeOutputArgs', 'AuthenticationPolicyDescribeOutputArgsDict', 'outputs.AuthenticationPolicyDescribeOutput']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            mfa_authentication_methods: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            mfa_enrollment: pulumi.Input[Optional[_builtins.str]] = None,
+            mfa_policy: pulumi.Input[Optional[Union['AuthenticationPolicyMfaPolicyArgs', 'AuthenticationPolicyMfaPolicyArgsDict', 'outputs.AuthenticationPolicyMfaPolicy']]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            pat_policy: pulumi.Input[Optional[Union['AuthenticationPolicyPatPolicyArgs', 'AuthenticationPolicyPatPolicyArgsDict', 'outputs.AuthenticationPolicyPatPolicy']]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            security_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AuthenticationPolicyShowOutputArgs', 'AuthenticationPolicyShowOutputArgsDict', 'outputs.AuthenticationPolicyShowOutput']]]]] = None,
+            workload_identity_policy: pulumi.Input[Optional[Union['AuthenticationPolicyWorkloadIdentityPolicyArgs', 'AuthenticationPolicyWorkloadIdentityPolicyArgsDict', 'outputs.AuthenticationPolicyWorkloadIdentityPolicy']]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationMethods"] = authentication_methods
+        __props__["clientPolicies"] = client_policies
+        __props__["clientTypes"] = client_types
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["mfaAuthenticationMethods"] = mfa_authentication_methods
+        __props__["mfaEnrollment"] = mfa_enrollment
+        __props__["mfaPolicy"] = mfa_policy
+        __props__["name"] = name
+        __props__["patPolicy"] = pat_policy
+        __props__["schema"] = schema
+        __props__["securityIntegrations"] = security_integrations
+        __props__["showOutputs"] = show_outputs
+        __props__["workloadIdentityPolicy"] = workload_identity_policy
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/authenticationPolicy:AuthenticationPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationMethods")
     def authentication_methods(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

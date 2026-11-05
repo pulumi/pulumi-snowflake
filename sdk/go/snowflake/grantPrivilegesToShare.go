@@ -117,6 +117,12 @@ func (GrantPrivilegesToShareState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grantPrivilegesToShareState)(nil)).Elem()
 }
 
+// GrantPrivilegesToShareExists checks whether an existing GrantPrivilegesToShare resource with the given ID exists.
+func GrantPrivilegesToShareExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrantPrivilegesToShareState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare", id, state, "", opts...)
+}
+
 type grantPrivilegesToShareArgs struct {
 	// The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
 	OnAllTablesInSchema *string `pulumi:"onAllTablesInSchema"`

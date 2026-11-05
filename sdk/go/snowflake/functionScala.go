@@ -367,6 +367,12 @@ func (FunctionScalaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionScalaState)(nil)).Elem()
 }
 
+// FunctionScalaExists checks whether an existing FunctionScala resource with the given ID exists.
+func FunctionScalaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionScalaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/functionScala:FunctionScala", id, state, "", opts...)
+}
+
 type functionScalaArgs struct {
 	// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 	Arguments []FunctionScalaArgument `pulumi:"arguments"`

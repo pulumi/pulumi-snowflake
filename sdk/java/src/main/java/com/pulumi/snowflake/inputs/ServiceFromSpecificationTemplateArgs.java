@@ -49,14 +49,14 @@ public final class ServiceFromSpecificationTemplateArgs extends com.pulumi.resou
     }
 
     /**
-     * The fully qualified name of the stage containing the service specification template file. At symbol (`{@literal @}`) is added automatically. Example: `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;stage_name&gt;\&#34;&#34;`. For more information about this resource, see docs.
+     * The fully qualified name of the stage containing the service specification template file. At symbol (`{@literal @}`) is added automatically. Example: `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;stage_name&gt;&#92;&#34;&#34;`. For more information about this resource, see docs.
      * 
      */
     @Import(name="stage")
     private @Nullable Output<String> stage;
 
     /**
-     * @return The fully qualified name of the stage containing the service specification template file. At symbol (`{@literal @}`) is added automatically. Example: `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;stage_name&gt;\&#34;&#34;`. For more information about this resource, see docs.
+     * @return The fully qualified name of the stage containing the service specification template file. At symbol (`{@literal @}`) is added automatically. Example: `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;stage_name&gt;&#92;&#34;&#34;`. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> stage() {
@@ -164,7 +164,7 @@ public final class ServiceFromSpecificationTemplateArgs extends com.pulumi.resou
         }
 
         /**
-         * @param stage The fully qualified name of the stage containing the service specification template file. At symbol (`{@literal @}`) is added automatically. Example: `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;stage_name&gt;\&#34;&#34;`. For more information about this resource, see docs.
+         * @param stage The fully qualified name of the stage containing the service specification template file. At symbol (`{@literal @}`) is added automatically. Example: `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;stage_name&gt;&#92;&#34;&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class ServiceFromSpecificationTemplateArgs extends com.pulumi.resou
         }
 
         /**
-         * @param stage The fully qualified name of the stage containing the service specification template file. At symbol (`{@literal @}`) is added automatically. Example: `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;stage_name&gt;\&#34;&#34;`. For more information about this resource, see docs.
+         * @param stage The fully qualified name of the stage containing the service specification template file. At symbol (`{@literal @}`) is added automatically. Example: `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;stage_name&gt;&#92;&#34;&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 

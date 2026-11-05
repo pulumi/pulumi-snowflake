@@ -763,6 +763,12 @@ func (LegacyServiceUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*legacyServiceUserState)(nil)).Elem()
 }
 
+// LegacyServiceUserExists checks whether an existing LegacyServiceUser resource with the given ID exists.
+func LegacyServiceUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *LegacyServiceUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/legacyServiceUser:LegacyServiceUser", id, state, "", opts...)
+}
+
 type legacyServiceUserArgs struct {
 	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
 	AbortDetachedQuery *bool `pulumi:"abortDetachedQuery"`

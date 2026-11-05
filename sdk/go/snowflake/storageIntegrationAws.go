@@ -215,6 +215,12 @@ func (StorageIntegrationAwsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageIntegrationAwsState)(nil)).Elem()
 }
 
+// StorageIntegrationAwsExists checks whether an existing StorageIntegrationAws resource with the given ID exists.
+func StorageIntegrationAwsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageIntegrationAwsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/storageIntegrationAws:StorageIntegrationAws", id, state, "", opts...)
+}
+
 type storageIntegrationAwsArgs struct {
 	// Specifies a comment for the storage integration.
 	Comment *string `pulumi:"comment"`

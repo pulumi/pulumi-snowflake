@@ -22,22 +22,20 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
      * 
-     * @deprecated
-     * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
+     * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      * 
      */
-    @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
+    @Deprecated
     @Import(name="allowedValues")
     private @Nullable Output<List<String>> allowedValues;
 
     /**
      * @return Set of allowed values for the tag (unordered). When specified, only these values can be assigned. When the `TAGS_ALLOW_EMPTY_ALLOWED_VALUES` experiment is enabled, removing this field from the configuration reverts the tag to accepting any value. Conflicts with `noAllowedValues` and `orderedAllowedValues`.
      * 
-     * @deprecated
-     * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
+     * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
      * 
      */
-    @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
+    @Deprecated
     public Optional<Output<List<String>>> allowedValues() {
         return Optional.ofNullable(this.allowedValues);
     }
@@ -215,11 +213,10 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
+         * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
          * 
          */
-        @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
+        @Deprecated
         public Builder allowedValues(@Nullable Output<List<String>> allowedValues) {
             $.allowedValues = allowedValues;
             return this;
@@ -230,11 +227,10 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
+         * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
          * 
          */
-        @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
+        @Deprecated
         public Builder allowedValues(List<String> allowedValues) {
             return allowedValues(Output.of(allowedValues));
         }
@@ -244,11 +240,10 @@ public final class TagArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
+         * @deprecated This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead.
          * 
          */
-        @Deprecated /* This field is deprecated and will be removed in the next major version. Use `orderedAllowedValues` instead. */
+        @Deprecated
         public Builder allowedValues(String... allowedValues) {
             return allowedValues(List.of(allowedValues));
         }

@@ -179,6 +179,12 @@ func (ApiIntegrationExternalMcpDynamicClientState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationExternalMcpDynamicClientState)(nil)).Elem()
 }
 
+// ApiIntegrationExternalMcpDynamicClientExists checks whether an existing ApiIntegrationExternalMcpDynamicClient resource with the given ID exists.
+func ApiIntegrationExternalMcpDynamicClientExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationExternalMcpDynamicClientState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiIntegrationExternalMcpDynamicClient:ApiIntegrationExternalMcpDynamicClient", id, state, "", opts...)
+}
+
 type apiIntegrationExternalMcpDynamicClientArgs struct {
 	// Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service and remote service endpoints and resources.
 	ApiAllowedPrefixes []string `pulumi:"apiAllowedPrefixes"`

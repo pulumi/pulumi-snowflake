@@ -304,6 +304,12 @@ func (NotificationIntegrationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*notificationIntegrationState)(nil)).Elem()
 }
 
+// NotificationIntegrationExists checks whether an existing NotificationIntegration resource with the given ID exists.
+func NotificationIntegrationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *NotificationIntegrationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/notificationIntegration:NotificationIntegration", id, state, "", opts...)
+}
+
 type notificationIntegrationArgs struct {
 	// AWS IAM role ARN for notification integration to assume. Required for AWS_SNS provider
 	AwsSnsRoleArn *string `pulumi:"awsSnsRoleArn"`

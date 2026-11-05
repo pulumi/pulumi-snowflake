@@ -120,6 +120,12 @@ func (McpServerState) ElementType() reflect.Type {
 	return reflect.TypeOf((*mcpServerState)(nil)).Elem()
 }
 
+// McpServerExists checks whether an existing McpServer resource with the given ID exists.
+func McpServerExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *McpServerState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/mcpServer:McpServer", id, state, "", opts...)
+}
+
 type mcpServerArgs struct {
 	// Specifies a comment for the MCP server.
 	Comment *string `pulumi:"comment"`

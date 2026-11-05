@@ -929,6 +929,54 @@ class NotificationIntegration(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return NotificationIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_sns_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sns_iam_user_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sns_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sqs_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sqs_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sqs_iam_user_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            aws_sqs_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_storage_queue_primary_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            azure_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            created_on: pulumi.Input[Optional[_builtins.str]] = None,
+            direction: pulumi.Input[Optional[_builtins.str]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gcp_pubsub_service_account: pulumi.Input[Optional[_builtins.str]] = None,
+            gcp_pubsub_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+            gcp_pubsub_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsSnsExternalId"] = aws_sns_external_id
+        __props__["awsSnsIamUserArn"] = aws_sns_iam_user_arn
+        __props__["awsSnsRoleArn"] = aws_sns_role_arn
+        __props__["awsSnsTopicArn"] = aws_sns_topic_arn
+        __props__["awsSqsArn"] = aws_sqs_arn
+        __props__["awsSqsExternalId"] = aws_sqs_external_id
+        __props__["awsSqsIamUserArn"] = aws_sqs_iam_user_arn
+        __props__["awsSqsRoleArn"] = aws_sqs_role_arn
+        __props__["azureStorageQueuePrimaryUri"] = azure_storage_queue_primary_uri
+        __props__["azureTenantId"] = azure_tenant_id
+        __props__["comment"] = comment
+        __props__["createdOn"] = created_on
+        __props__["direction"] = direction
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["gcpPubsubServiceAccount"] = gcp_pubsub_service_account
+        __props__["gcpPubsubSubscriptionName"] = gcp_pubsub_subscription_name
+        __props__["gcpPubsubTopicName"] = gcp_pubsub_topic_name
+        __props__["name"] = name
+        __props__["notificationProvider"] = notification_provider
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/notificationIntegration:NotificationIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsSnsExternalId")
     def aws_sns_external_id(self) -> pulumi.Output[_builtins.str]:

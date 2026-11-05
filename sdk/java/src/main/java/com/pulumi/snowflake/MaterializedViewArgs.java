@@ -127,22 +127,20 @@ public final class MaterializedViewArgs extends com.pulumi.resources.ResourceArg
     /**
      * Definitions of a tag to associate with the resource.
      * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+    @Deprecated
     @Import(name="tags")
     private @Nullable Output<List<MaterializedViewTagArgs>> tags;
 
     /**
      * @return Definitions of a tag to associate with the resource.
      * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+    @Deprecated
     public Optional<Output<List<MaterializedViewTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -346,11 +344,10 @@ public final class MaterializedViewArgs extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+        @Deprecated
         public Builder tags(@Nullable Output<List<MaterializedViewTagArgs>> tags) {
             $.tags = tags;
             return this;
@@ -361,11 +358,10 @@ public final class MaterializedViewArgs extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+        @Deprecated
         public Builder tags(List<MaterializedViewTagArgs> tags) {
             return tags(Output.of(tags));
         }
@@ -375,11 +371,10 @@ public final class MaterializedViewArgs extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+        @Deprecated
         public Builder tags(MaterializedViewTagArgs... tags) {
             return tags(List.of(tags));
         }

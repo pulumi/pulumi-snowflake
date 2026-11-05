@@ -561,6 +561,12 @@ func (TaskState) ElementType() reflect.Type {
 	return reflect.TypeOf((*taskState)(nil)).Elem()
 }
 
+// TaskExists checks whether an existing Task resource with the given ID exists.
+func TaskExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TaskState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/task:Task", id, state, "", opts...)
+}
+
 type taskArgs struct {
 	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
 	AbortDetachedQuery *bool `pulumi:"abortDetachedQuery"`

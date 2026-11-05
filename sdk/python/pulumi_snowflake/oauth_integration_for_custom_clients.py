@@ -928,6 +928,52 @@ class OauthIntegrationForCustomClients(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return OauthIntegrationForCustomClients(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsDescribeOutputArgs', 'OauthIntegrationForCustomClientsDescribeOutputArgsDict', 'outputs.OauthIntegrationForCustomClientsDescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_allow_non_tls_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_client_type: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_enforce_pkce: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_issue_refresh_tokens: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_redirect_uri: pulumi.Input[Optional[_builtins.str]] = None,
+            oauth_refresh_token_validity: pulumi.Input[Optional[_builtins.int]] = None,
+            oauth_use_secondary_roles: pulumi.Input[Optional[_builtins.str]] = None,
+            pre_authorized_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            related_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsRelatedParameterArgs', 'OauthIntegrationForCustomClientsRelatedParameterArgsDict', 'outputs.OauthIntegrationForCustomClientsRelatedParameter']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OauthIntegrationForCustomClientsShowOutputArgs', 'OauthIntegrationForCustomClientsShowOutputArgsDict', 'outputs.OauthIntegrationForCustomClientsShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedRolesLists"] = allowed_roles_lists
+        __props__["blockedRolesLists"] = blocked_roles_lists
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["networkPolicy"] = network_policy
+        __props__["oauthAllowNonTlsRedirectUri"] = oauth_allow_non_tls_redirect_uri
+        __props__["oauthClientRsaPublicKey"] = oauth_client_rsa_public_key
+        __props__["oauthClientRsaPublicKey2"] = oauth_client_rsa_public_key2
+        __props__["oauthClientType"] = oauth_client_type
+        __props__["oauthEnforcePkce"] = oauth_enforce_pkce
+        __props__["oauthIssueRefreshTokens"] = oauth_issue_refresh_tokens
+        __props__["oauthRedirectUri"] = oauth_redirect_uri
+        __props__["oauthRefreshTokenValidity"] = oauth_refresh_token_validity
+        __props__["oauthUseSecondaryRoles"] = oauth_use_secondary_roles
+        __props__["preAuthorizedRolesLists"] = pre_authorized_roles_lists
+        __props__["relatedParameters"] = related_parameters
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedRolesLists")
     def allowed_roles_lists(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

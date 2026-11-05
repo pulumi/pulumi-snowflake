@@ -699,6 +699,36 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         return Table(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            change_tracking: pulumi.Input[Optional[_builtins.bool]] = None,
+            cluster_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict', 'outputs.TableColumn']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key: pulumi.Input[Optional[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict', 'outputs.TablePrimaryKey']]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict', 'outputs.TableTag']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["changeTracking"] = change_tracking
+        __props__["clusterBies"] = cluster_bies
+        __props__["columns"] = columns
+        __props__["comment"] = comment
+        __props__["dataRetentionTimeInDays"] = data_retention_time_in_days
+        __props__["database"] = database
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["owner"] = owner
+        __props__["primaryKey"] = primary_key
+        __props__["schema"] = schema
+        __props__["tags"] = tags
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/table:Table', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="changeTracking")
     def change_tracking(self) -> pulumi.Output[Optional[_builtins.bool]]:

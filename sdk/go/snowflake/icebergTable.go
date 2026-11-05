@@ -510,6 +510,12 @@ func (IcebergTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*icebergTableState)(nil)).Elem()
 }
 
+// IcebergTableExists checks whether an existing IcebergTable resource with the given ID exists.
+func IcebergTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IcebergTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/icebergTable:IcebergTable", id, state, "", opts...)
+}
+
 type icebergTableArgs struct {
 	// Specifies the aggregation policy to set on a Iceberg table.
 	AggregationPolicy *IcebergTableAggregationPolicy `pulumi:"aggregationPolicy"`

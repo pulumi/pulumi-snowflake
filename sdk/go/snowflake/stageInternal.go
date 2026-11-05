@@ -355,6 +355,12 @@ func (StageInternalState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageInternalState)(nil)).Elem()
 }
 
+// StageInternalExists checks whether an existing StageInternal resource with the given ID exists.
+func StageInternalExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StageInternalState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/stageInternal:StageInternal", id, state, "", opts...)
+}
+
 type stageInternalArgs struct {
 	// Specifies a comment for the stage.
 	Comment *string `pulumi:"comment"`

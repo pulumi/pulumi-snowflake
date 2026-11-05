@@ -204,6 +204,12 @@ func (IcebergTableFromDeltaFilesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*icebergTableFromDeltaFilesState)(nil)).Elem()
 }
 
+// IcebergTableFromDeltaFilesExists checks whether an existing IcebergTableFromDeltaFiles resource with the given ID exists.
+func IcebergTableFromDeltaFilesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IcebergTableFromDeltaFilesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/icebergTableFromDeltaFiles:IcebergTableFromDeltaFiles", id, state, "", opts...)
+}
+
 type icebergTableFromDeltaFilesArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether Snowflake should automatically refresh the Iceberg table metadata when new files are added to the Delta table's directory. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AutoRefresh *string `pulumi:"autoRefresh"`

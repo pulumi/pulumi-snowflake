@@ -314,6 +314,12 @@ func (SemanticViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*semanticViewState)(nil)).Elem()
 }
 
+// SemanticViewExists checks whether an existing SemanticView resource with the given ID exists.
+func SemanticViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SemanticViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/semanticView:SemanticView", id, state, "", opts...)
+}
+
 type semanticViewArgs struct {
 	// Specifies a comment for the semantic view.
 	Comment *string `pulumi:"comment"`

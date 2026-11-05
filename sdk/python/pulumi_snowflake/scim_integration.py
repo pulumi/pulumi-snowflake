@@ -460,6 +460,32 @@ class ScimIntegration(pulumi.CustomResource):
         __props__.__dict__["sync_password"] = sync_password
         return ScimIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScimIntegrationDescribeOutputArgs', 'ScimIntegrationDescribeOutputArgsDict', 'outputs.ScimIntegrationDescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            run_as_role: pulumi.Input[Optional[_builtins.str]] = None,
+            scim_client: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScimIntegrationShowOutputArgs', 'ScimIntegrationShowOutputArgsDict', 'outputs.ScimIntegrationShowOutput']]]]] = None,
+            sync_password: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["networkPolicy"] = network_policy
+        __props__["runAsRole"] = run_as_role
+        __props__["scimClient"] = scim_client
+        __props__["showOutputs"] = show_outputs
+        __props__["syncPassword"] = sync_password
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/scimIntegration:ScimIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:

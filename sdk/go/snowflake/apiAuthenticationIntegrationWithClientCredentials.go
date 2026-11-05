@@ -166,6 +166,12 @@ func (ApiAuthenticationIntegrationWithClientCredentialsState) ElementType() refl
 	return reflect.TypeOf((*apiAuthenticationIntegrationWithClientCredentialsState)(nil)).Elem()
 }
 
+// ApiAuthenticationIntegrationWithClientCredentialsExists checks whether an existing ApiAuthenticationIntegrationWithClientCredentials resource with the given ID exists.
+func ApiAuthenticationIntegrationWithClientCredentialsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiAuthenticationIntegrationWithClientCredentialsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials", id, state, "", opts...)
+}
+
 type apiAuthenticationIntegrationWithClientCredentialsArgs struct {
 	// Specifies a comment for the integration.
 	Comment *string `pulumi:"comment"`

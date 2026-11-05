@@ -71,12 +71,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // basic resource
  *         var basic = new SemanticView("basic", SemanticViewArgs.builder()
  *             .database("DATABASE")
@@ -84,8 +84,8 @@ import javax.annotation.Nullable;
  *             .name("SEMANTIC_VIEW")
  *             .metrics(SemanticViewMetricArgs.builder()
  *                 .semanticExpression(SemanticViewMetricSemanticExpressionArgs.builder()
- *                     .qualifiedExpressionName("\"lt1\".\"m1\"")
- *                     .sqlExpression("SUM(\"lt1\".\"a1\")")
+ *                     .qualifiedExpressionName("}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "m1}&#92;{@code "")
+ *                     .sqlExpression("SUM(}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "a1}&#92;{@code ")")
  *                     .build())
  *                 .build())
  *             .tables(SemanticViewTableArgs.builder()
@@ -102,15 +102,15 @@ import javax.annotation.Nullable;
  *             .comment("comment")
  *             .dimensions(SemanticViewDimensionArgs.builder()
  *                 .comment("dimension comment")
- *                 .qualifiedExpressionName("\"lt1\".\"d2\"")
- *                 .sqlExpression("\"lt1\".\"a2\"")
+ *                 .qualifiedExpressionName("}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "d2}&#92;{@code "")
+ *                 .sqlExpression("}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "a2}&#92;{@code "")
  *                 .synonyms("dim2")
  *                 .build())
  *             .facts(SemanticViewFactArgs.builder()
  *                 .isPrivate("true")
  *                 .comment("fact comment")
- *                 .qualifiedExpressionName("\"lt1\".\"f2\"")
- *                 .sqlExpression("\"lt1\".\"a1\"")
+ *                 .qualifiedExpressionName("}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "f2}&#92;{@code "")
+ *                 .sqlExpression("}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "a1}&#92;{@code "")
  *                 .synonyms("fact2")
  *                 .build())
  *             .metrics(            
@@ -118,8 +118,8 @@ import javax.annotation.Nullable;
  *                     .isPrivate("true")
  *                     .semanticExpression(SemanticViewMetricSemanticExpressionArgs.builder()
  *                         .comment("semantic expression comment")
- *                         .qualifiedExpressionName("\"lt1\".\"m1\"")
- *                         .sqlExpression("SUM(\"lt1\".\"a1\")")
+ *                         .qualifiedExpressionName("}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "m1}&#92;{@code "")
+ *                         .sqlExpression("SUM(}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "a1}&#92;{@code ")")
  *                         .synonyms(                        
  *                             "sem1",
  *                             "baseSem")
@@ -129,10 +129,10 @@ import javax.annotation.Nullable;
  *                     .isPrivate("false")
  *                     .windowFunction(SemanticViewMetricWindowFunctionArgs.builder()
  *                         .overClause(SemanticViewMetricWindowFunctionOverClauseArgs.builder()
- *                             .partitionBy("\"lt1\".\"d2\"")
+ *                             .partitionBy("}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "d2}&#92;{@code "")
  *                             .build())
- *                         .qualifiedExpressionName("\"lt1\".\"wf1\"")
- *                         .sqlExpression("SUM(\"lt1\".\"m1\")")
+ *                         .qualifiedExpressionName("}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "wf1}&#92;{@code "")
+ *                         .sqlExpression("SUM(}&#92;{@code "lt1}&#92;{@code ".}&#92;{@code "m1}&#92;{@code ")")
  *                         .build())
  *                     .build())
  *             .relationships(SemanticViewRelationshipArgs.builder()
@@ -177,8 +177,8 @@ import javax.annotation.Nullable;
  *                     .build())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.

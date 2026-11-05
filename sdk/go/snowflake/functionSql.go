@@ -267,6 +267,12 @@ func (FunctionSqlState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionSqlState)(nil)).Elem()
 }
 
+// FunctionSqlExists checks whether an existing FunctionSql resource with the given ID exists.
+func FunctionSqlExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionSqlState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/functionSql:FunctionSql", id, state, "", opts...)
+}
+
 type functionSqlArgs struct {
 	// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 	Arguments []FunctionSqlArgument `pulumi:"arguments"`

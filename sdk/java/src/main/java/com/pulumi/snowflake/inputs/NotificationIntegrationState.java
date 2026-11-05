@@ -79,22 +79,20 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     /**
      * AWS SQS queue ARN for notification integration to connect to
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     @Import(name="awsSqsArn")
     private @Nullable Output<String> awsSqsArn;
 
     /**
      * @return AWS SQS queue ARN for notification integration to connect to
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     public Optional<Output<String>> awsSqsArn() {
         return Optional.ofNullable(this.awsSqsArn);
     }
@@ -102,22 +100,20 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     /**
      * The external ID that Snowflake will use when assuming the AWS role
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     @Import(name="awsSqsExternalId")
     private @Nullable Output<String> awsSqsExternalId;
 
     /**
      * @return The external ID that Snowflake will use when assuming the AWS role
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     public Optional<Output<String>> awsSqsExternalId() {
         return Optional.ofNullable(this.awsSqsExternalId);
     }
@@ -125,22 +121,20 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     /**
      * The Snowflake user that will attempt to assume the AWS role.
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     @Import(name="awsSqsIamUserArn")
     private @Nullable Output<String> awsSqsIamUserArn;
 
     /**
      * @return The Snowflake user that will attempt to assume the AWS role.
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     public Optional<Output<String>> awsSqsIamUserArn() {
         return Optional.ofNullable(this.awsSqsIamUserArn);
     }
@@ -148,22 +142,20 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     /**
      * AWS IAM role ARN for notification integration to assume
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     @Import(name="awsSqsRoleArn")
     private @Nullable Output<String> awsSqsRoleArn;
 
     /**
      * @return AWS IAM role ARN for notification integration to assume
      * 
-     * @deprecated
-     * No longer supported notification method
+     * @deprecated No longer supported notification method
      * 
      */
-    @Deprecated /* No longer supported notification method */
+    @Deprecated
     public Optional<Output<String>> awsSqsRoleArn() {
         return Optional.ofNullable(this.awsSqsRoleArn);
     }
@@ -231,22 +223,20 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     /**
      * Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
      * 
-     * @deprecated
-     * Will be removed - it is added automatically on the SDK level.
+     * @deprecated Will be removed - it is added automatically on the SDK level.
      * 
      */
-    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
+    @Deprecated
     @Import(name="direction")
     private @Nullable Output<String> direction;
 
     /**
      * @return Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
      * 
-     * @deprecated
-     * Will be removed - it is added automatically on the SDK level.
+     * @deprecated Will be removed - it is added automatically on the SDK level.
      * 
      */
-    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
+    @Deprecated
     public Optional<Output<String>> direction() {
         return Optional.ofNullable(this.direction);
     }
@@ -351,22 +341,20 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     /**
      * (Default: `QUEUE`) A type of integration
      * 
-     * @deprecated
-     * Will be removed - it is added automatically on the SDK level.
+     * @deprecated Will be removed - it is added automatically on the SDK level.
      * 
      */
-    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
+    @Deprecated
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
      * @return (Default: `QUEUE`) A type of integration
      * 
-     * @deprecated
-     * Will be removed - it is added automatically on the SDK level.
+     * @deprecated Will be removed - it is added automatically on the SDK level.
      * 
      */
-    @Deprecated /* Will be removed - it is added automatically on the SDK level. */
+    @Deprecated
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -504,11 +492,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * No longer supported notification method
+         * @deprecated No longer supported notification method
          * 
          */
-        @Deprecated /* No longer supported notification method */
+        @Deprecated
         public Builder awsSqsArn(@Nullable Output<String> awsSqsArn) {
             $.awsSqsArn = awsSqsArn;
             return this;
@@ -519,11 +506,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * No longer supported notification method
+         * @deprecated No longer supported notification method
          * 
          */
-        @Deprecated /* No longer supported notification method */
+        @Deprecated
         public Builder awsSqsArn(String awsSqsArn) {
             return awsSqsArn(Output.of(awsSqsArn));
         }
@@ -533,11 +519,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * No longer supported notification method
+         * @deprecated No longer supported notification method
          * 
          */
-        @Deprecated /* No longer supported notification method */
+        @Deprecated
         public Builder awsSqsExternalId(@Nullable Output<String> awsSqsExternalId) {
             $.awsSqsExternalId = awsSqsExternalId;
             return this;
@@ -548,11 +533,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * No longer supported notification method
+         * @deprecated No longer supported notification method
          * 
          */
-        @Deprecated /* No longer supported notification method */
+        @Deprecated
         public Builder awsSqsExternalId(String awsSqsExternalId) {
             return awsSqsExternalId(Output.of(awsSqsExternalId));
         }
@@ -562,11 +546,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * No longer supported notification method
+         * @deprecated No longer supported notification method
          * 
          */
-        @Deprecated /* No longer supported notification method */
+        @Deprecated
         public Builder awsSqsIamUserArn(@Nullable Output<String> awsSqsIamUserArn) {
             $.awsSqsIamUserArn = awsSqsIamUserArn;
             return this;
@@ -577,11 +560,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * No longer supported notification method
+         * @deprecated No longer supported notification method
          * 
          */
-        @Deprecated /* No longer supported notification method */
+        @Deprecated
         public Builder awsSqsIamUserArn(String awsSqsIamUserArn) {
             return awsSqsIamUserArn(Output.of(awsSqsIamUserArn));
         }
@@ -591,11 +573,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * No longer supported notification method
+         * @deprecated No longer supported notification method
          * 
          */
-        @Deprecated /* No longer supported notification method */
+        @Deprecated
         public Builder awsSqsRoleArn(@Nullable Output<String> awsSqsRoleArn) {
             $.awsSqsRoleArn = awsSqsRoleArn;
             return this;
@@ -606,11 +587,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * No longer supported notification method
+         * @deprecated No longer supported notification method
          * 
          */
-        @Deprecated /* No longer supported notification method */
+        @Deprecated
         public Builder awsSqsRoleArn(String awsSqsRoleArn) {
             return awsSqsRoleArn(Output.of(awsSqsRoleArn));
         }
@@ -704,11 +684,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Will be removed - it is added automatically on the SDK level.
+         * @deprecated Will be removed - it is added automatically on the SDK level.
          * 
          */
-        @Deprecated /* Will be removed - it is added automatically on the SDK level. */
+        @Deprecated
         public Builder direction(@Nullable Output<String> direction) {
             $.direction = direction;
             return this;
@@ -719,11 +698,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Will be removed - it is added automatically on the SDK level.
+         * @deprecated Will be removed - it is added automatically on the SDK level.
          * 
          */
-        @Deprecated /* Will be removed - it is added automatically on the SDK level. */
+        @Deprecated
         public Builder direction(String direction) {
             return direction(Output.of(direction));
         }
@@ -868,11 +846,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Will be removed - it is added automatically on the SDK level.
+         * @deprecated Will be removed - it is added automatically on the SDK level.
          * 
          */
-        @Deprecated /* Will be removed - it is added automatically on the SDK level. */
+        @Deprecated
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
@@ -883,11 +860,10 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
          * 
          * @return builder
          * 
-         * @deprecated
-         * Will be removed - it is added automatically on the SDK level.
+         * @deprecated Will be removed - it is added automatically on the SDK level.
          * 
          */
-        @Deprecated /* Will be removed - it is added automatically on the SDK level. */
+        @Deprecated
         public Builder type(String type) {
             return type(Output.of(type));
         }

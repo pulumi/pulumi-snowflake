@@ -841,6 +841,52 @@ class ExternalOauthIntegration(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return ExternalOauthIntegration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationDescribeOutputArgs', 'ExternalOauthIntegrationDescribeOutputArgsDict', 'outputs.ExternalOauthIntegrationDescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_oauth_allowed_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_oauth_any_role_mode: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_audience_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_oauth_blocked_roles_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_oauth_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_jws_keys_urls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_oauth_rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_scope_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_scope_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_snowflake_user_mapping_attribute: pulumi.Input[Optional[_builtins.str]] = None,
+            external_oauth_token_user_mapping_claims: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_oauth_type: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            related_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationRelatedParameterArgs', 'ExternalOauthIntegrationRelatedParameterArgsDict', 'outputs.ExternalOauthIntegrationRelatedParameter']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExternalOauthIntegrationShowOutputArgs', 'ExternalOauthIntegrationShowOutputArgsDict', 'outputs.ExternalOauthIntegrationShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["externalOauthAllowedRolesLists"] = external_oauth_allowed_roles_lists
+        __props__["externalOauthAnyRoleMode"] = external_oauth_any_role_mode
+        __props__["externalOauthAudienceLists"] = external_oauth_audience_lists
+        __props__["externalOauthBlockedRolesLists"] = external_oauth_blocked_roles_lists
+        __props__["externalOauthIssuer"] = external_oauth_issuer
+        __props__["externalOauthJwsKeysUrls"] = external_oauth_jws_keys_urls
+        __props__["externalOauthRsaPublicKey"] = external_oauth_rsa_public_key
+        __props__["externalOauthRsaPublicKey2"] = external_oauth_rsa_public_key2
+        __props__["externalOauthScopeDelimiter"] = external_oauth_scope_delimiter
+        __props__["externalOauthScopeMappingAttribute"] = external_oauth_scope_mapping_attribute
+        __props__["externalOauthSnowflakeUserMappingAttribute"] = external_oauth_snowflake_user_mapping_attribute
+        __props__["externalOauthTokenUserMappingClaims"] = external_oauth_token_user_mapping_claims
+        __props__["externalOauthType"] = external_oauth_type
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["relatedParameters"] = related_parameters
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/externalOauthIntegration:ExternalOauthIntegration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:

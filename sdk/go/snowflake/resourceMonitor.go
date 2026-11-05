@@ -201,6 +201,12 @@ func (ResourceMonitorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceMonitorState)(nil)).Elem()
 }
 
+// ResourceMonitorExists checks whether an existing ResourceMonitor resource with the given ID exists.
+func ResourceMonitorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ResourceMonitorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/resourceMonitor:ResourceMonitor", id, state, "", opts...)
+}
+
 type resourceMonitorArgs struct {
 	// The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
 	CreditQuota *int `pulumi:"creditQuota"`

@@ -240,6 +240,18 @@ class GrantApplicationRole(pulumi.CustomResource):
         __props__.__dict__["parent_account_role_name"] = parent_account_role_name
         return GrantApplicationRole(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_name: pulumi.Input[Optional[_builtins.str]] = None,
+            application_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_account_role_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["applicationName"] = application_name
+        __props__["applicationRoleName"] = application_role_name
+        __props__["parentAccountRoleName"] = parent_account_role_name
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/grantApplicationRole:GrantApplicationRole', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="applicationName")
     def application_name(self) -> pulumi.Output[Optional[_builtins.str]]:

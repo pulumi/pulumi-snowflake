@@ -108,6 +108,12 @@ func (AccountPasswordPolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountPasswordPolicyAttachmentState)(nil)).Elem()
 }
 
+// AccountPasswordPolicyAttachmentExists checks whether an existing AccountPasswordPolicyAttachment resource with the given ID exists.
+func AccountPasswordPolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountPasswordPolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/accountPasswordPolicyAttachment:AccountPasswordPolicyAttachment", id, state, "", opts...)
+}
+
 type accountPasswordPolicyAttachmentArgs struct {
 	// Qualified name (`"db"."schema"."policyName"`) of the password policy to apply to the current account.
 	PasswordPolicy string `pulumi:"passwordPolicy"`

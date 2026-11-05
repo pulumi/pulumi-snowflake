@@ -293,6 +293,12 @@ func (OpenflowConnectorState) ElementType() reflect.Type {
 	return reflect.TypeOf((*openflowConnectorState)(nil)).Elem()
 }
 
+// OpenflowConnectorExists checks whether an existing OpenflowConnector resource with the given ID exists.
+func OpenflowConnectorExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *OpenflowConnectorState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/openflowConnector:OpenflowConnector", id, state, "", opts...)
+}
+
 type openflowConnectorArgs struct {
 	// Specifies a comment for the Openflow connector.
 	Comment *string `pulumi:"comment"`

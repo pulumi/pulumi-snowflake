@@ -159,6 +159,12 @@ func (ImageRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*imageRepositoryState)(nil)).Elem()
 }
 
+// ImageRepositoryExists checks whether an existing ImageRepository resource with the given ID exists.
+func ImageRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ImageRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/imageRepository:ImageRepository", id, state, "", opts...)
+}
+
 type imageRepositoryArgs struct {
 	// Specifies a comment for the object.
 	Comment *string `pulumi:"comment"`

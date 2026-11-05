@@ -1175,6 +1175,46 @@ class StageExternalS3(pulumi.CustomResource):
         __props__.__dict__["use_privatelink_endpoint"] = use_privatelink_endpoint
         return StageExternalS3(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_access_point_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['StageExternalS3CredentialsArgs', 'StageExternalS3CredentialsArgsDict', 'outputs.StageExternalS3Credentials']]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalS3DescribeOutputArgs', 'StageExternalS3DescribeOutputArgsDict', 'outputs.StageExternalS3DescribeOutput']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageExternalS3DirectoryArgs', 'StageExternalS3DirectoryArgsDict', 'outputs.StageExternalS3Directory']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageExternalS3EncryptionArgs', 'StageExternalS3EncryptionArgsDict', 'outputs.StageExternalS3Encryption']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageExternalS3FileFormatArgs', 'StageExternalS3FileFormatArgsDict', 'outputs.StageExternalS3FileFormat']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalS3ShowOutputArgs', 'StageExternalS3ShowOutputArgsDict', 'outputs.StageExternalS3ShowOutput']]]]] = None,
+            stage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsAccessPointArn"] = aws_access_point_arn
+        __props__["cloud"] = cloud
+        __props__["comment"] = comment
+        __props__["credentials"] = credentials
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["directory"] = directory
+        __props__["encryption"] = encryption
+        __props__["fileFormat"] = file_format
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["stageType"] = stage_type
+        __props__["storageIntegration"] = storage_integration
+        __props__["url"] = url
+        __props__["usePrivatelinkEndpoint"] = use_privatelink_endpoint
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/stageExternalS3:StageExternalS3', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsAccessPointArn")
     def aws_access_point_arn(self) -> pulumi.Output[Optional[_builtins.str]]:

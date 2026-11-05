@@ -182,6 +182,12 @@ func (RowAccessPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*rowAccessPolicyState)(nil)).Elem()
 }
 
+// RowAccessPolicyExists checks whether an existing RowAccessPolicy resource with the given ID exists.
+func RowAccessPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *RowAccessPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/rowAccessPolicy:RowAccessPolicy", id, state, "", opts...)
+}
+
 type rowAccessPolicyArgs struct {
 	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
 	Arguments []RowAccessPolicyArgument `pulumi:"arguments"`

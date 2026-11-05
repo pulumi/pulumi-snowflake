@@ -148,6 +148,12 @@ func (MaskingPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*maskingPolicyState)(nil)).Elem()
 }
 
+// MaskingPolicyExists checks whether an existing MaskingPolicy resource with the given ID exists.
+func MaskingPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *MaskingPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/maskingPolicy:MaskingPolicy", id, state, "", opts...)
+}
+
 type maskingPolicyArgs struct {
 	// List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
 	Arguments []MaskingPolicyArgument `pulumi:"arguments"`

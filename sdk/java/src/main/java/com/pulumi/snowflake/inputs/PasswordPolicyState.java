@@ -98,22 +98,20 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     /**
      * (Default: `false`) Prevent overwriting a previous password policy with the same name.
      * 
-     * @deprecated
-     * This field is a noop and will be removed in a future version of the provider.
+     * @deprecated This field is a noop and will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This field is a noop and will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="ifNotExists")
     private @Nullable Output<Boolean> ifNotExists;
 
     /**
      * @return (Default: `false`) Prevent overwriting a previous password policy with the same name.
      * 
-     * @deprecated
-     * This field is a noop and will be removed in a future version of the provider.
+     * @deprecated This field is a noop and will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This field is a noop and will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<Output<Boolean>> ifNotExists() {
         return Optional.ofNullable(this.ifNotExists);
     }
@@ -286,22 +284,20 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     /**
      * (Default: `false`) Whether to override a previous password policy with the same name.
      * 
-     * @deprecated
-     * This field is a noop and will be removed in a future version of the provider.
+     * @deprecated This field is a noop and will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This field is a noop and will be removed in a future version of the provider. */
+    @Deprecated
     @Import(name="orReplace")
     private @Nullable Output<Boolean> orReplace;
 
     /**
      * @return (Default: `false`) Whether to override a previous password policy with the same name.
      * 
-     * @deprecated
-     * This field is a noop and will be removed in a future version of the provider.
+     * @deprecated This field is a noop and will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* This field is a noop and will be removed in a future version of the provider. */
+    @Deprecated
     public Optional<Output<Boolean>> orReplace() {
         return Optional.ofNullable(this.orReplace);
     }
@@ -499,11 +495,10 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is a noop and will be removed in a future version of the provider.
+         * @deprecated This field is a noop and will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* This field is a noop and will be removed in a future version of the provider. */
+        @Deprecated
         public Builder ifNotExists(@Nullable Output<Boolean> ifNotExists) {
             $.ifNotExists = ifNotExists;
             return this;
@@ -514,11 +509,10 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is a noop and will be removed in a future version of the provider.
+         * @deprecated This field is a noop and will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* This field is a noop and will be removed in a future version of the provider. */
+        @Deprecated
         public Builder ifNotExists(Boolean ifNotExists) {
             return ifNotExists(Output.of(ifNotExists));
         }
@@ -759,11 +753,10 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is a noop and will be removed in a future version of the provider.
+         * @deprecated This field is a noop and will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* This field is a noop and will be removed in a future version of the provider. */
+        @Deprecated
         public Builder orReplace(@Nullable Output<Boolean> orReplace) {
             $.orReplace = orReplace;
             return this;
@@ -774,11 +767,10 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
          * 
          * @return builder
          * 
-         * @deprecated
-         * This field is a noop and will be removed in a future version of the provider.
+         * @deprecated This field is a noop and will be removed in a future version of the provider.
          * 
          */
-        @Deprecated /* This field is a noop and will be removed in a future version of the provider. */
+        @Deprecated
         public Builder orReplace(Boolean orReplace) {
             return orReplace(Output.of(orReplace));
         }

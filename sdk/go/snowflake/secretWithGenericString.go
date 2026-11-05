@@ -133,6 +133,12 @@ func (SecretWithGenericStringState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretWithGenericStringState)(nil)).Elem()
 }
 
+// SecretWithGenericStringExists checks whether an existing SecretWithGenericString resource with the given ID exists.
+func SecretWithGenericStringExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecretWithGenericStringState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/secretWithGenericString:SecretWithGenericString", id, state, "", opts...)
+}
+
 type secretWithGenericStringArgs struct {
 	// Specifies a comment for the secret.
 	Comment *string `pulumi:"comment"`

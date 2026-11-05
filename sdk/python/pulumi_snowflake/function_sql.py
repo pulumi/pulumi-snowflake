@@ -870,6 +870,48 @@ class FunctionSql(pulumi.CustomResource):
         __props__.__dict__["trace_level"] = trace_level
         return FunctionSql(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict', 'outputs.FunctionSqlArgument']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            function_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            function_language: pulumi.Input[Optional[_builtins.str]] = None,
+            is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+            log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
+            log_level: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlParameterArgs', 'FunctionSqlParameterArgsDict', 'outputs.FunctionSqlParameter']]]]] = None,
+            return_results_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            return_type: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionSqlShowOutputArgs', 'FunctionSqlShowOutputArgsDict', 'outputs.FunctionSqlShowOutput']]]]] = None,
+            trace_level: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arguments"] = arguments
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["enableConsoleOutput"] = enable_console_output
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["functionDefinition"] = function_definition
+        __props__["functionLanguage"] = function_language
+        __props__["isSecure"] = is_secure
+        __props__["logEventLevel"] = log_event_level
+        __props__["logLevel"] = log_level
+        __props__["metricLevel"] = metric_level
+        __props__["name"] = name
+        __props__["parameters"] = parameters
+        __props__["returnResultsBehavior"] = return_results_behavior
+        __props__["returnType"] = return_type
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["traceLevel"] = trace_level
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/functionSql:FunctionSql', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionSqlArgument']]]:

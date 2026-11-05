@@ -277,6 +277,20 @@ class GrantOwnership(pulumi.CustomResource):
         __props__.__dict__["outbound_privileges"] = outbound_privileges
         return GrantOwnership(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            on: pulumi.Input[Optional[Union['GrantOwnershipOnArgs', 'GrantOwnershipOnArgsDict', 'outputs.GrantOwnershipOn']]] = None,
+            outbound_privileges: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountRoleName"] = account_role_name
+        __props__["databaseRoleName"] = database_role_name
+        __props__["on"] = on
+        __props__["outboundPrivileges"] = outbound_privileges
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/grantOwnership:GrantOwnership', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> pulumi.Output[Optional[_builtins.str]]:

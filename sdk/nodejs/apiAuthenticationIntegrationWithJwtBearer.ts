@@ -34,6 +34,17 @@ export class ApiAuthenticationIntegrationWithJwtBearer extends pulumi.CustomReso
         return new ApiAuthenticationIntegrationWithJwtBearer(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * Check whether an existing ApiAuthenticationIntegrationWithJwtBearer resource with the given ID exists.
+     *
+     * @param id The _unique_ provider ID of the resource to check.
+     * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
+     */
+    public static exists(id: pulumi.Input<string>, state?: ApiAuthenticationIntegrationWithJwtBearerState, opts?: pulumi.CustomResourceOptions): pulumi.Output<boolean> {
+        return pulumi.runtime.existsResource("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer", id, <any>state || {}, { ...opts }, undefined);
+    }
+
     /** @internal */
     public static readonly __pulumiType = 'snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer';
 

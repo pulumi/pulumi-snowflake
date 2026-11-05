@@ -935,6 +935,52 @@ class PasswordPolicy(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return PasswordPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PasswordPolicyDescribeOutputArgs', 'PasswordPolicyDescribeOutputArgsDict', 'outputs.PasswordPolicyDescribeOutput']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            history: pulumi.Input[Optional[_builtins.int]] = None,
+            if_not_exists: pulumi.Input[Optional[_builtins.bool]] = None,
+            lockout_time_mins: pulumi.Input[Optional[_builtins.int]] = None,
+            max_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+            max_length: pulumi.Input[Optional[_builtins.int]] = None,
+            max_retries: pulumi.Input[Optional[_builtins.int]] = None,
+            min_age_days: pulumi.Input[Optional[_builtins.int]] = None,
+            min_length: pulumi.Input[Optional[_builtins.int]] = None,
+            min_lower_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+            min_numeric_chars: pulumi.Input[Optional[_builtins.int]] = None,
+            min_special_chars: pulumi.Input[Optional[_builtins.int]] = None,
+            min_upper_case_chars: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            or_replace: pulumi.Input[Optional[_builtins.bool]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PasswordPolicyShowOutputArgs', 'PasswordPolicyShowOutputArgsDict', 'outputs.PasswordPolicyShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["history"] = history
+        __props__["ifNotExists"] = if_not_exists
+        __props__["lockoutTimeMins"] = lockout_time_mins
+        __props__["maxAgeDays"] = max_age_days
+        __props__["maxLength"] = max_length
+        __props__["maxRetries"] = max_retries
+        __props__["minAgeDays"] = min_age_days
+        __props__["minLength"] = min_length
+        __props__["minLowerCaseChars"] = min_lower_case_chars
+        __props__["minNumericChars"] = min_numeric_chars
+        __props__["minSpecialChars"] = min_special_chars
+        __props__["minUpperCaseChars"] = min_upper_case_chars
+        __props__["name"] = name
+        __props__["orReplace"] = or_replace
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/passwordPolicy:PasswordPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:

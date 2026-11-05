@@ -277,6 +277,12 @@ func (TableConstraintState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableConstraintState)(nil)).Elem()
 }
 
+// TableConstraintExists checks whether an existing TableConstraint resource with the given ID exists.
+func TableConstraintExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableConstraintState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/tableConstraint:TableConstraint", id, state, "", opts...)
+}
+
 type tableConstraintArgs struct {
 	// Columns to use in constraint key
 	Columns []string `pulumi:"columns"`

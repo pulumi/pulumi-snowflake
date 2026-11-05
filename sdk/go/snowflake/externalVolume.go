@@ -248,6 +248,12 @@ func (ExternalVolumeState) ElementType() reflect.Type {
 	return reflect.TypeOf((*externalVolumeState)(nil)).Elem()
 }
 
+// ExternalVolumeExists checks whether an existing ExternalVolume resource with the given ID exists.
+func ExternalVolumeExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ExternalVolumeState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/externalVolume:ExternalVolume", id, state, "", opts...)
+}
+
 type externalVolumeArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AllowWrites *string `pulumi:"allowWrites"`

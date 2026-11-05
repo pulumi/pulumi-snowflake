@@ -168,6 +168,12 @@ func (CatalogIntegrationObjectStorageState) ElementType() reflect.Type {
 	return reflect.TypeOf((*catalogIntegrationObjectStorageState)(nil)).Elem()
 }
 
+// CatalogIntegrationObjectStorageExists checks whether an existing CatalogIntegrationObjectStorage resource with the given ID exists.
+func CatalogIntegrationObjectStorageExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CatalogIntegrationObjectStorageState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/catalogIntegrationObjectStorage:CatalogIntegrationObjectStorage", id, state, "", opts...)
+}
+
 type catalogIntegrationObjectStorageArgs struct {
 	// (Default: ``) Specifies a comment for the catalog integration.
 	Comment *string `pulumi:"comment"`

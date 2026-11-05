@@ -251,6 +251,12 @@ func (SchemaState) ElementType() reflect.Type {
 	return reflect.TypeOf((*schemaState)(nil)).Elem()
 }
 
+// SchemaExists checks whether an existing Schema resource with the given ID exists.
+func SchemaExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SchemaState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/schema:Schema", id, state, "", opts...)
+}
+
 type schemaArgs struct {
 	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`

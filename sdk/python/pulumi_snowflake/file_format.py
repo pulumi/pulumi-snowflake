@@ -1593,6 +1593,86 @@ class FileFormat(pulumi.CustomResource):
         __props__.__dict__["trim_space"] = trim_space
         return FileFormat(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_duplicate: pulumi.Input[Optional[_builtins.bool]] = None,
+            binary_as_text: pulumi.Input[Optional[_builtins.bool]] = None,
+            binary_format: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compression: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            date_format: pulumi.Input[Optional[_builtins.str]] = None,
+            disable_auto_convert: pulumi.Input[Optional[_builtins.bool]] = None,
+            disable_snowflake_data: pulumi.Input[Optional[_builtins.bool]] = None,
+            empty_field_as_null: pulumi.Input[Optional[_builtins.bool]] = None,
+            enable_octal: pulumi.Input[Optional[_builtins.bool]] = None,
+            encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            error_on_column_count_mismatch: pulumi.Input[Optional[_builtins.bool]] = None,
+            escape: pulumi.Input[Optional[_builtins.str]] = None,
+            escape_unenclosed_field: pulumi.Input[Optional[_builtins.str]] = None,
+            field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            field_optionally_enclosed_by: pulumi.Input[Optional[_builtins.str]] = None,
+            file_extension: pulumi.Input[Optional[_builtins.str]] = None,
+            format_type: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_utf8_errors: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parse_header: pulumi.Input[Optional[_builtins.bool]] = None,
+            preserve_space: pulumi.Input[Optional[_builtins.bool]] = None,
+            record_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            replace_invalid_characters: pulumi.Input[Optional[_builtins.bool]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_blank_lines: pulumi.Input[Optional[_builtins.bool]] = None,
+            skip_byte_order_mark: pulumi.Input[Optional[_builtins.bool]] = None,
+            skip_header: pulumi.Input[Optional[_builtins.int]] = None,
+            strip_null_values: pulumi.Input[Optional[_builtins.bool]] = None,
+            strip_outer_array: pulumi.Input[Optional[_builtins.bool]] = None,
+            strip_outer_element: pulumi.Input[Optional[_builtins.bool]] = None,
+            time_format: pulumi.Input[Optional[_builtins.str]] = None,
+            timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
+            trim_space: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowDuplicate"] = allow_duplicate
+        __props__["binaryAsText"] = binary_as_text
+        __props__["binaryFormat"] = binary_format
+        __props__["comment"] = comment
+        __props__["compression"] = compression
+        __props__["database"] = database
+        __props__["dateFormat"] = date_format
+        __props__["disableAutoConvert"] = disable_auto_convert
+        __props__["disableSnowflakeData"] = disable_snowflake_data
+        __props__["emptyFieldAsNull"] = empty_field_as_null
+        __props__["enableOctal"] = enable_octal
+        __props__["encoding"] = encoding
+        __props__["errorOnColumnCountMismatch"] = error_on_column_count_mismatch
+        __props__["escape"] = escape
+        __props__["escapeUnenclosedField"] = escape_unenclosed_field
+        __props__["fieldDelimiter"] = field_delimiter
+        __props__["fieldOptionallyEnclosedBy"] = field_optionally_enclosed_by
+        __props__["fileExtension"] = file_extension
+        __props__["formatType"] = format_type
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["ignoreUtf8Errors"] = ignore_utf8_errors
+        __props__["name"] = name
+        __props__["nullIfs"] = null_ifs
+        __props__["parseHeader"] = parse_header
+        __props__["preserveSpace"] = preserve_space
+        __props__["recordDelimiter"] = record_delimiter
+        __props__["replaceInvalidCharacters"] = replace_invalid_characters
+        __props__["schema"] = schema
+        __props__["skipBlankLines"] = skip_blank_lines
+        __props__["skipByteOrderMark"] = skip_byte_order_mark
+        __props__["skipHeader"] = skip_header
+        __props__["stripNullValues"] = strip_null_values
+        __props__["stripOuterArray"] = strip_outer_array
+        __props__["stripOuterElement"] = strip_outer_element
+        __props__["timeFormat"] = time_format
+        __props__["timestampFormat"] = timestamp_format
+        __props__["trimSpace"] = trim_space
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/fileFormat:FileFormat', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowDuplicate")
     def allow_duplicate(self) -> pulumi.Output[Optional[_builtins.bool]]:

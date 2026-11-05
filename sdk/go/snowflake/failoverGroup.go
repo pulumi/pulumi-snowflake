@@ -204,6 +204,12 @@ func (FailoverGroupState) ElementType() reflect.Type {
 	return reflect.TypeOf((*failoverGroupState)(nil)).Elem()
 }
 
+// FailoverGroupExists checks whether an existing FailoverGroup resource with the given ID exists.
+func FailoverGroupExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FailoverGroupState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/failoverGroup:FailoverGroup", id, state, "", opts...)
+}
+
 type failoverGroupArgs struct {
 	// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form `<org_name>.<target_account_name>`. This value is case-sensitive.
 	AllowedAccounts []string `pulumi:"allowedAccounts"`

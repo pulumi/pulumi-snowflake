@@ -231,6 +231,18 @@ class UserPublicKeys(pulumi.CustomResource):
         __props__.__dict__["rsa_public_key2"] = rsa_public_key2
         return UserPublicKeys(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            rsa_public_key: pulumi.Input[Optional[_builtins.str]] = None,
+            rsa_public_key2: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["name"] = name
+        __props__["rsaPublicKey"] = rsa_public_key
+        __props__["rsaPublicKey2"] = rsa_public_key2
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/userPublicKeys:UserPublicKeys', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:

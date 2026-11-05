@@ -401,6 +401,12 @@ func (StageExternalS3CompatibleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*stageExternalS3CompatibleState)(nil)).Elem()
 }
 
+// StageExternalS3CompatibleExists checks whether an existing StageExternalS3Compatible resource with the given ID exists.
+func StageExternalS3CompatibleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StageExternalS3CompatibleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/stageExternalS3Compatible:StageExternalS3Compatible", id, state, "", opts...)
+}
+
 type stageExternalS3CompatibleArgs struct {
 	// Specifies a comment for the stage.
 	Comment *string `pulumi:"comment"`

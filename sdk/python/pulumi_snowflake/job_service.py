@@ -572,6 +572,38 @@ class JobService(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return JobService(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_pool: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobServiceDescribeOutputArgs', 'JobServiceDescribeOutputArgsDict', 'outputs.JobServiceDescribeOutput']]]]] = None,
+            external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            from_specification: pulumi.Input[Optional[Union['JobServiceFromSpecificationArgs', 'JobServiceFromSpecificationArgsDict', 'outputs.JobServiceFromSpecification']]] = None,
+            from_specification_template: pulumi.Input[Optional[Union['JobServiceFromSpecificationTemplateArgs', 'JobServiceFromSpecificationTemplateArgsDict', 'outputs.JobServiceFromSpecificationTemplate']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            query_warehouse: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            service_type: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobServiceShowOutputArgs', 'JobServiceShowOutputArgsDict', 'outputs.JobServiceShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["computePool"] = compute_pool
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["externalAccessIntegrations"] = external_access_integrations
+        __props__["fromSpecification"] = from_specification
+        __props__["fromSpecificationTemplate"] = from_specification_template
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["queryWarehouse"] = query_warehouse
+        __props__["schema"] = schema
+        __props__["serviceType"] = service_type
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/jobService:JobService', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:

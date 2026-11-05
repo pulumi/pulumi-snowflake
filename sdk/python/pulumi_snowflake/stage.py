@@ -772,6 +772,42 @@ class Stage(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         return Stage(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            aws_external_id: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_options: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            directory: pulumi.Input[Optional[_builtins.str]] = None,
+            encryption: pulumi.Input[Optional[_builtins.str]] = None,
+            file_format: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            snowflake_iam_user: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict', 'outputs.StageTag']]]]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["awsExternalId"] = aws_external_id
+        __props__["comment"] = comment
+        __props__["copyOptions"] = copy_options
+        __props__["credentials"] = credentials
+        __props__["database"] = database
+        __props__["directory"] = directory
+        __props__["encryption"] = encryption
+        __props__["fileFormat"] = file_format
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["schema"] = schema
+        __props__["snowflakeIamUser"] = snowflake_iam_user
+        __props__["storageIntegration"] = storage_integration
+        __props__["tags"] = tags
+        __props__["url"] = url
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/stage:Stage', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="awsExternalId")
     def aws_external_id(self) -> pulumi.Output[_builtins.str]:

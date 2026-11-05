@@ -31,14 +31,14 @@ public final class SemanticViewMetricWindowFunctionArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies a qualified name for the metric: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `&lt;table_alias&gt;.` part but still wrap in double quotes, e.g. `&#34;\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+     * Specifies a qualified name for the metric: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `&lt;table_alias&gt;.` part but still wrap in double quotes, e.g. `&#34;&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
      * 
      */
     @Import(name="qualifiedExpressionName", required=true)
     private Output<String> qualifiedExpressionName;
 
     /**
-     * @return Specifies a qualified name for the metric: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `&lt;table_alias&gt;.` part but still wrap in double quotes, e.g. `&#34;\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+     * @return Specifies a qualified name for the metric: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `&lt;table_alias&gt;.` part but still wrap in double quotes, e.g. `&#34;&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
      * 
      */
     public Output<String> qualifiedExpressionName() {
@@ -108,7 +108,7 @@ public final class SemanticViewMetricWindowFunctionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param qualifiedExpressionName Specifies a qualified name for the metric: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `&lt;table_alias&gt;.` part but still wrap in double quotes, e.g. `&#34;\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+         * @param qualifiedExpressionName Specifies a qualified name for the metric: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `&lt;table_alias&gt;.` part but still wrap in double quotes, e.g. `&#34;&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class SemanticViewMetricWindowFunctionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param qualifiedExpressionName Specifies a qualified name for the metric: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;\&#34;&lt;table_alias&gt;\&#34;.\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `&lt;table_alias&gt;.` part but still wrap in double quotes, e.g. `&#34;\&#34;&lt;semantic_expression_name&gt;\&#34;&#34;`.
+         * @param qualifiedExpressionName Specifies a qualified name for the metric: `&lt;table_alias&gt;.&lt;semantic_expression_name&gt;`. Remember to wrap each part in double quotes like `&#34;&#92;&#34;&lt;table_alias&gt;&#92;&#34;.&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`. For the [derived metric](https://docs.snowflake.com/en/user-guide/views-semantic/sql#label-semantic-views-create-derived-metrics) omit the `&lt;table_alias&gt;.` part but still wrap in double quotes, e.g. `&#34;&#92;&#34;&lt;semantic_expression_name&gt;&#92;&#34;&#34;`.
          * 
          * @return builder
          * 

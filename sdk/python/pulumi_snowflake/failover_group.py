@@ -651,6 +651,36 @@ class FailoverGroup(pulumi.CustomResource):
         __props__.__dict__["rpo_assurance"] = rpo_assurance
         return FailoverGroup(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_databases: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_integration_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_shares: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            from_replica: pulumi.Input[Optional[Union['FailoverGroupFromReplicaArgs', 'FailoverGroupFromReplicaArgsDict', 'outputs.FailoverGroupFromReplica']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            ignore_edition_check: pulumi.Input[Optional[_builtins.bool]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            object_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            optimized_refresh: pulumi.Input[Optional[_builtins.bool]] = None,
+            replication_schedule: pulumi.Input[Optional[Union['FailoverGroupReplicationScheduleArgs', 'FailoverGroupReplicationScheduleArgsDict', 'outputs.FailoverGroupReplicationSchedule']]] = None,
+            rpo_assurance: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedAccounts"] = allowed_accounts
+        __props__["allowedDatabases"] = allowed_databases
+        __props__["allowedIntegrationTypes"] = allowed_integration_types
+        __props__["allowedShares"] = allowed_shares
+        __props__["fromReplica"] = from_replica
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["ignoreEditionCheck"] = ignore_edition_check
+        __props__["name"] = name
+        __props__["objectTypes"] = object_types
+        __props__["optimizedRefresh"] = optimized_refresh
+        __props__["replicationSchedule"] = replication_schedule
+        __props__["rpoAssurance"] = rpo_assurance
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/failoverGroup:FailoverGroup', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedAccounts")
     def allowed_accounts(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

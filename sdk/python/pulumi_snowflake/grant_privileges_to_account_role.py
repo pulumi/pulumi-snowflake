@@ -558,6 +558,34 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         __props__.__dict__["with_grant_option"] = with_grant_option
         return GrantPrivilegesToAccountRole(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            account_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            all_privileges: pulumi.Input[Optional[_builtins.bool]] = None,
+            always_apply: pulumi.Input[Optional[_builtins.bool]] = None,
+            always_apply_trigger: pulumi.Input[Optional[_builtins.str]] = None,
+            on_account: pulumi.Input[Optional[_builtins.bool]] = None,
+            on_account_object: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict', 'outputs.GrantPrivilegesToAccountRoleOnAccountObject']]] = None,
+            on_schema: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict', 'outputs.GrantPrivilegesToAccountRoleOnSchema']]] = None,
+            on_schema_object: pulumi.Input[Optional[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict', 'outputs.GrantPrivilegesToAccountRoleOnSchemaObject']]] = None,
+            privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            strict_privilege_management: pulumi.Input[Optional[_builtins.bool]] = None,
+            with_grant_option: pulumi.Input[Optional[_builtins.bool]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["accountRoleName"] = account_role_name
+        __props__["allPrivileges"] = all_privileges
+        __props__["alwaysApply"] = always_apply
+        __props__["alwaysApplyTrigger"] = always_apply_trigger
+        __props__["onAccount"] = on_account
+        __props__["onAccountObject"] = on_account_object
+        __props__["onSchema"] = on_schema
+        __props__["onSchemaObject"] = on_schema_object
+        __props__["privileges"] = privileges
+        __props__["strictPrivilegeManagement"] = strict_privilege_management
+        __props__["withGrantOption"] = with_grant_option
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> pulumi.Output[_builtins.str]:

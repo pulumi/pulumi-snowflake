@@ -200,6 +200,12 @@ func (IcebergTableFromFilesState) ElementType() reflect.Type {
 	return reflect.TypeOf((*icebergTableFromFilesState)(nil)).Elem()
 }
 
+// IcebergTableFromFilesExists checks whether an existing IcebergTableFromFiles resource with the given ID exists.
+func IcebergTableFromFilesExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *IcebergTableFromFilesState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/icebergTableFromFiles:IcebergTableFromFiles", id, state, "", opts...)
+}
+
 type icebergTableFromFilesArgs struct {
 	// The parameter that specifies the default catalog to use for Iceberg tables. For more information, check [CATALOG docs](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`

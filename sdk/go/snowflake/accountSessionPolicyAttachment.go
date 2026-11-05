@@ -157,6 +157,12 @@ func (AccountSessionPolicyAttachmentState) ElementType() reflect.Type {
 	return reflect.TypeOf((*accountSessionPolicyAttachmentState)(nil)).Elem()
 }
 
+// AccountSessionPolicyAttachmentExists checks whether an existing AccountSessionPolicyAttachment resource with the given ID exists.
+func AccountSessionPolicyAttachmentExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AccountSessionPolicyAttachmentState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/accountSessionPolicyAttachment:AccountSessionPolicyAttachment", id, state, "", opts...)
+}
+
 type accountSessionPolicyAttachmentArgs struct {
 	// If true, attaches the session policy to all person users in the current account. Conflicts with `forAllServiceUsers`. When neither field is set, the policy is attached account-wide.
 	ForAllPersonUsers *bool `pulumi:"forAllPersonUsers"`

@@ -943,6 +943,52 @@ class Saml2Integration(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return Saml2Integration(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allowed_email_patterns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            allowed_user_domains: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Saml2IntegrationDescribeOutputArgs', 'Saml2IntegrationDescribeOutputArgsDict', 'outputs.Saml2IntegrationDescribeOutput']]]]] = None,
+            enabled: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_enable_sp_initiated: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_force_authn: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_issuer: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_post_logout_redirect_url: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_provider: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_requested_nameid_format: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_sign_request: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_snowflake_acs_url: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_snowflake_issuer_url: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_sp_initiated_login_page_label: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_sso_url: pulumi.Input[Optional[_builtins.str]] = None,
+            saml2_x509_cert: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['Saml2IntegrationShowOutputArgs', 'Saml2IntegrationShowOutputArgsDict', 'outputs.Saml2IntegrationShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["allowedEmailPatterns"] = allowed_email_patterns
+        __props__["allowedUserDomains"] = allowed_user_domains
+        __props__["comment"] = comment
+        __props__["describeOutputs"] = describe_outputs
+        __props__["enabled"] = enabled
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["saml2EnableSpInitiated"] = saml2_enable_sp_initiated
+        __props__["saml2ForceAuthn"] = saml2_force_authn
+        __props__["saml2Issuer"] = saml2_issuer
+        __props__["saml2PostLogoutRedirectUrl"] = saml2_post_logout_redirect_url
+        __props__["saml2Provider"] = saml2_provider
+        __props__["saml2RequestedNameidFormat"] = saml2_requested_nameid_format
+        __props__["saml2SignRequest"] = saml2_sign_request
+        __props__["saml2SnowflakeAcsUrl"] = saml2_snowflake_acs_url
+        __props__["saml2SnowflakeIssuerUrl"] = saml2_snowflake_issuer_url
+        __props__["saml2SpInitiatedLoginPageLabel"] = saml2_sp_initiated_login_page_label
+        __props__["saml2SsoUrl"] = saml2_sso_url
+        __props__["saml2X509Cert"] = saml2_x509_cert
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/saml2Integration:Saml2Integration', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="allowedEmailPatterns")
     def allowed_email_patterns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:

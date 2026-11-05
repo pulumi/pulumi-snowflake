@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var slp = new StorageLifecyclePolicy("slp", StorageLifecyclePolicyArgs.builder()
  *             .database("prod")
  *             .schema("security")
@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  *                 .maximumDuration("20 minutes")
  *                 .build())
  *             .warehouse("my_warehouse")
- *             .query("SELECT VAL FROM \"prod\".\"security\".\"my_table\"")
+ *             .query("SELECT VAL FROM }&#92;{@code "prod}&#92;{@code ".}&#92;{@code "security}&#92;{@code ".}&#92;{@code "my_table}&#92;{@code "")
  *             .build());
  * 
  *         // Attaching a storage lifecycle policy to a table
@@ -100,8 +100,8 @@ import javax.annotation.Nullable;
  *             .ons("VAL")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

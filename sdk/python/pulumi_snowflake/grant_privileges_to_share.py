@@ -459,6 +459,30 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         __props__.__dict__["to_share"] = to_share
         return GrantPrivilegesToShare(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            on_all_tables_in_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            on_database: pulumi.Input[Optional[_builtins.str]] = None,
+            on_function: pulumi.Input[Optional[_builtins.str]] = None,
+            on_schema: pulumi.Input[Optional[_builtins.str]] = None,
+            on_table: pulumi.Input[Optional[_builtins.str]] = None,
+            on_tag: pulumi.Input[Optional[_builtins.str]] = None,
+            on_view: pulumi.Input[Optional[_builtins.str]] = None,
+            privileges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            to_share: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["onAllTablesInSchema"] = on_all_tables_in_schema
+        __props__["onDatabase"] = on_database
+        __props__["onFunction"] = on_function
+        __props__["onSchema"] = on_schema
+        __props__["onTable"] = on_table
+        __props__["onTag"] = on_tag
+        __props__["onView"] = on_view
+        __props__["privileges"] = privileges
+        __props__["toShare"] = to_share
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="onAllTablesInSchema")
     def on_all_tables_in_schema(self) -> pulumi.Output[Optional[_builtins.str]]:

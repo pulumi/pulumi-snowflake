@@ -384,6 +384,20 @@ class TableStorageLifecyclePolicyAttachment(pulumi.CustomResource):
         __props__.__dict__["table_type"] = table_type
         return TableStorageLifecyclePolicyAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            ons: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            storage_lifecycle_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+            table_name: pulumi.Input[Optional[_builtins.str]] = None,
+            table_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["ons"] = ons
+        __props__["storageLifecyclePolicyName"] = storage_lifecycle_policy_name
+        __props__["tableName"] = table_name
+        __props__["tableType"] = table_type
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/tableStorageLifecyclePolicyAttachment:TableStorageLifecyclePolicyAttachment', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def ons(self) -> pulumi.Output[Sequence[_builtins.str]]:

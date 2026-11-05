@@ -226,6 +226,12 @@ func (PostgresInstanceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*postgresInstanceState)(nil)).Elem()
 }
 
+// PostgresInstanceExists checks whether an existing PostgresInstance resource with the given ID exists.
+func PostgresInstanceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *PostgresInstanceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/postgresInstance:PostgresInstance", id, state, "", opts...)
+}
+
 type postgresInstanceArgs struct {
 	// Specifies the authentication authority for the Postgres instance. Valid values are (case-insensitive): `POSTGRES` | `POSTGRES_OR_SNOWFLAKE`.
 	AuthenticationAuthority string `pulumi:"authenticationAuthority"`

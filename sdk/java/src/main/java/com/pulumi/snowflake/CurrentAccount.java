@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         //# Minimal
  *         var minimal = new CurrentAccount("minimal");
  * 
@@ -131,10 +131,10 @@ import javax.annotation.Nullable;
  *             .enforceNetworkRulesForInternalStages(true)
  *             .errorOnNondeterministicMerge(false)
  *             .errorOnNondeterministicUpdate(true)
- *             .eventTable("\"<database_name>\".\"<schema_name>\".\"<event_table_name>\"")
+ *             .eventTable("}&#92;{@code "<database_name>}&#92;{@code ".}&#92;{@code "<schema_name>}&#92;{@code ".}&#92;{@code "<event_table_name>}&#92;{@code "")
  *             .externalOauthAddPrivilegedRolesToBlockedList(false)
  *             .externalVolume("XWDVEAAT_A6FEE9D6_5D41_AB3D_EB0C_51DA5E5F0BE2")
- *             .featurePolicy("\"<database_name>\".\"<schema_name>\".\"<feature_policy_name>\"")
+ *             .featurePolicy("}&#92;{@code "<database_name>}&#92;{@code ".}&#92;{@code "<schema_name>}&#92;{@code ".}&#92;{@code "<feature_policy_name>}&#92;{@code "")
  *             .geographyOutputFormat("WKT")
  *             .geometryOutputFormat("WKT")
  *             .hybridTableLockTimeout(3599)
@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  *             .noorderSequenceAsDefault(false)
  *             .oauthAddPrivilegedRolesToBlockedList(false)
  *             .odbcTreatDecimalAsInt(true)
- *             .packagesPolicy("\"<database_name>\".\"<schema_name>\".\"<packages_policy_name>\"")
+ *             .packagesPolicy("}&#92;{@code "<database_name>}&#92;{@code ".}&#92;{@code "<schema_name>}&#92;{@code ".}&#92;{@code "<packages_policy_name>}&#92;{@code "")
  *             .passwordPolicy(exampleSnowflakePasswordPolicy.get("fullyQualifiedName"))
  *             .periodicDataRekeying(false)
  *             .pipeExecutionPaused(true)
@@ -179,7 +179,7 @@ import javax.annotation.Nullable;
  *             .searchPath("$current, $public")
  *             .serverlessTaskMaxStatementSize("XLARGE")
  *             .serverlessTaskMinStatementSize("SMALL")
- *             .sessionPolicy("\"<database_name>\".\"<schema_name>\".\"<session_policy_name>\"")
+ *             .sessionPolicy("}&#92;{@code "<database_name>}&#92;{@code ".}&#92;{@code "<schema_name>}&#92;{@code ".}&#92;{@code "<session_policy_name>}&#92;{@code "")
  *             .simulatedDataSharingConsumer("some_consumer")
  *             .sqlTraceQueryText("OFF")
  *             .ssoLoginPage(true)
@@ -213,8 +213,8 @@ import javax.annotation.Nullable;
  *             .weekStart(1)
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 
@@ -820,14 +820,14 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
         return this.disableUiDownloadButton;
     }
     /**
-     * Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
+     * Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT &#92;n&#92;n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
      * 
      */
     @Export(name="disableUserPrivilegeGrants", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> disableUserPrivilegeGrants;
 
     /**
-     * @return Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT \n\n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
+     * @return Controls whether users in an account can grant privileges directly to other users. Disabling user privilege grants (that is, setting DISABLE*USER*PRIVILEGE*GRANTS to TRUE) does not affect existing grants to users. Existing grants to users continue to confer privileges to those users. For more information, see [GRANT &#92;n&#92;n … TO USER](https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-user). For more information, check *USER*PRIVILEGE*GRANTS docs[DISABLE](https://docs.snowflake.com/en/sql-reference/parameters#disable-user-privilege-grants).
      * 
      */
     public Output<Boolean> disableUserPrivilegeGrants() {
@@ -2024,14 +2024,14 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
         return this.timestampInputFormat;
     }
     /**
-     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *LTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      * 
      */
     @Export(name="timestampLtzOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> timestampLtzOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * @return Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *LTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      * 
      */
     public Output<String> timestampLtzOutputFormat() {
@@ -2080,14 +2080,14 @@ public class CurrentAccount extends com.pulumi.resources.CustomResource {
         return this.timestampTypeMapping;
     }
     /**
-     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *TZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      * 
      */
     @Export(name="timestampTzOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> timestampTzOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * @return Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check *TZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      * 
      */
     public Output<String> timestampTzOutputFormat() {

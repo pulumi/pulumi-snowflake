@@ -250,6 +250,12 @@ func (CatalogIntegrationIcebergRestState) ElementType() reflect.Type {
 	return reflect.TypeOf((*catalogIntegrationIcebergRestState)(nil)).Elem()
 }
 
+// CatalogIntegrationIcebergRestExists checks whether an existing CatalogIntegrationIcebergRest resource with the given ID exists.
+func CatalogIntegrationIcebergRestExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *CatalogIntegrationIcebergRestState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/catalogIntegrationIcebergRest:CatalogIntegrationIcebergRest", id, state, "", opts...)
+}
+
 type catalogIntegrationIcebergRestArgs struct {
 	// Specifies a bearer token as the authentication type for Snowflake to use to connect to the Iceberg REST catalog.
 	BearerRestAuthentication *CatalogIntegrationIcebergRestBearerRestAuthentication `pulumi:"bearerRestAuthentication"`

@@ -134,6 +134,12 @@ func (DatabaseRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*databaseRoleState)(nil)).Elem()
 }
 
+// DatabaseRoleExists checks whether an existing DatabaseRole resource with the given ID exists.
+func DatabaseRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DatabaseRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/databaseRole:DatabaseRole", id, state, "", opts...)
+}
+
 type databaseRoleArgs struct {
 	// Specifies a comment for the database role.
 	Comment *string `pulumi:"comment"`

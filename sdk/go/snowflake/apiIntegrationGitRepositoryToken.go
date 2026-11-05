@@ -202,6 +202,12 @@ func (ApiIntegrationGitRepositoryTokenState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationGitRepositoryTokenState)(nil)).Elem()
 }
 
+// ApiIntegrationGitRepositoryTokenExists checks whether an existing ApiIntegrationGitRepositoryToken resource with the given ID exists.
+func ApiIntegrationGitRepositoryTokenExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationGitRepositoryTokenState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiIntegrationGitRepositoryToken:ApiIntegrationGitRepositoryToken", id, state, "", opts...)
+}
+
 type apiIntegrationGitRepositoryTokenArgs struct {
 	// When set to true, all authentication secrets are allowed to be used when authenticating to the git repository. Conflicts with `noAllowedAuthenticationSecrets` and `allowedAuthenticationSecrets`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	AllAllowedAuthenticationSecrets *bool `pulumi:"allAllowedAuthenticationSecrets"`

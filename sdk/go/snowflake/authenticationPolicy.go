@@ -257,6 +257,12 @@ func (AuthenticationPolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*authenticationPolicyState)(nil)).Elem()
 }
 
+// AuthenticationPolicyExists checks whether an existing AuthenticationPolicy resource with the given ID exists.
+func AuthenticationPolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *AuthenticationPolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/authenticationPolicy:AuthenticationPolicy", id, state, "", opts...)
+}
+
 type authenticationPolicyArgs struct {
 	// A list of authentication methods that are allowed during login. Valid values are (case-insensitive): `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR` | `PROGRAMMATIC_ACCESS_TOKEN` | `WORKLOAD_IDENTITY`.
 	AuthenticationMethods []string `pulumi:"authenticationMethods"`

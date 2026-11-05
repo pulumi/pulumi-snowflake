@@ -1076,6 +1076,44 @@ class StageExternalAzure(pulumi.CustomResource):
         __props__.__dict__["use_privatelink_endpoint"] = use_privatelink_endpoint
         return StageExternalAzure(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cloud: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            credentials: pulumi.Input[Optional[Union['StageExternalAzureCredentialsArgs', 'StageExternalAzureCredentialsArgsDict', 'outputs.StageExternalAzureCredentials']]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalAzureDescribeOutputArgs', 'StageExternalAzureDescribeOutputArgsDict', 'outputs.StageExternalAzureDescribeOutput']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageExternalAzureDirectoryArgs', 'StageExternalAzureDirectoryArgsDict', 'outputs.StageExternalAzureDirectory']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageExternalAzureEncryptionArgs', 'StageExternalAzureEncryptionArgsDict', 'outputs.StageExternalAzureEncryption']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageExternalAzureFileFormatArgs', 'StageExternalAzureFileFormatArgsDict', 'outputs.StageExternalAzureFileFormat']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageExternalAzureShowOutputArgs', 'StageExternalAzureShowOutputArgsDict', 'outputs.StageExternalAzureShowOutput']]]]] = None,
+            stage_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None,
+            use_privatelink_endpoint: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["cloud"] = cloud
+        __props__["comment"] = comment
+        __props__["credentials"] = credentials
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["directory"] = directory
+        __props__["encryption"] = encryption
+        __props__["fileFormat"] = file_format
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["stageType"] = stage_type
+        __props__["storageIntegration"] = storage_integration
+        __props__["url"] = url
+        __props__["usePrivatelinkEndpoint"] = use_privatelink_endpoint
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/stageExternalAzure:StageExternalAzure', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def cloud(self) -> pulumi.Output[_builtins.str]:

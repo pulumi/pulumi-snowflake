@@ -124,14 +124,14 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
+     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: &#92;n&#92;n1. with hardcoding value:&#92;n&#92;n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` &#92;n&#92;n2. from dynamic value:&#92;n&#92;n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` &#92;n&#92;n3. from expression:&#92;n&#92;n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
      * 
      */
     @Import(name="fileFormat")
     private @Nullable Output<String> fileFormat;
 
     /**
-     * @return Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
+     * @return Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: &#92;n&#92;n1. with hardcoding value:&#92;n&#92;n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` &#92;n&#92;n2. from dynamic value:&#92;n&#92;n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` &#92;n&#92;n3. from expression:&#92;n&#92;n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
      * 
      */
     public Optional<Output<String>> fileFormat() {
@@ -201,22 +201,20 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Definitions of a tag to associate with the resource.
      * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+    @Deprecated
     @Import(name="tags")
     private @Nullable Output<List<StageTagArgs>> tags;
 
     /**
      * @return Definitions of a tag to associate with the resource.
      * 
-     * @deprecated
-     * Use the &#39;snowflake_tag_association&#39; resource instead.
+     * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
      * 
      */
-    @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+    @Deprecated
     public Optional<Output<List<StageTagArgs>>> tags() {
         return Optional.ofNullable(this.tags);
     }
@@ -421,7 +419,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileFormat Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
+         * @param fileFormat Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: &#92;n&#92;n1. with hardcoding value:&#92;n&#92;n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` &#92;n&#92;n2. from dynamic value:&#92;n&#92;n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` &#92;n&#92;n3. from expression:&#92;n&#92;n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
          * 
          * @return builder
          * 
@@ -432,7 +430,7 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fileFormat Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
+         * @param fileFormat Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: &#92;n&#92;n1. with hardcoding value:&#92;n&#92;n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` &#92;n&#92;n2. from dynamic value:&#92;n&#92;n `fileFormat = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` &#92;n&#92;n3. from expression:&#92;n&#92;n `fileFormat = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
          * 
          * @return builder
          * 
@@ -530,11 +528,10 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+        @Deprecated
         public Builder tags(@Nullable Output<List<StageTagArgs>> tags) {
             $.tags = tags;
             return this;
@@ -545,11 +542,10 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+        @Deprecated
         public Builder tags(List<StageTagArgs> tags) {
             return tags(Output.of(tags));
         }
@@ -559,11 +555,10 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
-         * @deprecated
-         * Use the &#39;snowflake_tag_association&#39; resource instead.
+         * @deprecated Use the &#39;snowflake_tag_association&#39; resource instead.
          * 
          */
-        @Deprecated /* Use the 'snowflake_tag_association' resource instead. */
+        @Deprecated
         public Builder tags(StageTagArgs... tags) {
             return tags(List.of(tags));
         }

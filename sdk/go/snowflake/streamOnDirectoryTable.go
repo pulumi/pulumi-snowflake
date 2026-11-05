@@ -140,6 +140,12 @@ func (StreamOnDirectoryTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamOnDirectoryTableState)(nil)).Elem()
 }
 
+// StreamOnDirectoryTableExists checks whether an existing StreamOnDirectoryTable resource with the given ID exists.
+func StreamOnDirectoryTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamOnDirectoryTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable", id, state, "", opts...)
+}
+
 type streamOnDirectoryTableArgs struct {
 	// Specifies a comment for the stream.
 	Comment *string `pulumi:"comment"`

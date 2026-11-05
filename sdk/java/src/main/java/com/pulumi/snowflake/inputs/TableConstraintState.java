@@ -36,22 +36,20 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     /**
      * Comment for the table constraint
      * 
-     * @deprecated
-     * Not used. Will be removed.
+     * @deprecated Not used. Will be removed.
      * 
      */
-    @Deprecated /* Not used. Will be removed. */
+    @Deprecated
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
      * @return Comment for the table constraint
      * 
-     * @deprecated
-     * Not used. Will be removed.
+     * @deprecated Not used. Will be removed.
      * 
      */
-    @Deprecated /* Not used. Will be removed. */
+    @Deprecated
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
@@ -162,14 +160,14 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
+     * Identifier for table to create constraint on. Format must follow: &#34;&#92;&#34;&amp;lt;db*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;schema*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;table*name&amp;gt;&#92;&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     @Import(name="tableId")
     private @Nullable Output<String> tableId;
 
     /**
-     * @return Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
+     * @return Identifier for table to create constraint on. Format must follow: &#34;&#92;&#34;&amp;lt;db*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;schema*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;table*name&amp;gt;&#92;&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     public Optional<Output<String>> tableId() {
@@ -277,11 +275,10 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Not used. Will be removed.
+         * @deprecated Not used. Will be removed.
          * 
          */
-        @Deprecated /* Not used. Will be removed. */
+        @Deprecated
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
@@ -292,11 +289,10 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
          * 
          * @return builder
          * 
-         * @deprecated
-         * Not used. Will be removed.
+         * @deprecated Not used. Will be removed.
          * 
          */
-        @Deprecated /* Not used. Will be removed. */
+        @Deprecated
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
@@ -449,7 +445,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tableId Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
+         * @param tableId Identifier for table to create constraint on. Format must follow: &#34;&#92;&#34;&amp;lt;db*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;schema*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;table*name&amp;gt;&#92;&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
          * 
          * @return builder
          * 
@@ -460,7 +456,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tableId Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
+         * @param tableId Identifier for table to create constraint on. Format must follow: &#34;&#92;&#34;&amp;lt;db*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;schema*name&amp;gt;&#92;&#34;.&#92;&#34;&amp;lt;table*name&amp;gt;&#92;&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
          * 
          * @return builder
          * 

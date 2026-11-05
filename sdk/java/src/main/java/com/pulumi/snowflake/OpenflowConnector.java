@@ -104,13 +104,13 @@ import javax.annotation.Nullable;
  *                 var database = values.t1;
  *                 var schema = values.t2;
  *                 var name = values.t3;
- *                 return String.format("PUT file:///path/to/bundle/config.json }{@literal @}{@code \"%s\".\"%s\".\"%s\"/orders/ AUTO_COMPRESS = FALSE OVERWRITE = TRUE", database,schema,name);
+ *                 return String.format("PUT file:///path/to/bundle/config.json }{@literal @}&#92;{@code "%s}&#92;{@code ".}&#92;{@code "%s}&#92;{@code ".}&#92;{@code "%s}&#92;{@code "/orders/ AUTO_COMPRESS = FALSE OVERWRITE = TRUE", database,schema,name);
  *             }}{@code ))
  *             .revert(Output.tuple(bundles.database(), bundles.schema(), bundles.name()).applyValue(values -> }{{@code
  *                 var database = values.t1;
  *                 var schema = values.t2;
  *                 var name = values.t3;
- *                 return String.format("REMOVE }{@literal @}{@code \"%s\".\"%s\".\"%s\"/orders/config.json", database,schema,name);
+ *                 return String.format("REMOVE }{@literal @}&#92;{@code "%s}&#92;{@code ".}&#92;{@code "%s}&#92;{@code ".}&#92;{@code "%s}&#92;{@code "/orders/config.json", database,schema,name);
  *             }}{@code ))
  *             .build());
  * 
@@ -119,13 +119,13 @@ import javax.annotation.Nullable;
  *                 var database = values.t1;
  *                 var schema = values.t2;
  *                 var name = values.t3;
- *                 return String.format("PUT file:///path/to/bundle/postgresql.jar }{@literal @}{@code \"%s\".\"%s\".\"%s\"/orders/ AUTO_COMPRESS = FALSE OVERWRITE = TRUE", database,schema,name);
+ *                 return String.format("PUT file:///path/to/bundle/postgresql.jar }{@literal @}&#92;{@code "%s}&#92;{@code ".}&#92;{@code "%s}&#92;{@code ".}&#92;{@code "%s}&#92;{@code "/orders/ AUTO_COMPRESS = FALSE OVERWRITE = TRUE", database,schema,name);
  *             }}{@code ))
  *             .revert(Output.tuple(bundles.database(), bundles.schema(), bundles.name()).applyValue(values -> }{{@code
  *                 var database = values.t1;
  *                 var schema = values.t2;
  *                 var name = values.t3;
- *                 return String.format("REMOVE }{@literal @}{@code \"%s\".\"%s\".\"%s\"/orders/postgresql.jar", database,schema,name);
+ *                 return String.format("REMOVE }{@literal @}&#92;{@code "%s}&#92;{@code ".}&#92;{@code "%s}&#92;{@code ".}&#92;{@code "%s}&#92;{@code "/orders/postgresql.jar", database,schema,name);
  *             }}{@code ))
  *             .build());
  * 

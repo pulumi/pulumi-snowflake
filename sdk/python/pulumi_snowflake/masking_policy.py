@@ -505,6 +505,34 @@ class MaskingPolicy(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return MaskingPolicy(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaskingPolicyArgumentArgs', 'MaskingPolicyArgumentArgsDict', 'outputs.MaskingPolicyArgument']]]]] = None,
+            body: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaskingPolicyDescribeOutputArgs', 'MaskingPolicyDescribeOutputArgsDict', 'outputs.MaskingPolicyDescribeOutput']]]]] = None,
+            exempt_other_policies: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            return_data_type: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaskingPolicyShowOutputArgs', 'MaskingPolicyShowOutputArgsDict', 'outputs.MaskingPolicyShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arguments"] = arguments
+        __props__["body"] = body
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["exemptOtherPolicies"] = exempt_other_policies
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["returnDataType"] = return_data_type
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/maskingPolicy:MaskingPolicy', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Sequence['outputs.MaskingPolicyArgument']]:

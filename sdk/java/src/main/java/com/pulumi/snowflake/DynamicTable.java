@@ -42,12 +42,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // https://docs.snowflake.com/en/sql-reference/sql/create-dynamic-table#examples
  *         var dt = new DynamicTable("dt", DynamicTableArgs.builder()
  *             .name("product")
@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  *                 .maximumDuration("20 minutes")
  *                 .build())
  *             .warehouse("mywh")
- *             .query("SELECT product_id, product_name FROM \"mydb\".\"myschema\".\"staging_table\"")
+ *             .query("SELECT product_id, product_name FROM }&#92;{@code "mydb}&#92;{@code ".}&#92;{@code "myschema}&#92;{@code ".}&#92;{@code "staging_table}&#92;{@code "")
  *             .comment("example comment")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

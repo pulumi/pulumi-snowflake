@@ -1320,6 +1320,72 @@ class FileFormatCsv(pulumi.CustomResource):
         __props__.__dict__["type"] = type
         return FileFormatCsv(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            binary_format: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compression: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            date_format: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatCsvDescribeOutputArgs', 'FileFormatCsvDescribeOutputArgsDict', 'outputs.FileFormatCsvDescribeOutput']]]]] = None,
+            empty_field_as_null: pulumi.Input[Optional[_builtins.str]] = None,
+            encoding: pulumi.Input[Optional[_builtins.str]] = None,
+            error_on_column_count_mismatch: pulumi.Input[Optional[_builtins.str]] = None,
+            escape: pulumi.Input[Optional[_builtins.str]] = None,
+            escape_unenclosed_field: pulumi.Input[Optional[_builtins.str]] = None,
+            field_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            field_optionally_enclosed_by: pulumi.Input[Optional[_builtins.str]] = None,
+            file_extension: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            multi_line: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parse_header: pulumi.Input[Optional[_builtins.str]] = None,
+            record_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+            replace_invalid_characters: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatCsvShowOutputArgs', 'FileFormatCsvShowOutputArgsDict', 'outputs.FileFormatCsvShowOutput']]]]] = None,
+            skip_blank_lines: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_byte_order_mark: pulumi.Input[Optional[_builtins.str]] = None,
+            skip_header: pulumi.Input[Optional[_builtins.int]] = None,
+            time_format: pulumi.Input[Optional[_builtins.str]] = None,
+            timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
+            trim_space: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["binaryFormat"] = binary_format
+        __props__["comment"] = comment
+        __props__["compression"] = compression
+        __props__["database"] = database
+        __props__["dateFormat"] = date_format
+        __props__["describeOutputs"] = describe_outputs
+        __props__["emptyFieldAsNull"] = empty_field_as_null
+        __props__["encoding"] = encoding
+        __props__["errorOnColumnCountMismatch"] = error_on_column_count_mismatch
+        __props__["escape"] = escape
+        __props__["escapeUnenclosedField"] = escape_unenclosed_field
+        __props__["fieldDelimiter"] = field_delimiter
+        __props__["fieldOptionallyEnclosedBy"] = field_optionally_enclosed_by
+        __props__["fileExtension"] = file_extension
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["multiLine"] = multi_line
+        __props__["name"] = name
+        __props__["nullIfs"] = null_ifs
+        __props__["parseHeader"] = parse_header
+        __props__["recordDelimiter"] = record_delimiter
+        __props__["replaceInvalidCharacters"] = replace_invalid_characters
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["skipBlankLines"] = skip_blank_lines
+        __props__["skipByteOrderMark"] = skip_byte_order_mark
+        __props__["skipHeader"] = skip_header
+        __props__["timeFormat"] = time_format
+        __props__["timestampFormat"] = timestamp_format
+        __props__["trimSpace"] = trim_space
+        __props__["type"] = type
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/fileFormatCsv:FileFormatCsv', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="binaryFormat")
     def binary_format(self) -> pulumi.Output[Optional[_builtins.str]]:

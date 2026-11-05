@@ -35,7 +35,7 @@ public final class SemanticViewTable {
      */
     private String tableAlias;
     /**
-     * @return Specifies an identifier for the logical table. Example: `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;table_name&gt;\&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies an identifier for the logical table. Example: `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;table_name&gt;&#92;&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     private String tableName;
@@ -75,7 +75,7 @@ public final class SemanticViewTable {
         return this.tableAlias;
     }
     /**
-     * @return Specifies an identifier for the logical table. Example: `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;table_name&gt;\&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies an identifier for the logical table. Example: `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;table_name&gt;&#92;&#34;&#34;`. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public String tableName() {

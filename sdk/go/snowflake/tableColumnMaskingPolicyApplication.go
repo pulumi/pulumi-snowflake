@@ -149,6 +149,12 @@ func (TableColumnMaskingPolicyApplicationState) ElementType() reflect.Type {
 	return reflect.TypeOf((*tableColumnMaskingPolicyApplicationState)(nil)).Elem()
 }
 
+// TableColumnMaskingPolicyApplicationExists checks whether an existing TableColumnMaskingPolicyApplication resource with the given ID exists.
+func TableColumnMaskingPolicyApplicationExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *TableColumnMaskingPolicyApplicationState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication", id, state, "", opts...)
+}
+
 type tableColumnMaskingPolicyApplicationArgs struct {
 	// The column to apply the masking policy to.
 	Column string `pulumi:"column"`

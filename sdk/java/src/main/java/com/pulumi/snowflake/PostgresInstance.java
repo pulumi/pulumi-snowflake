@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // basic resource
  *         var basic = new PostgresInstance("basic", PostgresInstanceArgs.builder()
  *             .name("my_postgres_instance")
@@ -77,13 +77,13 @@ import javax.annotation.Nullable;
  *             .networkPolicy("my_network_policy")
  *             .storageIntegration("my_storage_integration")
  *             .highAvailability("true")
- *             .postgresSettings("{\"max_connections\": 100}")
+ *             .postgresSettings("}{&#92;{@code "max_connections}&#92;{@code ": 100}}{@code ")
  *             .maintenanceWindowStart(8)
  *             .comment("My Postgres instance")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * &gt; **Note** Instead of using fully_qualified_name, you can reference objects managed outside Terraform by constructing a correct ID, consult identifiers guide.

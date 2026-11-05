@@ -223,6 +223,12 @@ func (ApiIntegrationGitRepositoryPrivateLinkState) ElementType() reflect.Type {
 	return reflect.TypeOf((*apiIntegrationGitRepositoryPrivateLinkState)(nil)).Elem()
 }
 
+// ApiIntegrationGitRepositoryPrivateLinkExists checks whether an existing ApiIntegrationGitRepositoryPrivateLink resource with the given ID exists.
+func ApiIntegrationGitRepositoryPrivateLinkExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ApiIntegrationGitRepositoryPrivateLinkState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/apiIntegrationGitRepositoryPrivateLink:ApiIntegrationGitRepositoryPrivateLink", id, state, "", opts...)
+}
+
 type apiIntegrationGitRepositoryPrivateLinkArgs struct {
 	// When set to true, all authentication secrets are allowed to be used when authenticating to the git repository. Conflicts with `noAllowedAuthenticationSecrets` and `allowedAuthenticationSecrets`. External changes for this field won't be detected. In case you want to apply external changes, you can re-create the resource manually using "terraform taint".
 	AllAllowedAuthenticationSecrets *bool `pulumi:"allAllowedAuthenticationSecrets"`

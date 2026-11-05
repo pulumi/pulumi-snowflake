@@ -159,6 +159,12 @@ func (JobServiceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*jobServiceState)(nil)).Elem()
 }
 
+// JobServiceExists checks whether an existing JobService resource with the given ID exists.
+func JobServiceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *JobServiceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/jobService:JobService", id, state, "", opts...)
+}
+
 type jobServiceArgs struct {
 	// Specifies a comment for the service.
 	Comment *string `pulumi:"comment"`

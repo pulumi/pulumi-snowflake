@@ -195,6 +195,12 @@ func (SecretWithClientCredentialsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*secretWithClientCredentialsState)(nil)).Elem()
 }
 
+// SecretWithClientCredentialsExists checks whether an existing SecretWithClientCredentials resource with the given ID exists.
+func SecretWithClientCredentialsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SecretWithClientCredentialsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/secretWithClientCredentials:SecretWithClientCredentials", id, state, "", opts...)
+}
+
 type secretWithClientCredentialsArgs struct {
 	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
 	ApiAuthentication string `pulumi:"apiAuthentication"`

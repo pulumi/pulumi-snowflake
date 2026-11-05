@@ -707,6 +707,42 @@ class FileFormatParquet(pulumi.CustomResource):
         __props__.__dict__["use_vectorized_scanner"] = use_vectorized_scanner
         return FileFormatParquet(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            binary_as_text: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compression: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatParquetDescribeOutputArgs', 'FileFormatParquetDescribeOutputArgsDict', 'outputs.FileFormatParquetDescribeOutput']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_ifs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            replace_invalid_characters: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FileFormatParquetShowOutputArgs', 'FileFormatParquetShowOutputArgsDict', 'outputs.FileFormatParquetShowOutput']]]]] = None,
+            trim_space: pulumi.Input[Optional[_builtins.str]] = None,
+            type: pulumi.Input[Optional[_builtins.str]] = None,
+            use_logical_type: pulumi.Input[Optional[_builtins.str]] = None,
+            use_vectorized_scanner: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["binaryAsText"] = binary_as_text
+        __props__["comment"] = comment
+        __props__["compression"] = compression
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["nullIfs"] = null_ifs
+        __props__["replaceInvalidCharacters"] = replace_invalid_characters
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["trimSpace"] = trim_space
+        __props__["type"] = type
+        __props__["useLogicalType"] = use_logical_type
+        __props__["useVectorizedScanner"] = use_vectorized_scanner
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/fileFormatParquet:FileFormatParquet', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="binaryAsText")
     def binary_as_text(self) -> pulumi.Output[Optional[_builtins.str]]:

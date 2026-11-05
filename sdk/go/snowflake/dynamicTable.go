@@ -256,6 +256,12 @@ func (DynamicTableState) ElementType() reflect.Type {
 	return reflect.TypeOf((*dynamicTableState)(nil)).Elem()
 }
 
+// DynamicTableExists checks whether an existing DynamicTable resource with the given ID exists.
+func DynamicTableExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *DynamicTableState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/dynamicTable:DynamicTable", id, state, "", opts...)
+}
+
 type dynamicTableArgs struct {
 	// Specifies a comment for the dynamic table.
 	Comment *string `pulumi:"comment"`

@@ -136,6 +136,12 @@ func (GrantPrivilegesToAccountRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grantPrivilegesToAccountRoleState)(nil)).Elem()
 }
 
+// GrantPrivilegesToAccountRoleExists checks whether an existing GrantPrivilegesToAccountRole resource with the given ID exists.
+func GrantPrivilegesToAccountRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrantPrivilegesToAccountRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole", id, state, "", opts...)
+}
+
 type grantPrivilegesToAccountRoleArgs struct {
 	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName string `pulumi:"accountRoleName"`

@@ -699,6 +699,40 @@ class PostgresInstance(pulumi.CustomResource):
         __props__.__dict__["storage_size_gb"] = storage_size_gb
         return PostgresInstance(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authentication_authority: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            compute_family: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PostgresInstanceDescribeOutputArgs', 'PostgresInstanceDescribeOutputArgsDict', 'outputs.PostgresInstanceDescribeOutput']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            high_availability: pulumi.Input[Optional[_builtins.str]] = None,
+            maintenance_window_start: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            postgres_settings: pulumi.Input[Optional[_builtins.str]] = None,
+            postgres_version: pulumi.Input[Optional[_builtins.int]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PostgresInstanceShowOutputArgs', 'PostgresInstanceShowOutputArgsDict', 'outputs.PostgresInstanceShowOutput']]]]] = None,
+            storage_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_size_gb: pulumi.Input[Optional[_builtins.int]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["authenticationAuthority"] = authentication_authority
+        __props__["comment"] = comment
+        __props__["computeFamily"] = compute_family
+        __props__["describeOutputs"] = describe_outputs
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["highAvailability"] = high_availability
+        __props__["maintenanceWindowStart"] = maintenance_window_start
+        __props__["name"] = name
+        __props__["networkPolicy"] = network_policy
+        __props__["postgresSettings"] = postgres_settings
+        __props__["postgresVersion"] = postgres_version
+        __props__["showOutputs"] = show_outputs
+        __props__["storageIntegration"] = storage_integration
+        __props__["storageSizeGb"] = storage_size_gb
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/postgresInstance:PostgresInstance', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="authenticationAuthority")
     def authentication_authority(self) -> pulumi.Output[_builtins.str]:

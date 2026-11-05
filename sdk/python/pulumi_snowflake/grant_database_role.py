@@ -279,6 +279,20 @@ class GrantDatabaseRole(pulumi.CustomResource):
         __props__.__dict__["share_name"] = share_name
         return GrantDatabaseRole(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_database_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            parent_role_name: pulumi.Input[Optional[_builtins.str]] = None,
+            share_name: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["databaseRoleName"] = database_role_name
+        __props__["parentDatabaseRoleName"] = parent_database_role_name
+        __props__["parentRoleName"] = parent_role_name
+        __props__["shareName"] = share_name
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/grantDatabaseRole:GrantDatabaseRole', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="databaseRoleName")
     def database_role_name(self) -> pulumi.Output[_builtins.str]:

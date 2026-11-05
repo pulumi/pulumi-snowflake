@@ -316,6 +316,12 @@ func (ProcedurePythonState) ElementType() reflect.Type {
 	return reflect.TypeOf((*procedurePythonState)(nil)).Elem()
 }
 
+// ProcedurePythonExists checks whether an existing ProcedurePython resource with the given ID exists.
+func ProcedurePythonExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProcedurePythonState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/procedurePython:ProcedurePython", id, state, "", opts...)
+}
+
 type procedurePythonArgs struct {
 	// List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
 	Arguments []ProcedurePythonArgument `pulumi:"arguments"`

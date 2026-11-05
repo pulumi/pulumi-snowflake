@@ -819,6 +819,34 @@ class StageInternal(pulumi.CustomResource):
         __props__.__dict__["stage_type"] = stage_type
         return StageInternal(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageInternalDescribeOutputArgs', 'StageInternalDescribeOutputArgsDict', 'outputs.StageInternalDescribeOutput']]]]] = None,
+            directory: pulumi.Input[Optional[Union['StageInternalDirectoryArgs', 'StageInternalDirectoryArgsDict', 'outputs.StageInternalDirectory']]] = None,
+            encryption: pulumi.Input[Optional[Union['StageInternalEncryptionArgs', 'StageInternalEncryptionArgsDict', 'outputs.StageInternalEncryption']]] = None,
+            file_format: pulumi.Input[Optional[Union['StageInternalFileFormatArgs', 'StageInternalFileFormatArgsDict', 'outputs.StageInternalFileFormat']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageInternalShowOutputArgs', 'StageInternalShowOutputArgsDict', 'outputs.StageInternalShowOutput']]]]] = None,
+            stage_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["directory"] = directory
+        __props__["encryption"] = encryption
+        __props__["fileFormat"] = file_format
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        __props__["stageType"] = stage_type
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/stageInternal:StageInternal', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:

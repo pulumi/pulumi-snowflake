@@ -165,6 +165,12 @@ func (SequenceState) ElementType() reflect.Type {
 	return reflect.TypeOf((*sequenceState)(nil)).Elem()
 }
 
+// SequenceExists checks whether an existing Sequence resource with the given ID exists.
+func SequenceExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *SequenceState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/sequence:Sequence", id, state, "", opts...)
+}
+
 type sequenceArgs struct {
 	// (Default: ``) Specifies a comment for the sequence.
 	Comment *string `pulumi:"comment"`

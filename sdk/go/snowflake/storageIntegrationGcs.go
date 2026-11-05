@@ -172,6 +172,12 @@ func (StorageIntegrationGcsState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageIntegrationGcsState)(nil)).Elem()
 }
 
+// StorageIntegrationGcsExists checks whether an existing StorageIntegrationGcs resource with the given ID exists.
+func StorageIntegrationGcsExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageIntegrationGcsState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/storageIntegrationGcs:StorageIntegrationGcs", id, state, "", opts...)
+}
+
 type storageIntegrationGcsArgs struct {
 	// Specifies a comment for the storage integration.
 	Comment *string `pulumi:"comment"`

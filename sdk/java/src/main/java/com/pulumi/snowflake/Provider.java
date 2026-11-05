@@ -82,11 +82,10 @@ public class Provider extends com.pulumi.resources.ProviderResource {
     /**
      * This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
      * 
-     * @deprecated
-     * This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
+     * @deprecated This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side.
      * 
      */
-    @Deprecated /* This field is deprecated. It will be removed in the next major release. The driver was accepting this value in the previous versions but it had no impact. Setting this field causes no action on the provider side. */
+    @Deprecated
     @Export(name="clientIp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientIp;
 
@@ -378,14 +377,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.password);
     }
     /**
-     * Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `\n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+     * Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `&#92;n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
     @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
     /**
-     * @return Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `\n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+     * @return Private Key for username+private-key auth. Must be PEM-encoded with literal newlines (escaped `&#92;n` sequences are not supported). See the authentication methods guide. Cannot be used with `password`. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY` environment variable.
      * 
      */
     public Output<Optional<String>> privateKey() {

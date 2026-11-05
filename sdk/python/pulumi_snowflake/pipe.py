@@ -540,6 +540,36 @@ class Pipe(pulumi.CustomResource):
         __props__.__dict__["schema"] = schema
         return Pipe(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
+            aws_sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            copy_statement: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            error_integration: pulumi.Input[Optional[_builtins.str]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            integration: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            notification_channel: pulumi.Input[Optional[_builtins.str]] = None,
+            owner: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["autoIngest"] = auto_ingest
+        __props__["awsSnsTopicArn"] = aws_sns_topic_arn
+        __props__["comment"] = comment
+        __props__["copyStatement"] = copy_statement
+        __props__["database"] = database
+        __props__["errorIntegration"] = error_integration
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["integration"] = integration
+        __props__["name"] = name
+        __props__["notificationChannel"] = notification_channel
+        __props__["owner"] = owner
+        __props__["schema"] = schema
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/pipe:Pipe', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter(name="autoIngest")
     def auto_ingest(self) -> pulumi.Output[Optional[_builtins.bool]]:

@@ -187,6 +187,12 @@ func (GitRepositoryState) ElementType() reflect.Type {
 	return reflect.TypeOf((*gitRepositoryState)(nil)).Elem()
 }
 
+// GitRepositoryExists checks whether an existing GitRepository resource with the given ID exists.
+func GitRepositoryExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GitRepositoryState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/gitRepository:GitRepository", id, state, "", opts...)
+}
+
 type gitRepositoryArgs struct {
 	// Identifier of API INTEGRATION containing information about the remote Git repository such as allowed credentials and prefixes for target URLs.
 	ApiIntegration string `pulumi:"apiIntegration"`

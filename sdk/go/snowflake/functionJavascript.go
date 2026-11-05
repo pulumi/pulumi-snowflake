@@ -260,6 +260,12 @@ func (FunctionJavascriptState) ElementType() reflect.Type {
 	return reflect.TypeOf((*functionJavascriptState)(nil)).Elem()
 }
 
+// FunctionJavascriptExists checks whether an existing FunctionJavascript resource with the given ID exists.
+func FunctionJavascriptExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *FunctionJavascriptState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/functionJavascript:FunctionJavascript", id, state, "", opts...)
+}
+
 type functionJavascriptArgs struct {
 	// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 	Arguments []FunctionJavascriptArgument `pulumi:"arguments"`

@@ -742,6 +742,12 @@ func (ServiceUserState) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceUserState)(nil)).Elem()
 }
 
+// ServiceUserExists checks whether an existing ServiceUser resource with the given ID exists.
+func ServiceUserExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ServiceUserState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/serviceUser:ServiceUser", id, state, "", opts...)
+}
+
 type serviceUserArgs struct {
 	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
 	AbortDetachedQuery *bool `pulumi:"abortDetachedQuery"`

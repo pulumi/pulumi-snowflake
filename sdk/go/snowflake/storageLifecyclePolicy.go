@@ -205,6 +205,12 @@ func (StorageLifecyclePolicyState) ElementType() reflect.Type {
 	return reflect.TypeOf((*storageLifecyclePolicyState)(nil)).Elem()
 }
 
+// StorageLifecyclePolicyExists checks whether an existing StorageLifecyclePolicy resource with the given ID exists.
+func StorageLifecyclePolicyExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StorageLifecyclePolicyState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/storageLifecyclePolicy:StorageLifecyclePolicy", id, state, "", opts...)
+}
+
 type storageLifecyclePolicyArgs struct {
 	// Specifies the number of days to keep rows that match the policy expression in archive storage. If set, Snowflake moves the data into archive storage according to the value you select for archive_tier. If unset, Snowflake expires the rows from the table without archiving the data.
 	ArchiveForDays *int `pulumi:"archiveForDays"`

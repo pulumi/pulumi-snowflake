@@ -41,12 +41,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         var agent = new CortexAgent("agent", CortexAgentArgs.builder()
  *             .database("my_database")
  *             .schema("my_schema")
@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  *     seconds: 30
  *     tokens: 16000
  * instructions:
- *   response: \"You are a helpful assistant.\"
+ *   response: }&#92;{@code "You are a helpful assistant.}&#92;{@code "
  *             """)
  *             .build());
  * 
@@ -66,8 +66,8 @@ import javax.annotation.Nullable;
  *             .cortexAgentName(agent.fullyQualifiedName())
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

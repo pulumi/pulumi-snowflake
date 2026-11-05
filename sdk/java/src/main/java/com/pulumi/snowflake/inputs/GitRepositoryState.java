@@ -94,14 +94,14 @@ public final class GitRepositoryState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the Snowflake secret fully qualified name (e.g `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;secret_name&gt;\&#34;&#34;`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
+     * Specifies the Snowflake secret fully qualified name (e.g `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;secret_name&gt;&#92;&#34;&#34;`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
      * 
      */
     @Import(name="gitCredentials")
     private @Nullable Output<String> gitCredentials;
 
     /**
-     * @return Specifies the Snowflake secret fully qualified name (e.g `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;secret_name&gt;\&#34;&#34;`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
+     * @return Specifies the Snowflake secret fully qualified name (e.g `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;secret_name&gt;&#92;&#34;&#34;`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
      * 
      */
     public Optional<Output<String>> gitCredentials() {
@@ -317,7 +317,7 @@ public final class GitRepositoryState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param gitCredentials Specifies the Snowflake secret fully qualified name (e.g `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;secret_name&gt;\&#34;&#34;`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
+         * @param gitCredentials Specifies the Snowflake secret fully qualified name (e.g `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;secret_name&gt;&#92;&#34;&#34;`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
          * 
          * @return builder
          * 
@@ -328,7 +328,7 @@ public final class GitRepositoryState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param gitCredentials Specifies the Snowflake secret fully qualified name (e.g `&#34;\&#34;&lt;db_name&gt;\&#34;.\&#34;&lt;schema_name&gt;\&#34;.\&#34;&lt;secret_name&gt;\&#34;&#34;`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
+         * @param gitCredentials Specifies the Snowflake secret fully qualified name (e.g `&#34;&#92;&#34;&lt;db_name&gt;&#92;&#34;.&#92;&#34;&lt;schema_name&gt;&#92;&#34;.&#92;&#34;&lt;secret_name&gt;&#92;&#34;&#34;`) containing the credentials to use for authenticating with the remote Git repository. Omit this parameter to use the default secret specified by the API integration or if this integration does not require authentication.
          * 
          * @return builder
          * 

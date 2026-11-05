@@ -86,6 +86,12 @@ func (GrantAccountRoleState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grantAccountRoleState)(nil)).Elem()
 }
 
+// GrantAccountRoleExists checks whether an existing GrantAccountRole resource with the given ID exists.
+func GrantAccountRoleExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrantAccountRoleState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/grantAccountRole:GrantAccountRole", id, state, "", opts...)
+}
+
 type grantAccountRoleArgs struct {
 	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
 	ParentRoleName *string `pulumi:"parentRoleName"`

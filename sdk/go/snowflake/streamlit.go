@@ -161,6 +161,12 @@ func (StreamlitState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamlitState)(nil)).Elem()
 }
 
+// StreamlitExists checks whether an existing Streamlit resource with the given ID exists.
+func StreamlitExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamlitState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/streamlit:Streamlit", id, state, "", opts...)
+}
+
 type streamlitArgs struct {
 	// Specifies a comment for the streamlit.
 	Comment *string `pulumi:"comment"`

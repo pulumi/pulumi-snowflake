@@ -166,6 +166,12 @@ func (StreamOnViewState) ElementType() reflect.Type {
 	return reflect.TypeOf((*streamOnViewState)(nil)).Elem()
 }
 
+// StreamOnViewExists checks whether an existing StreamOnView resource with the given ID exists.
+func StreamOnViewExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *StreamOnViewState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/streamOnView:StreamOnView", id, state, "", opts...)
+}
+
 type streamOnViewArgs struct {
 	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly *string `pulumi:"appendOnly"`

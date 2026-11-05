@@ -260,6 +260,12 @@ func (ProcedureJavascriptState) ElementType() reflect.Type {
 	return reflect.TypeOf((*procedureJavascriptState)(nil)).Elem()
 }
 
+// ProcedureJavascriptExists checks whether an existing ProcedureJavascript resource with the given ID exists.
+func ProcedureJavascriptExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *ProcedureJavascriptState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/procedureJavascript:ProcedureJavascript", id, state, "", opts...)
+}
+
 type procedureJavascriptArgs struct {
 	// List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
 	Arguments []ProcedureJavascriptArgument `pulumi:"arguments"`

@@ -304,6 +304,18 @@ class TableColumnMaskingPolicyApplication(pulumi.CustomResource):
         __props__.__dict__["table"] = table
         return TableColumnMaskingPolicyApplication(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            column: pulumi.Input[Optional[_builtins.str]] = None,
+            masking_policy: pulumi.Input[Optional[_builtins.str]] = None,
+            table: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["column"] = column
+        __props__["maskingPolicy"] = masking_policy
+        __props__["table"] = table
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/tableColumnMaskingPolicyApplication:TableColumnMaskingPolicyApplication', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def column(self) -> pulumi.Output[_builtins.str]:

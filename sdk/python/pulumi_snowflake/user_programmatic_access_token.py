@@ -658,6 +658,36 @@ class UserProgrammaticAccessToken(pulumi.CustomResource):
         __props__.__dict__["user"] = user
         return UserProgrammaticAccessToken(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            days_to_expiry: pulumi.Input[Optional[_builtins.int]] = None,
+            disabled: pulumi.Input[Optional[_builtins.str]] = None,
+            expire_rotated_token_after_hours: pulumi.Input[Optional[_builtins.int]] = None,
+            keeper: pulumi.Input[Optional[_builtins.str]] = None,
+            mins_to_bypass_network_policy_requirement: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            role_restriction: pulumi.Input[Optional[_builtins.str]] = None,
+            rotated_token_name: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserProgrammaticAccessTokenShowOutputArgs', 'UserProgrammaticAccessTokenShowOutputArgsDict', 'outputs.UserProgrammaticAccessTokenShowOutput']]]]] = None,
+            token: pulumi.Input[Optional[_builtins.str]] = None,
+            user: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["daysToExpiry"] = days_to_expiry
+        __props__["disabled"] = disabled
+        __props__["expireRotatedTokenAfterHours"] = expire_rotated_token_after_hours
+        __props__["keeper"] = keeper
+        __props__["minsToBypassNetworkPolicyRequirement"] = mins_to_bypass_network_policy_requirement
+        __props__["name"] = name
+        __props__["roleRestriction"] = role_restriction
+        __props__["rotatedTokenName"] = rotated_token_name
+        __props__["showOutputs"] = show_outputs
+        __props__["token"] = token
+        __props__["user"] = user
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/userProgrammaticAccessToken:UserProgrammaticAccessToken', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:

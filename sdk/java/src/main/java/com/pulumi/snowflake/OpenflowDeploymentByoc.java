@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * import java.nio.file.Files;
  * import java.nio.file.Paths;
  * 
- * public class App {
- *     public static void main(String[] args) {
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
  *         Pulumi.run(App::stack);
- *     }
+ *     }}{@code
  * 
- *     public static void stack(Context ctx) {
+ *     public static void stack(Context ctx) }{{@code
  *         // basic resource
  *         var basic = new OpenflowDeploymentByoc("basic", OpenflowDeploymentByocArgs.builder()
  *             .name("my_byoc_deployment")
@@ -71,15 +71,15 @@ import javax.annotation.Nullable;
  *             .name("my_byoc_deployment_complete")
  *             .vpcType("MANAGED")
  *             .displayName("My BYOC deployment")
- *             .eventTable("\"<database_name>\".\"<schema_name>\".\"<event_table_name>\"")
+ *             .eventTable("}&#92;{@code "<database_name>}&#92;{@code ".}&#92;{@code "<schema_name>}&#92;{@code ".}&#92;{@code "<event_table_name>}&#92;{@code "")
  *             .customIngressHostname("openflow.example.com")
  *             .usePrivateLink("true")
  *             .useUserAuthOverPrivatelink("true")
  *             .comment("Managed by Terraform.")
  *             .build());
  * 
- *     }
- * }
+ *     }}{@code
+ * }}{@code
  * }
  * </pre>
  * 

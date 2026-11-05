@@ -1273,6 +1273,64 @@ class FunctionScala(pulumi.CustomResource):
         __props__.__dict__["trace_level"] = trace_level
         return FunctionScala(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            arguments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict', 'outputs.FunctionScalaArgument']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            enable_console_output: pulumi.Input[Optional[_builtins.bool]] = None,
+            external_access_integrations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            function_definition: pulumi.Input[Optional[_builtins.str]] = None,
+            function_language: pulumi.Input[Optional[_builtins.str]] = None,
+            handler: pulumi.Input[Optional[_builtins.str]] = None,
+            imports: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict', 'outputs.FunctionScalaImport']]]]] = None,
+            is_secure: pulumi.Input[Optional[_builtins.str]] = None,
+            log_event_level: pulumi.Input[Optional[_builtins.str]] = None,
+            log_level: pulumi.Input[Optional[_builtins.str]] = None,
+            metric_level: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            null_input_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            packages: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaParameterArgs', 'FunctionScalaParameterArgsDict', 'outputs.FunctionScalaParameter']]]]] = None,
+            return_results_behavior: pulumi.Input[Optional[_builtins.str]] = None,
+            return_type: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime_version: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            secrets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict', 'outputs.FunctionScalaSecret']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionScalaShowOutputArgs', 'FunctionScalaShowOutputArgsDict', 'outputs.FunctionScalaShowOutput']]]]] = None,
+            target_path: pulumi.Input[Optional[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict', 'outputs.FunctionScalaTargetPath']]] = None,
+            trace_level: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["arguments"] = arguments
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["enableConsoleOutput"] = enable_console_output
+        __props__["externalAccessIntegrations"] = external_access_integrations
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["functionDefinition"] = function_definition
+        __props__["functionLanguage"] = function_language
+        __props__["handler"] = handler
+        __props__["imports"] = imports
+        __props__["isSecure"] = is_secure
+        __props__["logEventLevel"] = log_event_level
+        __props__["logLevel"] = log_level
+        __props__["metricLevel"] = metric_level
+        __props__["name"] = name
+        __props__["nullInputBehavior"] = null_input_behavior
+        __props__["packages"] = packages
+        __props__["parameters"] = parameters
+        __props__["returnResultsBehavior"] = return_results_behavior
+        __props__["returnType"] = return_type
+        __props__["runtimeVersion"] = runtime_version
+        __props__["schema"] = schema
+        __props__["secrets"] = secrets
+        __props__["showOutputs"] = show_outputs
+        __props__["targetPath"] = target_path
+        __props__["traceLevel"] = trace_level
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/functionScala:FunctionScala', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionScalaArgument']]]:

@@ -90,6 +90,12 @@ func (GrantOwnershipState) ElementType() reflect.Type {
 	return reflect.TypeOf((*grantOwnershipState)(nil)).Elem()
 }
 
+// GrantOwnershipExists checks whether an existing GrantOwnership resource with the given ID exists.
+func GrantOwnershipExists(ctx *pulumi.Context,
+	id pulumi.StringInput, state *GrantOwnershipState, opts ...pulumi.ResourceOption) pulumi.BoolOutput {
+	return ctx.ExistsResource("snowflake:index/grantOwnership:GrantOwnership", id, state, "", opts...)
+}
+
 type grantOwnershipArgs struct {
 	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName *string `pulumi:"accountRoleName"`

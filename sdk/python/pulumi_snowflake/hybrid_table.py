@@ -841,6 +841,42 @@ class HybridTable(pulumi.CustomResource):
         __props__.__dict__["unique_constraints"] = unique_constraints
         return HybridTable(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            columns: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableColumnArgs', 'HybridTableColumnArgsDict', 'outputs.HybridTableColumn']]]]] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            data_retention_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableDescribeOutputArgs', 'HybridTableDescribeOutputArgsDict', 'outputs.HybridTableDescribeOutput']]]]] = None,
+            foreign_key_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableForeignKeyConstraintArgs', 'HybridTableForeignKeyConstraintArgsDict', 'outputs.HybridTableForeignKeyConstraint']]]]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            indices: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableIndexArgs', 'HybridTableIndexArgsDict', 'outputs.HybridTableIndex']]]]] = None,
+            max_data_extension_time_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            primary_key_constraint: pulumi.Input[Optional[Union['HybridTablePrimaryKeyConstraintArgs', 'HybridTablePrimaryKeyConstraintArgsDict', 'outputs.HybridTablePrimaryKeyConstraint']]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_keys_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableShowKeysOutputArgs', 'HybridTableShowKeysOutputArgsDict', 'outputs.HybridTableShowKeysOutput']]]]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableShowOutputArgs', 'HybridTableShowOutputArgsDict', 'outputs.HybridTableShowOutput']]]]] = None,
+            unique_constraints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HybridTableUniqueConstraintArgs', 'HybridTableUniqueConstraintArgsDict', 'outputs.HybridTableUniqueConstraint']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["columns"] = columns
+        __props__["comment"] = comment
+        __props__["dataRetentionTimeInDays"] = data_retention_time_in_days
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["foreignKeyConstraints"] = foreign_key_constraints
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["indices"] = indices
+        __props__["maxDataExtensionTimeInDays"] = max_data_extension_time_in_days
+        __props__["name"] = name
+        __props__["primaryKeyConstraint"] = primary_key_constraint
+        __props__["schema"] = schema
+        __props__["showKeysOutputs"] = show_keys_outputs
+        __props__["showOutputs"] = show_outputs
+        __props__["uniqueConstraints"] = unique_constraints
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/hybridTable:HybridTable', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def columns(self) -> pulumi.Output[Sequence['outputs.HybridTableColumn']]:

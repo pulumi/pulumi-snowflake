@@ -683,6 +683,32 @@ class OpenflowConnector(pulumi.CustomResource):
         __props__.__dict__["show_outputs"] = show_outputs
         return OpenflowConnector(resource_name, opts=opts, __props__=__props__)
 
+    @staticmethod
+    def exists(id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            comment: pulumi.Input[Optional[_builtins.str]] = None,
+            database: pulumi.Input[Optional[_builtins.str]] = None,
+            describe_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowConnectorDescribeOutputArgs', 'OpenflowConnectorDescribeOutputArgsDict', 'outputs.OpenflowConnectorDescribeOutput']]]]] = None,
+            display_name: pulumi.Input[Optional[_builtins.str]] = None,
+            from_: pulumi.Input[Optional[Union['OpenflowConnectorFromArgs', 'OpenflowConnectorFromArgsDict', 'outputs.OpenflowConnectorFrom']]] = None,
+            fully_qualified_name: pulumi.Input[Optional[_builtins.str]] = None,
+            name: pulumi.Input[Optional[_builtins.str]] = None,
+            runtime: pulumi.Input[Optional[_builtins.str]] = None,
+            schema: pulumi.Input[Optional[_builtins.str]] = None,
+            show_outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OpenflowConnectorShowOutputArgs', 'OpenflowConnectorShowOutputArgsDict', 'outputs.OpenflowConnectorShowOutput']]]]] = None) -> pulumi.Output[bool]:
+        __props__: dict = {}
+        __props__["comment"] = comment
+        __props__["database"] = database
+        __props__["describeOutputs"] = describe_outputs
+        __props__["displayName"] = display_name
+        __props__["from"] = from_
+        __props__["fullyQualifiedName"] = fully_qualified_name
+        __props__["name"] = name
+        __props__["runtime"] = runtime
+        __props__["schema"] = schema
+        __props__["showOutputs"] = show_outputs
+        return pulumi.runtime.exists_resource(None, 'snowflake:index/openflowConnector:OpenflowConnector', id, __props__, opts or pulumi.ResourceOptions())
+
     @_builtins.property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
